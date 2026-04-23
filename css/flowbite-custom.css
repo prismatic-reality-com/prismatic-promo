@@ -228,24 +228,3 @@ kbd {
 #back-to-top.flex {
   display: inline-flex !important;
 }
-/* ================================================================
-   bg-hero-grid — subtle radial-dot background for hero sections
-   Replaces inline style="background-image: ..." to satisfy FLLM.
-   ================================================================ */
-.bg-hero-grid {
-  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.035) 1px, transparent 0);
-  background-size: 40px 40px;
-}
-
-
-/* ================================================================
-   Global typography (moved from templates/base.html <style>)
-   Tailwind picks up fonts via .font-sans / .font-mono utilities,
-   but the BODY default is enforced here so prose content inherits.
-   ================================================================ */
-body { font-family: 'Inter', sans-serif; }
-code, pre { font-family: 'JetBrains Mono', 'Fira Code', monospace; }
-
-/* Scrollbar-hide — consolidated from per-template <style> blocks */
-.scrollbar-hide::-webkit-scrollbar { display: none; }
-.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }

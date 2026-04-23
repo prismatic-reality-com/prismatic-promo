@@ -22,7 +22,11 @@
 class PrismaticChartManager {
     constructor(options = {}) {
         this.apiBaseUrl = options.apiBaseUrl || window.location.protocol + '//' + window.location.host + '/api/v1';
-        this.websocketUrl = options.websocketUrl || 'ws://' + window.location.host + '/live';
+        // Match page protocol — ws:// over HTTP, wss:// over HTTPS. Hardcoding
+        // ws:// on an HTTPS page produces Mixed Content console errors and the
+        // browser silently blocks the connection.
+        const wsScheme = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
+        this.websocketUrl = options.websocketUrl || wsScheme + window.location.host + '/live';
         this.mcpEnabled = options.mcpEnabled !== false;
         this.cacheTimeout = options.cacheTimeout || 30000; // 30 seconds
         this.retryAttempts = options.retryAttempts || 3;
@@ -48,11 +52,6 @@ class PrismaticChartManager {
             failedRequests: 0,
             avgResponseTime: 0
         };
-
-            apiBaseUrl: this.apiBaseUrl,
-            mcpEnabled: this.mcpEnabled,
-            features: ['Real-time updates', 'MCP integration', 'Performance optimization']
-        });
     }
 
     /**

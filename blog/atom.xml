@@ -73,8 +73,8 @@
 &lt;p&gt;Every message that fails after retries ends up in a dead-letter Postgres table — with the original payload, the failing stage, and the last error. Dead letters are not &quot;things to fix someday.&quot; They are the ground truth about which part of the real world your pipeline does not model. Review them weekly or they compound.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;storage-patterns&#x2F;&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — the write side of the pipeline&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;otp-fundamentals&#x2F;&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — GenStage &#x2F; Broadway foundations&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;storage-patterns&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — the write side of the pipeline&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;otp-fundamentals&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — GenStage &#x2F; Broadway foundations&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;broadway&quot;&gt;Broadway&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;genstage&quot;&gt;GenStage&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;backpressure&quot;&gt;Backpressure&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;pipeline&quot;&gt;Pipeline&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;rate-limiting&quot;&gt;Rate Limiting&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;The slowest stage sets the tempo. Plan for it. The pipeline will thank you at 3am.&lt;&#x2F;p&gt;
@@ -149,7 +149,7 @@
 &lt;p&gt;A breaker that opens and never closes is a source that died. A breaker that flaps is a source with intermittent issues (and possibly a wrong cool-down). Without &lt;a href=&quot;&#x2F;glossary&#x2F;observability&quot;&gt;observability&lt;&#x2F;a&gt; you cannot tell which is which.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;otp-fundamentals&#x2F;&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — the GenServer under the breaker&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;otp-fundamentals&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — the GenServer under the breaker&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;fault-tolerance&quot;&gt;Fault Tolerance&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;retry&quot;&gt;Retry&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;rate-limiting&quot;&gt;Rate Limiting&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;telemetry&quot;&gt;Telemetry&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;observability&quot;&gt;Observability&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Fail fast. Recover quietly. Let the healthy sources do the work.&lt;&#x2F;p&gt;
@@ -222,8 +222,8 @@
 &lt;p&gt;If Ecto + a few well-chosen indexes serves the dashboard, keep it simple.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;dd-investigation&#x2F;&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — the case-state lifecycle&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;storage-patterns&#x2F;&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — where CQRS fits&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;dd-investigation&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — the case-state lifecycle&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;storage-patterns&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — where CQRS fits&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;cqrs&quot;&gt;CQRS&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;event-sourcing&quot;&gt;Event Sourcing&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;ecto&quot;&gt;Ecto&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;pubsub&quot;&gt;PubSub&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;due-diligence&quot;&gt;Due Diligence&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;One write model. Many read models. The dashboard stops being a bottleneck.&lt;&#x2F;p&gt;
@@ -277,8 +277,8 @@
 &lt;p&gt;The final stage is non-negotiable. Once sealed, an envelope is immutable. Any later correction creates a &lt;em&gt;new&lt;&#x2F;em&gt; envelope that retracts the earlier one; nothing overwrites. This is the property that makes the reconciliation loop trustworthy — because if you could silently edit an old decision, you could silently rewrite your own calibration history.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;decision-core-fundamentals&#x2F;&quot;&gt;Decision Core Fundamentals&lt;&#x2F;a&gt; — end-to-end walkthrough&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;monte-carlo-fundamentals&#x2F;&quot;&gt;Monte Carlo Fundamentals&lt;&#x2F;a&gt; — the uncertainty math&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;decision-core-fundamentals&quot;&gt;Decision Core Fundamentals&lt;&#x2F;a&gt; — end-to-end walkthrough&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;monte-carlo-fundamentals&quot;&gt;Monte Carlo Fundamentals&lt;&#x2F;a&gt; — the uncertainty math&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;decision-core&quot;&gt;Decision Core&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;evidence&quot;&gt;Evidence&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;confidence&quot;&gt;Confidence&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;provenance&quot;&gt;Provenance&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;pipeline&quot;&gt;Pipeline&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Six boring stages. One sealed envelope. One learning loop. The whole game.&lt;&#x2F;p&gt;
@@ -334,13 +334,19 @@
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-keyword z-punctuation&quot;&gt;  ...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;If epistemic dominates, the UI surfaces an &quot;investigate further&quot; affordance. If aleatoric dominates, it surfaces &quot;decide now; more data won&#x27;t help.&quot; That single distinction saves hours per case.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;uncertainty-decomposition-interactive&quot;&gt;Uncertainty decomposition (interactive)&lt;&#x2F;h3&gt;
+&lt;div class=&quot;h-72 w-full rounded-xl border border-gray-800 bg-gray-950 p-4&quot;
+     data-chart-type=&quot;bar&quot;
+     data-chart-data=&quot;decision.uncertainty_breakdown&quot;
+     data-chart-options=&#x27;{&quot;responsive&quot;:true,&quot;maintainAspectRatio&quot;:false,&quot;indexAxis&quot;:&quot;y&quot;,&quot;scales&quot;:{&quot;x&quot;:{&quot;stacked&quot;:true,&quot;grid&quot;:{&quot;color&quot;:&quot;rgba(255,255,255,0.05)&quot;},&quot;ticks&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;}},&quot;y&quot;:{&quot;stacked&quot;:true,&quot;grid&quot;:{&quot;display&quot;:false},&quot;ticks&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;}}},&quot;plugins&quot;:{&quot;legend&quot;:{&quot;labels&quot;:{&quot;color&quot;:&quot;#cbd5e1&quot;}}}}&#x27;&gt;&lt;&#x2F;div&gt;
+&lt;p&gt;&lt;em&gt;Four sample decisions broken into epistemic (blue) vs aleatoric (purple) components. Notice how case #3 has almost no epistemic uncertainty left — more data will not move the needle.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;closed-loop-reconciliation&quot;&gt;Closed-loop reconciliation&lt;&#x2F;h2&gt;
 &lt;p&gt;Sealed does not mean forgotten. When an outcome arrives — the entity was sanctioned, the transaction did clear, the domain was malicious — the reconciliation loop attaches that outcome to the original envelope and updates the calibration of the scoring engine. Over time, the platform learns which source × query-type combinations are over- or under-confident.&lt;&#x2F;p&gt;
 &lt;p&gt;This runs as a &lt;a href=&quot;&#x2F;glossary&#x2F;genserver&quot;&gt;GenServer&lt;&#x2F;a&gt; behind a &lt;code&gt;Task.Supervisor&lt;&#x2F;code&gt;, emits &lt;a href=&quot;&#x2F;glossary&#x2F;telemetry&quot;&gt;telemetry&lt;&#x2F;a&gt; per reconciliation, and never blocks the decision path. It is a background consumer, not a critical-path mutator — exactly how &lt;a href=&quot;&#x2F;glossary&#x2F;otp&quot;&gt;OTP&lt;&#x2F;a&gt; supervision trees are meant to be used.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-learn-more&quot;&gt;Where to learn more&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;decision-core-fundamentals&#x2F;&quot;&gt;Decision Core Fundamentals&lt;&#x2F;a&gt; — full walkthrough&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;monte-carlo-fundamentals&#x2F;&quot;&gt;Monte Carlo Fundamentals&lt;&#x2F;a&gt; — how uncertainty is estimated&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;decision-core-fundamentals&quot;&gt;Decision Core Fundamentals&lt;&#x2F;a&gt; — full walkthrough&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;monte-carlo-fundamentals&quot;&gt;Monte Carlo Fundamentals&lt;&#x2F;a&gt; — how uncertainty is estimated&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;genserver&quot;&gt;GenServer&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;otp&quot;&gt;OTP&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;telemetry&quot;&gt;Telemetry&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;A decision you cannot defend is a decision you should not have made. Sealed envelopes are the difference between &quot;we think&quot; and &quot;we can prove.&quot;&lt;&#x2F;p&gt;
@@ -390,8 +396,8 @@
 &lt;p&gt;Dialyzer is sometimes wrong — it has false negatives (bugs it will not catch) and, rarely, false positives (warnings you cannot fix without contorting the code). For the latter, &lt;code&gt;@dialyzer {:nowarn_function, [name: arity]}&lt;&#x2F;code&gt; is an acceptable escape hatch, but every use should come with a comment explaining &lt;em&gt;why&lt;&#x2F;em&gt;. A silent &lt;code&gt;nowarn&lt;&#x2F;code&gt; is just a bug waiting to happen.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;development-workflow&#x2F;&quot;&gt;Development Workflow&lt;&#x2F;a&gt; — where Dialyzer runs in the pipeline&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;dialyzer&quot;&gt;Dialyzer&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;typespec&quot;&gt;Typespec&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;success-typing&quot;&gt;Success Typing&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;static-analysis&quot;&gt;Static Analysis&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;&quot;&gt;Correctness&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;development-workflow&quot;&gt;Development Workflow&lt;&#x2F;a&gt; — where Dialyzer runs in the pipeline&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;dialyzer&quot;&gt;Dialyzer&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;typespec&quot;&gt;Typespec&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;success-typing&quot;&gt;Success Typing&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;static-analysis&quot;&gt;Static Analysis&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;correctness&quot;&gt;Correctness&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Not a type checker. A bug finder. Treat it as the second, run it every CI, and the bugs it finds are the ones you were going to miss.&lt;&#x2F;p&gt;
 </content>
@@ -459,8 +465,8 @@
 &lt;p&gt;Under &lt;a href=&quot;&#x2F;glossary&#x2F;nis2&quot;&gt;NIS2&lt;&#x2F;a&gt;, Czech critical-infrastructure entities owe regulators a defensible answer to &quot;what do you own, and how do you know?&quot; A closed-loop EASM is that answer. An Excel sheet is not.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;easm-development&#x2F;&quot;&gt;EASM Development&lt;&#x2F;a&gt; — build the loop end-to-end&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;color-team-security&#x2F;&quot;&gt;Color Team Security&lt;&#x2F;a&gt; — red&#x2F;blue&#x2F;purple workflows&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;easm-development&quot;&gt;EASM Development&lt;&#x2F;a&gt; — build the loop end-to-end&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;color-team-security&quot;&gt;Color Team Security&lt;&#x2F;a&gt; — red&#x2F;blue&#x2F;purple workflows&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;easm&quot;&gt;EASM&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;attack-surface&quot;&gt;Attack Surface&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;nis2&quot;&gt;NIS2&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;threat-intelligence&quot;&gt;Threat Intelligence&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;risk-score&quot;&gt;Risk Score&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Four edges. Close all of them or you do not have EASM — you have a scan.&lt;&#x2F;p&gt;
@@ -483,7 +489,7 @@
         <link rel="alternate" type="text/html" href="https://prismatic-reality-com.github.io/prismatic-promo/blog/ecto-changesets-validation-boundary/"/>
         <id>https://prismatic-reality-com.github.io/prismatic-promo/blog/ecto-changesets-validation-boundary/</id>
         
-        <content type="html" xml:base="https://prismatic-reality-com.github.io/prismatic-promo/blog/ecto-changesets-validation-boundary/">&lt;p&gt;Validation is the worst kind of duplicated code. Once you have it in the controller &lt;em&gt;and&lt;&#x2F;em&gt; the context &lt;em&gt;and&lt;&#x2F;em&gt; the view &lt;em&gt;and&lt;&#x2F;em&gt; the test fixture, a single schema change means four places to update, three of which you&#x27;ll miss. &lt;a href=&quot;&#x2F;glossary&#x2F;ecto&quot;&gt;Ecto&lt;&#x2F;a&gt; &lt;a href=&quot;&#x2F;glossary&#x2F;&quot;&gt;changesets&lt;&#x2F;a&gt; solve this by giving you one boundary: input trusted if the changeset is valid, rejected otherwise, nowhere else allowed to check.&lt;&#x2F;p&gt;
+        <content type="html" xml:base="https://prismatic-reality-com.github.io/prismatic-promo/blog/ecto-changesets-validation-boundary/">&lt;p&gt;Validation is the worst kind of duplicated code. Once you have it in the controller &lt;em&gt;and&lt;&#x2F;em&gt; the context &lt;em&gt;and&lt;&#x2F;em&gt; the view &lt;em&gt;and&lt;&#x2F;em&gt; the test fixture, a single schema change means four places to update, three of which you&#x27;ll miss. &lt;a href=&quot;&#x2F;glossary&#x2F;ecto&quot;&gt;Ecto&lt;&#x2F;a&gt; &lt;a href=&quot;&#x2F;glossary&#x2F;changeset&quot;&gt;changesets&lt;&#x2F;a&gt; solve this by giving you one boundary: input trusted if the changeset is valid, rejected otherwise, nowhere else allowed to check.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;the-rule&quot;&gt;The rule&lt;&#x2F;h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Every write path goes through a changeset. Every changeset is the &lt;em&gt;only&lt;&#x2F;em&gt; place that checks the input.&lt;&#x2F;p&gt;
@@ -534,8 +540,8 @@
 &lt;p&gt;When two call sites have genuinely different rules. Public web form vs admin import vs API. Each gets a named function — &lt;code&gt;public_changeset&#x2F;2&lt;&#x2F;code&gt;, &lt;code&gt;import_changeset&#x2F;2&lt;&#x2F;code&gt;, &lt;code&gt;api_changeset&#x2F;2&lt;&#x2F;code&gt; — and the call site picks the right one. What you &lt;em&gt;do not&lt;&#x2F;em&gt; do is put an &lt;code&gt;if web?&lt;&#x2F;code&gt; inside one changeset.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;storage-patterns&#x2F;&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — changesets in context modules&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;ecto&quot;&gt;Ecto&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;&quot;&gt;Changeset&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;validation&quot;&gt;Validation&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;input-sanitization&quot;&gt;Input Sanitization&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;invariant&quot;&gt;Invariant&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;storage-patterns&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — changesets in context modules&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;ecto&quot;&gt;Ecto&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;changeset&quot;&gt;Changeset&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;validation&quot;&gt;Validation&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;input-sanitization&quot;&gt;Input Sanitization&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;invariant&quot;&gt;Invariant&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;One boundary. One authority. Delete the duplicated checks and stop worrying about drift.&lt;&#x2F;p&gt;
 </content>
@@ -600,8 +606,8 @@
 &lt;p&gt;The day someone adds a bare &lt;code&gt;Repo.insert&lt;&#x2F;code&gt; alongside a Multi is the day the audit trail stops being trustworthy. Lint it, grep it in CI, review it on every PR.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;storage-patterns&#x2F;&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — when to reach for Multi&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;dd-investigation&#x2F;&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — how cases use Multi for state transitions&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;storage-patterns&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — when to reach for Multi&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;dd-investigation&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — how cases use Multi for state transitions&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;ecto&quot;&gt;Ecto&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;acid-transactions&quot;&gt;ACID Transactions&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;postgresql&quot;&gt;PostgreSQL&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;audit-trail&quot;&gt;Audit Trail&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;invariant&quot;&gt;Invariant&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;The transaction is the audit trail. Treat it that way and a whole class of bugs stops existing.&lt;&#x2F;p&gt;
@@ -662,8 +668,8 @@
 &lt;p&gt;Under &lt;a href=&quot;&#x2F;glossary&#x2F;kyc&quot;&gt;KYC&lt;&#x2F;a&gt; obligations, &quot;we merged because the names looked similar&quot; is not a defensible answer. &quot;We merged because ICO matched exactly and beneficial ownership overlapped 100%, here is the audit trail&quot; is. Entity resolution without an audit trail is a liability.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;dd-investigation&#x2F;&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — full case walkthrough&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;decision-core-fundamentals&#x2F;&quot;&gt;Decision Core Fundamentals&lt;&#x2F;a&gt; — how resolved entities feed the decision engine&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;dd-investigation&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — full case walkthrough&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;decision-core-fundamentals&quot;&gt;Decision Core Fundamentals&lt;&#x2F;a&gt; — how resolved entities feed the decision engine&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;entity-resolution&quot;&gt;Entity Resolution&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;entity-graph&quot;&gt;Entity Graph&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;due-diligence&quot;&gt;Due Diligence&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;kyc&quot;&gt;KYC&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;knowledge-graph&quot;&gt;Knowledge Graph&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Get the merges right and the rest of DD is plumbing. Get them wrong and everything downstream is noise.&lt;&#x2F;p&gt;
@@ -745,8 +751,8 @@
 &lt;p&gt;In dev with &lt;code&gt;iex -S mix&lt;&#x2F;code&gt;, if a module is edited and the registry GenServer is &lt;em&gt;not&lt;&#x2F;em&gt; restarted, the ETS table still holds the old metadata. Fix: subscribe to &lt;code&gt;:code_server&lt;&#x2F;code&gt; events or just bind a dev-only PubSub that triggers a rebuild on &lt;code&gt;phx.reload&lt;&#x2F;code&gt;. Most teams do the second one.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;first-agent&#x2F;&quot;&gt;First Agent&lt;&#x2F;a&gt; — build a self-registering agent&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;storage-patterns&#x2F;&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — when ETS is the right adapter&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;first-agent&quot;&gt;First Agent&lt;&#x2F;a&gt; — build a self-registering agent&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;storage-patterns&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — when ETS is the right adapter&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;ets&quot;&gt;ETS&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;registry&quot;&gt;Registry&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;self-registration&quot;&gt;Self-Registration&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;metaprogramming&quot;&gt;Metaprogramming&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;agent-registry&quot;&gt;Agent Registry&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Three small pieces. 552 agents. Sub-microsecond lookups. That is the trick.&lt;&#x2F;p&gt;
@@ -804,7 +810,7 @@
 &lt;p&gt;After three weeks, the flag is either at 100% (delete it + delete the old path) or it is at 0% (delete it + delete the new path). A flag left at 25% for six months is a liability — two code paths, both rotting, both claiming ownership. Kill them.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;development-workflow&#x2F;&quot;&gt;Development Workflow&lt;&#x2F;a&gt; — flags in the delivery pipeline&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;development-workflow&quot;&gt;Development Workflow&lt;&#x2F;a&gt; — flags in the delivery pipeline&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;feature-flag&quot;&gt;Feature Flag&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;deployment&quot;&gt;Deployment&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;rollback&quot;&gt;Rollback&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;release&quot;&gt;Release&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;telemetry&quot;&gt;Telemetry&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Deploy is not release. Separate them, flag the risky changes, delete the flags on schedule, and bad rollouts stop being outages.&lt;&#x2F;p&gt;
@@ -873,7 +879,7 @@
 &lt;p&gt;Without the regression test, the next refactor reintroduces a bare rescue because &quot;it was simpler that way.&quot; With the test, it fails CI.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;otp-fundamentals&#x2F;&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — supervisors and crash recovery&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;otp-fundamentals&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — supervisors and crash recovery&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;error-handling&quot;&gt;Error Handling&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;zero-tolerance&quot;&gt;Zero Tolerance&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;exunit&quot;&gt;ExUnit&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;observability&quot;&gt;Observability&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;structured-logging&quot;&gt;Structured Logging&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;6,000 silent failures caught nothing and explained nothing. Typed errors catch the right things and explain the rest. Pick the second one.&lt;&#x2F;p&gt;
@@ -928,8 +934,8 @@
 &lt;p&gt;If the question is &quot;show me all cases assigned to user X&quot;, it is a Postgres query. If the question is &quot;list companies registered in Cyprus with more than €10M revenue,&quot; it is a Meilisearch query. Graphs are for &lt;em&gt;traversal&lt;&#x2F;em&gt;. Use them when the answer depends on paths, not records.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;dd-investigation&#x2F;&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — the graph-backed workflow end to end&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;storage-patterns&#x2F;&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — picking the right adapter per question&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;dd-investigation&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — the graph-backed workflow end to end&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;storage-patterns&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — picking the right adapter per question&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;knowledge-graph&quot;&gt;Knowledge Graph&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;entity-graph&quot;&gt;Entity Graph&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;entity-resolution&quot;&gt;Entity Resolution&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;due-diligence&quot;&gt;Due Diligence&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;kyc&quot;&gt;KYC&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Relations beat records when the question is about connections. DD is always about connections.&lt;&#x2F;p&gt;
@@ -990,9 +996,9 @@
 &lt;p&gt;&lt;code&gt;iex&lt;&#x2F;code&gt; is still irreplaceable for &quot;is this GenServer alive?&quot; and &quot;what does this module export?&quot; — but the minute you want to see the output in a table or a plot, switch.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;dd-investigation&#x2F;&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — the workflow notebooks support&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;liveview-dashboards&#x2F;&quot;&gt;LiveView Dashboards&lt;&#x2F;a&gt; — the dashboards notebooks prototype&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;livebook&quot;&gt;Livebook&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;elixir&quot;&gt;Elixir&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;intelligence&quot;&gt;Intelligence&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;&quot;&gt;Investigation&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;dd-investigation&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — the workflow notebooks support&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;liveview-dashboards&quot;&gt;LiveView Dashboards&lt;&#x2F;a&gt; — the dashboards notebooks prototype&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;livebook&quot;&gt;Livebook&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;elixir&quot;&gt;Elixir&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;intelligence&quot;&gt;Intelligence&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;investigation&quot;&gt;Investigation&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;The fastest feedback loop Elixir ever had. Use it.&lt;&#x2F;p&gt;
 </content>
@@ -1051,7 +1057,7 @@
 &lt;p&gt;Business logic lives in contexts. LiveView orchestrates. If you find yourself computing confidence scores or resolving entities inside a handler, the code is in the wrong module.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;liveview-dashboards&#x2F;&quot;&gt;LiveView Dashboards&lt;&#x2F;a&gt; — the LiveView side of &#x2F;hub&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;liveview-dashboards&quot;&gt;LiveView Dashboards&lt;&#x2F;a&gt; — the LiveView side of &#x2F;hub&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;liveview&quot;&gt;LiveView&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;phoenix&quot;&gt;Phoenix&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;genserver&quot;&gt;GenServer&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;otp&quot;&gt;OTP&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Five patterns, one rule: the UI must fail open, never block, and never lie about state. Everything else is details.&lt;&#x2F;p&gt;
@@ -1117,7 +1123,7 @@
 &lt;p&gt;For those cases, use pagination or a separate search index — &lt;a href=&quot;&#x2F;glossary&#x2F;meilisearch&quot;&gt;Meilisearch&lt;&#x2F;a&gt; is the right tool for big filterable lists.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;liveview-dashboards&#x2F;&quot;&gt;LiveView Dashboards&lt;&#x2F;a&gt; — streams in production dashboards&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;liveview-dashboards&quot;&gt;LiveView Dashboards&lt;&#x2F;a&gt; — streams in production dashboards&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;liveview&quot;&gt;LiveView&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;phoenix-liveview&quot;&gt;Phoenix LiveView&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;performance&quot;&gt;Performance&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;memory&quot;&gt;Memory&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;ui-components&quot;&gt;UI Components&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Streams are not faster. Streams are &lt;em&gt;cheaper&lt;&#x2F;em&gt;. At 200 connected clients that is the same thing.&lt;&#x2F;p&gt;
@@ -1184,8 +1190,8 @@
 &lt;p&gt;An index that mirrors your Postgres schema is a bad index. An index built around the shape of intelligence queries — name-first, typo-aware, time-filtered, risk-ranked — is a good one.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;storage-patterns&#x2F;&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — when to reach for Meilisearch&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;dd-investigation&#x2F;&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — using Meilisearch in a real case&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;storage-patterns&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — when to reach for Meilisearch&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;dd-investigation&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — using Meilisearch in a real case&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;meilisearch&quot;&gt;Meilisearch&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;full-text-search&quot;&gt;Full-Text Search&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;typo-tolerance&quot;&gt;Typo Tolerance&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;osint&quot;&gt;OSINT&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;due-diligence&quot;&gt;Due Diligence&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Typo tolerance is a feature in consumer search. In intelligence search it is the difference between finding the subsidiary and missing it.&lt;&#x2F;p&gt;
@@ -1244,7 +1250,7 @@
 &lt;p&gt;For Prismatic, blue-green beats rolling — new release starts on a new VM, health check passes, traffic cuts over, old VM shuts down. Rolling restarts in-place save VM cost but add &quot;what version is process 12345 running?&quot; questions to every incident. Blue-green makes the answer obvious.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;development-workflow&#x2F;&quot;&gt;Development Workflow&lt;&#x2F;a&gt; — the release in CI&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;development-workflow&quot;&gt;Development Workflow&lt;&#x2F;a&gt; — the release in CI&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;release&quot;&gt;Release&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;otp-release&quot;&gt;OTP Release&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;deployment&quot;&gt;Deployment&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;mix&quot;&gt;Mix&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;docker&quot;&gt;Docker&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;What ships is what you tested — if you configured the release correctly. Three mistakes break that guarantee. Avoid all three.&lt;&#x2F;p&gt;
@@ -1303,8 +1309,8 @@
 &lt;p&gt;LLM outputs are a firehose of confidence-free claims. Running them through ∇∞ forces them to wear their provenance on the outside: which source grounded which span, which spans had no grounding, which claims were retracted by later evidence. That single constraint eliminates most hallucination downstream — not because the model stops hallucinating, but because ungrounded claims never get past the envelope seal.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;nabla-infinity-guide&#x2F;&quot;&gt;Nabla Infinity Guide&lt;&#x2F;a&gt; — the full axiom set + runnable examples&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;monte-carlo-fundamentals&#x2F;&quot;&gt;Monte Carlo Fundamentals&lt;&#x2F;a&gt; — how uncertainty is estimated&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;nabla-infinity-guide&quot;&gt;Nabla Infinity Guide&lt;&#x2F;a&gt; — the full axiom set + runnable examples&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;monte-carlo-fundamentals&quot;&gt;Monte Carlo Fundamentals&lt;&#x2F;a&gt; — how uncertainty is estimated&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;nabla-infinity&quot;&gt;Nabla Infinity&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;epistemic-reasoning&quot;&gt;Epistemic Reasoning&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;epistemic-validation&quot;&gt;Epistemic Validation&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;evidence&quot;&gt;Evidence&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;confidence&quot;&gt;Confidence&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Know what you know. Know what you don&#x27;t. Track both. Everything else is noise.&lt;&#x2F;p&gt;
@@ -1372,8 +1378,8 @@
 &lt;p&gt;The test is simple: a regulator asks &lt;em&gt;&quot;can you show me the current status of obligation X and the evidence that supports it?&quot;&lt;&#x2F;em&gt; If the answer involves opening Excel, the program is failing. If the answer is a URL to a live dashboard showing the status plus a link to every signed artifact — that is compliance as code.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;easm-development&#x2F;&quot;&gt;EASM Development&lt;&#x2F;a&gt; — the asset-side feed&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;dd-investigation&#x2F;&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — the supplier-side feed&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;easm-development&quot;&gt;EASM Development&lt;&#x2F;a&gt; — the asset-side feed&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;dd-investigation&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — the supplier-side feed&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;nis2&quot;&gt;NIS2&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;compliance&quot;&gt;Compliance&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;easm&quot;&gt;EASM&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;risk-assessment&quot;&gt;Risk Assessment&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;evidence&quot;&gt;Evidence&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;The directive is long. The pattern is short. Obligations + evidence + checks + freshness. Everything else is presentation.&lt;&#x2F;p&gt;
@@ -1432,7 +1438,7 @@
 &lt;p&gt;&lt;code&gt;:recon&lt;&#x2F;code&gt; is the tool to reach for on locked-down hosts where Observer is a non-starter. Same information, text-only, scriptable.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;otp-fundamentals&#x2F;&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — the supervision trees Observer visualizes&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;otp-fundamentals&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — the supervision trees Observer visualizes&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;observer&quot;&gt;Observer&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;introspection&quot;&gt;Introspection&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;beam&quot;&gt;BEAM&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;beam-vm&quot;&gt;BEAM VM&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;monitoring&quot;&gt;Monitoring&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Most production debugging in other runtimes is archaeology. In Elixir it is live inspection. Use it.&lt;&#x2F;p&gt;
@@ -1498,8 +1504,8 @@
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;p&gt;GRACE is a framework, not a library. The Academy walks through it end-to-end with a runnable case study:&lt;&#x2F;p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;first-agent&#x2F;&quot;&gt;First Agent&lt;&#x2F;a&gt; — build your first GRACE-compatible adapter&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;dd-investigation&#x2F;&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — apply GRACE to a real case&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;first-agent&quot;&gt;First Agent&lt;&#x2F;a&gt; — build your first GRACE-compatible adapter&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;dd-investigation&quot;&gt;DD Investigation&lt;&#x2F;a&gt; — apply GRACE to a real case&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;osint&quot;&gt;OSINT&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;entity-resolution&quot;&gt;Entity Resolution&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;confidence-score&quot;&gt;Confidence Score&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Fusion is the hard part. Adapters are the easy part. Get the fusion contract right and every new adapter you add compounds in value instead of adding noise.&lt;&#x2F;p&gt;
@@ -1555,7 +1561,7 @@
 &lt;p&gt;The dashboard groups by topic. A topic that suddenly starts broadcasting 10× more bytes is a regression worth a ticket. &lt;a href=&quot;&#x2F;glossary&#x2F;observability&quot;&gt;Observability&lt;&#x2F;a&gt; for PubSub is the only way to catch these before users notice.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;liveview-dashboards&#x2F;&quot;&gt;LiveView Dashboards&lt;&#x2F;a&gt; — consuming PubSub in LiveView&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;liveview-dashboards&quot;&gt;LiveView Dashboards&lt;&#x2F;a&gt; — consuming PubSub in LiveView&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;pubsub&quot;&gt;PubSub&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;phoenix&quot;&gt;Phoenix&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;liveview&quot;&gt;LiveView&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;observability&quot;&gt;Observability&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;performance&quot;&gt;Performance&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Topics are a contract. Payloads are copies. Broadcast accordingly.&lt;&#x2F;p&gt;
@@ -1611,7 +1617,7 @@
 &lt;p&gt;Polyglot persistence is a tax. Four adapters means four places to debug, four sets of connection pools, four migration stories. Pay the tax only when a single store cannot serve a workload within budget. If Postgres can do both the truth and the search, keep it on Postgres. Add adapters when, and only when, the workload requires it.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;storage-patterns&#x2F;&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — the trait in practice&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;storage-patterns&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — the trait in practice&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;adapter-pattern&quot;&gt;Adapter Pattern&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;postgresql&quot;&gt;PostgreSQL&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;ets&quot;&gt;ETS&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;meilisearch&quot;&gt;Meilisearch&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;kuzudb&quot;&gt;KuzuDB&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Four stores. One trait. Boring callers. That is the whole trick.&lt;&#x2F;p&gt;
@@ -1683,7 +1689,7 @@
 &lt;p&gt;The example tests are for regressions. The property tests are for the bugs that have not happened yet. You need both.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;storage-patterns&#x2F;&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — parsers live close to storage&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;storage-patterns&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — parsers live close to storage&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;property-based-testing&quot;&gt;Property-Based Testing&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;testing&quot;&gt;Testing&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;unit-testing&quot;&gt;Unit Testing&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;shrinking&quot;&gt;Shrinking&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;exunit&quot;&gt;ExUnit&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Example tests find yesterday&#x27;s bugs. Properties find tomorrow&#x27;s.&lt;&#x2F;p&gt;
@@ -1745,7 +1751,7 @@
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;storage-patterns&#x2F;&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — where the vector DB fits&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;storage-patterns&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — where the vector DB fits&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;rag&quot;&gt;RAG&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;llm&quot;&gt;LLM&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;embedding&quot;&gt;Embedding&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;vector-database&quot;&gt;Vector Database&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;meilisearch&quot;&gt;Meilisearch&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Three primitives. One hybrid retrieval. One honest prompt. That is RAG.&lt;&#x2F;p&gt;
@@ -1789,7 +1795,7 @@
 &lt;p&gt;Pen tests are scoped to a system. Red teams are scoped to an outcome. A pen test of the DD API asks &quot;are the endpoints correctly authenticated?&quot; A red team asks &quot;can I get to the DD data?&quot; The second question finds chains the first one does not see because chains cross system boundaries.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;color-team-security&#x2F;&quot;&gt;Color Team Security&lt;&#x2F;a&gt; — the full workflow&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;color-team-security&quot;&gt;Color Team Security&lt;&#x2F;a&gt; — the full workflow&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;red-team&quot;&gt;Red Team&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;security-operations&quot;&gt;Security Operations&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;penetration-testing&quot;&gt;Penetration Testing&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;threat-assessment&quot;&gt;Threat Assessment&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;remediation&quot;&gt;Remediation&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Three colors. One loop. Drop any color and the loop breaks.&lt;&#x2F;p&gt;
@@ -1858,8 +1864,8 @@
 &lt;p&gt;A crashed adapter is fine. A crashed pipeline is a bug. A crashed envelope is a disaster. Sealed evidence lives outside the supervision tree — in the database, stamped and immutable — so even a total supervisor restart cannot rewrite history.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;otp-fundamentals&#x2F;&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — runnable supervision tree exercises&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;first-agent&#x2F;&quot;&gt;First Agent&lt;&#x2F;a&gt; — build your first supervised adapter&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;otp-fundamentals&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — runnable supervision tree exercises&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;first-agent&quot;&gt;First Agent&lt;&#x2F;a&gt; — build your first supervised adapter&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;otp&quot;&gt;OTP&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;supervision-tree&quot;&gt;Supervision Tree&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;dynamic-supervisor&quot;&gt;DynamicSupervisor&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;genserver&quot;&gt;GenServer&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;fault-tolerance&quot;&gt;Fault Tolerance&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Let it crash. Just make sure the right thing crashes.&lt;&#x2F;p&gt;
@@ -1910,7 +1916,7 @@
 &lt;p&gt;&lt;code&gt;Task.async_stream&lt;&#x2F;code&gt; inside a &lt;code&gt;handle_call&lt;&#x2F;code&gt; blocks the GenServer until every task finishes. Do not do this. Either drive the fan-out from the caller or reply immediately and stream results back via PubSub.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;otp-fundamentals&#x2F;&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — Task and supervision primitives&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;otp-fundamentals&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — Task and supervision primitives&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;task-module&quot;&gt;Task Module&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;concurrency&quot;&gt;Concurrency&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;fault-tolerance&quot;&gt;Fault Tolerance&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;backpressure&quot;&gt;Backpressure&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;osint&quot;&gt;OSINT&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Five seconds. Ten concurrent. Kill on timeout. Unordered. That is 90% of the concurrency you ever needed.&lt;&#x2F;p&gt;
@@ -1995,8 +2001,8 @@
 &lt;p&gt;New code that would be hard to debug in production starts with the event contract, not the dashboard. The dashboard is the last step, not the first.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;liveview-dashboards&#x2F;&quot;&gt;LiveView Dashboards&lt;&#x2F;a&gt; — consume telemetry in real time&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;otp-fundamentals&#x2F;&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — where the boundaries to instrument live&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;liveview-dashboards&quot;&gt;LiveView Dashboards&lt;&#x2F;a&gt; — consume telemetry in real time&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;otp-fundamentals&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — where the boundaries to instrument live&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;telemetry&quot;&gt;Telemetry&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;observability&quot;&gt;Observability&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;metrics&quot;&gt;Metrics&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;monitoring&quot;&gt;Monitoring&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;structured-logging&quot;&gt;Structured Logging&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Events before dashboards. Always.&lt;&#x2F;p&gt;
@@ -2074,7 +2080,7 @@
 &lt;p&gt;Break that rule and you get drift: events that nobody consumes, dashboards that query metrics that do not exist, alerts that fire on strings nobody emits. Follow it and the pipeline becomes invisible infrastructure.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;liveview-dashboards&#x2F;&quot;&gt;LiveView Dashboards&lt;&#x2F;a&gt; — in-app dashboards from the same telemetry&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;liveview-dashboards&quot;&gt;LiveView Dashboards&lt;&#x2F;a&gt; — in-app dashboards from the same telemetry&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;telemetry&quot;&gt;Telemetry&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;metrics&quot;&gt;Metrics&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;observability&quot;&gt;Observability&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;monitoring&quot;&gt;Monitoring&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;performance&quot;&gt;Performance&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Four stages. One contract. Write it once and move on.&lt;&#x2F;p&gt;
@@ -2140,7 +2146,7 @@
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;storage-patterns&#x2F;&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — when hypertables belong in the mix&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;storage-patterns&quot;&gt;Storage Patterns&lt;&#x2F;a&gt; — when hypertables belong in the mix&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;timescaledb&quot;&gt;TimescaleDB&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;time-series&quot;&gt;Time Series&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;postgresql&quot;&gt;PostgreSQL&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;telemetry&quot;&gt;Telemetry&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;metrics&quot;&gt;Metrics&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Same database. New access pattern. No new operations surface.&lt;&#x2F;p&gt;
@@ -2194,8 +2200,8 @@
 &lt;p&gt;Pick an app. Ask: if the product killed this feature tomorrow, could I delete this app in one commit? If yes, the boundary is right. If no, it is too entangled — and the fix is not more documentation, it is moving the entanglement into the core or into another app.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;otp-fundamentals&#x2F;&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — supervision and app lifecycles&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;development-workflow&#x2F;&quot;&gt;Development Workflow&lt;&#x2F;a&gt; — how umbrella work is structured day-to-day&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;otp-fundamentals&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — supervision and app lifecycles&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;academy&#x2F;learn&#x2F;development-workflow&quot;&gt;Development Workflow&lt;&#x2F;a&gt; — how umbrella work is structured day-to-day&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;&#x2F;glossary&#x2F;umbrella&quot;&gt;Umbrella&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;umbrella-application&quot;&gt;Umbrella Application&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;otp-application&quot;&gt;OTP Application&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;modularity&quot;&gt;Modularity&lt;&#x2F;a&gt;, &lt;a href=&quot;&#x2F;glossary&#x2F;mix&quot;&gt;Mix&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;94 apps is not the goal. Being able to add or delete the 95th without fear — that is the goal.&lt;&#x2F;p&gt;
@@ -3066,7 +3072,7 @@
 &lt;tr&gt;&lt;td&gt;Regional&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;UK Companies House + European Business Register&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
 &lt;tr&gt;&lt;td&gt;Universal&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;Cross-source email intelligence aggregation&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
 &lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
-&lt;p&gt;Every adapter is open source, self-registering, and production-hardened with rate limiting, circuit breakers, and telemetry. Explore them at &lt;code&gt;&#x2F;hub&#x2F;osint&#x2F;tools&lt;&#x2F;code&gt; or browse the &lt;a href=&quot;&#x2F;api&#x2F;&quot;&gt;API documentation&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Every adapter is open source, self-registering, and production-hardened with rate limiting, circuit breakers, and telemetry. Explore them at &lt;code&gt;&#x2F;hub&#x2F;osint&#x2F;tools&lt;&#x2F;code&gt; or browse the &lt;a href=&quot;&#x2F;api&#x2F;swaggerui&quot;&gt;API documentation&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;hr &#x2F;&gt;
 &lt;p&gt;&lt;em&gt;Prismatic Platform is open source. Explore the full adapter catalog, build your own, and contribute back to the intelligence community.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 </content>
@@ -3386,7 +3392,7 @@
 &lt;tr&gt;&lt;td&gt;Regionalni&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;UK Companies House + Evropsky obchodni rejstrik&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
 &lt;tr&gt;&lt;td&gt;Univerzalni&lt;&#x2F;td&gt;&lt;td&gt;2&lt;&#x2F;td&gt;&lt;td&gt;Agregovana emailova inteligence pres vice zdroju&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
 &lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
-&lt;p&gt;Kazdy adapter je open source, samoregistrujici a produkcne otuzeny s rate limitingem, circuit breakery a telemetrii. Prozkoumejte je na &lt;code&gt;&#x2F;hub&#x2F;osint&#x2F;tools&lt;&#x2F;code&gt; nebo si prohlednejte &lt;a href=&quot;&#x2F;api&#x2F;&quot;&gt;API dokumentaci&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Kazdy adapter je open source, samoregistrujici a produkcne otuzeny s rate limitingem, circuit breakery a telemetrii. Prozkoumejte je na &lt;code&gt;&#x2F;hub&#x2F;osint&#x2F;tools&lt;&#x2F;code&gt; nebo si prohlednejte &lt;a href=&quot;&#x2F;api&#x2F;swaggerui&quot;&gt;API dokumentaci&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
 &lt;hr &#x2F;&gt;
 &lt;p&gt;&lt;em&gt;Platforma Prismatic je open source. Prozkoumejte kompletni katalog adapteru, vytvorte si vlastni a prispejte zpet do zpravodajske komunity.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 </content>
@@ -3687,7 +3693,7 @@
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation&quot;&gt;    },&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation&quot;&gt;    {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-meta z-object-literal z-key&quot;&gt;      label&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;: &amp;#39;&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt;View Details&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;#39;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-entity z-name z-function&quot;&gt;      handler&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;: ()&lt;&#x2F;span&gt;&lt;span class=&quot;z-storage z-type&quot;&gt; =&amp;gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt; {&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable&quot;&gt; window&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable&quot;&gt;location&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable&quot;&gt;href&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-punctuation&quot;&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;#39;; }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-entity z-name z-function&quot;&gt;      handler&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;: ()&lt;&#x2F;span&gt;&lt;span class=&quot;z-storage z-type&quot;&gt; =&amp;gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt; {&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable&quot;&gt; window&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable&quot;&gt;location&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable&quot;&gt;href&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-punctuation&quot;&gt; = &amp;#39;&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt;&#x2F;hub&#x2F;osint&#x2F;runs&#x2F;latest&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;#39;; }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation&quot;&gt;    }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;  ]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;liveview-integration&quot;&gt;LiveView Integration&lt;&#x2F;h2&gt;
@@ -3915,7 +3921,7 @@
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
 &lt;p&gt;MCP transforms Prismatic from a platform you interact with through a web interface into a toolkit that AI assistants can use programmatically. The 157 OSINT adapters, DD pipeline, and security tools become capabilities that any MCP-compatible AI can leverage -- making intelligence analysis accessible through natural language conversation.&lt;&#x2F;p&gt;
 &lt;hr &#x2F;&gt;
-&lt;p&gt;&lt;em&gt;Configure MCP in your AI assistant using the &lt;a href=&quot;&#x2F;&quot;&gt;MCP Guide&lt;&#x2F;a&gt; or browse available tools at &lt;a href=&quot;&#x2F;api&#x2F;&quot;&gt;API Documentation&lt;&#x2F;a&gt;.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Configure MCP in your AI assistant using the &lt;a href=&quot;&#x2F;developers&#x2F;mcp&#x2F;&quot;&gt;MCP Guide&lt;&#x2F;a&gt; or browse available tools at &lt;a href=&quot;&#x2F;api&#x2F;&quot;&gt;API Documentation&lt;&#x2F;a&gt;.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 </content>
         
     </entry>
@@ -4249,6 +4255,12 @@
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation&quot;&gt;  }&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation&quot;&gt;};&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;This pattern is critical for production deployments. You cannot control what browser extensions your users have installed. The fallback must be seamless -- users should not notice they are seeing Chart.js instead of D3.js unless they inspect the DOM.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;live-example-quality-trend-over-4-weeks&quot;&gt;Live example: quality trend over 4 weeks&lt;&#x2F;h3&gt;
+&lt;div class=&quot;h-64 w-full rounded-xl border border-gray-800 bg-gray-950 p-4&quot;
+     data-chart-type=&quot;line&quot;
+     data-chart-data=&quot;quality.trend&quot;
+     data-chart-options=&#x27;{&quot;responsive&quot;:true,&quot;maintainAspectRatio&quot;:false,&quot;scales&quot;:{&quot;y&quot;:{&quot;beginAtZero&quot;:false,&quot;min&quot;:70,&quot;max&quot;:100,&quot;grid&quot;:{&quot;color&quot;:&quot;rgba(255,255,255,0.05)&quot;},&quot;ticks&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;}},&quot;x&quot;:{&quot;grid&quot;:{&quot;display&quot;:false},&quot;ticks&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;}}},&quot;plugins&quot;:{&quot;legend&quot;:{&quot;labels&quot;:{&quot;color&quot;:&quot;#cbd5e1&quot;}}}}&#x27;&gt;&lt;&#x2F;div&gt;
+&lt;p&gt;&lt;em&gt;This chart renders from the same &lt;code&gt;quality.trend&lt;&#x2F;code&gt; data source used by the production dashboard. The &lt;code&gt;data-chart-data&lt;&#x2F;code&gt; attribute is the entire integration point — no bespoke JavaScript per page.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;multi-dataset-charts&quot;&gt;Multi-Dataset Charts&lt;&#x2F;h2&gt;
 &lt;p&gt;Complex dashboards often need multiple datasets on a single chart with different Y axes:&lt;&#x2F;p&gt;
 &lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-storage z-type&quot;&gt;const&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable&quot;&gt; dualAxisConfig&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-punctuation&quot;&gt; = {&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
@@ -4379,6 +4391,17 @@
 &lt;tr&gt;&lt;td&gt;Special Ops&lt;&#x2F;td&gt;&lt;td&gt;85&lt;&#x2F;td&gt;&lt;td&gt;OSINT special operations (Navy SEAL, Delta Force, etc.)&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
 &lt;tr&gt;&lt;td&gt;Meta&lt;&#x2F;td&gt;&lt;td&gt;32&lt;&#x2F;td&gt;&lt;td&gt;Agent management, orchestration&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
 &lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;category-distribution-interactive&quot;&gt;Category distribution (interactive)&lt;&#x2F;h3&gt;
+&lt;div class=&quot;h-80 w-full rounded-xl border border-gray-800 bg-gray-950&quot;
+     data-chart-type=&quot;doughnut&quot;
+     data-chart-data=&quot;agents.categories&quot;
+     data-chart-options=&#x27;{&quot;responsive&quot;:true,&quot;maintainAspectRatio&quot;:false,&quot;plugins&quot;:{&quot;legend&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;labels&quot;:{&quot;color&quot;:&quot;#cbd5e1&quot;,&quot;font&quot;:{&quot;size&quot;:11}}}}}&#x27;&gt;&lt;&#x2F;div&gt;
+&lt;h3 id=&quot;the-552-agent-mesh-rendered-in-3d&quot;&gt;The 552-agent mesh, rendered in 3D&lt;&#x2F;h3&gt;
+&lt;div class=&quot;h-96 w-full rounded-xl border border-gray-800 bg-gray-950 three-container&quot;
+     data-three-scene=&quot;network-graph&quot;
+     data-three-nodes=&quot;60&quot;
+     data-three-edges=&quot;120&quot;&gt;&lt;&#x2F;div&gt;
+*Each node represents a specialized agent; edges show coordination channels through the AIAD orchestrator.*
 &lt;h2 id=&quot;self-registration&quot;&gt;Self-Registration&lt;&#x2F;h2&gt;
 &lt;p&gt;Agents register themselves at startup. Each agent definition in &lt;code&gt;.aiad&#x2F;agents&#x2F;&lt;&#x2F;code&gt; is discovered and indexed:&lt;&#x2F;p&gt;
 &lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt;defmodule&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-other z-inherited-class&quot;&gt; Prismatic&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-other z-inherited-class&quot;&gt;Agents&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt;Registry&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt; do&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
@@ -5486,7 +5509,7 @@
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
 &lt;p&gt;A professional dataroom is table stakes for sell-side M&amp;amp;A. By combining a standardized checklist, role-based access control, approval workflows, and integration with Prismatic&#x27;s intelligence pipeline, the dataroom module ensures that documentation is complete, verified, and ready for buyer scrutiny.&lt;&#x2F;p&gt;
 &lt;hr &#x2F;&gt;
-&lt;p&gt;&lt;em&gt;Explore the &lt;a href=&quot;&#x2F;&quot;&gt;DD Dashboard&lt;&#x2F;a&gt; or learn about &lt;a href=&quot;&#x2F;blog&#x2F;automating-ma-due-diligence&#x2F;&quot;&gt;Automated Due Diligence&lt;&#x2F;a&gt; for the buy-side perspective.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Explore the &lt;a href=&quot;&#x2F;hub&#x2F;dd&#x2F;cases&quot;&gt;DD Dashboard&lt;&#x2F;a&gt; or learn about &lt;a href=&quot;&#x2F;blog&#x2F;automating-ma-due-diligence&#x2F;&quot;&gt;Automated Due Diligence&lt;&#x2F;a&gt; for the buy-side perspective.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 </content>
         
     </entry>
@@ -6131,7 +6154,7 @@
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
 &lt;p&gt;The Decision Engine transforms Prismatic from an intelligence collection platform into a decision support system. By combining scoring, hypothesis testing, uncertainty estimation, and traceable explanations, it provides analysts with the structured analysis they need to make confident decisions -- while being transparent about the limits of that confidence.&lt;&#x2F;p&gt;
 &lt;hr &#x2F;&gt;
-&lt;p&gt;&lt;em&gt;Explore the &lt;a href=&quot;&#x2F;&quot;&gt;DD Dashboard&lt;&#x2F;a&gt; or learn about the &lt;a href=&quot;&#x2F;blog&#x2F;nabla-infinity-epistemic-confidence&#x2F;&quot;&gt;Nabla Confidence Framework&lt;&#x2F;a&gt; for uncertainty quantification.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Explore the &lt;a href=&quot;&#x2F;hub&#x2F;dd&#x2F;decisions&quot;&gt;DD Dashboard&lt;&#x2F;a&gt; or learn about the &lt;a href=&quot;&#x2F;blog&#x2F;nabla-infinity-epistemic-confidence&#x2F;&quot;&gt;Nabla Confidence Framework&lt;&#x2F;a&gt; for uncertainty quantification.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 </content>
         
     </entry>
@@ -6788,7 +6811,7 @@
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
 &lt;p&gt;Automated DD does not replace human judgment. It replaces human data gathering. By automating the collection, verification, and correlation of intelligence across hundreds of sources, analysts can focus on what they do best: interpreting findings and making recommendations.&lt;&#x2F;p&gt;
 &lt;hr &#x2F;&gt;
-&lt;p&gt;&lt;em&gt;Explore the &lt;a href=&quot;&#x2F;&quot;&gt;DD Dashboard&lt;&#x2F;a&gt; or learn about the &lt;a href=&quot;&#x2F;blog&#x2F;decision-engine-data-to-intelligence&#x2F;&quot;&gt;Decision Engine&lt;&#x2F;a&gt; for scoring methodology.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Explore the &lt;a href=&quot;&#x2F;hub&#x2F;dd&#x2F;cases&quot;&gt;DD Dashboard&lt;&#x2F;a&gt; or learn about the &lt;a href=&quot;&#x2F;blog&#x2F;decision-engine-data-to-intelligence&#x2F;&quot;&gt;Decision Engine&lt;&#x2F;a&gt; for scoring methodology.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 </content>
         
     </entry>
@@ -9296,6 +9319,10 @@
 &lt;tr&gt;&lt;td&gt;&lt;code&gt;concurrency: 2&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;td&gt;Parallel batch handlers&lt;&#x2F;td&gt;&lt;td&gt;2 batches processed simultaneously&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
 &lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
 &lt;p&gt;For database writes, larger batches are more efficient. For notifications, smaller batches with shorter timeouts provide lower latency.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;broadway-topology-interactive&quot;&gt;Broadway topology (interactive)&lt;&#x2F;h3&gt;
+&lt;div class=&quot;h-80 w-full rounded-xl border border-gray-800 bg-gray-950 three-container&quot;
+     data-three-scene=&quot;mycelium&quot;&gt;&lt;&#x2F;div&gt;
+*Rendered with three.js — each branch represents a producer → processor → batcher path. Broadway&#x27;s fan-out is genuinely branching, not a linear stream.*
 &lt;h2 id=&quot;error-handling-and-dead-letters&quot;&gt;Error Handling and Dead Letters&lt;&#x2F;h2&gt;
 &lt;p&gt;Failed messages in Broadway can be routed to a dead-letter handler:&lt;&#x2F;p&gt;
 &lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation&quot;&gt;@&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable&quot;&gt;impl&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-language&quot;&gt; true&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
@@ -13962,6 +13989,11 @@
 &lt;tr&gt;&lt;td&gt;Development&lt;&#x2F;td&gt;&lt;td&gt;28&lt;&#x2F;td&gt;&lt;td&gt;Run Tests, Validate Doctrine, Format Code&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
 &lt;tr&gt;&lt;td&gt;Intelligence&lt;&#x2F;td&gt;&lt;td&gt;20&lt;&#x2F;td&gt;&lt;td&gt;Investigate Entity, Expand Mesh, Score Risk&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
 &lt;&#x2F;tbody&gt;&lt;&#x2F;table&gt;
+&lt;h3 id=&quot;distribution-at-a-glance&quot;&gt;Distribution at a glance&lt;&#x2F;h3&gt;
+&lt;div class=&quot;h-72 w-full rounded-xl border border-gray-800 bg-gray-950 p-4&quot;
+     data-chart-type=&quot;doughnut&quot;
+     data-chart-data=&quot;agents.categories&quot;
+     data-chart-options=&#x27;{&quot;responsive&quot;:true,&quot;maintainAspectRatio&quot;:false,&quot;plugins&quot;:{&quot;legend&quot;:{&quot;position&quot;:&quot;right&quot;,&quot;labels&quot;:{&quot;color&quot;:&quot;#cbd5e1&quot;,&quot;font&quot;:{&quot;size&quot;:11}}}}}&#x27;&gt;&lt;&#x2F;div&gt;
 &lt;p&gt;Commands are registered from multiple sources:&lt;&#x2F;p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Route-based commands&lt;&#x2F;strong&gt; -- automatically generated from the Phoenix router&lt;&#x2F;li&gt;
@@ -15571,6 +15603,15 @@
 &lt;li&gt;&lt;strong&gt;Platform metrics&lt;&#x2F;strong&gt; (50+ entries): lookup &amp;lt; 2 microseconds&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Compare this to a GenServer call, which involves message passing (5-50 microseconds) plus the serialization overhead under load.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;latency-distribution-interactive&quot;&gt;Latency distribution (interactive)&lt;&#x2F;h3&gt;
+&lt;div class=&quot;h-72 w-full rounded-xl border border-gray-800 bg-gray-950 p-4&quot;
+     data-chart-type=&quot;bar&quot;
+     data-chart-data=&quot;performance.metrics&quot;
+     data-chart-options=&#x27;{&quot;responsive&quot;:true,&quot;maintainAspectRatio&quot;:false,&quot;scales&quot;:{&quot;y&quot;:{&quot;beginAtZero&quot;:true,&quot;grid&quot;:{&quot;color&quot;:&quot;rgba(255,255,255,0.05)&quot;},&quot;ticks&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;}},&quot;x&quot;:{&quot;grid&quot;:{&quot;display&quot;:false},&quot;ticks&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;}}},&quot;plugins&quot;:{&quot;legend&quot;:{&quot;labels&quot;:{&quot;color&quot;:&quot;#cbd5e1&quot;}}}}&#x27;&gt;&lt;&#x2F;div&gt;
+&lt;h3 id=&quot;3d-registry-visualization&quot;&gt;3D registry visualization&lt;&#x2F;h3&gt;
+&lt;div class=&quot;h-80 w-full rounded-xl border border-gray-800 bg-gray-950 three-container&quot;
+     data-three-scene=&quot;particles&quot;&gt;&lt;&#x2F;div&gt;
+*Each point represents an ETS table entry. The field drifts slowly — a visual analogue to ETS&#x27;s concurrent-read behavior under load.*
 &lt;h2 id=&quot;when-to-use-ets-vs-alternatives&quot;&gt;When to Use ETS vs. Alternatives&lt;&#x2F;h2&gt;
 &lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Use Case&lt;&#x2F;th&gt;&lt;th&gt;Recommendation&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
 &lt;tr&gt;&lt;td&gt;Read-heavy, write-rare&lt;&#x2F;td&gt;&lt;td&gt;ETS with &lt;code&gt;read_concurrency: true&lt;&#x2F;code&gt;&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
@@ -17742,6 +17783,18 @@
 &lt;li&gt;Documentation coverage for all public modules&lt;&#x2F;li&gt;
 &lt;li&gt;Sub-250ms page load times enforced by PERF gates&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;violations-over-time-interactive&quot;&gt;Violations over time (interactive)&lt;&#x2F;h3&gt;
+&lt;div class=&quot;h-72 w-full rounded-xl border border-gray-800 bg-gray-950 p-4&quot;
+     data-chart-type=&quot;line&quot;
+     data-chart-data=&quot;doctrine.violations&quot;
+     data-chart-options=&#x27;{&quot;responsive&quot;:true,&quot;maintainAspectRatio&quot;:false,&quot;scales&quot;:{&quot;y&quot;:{&quot;beginAtZero&quot;:true,&quot;grid&quot;:{&quot;color&quot;:&quot;rgba(255,255,255,0.05)&quot;},&quot;ticks&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;}},&quot;x&quot;:{&quot;grid&quot;:{&quot;display&quot;:false},&quot;ticks&quot;:{&quot;color&quot;:&quot;#94a3b8&quot;}}},&quot;plugins&quot;:{&quot;legend&quot;:{&quot;labels&quot;:{&quot;color&quot;:&quot;#cbd5e1&quot;}}}}&#x27;&gt;&lt;&#x2F;div&gt;
+&lt;p&gt;&lt;em&gt;Pre-commit and CI violations trending toward zero as each pillar matures. The dip in March reflects the &lt;code&gt;SuggestUnusedVariablePrefix&lt;&#x2F;code&gt; AST fix that eliminated ~43K false positives.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;pillar-strength-radar&quot;&gt;Pillar strength radar&lt;&#x2F;h3&gt;
+&lt;div class=&quot;h-80 w-full rounded-xl border border-gray-800 bg-gray-950 p-4&quot;
+     data-chart-type=&quot;radar&quot;
+     data-chart-data=&quot;doctrine.pillars&quot;
+     data-chart-options=&#x27;{&quot;responsive&quot;:true,&quot;maintainAspectRatio&quot;:false,&quot;scales&quot;:{&quot;r&quot;:{&quot;beginAtZero&quot;:true,&quot;max&quot;:10,&quot;grid&quot;:{&quot;color&quot;:&quot;rgba(255,255,255,0.1)&quot;},&quot;angleLines&quot;:{&quot;color&quot;:&quot;rgba(255,255,255,0.1)&quot;},&quot;pointLabels&quot;:{&quot;color&quot;:&quot;#cbd5e1&quot;,&quot;font&quot;:{&quot;size&quot;:10}},&quot;ticks&quot;:{&quot;display&quot;:false}}},&quot;plugins&quot;:{&quot;legend&quot;:{&quot;labels&quot;:{&quot;color&quot;:&quot;#cbd5e1&quot;}}}}&#x27;&gt;&lt;&#x2F;div&gt;
+&lt;p&gt;&lt;em&gt;Each axis is one of the 18 pillars; the filled area is enforcement maturity on a 0–10 scale. Six pillars are fully blocking at pre-commit, nine are advisory-only in CI.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 &lt;p&gt;The doctrine is not about perfection -- it is about preventing the classes of defects that cause production incidents. Each pillar was added in response to a real incident or a category of bugs that consumed engineering time.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;building-your-own-doctrine&quot;&gt;Building Your Own Doctrine&lt;&#x2F;h2&gt;
 &lt;p&gt;The approach generalizes to any codebase:&lt;&#x2F;p&gt;
