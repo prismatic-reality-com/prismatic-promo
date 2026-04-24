@@ -5,8 +5,77 @@
     <link rel="self" type="application/atom+xml" href="https://prismatic-reality-com.github.io/prismatic-promo/blog/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://prismatic-reality-com.github.io/prismatic-promo/blog/"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2026-04-09T00:00:00+00:00</updated>
+    <updated>2026-04-24T00:00:00+00:00</updated>
     <id>https://prismatic-reality-com.github.io/prismatic-promo/blog/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Shipping Zola to GitHub Pages: A 2938-Broken-Links Postmortem</title>
+        <published>2026-04-24T00:00:00+00:00</published>
+        <updated>2026-04-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              Unknown
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://prismatic-reality-com.github.io/prismatic-promo/blog/shipping-zola-github-pages-postmortem/"/>
+        <id>https://prismatic-reality-com.github.io/prismatic-promo/blog/shipping-zola-github-pages-postmortem/</id>
+        
+        <content type="html" xml:base="https://prismatic-reality-com.github.io/prismatic-promo/blog/shipping-zola-github-pages-postmortem/">&lt;p&gt;The brief was twelve words: &quot;create and deploy a visually consistent static GitHub Pages site for promo.&quot; A day later the site serves 2,808 pages with zero broken internal links at &lt;code&gt;https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;&lt;&#x2F;code&gt;. The path between those two sentences was paved with edge cases. This is the postmortem.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;starting-conditions&quot;&gt;Starting Conditions&lt;&#x2F;h2&gt;
+&lt;p&gt;The promo site already existed as a Zola source under &lt;code&gt;sites&#x2F;promo&#x2F;&lt;&#x2F;code&gt; in a private Elixir umbrella repo --- same Tailwind + Flowbite + Alpine + Chart.js + p5 + three.js stack that the main Phoenix LiveView app uses. The content symlinked to &lt;code&gt;apps&#x2F;prismatic_web&#x2F;priv&#x2F;content&#x2F;&lt;&#x2F;code&gt;, a 2,800-page corpus covering glossary, academy, blog, agents, commands, applications, and so on. So the theme, the content, and the build tool were all in place.&lt;&#x2F;p&gt;
+&lt;p&gt;What was not in place: the private repo cannot host GitHub Pages on the free plan. The custom-domain variant (&lt;code&gt;prismatic-reality.com&lt;&#x2F;code&gt;) had broken DNS, pointing at Fly.io infra from a prior deployment rather than GH Pages IP addresses. So the first real decision was which public repo to deploy to. There was one: &lt;code&gt;prismatic-reality-com&#x2F;prismatic-promo&lt;&#x2F;code&gt;, org-owned, Pages enabled, historical content serving from a &lt;code&gt;gh-pages&lt;&#x2F;code&gt; branch.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-seven-classes-of-breakage&quot;&gt;The Seven Classes of Breakage&lt;&#x2F;h2&gt;
+&lt;p&gt;As the site came up, a full recursive crawl (every &lt;code&gt;sitemap.xml&lt;&#x2F;code&gt; entry, every &lt;code&gt;&amp;lt;a href&amp;gt;&lt;&#x2F;code&gt; harvested from every rendered page, HEAD-checked) returned &lt;strong&gt;2,938 distinct broken internal links&lt;&#x2F;strong&gt; out of 5,928 unique hrefs. Nearly half. A second crawl after the first fix pass returned 274. The final crawl: zero.&lt;&#x2F;p&gt;
+&lt;p&gt;What made up those 2,938? Seven categories, roughly in descending order of impact.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;1-the-x-data-commandregistry-minifier-trap-2-500&quot;&gt;1. The &lt;code&gt;x-data=&quot;commandRegistry()&quot;&lt;&#x2F;code&gt; Minifier Trap (~2,500)&lt;&#x2F;h3&gt;
+&lt;p&gt;Zola&#x27;s HTML minifier (&lt;code&gt;minify_html&lt;&#x2F;code&gt; crate) aggressively strips attribute quotes when the value has no whitespace. Alpine directive &lt;code&gt;:href=&quot;item.url&quot;&lt;&#x2F;code&gt; under &lt;code&gt;&amp;lt;template x-for&amp;gt;&lt;&#x2F;code&gt; survived. But attributes inside a &lt;code&gt;&amp;lt;template&amp;gt;&lt;&#x2F;code&gt; also got minified, and every Alpine &lt;code&gt;:href&lt;&#x2F;code&gt; rendered to &lt;code&gt;href=item.url&lt;&#x2F;code&gt; (no colon, no quotes, literal string &lt;code&gt;item.url&lt;&#x2F;code&gt;). The browser parsed it as a real href. Every &lt;code&gt;&#x2F;agents&#x2F;&amp;lt;slug&amp;gt;&#x2F;item.url&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;commands&#x2F;&amp;lt;slug&amp;gt;&#x2F;item.url&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;osint&#x2F;&amp;lt;slug&amp;gt;&#x2F;item.url&lt;&#x2F;code&gt; 404&#x27;d.&lt;&#x2F;p&gt;
+&lt;p&gt;The fix was setting &lt;code&gt;minify_html = false&lt;&#x2F;code&gt; in &lt;code&gt;config.toml&lt;&#x2F;code&gt; and rebuilding with &lt;code&gt;--base-url https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&lt;&#x2F;code&gt;. This eliminated the template-artifact class entirely, and dropped the broken-link count by 98%.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;2-broken-glossary-slugs-175&quot;&gt;2. Broken Glossary Slugs (~175)&lt;&#x2F;h3&gt;
+&lt;p&gt;An earlier session had rewritten 2,714 markdown files to replace Zola&#x27;s &lt;code&gt;@&#x2F;glossary&#x2F;X.md&lt;&#x2F;code&gt; internal-link syntax with plain URL paths &lt;code&gt;&#x2F;glossary&#x2F;X&#x2F;&lt;&#x2F;code&gt;. That got past Zola&#x27;s strict link checker at build time. But 163 of those slugs pointed at glossary terms that never existed --- they were wishful references in term definitions, not actual pages.&lt;&#x2F;p&gt;
+&lt;p&gt;The fix was a dual-path rewrite. First, check which slugs exist. Second, rewrite every reference to a non-existent slug to point at &lt;code&gt;&#x2F;glossary&#x2F;&lt;&#x2F;code&gt; (the index). Post-build HTML patch, ~255 unique broken refs, ~78 files changed.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;3-relative-path-resolution-against-gh-pages-subpath-140&quot;&gt;3. Relative Path Resolution Against GH Pages Subpath (~140)&lt;&#x2F;h3&gt;
+&lt;p&gt;The content references used bare relative paths: &lt;code&gt;[prismatic_agents](..&#x2F;..&#x2F;..&#x2F;apps&#x2F;prismatic_agents&#x2F;README.md)&lt;&#x2F;code&gt;. Under Phoenix these would serve from the monorepo. Under GH Pages they resolve against the rendered page URL, producing &lt;code&gt;&#x2F;apps&#x2F;prismatic_agents&#x2F;README.md&lt;&#x2F;code&gt;, which 404s because Pages only serves &lt;code&gt;&#x2F;prismatic-promo&#x2F;*&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;The fix rewrote 106 such references (across 22 glossary files) to absolute GitHub blob URLs: &lt;code&gt;https:&#x2F;&#x2F;github.com&#x2F;korczis&#x2F;prismatic-platform&#x2F;blob&#x2F;main&#x2F;apps&#x2F;prismatic_agents&#x2F;README.md&lt;&#x2F;code&gt;. The markdown still reads naturally, the link points at the actual source.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;4-authenticated-phoenix-routes-linked-from-public-pages-30&quot;&gt;4. Authenticated Phoenix Routes Linked From Public Pages (~30)&lt;&#x2F;h3&gt;
+&lt;p&gt;Glossary term definitions often linked into the main Phoenix app: &lt;code&gt;&#x2F;hub&#x2F;*&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;perimeter&#x2F;&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;quality&#x2F;&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;security&#x2F;&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;contact&#x2F;&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;observability&#x2F;&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;performance&#x2F;&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;admin&#x2F;telemetry&#x2F;&lt;&#x2F;code&gt;. These are authenticated LiveView routes, not static pages --- they don&#x27;t ship in the promo site by design.&lt;&#x2F;p&gt;
+&lt;p&gt;The fix was a catalog of explicit redirects: &lt;code&gt;&#x2F;hub&#x2F;*&lt;&#x2F;code&gt; -&amp;gt; &lt;code&gt;&#x2F;&lt;&#x2F;code&gt; (homepage), &lt;code&gt;&#x2F;contact&#x2F;&lt;&#x2F;code&gt; -&amp;gt; &lt;code&gt;mailto:&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;perimeter&#x2F;&lt;&#x2F;code&gt; -&amp;gt; &lt;code&gt;&#x2F;about&#x2F;for-security&#x2F;&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;developers&#x2F;{api,mcp}&#x2F;&lt;&#x2F;code&gt; -&amp;gt; &lt;code&gt;&#x2F;api&#x2F;&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;osint&#x2F;toolbox&#x2F;&lt;&#x2F;code&gt; -&amp;gt; &lt;code&gt;&#x2F;osint&#x2F;&lt;&#x2F;code&gt;. Applied at the HTML output level and to source markdown so future rebuilds stay clean.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;5-academy-url-structure-drift-11&quot;&gt;5. Academy URL Structure Drift (~11)&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;code&gt;&#x2F;academy&#x2F;learn&#x2F;storage-patterns&lt;&#x2F;code&gt;, &lt;code&gt;&#x2F;academy&#x2F;learn&#x2F;dd-investigation&lt;&#x2F;code&gt;, etc. The &lt;code&gt;&#x2F;learn&#x2F;&lt;&#x2F;code&gt; segment was removed in a prior refactor but content still referenced it. Pattern-match rewrite: &lt;code&gt;&#x2F;academy&#x2F;learn&#x2F;X -&amp;gt; &#x2F;academy&#x2F;X&#x2F;&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;6-template-bugs-in-keydown-escape-and-alpine-x-data-commandregistry&quot;&gt;6. Template Bugs in &lt;code&gt;@keydown.escape&lt;&#x2F;code&gt; and Alpine &lt;code&gt;x-data=&quot;commandRegistry()&quot;&lt;&#x2F;code&gt;&lt;&#x2F;h3&gt;
+&lt;p&gt;Two interactive components were silently broken:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Nav dropdowns had &lt;code&gt;@click.outside=&quot;open = false&quot;&lt;&#x2F;code&gt; but no &lt;code&gt;@keydown.escape&lt;&#x2F;code&gt; handler. Keyboard users could open a dropdown and have no non-mouse way to close it. Fix: one-line addition of &lt;code&gt;@keydown.escape.window=&quot;open = false&quot;&lt;&#x2F;code&gt; on four nav dropdowns in &lt;code&gt;base.html&lt;&#x2F;code&gt;.&lt;&#x2F;li&gt;
+&lt;li&gt;The glossary hover-card listener did &lt;code&gt;e.target.closest(&#x27;[data-glossary-hover]&#x27;)&lt;&#x2F;code&gt;. But &lt;code&gt;e.target&lt;&#x2F;code&gt; is sometimes a Text node (cursor passing over prose), and Text nodes lack &lt;code&gt;.closest()&lt;&#x2F;code&gt;. Every hover over body text threw &lt;code&gt;TypeError: e.target.closest is not a function&lt;&#x2F;code&gt;. Fix: &lt;code&gt;if (!(e.target instanceof Element)) return;&lt;&#x2F;code&gt; guard.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;7-asset-urls-hardcoded-as-root-absolute-15&quot;&gt;7. Asset URLs Hardcoded as Root-Absolute (~15)&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;code&gt;base.html&lt;&#x2F;code&gt; referenced &lt;code&gt;&#x2F;css&#x2F;tailwind.css&lt;&#x2F;code&gt; and &lt;code&gt;&#x2F;js&#x2F;vendor&#x2F;alpine.min.js&lt;&#x2F;code&gt;. On GH Pages subpath serving, &lt;code&gt;&#x2F;css&#x2F;tailwind.css&lt;&#x2F;code&gt; resolves to origin, not to &lt;code&gt;&#x2F;prismatic-promo&#x2F;css&#x2F;tailwind.css&lt;&#x2F;code&gt;. Every deep page (anything beyond the root) shipped unstyled with no JS.&lt;&#x2F;p&gt;
+&lt;p&gt;Shallow pages worked by coincidence: the browser cache populated on first visit, then the visibility of the site at the top level concealed the bug. The fix was converting all 15 hardcoded asset references to Zola&#x27;s &lt;code&gt;get_url(path=...)&lt;&#x2F;code&gt; helper (wrapped in the usual Tera &lt;code&gt;{% raw %}{{ ... }}{% endraw %}&lt;&#x2F;code&gt; delimiters), which emits a full absolute URL including the subpath.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-it-took&quot;&gt;What It Took&lt;&#x2F;h2&gt;
+&lt;p&gt;Source-level fixes (permanent): 18 stale app references fixed, &lt;code&gt;config.toml&lt;&#x2F;code&gt; &lt;code&gt;base_url&lt;&#x2F;code&gt; set to the github.io subpath, 142 internal hrefs across 17 templates migrated to &lt;code&gt;{{ config.base_url | safe }}&#x2F;...&lt;&#x2F;code&gt;, three &lt;code&gt;&amp;lt;style&amp;gt;&lt;&#x2F;code&gt; blocks extracted to CSS files, 750 decorative SVGs gained &lt;code&gt;aria-hidden=&quot;true&quot;&lt;&#x2F;code&gt;, 232 Alpine buttons gained &lt;code&gt;type=&quot;button&quot;&lt;&#x2F;code&gt;, one Tera macro (&lt;code&gt;related_articles&lt;&#x2F;code&gt;) switched from strict &lt;code&gt;get_page&#x2F;1&lt;&#x2F;code&gt; to a forgiving &lt;code&gt;section.pages | filter&lt;&#x2F;code&gt; to stop hard-erroring on missing slugs.&lt;&#x2F;p&gt;
+&lt;p&gt;Output-level patches (the gh-pages branch): each rebuild produced fresh minified HTML, so we ran Python scripts across the 2,800+ index.html files to apply the pattern rewrites where source-level changes hadn&#x27;t propagated yet. Five post-build sweeps in total before the crawl returned zero.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-measurement-philosophy&quot;&gt;The Measurement Philosophy&lt;&#x2F;h2&gt;
+&lt;p&gt;The only metric that mattered was this command:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;shellscript&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-entity z-name&quot;&gt;curl&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt; -s https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;sitemap.xml&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-character z-escape&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-keyword&quot;&gt;  |&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name&quot;&gt; grep&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt; -oE&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt;&amp;lt;loc&amp;gt;[^&amp;lt;]+&amp;lt;&#x2F;loc&amp;gt;&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-character z-escape&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-keyword&quot;&gt;  |&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt; while&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-function&quot;&gt; read&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt; loc&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;;&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt; do&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-variable&quot;&gt;      url&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-punctuation&quot;&gt;=$(&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-function&quot;&gt;echo&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt; &amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable&quot;&gt;$loc&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-keyword&quot;&gt;&amp;quot; |&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name&quot;&gt; sed&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt;s|&amp;lt;loc&amp;gt;||;s|&amp;lt;&#x2F;loc&amp;gt;||&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;#39;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-variable&quot;&gt;      code&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-punctuation&quot;&gt;=$(&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name&quot;&gt;curl&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt; -sI -o &#x2F;dev&#x2F;null -w&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt;%{http_code}&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;#39; &amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable&quot;&gt;$url&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;quot;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-support z-function&quot;&gt;      echo&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt; &amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-variable&quot;&gt;$code $url&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt;    done&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Run recursively over every page, extract every &lt;code&gt;&amp;lt;a href&amp;gt;&lt;&#x2F;code&gt;, HEAD-check each. Count 200s. Count 404s. Repeat after each fix batch. No qualitative &quot;looks good&quot; allowed --- the count goes down or the work was noise.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-we-did-not-do&quot;&gt;What We Did Not Do&lt;&#x2F;h2&gt;
+&lt;p&gt;We did not deploy via GitHub Actions with &lt;code&gt;actions&#x2F;deploy-pages@v4&lt;&#x2F;code&gt; as the workflow. We tried. One build ran 37 minutes on the GH runner with &lt;code&gt;minify_html=true&lt;&#x2F;code&gt; and &lt;code&gt;generate_feeds=true&lt;&#x2F;code&gt; (producing 50MB atom.xml + 50MB rss.xml) before we cancelled. The runner was not the bottleneck; the config was. With both flags disabled and a local &lt;code&gt;zola build&lt;&#x2F;code&gt; taking 7.5 minutes, a push-built artifact approach became the deploy loop.&lt;&#x2F;p&gt;
+&lt;p&gt;We did not chase &quot;fix every glossary term&quot; as a content task. The 163 missing slugs are legitimate gaps in the knowledge base --- a separate curation effort. The devops fix was to make broken-slug links degrade gracefully (redirect to &lt;code&gt;&#x2F;glossary&#x2F;&lt;&#x2F;code&gt;), not to write 163 stub pages on deploy day.&lt;&#x2F;p&gt;
+&lt;p&gt;We did not add a custom domain. &lt;code&gt;prismatic-reality.com&lt;&#x2F;code&gt;&#x27;s DNS still points at Fly.io. The github.io URL is stable, indexable, and unambiguous. A custom domain is an addition, not a blocker.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-result&quot;&gt;The Result&lt;&#x2F;h2&gt;
+&lt;p&gt;The site serves 2,808 pages; 3,216 unique internal hrefs all return 200; 112 are trailing-slash redirects that resolve normally; zero genuine 404s.&lt;&#x2F;p&gt;
+&lt;p&gt;Every link works. That is the deliverable. Everything else is narrative.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Broadway Pipelines for Continuous OSINT: Backpressure Is a Feature</title>
         <published>2026-04-09T00:00:00+00:00</published>
@@ -2646,7 +2715,7 @@
         <content type="html" xml:base="https://prismatic-reality-com.github.io/prismatic-promo/blog/building-intelligence-platform-with-elixir/">&lt;p&gt;When we started building Prismatic Platform, the technology choice was not obvious. Intelligence platforms typically use Python (for its ML ecosystem), Java (for enterprise credibility), or Go (for performance). We chose Elixir and the BEAM virtual machine. Two years and 94 OTP applications later, this post explains why -- and what we have learned.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;the-intelligence-platform-requirements&quot;&gt;The Intelligence Platform Requirements&lt;&#x2F;h2&gt;
 &lt;p&gt;An intelligence platform has unusual technical requirements:&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;strong&gt;High concurrency with heterogeneous workloads&lt;&#x2F;strong&gt;: 157 OSINT adapters querying different APIs simultaneously, each with different rate limits, response times, and failure modes. Python&#x27;s GIL and Go&#x27;s goroutines handle concurrency differently, but neither provides the per-connection fault isolation that intelligence gathering demands.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;High concurrency with heterogeneous workloads&lt;&#x2F;strong&gt;: 128 OSINT adapters querying different APIs simultaneously, each with different rate limits, response times, and failure modes. Python&#x27;s GIL and Go&#x27;s goroutines handle concurrency differently, but neither provides the per-connection fault isolation that intelligence gathering demands.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;strong&gt;Fault tolerance at the connection level&lt;&#x2F;strong&gt;: When one OSINT adapter fails (API timeout, rate limit, authentication error), the failure must not affect other adapters. In a traditional architecture, a stuck HTTP connection can consume a thread pool and cascade to unrelated operations.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;strong&gt;Real-time data streaming&lt;&#x2F;strong&gt;: Due diligence dashboards, error feeds, and OSINT tool execution all require real-time updates. WebSocket connections must remain stable for hours while the server processes concurrent requests.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;strong&gt;Long-running processes&lt;&#x2F;strong&gt;: Entity resolution, graph analysis, and DD pipeline execution can run for minutes. These processes must be monitorable, cancellable, and resilient to partial failures.&lt;&#x2F;p&gt;
@@ -3789,7 +3858,7 @@
         <link rel="alternate" type="text/html" href="https://prismatic-reality-com.github.io/prismatic-promo/blog/mcp-integration-connecting-ai-to-tools/"/>
         <id>https://prismatic-reality-com.github.io/prismatic-promo/blog/mcp-integration-connecting-ai-to-tools/</id>
         
-        <content type="html" xml:base="https://prismatic-reality-com.github.io/prismatic-promo/blog/mcp-integration-connecting-ai-to-tools/">&lt;p&gt;The Model Context Protocol (MCP) is a standard for connecting AI assistants to external tools and data sources. Prismatic implements MCP to expose its 157 OSINT adapters, DD pipeline, and platform capabilities as tools that AI assistants like Claude can invoke directly. This post explains the integration architecture.&lt;&#x2F;p&gt;
+        <content type="html" xml:base="https://prismatic-reality-com.github.io/prismatic-promo/blog/mcp-integration-connecting-ai-to-tools/">&lt;p&gt;The Model Context Protocol (MCP) is a standard for connecting AI assistants to external tools and data sources. Prismatic implements MCP to expose its 128 OSINT adapters, DD pipeline, and platform capabilities as tools that AI assistants like Claude can invoke directly. This post explains the integration architecture.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;what-is-mcp&quot;&gt;What Is MCP?&lt;&#x2F;h2&gt;
 &lt;p&gt;MCP defines a JSON-RPC based protocol for tool invocation:&lt;&#x2F;p&gt;
 &lt;ol&gt;
@@ -3827,7 +3896,7 @@
 &lt;h2 id=&quot;tool-categories&quot;&gt;Tool Categories&lt;&#x2F;h2&gt;
 &lt;p&gt;Prismatic exposes tools across four categories:&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;osint-tools-157&quot;&gt;OSINT Tools (157)&lt;&#x2F;h3&gt;
-&lt;p&gt;Each of the 157 OSINT adapters becomes an MCP tool:&lt;&#x2F;p&gt;
+&lt;p&gt;Each of the 128 OSINT adapters becomes an MCP tool:&lt;&#x2F;p&gt;
 &lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;json&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation&quot;&gt;{&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation&quot;&gt;  &amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-type z-property-name z-json&quot;&gt;name&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;quot;: &amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt;osint_czech_ares&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;quot;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation&quot;&gt;  &amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-support z-type z-property-name z-json&quot;&gt;description&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;quot;: &amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt;Query Czech ARES business registry for company information&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;quot;,&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
@@ -3919,7 +3988,7 @@
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-comment&quot;&gt;# 3. AI assistants discover it on next connection&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;This zero-configuration approach means the AI&#x27;s capabilities grow automatically with the platform.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
-&lt;p&gt;MCP transforms Prismatic from a platform you interact with through a web interface into a toolkit that AI assistants can use programmatically. The 157 OSINT adapters, DD pipeline, and security tools become capabilities that any MCP-compatible AI can leverage -- making intelligence analysis accessible through natural language conversation.&lt;&#x2F;p&gt;
+&lt;p&gt;MCP transforms Prismatic from a platform you interact with through a web interface into a toolkit that AI assistants can use programmatically. The 128 OSINT adapters, DD pipeline, and security tools become capabilities that any MCP-compatible AI can leverage -- making intelligence analysis accessible through natural language conversation.&lt;&#x2F;p&gt;
 &lt;hr &#x2F;&gt;
 &lt;p&gt;&lt;em&gt;Configure MCP in your AI assistant using the &lt;a href=&quot;&#x2F;developers&#x2F;mcp&#x2F;&quot;&gt;MCP Guide&lt;&#x2F;a&gt; or browse available tools at &lt;a href=&quot;&#x2F;api&#x2F;&quot;&gt;API Documentation&lt;&#x2F;a&gt;.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 </content>
@@ -6151,6 +6220,24 @@
 &lt;li&gt;&lt;strong&gt;Investigation Pipeline&lt;&#x2F;strong&gt; -- deep investigations, evidence chains&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 &lt;p&gt;Each pipeline can invoke &lt;code&gt;DecisionEngine.run_full_pipeline&#x2F;2&lt;&#x2F;code&gt; with its domain-specific criteria.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;running-it-yourself-april-2026-update&quot;&gt;Running It Yourself (April 2026 update)&lt;&#x2F;h2&gt;
+&lt;p&gt;The single-entry orchestrator &lt;code&gt;PrismaticDd.QuickInvestigate&lt;&#x2F;code&gt; wraps the full 10-stage pipeline into one call. From an IEx session:&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;iex&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-punctuation z-constant z-other z-symbol&quot;&gt;&amp;gt; {:ok,&lt;&#x2F;span&gt;&lt;span&gt; envelope&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-keyword&quot;&gt;} =&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt; PrismaticDd&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt;QuickInvestigate&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-function&quot;&gt;run&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;(&amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt;29155142&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;quot;)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;iex&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; envelope&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;recommendation&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;verdict&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-comment&quot;&gt;# :risk&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;iex&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; envelope&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;scorecard&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;total_score&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-comment&quot;&gt;# 67&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;iex&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span&gt; envelope&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;recommendation&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span&gt;reason&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-comment&quot;&gt;# &amp;quot;Legal compliance risks detected; 3 cross-validated flags from 5 sources&amp;quot;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;The default preset &lt;code&gt;:top5_czech&lt;&#x2F;code&gt; queries ARES (business registry) + ISIR (insolvency) + CEDR (subsidies) + OrRegistry (commercial) + CNB (financial sector). The DDLevel L5 gate enforces cross-validation: only claims backed by 2+ independent sources with confidence 0.7 pass. The resulting &lt;code&gt;EvidenceBundle&lt;&#x2F;code&gt; feeds into the pipeline exactly as described above.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Preset options:&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;:top5_czech&lt;&#x2F;code&gt; (default) --- fastest, covers 90% of Czech corporate DD&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;:all_czech&lt;&#x2F;code&gt; --- all registered Czech adapters for the target type&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;:registry_only&lt;&#x2F;code&gt; --- ARES + OrRegistry + RejstrikFirem (sub-5s)&lt;&#x2F;li&gt;
+&lt;li&gt;Custom module list: &lt;code&gt;run(&quot;29155142&quot;, [Czech.Ares, Czech.Cedr])&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;For LiveView integration use &lt;code&gt;QuickInvestigate.run_async&#x2F;2&lt;&#x2F;code&gt; which returns immediately and broadcasts &lt;code&gt;{:quick_done, envelope}&lt;&#x2F;code&gt; or &lt;code&gt;{:quick_error, reason}&lt;&#x2F;code&gt; on a per-run PubSub topic.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;&#x2F;h2&gt;
 &lt;p&gt;The Decision Engine transforms Prismatic from an intelligence collection platform into a decision support system. By combining scoring, hypothesis testing, uncertainty estimation, and traceable explanations, it provides analysts with the structured analysis they need to make confident decisions -- while being transparent about the limits of that confidence.&lt;&#x2F;p&gt;
 &lt;hr &#x2F;&gt;
@@ -6411,7 +6498,7 @@
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;On-premise processing&lt;&#x2F;strong&gt;: All visitor data must stay within our infrastructure. No third-party JavaScript, no external beacons.&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Real-time anomaly detection&lt;&#x2F;strong&gt;: We need to identify suspicious patterns as they happen, not in a daily report.&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Integration with OSINT&lt;&#x2F;strong&gt;: Visitor intelligence feeds into our broader intelligence pipeline. A suspicious IP should automatically trigger enrichment through our 157 OSINT adapters.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Integration with OSINT&lt;&#x2F;strong&gt;: Visitor intelligence feeds into our broader intelligence pipeline. A suspicious IP should automatically trigger enrichment through our 128 OSINT adapters.&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;GDPR by architecture&lt;&#x2F;strong&gt;: Privacy compliance should be a structural property of the system, not a checkbox.&lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
 &lt;h2 id=&quot;architecture&quot;&gt;Architecture&lt;&#x2F;h2&gt;
@@ -10259,7 +10346,7 @@
         <link rel="alternate" type="text/html" href="https://prismatic-reality-com.github.io/prismatic-promo/blog/osint-mesh-multi-source-correlation/"/>
         <id>https://prismatic-reality-com.github.io/prismatic-promo/blog/osint-mesh-multi-source-correlation/</id>
         
-        <content type="html" xml:base="https://prismatic-reality-com.github.io/prismatic-promo/blog/osint-mesh-multi-source-correlation/">&lt;p&gt;A single OSINT source tells you a fact. Multiple sources tell you a story. The mesh pattern is Prismatic&#x27;s approach to correlating intelligence across 157 adapters to discover connections that no single source reveals.&lt;&#x2F;p&gt;
+        <content type="html" xml:base="https://prismatic-reality-com.github.io/prismatic-promo/blog/osint-mesh-multi-source-correlation/">&lt;p&gt;A single OSINT source tells you a fact. Multiple sources tell you a story. The mesh pattern is Prismatic&#x27;s approach to correlating intelligence across 128 adapters to discover connections that no single source reveals.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;the-mesh-pattern&quot;&gt;The Mesh Pattern&lt;&#x2F;h2&gt;
 &lt;p&gt;Traditional OSINT workflows are linear: query a source, read the results, query the next source. The mesh pattern is parallel and iterative:&lt;&#x2F;p&gt;
 &lt;ol&gt;
@@ -10360,7 +10447,7 @@
 &lt;&#x2F;ul&gt;
 &lt;p&gt;&lt;strong&gt;Result&lt;&#x2F;strong&gt;: A mesh of 8 entities with 12 relationships, revealing that the target company shares infrastructure and directors with a company in insolvency proceedings -- a risk signal that no single source would surface.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;rate-limiting-and-resource-management&quot;&gt;Rate Limiting and Resource Management&lt;&#x2F;h2&gt;
-&lt;p&gt;Expanding a mesh across 157 adapters requires careful resource management:&lt;&#x2F;p&gt;
+&lt;p&gt;Expanding a mesh across 128 adapters requires careful resource management:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Adapter-level rate limits&lt;&#x2F;strong&gt;: Declared in metadata, enforced by the pipeline&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;Global concurrency limits&lt;&#x2F;strong&gt;: Maximum 50 concurrent adapter calls&lt;&#x2F;li&gt;
@@ -11281,8 +11368,21 @@
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-string&quot;&gt;  -H&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt; &amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt;Content-Type: application&#x2F;json&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-character z-escape&quot;&gt; \&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-string&quot;&gt;  -d&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt; &amp;#39;&lt;&#x2F;span&gt;&lt;span class=&quot;z-string&quot;&gt;{&amp;quot;slug&amp;quot;: &amp;quot;czech-ares&amp;quot;, &amp;quot;input&amp;quot;: {&amp;quot;query&amp;quot;: &amp;quot;27082440&amp;quot;}, &amp;quot;params&amp;quot;: {}}&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;Or use the interactive toolbox at &lt;code&gt;&#x2F;hub&#x2F;osint&#x2F;tools&lt;&#x2F;code&gt; to explore all Czech adapters with a visual interface.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;elixir-acronym-aliases-the-isir-casing-lesson-2026-04-24&quot;&gt;Elixir Acronym Aliases: The &lt;code&gt;ISIR&lt;&#x2F;code&gt; Casing Lesson (2026-04-24)&lt;&#x2F;h2&gt;
+&lt;p&gt;A subtle bug hid in the compliance platform for months. Callers reference &lt;code&gt;PrismaticOsintSources.Adapters.Czech.ISIR&lt;&#x2F;code&gt; (all-caps, the natural Czech acronym form). But Elixir&#x27;s module-case convention derives module names from filenames: &lt;code&gt;isir.ex&lt;&#x2F;code&gt; -&amp;gt; &lt;code&gt;Isir&lt;&#x2F;code&gt;, not &lt;code&gt;ISIR&lt;&#x2F;code&gt;. The compiler flags &lt;code&gt;ISIR.search&#x2F;1&lt;&#x2F;code&gt; as undefined but defers the crash to runtime.&lt;&#x2F;p&gt;
+&lt;p&gt;On a production call this would &lt;code&gt;UndefinedFunctionError&lt;&#x2F;code&gt; the instant the polling worker asks ISIR for insolvency updates. Silent until it isn&#x27;t.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;The fix is a backward-compatible alias:&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt;alias&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt; PrismaticOsintSources&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt;Adapters&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt;Czech&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;.{&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt;Ares&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;,&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt; CommercialRegister&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;,&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt; Isir&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;}&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt;alias&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt; Isir&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;,&lt;&#x2F;span&gt;&lt;span&gt; as&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;:&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt; ISIR&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;With this, every caller that types the acronym form (&lt;code&gt;ISIR.search_by_ico(ico)&lt;&#x2F;code&gt;, &lt;code&gt;ISIR.health_check()&lt;&#x2F;code&gt;, etc.) resolves to the real &lt;code&gt;Isir&lt;&#x2F;code&gt; module --- no call-site rewrites, no breakage. Nine files across &lt;code&gt;prismatic_cer&lt;&#x2F;code&gt; + &lt;code&gt;prismatic_osint_czech_legal&lt;&#x2F;code&gt; carried the bug; all fixed in one sweep.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Lesson:&lt;&#x2F;strong&gt; when a Czech (or any) registry uses an all-caps acronym (ARES, ISIR, CEDR, RZP, DPH, CNB, CTU, CUZK, ISVS, RES, UOHS, SUKL, SZIF), pick one stance and hold it:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;CamelCase module, acronym alias per file&lt;&#x2F;strong&gt; --- what we adopted, works everywhere.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;All-caps module names&lt;&#x2F;strong&gt; --- feasible but fights Elixir&#x27;s code-generators (mix phx.gen.* emit CamelCase), breaks test generators, and surprises any newcomer who skimmed the docs once.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;Option 1 wins. Always name the file &lt;code&gt;isir.ex&lt;&#x2F;code&gt;, make the module &lt;code&gt;Isir&lt;&#x2F;code&gt;, and drop &lt;code&gt;alias Isir, as: ISIR&lt;&#x2F;code&gt; where legacy naming bleeds through.&lt;&#x2F;p&gt;
 &lt;hr &#x2F;&gt;
-&lt;p&gt;&lt;em&gt;Browse all 157 OSINT adapters at &lt;a href=&quot;&#x2F;osint&#x2F;&quot;&gt;OSINT Sources&lt;&#x2F;a&gt; or learn adapter development in the &lt;a href=&quot;&#x2F;academy&#x2F;&quot;&gt;Interactive Academy&lt;&#x2F;a&gt;.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;em&gt;Browse all 128 OSINT adapters at &lt;a href=&quot;&#x2F;osint&#x2F;&quot;&gt;OSINT Sources&lt;&#x2F;a&gt; or learn adapter development in the &lt;a href=&quot;&#x2F;academy&#x2F;&quot;&gt;Interactive Academy&lt;&#x2F;a&gt;.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
 </content>
         
     </entry>
@@ -12281,7 +12381,7 @@
 &lt;p&gt;&lt;strong&gt;Aleatoric uncertainty&lt;&#x2F;strong&gt; reflects inherent ambiguity. Two companies with the same name in the same city might genuinely be different entities. No amount of additional data eliminates this uncertainty.&lt;&#x2F;p&gt;
 &lt;p&gt;The distinction matters for decision-making: epistemic uncertainty suggests we should gather more data, while aleatoric uncertainty suggests we should present both possibilities to the analyst.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;cross-source-verification&quot;&gt;Cross-Source Verification&lt;&#x2F;h2&gt;
-&lt;p&gt;Prismatic&#x27;s 157 OSINT adapters span six categories:&lt;&#x2F;p&gt;
+&lt;p&gt;Prismatic&#x27;s 128 OSINT adapters span six categories:&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Czech registries&lt;&#x2F;strong&gt; (ARES, Justice, Trade Register, Insolvency)&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;strong&gt;EU sources&lt;&#x2F;strong&gt; (OpenCorporates, EIOPA, ECB)&lt;&#x2F;li&gt;
@@ -15511,7 +15611,7 @@
         <link rel="alternate" type="text/html" href="https://prismatic-reality-com.github.io/prismatic-promo/blog/ets-backed-registries-sub-millisecond-access/"/>
         <id>https://prismatic-reality-com.github.io/prismatic-promo/blog/ets-backed-registries-sub-millisecond-access/</id>
         
-        <content type="html" xml:base="https://prismatic-reality-com.github.io/prismatic-promo/blog/ets-backed-registries-sub-millisecond-access/">&lt;p&gt;Erlang Term Storage (ETS) is one of the most underappreciated features of the BEAM virtual machine. While most Elixir tutorials mention it briefly, few explore its use as a high-performance registry for application data. This post describes how Prismatic uses ETS tables to serve 552 agents, 157 OSINT adapters, and blog articles with sub-millisecond access times.&lt;&#x2F;p&gt;
+        <content type="html" xml:base="https://prismatic-reality-com.github.io/prismatic-promo/blog/ets-backed-registries-sub-millisecond-access/">&lt;p&gt;Erlang Term Storage (ETS) is one of the most underappreciated features of the BEAM virtual machine. While most Elixir tutorials mention it briefly, few explore its use as a high-performance registry for application data. This post describes how Prismatic uses ETS tables to serve 552 agents, 128 OSINT adapters, and blog articles with sub-millisecond access times.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;why-not-genserver&quot;&gt;Why Not GenServer?&lt;&#x2F;h2&gt;
 &lt;p&gt;The instinct in Elixir is to reach for a GenServer when you need shared state. For registries, this creates a bottleneck:&lt;&#x2F;p&gt;
 &lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-comment&quot;&gt;# Anti-pattern: GenServer as read-heavy registry&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
@@ -16879,7 +16979,7 @@
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Layer 3: Domain (35 apps)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_osint_core           # OSINT framework&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_osint_sources        # 157 OSINT adapters&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
+&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_osint_sources        # 128 OSINT adapters&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_compliance           # NIS2&#x2F;ZKB compliance&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_dd                   # Due diligence engine&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_perimeter            # EASM system&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
@@ -19048,7 +19148,7 @@
 &lt;h3 id=&quot;dependency-hardening&quot;&gt;Dependency Hardening&lt;&#x2F;h3&gt;
 &lt;p&gt;Retired the deprecated &lt;code&gt;prometheus&lt;&#x2F;code&gt; library in favor of native &lt;code&gt;:telemetry&lt;&#x2F;code&gt;. Zero retired packages now appear in &lt;code&gt;mix hex.audit&lt;&#x2F;code&gt;.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;documentation-coverage&quot;&gt;Documentation Coverage&lt;&#x2F;h3&gt;
-&lt;p&gt;Achieved &lt;strong&gt;100% documentation coverage&lt;&#x2F;strong&gt; -- all 115 umbrella apps now have both &lt;code&gt;CLAUDE.md&lt;&#x2F;code&gt; and &lt;code&gt;README.md&lt;&#x2F;code&gt; files.&lt;&#x2F;p&gt;
+&lt;p&gt;Achieved &lt;strong&gt;100% documentation coverage&lt;&#x2F;strong&gt; -- all 94 umbrella apps now have both &lt;code&gt;CLAUDE.md&lt;&#x2F;code&gt; and &lt;code&gt;README.md&lt;&#x2F;code&gt; files.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;fitness-score-progression&quot;&gt;Fitness Score Progression&lt;&#x2F;h2&gt;
 &lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Generation&lt;&#x2F;th&gt;&lt;th&gt;Fitness&lt;&#x2F;th&gt;&lt;th&gt;Key Achievement&lt;&#x2F;th&gt;&lt;&#x2F;tr&gt;&lt;&#x2F;thead&gt;&lt;tbody&gt;
 &lt;tr&gt;&lt;td&gt;Gen 1&lt;&#x2F;td&gt;&lt;td&gt;0.500&lt;&#x2F;td&gt;&lt;td&gt;Initial architecture&lt;&#x2F;td&gt;&lt;&#x2F;tr&gt;
