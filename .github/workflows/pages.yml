@@ -41,8 +41,18 @@ jobs:
         run: |
           zola build --base-url "${BASE_URL}" --output-dir public
 
-      - name: Post-build glossary-hover guard
+      - name: Post-build subpath prefix + glossary-hover guard
         run: |
+          # Zola 0.22.1 emits `@/path.md` links as bare root-relative paths
+          # (e.g. `/glossary/nm-nd/`) when deployed under a subpath. Without
+          # this patch, every internal link in content markdown breaks on
+          # the GitHub Pages subpath deploy (resolves to github.io/<path>
+          # instead of github.io/prismatic-promo/<path>). The regex prefixes
+          # any bare `/x...` href/src that isn't already `/prismatic-promo/`
+          # or protocol-relative `//`.
+          find public -name '*.html' -print0 | xargs -0 perl -i -pe 's/\b(href|src)=(\/)(?!prismatic-promo\/)(?!\/)/\1=\/prismatic-promo\//g; s/\b(href|src)="(\/)(?!prismatic-promo\/)(?!\/)/\1="\/prismatic-promo\//g'
+          find public -name '*.css'  -print0 | xargs -0 perl -i -pe 's/url\(\/(?!prismatic-promo\/)/url(\/prismatic-promo\//g'
+          # Glossary-hover JS guard: e.target may be a text node without .closest
           find public -name '*.html' -print0 | xargs -0 perl -i -pe "s{const link = e\.target\.closest}{const el = e.target.nodeType === 1 ? e.target : e.target.parentElement; const link = el \&\& el.closest}g"
 
       - name: Guard against Jekyll processing
