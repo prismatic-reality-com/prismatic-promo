@@ -209,7 +209,7 @@ The auto-generated OpenAPI 3.0 spec is available at:
 curl http://localhost:4004/api/openapi
 
 # Interactive Swagger UI
-open http://localhost:4004/api/swaggerui
+open http://localhost:4004/api/swagger-ui
 ```
 
 The spec includes:
@@ -450,7 +450,7 @@ curl -s -X POST http://localhost:4004/api/v1/perimeter/assess_compliance \
 
 ## Exercises
 
-1. **Explore the Swagger UI.** Open `http://localhost:4004/api/swaggerui` and try calling three different endpoints. Observe how the request/response schemas match the Elixir typespecs.
+1. **Explore the Swagger UI.** Open `http://localhost:4004/api/swagger-ui` and try calling three different endpoints. Observe how the request/response schemas match the Elixir typespecs.
 
 2. **Add a new endpoint.** Create a new public function on any `Prismatic*` facade module with a `@doc` and `@spec`. Recompile and verify it appears in the endpoint list.
 
@@ -470,7 +470,7 @@ Key takeaways:
 - `@spec` drives OpenAPI schema generation
 - `@doc` drives OpenAPI documentation
 - GET for 0-2 params, POST for 3+ params
-- Swagger UI available at `/api/swaggerui`
+- Swagger UI available at `/api/swagger-ui`
 - Add endpoints by adding public functions to facade modules
 
 ## Practical Implementation
@@ -479,7 +479,7 @@ Key takeaways:
 
 The auto-introspecting API is built on these applications:
 
-- **prismatic_api** (`apps/prismatic_api/`) -- The standalone Phoenix app running on port 4004. Contains `PrismaticApi.Scanner` for boot-time module introspection, `PrismaticApi.Registry` (ETS-backed) for endpoint storage, `PrismaticApi.DispatchController` for generic routing, and `PrismaticApi.TypeMapper` for Elixir `@spec` to OpenAPI schema conversion. Swagger UI at `/api/swaggerui`
+- **prismatic_api** (`apps/prismatic_api/`) -- The standalone Phoenix app running on port 4004. Contains `PrismaticApi.Scanner` for boot-time module introspection, `PrismaticApi.Registry` (ETS-backed) for endpoint storage, `PrismaticApi.DispatchController` for generic routing, and `PrismaticApi.TypeMapper` for Elixir `@spec` to OpenAPI schema conversion. Swagger UI at `/api/swagger-ui`
 - **prismatic_perimeter** (`apps/prismatic_perimeter/`) -- Primary facade module whose public functions (`discover/1`, `security_rating/1`, `assess_compliance/2`) are automatically discovered and exposed as REST endpoints
 - **prismatic_dd** (`apps/prismatic_dd/`) -- DD facade module providing `create_case/1`, `add_entity/2`, `investigate/1` exposed automatically via the API
 - **prismatic_auth** (`apps/prismatic_auth/`) -- Authentication infrastructure supporting Bearer token validation, RBAC permissions, and API key management used by `PrismaticApi.Plugs.Auth`
@@ -514,7 +514,7 @@ curl http://localhost:4004/api/v1/endpoints
 curl http://localhost:4004/api/openapi
 
 # Interactive Swagger UI
-open http://localhost:4004/api/swaggerui
+open http://localhost:4004/api/swagger-ui
 ```
 
 ## See Also

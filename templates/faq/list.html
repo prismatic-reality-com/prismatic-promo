@@ -2,7 +2,22 @@
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
 
-{% block title %}FAQ - {{ config.title }}{% endblock %}
+{% import "macros/social.html" as social %}
+
+{% block title %}FAQ — Common Questions | Prismatic Platform{% endblock %}
+
+{% block meta %}
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=config.base_url ~ "/faq/",
+     title="FAQ — Common Questions | Prismatic Platform",
+     description="Answers on platform capabilities, architecture, integration patterns, OSINT sources, agent deployment, due diligence workflows, and the AIAD quality doctrine.",
+     image="/images/sections/faq.png",
+     image_alt="Prismatic FAQ — Frequently Asked Questions",
+     keywords=["prismatic FAQ", "platform questions", "OSINT FAQ", "architecture FAQ", "integration help", "platform documentation"]
+) | safe }}
+{% endblock meta %}
+
 
 {% block content %}
 <div x-data="faqApp()" x-cloak>

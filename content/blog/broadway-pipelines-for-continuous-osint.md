@@ -80,8 +80,8 @@ Every message that fails after retries ends up in a dead-letter Postgres table �
 
 ## Where to go next
 
-- **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — the write side of the pipeline
-- **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — GenStage / Broadway foundations
+- **Academy**: [Storage Patterns](/academy/storage-patterns) — the write side of the pipeline
+- **Academy**: [OTP Fundamentals](/academy/otp-fundamentals) — GenStage / Broadway foundations
 - **Glossary**: [Broadway](@/glossary/broadway.md), [GenStage](@/glossary/genstage.md), [Backpressure](@/glossary/backpressure.md), [Pipeline](@/glossary/pipeline.md), [Rate Limiting](@/glossary/rate-limiting.md)
 
 The slowest stage sets the tempo. Plan for it. The pipeline will thank you at 3am.

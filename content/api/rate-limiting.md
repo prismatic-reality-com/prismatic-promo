@@ -91,7 +91,7 @@ Retry-After: 12
 | `POST /api/v1/perimeter/compliance` | 30/token | 1 min | 3/s | Restricted |
 | `POST /api/v1/auth/tokens` | 10/token | 1 min | 2/s | Minimal |
 | `GET /api/openapi` | 30/IP | 1 min | 5/s | Standard |
-| `GET /api/swaggerui` | 30/IP | 1 min | 5/s | Standard |
+| `GET /api/swagger-ui` | 30/IP | 1 min | 5/s | Standard |
 
 ### Global Limits
 

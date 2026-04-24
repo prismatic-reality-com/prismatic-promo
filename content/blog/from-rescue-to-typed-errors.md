@@ -79,7 +79,7 @@ Without the regression test, the next refactor reintroduces a bare rescue becaus
 
 ## Where to go next
 
-- **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — supervisors and crash recovery
+- **Academy**: [OTP Fundamentals](/academy/otp-fundamentals) — supervisors and crash recovery
 - **Glossary**: [Error Handling](@/glossary/error-handling.md), [Zero Tolerance](@/glossary/zero-tolerance.md), [ExUnit](@/glossary/exunit.md), [Observability](@/glossary/observability.md), [Structured Logging](@/glossary/structured-logging.md)
 
 6,000 silent failures caught nothing and explained nothing. Typed errors catch the right things and explain the rest. Pick the second one.

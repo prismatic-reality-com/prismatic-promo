@@ -410,7 +410,7 @@ When a new developer joins a team working on the Prismatic Platform, knowledge h
 - Run `mix git_trees apps` to understand the codebase structure
 - Browse the promo site glossary for concept definitions
 - Search session context for past decision rationale
-- Use the API self-documentation at `/api/swaggerui`
+- Use the API self-documentation at `/api/swagger-ui`
 
 ### Incident Response
 

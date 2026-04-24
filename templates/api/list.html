@@ -2,13 +2,23 @@
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
 
-{% block title %}API Reference - Prismatic Platform{% endblock %}
+{% import "macros/social.html" as social %}
+
+{% block title %}API — Auto-Introspecting REST Gateway | Prismatic Platform{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Auto-introspecting REST gateway with OpenAPI 3.0 documentation">
-<meta property="og:title" content="API Reference - Prismatic Platform">
-<meta property="og:description" content="Auto-introspecting REST gateway with OpenAPI 3.0 documentation">
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=config.base_url ~ "/api/",
+     title="API — Auto-Introspecting REST Gateway | Prismatic Platform",
+     description="Self-documenting REST API with OpenAPI 3.0, scanner-registry-dispatch pattern exposing 128 OSINT adapters, and live WebSocket streams. Built for programmatic intelligence at scale.",
+     image="/images/sections/api.png",
+     image_alt="Prismatic API — Auto-Introspecting REST Gateway",
+     keywords=["prismatic API", "REST gateway", "OpenAPI 3.0", "OSINT API", "intelligence API", "Phoenix API", "scanner registry dispatch"]
+) | safe }}
 {% endblock meta %}
+
+
 
 {% block content %}
 <!-- Hero Section -->

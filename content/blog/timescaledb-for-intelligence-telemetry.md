@@ -79,7 +79,7 @@ Data older than 90 days is dropped chunk-by-chunk. No cron. No `DELETE` storm. N
 
 ## Where to go next
 
-- **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — when hypertables belong in the mix
+- **Academy**: [Storage Patterns](/academy/storage-patterns) — when hypertables belong in the mix
 - **Glossary**: [TimescaleDB](@/glossary/timescaledb.md), [Time Series](@/glossary/time-series.md), [PostgreSQL](@/glossary/postgresql.md), [Telemetry](@/glossary/telemetry.md), [Metrics](@/glossary/metrics.md)
 
 Same database. New access pattern. No new operations surface.

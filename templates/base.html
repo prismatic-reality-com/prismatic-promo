@@ -154,9 +154,10 @@
     {% endif %}
     <meta name="twitter:creator" content="@korczis">
 
-    {% endblock meta %}
-
-    {# Per-page keywords from frontmatter extra.keywords (outside meta block so detail templates inherit) #}
+    {# Per-page keywords + article namespace + canonical (only emitted if the
+       child template did NOT override {% block meta %} — the macros in
+       macros/social.html handle these for override templates). This block
+       stays INSIDE {% block meta %} so child overrides replace it cleanly. #}
     {% if page.extra.keywords %}
     <meta name="keywords" content="{{ page.extra.keywords | join(sep=', ') }}">
     {% elif section.extra.keywords %}
@@ -166,7 +167,6 @@
         content="AI orchestration, Elixir, OSINT, security, intelligence platform, autonomous agents, Phoenix LiveView, enterprise AI, self-evolving systems">
     {% endif %}
 
-    {# Article tags for OG (outside meta block so detail templates inherit) #}
     {% if page.extra.tags %}
     {% for tag in page.extra.tags %}
     <meta property="article:tag" content="{{ tag }}">
@@ -177,6 +177,7 @@
     <meta name="author" content="{{ config.extra.author }}">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <link rel="canonical" href="{{ current_url | default(value=config.base_url ~ '/') }}">
+    {% endblock meta %}
 
     {# Atom Feed discovery #}
     <link rel="alternate" type="application/atom+xml" title="Prismatic Platform Feed" href="{{ config.base_url | safe }}/atom.xml">

@@ -74,7 +74,7 @@ Business logic lives in contexts. LiveView orchestrates. If you find yourself co
 
 ## Where to go next
 
-- **Academy**: [LiveView Dashboards](/academy/learn/liveview-dashboards) — the LiveView side of /hub
+- **Academy**: [LiveView Dashboards](/academy/liveview-dashboards) — the LiveView side of /hub
 - **Glossary**: [LiveView](@/glossary/liveview.md), [Phoenix](@/glossary/phoenix.md), [GenServer](@/glossary/genserver.md), [OTP](@/glossary/otp.md)
 
 Five patterns, one rule: the UI must fail open, never block, and never lie about state. Everything else is details.

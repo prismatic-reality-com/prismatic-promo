@@ -78,7 +78,7 @@ The dashboard groups by topic. A topic that suddenly starts broadcasting 10× mo
 
 ## Where to go next
 
-- **Academy**: [LiveView Dashboards](/academy/learn/liveview-dashboards) — consuming PubSub in LiveView
+- **Academy**: [LiveView Dashboards](/academy/liveview-dashboards) — consuming PubSub in LiveView
 - **Glossary**: [PubSub](@/glossary/pubsub.md), [Phoenix](@/glossary/phoenix.md), [LiveView](@/glossary/liveview.md), [Observability](@/glossary/observability.md), [Performance](@/glossary/performance.md)
 
 Topics are a contract. Payloads are copies. Broadcast accordingly.

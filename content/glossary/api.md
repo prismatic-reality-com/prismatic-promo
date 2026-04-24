@@ -398,7 +398,7 @@ Scanner → Registry (ETS) → DispatchController → safe_apply(Module, :functi
 | `/api/v1/endpoints` | GET | List all discovered endpoints |
 | `/api/v1/:app/:action` | GET/POST | Generic dispatch to any facade function |
 | `/api/openapi` | GET | OpenAPI 3.0 JSON specification |
-| `/api/swaggerui` | GET | Interactive API documentation |
+| `/api/swagger-ui` | GET | Interactive API documentation |
 
 ## API Testing Strategies
 

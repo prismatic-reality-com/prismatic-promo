@@ -331,7 +331,7 @@ The platform provides 15+ dashboard views, each serving a distinct operational p
 | **Agent Monitor** | `/agents` | Operational | Agent status, executions/sec, error rates |
 | **Quality Metrics** | `/quality` | Strategic | 13 domain scores, trend lines, debt tracking |
 | **Labs Playground** | `/labs` | Analytical | Experimental features, A/B metrics |
-| **API Explorer** | `/api/swaggerui` | Analytical | Endpoint discovery, request/response |
+| **API Explorer** | `/api/swagger-ui` | Analytical | Endpoint discovery, request/response |
 
 Each dashboard follows the same LiveView pattern: mount with loading state, subscribe to PubSub topics, handle periodic refreshes, and respond to user interaction events.
 

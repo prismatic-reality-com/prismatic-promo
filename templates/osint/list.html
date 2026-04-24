@@ -2,6 +2,22 @@
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
 
+{% import "macros/social.html" as social %}
+
+{% block title %}OSINT — 128 Self-Registering Intelligence Sources | Prismatic Platform{% endblock %}
+
+{% block meta %}
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=config.base_url ~ "/osint/",
+     title="OSINT — 128 Self-Registering Intelligence Sources | Prismatic Platform",
+     description="Comprehensive OSINT catalog: 47 Czech registries (ARES, ISIR, Justice.cz), global threat intel, sanctions screening, domain/email/IP verification, financial data, social signals. All adapters auto-register at runtime.",
+     image="/images/sections/osint.png",
+     image_alt="Prismatic OSINT — 128 Intelligence Sources",
+     keywords=["OSINT sources", "Czech ARES", "ISIR insolvency", "sanctions screening", "threat intelligence", "domain intelligence", "email verification", "beneficial ownership OSINT"]
+) | safe }}
+{% endblock meta %}
+
 {% block content %}
 <!-- Hero Section -->
 <section class="bg-gray-900 py-10 sm:py-16 lg:py-20 border-b border-white/5 overflow-hidden">

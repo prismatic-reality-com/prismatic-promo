@@ -105,7 +105,7 @@ Registry (ETS) ──────────────────► Dispatc
 TypeMapper ──► OpenApiSpex Schema   safe_apply(Module, :function, args) ──► JSON
     │
     ▼
-ApiSpec ──► SwaggerUI (/api/swaggerui)
+ApiSpec ──► SwaggerUI (/api/swagger-ui)
 ```
 
 ### Auto-Discovery Scanner
@@ -543,7 +543,7 @@ The ETS-backed endpoint registry provides O(1) lookup for endpoint resolution, e
 
 ## OpenAPI Integration
 
-The Prismatic API generates a complete OpenAPI 3.0 specification from discovered endpoints, including request/response schemas derived from Elixir typespecs. The specification is available at `/api/openapi` (JSON) and rendered interactively at `/api/swaggerui`.
+The Prismatic API generates a complete OpenAPI 3.0 specification from discovered endpoints, including request/response schemas derived from Elixir typespecs. The specification is available at `/api/openapi` (JSON) and rendered interactively at `/api/swagger-ui`.
 
 This auto-generated specification can be used to:
 

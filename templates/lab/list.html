@@ -2,14 +2,23 @@
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
 
-{% block title %}Lab - Prismatic Platform{% endblock %}
+{% import "macros/social.html" as social %}
+
+{% block title %}Lab — Experimental Sandbox | Prismatic Platform{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Experimental sandbox for prototyping agent workflows and validating hypotheses">
-<meta property="og:title" content="Lab - Prismatic Platform">
-<meta property="og:description"
-    content="Experimental sandbox for prototyping agent workflows and validating hypotheses">
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=config.base_url ~ "/lab/",
+     title="Lab — Experimental Sandbox | Prismatic Platform",
+     description="Research sandbox for hypothesis-driven experimentation. 5-phase discovery lifecycle validates integration innovations across OSINT, decision engines, and autonomous orchestration before promotion to production.",
+     image="/images/sections/lab.png",
+     image_alt="Prismatic Lab — Research & Experimentation Sandbox",
+     keywords=["prismatic lab", "experimental sandbox", "research hypothesis", "proof of concept", "OSINT experiments", "integration research", "innovation lifecycle"]
+) | safe }}
 {% endblock meta %}
+
+
 
 {% block content %}
 <!-- Hero Section -->

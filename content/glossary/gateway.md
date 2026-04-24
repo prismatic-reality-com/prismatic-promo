@@ -473,7 +473,7 @@ The `prismatic_api` application (port 4004) serves as the platform's API gateway
 
 - **Auto-discovery**: Scans all `Prismatic*` modules at boot
 - **OpenAPI 3.0**: Full specification at `/api/openapi`
-- **SwaggerUI**: Interactive documentation at `/api/swaggerui`
+- **SwaggerUI**: Interactive documentation at `/api/swagger-ui`
 - **Consistent envelope**: All responses wrapped in `{data, meta, pagination}` structure
 - **OSINT integration**: All 157 OSINT tools accessible via `/api/v1/osint/*`
 - **DD integration**: Case management via `/api/v1/dd/*`
@@ -484,7 +484,7 @@ The `prismatic_api` application (port 4004) serves as the platform's API gateway
 ```http
 # Discovery
 GET  /api/openapi                          # OpenAPI 3.0 specification
-GET  /api/swaggerui                        # Interactive documentation
+GET  /api/swagger-ui                        # Interactive documentation
 
 # OSINT
 GET  /api/v1/osint/list_tools             # List all OSINT tools
@@ -571,7 +571,7 @@ config :prismatic_api, PrismaticApi.Gateway,
 
 - [Architecture](@/architecture/_index.md) -- platform architecture including gateway position
 - [Capabilities](@/capabilities/_index.md) -- platform capabilities exposed through the gateway
-- [API Documentation](/api/swaggerui) -- interactive SwaggerUI for the gateway
+- [API Documentation](/api/swagger-ui) -- interactive SwaggerUI for the gateway
 - [OSINT Toolbox](/osint/toolbox/) -- 157 tools accessible via gateway API
 
 ---

@@ -65,7 +65,7 @@ Polyglot persistence is a tax. Four adapters means four places to debug, four se
 
 ## Where to go next
 
-- **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — the trait in practice
+- **Academy**: [Storage Patterns](/academy/storage-patterns) — the trait in practice
 - **Glossary**: [Adapter Pattern](@/glossary/adapter-pattern.md), [PostgreSQL](@/glossary/postgresql.md), [ETS](@/glossary/ets.md), [Meilisearch](@/glossary/meilisearch.md), [KuzuDB](@/glossary/kuzudb.md)
 
 Four stores. One trait. Boring callers. That is the whole trick.

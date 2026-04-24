@@ -78,7 +78,7 @@ Under [KYC](@/glossary/kyc.md) obligations, "we merged because the names looked 
 
 ## Where to go next
 
-- **Academy**: [DD Investigation](/academy/learn/dd-investigation) — full case walkthrough
+- **Academy**: [DD Investigation](/academy/dd-investigation) — full case walkthrough
 - **Academy**: [Decision Core Fundamentals](/academy/learn/decision-core-fundamentals) — how resolved entities feed the decision engine
 - **Glossary**: [Entity Resolution](@/glossary/entity-resolution.md), [Entity Graph](@/glossary/entity-graph.md), [Due Diligence](@/glossary/due-diligence.md), [KYC](@/glossary/kyc.md), [Knowledge Graph](@/glossary/knowledge-graph.md)
 

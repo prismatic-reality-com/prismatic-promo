@@ -285,7 +285,7 @@ The OpenAPI specification is regenerated from the registry on every request, ens
 
 ### SwaggerUI
 
-The interactive SwaggerUI interface at `/api/swaggerui` renders the OpenAPI specification as a browsable, executable documentation page. Developers can explore endpoints, inspect schemas, and send test requests directly from the browser.
+The interactive SwaggerUI interface at `/api/swagger-ui` renders the OpenAPI specification as a browsable, executable documentation page. Developers can explore endpoints, inspect schemas, and send test requests directly from the browser.
 
 ## Domain APIs
 

@@ -47,7 +47,7 @@ The platform's approach to data quality is structured around three pillars:
 
 1. **Dimensional Scoring** -- Each data point receives scores across six standardized dimensions, combined into a weighted composite score
 2. **Temporal Awareness** -- Quality scores decay over time using configurable half-life functions, reflecting the reality that stale intelligence degrades analytical value
-3. **Cross-Source Triangulation** -- Data confirmed by multiple independent sources receives higher quality ratings, following the [NABLA Infinity](/glossary/nabla/) epistemic framework's source independence axiom
+3. **Cross-Source Triangulation** -- Data confirmed by multiple independent sources receives higher quality ratings, following the [NABLA Infinity](/glossary/nabla-infinity/) epistemic framework's source independence axiom
 
 These pillars operate in concert within the DD and OSINT pipelines, where entity data flows through Client (fetch), Validation (score), and Loader (persist) phases before reaching analytical consumers.
 
@@ -111,7 +111,7 @@ Different data types use different half-lives:
 
 ### Cross-Source Triangulation
 
-The cross-source triangulation model evaluates data confidence based on independent source corroboration. Following the [NABLA Infinity](/glossary/nabla/) framework's source independence axiom, data confirmed by N independent sources receives a triangulation bonus:
+The cross-source triangulation model evaluates data confidence based on independent source corroboration. Following the [NABLA Infinity](/glossary/nabla-infinity/) framework's source independence axiom, data confirmed by N independent sources receives a triangulation bonus:
 
 ```
 triangulation_score = 1 - (1 - base_confidence)^N
@@ -600,7 +600,7 @@ end
 
 - [Capabilities](@/capabilities/_index.md) -- Platform data quality capabilities and enforcement features
 - [Architecture](@/architecture/_index.md) -- Data pipeline architecture with quality gates at every stage
-- [NABLA Infinity Framework](/glossary/nabla/) -- Epistemic framework providing the theoretical foundation for quality axioms
+- [NABLA Infinity Framework](/glossary/nabla-infinity/) -- Epistemic framework providing the theoretical foundation for quality axioms
 
 ---
 

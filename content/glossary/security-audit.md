@@ -387,7 +387,7 @@ Following a security incident, the forensic audit capability reconstructs the ti
 ## See Also
 
 - [Prismatic Perimeter EASM](@/apps/prismatic-perimeter.md) -- External audit and assessment capabilities
-- [Quality Gate Documentation](/architecture/quality-gates/) -- Automated audit control implementation
+- [Quality Gate Documentation](/capabilities/quality-gates/) -- Automated audit control implementation
 - [Color Team Security Architecture](/architecture/color-teams/) -- Multi-perspective audit verification
 - [ISO/IEC 27001:2022](https://www.iso.org/isoiec-27001-information-security.html) -- Information security management standard
 - [AICPA SOC 2](https://www.aicpa-cima.com/topic/audit-assurance/audit-and-assurance-greater-than-soc-2) -- Trust service criteria for service organizations

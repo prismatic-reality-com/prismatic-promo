@@ -28,7 +28,7 @@ image_alt = "/prismatic-api-spec - Prismatic Platform"
 
 The specification generation process is fully automatic and requires zero manual annotation. Every public function that meets the facade discovery criteria is represented as an endpoint in the resulting specification document, complete with request schemas, response schemas, parameter descriptions, and example payloads. This eliminates the traditional burden of maintaining API documentation separately from implementation -- the specification is always an accurate reflection of what the platform actually exposes.
 
-This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The generated specification powers the interactive SwaggerUI available at `/api/swaggerui` and serves as the canonical contract for all API consumers.
+This command operates under the **L2+** authority level and is executed by the `elixir-core-specialist` agent. It is part of the platform's 216-command slash command [registry](@/glossary/registry-otp.md), built on the [AIAD](@/glossary/aiad.md) (Autonomous Intelligence Agent Design) standard. The generated specification powers the interactive SwaggerUI available at `/api/swagger-ui` and serves as the canonical contract for all API consumers.
 
 The command supports multiple output formats including JSON, YAML, and direct browser rendering through SwaggerUI. It integrates with [OpenApiSpex](https://hexdocs.pm/open_api_spex/) for schema validation, ensuring that the generated specification is not merely syntactically correct but semantically valid against the OpenAPI 3.0 meta-schema.
 
@@ -158,7 +158,7 @@ The specification generation follows a deterministic pipeline that ensures consi
 | System | Integration | Direction |
 |--------|-------------|-----------|
 | [Prismatic API](@/apps/prismatic-api.md) | Primary consumer -- serves spec at `/api/openapi` | Outbound |
-| [SwaggerUI](@/glossary/openapi.md) | Interactive documentation at `/api/swaggerui` | Outbound |
+| [SwaggerUI](@/glossary/openapi.md) | Interactive documentation at `/api/swagger-ui` | Outbound |
 | [Quality Gates](@/glossary/quality-gates.md) | Spec validation as a quality gate checkpoint | Bidirectional |
 | [Telemetry](@/glossary/telemetry.md) | Emits `[:prismatic_api, :spec, :generated]` events | Outbound |
 | [AIAD Registry](@/glossary/aiad.md) | Command discovery and execution routing | Inbound |

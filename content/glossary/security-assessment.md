@@ -389,7 +389,7 @@ Following a disclosed vulnerability (e.g., a new CVE affecting a commonly used l
 
 - [Prismatic Perimeter documentation](@/apps/prismatic-perimeter.md) -- Full EASM implementation guide
 - [Color Team Security Operations](/architecture/color-teams/) -- Adversarial-defensive security architecture
-- [Quality Gate Pipeline](/architecture/quality-gates/) -- How security findings integrate with quality enforcement
+- [Quality Gate Pipeline](/capabilities/quality-gates/) -- How security findings integrate with quality enforcement
 - [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/) -- Industry-standard web assessment methodology
 - [NIST Cybersecurity Framework](https://www.nist.gov/cyberframework) -- Federal framework for security assessment and improvement
 - [NIS2 Directive (EU 2022/2555)](https://eur-lex.europa.eu/eli/dir/2022/2555) -- EU network and information security requirements

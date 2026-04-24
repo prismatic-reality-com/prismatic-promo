@@ -25,7 +25,7 @@ Swagger refers to a suite of tools for designing, building, and documenting REST
 
 SwaggerUI transforms API documentation from a static reference into an interactive development tool. Instead of reading API docs and constructing curl commands manually, developers browse endpoints organized by tags, inspect parameter types and example values, fill in request forms, and execute requests with a single click. The response is displayed immediately with headers, status codes, and formatted body content. This dramatically reduces the time-to-first-successful-request for API consumers.
 
-The Prismatic Platform serves SwaggerUI at `/api/swaggerui` on port 4004. The underlying OpenAPI 3.0 specification is generated automatically by OpenApiSpex from the platform's Elixir typespecs and controller annotations. This means the documentation is always accurate -- it is derived from the same code that handles requests, eliminating the specification-implementation drift that plagues manually maintained API docs.
+The Prismatic Platform serves SwaggerUI at `/api/swagger-ui` on port 4004. The underlying OpenAPI 3.0 specification is generated automatically by OpenApiSpex from the platform's Elixir typespecs and controller annotations. This means the documentation is always accurate -- it is derived from the same code that handles requests, eliminating the specification-implementation drift that plagues manually maintained API docs.
 
 ## Technical Deep Dive
 
@@ -198,7 +198,7 @@ end
 
 The SwaggerUI in the Prismatic Platform is auto-generated from code, ensuring zero documentation drift. When a developer adds a new controller action with OpenApiSpex annotations, SwaggerUI automatically displays the new endpoint on the next deployment. No manual documentation update is required.
 
-The specification is available as both a JSON endpoint (`/api/openapi`) for programmatic consumption and as the interactive SwaggerUI (`/api/swaggerui`) for human consumption. External tools can consume the JSON spec for client code generation, contract testing, or import into API management platforms.
+The specification is available as both a JSON endpoint (`/api/openapi`) for programmatic consumption and as the interactive SwaggerUI (`/api/swagger-ui`) for human consumption. External tools can consume the JSON spec for client code generation, contract testing, or import into API management platforms.
 
 Authentication in SwaggerUI is configured to accept bearer tokens, matching the platform's `APIAuth` plug. This enables authenticated API exploration directly from the browser without switching to external tools.
 
@@ -208,7 +208,7 @@ SwaggerUI is accessible at the API port:
 
 ```bash
 # Access SwaggerUI
-open http://localhost:4004/api/swaggerui
+open http://localhost:4004/api/swagger-ui
 
 # Get raw OpenAPI spec
 curl http://localhost:4004/api/openapi

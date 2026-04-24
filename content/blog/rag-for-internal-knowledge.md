@@ -72,7 +72,7 @@ RAG is wrong when:
 
 ## Where to go next
 
-- **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — where the vector DB fits
+- **Academy**: [Storage Patterns](/academy/storage-patterns) — where the vector DB fits
 - **Glossary**: [RAG](@/glossary/rag.md), [LLM](@/glossary/llm.md), [Embedding](@/glossary/embedding.md), [Vector Database](@/glossary/vector-database.md), [Meilisearch](@/glossary/meilisearch.md)
 
 Three primitives. One hybrid retrieval. One honest prompt. That is RAG.

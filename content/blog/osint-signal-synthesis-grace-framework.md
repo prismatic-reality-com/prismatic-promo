@@ -82,7 +82,7 @@ Sealed means immutable. Once an envelope is produced, it is the audit record. Th
 GRACE is a framework, not a library. The Academy walks through it end-to-end with a runnable case study:
 
 - **Academy**: [First Agent](/academy/learn/first-agent) — build your first GRACE-compatible adapter
-- **Academy**: [DD Investigation](/academy/learn/dd-investigation) — apply GRACE to a real case
+- **Academy**: [DD Investigation](/academy/dd-investigation) — apply GRACE to a real case
 - **Glossary**: [OSINT](@/glossary/osint.md), [Entity Resolution](@/glossary/entity-resolution.md), [Confidence Score](@/glossary/confidence-score.md)
 
 Fusion is the hard part. Adapters are the easy part. Get the fusion contract right and every new adapter you add compounds in value instead of adding noise.

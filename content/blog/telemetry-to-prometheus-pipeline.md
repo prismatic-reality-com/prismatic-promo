@@ -95,7 +95,7 @@ Break that rule and you get drift: events that nobody consumes, dashboards that 
 
 ## Where to go next
 
-- **Academy**: [LiveView Dashboards](/academy/learn/liveview-dashboards) — in-app dashboards from the same telemetry
+- **Academy**: [LiveView Dashboards](/academy/liveview-dashboards) — in-app dashboards from the same telemetry
 - **Glossary**: [Telemetry](@/glossary/telemetry.md), [Metrics](@/glossary/metrics.md), [Observability](@/glossary/observability.md), [Monitoring](@/glossary/monitoring.md), [Performance](@/glossary/performance.md)
 
 Four stages. One contract. Write it once and move on.

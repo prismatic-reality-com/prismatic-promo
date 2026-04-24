@@ -90,7 +90,7 @@ A crashed adapter is fine. A crashed pipeline is a bug. A crashed envelope is a 
 
 ## Where to go next
 
-- **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — runnable supervision tree exercises
+- **Academy**: [OTP Fundamentals](/academy/otp-fundamentals) — runnable supervision tree exercises
 - **Academy**: [First Agent](/academy/learn/first-agent) — build your first supervised adapter
 - **Glossary**: [OTP](@/glossary/otp.md), [Supervision Tree](@/glossary/supervision-tree.md), [DynamicSupervisor](@/glossary/dynamic-supervisor.md), [GenServer](@/glossary/genserver.md), [Fault Tolerance](@/glossary/fault-tolerance.md)
 

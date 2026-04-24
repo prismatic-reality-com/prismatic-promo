@@ -65,7 +65,7 @@ Asymmetric key pairs used for server access and Git operations. The private key 
 
 #### Erlang Distribution Cookies
 
-A platform-specific credential type. The Erlang runtime uses a shared cookie to [authenticate](@/glossary/authentication.md) nodes in a distributed cluster. All nodes sharing the same cookie can communicate freely. This cookie must be treated with the same care as any other [secret](/glossary/secret/) -- if leaked, an attacker can join the cluster and execute arbitrary code on any connected node.
+A platform-specific credential type. The Erlang runtime uses a shared cookie to [authenticate](@/glossary/authentication.md) nodes in a distributed cluster. All nodes sharing the same cookie can communicate freely. This cookie must be treated with the same care as any other [secret](/glossary/secrets/) -- if leaked, an attacker can join the cluster and execute arbitrary code on any connected node.
 
 ### Credential Properties Comparison
 
@@ -84,7 +84,7 @@ A platform-specific credential type. The Erlang runtime uses a shared cookie to 
 
 ### SEAL Doctrine: No Hardcoded Secrets
 
-The Prismatic Platform enforces the [SEAL](/glossary/seal/) (Security Enforcement Absolute Lock) doctrine, which absolutely prohibits hardcoded credentials in any form. This is not advisory -- it is enforced by pre-commit hooks that scan staged files for credential patterns and block commits containing potential [secrets](/glossary/secret/).
+The Prismatic Platform enforces the [SEAL](/glossary/seal/) (Security Enforcement Absolute Lock) doctrine, which absolutely prohibits hardcoded credentials in any form. This is not advisory -- it is enforced by pre-commit hooks that scan staged files for credential patterns and block commits containing potential [secrets](/glossary/secrets/).
 
 **Banned patterns under SEAL**:
 
@@ -136,7 +136,7 @@ end
 
 ### Vault Integration Pattern
 
-For production environments requiring centralized [secret](/glossary/secret/) management, the platform supports integration with external vault systems. The pattern retrieves credentials at startup and caches them in application configuration, with periodic refresh for rotation support.
+For production environments requiring centralized [secret](/glossary/secrets/) management, the platform supports integration with external vault systems. The pattern retrieves credentials at startup and caches them in application configuration, with periodic refresh for rotation support.
 
 ```elixir
 defmodule Prismatic.Credentials.VaultProvider do
@@ -294,7 +294,7 @@ The platform enforces credential security through multiple layers:
 
 2. **`.gitignore` exclusions** -- Common credential file patterns (`.env`, `*.pem`, `*.key`, `credentials.json`) are excluded from version control.
 
-3. **CI/CD validation** -- The `mix check.doctrines` task validates [SEAL](/glossary/seal/) compliance across the entire codebase, detecting hardcoded [secrets](/glossary/secret/) that might have bypassed pre-commit checks.
+3. **CI/CD validation** -- The `mix check.doctrines` task validates [SEAL](/glossary/seal/) compliance across the entire codebase, detecting hardcoded [secrets](/glossary/secrets/) that might have bypassed pre-commit checks.
 
 4. **Runtime validation** -- The platform validates credential format and liveness at startup, failing fast with clear error messages when required credentials are missing or malformed.
 
@@ -510,7 +510,7 @@ end
 
 - Store passwords only as salted cryptographic hashes (bcrypt with cost factor >= 12, or argon2id)
 - Transmit credentials only over [encrypted](@/glossary/encryption.md) channels (TLS 1.2+)
-- Store API keys in environment variables or dedicated [secret](/glossary/secret/) management systems, never in source code
+- Store API keys in environment variables or dedicated [secret](/glossary/secrets/) management systems, never in source code
 - Use short-lived [tokens](@/glossary/token.md) for session management; long-lived credentials for service-to-service [authentication](@/glossary/authentication.md) only when rotation is automated
 
 ### Rotation and Revocation
@@ -540,7 +540,7 @@ end
 | Using bare `rescue` in credential handling | **Medium** | Error details swallowed, debugging impossible | Catch specific exceptions (ZERO doctrine) |
 | No rate limiting on [authentication](@/glossary/authentication.md) endpoints | **High** | Brute force and [credential stuffing](@/glossary/credential-stuffing.md) attacks succeed | Implement exponential backoff and lockout |
 | Transmitting credentials over HTTP | **Critical** | Network sniffing captures credentials in transit | Enforce TLS for all credential transmission |
-| Committing `.env` files to version control | **Critical** | All environment [secrets](/glossary/secret/) exposed in repo | Add `.env` to `.gitignore`, use `.env.example` for templates |
+| Committing `.env` files to version control | **Critical** | All environment [secrets](/glossary/secrets/) exposed in repo | Add `.env` to `.gitignore`, use `.env.example` for templates |
 | Using the same API key for all OSINT tools | **Medium** | Single key compromise affects all tool integrations | Unique keys per service with minimal scope |
 | No credential validation at startup | **Medium** | Application starts with invalid/missing credentials, fails later | Validate required credentials in `runtime.exs` with `fetch_env!/1` |
 
@@ -551,7 +551,7 @@ end
 - [API Key](/glossary/api-key/) -- a specific credential type for programmatic service access
 - [JWT](@/glossary/jwt.md) -- JSON Web Token, a self-contained credential carrying encoded claims
 - [OAuth](@/glossary/oauth.md) -- delegated [authorization](@/glossary/authorization.md) framework using [token](@/glossary/token.md) credentials
-- [Secret](/glossary/secret/) -- any sensitive value requiring protection, including credentials
+- [Secret](/glossary/secrets/) -- any sensitive value requiring protection, including credentials
 - [Encryption](@/glossary/encryption.md) -- cryptographic protection for credentials in storage and transit
 - [Injection](@/glossary/injection.md) -- attack vector that can expose or bypass credential checks
 - [SEAL](/glossary/seal/) -- Security Enforcement Absolute Lock doctrine governing credential handling

@@ -17,7 +17,7 @@ authority_level = "platform-core"
 difficulty_rating = 6
 prerequisites = ["HTTP protocol fundamentals", "JSON/XML data formats", "authentication patterns", "basic networking"]
 learning_path = ["api", "rest-api", "openapi", "api-gateway", "graphql", "service-mesh"]
-interactive_demos = ["OpenAPI explorer at /api/swaggerui", "endpoint discovery at /api/v1/endpoints"]
+interactive_demos = ["OpenAPI explorer at /api/swagger-ui", "endpoint discovery at /api/v1/endpoints"]
 code_examples = ["Elixir HTTP client", "OpenApiSpex controller", "webhook handler", "API authentication plug"]
 external_resources = ["https://swagger.io/specification/", "https://graphql.org/", "https://hexdocs.pm/open_api_spex/"]
 version_introduced = "0.1.0"
@@ -405,7 +405,7 @@ Prismatic's approach of auto-introspecting REST with OpenApiSpex combines the un
 
 **External Attack Surface Management**: The [Prismatic Perimeter](@/glossary/attack-surface.md) module integrates with external scanning APIs (DNS, certificate transparency, IP geolocation) to discover and assess an organization's attack surface, normalizing diverse API responses into a unified security rating model.
 
-**Developer Portal**: The auto-generated SwaggerUI at `/api/swaggerui` provides an interactive API explorer where developers can discover available endpoints, examine request/response schemas, and execute test calls without writing code.
+**Developer Portal**: The auto-generated SwaggerUI at `/api/swagger-ui` provides an interactive API explorer where developers can discover available endpoints, examine request/response schemas, and execute test calls without writing code.
 
 **Webhook-Driven Workflows**: External events (Git pushes, security alerts, monitoring triggers) flow into the platform through webhook integrations, triggering automated workflows such as code analysis pipelines and incident response procedures.
 

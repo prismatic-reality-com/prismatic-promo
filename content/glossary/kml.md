@@ -33,7 +33,7 @@ Keyhole Markup Language (KML) is an XML-based format for expressing geographic a
 
 KML files use the `.kml` extension for uncompressed XML and `.kmz` for ZIP-compressed archives that bundle KML with associated resources (images, models, textures). The format supports temporal data through `TimeStamp` and `TimeSpan` elements, enabling animated visualizations of events over time -- a capability directly relevant to OSINT timeline reconstruction and [due diligence](@/glossary/due-diligence.md) investigation mapping.
 
-In the Prismatic Platform, KML serves as the primary geospatial export format for OSINT intelligence results, [DD pipeline](/glossary/dd-pipeline/) entity locations, and [Perimeter](/glossary/perimeter/) EASM asset geographic distributions. When analysts need to visualize where entities, infrastructure, or events are located in physical space, KML provides the bridge between platform data and geospatial visualization tools.
+In the Prismatic Platform, KML serves as the primary geospatial export format for OSINT intelligence results, [DD pipeline](/glossary/dd-pipeline/) entity locations, and [Perimeter](/glossary/prismatic-perimeter/) EASM asset geographic distributions. When analysts need to visualize where entities, infrastructure, or events are located in physical space, KML provides the bridge between platform data and geospatial visualization tools.
 
 ## Core Concepts
 
@@ -492,7 +492,7 @@ end)
 
 ### Perimeter EASM Asset Distribution
 
-[Prismatic Perimeter](/glossary/perimeter/)'s EASM asset discovery generates geographic distributions of discovered infrastructure (server locations, CDN nodes, cloud regions), exportable as KML placemarks with security rating annotations:
+[Prismatic Perimeter](/glossary/prismatic-perimeter/)'s EASM asset discovery generates geographic distributions of discovered infrastructure (server locations, CDN nodes, cloud regions), exportable as KML placemarks with security rating annotations:
 
 ```elixir
 # Export attack surface geographic distribution

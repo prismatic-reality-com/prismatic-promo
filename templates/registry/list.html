@@ -2,15 +2,23 @@
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
 
-{% block title %}Registry - {{ config.title }}{% endblock %}
+{% import "macros/social.html" as social %}
+
+{% block title %}Registry — 552 Agents + 228 Commands | Prismatic Platform{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Complete registry of all agents and commands in the Prismatic Platform ecosystem">
-<meta property="og:type" content="website">
-<meta property="og:url" content="{{ config.base_url }}/registry/">
-<meta property="og:title" content="Platform Registry - {{ config.title }}">
-<meta property="og:description" content="Browse 535 agents and 219 commands across the Prismatic Platform">
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=config.base_url ~ "/registry/",
+     title="Registry — 552 Agents + 228 Commands | Prismatic Platform",
+     description="Machine-readable index of every autonomous agent and command in the platform. Real-time search across 14 operational domains: OSINT, Security, Development, Evolution, Due Diligence, Color Teams, and more.",
+     image="/images/og-image.png",
+     image_alt="Prismatic Registry — Agent & Command Index",
+     keywords=["prismatic registry", "agent registry", "command registry", "AIAD", "automation index", "integration catalog", "platform metadata"]
+) | safe }}
 {% endblock meta %}
+
+
 
 {% block content %}
 <!-- Hero Section -->

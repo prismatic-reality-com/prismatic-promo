@@ -2,23 +2,23 @@
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
 
-{% block title %}Due Diligence Intelligence - Prismatic Platform{% endblock %}
+{% import "macros/social.html" as social %}
+
+{% block title %}Due Diligence — Triple-Checked OSINT Investigations | Prismatic Platform{% endblock %}
 
 {% block meta %}
-<meta name="description" content="{{ section.description }}">
-<meta property="og:title" content="Due Diligence Intelligence - Prismatic Platform">
-<meta property="og:description" content="{{ section.description }}">
-<meta property="og:image" content="{{ config.base_url }}/images/og-image.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:site_name" content="Prismatic Platform">
-<meta property="og:locale" content="en_US">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Due Diligence Intelligence - Prismatic Platform">
-<meta name="twitter:description" content="{{ section.description }}">
-<meta name="twitter:image" content="{{ config.base_url }}/images/twitter-card.png">
-<meta name="twitter:creator" content="@korczis">
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=config.base_url ~ "/dd/",
+     title="Due Diligence — Triple-Checked OSINT Investigations | Prismatic Platform",
+     description="Automated due diligence combining 128 OSINT sources including 47 Czech registries. Graph analysis, sealed decision envelopes, A–F risk grades. Built for M&A, compliance (NIS2), and pre-deal investigation workflows.",
+     image="/images/og-image.png",
+     image_alt="Prismatic DD — Automated Due Diligence Intelligence",
+     keywords=["due diligence automation", "M&A OSINT", "risk intelligence", "NIS2 compliance", "Czech registries", "entity verification", "beneficial ownership", "sanctions screening"]
+) | safe }}
 {% endblock meta %}
+
+
 
 {% block content %}
 <!-- Hero Section -->

@@ -81,8 +81,8 @@ An index that mirrors your Postgres schema is a bad index. An index built around
 
 ## Where to go next
 
-- **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — when to reach for Meilisearch
-- **Academy**: [DD Investigation](/academy/learn/dd-investigation) — using Meilisearch in a real case
+- **Academy**: [Storage Patterns](/academy/storage-patterns) — when to reach for Meilisearch
+- **Academy**: [DD Investigation](/academy/dd-investigation) — using Meilisearch in a real case
 - **Glossary**: [Meilisearch](@/glossary/meilisearch.md), [Full-Text Search](@/glossary/full-text-search.md), [Typo Tolerance](@/glossary/typo-tolerance.md), [OSINT](@/glossary/osint.md), [Due Diligence](@/glossary/due-diligence.md)
 
 Typo tolerance is a feature in consumer search. In intelligence search it is the difference between finding the subsidiary and missing it.

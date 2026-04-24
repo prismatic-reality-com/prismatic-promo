@@ -2,6 +2,22 @@
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
 
+{% import "macros/social.html" as social %}
+
+{% block title %}Architecture — Elixir/OTP at Scale | Prismatic Platform{% endblock %}
+
+{% block meta %}
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=config.base_url ~ "/architecture/",
+     title="Architecture — Elixir/OTP at Scale | Prismatic Platform",
+     description="94 umbrella apps, 4-layer architecture, BEAM supervision trees, event sourcing, Phoenix LiveView, and KuzuDB graph storage. Deep-dives into how Prismatic handles 552 agents + 128 OSINT adapters with zero downtime.",
+     image="/images/sections/architecture.png",
+     image_alt="Prismatic Architecture — Elixir/OTP Platform at Scale",
+     keywords=["prismatic architecture", "Elixir OTP scale", "BEAM runtime", "umbrella applications", "Phoenix LiveView", "event sourcing", "KuzuDB", "supervision trees"]
+) | safe }}
+{% endblock meta %}
+
 {% block content %}
 <!-- Hero Section -->
 <section class="bg-gray-900 py-16 lg:py-20 border-b border-white/5">

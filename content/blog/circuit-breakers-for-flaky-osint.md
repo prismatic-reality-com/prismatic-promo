@@ -89,7 +89,7 @@ A breaker that opens and never closes is a source that died. A breaker that flap
 
 ## Where to go next
 
-- **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — the GenServer under the breaker
+- **Academy**: [OTP Fundamentals](/academy/otp-fundamentals) — the GenServer under the breaker
 - **Glossary**: [Fault Tolerance](@/glossary/fault-tolerance.md), [Retry](@/glossary/retry.md), [Rate Limiting](@/glossary/rate-limiting.md), [Telemetry](@/glossary/telemetry.md), [Observability](@/glossary/observability.md)
 
 Fail fast. Recover quietly. Let the healthy sources do the work.

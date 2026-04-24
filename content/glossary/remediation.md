@@ -510,7 +510,7 @@ end
 - [Monitoring](@/glossary/monitoring.md) -- the detection system that discovers issues requiring remediation
 - [Logging](@/glossary/logging.md) -- diagnostic records that provide forensic evidence for root cause analysis
 - [SLA](@/glossary/sla.md) -- service level agreements that define remediation timeline commitments
-- [Perimeter](/glossary/perimeter/) -- external attack surface management that discovers vulnerabilities
+- [Perimeter](/glossary/prismatic-perimeter/) -- external attack surface management that discovers vulnerabilities
 
 ## See Also
 

@@ -529,8 +529,8 @@ end
 - [Compliance](@/glossary/compliance.md) -- regulatory frameworks that define mandatory risk management requirements
 - [Scoring](/glossary/scoring/) -- the quantitative methods used to compute risk levels from multiple factors
 - [Vulnerability](@/glossary/vulnerability.md) -- specific weaknesses that risk assessment identifies and quantifies
-- [Perimeter](/glossary/perimeter/) -- the external attack surface where risk assessment discovers exposed assets
-- [Nabla](/glossary/nabla/) -- the epistemic engine providing calibrated confidence for risk assessments
+- [Perimeter](/glossary/prismatic-perimeter/) -- the external attack surface where risk assessment discovers exposed assets
+- [Nabla](/glossary/nabla-infinity/) -- the epistemic engine providing calibrated confidence for risk assessments
 - [Decision Engine](/glossary/decision-engine/) -- the DD pipeline that integrates risk scoring into investigation workflows
 - [Hypothesis](/glossary/hypothesis/) -- risk hypotheses tested and validated through the investigation process
 - [Audit](/glossary/audit/) -- systematic verification of risk controls and compliance evidence

@@ -388,7 +388,7 @@ The developer portal is accessible through several routes:
 - `/api/v1/endpoints` -- Complete endpoint catalog with documentation
 - `/api/v1/:app/:action` -- Generic dispatch to any discovered facade function
 - `/api/openapi` -- Machine-readable OpenAPI 3.0 JSON specification
-- `/api/swaggerui` -- Interactive SwaggerUI for browser-based API exploration
+- `/api/swagger-ui` -- Interactive SwaggerUI for browser-based API exploration
 
 ### Gen 19 OSS Package Integration
 

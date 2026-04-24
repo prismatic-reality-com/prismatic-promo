@@ -76,7 +76,7 @@ For those cases, use pagination or a separate search index — [Meilisearch](@/g
 
 ## Where to go next
 
-- **Academy**: [LiveView Dashboards](/academy/learn/liveview-dashboards) — streams in production dashboards
+- **Academy**: [LiveView Dashboards](/academy/liveview-dashboards) — streams in production dashboards
 - **Glossary**: [LiveView](@/glossary/liveview.md), [Phoenix LiveView](@/glossary/phoenix-liveview.md), [Performance](@/glossary/performance.md), [Memory](@/glossary/memory.md), [UI Components](@/glossary/ui-components.md)
 
 Streams are not faster. Streams are *cheaper*. At 200 connected clients that is the same thing.

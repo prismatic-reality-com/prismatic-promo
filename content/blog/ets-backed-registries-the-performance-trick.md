@@ -96,7 +96,7 @@ In dev with `iex -S mix`, if a module is edited and the registry GenServer is *n
 ## Where to go next
 
 - **Academy**: [First Agent](/academy/learn/first-agent) — build a self-registering agent
-- **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — when ETS is the right adapter
+- **Academy**: [Storage Patterns](/academy/storage-patterns) — when ETS is the right adapter
 - **Glossary**: [ETS](@/glossary/ets.md), [Registry](@/glossary/registry.md), [Self-Registration](@/glossary/self-registration.md), [Metaprogramming](@/glossary/metaprogramming.md), [Agent Registry](@/glossary/agent-registry.md)
 
 Three small pieces. 552 agents. Sub-microsecond lookups. That is the trick.

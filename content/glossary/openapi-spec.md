@@ -550,7 +550,7 @@ The [Prismatic API](@/glossary/prismatic-api.md) (`prismatic_api`) auto-generate
 | `/api/v1/endpoints` | GET | List all discovered endpoints |
 | `/api/v1/:app/:action` | GET/POST | Generic dispatch (GET for 0-2 params, POST otherwise) |
 | `/api/openapi` | GET | OpenAPI 3.0 JSON specification |
-| `/api/swaggerui` | GET | Interactive Swagger UI documentation |
+| `/api/swagger-ui` | GET | Interactive Swagger UI documentation |
 
 ### Type Mapping Flow
 

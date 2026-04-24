@@ -2,6 +2,22 @@
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
 
+{% import "macros/social.html" as social %}
+
+{% block title %}Philosophy — Doctrine & Design Principles | Prismatic Platform{% endblock %}
+
+{% block meta %}
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=config.base_url ~ "/philosophy/",
+     title="Philosophy — Doctrine & Design Principles | Prismatic Platform",
+     description="NO MERCY NO DOUBTS doctrine, intellectual sovereignty, ceremonial computing, and the 18-pillar enforcement framework that guides every platform decision. Why Prismatic exists and how it thinks.",
+     image="/images/og-image.png",
+     image_alt="Prismatic Philosophy — Platform Doctrine & Design Principles",
+     keywords=["prismatic philosophy", "NMND doctrine", "ceremonial computing", "platform ethics", "design principles", "intellectual sovereignty", "18-pillar doctrine"]
+) | safe }}
+{% endblock meta %}
+
 {% block content %}
 <!-- Hero Section -->
 <section class="bg-gray-900 py-16 lg:py-20 border-b border-white/5">

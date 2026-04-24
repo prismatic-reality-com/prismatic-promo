@@ -260,7 +260,7 @@ defmodule PrismaticApi.Scanner do
 end
 ```
 
-The generated OpenAPI spec is served at `/api/openapi` as JSON and rendered through SwaggerUI at `/api/swaggerui`, providing interactive reference documentation that developers can use to explore and test API endpoints directly from the browser.
+The generated OpenAPI spec is served at `/api/openapi` as JSON and rendered through SwaggerUI at `/api/swagger-ui`, providing interactive reference documentation that developers can use to explore and test API endpoints directly from the browser.
 
 ## CLAUDE.md as Reference Documentation
 

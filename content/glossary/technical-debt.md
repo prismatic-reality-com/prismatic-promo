@@ -460,7 +460,7 @@ The Quality DNA system persists quality state in `.claude/quality-dna/current-st
 
 - [Martin Fowler: Technical Debt](https://martinfowler.com/bliki/TechnicalDebt.html) -- Original articulation of the debt quadrant
 - [Ward Cunningham: The WyCash Portfolio Management System](https://wiki.c2.com/?TechnicalDebt) -- Where the metaphor was first introduced
-- [Quality Gate Documentation](/architecture/quality-gates/) -- Platform enforcement implementation
+- [Quality Gate Documentation](/capabilities/quality-gates/) -- Platform enforcement implementation
 - [Quality DNA System](/architecture/quality-dna/) -- Cross-session quality persistence
 
 ---

@@ -76,8 +76,8 @@ The day someone adds a bare `Repo.insert` alongside a Multi is the day the audit
 
 ## Where to go next
 
-- **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — when to reach for Multi
-- **Academy**: [DD Investigation](/academy/learn/dd-investigation) — how cases use Multi for state transitions
+- **Academy**: [Storage Patterns](/academy/storage-patterns) — when to reach for Multi
+- **Academy**: [DD Investigation](/academy/dd-investigation) — how cases use Multi for state transitions
 - **Glossary**: [Ecto](@/glossary/ecto.md), [ACID Transactions](@/glossary/acid-transactions.md), [PostgreSQL](@/glossary/postgresql.md), [Audit Trail](@/glossary/audit-trail.md), [Invariant](@/glossary/invariant.md)
 
 The transaction is the audit trail. Treat it that way and a whole class of bugs stops existing.

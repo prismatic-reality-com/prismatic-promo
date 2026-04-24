@@ -84,8 +84,8 @@ If Ecto + a few well-chosen indexes serves the dashboard, keep it simple.
 
 ## Where to go next
 
-- **Academy**: [DD Investigation](/academy/learn/dd-investigation) — the case-state lifecycle
-- **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — where CQRS fits
+- **Academy**: [DD Investigation](/academy/dd-investigation) — the case-state lifecycle
+- **Academy**: [Storage Patterns](/academy/storage-patterns) — where CQRS fits
 - **Glossary**: [CQRS](@/glossary/cqrs.md), [Event Sourcing](@/glossary/event-sourcing.md), [Ecto](@/glossary/ecto.md), [PubSub](@/glossary/pubsub.md), [Due Diligence](@/glossary/due-diligence.md)
 
 One write model. Many read models. The dashboard stops being a bottleneck.

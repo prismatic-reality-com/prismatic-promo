@@ -64,7 +64,7 @@ This is the flag everyone forgets. The default is `:exit`, which means a timeout
 
 ## Where to go next
 
-- **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — Task and supervision primitives
+- **Academy**: [OTP Fundamentals](/academy/otp-fundamentals) — Task and supervision primitives
 - **Glossary**: [Task Module](@/glossary/task-module.md), [Concurrency](@/glossary/concurrency.md), [Fault Tolerance](@/glossary/fault-tolerance.md), [Backpressure](@/glossary/backpressure.md), [OSINT](@/glossary/osint.md)
 
 Five seconds. Ten concurrent. Kill on timeout. Unordered. That is 90% of the concurrency you ever needed.

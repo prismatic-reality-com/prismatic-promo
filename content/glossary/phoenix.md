@@ -282,7 +282,7 @@ Phoenix powers the Prismatic Platform's web interfaces through two separate Phoe
 | Application | Port | Purpose | Key Routes |
 |-------------|------|---------|------------|
 | **prismatic_web** | 4000 | LiveView dashboards, real-time UI | `/`, `/perimeter`, `/perimeter/*`, `/osint/toolbox` |
-| **prismatic_api** | 4004 | Auto-introspecting REST API | `/api/v1/*`, `/api/swaggerui`, `/api/openapi` |
+| **prismatic_api** | 4004 | Auto-introspecting REST API | `/api/v1/*`, `/api/swagger-ui`, `/api/openapi` |
 
 The `prismatic_web` application uses [LiveView](@/glossary/phoenix-liveview.md) with [Flowbite](@/glossary/flowbite.md) components and [TailwindCSS](@/glossary/tailwindcss.md) for all dashboards, including the Perimeter EASM dashboard, agent monitoring views, the OSINT toolbox (120 tools across 7 categories), and the quality floor guardian interface. All LiveView templates comply with the TailwindCSS-first mandate -- zero inline styles, zero custom CSS files.
 

@@ -312,7 +312,7 @@ end
 
 ### OSINT Signal Correlation
 
-In OSINT signal analysis, R² helps quantify the strength of correlation between different intelligence signals, supporting the [Nabla](/glossary/nabla/) axiom of signal plurality by measuring how well one signal predicts another:
+In OSINT signal analysis, R² helps quantify the strength of correlation between different intelligence signals, supporting the [Nabla](/glossary/nabla-infinity/) axiom of signal plurality by measuring how well one signal predicts another:
 
 ```elixir
 defmodule PrismaticOsintCore.SignalCorrelation do

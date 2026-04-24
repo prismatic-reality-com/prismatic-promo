@@ -269,7 +269,7 @@ Phoenix is the web layer of the Prismatic Platform, serving the primary LiveView
 | Application | Phoenix Usage | Port | Key Routes |
 |-------------|---------------|------|------------|
 | **prismatic_web** | LiveView dashboards, browser UI | 4000 | `/`, `/perimeter`, `/osint/toolbox`, `/labs` |
-| **prismatic_api** | OpenApiSpex REST gateway | 4004 | `/api/v1/*`, `/api/swaggerui` |
+| **prismatic_api** | OpenApiSpex REST gateway | 4004 | `/api/v1/*`, `/api/swagger-ui` |
 
 ### Performance Characteristics
 

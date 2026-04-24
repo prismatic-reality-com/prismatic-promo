@@ -68,8 +68,8 @@ If the question is "show me all cases assigned to user X", it is a Postgres quer
 
 ## Where to go next
 
-- **Academy**: [DD Investigation](/academy/learn/dd-investigation) — the graph-backed workflow end to end
-- **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — picking the right adapter per question
+- **Academy**: [DD Investigation](/academy/dd-investigation) — the graph-backed workflow end to end
+- **Academy**: [Storage Patterns](/academy/storage-patterns) — picking the right adapter per question
 - **Glossary**: [Knowledge Graph](@/glossary/knowledge-graph.md), [Entity Graph](@/glossary/entity-graph.md), [Entity Resolution](@/glossary/entity-resolution.md), [Due Diligence](@/glossary/due-diligence.md), [KYC](@/glossary/kyc.md)
 
 Relations beat records when the question is about connections. DD is always about connections.

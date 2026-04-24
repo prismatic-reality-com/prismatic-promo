@@ -356,7 +356,7 @@ Both follow the append-only pattern with versioned consent text, ensuring that i
 
 ### External Compliance Assessment (Perimeter)
 
-The [Perimeter](/glossary/perimeter/) [compliance](@/glossary/compliance.md) engine evaluates external organizations' consent mechanisms as part of GDPR scoring:
+The [Perimeter](/glossary/prismatic-perimeter/) [compliance](@/glossary/compliance.md) engine evaluates external organizations' consent mechanisms as part of GDPR scoring:
 
 ```mermaid
 flowchart TD
@@ -494,7 +494,7 @@ The Czech NIS2 implementation adds additional consent requirements for critical 
 - [Data Breach](@/glossary/data-breach.md) -- security incident requiring consent-aware notification
 - [Encryption](@/glossary/encryption.md) -- technical measure protecting consented data
 - [Credential](@/glossary/credential.md) -- authentication tokens subject to consent for analytics
-- [Perimeter](/glossary/perimeter/) -- EASM module assessing external consent mechanisms
+- [Perimeter](/glossary/prismatic-perimeter/) -- EASM module assessing external consent mechanisms
 - [OSINT](@/glossary/osint.md) -- intelligence gathering with consent boundary awareness
 - [Changeset](/glossary/changeset/) -- [Ecto](@/glossary/ecto.md) validation enforcing consent record integrity
 - [Event Sourcing](@/glossary/event-sourcing.md) -- architectural pattern underlying consent management

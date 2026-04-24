@@ -5,7 +5,7 @@ weight = 10
 description = "Swagger UI interface for browsing, testing, and experimenting with all Prismatic API endpoints"
 category = "infrastructure"
 method = "GET"
-path = "/api/swaggerui"
+path = "/api/swagger-ui"
 status = "stable"
 auth_required = false
 glossary_terms = ["aiad", "quality-dna", "easm"]
@@ -34,7 +34,7 @@ The Swagger UI is served as a single-page application bundled with the Prismatic
 ## Endpoint
 
 ```
-GET /api/swaggerui
+GET /api/swagger-ui
 ```
 
 Serves the Swagger UI web application. Open this URL in a browser to access the interactive explorer.
@@ -48,7 +48,7 @@ The Swagger UI page itself is publicly accessible. However, executing API calls 
 
 ### Authenticating in Swagger UI
 
-1. Open `http://localhost:4004/api/swaggerui` in your browser
+1. Open `http://localhost:4004/api/swagger-ui` in your browser
 2. Click the "Authorize" button in the top right
 3. Enter your Bearer token in the `bearerAuth` field
 4. Click "Authorize" and then "Close"
@@ -59,7 +59,7 @@ The Swagger UI page itself is publicly accessible. However, executing API calls 
 ### Browser Access
 
 ```
-http://localhost:4004/api/swaggerui
+http://localhost:4004/api/swagger-ui
 ```
 
 Open this URL directly in any modern web browser. The UI is a self-contained single-page application that requires no additional setup.
@@ -69,7 +69,7 @@ Open this URL directly in any modern web browser. The UI is a self-contained sin
 While Swagger UI is designed for browser interaction, you can also fetch the HTML page programmatically:
 
 ```
-GET /api/swaggerui HTTP/1.1
+GET /api/swagger-ui HTTP/1.1
 Host: localhost:4004
 Accept: text/html
 ```
@@ -109,13 +109,13 @@ The UI organizes endpoints by tags (corresponding to application domains):
 
 ```bash
 # Open Swagger UI in default browser (macOS)
-open http://localhost:4004/api/swaggerui
+open http://localhost:4004/api/swagger-ui
 
 # Open Swagger UI in default browser (Linux)
-xdg-open http://localhost:4004/api/swaggerui
+xdg-open http://localhost:4004/api/swagger-ui
 
 # Verify the page loads
-curl -s -o /dev/null -w "%{http_code}" http://localhost:4004/api/swaggerui
+curl -s -o /dev/null -w "%{http_code}" http://localhost:4004/api/swagger-ui
 # Expected: 200
 ```
 
@@ -164,7 +164,7 @@ import requests
 import webbrowser
 
 # Open Swagger UI for exploration
-swagger_url = "http://localhost:4004/api/swaggerui"
+swagger_url = "http://localhost:4004/api/swagger-ui"
 webbrowser.open(swagger_url)
 
 # Meanwhile, use the OpenAPI spec programmatically

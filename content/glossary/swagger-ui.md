@@ -103,7 +103,7 @@ defmodule PrismaticApi.Router do
   scope "/api" do
     pipe_through :api
 
-    # Swagger UI served at /api/swaggerui
+    # Swagger UI served at /api/swagger-ui
     get "/swaggerui", OpenApiSpex.Plug.SwaggerUI,
       path: "/api/openapi"
 

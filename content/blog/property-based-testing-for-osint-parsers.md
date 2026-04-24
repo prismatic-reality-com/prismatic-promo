@@ -85,7 +85,7 @@ The example tests are for regressions. The property tests are for the bugs that 
 
 ## Where to go next
 
-- **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — parsers live close to storage
+- **Academy**: [Storage Patterns](/academy/storage-patterns) — parsers live close to storage
 - **Glossary**: [Property-Based Testing](@/glossary/property-based-testing.md), [Testing](@/glossary/testing.md), [Unit Testing](@/glossary/unit-testing.md), [Shrinking](@/glossary/shrinking.md), [ExUnit](@/glossary/exunit.md)
 
 Example tests find yesterday's bugs. Properties find tomorrow's.

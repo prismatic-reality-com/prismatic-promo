@@ -18,7 +18,7 @@ key_modules = ["PrismaticApi.Scanner", "PrismaticApi.DispatchController", "Prism
 discovery_method = "auto-introspection"
 auth_mechanism = "JWT + RBAC"
 api_version = "v1"
-swagger_path = "/api/swaggerui"
+swagger_path = "/api/swagger-ui"
 openapi_path = "/api/openapi"
 date_created = "2025-06-15"
 date_updated = "2026-02-22"
@@ -304,7 +304,7 @@ The gateway automatically generates a complete [OpenAPI](@/glossary/openapi.md) 
 | `DateTime.t()` | `{type: "string", format: "date-time"}` | ISO 8601 |
 | `{:ok, term()} \| {:error, term()}` | Response schemas (200/400) | Tagged tuple decomposition |
 
-The generated specification powers an interactive SwaggerUI at `/api/swaggerui`, enabling developers to explore and test all discovered endpoints without writing client code.
+The generated specification powers an interactive SwaggerUI at `/api/swagger-ui`, enabling developers to explore and test all discovered endpoints without writing client code.
 
 ## Security Architecture
 
@@ -353,7 +353,7 @@ The gateway emits comprehensive telemetry for monitoring and debugging:
 
 ## Context in Prismatic
 
-The Prismatic API application (`prismatic_api`, port 4004) functions as the platform's API gateway. It auto-discovers all Prismatic facade modules via Elixir introspection at boot time, registers them in an ETS-backed endpoint registry, and routes incoming requests through a generic dispatch controller. Authentication is handled by `PrismaticWeb.Plugs.APIAuth` with [RBAC](@/glossary/rbac.md) enforcement, and the full API surface is documented via OpenApiSpex with SwaggerUI at `/api/swaggerui`.
+The Prismatic API application (`prismatic_api`, port 4004) functions as the platform's API gateway. It auto-discovers all Prismatic facade modules via Elixir introspection at boot time, registers them in an ETS-backed endpoint registry, and routes incoming requests through a generic dispatch controller. Authentication is handled by `PrismaticWeb.Plugs.APIAuth` with [RBAC](@/glossary/rbac.md) enforcement, and the full API surface is documented via OpenApiSpex with SwaggerUI at `/api/swagger-ui`.
 
 Key gateway routes:
 
@@ -364,7 +364,7 @@ Key gateway routes:
 | `/api/v1/:app/:action` | GET | Yes | Generic dispatch (0-2 params) |
 | `/api/v1/:app/:action` | POST | Yes | Generic dispatch (3+ params) |
 | `/api/openapi` | GET | No | OpenAPI 3.0 JSON specification |
-| `/api/swaggerui` | GET | No | Interactive API documentation |
+| `/api/swagger-ui` | GET | No | Interactive API documentation |
 
 ## Comparison with Industry Alternatives
 

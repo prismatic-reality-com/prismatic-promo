@@ -16,7 +16,7 @@ prismatic_apps = ["prismatic_api", "prismatic_web", "prismatic_perimeter"]
 http_methods = ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"]
 constraints = ["Client-Server", "Stateless", "Cacheable", "Layered System", "Uniform Interface", "Code on Demand"]
 port = "4004"
-documentation_url = "/api/swaggerui"
+documentation_url = "/api/swagger-ui"
 spec_url = "/api/openapi"
 authentication = "JWT Bearer Token"
 authorization = "RBAC"
@@ -55,7 +55,7 @@ The Richardson Maturity Model, proposed by Leonard Richardson, classifies REST A
 
 The Prismatic API (`prismatic_api` app, port 4004) is an auto-introspecting REST gateway that discovers all public functions across `Prismatic*` facade modules at boot time and exposes them as [OpenAPI](@/glossary/openapi.md) 3.0 documented endpoints. This approach eliminates manual route configuration -- when a new public function is added to any Prismatic facade module, it automatically becomes available as a REST endpoint after the next boot. The generic dispatch controller resolves `{app, action}` tuples to `module.function(args)` calls, using GET for 0-2 parameter queries and POST for commands with larger payloads.
 
-The API is built on [Phoenix](@/glossary/phoenix.md) with a dedicated [Endpoint](@/glossary/endpoint.md) on port 4004, separating API traffic from the [LiveView](@/glossary/liveview.md) dashboard on port 4000. Authentication uses [JWT](@/glossary/jwt.md) tokens validated through `PrismaticWeb.Plugs.APIAuth`, with [RBAC](@/glossary/rbac.md) (Role-Based Access Control) governing endpoint permissions. [Rate limiting](@/glossary/rate-limiting.md) protects against abuse, and all endpoints are documented through OpenApiSpex with SwaggerUI available at `/api/swaggerui`.
+The API is built on [Phoenix](@/glossary/phoenix.md) with a dedicated [Endpoint](@/glossary/endpoint.md) on port 4004, separating API traffic from the [LiveView](@/glossary/liveview.md) dashboard on port 4000. Authentication uses [JWT](@/glossary/jwt.md) tokens validated through `PrismaticWeb.Plugs.APIAuth`, with [RBAC](@/glossary/rbac.md) (Role-Based Access Control) governing endpoint permissions. [Rate limiting](@/glossary/rate-limiting.md) protects against abuse, and all endpoints are documented through OpenApiSpex with SwaggerUI available at `/api/swagger-ui`.
 
 ## HTTP Methods and Resource Operations
 
@@ -235,7 +235,7 @@ end
 | `/api/v1/endpoints` | GET | List all discovered API endpoints |
 | `/api/v1/:app/:action` | GET/POST | Generic dispatch to Prismatic functions |
 | `/api/openapi` | GET | OpenAPI 3.0 JSON specification |
-| `/api/swaggerui` | GET | Interactive Swagger UI documentation |
+| `/api/swagger-ui` | GET | Interactive Swagger UI documentation |
 
 ## Authentication and Authorization
 

@@ -2,13 +2,23 @@
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
 
-{% block title %}Academy - Prismatic Platform{% endblock %}
+{% import "macros/social.html" as social %}
+
+{% block title %}Academy — 15+ Courses, 40+ Hours | Prismatic Platform{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Structured learning paths for mastering the Prismatic Platform">
-<meta property="og:title" content="Academy - Prismatic Platform">
-<meta property="og:description" content="Structured learning paths for mastering the Prismatic Platform">
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=config.base_url ~ "/academy/",
+     title="Academy — 15+ Courses, 40+ Hours | Prismatic Platform",
+     description="Structured learning paths covering 552 autonomous agents, 128 OSINT sources, Elixir/OTP foundations, due diligence automation, and the Nabla epistemic framework. Hands-on labs + certified tracks.",
+     image="/images/sections/academy.png",
+     image_alt="Prismatic Academy — Platform Learning Paths",
+     keywords=["prismatic academy", "OSINT training", "Elixir OTP course", "due diligence training", "AIAD certification", "platform learning paths", "intelligence courses"]
+) | safe }}
 {% endblock meta %}
+
+
 
 {% block content %}
 <!-- Hero Section -->

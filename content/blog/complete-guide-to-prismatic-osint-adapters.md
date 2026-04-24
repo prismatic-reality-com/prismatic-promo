@@ -413,7 +413,7 @@ mix prismatic.gen.adapter --name my_custom_source --category global
 | Regional | 2 | UK Companies House + European Business Register |
 | Universal | 2 | Cross-source email intelligence aggregation |
 
-Every adapter is open source, self-registering, and production-hardened with rate limiting, circuit breakers, and telemetry. Explore them at `/hub/osint/tools` or browse the [API documentation](/api/swaggerui).
+Every adapter is open source, self-registering, and production-hardened with rate limiting, circuit breakers, and telemetry. Explore them at `/hub/osint/tools` or browse the [API documentation](/api/swagger-ui).
 
 ---
 

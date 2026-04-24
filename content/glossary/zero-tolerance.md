@@ -503,7 +503,7 @@ After a complex refactoring across multiple applications, the Quality Floor Guar
 ## See Also
 
 - [No Mercy No Doubts Doctrine](/doctrine/no-mercy-no-doubts/) -- Full doctrine documentation
-- [Quality Gate Pipeline](/architecture/quality-gates/) -- Enforcement implementation details
+- [Quality Gate Pipeline](/capabilities/quality-gates/) -- Enforcement implementation details
 - [Quality Floor Guardian](/architecture/quality-floor-guardian/) -- Continuous monitoring system
 - [Martin Fowler: Continuous Integration](https://martinfowler.com/articles/continuousIntegration.html) -- Industry foundations for quality enforcement
 - [Zero Defect Manufacturing](https://en.wikipedia.org/wiki/Zero_Defects) -- Industrial quality management origin of the concept

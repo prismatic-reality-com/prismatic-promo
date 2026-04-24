@@ -589,7 +589,7 @@ Static analysis reports provide objective, automated code review feedback. New c
 
 - [Credo documentation](https://hexdocs.pm/credo/overview.html) -- Official Credo reference
 - [Dialyxir documentation](https://hexdocs.pm/dialyxir/readme.html) -- Dialyzer Mix integration
-- [Quality Gate Pipeline](/architecture/quality-gates/) -- How static analysis integrates with enforcement
+- [Quality Gate Pipeline](/capabilities/quality-gates/) -- How static analysis integrates with enforcement
 - [Forbidden Patterns Policy](/policies/forbidden-patterns/) -- Complete list of detected anti-patterns
 - [Wikipedia: Static program analysis](https://en.wikipedia.org/wiki/Static_program_analysis) -- Theoretical foundations
 

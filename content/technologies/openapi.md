@@ -28,7 +28,7 @@ OpenAPI (formerly Swagger) is the API documentation standard used by the Prismat
 
 The Prismatic API's auto-introspection approach means the OpenAPI specification is always synchronized with the actual codebase. When a module's `@spec` changes, the API documentation updates automatically on the next application restart. This eliminates the common problem of documentation drift and ensures that API consumers always have accurate, up-to-date documentation without any manual authoring. The specification serves as both documentation and a runtime validation contract -- incoming requests are validated against the schema before reaching handler code, preventing malformed data from propagating through the system.
 
-The [OpenApiSpex](https://hex.pm/packages/open_api_spex) library generates schemas, validates request parameters at runtime, and serves the interactive Swagger UI at `/api/swaggerui`, providing developers with a complete API exploration and testing interface. The Prismatic API application on port 4004 is the sole consumer of this OpenAPI infrastructure, serving as the unified gateway through which external systems interact with the platform's capabilities.
+The [OpenApiSpex](https://hex.pm/packages/open_api_spex) library generates schemas, validates request parameters at runtime, and serves the interactive Swagger UI at `/api/swagger-ui`, providing developers with a complete API exploration and testing interface. The Prismatic API application on port 4004 is the sole consumer of this OpenAPI infrastructure, serving as the unified gateway through which external systems interact with the platform's capabilities.
 
 ## Key Features
 
@@ -37,7 +37,7 @@ The [OpenApiSpex](https://hex.pm/packages/open_api_spex) library generates schem
 - **Path Documentation**: Endpoint descriptions, parameters, and examples generated from module `@doc` annotations and function signatures
 - **Authentication Schemes**: Security scheme documentation covering API keys, [JWT](@/technologies/jose.md) tokens, and OAuth flows with per-endpoint authorization requirements
 - **Runtime Validation**: Request parameters validated against the OpenAPI schema before reaching handler code, providing early rejection of malformed requests
-- **Interactive UI**: Swagger UI at `/api/swaggerui` for exploring and testing every endpoint interactively with authentication support
+- **Interactive UI**: Swagger UI at `/api/swagger-ui` for exploring and testing every endpoint interactively with authentication support
 - **Code Generation**: Clients can generate SDKs in any language from the exported specification using OpenAPI Generator or similar tools
 - **Versioned Endpoints**: API versioning through URL path prefixes enables breaking changes without disrupting existing consumers
 
@@ -124,7 +124,7 @@ The OpenAPI infrastructure occupies a specific position in the platform's reques
 | **Specification** | `PrismaticApi.ApiSpec` | OpenApiSpex behaviour implementation, spec assembly |
 | **Validation** | `OpenApiSpex.Plug.CastAndValidate` | Request parameter validation against schema |
 | **Dispatch** | `PrismaticApi.DispatchController` | Generic function dispatch after validation |
-| **Documentation** | `OpenApiSpex.Plug.SwaggerUI` | Interactive API explorer at `/api/swaggerui` |
+| **Documentation** | `OpenApiSpex.Plug.SwaggerUI` | Interactive API explorer at `/api/swagger-ui` |
 
 The scanner runs once at application startup and caches results in [ETS](@/technologies/ets.md). Subsequent requests serve the cached specification without re-scanning, ensuring sub-millisecond spec retrieval even with hundreds of discovered endpoints.
 

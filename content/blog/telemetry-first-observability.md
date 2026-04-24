@@ -106,8 +106,8 @@ New code that would be hard to debug in production starts with the event contrac
 
 ## Where to go next
 
-- **Academy**: [LiveView Dashboards](/academy/learn/liveview-dashboards) — consume telemetry in real time
-- **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — where the boundaries to instrument live
+- **Academy**: [LiveView Dashboards](/academy/liveview-dashboards) — consume telemetry in real time
+- **Academy**: [OTP Fundamentals](/academy/otp-fundamentals) — where the boundaries to instrument live
 - **Glossary**: [Telemetry](@/glossary/telemetry.md), [Observability](@/glossary/observability.md), [Metrics](@/glossary/metrics.md), [Monitoring](@/glossary/monitoring.md), [Structured Logging](@/glossary/structured-logging.md)
 
 Events before dashboards. Always.

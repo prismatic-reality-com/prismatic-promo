@@ -38,7 +38,7 @@ The auto-introspection approach eliminates this gap entirely. When a developer a
 
 1. **Zero-configuration endpoint generation** -- any public function on a `Prismatic*` facade module with a `@spec` becomes an API endpoint automatically.
 2. **Type-safe dispatch** -- Elixir type specifications are translated into OpenAPI JSON Schema for automatic request validation.
-3. **Full OpenAPI 3.0 compliance** -- complete specification generated at runtime, accessible at `/api/openapi`, with interactive SwaggerUI at `/api/swaggerui`.
+3. **Full OpenAPI 3.0 compliance** -- complete specification generated at runtime, accessible at `/api/openapi`, with interactive SwaggerUI at `/api/swagger-ui`.
 4. **Secure by default** -- all endpoints inherit platform authentication through `PrismaticWeb.Plugs.APIAuth` and [RBAC](@/glossary/rbac.md) permission checks.
 5. **Generic dispatch** -- a single controller handles all endpoints, routing `GET /api/v1/:app/:action` and `POST /api/v1/:app/:action` to the appropriate module function.
 6. **Performance** -- boot-time scanning with ETS caching ensures sub-millisecond endpoint resolution at request time.
@@ -189,7 +189,7 @@ end
 # => Full OpenAPI 3.0 JSON document
 
 # Interactive documentation
-# GET /api/swaggerui
+# GET /api/swagger-ui
 # => SwaggerUI HTML interface
 ```
 

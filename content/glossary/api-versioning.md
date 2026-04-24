@@ -122,7 +122,7 @@ end
 
 - **REST API Gateway**: `/api/v1/` prefix for all auto-discovered endpoints (100+ facade functions)
 - **OpenApiSpex Integration**: Version-specific OpenAPI 3.0 specs at `/api/openapi`
-- **Swagger UI**: Version-aware interactive documentation at `/api/swaggerui`
+- **Swagger UI**: Version-aware interactive documentation at `/api/swagger-ui`
 - **OSINT API**: Tool execution endpoints versioned for stability
 - **Perimeter API**: Security rating and asset discovery endpoints under versioned paths
 

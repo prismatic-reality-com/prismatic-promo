@@ -84,7 +84,7 @@ The test is simple: a regulator asks *"can you show me the current status of obl
 ## Where to go next
 
 - **Academy**: [EASM Development](/academy/learn/easm-development) — the asset-side feed
-- **Academy**: [DD Investigation](/academy/learn/dd-investigation) — the supplier-side feed
+- **Academy**: [DD Investigation](/academy/dd-investigation) — the supplier-side feed
 - **Glossary**: [NIS2](@/glossary/nis2.md), [Compliance](@/glossary/compliance.md), [EASM](@/glossary/easm.md), [Risk Assessment](@/glossary/risk-assessment.md), [Evidence](@/glossary/evidence.md)
 
 The directive is long. The pattern is short. Obligations + evidence + checks + freshness. Everything else is presentation.

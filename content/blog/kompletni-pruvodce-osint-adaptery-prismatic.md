@@ -414,7 +414,7 @@ mix prismatic.gen.adapter --name muj_vlastni_zdroj --category global
 | Regionalni | 2 | UK Companies House + Evropsky obchodni rejstrik |
 | Univerzalni | 2 | Agregovana emailova inteligence pres vice zdroju |
 
-Kazdy adapter je open source, samoregistrujici a produkcne otuzeny s rate limitingem, circuit breakery a telemetrii. Prozkoumejte je na `/hub/osint/tools` nebo si prohlednejte [API dokumentaci](/api/swaggerui).
+Kazdy adapter je open source, samoregistrujici a produkcne otuzeny s rate limitingem, circuit breakery a telemetrii. Prozkoumejte je na `/hub/osint/tools` nebo si prohlednejte [API dokumentaci](/api/swagger-ui).
 
 ---
 

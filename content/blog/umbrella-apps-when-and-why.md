@@ -58,7 +58,7 @@ Pick an app. Ask: if the product killed this feature tomorrow, could I delete th
 
 ## Where to go next
 
-- **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — supervision and app lifecycles
+- **Academy**: [OTP Fundamentals](/academy/otp-fundamentals) — supervision and app lifecycles
 - **Academy**: [Development Workflow](/academy/learn/development-workflow) — how umbrella work is structured day-to-day
 - **Glossary**: [Umbrella](@/glossary/umbrella.md), [Umbrella Application](@/glossary/umbrella-application.md), [OTP Application](@/glossary/otp-application.md), [Modularity](@/glossary/modularity.md), [Mix](@/glossary/mix.md)
 

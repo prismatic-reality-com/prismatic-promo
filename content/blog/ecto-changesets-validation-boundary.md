@@ -85,7 +85,7 @@ When two call sites have genuinely different rules. Public web form vs admin imp
 
 ## Where to go next
 
-- **Academy**: [Storage Patterns](/academy/learn/storage-patterns) — changesets in context modules
+- **Academy**: [Storage Patterns](/academy/storage-patterns) — changesets in context modules
 - **Glossary**: [Ecto](@/glossary/ecto.md), [Changeset](/glossary/changeset), [Validation](@/glossary/validation.md), [Input Sanitization](@/glossary/input-sanitization.md), [Invariant](@/glossary/invariant.md)
 
 One boundary. One authority. Delete the duplicated checks and stop worrying about drift.

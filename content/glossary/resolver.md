@@ -460,7 +460,7 @@ end
 
 - [Prismatic API Architecture](@/architecture/_index.md) -- auto-introspecting resolver system
 - [OSINT Toolbox](/hub/osint/tools) -- 157 OSINT tools as resolver endpoints
-- [API Documentation](/api/swaggerui) -- OpenAPI specs for all resolved endpoints
+- [API Documentation](/api/swagger-ui) -- OpenAPI specs for all resolved endpoints
 - [Absinthe Documentation](https://hexdocs.pm/absinthe/) -- Elixir GraphQL framework
 
 ---

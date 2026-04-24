@@ -69,7 +69,7 @@ If GUI over SSH is too slow, `:runtime_tools` and `:recon` give you the same inf
 
 ## Where to go next
 
-- **Academy**: [OTP Fundamentals](/academy/learn/otp-fundamentals) — the supervision trees Observer visualizes
+- **Academy**: [OTP Fundamentals](/academy/otp-fundamentals) — the supervision trees Observer visualizes
 - **Glossary**: [Observer](@/glossary/observer.md), [Introspection](@/glossary/introspection.md), [BEAM](@/glossary/beam.md), [BEAM VM](@/glossary/beam-vm.md), [Monitoring](@/glossary/monitoring.md)
 
 Most production debugging in other runtimes is archaeology. In Elixir it is live inspection. Use it.

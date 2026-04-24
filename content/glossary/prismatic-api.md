@@ -396,7 +396,7 @@ Prismatic API inherits the platform's authentication and authorization infrastru
 | `/api/v1/:app/:action` | GET | Dispatch to functions with 0-2 params |
 | `/api/v1/:app/:action` | POST | Dispatch to functions with 3+ params |
 | `/api/openapi` | GET | OpenAPI 3.0 JSON specification |
-| `/api/swaggerui` | GET | Interactive Swagger UI documentation |
+| `/api/swagger-ui` | GET | Interactive Swagger UI documentation |
 
 ## Telemetry and Observability
 
@@ -471,7 +471,7 @@ curl http://localhost:4004/api/v1/perimeter/security_rating?domain=example.com \
 # => {"status": "ok", "data": {"grade": "B", "score": 780}}
 
 # Interactive API documentation
-open http://localhost:4004/api/swaggerui
+open http://localhost:4004/api/swagger-ui
 ```
 
 ## Error Handling and Resilience

@@ -15,7 +15,7 @@ beam_specific = false
 prismatic_modules = ["PrismaticApi.ApiSpec", "PrismaticApi.DispatchController", "PrismaticApi.Scanner", "PrismaticApi.TypeMapper"]
 specification_version = "3.0.3"
 api_port = 4004
-swagger_ui_path = "/api/swaggerui"
+swagger_ui_path = "/api/swagger-ui"
 auto_discovery = true
 industry_standard = "OpenAPI Initiative (Linux Foundation)"
 first_introduced = "Gen 14"
@@ -360,7 +360,7 @@ end
 | `/api/v1/endpoints` | GET | List all discovered endpoints with metadata |
 | `/api/v1/:app/:action` | GET/POST | Generic dispatch (GET for 0-2 params, POST otherwise) |
 | `/api/openapi` | GET | OpenAPI 3.0 JSON specification |
-| `/api/swaggerui` | GET | Interactive Swagger UI documentation |
+| `/api/swagger-ui` | GET | Interactive Swagger UI documentation |
 
 ```
 Scanner --> Registry (ETS) --> DispatchController --> safe_apply(Module, :function, args) --> JSON

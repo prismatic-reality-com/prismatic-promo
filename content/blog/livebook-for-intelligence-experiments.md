@@ -70,8 +70,8 @@ Paste that into `lib/`, write a test, ship.
 
 ## Where to go next
 
-- **Academy**: [DD Investigation](/academy/learn/dd-investigation) — the workflow notebooks support
-- **Academy**: [LiveView Dashboards](/academy/learn/liveview-dashboards) — the dashboards notebooks prototype
+- **Academy**: [DD Investigation](/academy/dd-investigation) — the workflow notebooks support
+- **Academy**: [LiveView Dashboards](/academy/liveview-dashboards) — the dashboards notebooks prototype
 - **Glossary**: [Livebook](@/glossary/livebook.md), [Elixir](@/glossary/elixir.md), [Intelligence](@/glossary/intelligence.md), [Investigation](/glossary/investigation)
 
 The fastest feedback loop Elixir ever had. Use it.

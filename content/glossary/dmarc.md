@@ -174,7 +174,7 @@ Without an explicit `sp` tag, subdomains inherit the organizational domain's `p`
 
 ### Perimeter EASM DMARC Checking
 
-The Prismatic [Perimeter](/glossary/perimeter/) module (External Attack Surface Management) includes DMARC analysis as a core component of domain security assessment. When scanning a target organization's external attack surface, Perimeter automatically queries DMARC, [SPF](@/glossary/spf.md), and [DKIM](/glossary/dkim/) records and scores the email authentication posture.
+The Prismatic [Perimeter](/glossary/prismatic-perimeter/) module (External Attack Surface Management) includes DMARC analysis as a core component of domain security assessment. When scanning a target organization's external attack surface, Perimeter automatically queries DMARC, [SPF](@/glossary/spf.md), and [DKIM](/glossary/dkim/) records and scores the email authentication posture.
 
 DMARC policy strength directly influences the Perimeter security rating. Domains with `p=reject` and strict alignment receive the highest email security scores, while domains missing DMARC entirely are flagged as high-risk for [phishing](/glossary/phishing/) and [social engineering](/glossary/social-engineering/) attacks.
 
@@ -560,7 +560,7 @@ end
 
 7. **Use DMARC analysis in security ratings** -- email authentication is a reliable indicator of organizational security maturity for [OSINT](@/glossary/osint.md) assessment and [compliance](@/glossary/compliance.md) evaluation.
 
-8. **Include DMARC in attack surface scans** -- the [Perimeter](/glossary/perimeter/) module should check DMARC as part of every domain security assessment, flagging missing or weak policies as vulnerabilities.
+8. **Include DMARC in attack surface scans** -- the [Perimeter](/glossary/prismatic-perimeter/) module should check DMARC as part of every domain security assessment, flagging missing or weak policies as vulnerabilities.
 
 9. **Configure both rua and ruf** -- aggregate reports provide volume-level visibility while forensic reports enable incident investigation. Use separate mailboxes for each.
 
@@ -589,7 +589,7 @@ end
 - [Email](/glossary/email/) -- Communication protocol protected by DMARC authentication
 - [Phishing](/glossary/phishing/) -- Social engineering attack vector prevented by DMARC enforcement
 - [OSINT](@/glossary/osint.md) -- Intelligence methodology using DMARC analysis for domain assessment
-- [Perimeter](/glossary/perimeter/) -- External Attack Surface Management integrating DMARC checking
+- [Perimeter](/glossary/prismatic-perimeter/) -- External Attack Surface Management integrating DMARC checking
 - [Attack Surface](@/glossary/attack-surface.md) -- Email authentication gaps as exploitable attack surface components
 - [Compliance](@/glossary/compliance.md) -- Regulatory frameworks requiring email authentication controls
 - [Security Posture](/glossary/security-posture/) -- Organizational security maturity indicated by DMARC policy strength
@@ -602,7 +602,7 @@ end
 
 - [OSINT Tools](@/osint/_index.md) -- Email security analysis tools including the DMARC analyzer
 - [Capabilities](@/capabilities/_index.md) -- Domain security assessment capabilities
-- [Perimeter Module](/glossary/perimeter/) -- EASM integration with DMARC policy checking
+- [Perimeter Module](/glossary/prismatic-perimeter/) -- EASM integration with DMARC policy checking
 - [RFC 7489: DMARC](https://datatracker.ietf.org/doc/html/rfc7489) -- The DMARC protocol specification
 - [RFC 7208: SPF](https://datatracker.ietf.org/doc/html/rfc7208) -- Sender Policy Framework specification
 - [RFC 6376: DKIM](https://datatracker.ietf.org/doc/html/rfc6376) -- DomainKeys Identified Mail specification
