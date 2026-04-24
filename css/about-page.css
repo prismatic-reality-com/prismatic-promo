@@ -1,0 +1,51 @@
+/* About-page specific styles (extracted from templates/about/page.html) */
+
+/* Custom styles for interactive features */
+.reading-progress-bar {
+    position: fixed;
+    top: 56px; /* Below navbar */
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #4f46e5, #7c3aed, #ec4899);
+    transform-origin: 0%;
+    z-index: 40;
+    transition: transform 0.1s ease-out;
+}
+
+.concept-filter-button {
+    @apply px-3 py-1.5 text-sm font-medium rounded-lg border transition-all duration-200;
+}
+.concept-filter-button:not(.active) {
+    @apply bg-gray-700/50 text-gray-300 border-gray-600/50 hover:bg-gray-600/50 hover:text-white hover:border-gray-500;
+}
+.concept-filter-button.active {
+    @apply bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-600/20;
+}
+
+.expandable-section {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline-milestone {
+    @apply relative pl-8 pb-8;
+}
+.timeline-milestone::before {
+    content: '';
+    @apply absolute left-3 top-6 bottom-0 w-0.5 bg-gradient-to-b from-indigo-500 to-purple-600;
+}
+.timeline-milestone:last-child::before {
+    @apply hidden;
+}
+
+.timeline-dot {
+    @apply absolute left-0 top-4 w-6 h-6 rounded-full border-4 bg-gray-900 transition-all duration-300;
+}
+.timeline-dot.completed {
+    @apply border-indigo-500 bg-indigo-500 shadow-lg shadow-indigo-500/30;
+}
+.timeline-dot.active {
+    @apply border-purple-500 bg-purple-500 shadow-lg shadow-purple-500/30 animate-pulse;
+}
+.timeline-dot.future {
+    @apply border-gray-600 bg-gray-700;
+}
