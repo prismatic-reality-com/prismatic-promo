@@ -5,6 +5,175 @@
    Note: Tera macros cannot access page/section/config - pass all values as explicit args.
 #}
 
+{# ============================================================================
+   meta_tags_* — unified per-page social/OG/Twitter/JSON-LD emitter.
+
+   Two entry points per page archetype:
+
+     • meta_tags_article(...)  — blog articles (dated + authored)
+     • meta_tags_section(...)  — section/taxonomy/landing index pages
+
+   Each emits a complete, validator-clean set: description, OG (Facebook/
+   LinkedIn/Slack unfurl), Twitter Card, article:* namespace, canonical,
+   and Schema.org JSON-LD.
+
+   Image resolution: pass `image` (path relative to site root, e.g.
+   `/images/blog/x.png`) and the macro prepends `base_url`. If empty,
+   falls back to `/images/og-image.png`. Callers wanting category-smart
+   fallbacks should precompute the path and pass it as `image`.
+============================================================================ #}
+
+{% macro meta_tags_article(
+     base_url, canonical_url, title, description, image,
+     image_alt, published, modified, author, author_twitter,
+     section_label, tags, keywords, reading_time, word_count
+) %}
+{% set _img = image | default(value="/images/og-image.png") %}
+{% set resolved_image = base_url ~ _img %}
+{% set resolved_alt = image_alt | default(value=title) %}
+{% set resolved_desc = description | default(value="") %}
+
+<meta name="description" content="{{ resolved_desc | safe }}">
+<link rel="canonical" href="{{ canonical_url | safe }}">
+
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{ canonical_url | safe }}">
+<meta property="og:title" content="{{ title | safe }}">
+<meta property="og:description" content="{{ resolved_desc | safe }}">
+<meta property="og:image" content="{{ resolved_image | safe }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="{{ resolved_alt | safe }}">
+<meta property="og:site_name" content="Prismatic Platform">
+<meta property="og:locale" content="en_US">
+
+{% if published %}<meta property="article:published_time" content="{{ published }}">{% endif %}
+{% if modified %}<meta property="article:modified_time" content="{{ modified }}">{% endif %}
+{% if author %}<meta property="article:author" content="{{ author | safe }}">{% endif %}
+{% if section_label %}<meta property="article:section" content="{{ section_label | safe }}">{% endif %}
+{% if tags %}{% for tag in tags %}<meta property="article:tag" content="{{ tag | safe }}">
+{% endfor %}{% endif %}
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ canonical_url | safe }}">
+<meta name="twitter:title" content="{{ title | safe }}">
+<meta name="twitter:description" content="{{ resolved_desc | safe }}">
+<meta name="twitter:image" content="{{ resolved_image | safe }}">
+<meta name="twitter:image:alt" content="{{ resolved_alt | safe }}">
+{% if author_twitter %}<meta name="twitter:creator" content="{{ author_twitter }}">{% endif %}
+<meta name="twitter:site" content="@korczis">
+
+{% if reading_time %}<meta name="twitter:label1" content="Reading time">
+<meta name="twitter:data1" content="{{ reading_time }}">{% endif %}
+{% if word_count %}<meta name="twitter:label2" content="Words">
+<meta name="twitter:data2" content="{{ word_count }}">{% endif %}
+
+{% if author %}<meta name="author" content="{{ author | safe }}">{% endif %}
+{% if keywords %}<meta name="keywords" content="{{ keywords | join(sep=', ') | safe }}">{% endif %}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "{{ title | safe }}",
+  "description": "{{ resolved_desc | safe }}",
+  "url": "{{ canonical_url | safe }}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ resolved_image | safe }}",
+    "width": 1200,
+    "height": 630
+  },
+  "author": {
+    "@type": "Person",
+    "name": "{{ author | default(value='Prismatic Platform Team') | safe }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Prismatic Platform",
+    "url": "{{ base_url | safe }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ base_url | safe }}/images/og-image.png",
+      "width": 1200,
+      "height": 630
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ canonical_url | safe }}"
+  },
+  "inLanguage": "en"{% if published %},
+  "datePublished": "{{ published }}"{% endif %}{% if modified %},
+  "dateModified": "{{ modified }}"{% endif %}{% if section_label %},
+  "articleSection": "{{ section_label | safe }}"{% endif %}{% if tags %},
+  "keywords": "{{ tags | join(sep=', ') | safe }}"{% elif keywords %},
+  "keywords": "{{ keywords | join(sep=', ') | safe }}"{% endif %}{% if word_count %},
+  "wordCount": {{ word_count }}{% endif %}
+}
+</script>
+{% endmacro meta_tags_article %}
+
+{% macro meta_tags_section(
+     base_url, canonical_url, title, description, image, image_alt, keywords
+) %}
+{% set _img = image | default(value="/images/og-image.png") %}
+{% set resolved_image = base_url ~ _img %}
+{% set resolved_alt = image_alt | default(value=title) %}
+{% set resolved_desc = description | default(value="") %}
+
+<meta name="description" content="{{ resolved_desc | safe }}">
+<link rel="canonical" href="{{ canonical_url | safe }}">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ canonical_url | safe }}">
+<meta property="og:title" content="{{ title | safe }}">
+<meta property="og:description" content="{{ resolved_desc | safe }}">
+<meta property="og:image" content="{{ resolved_image | safe }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="{{ resolved_alt | safe }}">
+<meta property="og:site_name" content="Prismatic Platform">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ canonical_url | safe }}">
+<meta name="twitter:title" content="{{ title | safe }}">
+<meta name="twitter:description" content="{{ resolved_desc | safe }}">
+<meta name="twitter:image" content="{{ resolved_image | safe }}">
+<meta name="twitter:image:alt" content="{{ resolved_alt | safe }}">
+<meta name="twitter:site" content="@korczis">
+
+{% if keywords %}<meta name="keywords" content="{{ keywords | join(sep=', ') | safe }}">{% endif %}
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "{{ title | safe }}",
+  "description": "{{ resolved_desc | safe }}",
+  "url": "{{ canonical_url | safe }}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "{{ resolved_image | safe }}",
+    "width": 1200,
+    "height": 630
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Prismatic Platform",
+    "url": "{{ base_url | safe }}"
+  },
+  "inLanguage": "en"{% if keywords %},
+  "keywords": "{{ keywords | join(sep=', ') | safe }}"{% endif %}
+}
+</script>
+{% endmacro meta_tags_section %}
+
 {# Schema.org Organization structured data #}
 {% macro schema_organization(base_url, name, description, github_url, twitter_url, linkedin_url) %}
 <script type="application/ld+json">

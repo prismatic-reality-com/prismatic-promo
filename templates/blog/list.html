@@ -1,14 +1,20 @@
 {% extends "base.html" %}
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
+{% import "macros/social.html" as social %}
 
 {% block title %}Blog - Prismatic Platform{% endblock %}
 
 {% block meta %}
-<meta name="description" content="Engineering insights, platform updates, intelligence methodology, and community news from the Prismatic Platform team.">
-<meta property="og:title" content="Blog - Prismatic Platform">
-<meta property="og:description" content="Engineering insights, platform updates, and community news from the Prismatic Platform team.">
-<meta property="og:type" content="blog">
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=section.permalink,
+     title="Blog — Prismatic Platform",
+     description="Engineering deep-dives, architecture decisions, intelligence methodology, and platform updates from the team building Prismatic. 114+ articles on Elixir, OSINT, Due Diligence automation, and AI-orchestrated systems.",
+     image=section.extra.image | default(value="/images/sections/blog.png"),
+     image_alt="Prismatic Platform Blog — Engineering, Architecture, Intelligence",
+     keywords=section.extra.keywords | default(value=["prismatic platform blog", "OSINT engineering", "Elixir OTP", "intelligence automation", "autonomous agents", "due diligence automation", "Phoenix LiveView", "AI orchestration"])
+) | safe }}
 {% endblock meta %}
 
 {% block head_styles %}

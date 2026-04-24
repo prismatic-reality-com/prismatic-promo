@@ -1,31 +1,52 @@
 {% extends "base.html" %}
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
+{% import "macros/social.html" as social %}
 
 {% block title %}{{ page.title }} - Prismatic Blog{% endblock %}
 
 {% block meta %}
-{% if page.description %}
-<meta name="description" content="{{ page.description }}">
-<meta property="og:description" content="{{ page.description }}">
-<meta name="twitter:description" content="{{ page.description }}">
+{# ─────────────────────────────────────────────────────────────────────
+   Resolve the article image with a category-smart fallback chain:
+   1. page.extra.image (author-specified per-article)
+   2. /images/sections/<category>.png (category match)
+   3. /images/og-image.png (site default)
+   This avoids 404s when frontmatter references an image file that was
+   never created; social crawlers (Twitter, Slack, LinkedIn) fall back
+   gracefully to the category banner.
+───────────────────────────────────────────────────────────────────── #}
+{% set _cat = page.extra.category | default(value="") %}
+{% set _section_image = "/images/sections/blog.png" %}
+{% if _cat == "engineering" %}{% set _section_image = "/images/sections/about.png" %}
+{% elif _cat == "architecture" %}{% set _section_image = "/images/sections/architecture.png" %}
+{% elif _cat == "intelligence" or _cat == "osint" %}{% set _section_image = "/images/sections/osint.png" %}
+{% elif _cat == "security" %}{% set _section_image = "/images/sections/about.png" %}
+{% elif _cat == "tutorial" %}{% set _section_image = "/images/sections/academy.png" %}
+{% elif _cat == "product" %}{% set _section_image = "/images/sections/capabilities.png" %}
+{% elif _cat == "deep-dive" or _cat == "deep_dive" %}{% set _section_image = "/images/sections/architecture.png" %}
 {% endif %}
-<meta property="og:title" content="{{ page.title }} - Prismatic Blog">
-<meta property="og:type" content="article">
-<meta property="og:url" content="{{ page.permalink }}">
-{% if page.date %}
-<meta property="article:published_time" content="{{ page.date | date(format='%Y-%m-%dT%H:%M:%S+00:00') }}">
-{% endif %}
-{% if page.extra.author %}
-<meta property="article:author" content="{{ page.extra.author }}">
-{% endif %}
-{% if page.extra.tags %}
-{% for tag in page.extra.tags %}
-<meta property="article:tag" content="{{ tag }}">
-{% endfor %}
-{% endif %}
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ page.title }} - Prismatic Blog">
+{% set _article_image = page.extra.image | default(value=_section_image) %}
+{% set _section_label = page.extra.category | default(value="Blog") | capitalize %}
+{% set _published = page.date | date(format='%Y-%m-%dT%H:%M:%S+00:00') %}
+{% set _modified = page.updated | default(value=page.date) | date(format='%Y-%m-%dT%H:%M:%S+00:00') %}
+
+{{ social::meta_tags_article(
+     base_url=config.base_url,
+     canonical_url=page.permalink,
+     title=page.title ~ " — Prismatic Blog",
+     description=page.description,
+     image=_article_image,
+     image_alt=page.extra.image_alt | default(value=page.title),
+     published=_published,
+     modified=_modified,
+     author=page.extra.author | default(value=config.extra.author),
+     author_twitter=config.extra.author_handle,
+     section_label=_section_label,
+     tags=page.extra.tags | default(value=[]),
+     keywords=page.extra.keywords | default(value=[]),
+     reading_time=page.extra.reading_time | default(value=""),
+     word_count=page.word_count | default(value=0)
+) | safe }}
 {% endblock meta %}
 
 {% block head_styles %}
@@ -37,36 +58,6 @@
 {% block body_styles %}
 <link rel="stylesheet" href="{{ config.base_url | safe }}/css/prismatic-code-themes.css">
 {% endblock body_styles %}
-
-{% block head_scripts %}
-{# Article structured data #}
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "{{ page.title | safe }}",
-    "description": "{{ page.description | default(value='') | safe }}",
-    "url": "{{ page.permalink | safe }}",
-    "author": {
-        "@type": "Organization",
-        "name": "{{ page.extra.author | default(value='Prismatic Platform Team') }}"
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "Prismatic Platform",
-        "url": "{{ config.base_url | safe }}"
-    },
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{ page.permalink | safe }}"
-    },
-    "inLanguage": "en"{% if page.date %},
-    "datePublished": "{{ page.date | date(format='%Y-%m-%dT%H:%M:%S+00:00') }}"{% endif %}{% if page.extra.keywords %},
-    "keywords": "{{ page.extra.keywords | join(sep=', ') | safe }}"{% endif %}{% if page.word_count %},
-    "wordCount": {{ page.word_count }}{% endif %}
-}
-</script>
-{% endblock head_scripts %}
 
 {% block content %}
 <article class="py-12 lg:py-16">
