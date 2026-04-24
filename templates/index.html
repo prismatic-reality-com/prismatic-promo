@@ -1,4 +1,19 @@
 {% extends "base.html" %}
+{% import "macros/social.html" as social %}
+
+{% block title %}Prismatic Platform — Decision Infrastructure under Uncertainty{% endblock %}
+
+{% block meta %}
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=config.base_url ~ "/",
+     title="Prismatic Platform — Decision Infrastructure under Uncertainty",
+     description="Open-source platform for OSINT investigations, due diligence automation, and risk intelligence. 552 autonomous agents, 128 self-registering OSINT sources, 114 deep-dive articles on Elixir/OTP engineering and decision architecture.",
+     image="/images/prismatic-hero.png",
+     image_alt="Prismatic Platform — OSINT, Due Diligence, Risk Intelligence",
+     keywords=["OSINT platform", "due diligence automation", "risk intelligence", "autonomous AI agents", "Elixir OTP", "decision infrastructure", "Phoenix LiveView", "intelligence platform", "Czech compliance", "NIS2", "self-evolving systems"]
+) | safe }}
+{% endblock meta %}
 
 {% block content %}
 <!-- ============================================================ -->

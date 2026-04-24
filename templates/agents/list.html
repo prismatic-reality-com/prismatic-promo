@@ -1,6 +1,21 @@
 {% extends "base.html" %}
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
+{% import "macros/social.html" as social %}
+
+{% block title %}AIAD Agents — 552 Autonomous Agents | Prismatic Platform{% endblock %}
+
+{% block meta %}
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=config.base_url ~ "/agents/",
+     title="AIAD Agents — 552 Autonomous Agents | Prismatic Platform",
+     description="Browse 552 specialized autonomous agents powering Prismatic Platform: OSINT commanders, quality sentinels, DD investigators, evolution engines, Color Team specialists. AI-Augmented Development at scale.",
+     image="/images/sections/agents.png",
+     image_alt="AIAD Agents — 552 Autonomous Agents Registry",
+     keywords=["AIAD agents", "autonomous AI agents", "multi-agent system", "AI orchestration", "agent registry", "OSINT agents", "intelligence agents", "prismatic agents"]
+) | safe }}
+{% endblock meta %}
 
 {% block content %}
 <!-- Hero Section -->

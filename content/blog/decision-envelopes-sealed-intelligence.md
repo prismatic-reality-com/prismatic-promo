@@ -74,8 +74,8 @@ This runs as a [GenServer](@/glossary/genserver.md) behind a `Task.Supervisor`, 
 
 ## Where to learn more
 
-- **Academy**: [Decision Core Fundamentals](/academy/learn/decision-core-fundamentals) — full walkthrough
-- **Academy**: [Monte Carlo Fundamentals](/academy/learn/monte-carlo-fundamentals) — how uncertainty is estimated
-- **Glossary**: [GenServer](@/glossary/genserver.md), [OTP](@/glossary/otp.md), [Telemetry](@/glossary/telemetry.md)
+- **Academy**: [Prismatic Academy](@/academy/_index.md) — full curriculum
+- **Glossary**: [GenServer](@/glossary/genserver.md), [OTP](@/glossary/otp.md), [Telemetry](@/glossary/telemetry.md), [Nabla Infinity](@/glossary/nabla-infinity.md)
+- **Related**: [Decision Core](@/glossary/decision-core.md) — closed-loop reconciliation deep dive
 
 A decision you cannot defend is a decision you should not have made. Sealed envelopes are the difference between "we think" and "we can prove."

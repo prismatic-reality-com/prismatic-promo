@@ -1,8 +1,21 @@
 {% extends "base.html" %}
 {% import "macros/sidebar.html" as sidebar %}
 {% import "macros/breadcrumbs.html" as breadcrumbs %}
+{% import "macros/social.html" as social %}
 
-{% block title %}Applications - Prismatic Platform{% endblock %}
+{% block title %}Applications — Industry Use Cases | Prismatic Platform{% endblock %}
+
+{% block meta %}
+{{ social::meta_tags_section(
+     base_url=config.base_url,
+     canonical_url=config.base_url ~ "/applications/",
+     title="Applications — Industry Use Cases | Prismatic Platform",
+     description="Real-world applications of the Prismatic Platform across compliance, due diligence, OSINT, security ratings, and intelligence workflows. Purpose-built solutions grounded in autonomous agents and decision infrastructure.",
+     image="/images/sections/applications.png",
+     image_alt="Applications — Industry Use Cases for Prismatic Platform",
+     keywords=["prismatic applications", "OSINT use cases", "due diligence software", "compliance automation", "intelligence platform use cases", "risk management applications"]
+) | safe }}
+{% endblock meta %}
 
 {% block content %}
 <!-- Hero Section -->
