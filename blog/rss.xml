@@ -398,23 +398,95 @@
           <guid>https://prismatic-reality-com.github.io/prismatic-promo/blog/easm-continuous-attack-surface/</guid>
           <description xml:base="https://prismatic-reality-com.github.io/prismatic-promo/blog/easm-continuous-attack-surface/">&lt;p&gt;A vulnerability scan is not security. A report is not security. Security is the closed loop between &lt;em&gt;discovering&lt;&#x2F;em&gt; what you own, &lt;em&gt;rating&lt;&#x2F;em&gt; what matters, &lt;em&gt;remediating&lt;&#x2F;em&gt; what&#x27;s broken, and &lt;em&gt;proving&lt;&#x2F;em&gt; it stayed fixed. &lt;a href=&quot;&#x2F;glossary&#x2F;easm&quot;&gt;EASM&lt;&#x2F;a&gt; fails whenever any of those four edges break.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;the-four-edges&quot;&gt;The four edges&lt;&#x2F;h2&gt;
-&lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;           ┌─────────────┐&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;           │  Discover   │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;           └──────┬──────┘&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                  ▼&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;           ┌─────────────┐&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;           │    Rate     │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;           └──────┬──────┘&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                  ▼&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;           ┌─────────────┐&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;           │  Remediate  │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;           └──────┬──────┘&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                  ▼&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;           ┌─────────────┐&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;           │   Verify    │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;           └──────┬──────┘&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                  │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                  └──── (loop back to Discover)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;div id=&quot;easm-cycle-canvas&quot; style=&quot;height:380px;border:1px solid rgba(255,255,255,0.08);background:#000;border-radius:6px;margin:1.5rem 0;position:relative&quot;&gt;
+  &lt;noscript&gt;&lt;pre&gt;           ┌─────────────┐
+           │  Discover   │
+           └──────┬──────┘
+                  ▼
+           ┌─────────────┐
+           │    Rate     │
+           └──────┬──────┘
+                  ▼
+           ┌─────────────┐
+           │  Remediate  │
+           └──────┬──────┘
+                  ▼
+           ┌─────────────┐
+           │   Verify    │
+           └──────┬──────┘
+                  │
+                  └──── (loop back to Discover)&lt;&#x2F;pre&gt;&lt;&#x2F;noscript&gt;
+&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;p5@1.9.0&#x2F;lib&#x2F;p5.min.js&quot; defer&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+(function(){
+  function start(){
+    if (!window.p5) { setTimeout(start, 200); return; }
+    var el = document.getElementById(&#x27;easm-cycle-canvas&#x27;);
+    if (!el) return;
+    new p5(function(p){
+      var stages = [
+        {label:&#x27;DISCOVER&#x27;,  detail:&#x27;find what you own&#x27;},
+        {label:&#x27;RATE&#x27;,      detail:&#x27;score what matters&#x27;},
+        {label:&#x27;REMEDIATE&#x27;, detail:&#x27;fix what is broken&#x27;},
+        {label:&#x27;VERIFY&#x27;,    detail:&#x27;prove it stayed fixed&#x27;}
+      ];
+      var pulses = [];
+      var w = 0, h = 0;
+      p.setup = function(){
+        w = el.clientWidth || 800; h = el.clientHeight || 380;
+        var c = p.createCanvas(w, h);
+        c.style(&#x27;display&#x27;,&#x27;block&#x27;);
+        for (var i=0;i&lt;6;i++) pulses.push({t:i&#x2F;6,speed:0.0028,red:Math.random()&lt;0.18});
+      };
+      p.windowResized = function(){
+        w = el.clientWidth || 800; h = el.clientHeight || 380;
+        p.resizeCanvas(w, h);
+      };
+      function pos(angle){
+        var cx = w&#x2F;2, cy = h&#x2F;2;
+        var r = Math.min(w, h) * 0.32;
+        return {x: cx + r*Math.cos(angle), y: cy + r*Math.sin(angle)};
+      }
+      p.draw = function(){
+        p.clear(); p.background(0,0);
+        &#x2F;&#x2F; ring
+        p.noFill(); p.stroke(255,255,255,30); p.strokeWeight(1.5);
+        p.ellipse(w&#x2F;2, h&#x2F;2, Math.min(w,h)*0.64);
+        &#x2F;&#x2F; stage nodes
+        for (var i=0;i&lt;4;i++){
+          var a = -Math.PI&#x2F;2 + (i&#x2F;4)*Math.PI*2;
+          var pp = pos(a);
+          var isLast = (i===3);
+          p.noStroke(); p.fill(isLast?220:255, isLast?38:255, isLast?38:255, 50);
+          p.circle(pp.x, pp.y, 76);
+          p.fill(isLast?220:255, isLast?38:255, isLast?38:255);
+          p.circle(pp.x, pp.y, 16);
+          p.fill(230); p.textFont(&#x27;Inter, system-ui, sans-serif&#x27;); p.textAlign(p.CENTER); p.textSize(13); p.textStyle(p.BOLD);
+          p.text(stages[i].label, pp.x, pp.y+38);
+          p.fill(140); p.textSize(10); p.textStyle(p.NORMAL);
+          p.text(stages[i].detail, pp.x, pp.y+52);
+        }
+        &#x2F;&#x2F; pulses orbiting
+        for (var k=pulses.length-1;k&gt;=0;k--){
+          var pu = pulses[k];
+          pu.t = (pu.t + pu.speed) % 1;
+          var ang = -Math.PI&#x2F;2 + pu.t*Math.PI*2;
+          var pp2 = pos(ang);
+          p.noStroke();
+          if (pu.red) p.fill(220,38,38,220); else p.fill(255,255,255,200);
+          p.circle(pp2.x, pp2.y, 5 + 2*Math.sin(p.frameCount*0.1+k));
+        }
+        &#x2F;&#x2F; hint
+        p.noStroke(); p.fill(120); p.textSize(10); p.textAlign(p.CENTER);
+        p.text(&#x27;Continuous loop · break any edge and the loop dies&#x27;, w&#x2F;2, h-12);
+      };
+    }, el);
+  }
+  if (document.readyState === &#x27;complete&#x27;) start();
+  else window.addEventListener(&#x27;load&#x27;, start);
+})();
+&lt;&#x2F;script&gt;
 &lt;p&gt;Most &quot;EASM tools&quot; are single-edge: they scan. They hand you a PDF. The remaining three edges are left to humans who then drift out of sync within a week.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;discovery-assets-you-forgot-you-owned&quot;&gt;Discovery: assets you forgot you owned&lt;&#x2F;h2&gt;
 &lt;p&gt;Discovery starts from a seed (domain, ASN, company name) and fans out across &lt;a href=&quot;&#x2F;glossary&#x2F;dns&quot;&gt;DNS&lt;&#x2F;a&gt;, certificate transparency, WHOIS, reverse-DNS, and passive-DNS sources. Each finding carries provenance so downstream stages know &lt;em&gt;how&lt;&#x2F;em&gt; it was discovered:&lt;&#x2F;p&gt;
@@ -4932,9 +5004,42 @@
 &lt;p&gt;Each item has a status: Not Started, In Progress, Ready for Review, Approved, or Not Applicable.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;document-approval-workflow&quot;&gt;Document Approval Workflow&lt;&#x2F;h2&gt;
 &lt;p&gt;Documents progress through a state machine:&lt;&#x2F;p&gt;
-&lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Not Started → In Progress → Ready for Review → Approved&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                     │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                     └──► Needs Revision → In Progress&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;div id=&quot;dataroom-fsm-vis&quot; style=&quot;height:340px;border:1px solid rgba(255,255,255,0.08);background:#000;border-radius:6px;margin:1.5rem 0;position:relative&quot;&gt;
+  &lt;noscript&gt;&lt;pre&gt;Not Started → In Progress → Ready for Review → Approved
+                                     │
+                                     └──► Needs Revision → In Progress&lt;&#x2F;pre&gt;&lt;&#x2F;noscript&gt;
+&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vis-network@9.1.9&#x2F;dist&#x2F;vis-network.min.js&quot; defer&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+(function(){
+  function init(){
+    var el = document.getElementById(&#x27;dataroom-fsm-vis&#x27;);
+    if (!el || !window.vis) { setTimeout(init, 200); return; }
+    var nodes = new vis.DataSet([
+      {id:&#x27;ns&#x27;,label:&#x27;Not Started&#x27;,color:{background:&#x27;#1f2937&#x27;,border:&#x27;#9ca3af&#x27;},font:{color:&#x27;#fff&#x27;}},
+      {id:&#x27;ip&#x27;,label:&#x27;In Progress&#x27;,color:{background:&#x27;#1f2937&#x27;,border:&#x27;#ffffff&#x27;},font:{color:&#x27;#fff&#x27;}},
+      {id:&#x27;rr&#x27;,label:&#x27;Ready for Review&#x27;,color:{background:&#x27;#1f2937&#x27;,border:&#x27;#ffffff&#x27;},font:{color:&#x27;#fff&#x27;}},
+      {id:&#x27;ap&#x27;,label:&#x27;Approved&#x27;,color:{background:&#x27;#065f46&#x27;,border:&#x27;#10b981&#x27;},font:{color:&#x27;#fff&#x27;}},
+      {id:&#x27;nr&#x27;,label:&#x27;Needs Revision&#x27;,color:{background:&#x27;#7f1d1d&#x27;,border:&#x27;#dc2626&#x27;},font:{color:&#x27;#fff&#x27;}}
+    ]);
+    var edges = new vis.DataSet([
+      {from:&#x27;ns&#x27;,to:&#x27;ip&#x27;,label:&#x27;start&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#9ca3af&#x27;},font:{color:&#x27;#9ca3af&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:&#x27;ip&#x27;,to:&#x27;rr&#x27;,label:&#x27;submit&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#9ca3af&#x27;},font:{color:&#x27;#9ca3af&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:&#x27;rr&#x27;,to:&#x27;ap&#x27;,label:&#x27;approve · deal_lead&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#10b981&#x27;},font:{color:&#x27;#10b981&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:&#x27;rr&#x27;,to:&#x27;nr&#x27;,label:&#x27;reject · reviewer&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#dc2626&#x27;},font:{color:&#x27;#dc2626&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:&#x27;nr&#x27;,to:&#x27;ip&#x27;,label:&#x27;rework&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#9ca3af&#x27;},font:{color:&#x27;#9ca3af&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}}
+    ]);
+    new vis.Network(el, {nodes:nodes,edges:edges}, {
+      layout:{hierarchical:{direction:&#x27;LR&#x27;,sortMethod:&#x27;directed&#x27;,levelSeparation:160,nodeSpacing:100}},
+      physics:{enabled:false},
+      interaction:{hover:true,zoomView:true,dragView:true},
+      edges:{smooth:{type:&#x27;cubicBezier&#x27;}}
+    });
+  }
+  if (document.readyState === &#x27;complete&#x27;) init();
+  else window.addEventListener(&#x27;load&#x27;, init);
+})();
+&lt;&#x2F;script&gt;
 &lt;p&gt;State transitions require role-appropriate authorization:&lt;&#x2F;p&gt;
 &lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt;defmodule&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-other z-inherited-class&quot;&gt; PrismaticDD&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-other z-inherited-class&quot;&gt;Dataroom&lt;&#x2F;span&gt;&lt;span&gt;.&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt;ApprovalStateMachine&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt; do&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt;  def&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-function&quot;&gt; transition&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-constant z-other z-symbol&quot;&gt;(:ready_for_review, :approved,&lt;&#x2F;span&gt;&lt;span&gt; %&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;{&lt;&#x2F;span&gt;&lt;span&gt;role&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-constant z-other z-symbol&quot;&gt;: :deal_lead})&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt; do&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
@@ -11480,10 +11585,39 @@
 &lt;p&gt;A weighted score above 0.85 is an automatic merge. Between 0.65 and 0.85, the pair is flagged for human review. Below 0.65, the entities are treated as distinct.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;stage-4-graph-integration&quot;&gt;Stage 4: Graph Integration&lt;&#x2F;h3&gt;
 &lt;p&gt;Resolved entities are stored in KuzuDB, a graph database that captures relationships:&lt;&#x2F;p&gt;
-&lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[Company A] ──owns──► [Company B]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     │                      │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;     └──director──► [Person X] ◄──shareholder── [Company C]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;Graph queries reveal relationships that are invisible in tabular data: ownership chains, circular ownership, beneficial ownership through intermediaries.&lt;&#x2F;p&gt;
+&lt;div id=&quot;entity-graph-vis&quot; style=&quot;height:340px;border:1px solid rgba(255,255,255,0.08);background:#000;border-radius:6px;margin:1.5rem 0;position:relative&quot;&gt;
+  &lt;noscript&gt;&lt;pre&gt;[Company A] ──owns──► [Company B]
+     │                      │
+     └──director──► [Person X] ◄──shareholder── [Company C]&lt;&#x2F;pre&gt;&lt;&#x2F;noscript&gt;
+&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vis-network@9.1.9&#x2F;dist&#x2F;vis-network.min.js&quot; defer&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+(function(){
+  function init(){
+    var el = document.getElementById(&#x27;entity-graph-vis&#x27;);
+    if (!el || !window.vis) return;
+    var nodes = new vis.DataSet([
+      {id:1,label:&#x27;Company A&#x27;,color:{background:&#x27;#dc2626&#x27;,border:&#x27;#ffffff&#x27;},font:{color:&#x27;#fff&#x27;},shape:&#x27;box&#x27;},
+      {id:2,label:&#x27;Company B&#x27;,color:{background:&#x27;#1f2937&#x27;,border:&#x27;#ffffff&#x27;},font:{color:&#x27;#fff&#x27;},shape:&#x27;box&#x27;},
+      {id:3,label:&#x27;Person X&#x27;,color:{background:&#x27;#1f2937&#x27;,border:&#x27;#ffffff&#x27;},font:{color:&#x27;#fff&#x27;},shape:&#x27;ellipse&#x27;},
+      {id:4,label:&#x27;Company C&#x27;,color:{background:&#x27;#1f2937&#x27;,border:&#x27;#ffffff&#x27;},font:{color:&#x27;#fff&#x27;},shape:&#x27;box&#x27;}
+    ]);
+    var edges = new vis.DataSet([
+      {from:1,to:2,label:&#x27;owns&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#dc2626&#x27;},font:{color:&#x27;#9ca3af&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:1,to:3,label:&#x27;director&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#9ca3af&#x27;},font:{color:&#x27;#9ca3af&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:4,to:3,label:&#x27;shareholder&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#9ca3af&#x27;},font:{color:&#x27;#9ca3af&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}}
+    ]);
+    new vis.Network(el, {nodes:nodes,edges:edges}, {
+      physics:{stabilization:{iterations:200},barnesHut:{gravitationalConstant:-3000,springLength:180}},
+      interaction:{hover:true,zoomView:true,dragView:true},
+      edges:{smooth:{type:&#x27;curvedCW&#x27;,roundness:0.15}}
+    });
+  }
+  if (document.readyState === &#x27;complete&#x27;) init();
+  else window.addEventListener(&#x27;load&#x27;, init);
+})();
+&lt;&#x2F;script&gt;
+&lt;p&gt;Graph queries reveal relationships that are invisible in tabular data: ownership chains, circular ownership, beneficial ownership through intermediaries. &lt;strong&gt;Drag the nodes above&lt;&#x2F;strong&gt; to explore the graph — each edge is a labeled relationship from real Czech registry data.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;confidence-with-nabla&quot;&gt;Confidence with Nabla&lt;&#x2F;h2&gt;
 &lt;p&gt;Every entity resolution carries uncertainty. The Nabla epistemic framework quantifies this:&lt;&#x2F;p&gt;
 &lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;%&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-type z-class&quot;&gt;NablaConfidence&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;{&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
