@@ -6321,13 +6321,47 @@
 &lt;&#x2F;ul&gt;
 &lt;h2 id=&quot;relationship-mapping&quot;&gt;Relationship Mapping&lt;&#x2F;h2&gt;
 &lt;p&gt;The graph database (KuzuDB) captures relationships between entities:&lt;&#x2F;p&gt;
-&lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;[Target s.r.o.] ──owned_by(70%)──► [Holding a.s.]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       │                                  │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       ├──director──► [Jan Novak]         ├──director──► [Jan Novak]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       │                                  │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;       └──address──► [Praha 1]            └──owned_by──► [Offshore Ltd.]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                                              │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                                              └──jurisdiction──► [Cyprus]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;div id=&quot;ma-dd-ownership-vis&quot; style=&quot;height:380px;border:1px solid rgba(255,255,255,0.08);background:#000;border-radius:6px;margin:1.5rem 0;position:relative&quot;&gt;
+  &lt;noscript&gt;&lt;pre&gt;[Target s.r.o.] ──owned_by(70%)──► [Holding a.s.]
+       │                                  │
+       ├──director──► [Jan Novak]         ├──director──► [Jan Novak]
+       │                                  │
+       └──address──► [Praha 1]            └──owned_by──► [Offshore Ltd.]
+                                                              │
+                                                              └──jurisdiction──► [Cyprus]&lt;&#x2F;pre&gt;&lt;&#x2F;noscript&gt;
+&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vis-network@9.1.9&#x2F;dist&#x2F;vis-network.min.js&quot; defer&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+(function(){
+  function init(){
+    var el = document.getElementById(&#x27;ma-dd-ownership-vis&#x27;);
+    if (!el || !window.vis) { setTimeout(init, 200); return; }
+    var nodes = new vis.DataSet([
+      {id:&#x27;target&#x27;,label:&#x27;Target s.r.o.&#x27;,color:{background:&#x27;#dc2626&#x27;,border:&#x27;#ffffff&#x27;},font:{color:&#x27;#fff&#x27;},shape:&#x27;box&#x27;},
+      {id:&#x27;holding&#x27;,label:&#x27;Holding a.s.&#x27;,color:{background:&#x27;#1f2937&#x27;,border:&#x27;#ffffff&#x27;},font:{color:&#x27;#fff&#x27;},shape:&#x27;box&#x27;},
+      {id:&#x27;novak&#x27;,label:&#x27;Jan Novak&#x27;,color:{background:&#x27;#374151&#x27;,border:&#x27;#9ca3af&#x27;},font:{color:&#x27;#fff&#x27;},shape:&#x27;ellipse&#x27;},
+      {id:&#x27;praha&#x27;,label:&#x27;Praha 1&#x27;,color:{background:&#x27;#1f2937&#x27;,border:&#x27;#9ca3af&#x27;},font:{color:&#x27;#9ca3af&#x27;},shape:&#x27;diamond&#x27;},
+      {id:&#x27;offshore&#x27;,label:&#x27;Offshore Ltd.&#x27;,color:{background:&#x27;#7f1d1d&#x27;,border:&#x27;#dc2626&#x27;},font:{color:&#x27;#fff&#x27;},shape:&#x27;box&#x27;},
+      {id:&#x27;cyprus&#x27;,label:&#x27;Cyprus&#x27;,color:{background:&#x27;#1f2937&#x27;,border:&#x27;#9ca3af&#x27;},font:{color:&#x27;#9ca3af&#x27;},shape:&#x27;diamond&#x27;}
+    ]);
+    var edges = new vis.DataSet([
+      {from:&#x27;holding&#x27;,to:&#x27;target&#x27;,label:&#x27;owns 70%&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#dc2626&#x27;},font:{color:&#x27;#dc2626&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:&#x27;target&#x27;,to:&#x27;novak&#x27;,label:&#x27;director&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#9ca3af&#x27;},font:{color:&#x27;#9ca3af&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:&#x27;holding&#x27;,to:&#x27;novak&#x27;,label:&#x27;director&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#9ca3af&#x27;},font:{color:&#x27;#9ca3af&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:&#x27;target&#x27;,to:&#x27;praha&#x27;,label:&#x27;address&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#9ca3af&#x27;},font:{color:&#x27;#9ca3af&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:&#x27;offshore&#x27;,to:&#x27;holding&#x27;,label:&#x27;owns&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#dc2626&#x27;},font:{color:&#x27;#dc2626&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:&#x27;offshore&#x27;,to:&#x27;cyprus&#x27;,label:&#x27;jurisdiction&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#9ca3af&#x27;},font:{color:&#x27;#9ca3af&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}}
+    ]);
+    new vis.Network(el, {nodes:nodes,edges:edges}, {
+      physics:{stabilization:{iterations:300},barnesHut:{gravitationalConstant:-3500,springLength:170,centralGravity:0.1}},
+      interaction:{hover:true,zoomView:true,dragView:true},
+      edges:{smooth:{type:&#x27;curvedCW&#x27;,roundness:0.18}}
+    });
+  }
+  if (document.readyState === &#x27;complete&#x27;) init();
+  else window.addEventListener(&#x27;load&#x27;, init);
+})();
+&lt;&#x2F;script&gt;
 &lt;p&gt;This reveals the complete ownership chain: Target is majority-owned by a Czech holding company, which is owned by a Cypriot entity. The same director appears in both Czech entities -- a common pattern that is not inherently problematic but warrants investigation.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;risk-scoring&quot;&gt;Risk Scoring&lt;&#x2F;h2&gt;
 &lt;p&gt;The Decision Engine assigns risk scores based on weighted factors:&lt;&#x2F;p&gt;
@@ -12862,18 +12896,48 @@
 &lt;&#x2F;ol&gt;
 &lt;h2 id=&quot;circuit-breakers&quot;&gt;Circuit Breakers&lt;&#x2F;h2&gt;
 &lt;p&gt;For external dependencies (HTTP APIs, databases), we use circuit breakers to prevent cascade failures:&lt;&#x2F;p&gt;
-&lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Closed (normal) ──[5 failures]──► Open (stopped)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                       │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                  [30s timeout]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                       │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                       ▼&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                  Half-Open (testing)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                       │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                              [success]─┼─[failure]&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                 │      │      │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                 ▼      │      ▼&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                              Closed    │    Open&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;                                       │&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;div id=&quot;circuit-breaker-fsm-vis&quot; style=&quot;height:380px;border:1px solid rgba(255,255,255,0.08);background:#000;border-radius:6px;margin:1.5rem 0;position:relative&quot;&gt;
+  &lt;noscript&gt;&lt;pre&gt;Closed (normal) ──[5 failures]──► Open (stopped)
+                                       │
+                                  [30s timeout]
+                                       │
+                                       ▼
+                                  Half-Open (testing)
+                                       │
+                              [success]─┼─[failure]
+                                 │      │      │
+                                 ▼      │      ▼
+                              Closed    │    Open&lt;&#x2F;pre&gt;&lt;&#x2F;noscript&gt;
+&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;vis-network@9.1.9&#x2F;dist&#x2F;vis-network.min.js&quot; defer&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+(function(){
+  function init(){
+    var el = document.getElementById(&#x27;circuit-breaker-fsm-vis&#x27;);
+    if (!el || !window.vis) { setTimeout(init, 200); return; }
+    var nodes = new vis.DataSet([
+      {id:&#x27;closed&#x27;,label:&#x27;Closed\n(normal)&#x27;,color:{background:&#x27;#065f46&#x27;,border:&#x27;#10b981&#x27;},font:{color:&#x27;#fff&#x27;,multi:true}},
+      {id:&#x27;open&#x27;,label:&#x27;Open\n(stopped)&#x27;,color:{background:&#x27;#7f1d1d&#x27;,border:&#x27;#dc2626&#x27;},font:{color:&#x27;#fff&#x27;,multi:true}},
+      {id:&#x27;half&#x27;,label:&#x27;Half-Open\n(testing)&#x27;,color:{background:&#x27;#78350f&#x27;,border:&#x27;#f59e0b&#x27;},font:{color:&#x27;#fff&#x27;,multi:true}}
+    ]);
+    var edges = new vis.DataSet([
+      {from:&#x27;closed&#x27;,to:&#x27;open&#x27;,label:&#x27;5 failures&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#dc2626&#x27;},font:{color:&#x27;#dc2626&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:&#x27;open&#x27;,to:&#x27;half&#x27;,label:&#x27;30s timeout&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#f59e0b&#x27;},font:{color:&#x27;#f59e0b&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:&#x27;half&#x27;,to:&#x27;closed&#x27;,label:&#x27;success&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#10b981&#x27;},font:{color:&#x27;#10b981&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}},
+      {from:&#x27;half&#x27;,to:&#x27;open&#x27;,label:&#x27;failure&#x27;,arrows:&#x27;to&#x27;,color:{color:&#x27;#dc2626&#x27;},font:{color:&#x27;#dc2626&#x27;,size:10,strokeWidth:0,background:&#x27;#000&#x27;}}
+    ]);
+    new vis.Network(el, {nodes:nodes,edges:edges}, {
+      layout:{hierarchical:{direction:&#x27;LR&#x27;,sortMethod:&#x27;directed&#x27;,levelSeparation:200,nodeSpacing:120}},
+      physics:{enabled:false},
+      interaction:{hover:true,zoomView:true,dragView:true},
+      edges:{smooth:{type:&#x27;curvedCW&#x27;,roundness:0.25}},
+      nodes:{shape:&#x27;box&#x27;,widthConstraint:{minimum:120}}
+    });
+  }
+  if (document.readyState === &#x27;complete&#x27;) init();
+  else window.addEventListener(&#x27;load&#x27;, init);
+})();
+&lt;&#x2F;script&gt;
 &lt;p&gt;When an OSINT adapter fails 5 consecutive times, the circuit opens. No requests are sent for 30 seconds. Then a single test request is made. If it succeeds, the circuit closes. If it fails, the circuit reopens.&lt;&#x2F;p&gt;
 &lt;p&gt;This prevents a single failing dependency from consuming all available connections and timeouts.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;lessons-learned-at-scale&quot;&gt;Lessons Learned at Scale&lt;&#x2F;h2&gt;
@@ -15981,39 +16045,57 @@
 &lt;p&gt;&lt;strong&gt;Independent compilation&lt;&#x2F;strong&gt;: Each app compiles independently. When you change &lt;code&gt;prismatic_nabla&lt;&#x2F;code&gt;, only apps that depend on it recompile. In a monolithic project, any change recompiles everything.&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;strong&gt;Release granularity&lt;&#x2F;strong&gt;: You can build releases containing specific subsets of apps. A worker node might include only &lt;code&gt;prismatic_osint_sources&lt;&#x2F;code&gt; and &lt;code&gt;prismatic_storage_ecto&lt;&#x2F;code&gt;, excluding the entire web interface.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;the-94-app-landscape&quot;&gt;The 94-App Landscape&lt;&#x2F;h2&gt;
-&lt;p&gt;Our apps fall into natural layers:&lt;&#x2F;p&gt;
-&lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;plain&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Layer 1: Core (12 apps)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic              # Core business logic&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_auth         # Authentication&#x2F;authorization&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_telemetry    # Metrics and telemetry&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_nabla        # Epistemic confidence framework&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;└── ...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Layer 2: Storage (8 apps)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_storage_core # Storage trait system&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_storage_ecto # PostgreSQL adapter&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_storage_ets  # In-memory cache&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_storage_meilisearch  # Full-text search&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;└── prismatic_storage_kuzudb       # Graph database&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Layer 3: Domain (35 apps)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_osint_core           # OSINT framework&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_osint_sources        # 128 OSINT adapters&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_compliance           # NIS2&#x2F;ZKB compliance&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_dd                   # Due diligence engine&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_perimeter            # EASM system&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;└── ...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Layer 4: Interface (15 apps)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_web          # Phoenix web interface&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_api          # REST API gateway&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_mcp          # Model Context Protocol&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;└── ...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;Layer 5: Tools (24 apps)&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_agents       # Agent runtime&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;├── prismatic_quality_intelligence # Quality analysis&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
-&lt;span class=&quot;giallo-l&quot;&gt;&lt;span&gt;└── ...&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;dependency-management-at-scale&quot;&gt;Dependency Management at Scale&lt;&#x2F;h2&gt;
+&lt;p&gt;Our apps fall into natural layers — hover any bar for representative apps:&lt;&#x2F;p&gt;
+&lt;div id=&quot;umbrella-layers-chart&quot; style=&quot;height:340px;border:1px solid rgba(255,255,255,0.08);background:#000;border-radius:6px;margin:1.5rem 0;position:relative;padding:8px&quot;&gt;
+  &lt;canvas id=&quot;umbrella-layers-canvas&quot;&gt;&lt;&#x2F;canvas&gt;
+  &lt;noscript&gt;&lt;pre&gt;Layer 1: Core (12 apps) — prismatic, prismatic_auth, prismatic_telemetry, prismatic_nabla
+Layer 2: Storage (8 apps) — prismatic_storage_core, prismatic_storage_ecto, prismatic_storage_ets, prismatic_storage_meilisearch, prismatic_storage_kuzudb
+Layer 3: Domain (35 apps) — prismatic_osint_core, prismatic_osint_sources, prismatic_compliance, prismatic_dd, prismatic_perimeter
+Layer 4: Interface (15 apps) — prismatic_web, prismatic_api, prismatic_mcp
+Layer 5: Tools (24 apps) — prismatic_agents, prismatic_quality_intelligence&lt;&#x2F;pre&gt;&lt;&#x2F;noscript&gt;
+&lt;&#x2F;div&gt;
+&lt;script src=&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F;chart.js@4.4.0&#x2F;dist&#x2F;chart.umd.min.js&quot; defer&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+(function(){
+  function init(){
+    if (!window.Chart) { setTimeout(init, 200); return; }
+    var ctx = document.getElementById(&#x27;umbrella-layers-canvas&#x27;);
+    if (!ctx) return;
+    var apps = {
+      &#x27;Layer 5: Tools&#x27;:       [&#x27;prismatic_agents&#x27;,&#x27;prismatic_quality_intelligence&#x27;,&#x27;+22 more&#x27;],
+      &#x27;Layer 4: Interface&#x27;:   [&#x27;prismatic_web&#x27;,&#x27;prismatic_api&#x27;,&#x27;prismatic_mcp&#x27;,&#x27;+12 more&#x27;],
+      &#x27;Layer 3: Domain&#x27;:      [&#x27;prismatic_osint_core&#x27;,&#x27;prismatic_osint_sources (128 adapters)&#x27;,&#x27;prismatic_compliance&#x27;,&#x27;prismatic_dd&#x27;,&#x27;prismatic_perimeter&#x27;,&#x27;+30 more&#x27;],
+      &#x27;Layer 2: Storage&#x27;:     [&#x27;prismatic_storage_core&#x27;,&#x27;prismatic_storage_ecto&#x27;,&#x27;prismatic_storage_ets&#x27;,&#x27;prismatic_storage_meilisearch&#x27;,&#x27;prismatic_storage_kuzudb&#x27;,&#x27;+3 more&#x27;],
+      &#x27;Layer 1: Core&#x27;:        [&#x27;prismatic&#x27;,&#x27;prismatic_auth&#x27;,&#x27;prismatic_telemetry&#x27;,&#x27;prismatic_nabla&#x27;,&#x27;+8 more&#x27;]
+    };
+    var labels = Object.keys(apps);
+    var counts = [24, 15, 35, 8, 12];
+    new Chart(ctx, {
+      type:&#x27;bar&#x27;,
+      data:{labels:labels, datasets:[{label:&#x27;Apps per layer&#x27;, data:counts,
+        backgroundColor:[&#x27;rgba(220,38,38,0.85)&#x27;,&#x27;rgba(245,158,11,0.85)&#x27;,&#x27;rgba(255,255,255,0.85)&#x27;,&#x27;rgba(16,185,129,0.65)&#x27;,&#x27;rgba(59,130,246,0.65)&#x27;],
+        borderColor:&#x27;rgba(255,255,255,0.2)&#x27;, borderWidth:1}]},
+      options:{
+        indexAxis:&#x27;y&#x27;,
+        responsive:true, maintainAspectRatio:false,
+        plugins:{
+          legend:{display:false},
+          tooltip:{callbacks:{
+            afterBody:function(items){var l=items[0].label; return apps[l] ? [&#x27;Examples:&#x27;].concat(apps[l].map(function(a){return &#x27;  · &#x27;+a;})) : [];}
+          }, backgroundColor:&#x27;rgba(10,10,10,0.96)&#x27;, titleColor:&#x27;#fff&#x27;, bodyColor:&#x27;#d1d5db&#x27;, borderColor:&#x27;rgba(220,38,38,0.4)&#x27;, borderWidth:1, padding:10}
+        },
+        scales:{
+          x:{ticks:{color:&#x27;#9ca3af&#x27;}, grid:{color:&#x27;rgba(255,255,255,0.05)&#x27;}, title:{display:true,text:&#x27;Number of apps&#x27;,color:&#x27;#6b7280&#x27;}},
+          y:{ticks:{color:&#x27;#e5e7eb&#x27;,font:{family:&#x27;JetBrains Mono, monospace&#x27;}}, grid:{display:false}}
+        }
+      }
+    });
+  }
+  if (document.readyState === &#x27;complete&#x27;) init();
+  else window.addEventListener(&#x27;load&#x27;, init);
+})();
+&lt;&#x2F;script&gt;
+&lt;h2 id=&quot;dependency-management-at-scale&quot;&gt;Dependency Management at Scale&lt;&#x2F;h2&gt;
 &lt;p&gt;The most critical discipline in a large umbrella is dependency hygiene. Every app declares its dependencies explicitly:&lt;&#x2F;p&gt;
 &lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-comment&quot;&gt;# apps&#x2F;prismatic_dd&#x2F;mix.exs&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt;defp&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-function&quot;&gt; deps&lt;&#x2F;span&gt;&lt;span class=&quot;z-keyword z-control&quot;&gt; do&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
