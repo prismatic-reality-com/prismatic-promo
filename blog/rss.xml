@@ -7,7 +7,106 @@
       <generator>Zola</generator>
       <language>en</language>
       <atom:link href="https://prismatic-reality-com.github.io/prismatic-promo/blog/rss.xml" rel="self" type="application/rss+xml"/>
-      <lastBuildDate>Fri, 24 Apr 2026 00:00:00 +0000</lastBuildDate>
+      <lastBuildDate>Sat, 25 Apr 2026 00:00:00 +0000</lastBuildDate>
+      <item>
+          <title>Announcing: Kompendium epistemické a kognitivní anihilace</title>
+          <pubDate>Sat, 25 Apr 2026 00:00:00 +0000</pubDate>
+          <author>Unknown</author>
+          <link>https://prismatic-reality-com.github.io/prismatic-promo/blog/announcing-kompendium-epistemicke-anihilace/</link>
+          <guid>https://prismatic-reality-com.github.io/prismatic-promo/blog/announcing-kompendium-epistemicke-anihilace/</guid>
+          <description xml:base="https://prismatic-reality-com.github.io/prismatic-promo/blog/announcing-kompendium-epistemicke-anihilace/">&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;Note: This post announces a Czech-language reference work intended for qualified specialists. It does not provide instructions for misuse — only a structured framework for &lt;strong&gt;identifying, preventing, and intervening in&lt;&#x2F;strong&gt; systematic epistemic damage. The work is published as part of the Prismatic Platform&#x27;s epistemic-security stack.&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;We&#x27;ve started shipping the first sections of the &lt;strong&gt;Kompendium epistemické a kognitivní anihilace&lt;&#x2F;strong&gt; — a Czech-language taxonomic system for phenomena that destroy the capacity to know. The kompendium has lived as private notes for a long time. Now it gets a permanent home at &lt;a href=&quot;&#x2F;kompendium&#x2F;&quot;&gt;&#x2F;kompendium&#x2F;&lt;&#x2F;a&gt;, wired into the platform&#x27;s glossary and integrated with the &lt;a href=&quot;&#x2F;hub&#x2F;dd&#x2F;decisions&#x2F;&quot;&gt;Decision Engine&lt;&#x2F;a&gt; calibration logic.&lt;&#x2F;p&gt;
+&lt;p&gt;This post explains &lt;strong&gt;what it is&lt;&#x2F;strong&gt;, &lt;strong&gt;why it exists&lt;&#x2F;strong&gt;, and &lt;strong&gt;how we&#x27;re shipping it incrementally&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-the-kompendium-is&quot;&gt;What the kompendium is&lt;&#x2F;h2&gt;
+&lt;p&gt;A taxonomy. Specifically, a &lt;strong&gt;structured taxonomy of techniques and processes&lt;&#x2F;strong&gt; that systematically destroy a subject&#x27;s capacity to acquire, evaluate, integrate, and revise information.&lt;&#x2F;p&gt;
+&lt;p&gt;It&#x27;s not a self-help book. It&#x27;s not a manifesto. It&#x27;s a reference work in the same lineage as forensic taxonomies, threat catalogs in cybersecurity, or differential-diagnosis manuals in clinical medicine — except that the threat surface is the human cognitive apparatus and the failure modes are at the epistemic rather than algorithmic level.&lt;&#x2F;p&gt;
+&lt;p&gt;The structure is hierarchical. Eight primary sections, ranging from definitions and historical context through detailed technique inventories to clinical applications and theoretical reflections. Each technique gets a stable identifier in the form &lt;strong&gt;&lt;code&gt;EA-X.Y.Z-α&lt;&#x2F;code&gt;&lt;&#x2F;strong&gt; (for example, &lt;code&gt;EA-1.1.1&lt;&#x2F;code&gt; is &quot;Selektivní expozice&quot; — Selective Exposure, the first technique in the first subcategory of the first primary category).&lt;&#x2F;p&gt;
+&lt;p&gt;The notation matters because &lt;strong&gt;stability matters&lt;&#x2F;strong&gt;. URLs change. Titles get rewritten. But &lt;code&gt;EA-1.1.1&lt;&#x2F;code&gt; will refer to the same phenomenon ten years from now. That stability lets the kompendium serve as a long-term cross-reference for clinical literature, forensic case work, and platform-level threat modeling.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;why-it-exists&quot;&gt;Why it exists&lt;&#x2F;h2&gt;
+&lt;p&gt;The honest answer: because nothing comparable exists in Czech, and most adjacent literature in English is either scattered across disciplines (Kahneman&#x27;s biases, Lifton&#x27;s thought reform, Fricker&#x27;s epistemic injustices, Pariser&#x27;s filter bubbles) or too narrowly focused on specific domains (cult psychology, propaganda studies, gaslighting in interpersonal contexts).&lt;&#x2F;p&gt;
+&lt;p&gt;What&#x27;s missing is the &lt;strong&gt;integrative taxonomic layer&lt;&#x2F;strong&gt; — the cross-disciplinary classification scheme that lets a clinician, a journalist, a researcher, and a security analyst use the same vocabulary when they encounter different surface presentations of the same underlying mechanism.&lt;&#x2F;p&gt;
+&lt;p&gt;A clinician treating a patient who has spent fifteen years in a cult community and a security analyst studying a state-sponsored disinformation operation are looking at instances of the same family of phenomena. The kompendium tries to make that family explicit.&lt;&#x2F;p&gt;
+&lt;p&gt;The Czech-language emphasis is deliberate. There is &lt;strong&gt;no comparable structured Czech-language reference&lt;&#x2F;strong&gt; for these phenomena — and Czech academic discourse around epistemic manipulation tends to draw on translated English-language fragments rather than on a coherent native taxonomy. The kompendium fills that gap directly.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-s-in-it&quot;&gt;What&#x27;s in it&lt;&#x2F;h2&gt;
+&lt;p&gt;The eight sections, in order:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Předmluva&lt;&#x2F;strong&gt; — purpose, intended audience, ethical framework, methodology of use. Already shipped.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Úvod do epistemické anihilace&lt;&#x2F;strong&gt; — definitions, historical context (from Sokrates through Lifton to filter bubbles), theoretical foundations, methodological notes. Already shipped.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Základní kategorie epistemických manipulací&lt;&#x2F;strong&gt; — fundamental taxonomic units. The most important section for everyday use. Three chapters: academic intellectual manipulation techniques (13 techniques, the focus of our incremental publication), epistemic delegitimization scenarios, and advanced educational implementation. Already shipped, with per-technique deep-dives in progress.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Terminální protokoly&lt;&#x2F;strong&gt; — complex sequences leading to systematic epistemic destruction. High-risk material. Currently in preparation; access will be tiered.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Ultramární techniky fundamentální dekonstrukce&lt;&#x2F;strong&gt; — 150 techniques planned. Highest-risk material. Restricted-access publication only after IRB framework is finalized.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Klinické aplikace a diagnostika&lt;&#x2F;strong&gt; — diagnostic indicators, therapeutic approaches, prevention strategies. In preparation.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Teoretické a metakonceptuální reflexe&lt;&#x2F;strong&gt; — philosophical implications and interdisciplinary perspectives. In preparation.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Přílohy&lt;&#x2F;strong&gt; — master technique index, anonymized case studies, training methodology, glossary cross-references. In preparation.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;The first three sections are public from day one. The remaining five are gated by access tier and will be published incrementally as ethical review and editorial work complete.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-eight-glossary-entries&quot;&gt;The eight glossary entries&lt;&#x2F;h2&gt;
+&lt;p&gt;The kompendium is supported by eight new glossary entries shipped today as part of the platform&#x27;s main &lt;a href=&quot;&#x2F;glossary&#x2F;&quot;&gt;glossary&lt;&#x2F;a&gt;:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;glossary&#x2F;epistemicka-anihilace&#x2F;&quot;&gt;Epistemická anihilace&lt;&#x2F;a&gt; — the central concept&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;glossary&#x2F;kognitivni-anihilace&#x2F;&quot;&gt;Kognitivní anihilace&lt;&#x2F;a&gt; — its cognitive sibling&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;glossary&#x2F;taxonomie-ea&#x2F;&quot;&gt;Taxonomie EA&lt;&#x2F;a&gt; — the classification system itself&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;glossary&#x2F;anankasticky-rezim&#x2F;&quot;&gt;Anankastický režim&lt;&#x2F;a&gt; — terminal cognitive rigidity state&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;glossary&#x2F;kognitivni-anti-rekurzivita&#x2F;&quot;&gt;Kognitivní anti-rekurzivita&lt;&#x2F;a&gt; — failure of meta-cognitive recursion&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;glossary&#x2F;epistemicka-alienace&#x2F;&quot;&gt;Epistemická alienace&lt;&#x2F;a&gt; — alienation from one&#x27;s own cognition&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;glossary&#x2F;ontologicka-anihilace&#x2F;&quot;&gt;Ontologická anihilace&lt;&#x2F;a&gt; — destruction of basic categories of being&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;glossary&#x2F;metakognitivni-destrukce&#x2F;&quot;&gt;Metakognitivní destrukce&lt;&#x2F;a&gt; — impairment of self-reflective capacity&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;These are written in English with Czech terminology preserved, since the glossary is the platform&#x27;s bilingual interface layer. The kompendium articles themselves are in Czech.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;per-technique-deep-dives&quot;&gt;Per-technique deep-dives&lt;&#x2F;h2&gt;
+&lt;p&gt;Beyond the section-level chapters, each documented technique gets a &lt;strong&gt;standalone deep-dive article&lt;&#x2F;strong&gt; at &lt;a href=&quot;&#x2F;kompendium&#x2F;techniques&#x2F;&quot;&gt;&#x2F;kompendium&#x2F;techniques&#x2F;&lt;&#x2F;a&gt;. These articles follow a uniform template:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Identification&lt;&#x2F;strong&gt; — EA code, category, access level&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Definition&lt;&#x2F;strong&gt; — concise framing&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Operational mode&lt;&#x2F;strong&gt; — mechanism by which the technique works&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Phenomenological signs&lt;&#x2F;strong&gt; — what the subject experiences&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Detection markers&lt;&#x2F;strong&gt; — what an outside observer can recognize&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Risk contexts&lt;&#x2F;strong&gt; — where the technique typically appears&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Neutralization strategies&lt;&#x2F;strong&gt; — individual and institutional defenses&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Case studies&lt;&#x2F;strong&gt; — anonymized examples&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Relationship to other techniques&lt;&#x2F;strong&gt; — conjunctions, escalation chains, alternatives&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;Reference into the kompendium&lt;&#x2F;strong&gt; — cross-link to the parent chapter&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The first deep-dive — &lt;a href=&quot;&#x2F;kompendium&#x2F;techniques&#x2F;ea-1-1-1-selektivni-expozice&#x2F;&quot;&gt;EA-1.1.1 Selektivní expozice&lt;&#x2F;a&gt; — ships today as the &lt;strong&gt;template&lt;&#x2F;strong&gt; for the remaining twelve in Chapter 1, then for the rest of the taxonomy.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;how-it-integrates-with-the-platform&quot;&gt;How it integrates with the platform&lt;&#x2F;h2&gt;
+&lt;p&gt;The kompendium isn&#x27;t an isolated artifact. It connects to the rest of Prismatic in three concrete ways.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Decision Engine calibration.&lt;&#x2F;strong&gt; The &lt;a href=&quot;&#x2F;hub&#x2F;dd&#x2F;decisions&#x2F;&quot;&gt;Decision Engine&lt;&#x2F;a&gt; explicitly treats indicators of epistemic manipulation as &lt;strong&gt;negative confidence signals&lt;&#x2F;strong&gt; during calibration. When a source displays markers consistent with kompendium-classified manipulation patterns, its evidential weight is reduced, regardless of its formal credentials. This is technically minor — a few additional features in the calibration model — but conceptually significant: it means the kompendium directly affects how the platform reasons about source quality.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Color Team adversarial simulation.&lt;&#x2F;strong&gt; The &lt;a href=&quot;&#x2F;glossary&#x2F;color-teams&#x2F;&quot;&gt;Color Teams&lt;&#x2F;a&gt; framework, particularly the Red Team adversarial simulation roles, draws scenarios from the kompendium taxonomy. When we test the platform&#x27;s resilience to epistemic adversarial inputs, we use the kompendium as the threat catalog.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;NABLA Infinity defensive correspondences.&lt;&#x2F;strong&gt; The &lt;a href=&quot;&#x2F;glossary&#x2F;nabla-infinity&#x2F;&quot;&gt;NABLA Infinity&lt;&#x2F;a&gt; epistemic pipeline implements structural defenses corresponding to specific kompendium neutralization strategies. Source diversity checks correspond to defenses against EA-1.1.1 selective exposure. Explicit falsifiability tracking corresponds to defenses against EA-1.3.1 immunization. Provenance auditing corresponds to defenses against EA-1.3.3 thematic diversion.&lt;&#x2F;p&gt;
+&lt;p&gt;This isn&#x27;t decoration. The kompendium &lt;strong&gt;shapes the architecture&lt;&#x2F;strong&gt; of the platform&#x27;s epistemic operations.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-we-re-not-doing&quot;&gt;What we&#x27;re not doing&lt;&#x2F;h2&gt;
+&lt;p&gt;A few things this announcement is &lt;strong&gt;not&lt;&#x2F;strong&gt;:&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;It&#x27;s not a how-to.&lt;&#x2F;strong&gt; The kompendium describes mechanisms for the purpose of detection and intervention. It does not provide operational guidance for inducing epistemic damage. Sections that contain higher-risk material are gated and will be published only with adequate ethical oversight.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;It&#x27;s not a moral panic.&lt;&#x2F;strong&gt; The kompendium treats epistemic damage as a &lt;strong&gt;structural risk&lt;&#x2F;strong&gt; to be analyzed and mitigated, not as a sensational threat to be feared. The tone is forensic, not alarmist.&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;It&#x27;s not finished.&lt;&#x2F;strong&gt; Two sections out of eight are public. Three more are in active drafting. Two more await ethical review. The kompendium will be incomplete for years. That&#x27;s intentional — taxonomies in this space should grow with the field, not freeze prematurely.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;reading-order&quot;&gt;Reading order&lt;&#x2F;h2&gt;
+&lt;p&gt;If you&#x27;re new to the material, the recommended order is:&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;Start at &lt;a href=&quot;&#x2F;kompendium&#x2F;&quot;&gt;the kompendium hub&lt;&#x2F;a&gt; for orientation.&lt;&#x2F;li&gt;
+&lt;li&gt;Read &lt;a href=&quot;&#x2F;kompendium&#x2F;01-predmluva&#x2F;ucel-kompendia&#x2F;&quot;&gt;01 Předmluva — Účel kompendia&lt;&#x2F;a&gt; for context, then &lt;a href=&quot;&#x2F;kompendium&#x2F;01-predmluva&#x2F;eticke-aspekty&#x2F;&quot;&gt;Etické aspekty&lt;&#x2F;a&gt; before going further.&lt;&#x2F;li&gt;
+&lt;li&gt;Move to &lt;a href=&quot;&#x2F;kompendium&#x2F;02-uvod&#x2F;definice&#x2F;&quot;&gt;02 Úvod — Definice&lt;&#x2F;a&gt; for foundational concepts. The &lt;a href=&quot;&#x2F;kompendium&#x2F;02-uvod&#x2F;historicky-kontext&#x2F;&quot;&gt;historical context&lt;&#x2F;a&gt; is optional but contextualizes the project significantly.&lt;&#x2F;li&gt;
+&lt;li&gt;Read &lt;a href=&quot;&#x2F;kompendium&#x2F;03-zakladni-kategorie&#x2F;kapitola-1&#x2F;&quot;&gt;03.1 Akademické techniky&lt;&#x2F;a&gt; for the taxonomic core.&lt;&#x2F;li&gt;
+&lt;li&gt;Browse &lt;a href=&quot;&#x2F;kompendium&#x2F;techniques&#x2F;&quot;&gt;techniques&#x2F;&lt;&#x2F;a&gt; for per-technique deep-dives as they&#x27;re published.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;If you&#x27;re a clinician encountering a specific case, jump directly to &lt;a href=&quot;&#x2F;kompendium&#x2F;03-zakladni-kategorie&#x2F;kapitola-1&#x2F;&quot;&gt;03.1&lt;&#x2F;a&gt; and use the EA codes to locate relevant per-technique articles.&lt;&#x2F;p&gt;
+&lt;p&gt;If you&#x27;re a researcher building on this work, &lt;a href=&quot;&#x2F;kompendium&#x2F;02-uvod&#x2F;metodologicke-poznamky&#x2F;&quot;&gt;02.4 Metodologické poznámky&lt;&#x2F;a&gt; is the entry point — it explicitly exposes our classification criteria, validation principles, and known limitations.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-ships-next&quot;&gt;What ships next&lt;&#x2F;h2&gt;
+&lt;p&gt;The next twelve per-technique articles complete Chapter 1 — the academic intellectual manipulation techniques (EA-1.1.2 through EA-1.5.2). After that, we begin Chapter 2 (delegitimization scenarios) and the diagnostic indicators in Section 06.&lt;&#x2F;p&gt;
+&lt;p&gt;The roadmap is at the &lt;a href=&quot;&#x2F;kompendium&#x2F;techniques&#x2F;&quot;&gt;techniques index&lt;&#x2F;a&gt; and updates with each new publication.&lt;&#x2F;p&gt;
+&lt;p&gt;If you&#x27;re a qualified specialist who wants to contribute case studies, methodological refinements, or translation review, get in touch via the contact links at the bottom of any kompendium page.&lt;&#x2F;p&gt;
+&lt;hr &#x2F;&gt;
+&lt;h2 id=&quot;connect-contribute&quot;&gt;Connect &amp;amp; Contribute&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;Created by &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;korczis&quot;&gt;Tomáš Korcak (korczis)&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; | Open Source under &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;korczis&#x2F;prismatic-platform&#x2F;blob&#x2F;main&#x2F;LICENSE&quot;&gt;GHL&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;github.com&#x2F;korczis&#x2F;prismatic-platform&quot;&gt;GitHub&lt;&#x2F;a&gt; | &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;gitlab.com&#x2F;korczis&#x2F;prismatic-platform&quot;&gt;GitLab&lt;&#x2F;a&gt; | &lt;a rel=&quot;external&quot; href=&quot;https:&#x2F;&#x2F;linkedin.com&#x2F;in&#x2F;korczis&quot;&gt;LinkedIn&lt;&#x2F;a&gt; | &lt;a href=&quot;mailto:korczis@gmail.com&quot;&gt;Contact&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;&#x2F;kompendium&#x2F;&quot;&gt;Kompendium&lt;&#x2F;a&gt; | &lt;a href=&quot;&#x2F;glossary&#x2F;&quot;&gt;Glossary&lt;&#x2F;a&gt; | &lt;a href=&quot;&#x2F;philosophy&#x2F;&quot;&gt;Philosophy&lt;&#x2F;a&gt; | &lt;a href=&quot;&#x2F;developers&#x2F;&quot;&gt;Developer Portal&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+      </item>
       <item>
           <title>Shipping Zola to GitHub Pages: A 2938-Broken-Links Postmortem</title>
           <pubDate>Fri, 24 Apr 2026 00:00:00 +0000</pubDate>

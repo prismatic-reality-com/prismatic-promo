@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>Prismatic Platform - 7. Teoretické a metakonceptuální reflexe</title>
+    <subtitle>Decision Infrastructure under Uncertainty | Due Diligence | Risk Intelligence | OSINT Investigations</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/07-teoreticke-reflexe/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/07-teoreticke-reflexe/"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    
+    <id>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/07-teoreticke-reflexe/atom.xml</id>
+</feed>
