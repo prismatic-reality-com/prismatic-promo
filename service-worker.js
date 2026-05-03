@@ -1,22 +1,29 @@
-const CACHE_NAME = 'prismatic-glossary-v2';
+// Subpath-aware service worker.
+// Derives its own deploy-root prefix from self.location so cached paths,
+// strategy patterns, and notification URLs work regardless of whether the
+// site is served at root (canonical domain) or under a subpath like
+// /prismatic-promo/ (github.io) or /promo/ (fly.dev).
+const SW_BASE = self.location.pathname.replace(/\/service-worker\.js$/, '');
+
+// Bumped from v2 → v3: previous version cached hardcoded `/css/` etc which
+// produced 404s under subpath deploys; v3 invalidates those broken caches.
+const CACHE_NAME = 'prismatic-glossary-v3';
+
 const STATIC_CACHE_URLS = [
-    '/css/tailwind.css',
-    '/css/glossary-optimized.css',
-    '/css/flowbite.min.css',
-    '/css/prose.css',
-    '/js/vendor/alpine.min.js',
-    '/js/performance-monitor.js',
-    '/images/sections/glossary.png'
+    `${SW_BASE}/css/tailwind.css`,
+    `${SW_BASE}/css/glossary-optimized.css`,
+    `${SW_BASE}/css/flowbite.min.css`,
+    `${SW_BASE}/css/prose.css`,
+    `${SW_BASE}/js/vendor/alpine.min.js`,
+    `${SW_BASE}/js/performance-monitor.js`,
+    `${SW_BASE}/images/sections/glossary.png`
 ];
 
-// Cache strategy for different resource types
+// Cache strategy for different resource types (all subpath-aware)
 const CACHE_STRATEGIES = {
-    // Cache first for static assets
-    static: ['/css/', '/js/', '/images/'],
-    // Network first for content
-    content: ['/glossary/', '/apps/', '/agents/'],
-    // Cache only for API responses
-    api: ['/api/']
+    static: [`${SW_BASE}/css/`, `${SW_BASE}/js/`, `${SW_BASE}/images/`],
+    content: [`${SW_BASE}/glossary/`, `${SW_BASE}/apps/`, `${SW_BASE}/agents/`],
+    api: [`${SW_BASE}/api/`]
 };
 
 // Install event - cache static resources
@@ -56,7 +63,7 @@ self.addEventListener('fetch', event => {
     }
 
     // Skip LiveView websocket and Phoenix internal paths
-    if (url.pathname.startsWith('/live/') || url.pathname.startsWith('/phoenix/')) {
+    if (url.pathname.startsWith(`${SW_BASE}/live/`) || url.pathname.startsWith(`${SW_BASE}/phoenix/`)) {
         return;
     }
 
@@ -150,10 +157,10 @@ self.addEventListener('push', event => {
 
     const options = {
         body: event.data.text(),
-        icon: '/images/icon-192.png',
-        badge: '/images/badge-72.png',
+        icon: `${SW_BASE}/images/icon-192.png`,
+        badge: `${SW_BASE}/images/badge-72.png`,
         data: {
-            url: '/glossary/'
+            url: `${SW_BASE}/glossary/`
         }
     };
 

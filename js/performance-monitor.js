@@ -136,10 +136,19 @@
         optimizeResources();
     }
 
-    // Service Worker registration for caching
+    // Service Worker registration for caching.
+    // SW URL is derived from this script's own URL so it works at the deploy
+    // root regardless of subpath (canonical / github.io subpath / fly.dev mount).
+    // performance-monitor.js lives at <base>/js/performance-monitor.js, so
+    // service-worker.js lives at <base>/service-worker.js (one dir up).
     if ('serviceWorker' in navigator && location.protocol === 'https:') {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js')
+            const scriptSrc = (document.currentScript && document.currentScript.src)
+                || document.querySelector('script[src*="performance-monitor.js"]').src;
+            const scriptUrl = new URL(scriptSrc);
+            const deployRoot = scriptUrl.pathname.replace(/\/js\/[^/]+$/, '/');
+            const swUrl = deployRoot + 'service-worker.js';
+            navigator.serviceWorker.register(swUrl, { scope: deployRoot })
                 .then(registration => {
                 })
                 .catch(error => {
