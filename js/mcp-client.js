@@ -3,8 +3,17 @@
 (function() {
     'use strict';
 
+    // Derive endpoint from <meta name="base-url"> emitted by base.html so the
+    // client works on root, subpath (e.g. /prismatic-promo/), and fly.dev (/promo)
+    // deploys without configuration. Prior version hardcoded "/api/v1/mcp" which
+    // 404'd on every subpath deploy.
+    var _baseMeta = document.querySelector('meta[name="base-url"]');
+    var _basePath = _baseMeta && _baseMeta.content
+        ? _baseMeta.content.replace(/^https?:\/\/[^/]+/, '')
+        : '';
+
     var _config = {
-        endpoint: '/api/v1/mcp',
+        endpoint: _basePath + '/api/v1/mcp',
         enabled: false,
         pageUrl: window.location.href
     };

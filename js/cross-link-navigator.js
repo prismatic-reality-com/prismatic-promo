@@ -150,7 +150,11 @@
                 developers: /\/developers\//,
                 document: /\.(pdf|doc|docx|txt)$/i,
                 anchor: /^#[\w-]+$/,
-                external: /^https?:\/\/(?!prismatic-reality\.com)/
+                // External = absolute http(s) URL whose host differs from the current page's host.
+                // Prior version hardcoded "prismatic-reality.com" (the canonical domain) — broke whenever
+                // deployed elsewhere (github.io subpath, fly.dev, etc). Now derived from runtime origin
+                // so the same JS works at root, subpath, or any deploy target.
+                external: new RegExp('^https?://(?!' + window.location.host.replace(/\./g, '\\.') + '(/|$|:))', 'i')
             };
         }
 

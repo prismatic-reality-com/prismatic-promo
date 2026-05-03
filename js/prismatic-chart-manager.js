@@ -21,12 +21,23 @@
 
 class PrismaticChartManager {
     constructor(options = {}) {
-        this.apiBaseUrl = options.apiBaseUrl || window.location.protocol + '//' + window.location.host + '/api/v1';
+        // Derive deploy-base from the <meta name="base-url"> tag emitted by base.html.
+        // Falls back to current origin so the script also works on root deploys.
+        // Without this, /api/v1 was hardcoded at the host root — broken on subpath
+        // deploys (e.g. github.io/prismatic-promo/) where the API would be at
+        // host/prismatic-promo/api/v1.
+        const baseMeta = (typeof document !== 'undefined') &&
+            document.querySelector('meta[name="base-url"]');
+        const baseUrl = (baseMeta && baseMeta.content) ||
+            (window.location.protocol + '//' + window.location.host);
+        this.apiBaseUrl = options.apiBaseUrl || baseUrl + '/api/v1';
         // Match page protocol — ws:// over HTTP, wss:// over HTTPS. Hardcoding
         // ws:// on an HTTPS page produces Mixed Content console errors and the
         // browser silently blocks the connection.
         const wsScheme = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
-        this.websocketUrl = options.websocketUrl || wsScheme + window.location.host + '/live';
+        // Reuse the deploy-base path component for the WebSocket endpoint too.
+        const basePath = baseUrl.replace(/^https?:\/\/[^/]+/, '');
+        this.websocketUrl = options.websocketUrl || wsScheme + window.location.host + basePath + '/live';
         this.mcpEnabled = options.mcpEnabled !== false;
         this.cacheTimeout = options.cacheTimeout || 30000; // 30 seconds
         this.retryAttempts = options.retryAttempts || 3;

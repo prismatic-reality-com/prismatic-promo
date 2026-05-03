@@ -7,6 +7,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/about/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/about/architecture/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/about/author/</loc>
     </url>
     <url>
@@ -6748,7 +6751,13 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/3nl/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/academy/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/access-control/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/accreditation/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/accuracy/</loc>
@@ -6764,6 +6773,12 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/adapter/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/adaptive-learning/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/adaptive-testing/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/addiction-recovery/</loc>
@@ -6844,6 +6859,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/algorithmic-decision-making/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/allocator/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/allostasis/</loc>
     </url>
     <url>
@@ -6857,6 +6875,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/anankasticky-rezim/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/anihilacni-fenomeny/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/anomaly-detection/</loc>
@@ -6874,13 +6895,25 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/api-integration/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/api-key/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/api-versioning/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/api/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/apofaticky-modus/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/apofatika/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/application/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/apriori/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/archer-supreme/</loc>
@@ -6907,6 +6940,12 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/architecture/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/archival/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/aristotelovy-kategorie/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/artifact/</loc>
     </url>
     <url>
@@ -6922,7 +6961,19 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/assessment/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/assigns/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ast/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/asymptoticky-kolaps/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/at-least-once/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/atom/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/attack-surface/</loc>
@@ -6931,10 +6982,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/attentional-control/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/auc/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/audit-logging/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/audit-trail/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/audit/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/authentication/</loc>
@@ -7000,7 +7057,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/axiom/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/b-tree/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/backing-service/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/backpressure/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/backup/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/backward-compatibility/</loc>
@@ -7030,6 +7096,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/belief-graph/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/benchee/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/benchmark/</loc>
     </url>
     <url>
@@ -7057,10 +7126,22 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/blackboard/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/blame-shifting/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/bloom-taxonomy/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/blue-green-deployment/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/blue-team/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/bm25/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/body-schema/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/boot-time/</loc>
@@ -7090,10 +7171,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cache/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cachex/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/caching/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/calibration-loop/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/calibration/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/canary-release/</loc>
@@ -7102,16 +7189,31 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cap-theorem/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/casbin/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cascade-pattern/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cascade/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/category-mistake/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cdn/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/censys/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cer/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/certificate-transparency/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/certificate/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/certification-programs/</loc>
@@ -7129,19 +7231,34 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/chain-of-thought/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/changeset/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/channel/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/chaos-engineering/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/charisma/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/chart/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/checkpoint/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/checksum/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cherry-pick-evidence/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cherry-picking/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/child-grooming/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ci-cd/</loc>
@@ -7162,10 +7279,19 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/circular-dependency/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cirkularni-argumentace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/classification/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/claude-ai/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/claude-code/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/claude/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/clean-run/</loc>
@@ -7174,7 +7300,13 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/closure/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cloud-security/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cluster/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/co-regulation/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/code-as-hypothesis/</loc>
@@ -7208,6 +7340,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/coercive-control/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cognitive-complexity/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cognitive-flexibility/</loc>
@@ -7318,6 +7453,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/comprehensive-verification/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/compression/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/concepts/</loc>
     </url>
     <url>
@@ -7357,6 +7495,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/conflicting-signals/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/confusion-matrix/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/connection-pool/</loc>
     </url>
     <url>
@@ -7367,6 +7508,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/consensus-algorithm/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/consensus/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/consent/</loc>
@@ -7382,6 +7526,12 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/containment/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/content-security-policy/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/continuation/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/continued-operation/</loc>
@@ -7414,10 +7564,19 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cooperative-systems/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/core-consciousness/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/corporate-interests/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/corporate-isolation/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/correctness/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/correlation-id/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/correlation/</loc>
@@ -7453,6 +7612,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/crisis-resolution/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/critical-infrastructure/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cross-session-continuity/</loc>
     </url>
     <url>
@@ -7471,6 +7633,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/csv/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cte/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ctf/</loc>
     </url>
     <url>
@@ -7483,7 +7648,13 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cyber-threat-intelligence/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cyclomatic-complexity/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cypher/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/cze/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dark-web/</loc>
@@ -7504,7 +7675,13 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/data-controller/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/data-enrichment/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/data-leak/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/data-lifecycle/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/data-migration/</loc>
@@ -7513,7 +7690,13 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/data-minimization/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/data-modeling/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/data-pipeline/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/data-processor/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/data-protection/</loc>
@@ -7531,13 +7714,28 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/database/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dd-pipeline/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ddos/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/decision-core/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/decision-engine/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/decision-making-hierarchy/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/decisive-action/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/deep-learning/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/deep-web/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/deepfake/</loc>
@@ -7564,6 +7762,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dependency-injection/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/depersonalizace/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/deplatforming/</loc>
     </url>
     <url>
@@ -7571,6 +7772,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/deprecation/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/deps/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/determinism/</loc>
@@ -7594,6 +7798,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dialyzer/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/diferenciace/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/differance/</loc>
     </url>
     <url>
@@ -7606,6 +7813,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dimension/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ding-an-sich/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/directive/</loc>
     </url>
     <url>
@@ -7613,6 +7823,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/disaster-recovery/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/discard/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/disciplined-approach/</loc>
@@ -7630,6 +7843,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dissociative-spectrum/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dissociativni-amnezie/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/distributed-erlang/</loc>
     </url>
     <url>
@@ -7645,6 +7861,12 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/distribution/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dkim/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dlp/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dmarc/</loc>
     </url>
     <url>
@@ -7655,6 +7877,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/docker/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/doctrine-overview/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/doctrine/</loc>
@@ -7673,6 +7898,18 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dorsolateral-pfc/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/double-bind/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/doxing/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dpia/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dsl/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/dual-use-poznani/</loc>
@@ -7696,10 +7933,22 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ecosystem/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ecto-migration/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ecto/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/edge/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ego-death/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/elasticsearch/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/elder-abuse/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/elixir-macro/</loc>
@@ -7714,10 +7963,19 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/elixir/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/email-header/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/email/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/embedding/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/embodied-cognition/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/emocionalni-terorismus/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/emotional-regulation/</loc>
@@ -7751,6 +8009,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/entity-resolution/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/environment-variable/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/environment/</loc>
@@ -7790,19 +8051,52 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemic-validation/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-agentnost/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-alienace/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-anihilace/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-bezdomovost/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-injustice/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-komunita/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-monokultura/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-pokora/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-regrese/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-reintegrace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-singularita/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-slepota/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicka-staze/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicke-trauma/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicke-zakladny/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epistemicky-monismus/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/epoche/</loc>
@@ -7838,6 +8132,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/eventual-consistency/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/evidence-based/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/evidence-over-opinion/</loc>
     </url>
     <url>
@@ -7848,6 +8145,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/evolves-by-necessity/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/exactly-once/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/executable-code/</loc>
@@ -7883,7 +8183,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/faceted-search/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/failover/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/falsifikabilita/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/falsifikace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/falsifikovatelnost/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/fast-safe-iteration/</loc>
@@ -7896,6 +8205,12 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/feature-flag/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/feedback-loop/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/fenomen/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/fenomenologie/</loc>
@@ -7913,6 +8228,12 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/fitness-score/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/flame-graph/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/fllm/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/flowbite/</loc>
     </url>
     <url>
@@ -7920,6 +8241,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/focused-applications/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/forbidden-pattern/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/forensic-interview/</loc>
@@ -7934,10 +8258,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/formal-verification/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/formative-assessment/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/foundation-building/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/four-noble-truths/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/fraud-detection/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/full-text-index/</loc>
@@ -7953,6 +8283,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/gap-analysis/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/garbage-collection/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/garden/</loc>
@@ -7997,6 +8330,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ghl-license/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/gin-index/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/gish-gallop/</loc>
     </url>
     <url>
@@ -8007,6 +8343,12 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/gitops/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/glossary/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/godeluv-teorem/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/grace/</loc>
@@ -8027,6 +8369,12 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/greynoise/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/guard/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/guardian/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hawkeye/</loc>
     </url>
     <url>
@@ -8036,7 +8384,25 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/health-monitoring/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/health-score/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/heap/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/heat-death/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/heex/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hermeneuticka-eroze/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hermeneuticky-kruh/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hermeneuticky-outsourcing/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hermeneutika/</loc>
@@ -8045,7 +8411,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hex/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/high-availability/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/high-control-group/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hippocampus-trauma/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/histogram/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hit-rate/</loc>
@@ -8057,19 +8432,40 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hmac/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hodnotova-destrukce/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/holismus/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hook/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/horde/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hot-code-reload/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hot-code-upgrade/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hot-path/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hpa-axis/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hranicni-koncept/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/http/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/human-intervention/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/husserl-retence/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hyperarousal/</loc>
@@ -8084,6 +8480,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hypothesis-generation/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/hypothesis/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/iatrogenic-harm/</loc>
     </url>
     <url>
@@ -8093,7 +8492,19 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/idempotency/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/idempotent/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/identity-destruction/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/identity-verification/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/immutability/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/immutable-data/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/immutable-log/</loc>
@@ -8117,6 +8528,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/inference/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/infinitni-regress/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/info-ops/</loc>
     </url>
     <url>
@@ -8124,6 +8538,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/informed-consent/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/infrastructure-as-code/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/infrastructure/</loc>
@@ -8141,6 +8558,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/input-sanitization/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/input-validation/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/instrumental-reason/</loc>
     </url>
     <url>
@@ -8154,6 +8574,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/integration/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/integrative-collapse/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/intelligence-analysis/</loc>
@@ -8174,19 +8597,40 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/intelligent-platforms/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/intencionalita/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/intentionalita/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/interconnection-engine/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/interconnection/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/internalizovany-pachatel/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/interocepce/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/interoception/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/introjekce/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/introspection/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/invariant/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/inverted-index/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/investigation/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ioc/</loc>
@@ -8196,6 +8640,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ips/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ipseita/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/iqr/</loc>
@@ -8216,7 +8663,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/json/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/jsonb/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/jwt/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/kantovy-kategorie/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/kataphasis/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/key-value-store/</loc>
@@ -8252,13 +8708,34 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/kognitivni-bias/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/kognitivni-stagnace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/kognitivni-zplosteni/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/kompendium-ea/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/konceptualni-anihilace/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/konfirmacni-bias/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/konsenzualni-realita/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/konstitutivni-akt/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/kpi/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/kuhnova-revoluce/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/kult-osobnosti/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/kuzu-db/</loc>
@@ -8286,6 +8763,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/lakatos-vyzkumny-program/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/lakatos/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/large-systems/</loc>
@@ -8318,6 +8798,12 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/let-it-crash/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/liaruv-paradox/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/license/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/lifecycle-management/</loc>
     </url>
     <url>
@@ -8342,13 +8828,25 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/log-level/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/logger-metadata/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/logging/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/logic-prolog/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/logical-consistency/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/logical-reasoning/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/logicka-koherence/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/love-bombing/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/lru/</loc>
@@ -8384,7 +8882,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/mark/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/mastery-learning/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/match-specification/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/materialized-view/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/mcp-service/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/mcp/</loc>
@@ -8403,6 +8910,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/memory-leak/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/memory-management/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/memory-profiling/</loc>
@@ -8426,10 +8936,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/message-queue/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/meta-epistemologie/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/metadata-management/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/metakognice/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/metakognitivni-deficit/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/metakognitivni-destrukce/</loc>
@@ -8447,10 +8963,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/microservices/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/middleware/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/minimum-viable-product/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/mirror-neurons/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/mix-env/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/mix-task/</loc>
@@ -8468,10 +8990,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/modal-logic/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/modalni-logika/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/model-context-protocol/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/modularity/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/module-attribute/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/module/</loc>
@@ -8519,6 +9047,12 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/mycelial-network/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/mysticky-prozitek/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/n-plus-one/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/nabla-axioms/</loc>
     </url>
     <url>
@@ -8528,10 +9062,22 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/named-table/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/narativni-identita/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/narativni-terapie/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/narativni-topologie/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/narrative-identity/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/narrative-trauma/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/natural-language-processing/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/neural-network/</loc>
@@ -8540,10 +9086,19 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/neuroplasticity/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/newspeak/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/nif/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/nis2/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/nm-nd/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/nmnd/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/no-doubts/</loc>
@@ -8556,6 +9111,12 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/node/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/noumenum/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/nwb/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/oauth/</loc>
@@ -8574,6 +9135,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/office-hours/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/olap/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ollama/</loc>
@@ -8609,6 +9173,12 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/openapi/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/opentelemetry/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/operativni-artikulace/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/orchestration/</loc>
     </url>
     <url>
@@ -8616,6 +9186,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/osint/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/otel/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/otp-application/</loc>
@@ -8648,13 +9221,28 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/page-load/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/pagination/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/panopticism/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/paradigm-shift/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/paradigmaticka-bezdomovina/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/paralysis-by-analysis/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/parental-alienation/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/parity/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/pasivni-synteza/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/paste-site/</loc>
@@ -8684,6 +9272,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/percentile/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/perf/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/perfect-software/</loc>
     </url>
     <url>
@@ -8694,6 +9285,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/perfection-unacceptable/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/perfekcionismus/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/performance-testing/</loc>
@@ -8715,6 +9309,12 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/philosophically-sound/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/phishing/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/phoenix-channel/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/phoenix-framework/</loc>
@@ -8756,6 +9356,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/plug/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/pluralismus/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/point-in-time-recovery/</loc>
     </url>
     <url>
@@ -8768,10 +9371,19 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/polyvagal-theory/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/polyvagalni-teorie/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/popperianismus/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/postgresql/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/power-knowledge/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/pragmaticka-kompetence/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/pre-commit-hooks/</loc>
@@ -8781,6 +9393,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/predictive-processing/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/predreflexivni-vedomi/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/prefrontal-cortex/</loc>
@@ -8804,6 +9419,12 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/prismatic-web/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/privacy-by-design/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/privatni-jazyk/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/privilege-escalation/</loc>
     </url>
     <url>
@@ -8820,6 +9441,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/profiling/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/progress-tracker/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/progress/</loc>
@@ -8849,6 +9473,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/property-test/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/property-testing/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/proprietary-solutions/</loc>
     </url>
     <url>
@@ -8867,6 +9494,12 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/proves-before-claiming/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/pseudoempaticka-vazba/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/pseudoscience/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/pubsub/</loc>
     </url>
     <url>
@@ -8877,6 +9510,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/pvm/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/pyrrhonismus/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/qdp/</loc>
@@ -8933,6 +9569,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/quantitative-measure/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/query-optimization/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/query-plan/</loc>
     </url>
     <url>
@@ -8943,6 +9582,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/quiz/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/quote-unquote/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/r-squared/</loc>
@@ -8960,6 +9602,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/rbac/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/reactive-programming/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/readability/</loc>
     </url>
     <url>
@@ -8969,10 +9614,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/real-world-chaos/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/reality-testing/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/reasoning-error/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/recall/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/recon/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/red-team/</loc>
@@ -8981,7 +9632,13 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/redis/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/reduction/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/reductions/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/redukcionismus/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/refactoring/</loc>
@@ -9002,7 +9659,19 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/regression-testing/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/regression/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/regulation/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/rekurzivni-paralyza/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/relational-database/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/relationship/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/release/</loc>
@@ -9038,6 +9707,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/research-partnerships/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/resilience/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/resolver/</loc>
     </url>
     <url>
@@ -9056,10 +9728,22 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/retention/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/retraumatizace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/retrieval-practice/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/retry-pattern/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/retry/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/reverse-proxy/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/right-to-erasure/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/risk-assessment/</loc>
@@ -9069,6 +9753,12 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/risk-score/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/roc-auc/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/roc-curve/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/role/</loc>
@@ -9095,6 +9785,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/runtime/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/russell-paradox/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/saga-pattern/</loc>
     </url>
     <url>
@@ -9107,7 +9800,13 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/sandbox/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/sbom/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/scalability/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/scam-compliance/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/scatter-plot/</loc>
@@ -9131,6 +9830,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/scope/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/scoring/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/sdk/</loc>
     </url>
     <url>
@@ -9140,13 +9842,25 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/seadf/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/seal/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/sealioning/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/search/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/seasonality/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/secret-scanning/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/secrets/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/secure-attachment/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/security-analyst/</loc>
@@ -9164,6 +9878,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/security-operations/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/security-posture/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/security-rating/</loc>
     </url>
     <url>
@@ -9176,13 +9893,25 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/security/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/sektarska-konverze/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/select/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/self-coordinating/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/self-healing/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/self-reference/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/self-registration/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/self-report/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/semantic-link/</loc>
@@ -9191,10 +9920,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/semantic-linking/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/semanticka-afazie/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/semver/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/sequential-scan/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/serialization/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/server-render/</loc>
@@ -9248,6 +9983,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/simulation/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/skepticismus/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/skill-matrix/</loc>
     </url>
     <url>
@@ -9260,7 +9998,19 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/sliding-window/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/slo/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/snapshot/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/soc2/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/social-engineering/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/socialni-izolace/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/socket-io/</loc>
@@ -9275,10 +10025,19 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/software-industry-transformation/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/solipsismus/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/source-registry/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/source/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/spaced-repetition/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/span/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/sparkline/</loc>
@@ -9290,7 +10049,19 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/specification/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/specificity/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/spf/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/spiritual-bypassing/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/sql-injection/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/sql/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ssrf/</loc>
@@ -9300,6 +10071,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/standard-deviation/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/star-schema/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/state-machine/</loc>
@@ -9338,6 +10112,18 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/stream-processing/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/stream/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/streamdata/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/streaming-replication/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/string/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/structural-consistency/</loc>
     </url>
     <url>
@@ -9348,6 +10134,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/structured-logging/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/strukturalni-trauma/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/stub/</loc>
@@ -9371,6 +10160,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/supervisor/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/supply-chain/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/supreme-commander/</loc>
     </url>
     <url>
@@ -9384,6 +10176,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/swagger/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/synteticke-analyticke/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/synthetic-data/</loc>
@@ -9440,6 +10235,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/task-module/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/tautologie/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/taxii/</loc>
     </url>
     <url>
@@ -9459,6 +10257,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/technical-vocabulary/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/technologies/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/telemetry/</loc>
@@ -9488,13 +10289,25 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/thinks-before-acting/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/thought-stopping/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/threat-assessment/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/threat-feed/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/threat-hunting/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/threat-intelligence/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/threat-modeling/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/three-nested-loops/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/three-nl/</loc>
@@ -9517,6 +10330,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/time-to-first-byte/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/timeout/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/timescaledb/</loc>
@@ -9543,13 +10359,25 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/topic-registry/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/tor/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/toulmin-model/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/trace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/tracing/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/track/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/tracking/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/transaction/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/transform/</loc>
@@ -9576,7 +10404,13 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/trauma-spectrum/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/traumatic-bonding/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/traversal/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/tree-of-thought/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/trend/</loc>
@@ -9600,6 +10434,12 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/ttl/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/twelve-factor/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/type-spec/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/typescript/</loc>
     </url>
     <url>
@@ -9618,6 +10458,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/umbrella/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/uncertainty/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/undue-influence/</loc>
     </url>
     <url>
@@ -9633,7 +10476,13 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/uptime/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/use-macro/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/user/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/uuid/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/vacuum/</loc>
@@ -9663,6 +10512,15 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/verification/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/versioning/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/vertex/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/via-negativa/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/violation-protocol/</loc>
     </url>
     <url>
@@ -9670,6 +10528,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/visualization/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/vnitrni-casovost/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/vulnerability-assessment/</loc>
@@ -9711,6 +10572,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/working-memory-limit/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/working-set/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/workshop-facilitation/</loc>
     </url>
     <url>
@@ -9720,10 +10584,16 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/write-through/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/xml/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/xss/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/z-score/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/zenon-paradox/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/zero-compromise-quality/</loc>
@@ -9739,6 +10609,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/zero-warning-policy/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/zero/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/glossary/zkb/</loc>
@@ -9783,6 +10656,15 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/01-predmluva/vztah-k-platforme/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/01-zaklady-manipulace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/02-doktrinalni-ramec/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/02-identitarni-manipulace/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/02-uvod/</loc>
     </url>
     <url>
@@ -9807,7 +10689,31 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/02-uvod/vztah-k-nabla/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-manipulacni-vzorce/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/biasy/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/biasy/konfirmacni/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/delegitimizace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/falsifikovatelnost/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/fenomenologie/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/hermeneutika/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/intencionalita/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/kapitola-1/</loc>
@@ -9819,6 +10725,15 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/kapitola-3/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/lakatos/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/lebenswelt/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/metakognice/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/scenar-f/</loc>
     </url>
     <url>
@@ -9828,7 +10743,28 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/scenar-h/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/scenar-k/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/scenar-l/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/somaticke-vektory/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/tom-exploitation/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/visualizations/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/04-klinika/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/04-operacni-principy/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/04-pokrocile-fenomeny/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/04-terminalni-protokoly/</loc>
@@ -9864,6 +10800,24 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/04-terminalni-protokoly/visualizations/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/05-diagnostika/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/05-kolektivni-rozmer/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/05-pokrocile-operace/kapitola-6/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/05-pokrocile-techniky/kapitola-6/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/05-pre-konceptualni-rozklad/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/05-pre-konceptualni-rozklad/ea-5-5-konvergentni/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/05-ultramari-techniky/</loc>
     </url>
     <url>
@@ -9882,7 +10836,34 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/05-ultramari-techniky/kapitola-9/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/05-ultramari-techniky/motte-bailey/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/05-ultramari-techniky/narrativni-trauma/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/05-ultramari-techniky/sealioning/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/05-ultramari-techniky/weaponized-incompetence/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-epistemicka-singularita/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-intervence-a-obrana/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-klinicke-aplikace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-klinicke-aplikace/biographical-timeline-rekonstrukce/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-klinicke-aplikace/collateral-interview-protokol/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-klinicke-aplikace/dd-ea-psychoza/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-klinicke-aplikace/diagnosticke-indikatory/</loc>
@@ -9895,6 +10876,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-klinicke-aplikace/kolektivni-intervence/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-klinicke-aplikace/observational-assessment/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-klinicke-aplikace/preventivni-strategie/</loc>
@@ -9925,6 +10909,15 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-klinicke-aplikace/vulnerabilni-populace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-obrana/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/07-populacni/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/07-populacni/propaganda/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/07-teoreticke-reflexe/</loc>
@@ -9985,6 +10978,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/07-teoreticke-reflexe/filosoficky-ramec/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/07-teoreticke-reflexe/filozoficke-tradice/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/07-teoreticke-reflexe/floridi-fourth-revolution/</loc>
@@ -10117,6 +11113,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/08-prilohy/diagnosticke-nastroje/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/08-prilohy/dual-use/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/08-prilohy/eticky-kodex/</loc>
@@ -10734,6 +11733,15 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/detection-signatures/9-behavioral-disproportionate-confidence/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/detection-signatures/epistemicka-kalibrace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/detection-signatures/motte-bailey/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/detection-signatures/tom-kalibrace/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/educational-scenarios/</loc>
     </url>
     <url>
@@ -11199,6 +12207,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-communicative-rationality/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-companion/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-darvo/</loc>
     </url>
     <url>
@@ -11257,6 +12268,12 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-epoche/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-eticky-ramec/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-exit/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-falsifikace/</loc>
@@ -11322,6 +12339,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-kompendium-ea/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-kontraindikace/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-lakatos-vyzkumny-program/</loc>
     </url>
     <url>
@@ -11350,6 +12370,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-narrative-trauma/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-nclb/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-nm-nd/</loc>
@@ -11383,6 +12406,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-quality-debt/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-readiness/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-red-team/</loc>
@@ -11427,6 +12453,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-theory-of-mind/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-threshold/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-trinity-gate/</loc>
     </url>
     <url>
@@ -11440,6 +12469,21 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/bridge-zero-warning-policy/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/delegitimizace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/epistemicke-trauma/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/falsifikace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/gaslighting/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/glossary-bridges/taxonomie-ea/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/historical-cases/</loc>
@@ -11726,6 +12770,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/international/9-french-ea/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/konceptualni-mapa/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/organizational-defense/</loc>
@@ -12430,6 +13477,15 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/acute-stabilization-protocol/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/duvera/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/incompetence/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/lifeworld/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/longterm-altruistic-channeling/</loc>
     </url>
     <url>
@@ -12466,6 +13522,18 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/midterm-vocational-integration/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/narativ/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/paradigm/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/pokora/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/ramce/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/recovery-adolescent-protocol/</loc>
     </url>
     <url>
@@ -12484,6 +13552,12 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/recovery-trafficking-survivor-protocol/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/sealioning/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/sekvence/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/subacute-axiological-restoration/</loc>
     </url>
     <url>
@@ -12500,6 +13574,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/subacute-trust-rebuilding/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/trauma/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/research-methodology/</loc>
@@ -12847,10 +13924,19 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-1-1-selektivni-expozice/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-1-1/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-1-2-informacni-pretizeni/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-1-2/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-1-3-terminologicka-mystifikace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-2-1-argumentacni-oslabeni/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-2-1-falesne-dilema/</loc>
@@ -12859,28 +13945,76 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-2-2-falesna-ekvivalence/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-2-2-memorni-rekonstrukce/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-2-3-iluzorni-komplexita/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-3-1-immunization-against-falsification/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-3-1-imunizace-proti-falsifikaci/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-3-2-pseudo-empiricka-validace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-3-2-sokratovska-past/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-3-2-strategic-reinterpretation/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-3-2-strategicka-reinterpretace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-3-2/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-3-3-tematicka-diverze/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-3-4-indukovana-pochybnost/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-4-1-latentni-podbarveni/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-4-1-prosodicka-dominance/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-4-2-latent-emotional-modulation/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-4-2-latentni-emocionalni-modulace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-5-1-emocni-podbarveni/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-5-1-strategicka-proxemika/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-5-2-dominantni-telesne-hieroglyfy/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-5-terminologicka-mystifikace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-6-1-vzorec-guru-a-adept/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-6-1-vzorec-guru-adept/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-6-5/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-6-falesny-paradigmaticky-narok/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-1-7-iluzorni-komplexita/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-2-1-1-expertni-disinflation/</loc>
@@ -13001,6 +14135,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-2-4-9-curriculum-capture/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-2-4-falesny-konsensus/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-2-5-1-pseudo-pokora-internalizace/</loc>
@@ -13153,6 +14290,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-4-1-9-cohort-monitoring/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-4-1-gaslighting/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-4-2-1-pre-engagement-screening/</loc>
     </url>
     <url>
@@ -13298,6 +14438,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-1-26-trans-paradigmaticka-migrace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-1-26/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-1-27-meta-epistemicka-redukce/</loc>
@@ -13480,6 +14623,9 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-3-26-core-self-fraktura/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-3-27-autobiografi-self-fragmentace/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-3-27-ego-skeletalni-redukce/</loc>
     </url>
     <url>
@@ -13495,7 +14641,25 @@
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-3-30-konvergentni-hypertransformace/</loc>
     </url>
     <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-3-32-rekonstituce-skrze-rituall/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-3-34-konvergentni-identitarni-tlak/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-3-36-identitarni-singularita/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-3-39-anti-individuacni-pust/</loc>
+    </url>
+    <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-3-4-telesna-disociace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-3-41-trans-individualizace/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-3-42-self-objektifikace-totalni/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-5-3-5-temporalne-vyvojova-inverze/</loc>
@@ -13850,6 +15014,9 @@
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-6-3-2-externalizacni-faze/</loc>
+    </url>
+    <url>
+        <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-6-3-3-metacognitivni-rehabilitace/</loc>
     </url>
     <url>
         <loc>https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/ea-6-3-3-metakognitivni-rehabilitace/</loc>
