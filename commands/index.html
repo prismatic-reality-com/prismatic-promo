@@ -2740,7 +2740,7 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
     }
 </script>
 
-<!-- Command Analytics Charts -->
+<!-- Command Analytics Charts (data-driven from commandRegistry().allItems) -->
 <script>
     (function () {
         var cmdChartsInit = false;
@@ -2753,19 +2753,54 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
             Chart.defaults.font.family = "'Inter', sans-serif";
             var gridColor = isDark ? 'rgba(75,85,99,0.3)' : 'rgba(209,213,219,0.5)';
 
+            // Aggregate domain counts from the actual command registry data
+            // (Alpine state's allItems is hydrated server-side per template).
+            var allItems = (function() {
+                var el = document.querySelector('[x-data="commandRegistry()"]');
+                if (!el || !el.__x) return null;
+                return el.__x.$data && el.__x.$data.allItems;
+            })();
+            var domainCounts = {};
+            if (allItems && allItems.length) {
+                for (var i = 0; i < allItems.length; i++) {
+                    var d = (allItems[i].domain || 'general').toLowerCase();
+                    domainCounts[d] = (domainCounts[d] || 0) + 1;
+                }
+            } else {
+                // Fallback to representative defaults if Alpine hydration not ready.
+                domainCounts = { quality: 32, development: 28, intelligence: 24, security: 20, infrastructure: 18, evolution: 16, orchestration: 14, devops: 12, deployment: 10, analysis: 8, other: 47 };
+            }
+
+            // Sort domains by count desc; top 9 + "Other" bucket for the doughnut.
+            var sortedDomains = Object.keys(domainCounts).sort(function(a, b){ return domainCounts[b] - domainCounts[a]; });
+            var pieLabels = [], pieData = [];
+            for (var k = 0; k < Math.min(9, sortedDomains.length); k++) {
+                var name = sortedDomains[k];
+                pieLabels.push(name.charAt(0).toUpperCase() + name.slice(1));
+                pieData.push(domainCounts[name]);
+            }
+            if (sortedDomains.length > 9) {
+                var otherSum = 0;
+                for (var k = 9; k < sortedDomains.length; k++) otherSum += domainCounts[sortedDomains[k]];
+                pieLabels.push('Other'); pieData.push(otherSum);
+            }
+
+            var pieColors = [
+                'rgba(16,185,129,0.8)', 'rgba(6,182,212,0.8)', 'rgba(245,158,11,0.8)',
+                'rgba(239,68,68,0.8)', 'rgba(107,114,128,0.8)', 'rgba(236,72,153,0.8)',
+                'rgba(139,92,246,0.8)', 'rgba(59,130,246,0.8)', 'rgba(251,113,133,0.8)',
+                'rgba(156,163,175,0.8)'
+            ];
+
             var pieCtx = document.getElementById('cmdDomainPieChart');
             if (pieCtx) {
                 new Chart(pieCtx, {
                     type: 'doughnut',
                     data: {
-                        labels: ['Quality', 'Development', 'Intelligence', 'Security', 'Infrastructure', 'Evolution', 'Orchestration', 'DevOps', 'Other'],
+                        labels: pieLabels,
                         datasets: [{
-                            data: [32, 28, 24, 20, 18, 16, 14, 12, 47],
-                            backgroundColor: [
-                                'rgba(16,185,129,0.8)', 'rgba(6,182,212,0.8)', 'rgba(245,158,11,0.8)',
-                                'rgba(239,68,68,0.8)', 'rgba(107,114,128,0.8)', 'rgba(236,72,153,0.8)',
-                                'rgba(139,92,246,0.8)', 'rgba(59,130,246,0.8)', 'rgba(156,163,175,0.8)'
-                            ],
+                            data: pieData,
+                            backgroundColor: pieColors.slice(0, pieLabels.length),
                             borderWidth: 0, hoverOffset: 8
                         }]
                     },
@@ -2773,21 +2808,25 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
                         responsive: true, maintainAspectRatio: false, cutout: '50%',
                         plugins: {
                             legend: { position: 'right', labels: { padding: 8, usePointStyle: true, pointStyleWidth: 8, font: { size: 10 } } },
-                            tooltip: { backgroundColor: 'rgba(17,24,39,0.9)', padding: 10, cornerRadius: 8 }
+                            tooltip: { backgroundColor: 'rgba(17,24,39,0.9)', padding: 10, cornerRadius: 8, callbacks: { label: function(ctx){ return ctx.label + ': ' + ctx.parsed + ' commands'; } } }
                         }
                     }
                 });
             }
+
+            // Top 10 domains by count (horizontal bar)
+            var top10 = sortedDomains.slice(0, 10);
+            var top10Counts = top10.map(function(d){ return domainCounts[d]; });
 
             var barCtx = document.getElementById('cmdTopDomainsChart');
             if (barCtx) {
                 new Chart(barCtx, {
                     type: 'bar',
                     data: {
-                        labels: ['quality', 'development', 'intelligence', 'security', 'infrastructure', 'evolution', 'orchestration', 'devops', 'deployment', 'analysis'],
+                        labels: top10,
                         datasets: [{
                             label: 'Commands',
-                            data: [32, 28, 24, 20, 18, 16, 14, 12, 10, 8],
+                            data: top10Counts,
                             backgroundColor: 'rgba(59,130,246,0.7)',
                             borderWidth: 0, borderRadius: 4
                         }]
@@ -2800,7 +2839,7 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
                         },
                         plugins: {
                             legend: { display: false },
-                            tooltip: { backgroundColor: 'rgba(17,24,39,0.9)', padding: 10, cornerRadius: 8 }
+                            tooltip: { backgroundColor: 'rgba(17,24,39,0.9)', padding: 10, cornerRadius: 8, callbacks: { label: function(ctx){ return ctx.parsed.x + ' commands'; } } }
                         },
                         animation: { duration: 800 }
                     }
