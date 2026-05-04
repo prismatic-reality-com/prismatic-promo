@@ -43,19 +43,71 @@
     "POZITIVNÍ NÁLEZ: OHL ŽS jako klient = Tier-class korporátní reference (i přes prohru sporu)."
   ],
   "steps": [
-    { "id": 1, "name": "Disambiguace + identifikace subjektu", "status": "completed" },
-    { "id": 2, "name": "ČAK + ARES + OR registrace", "status": "completed" },
-    { "id": 3, "name": "Komerční stopa (Hlídač státu, registr smluv)", "status": "completed" },
-    { "id": 4, "name": "Judikátová stopa + mediální rešerše + insolvence", "status": "completed_v2_corrected" },
-    { "id": 5, "name": "Komparativní shortlist konkurence (5 alternativ)", "status": "completed" },
-    { "id": 6, "name": "Extended OSINT týmu (LinkedIn, publikace, vazby)", "status": "completed" },
-    { "id": 7, "name": "ARCHER deep verification — 4 paralel agents", "status": "completed" },
-    { "id": 8, "name": "RFP draft + engagement letter + conflict matrix + email šablony", "status": "completed" },
-    { "id": 9, "name": "Konfliktová matice (vyplnění klientem)", "status": "pending_input" },
-    { "id": 10, "name": "Test responzivity (klient odešle e-mail)", "status": "pending_action" },
-    { "id": 11, "name": "RFP odeslání + paralelní oslovení 2–3 alternativ", "status": "pending_action" },
-    { "id": 12, "name": "Network expansion depth+2 (~85 uzlů) + 5 nových grafů", "status": "completed" },
-    { "id": 13, "name": "Network expansion depth+4 (~210 uzlů) + 5 dalších grafů + depth slider + KOREKCE", "status": "completed" }
+    {
+      "id": 1,
+      "name": "Disambiguace + identifikace subjektu",
+      "status": "completed"
+    },
+    {
+      "id": 2,
+      "name": "ČAK + ARES + OR registrace",
+      "status": "completed"
+    },
+    {
+      "id": 3,
+      "name": "Komerční stopa (Hlídač státu, registr smluv)",
+      "status": "completed"
+    },
+    {
+      "id": 4,
+      "name": "Judikátová stopa + mediální rešerše + insolvence",
+      "status": "completed_v2_corrected"
+    },
+    {
+      "id": 5,
+      "name": "Komparativní shortlist konkurence (5 alternativ)",
+      "status": "completed"
+    },
+    {
+      "id": 6,
+      "name": "Extended OSINT týmu (LinkedIn, publikace, vazby)",
+      "status": "completed"
+    },
+    {
+      "id": 7,
+      "name": "ARCHER deep verification — 4 paralel agents",
+      "status": "completed"
+    },
+    {
+      "id": 8,
+      "name": "RFP draft + engagement letter + conflict matrix + email šablony",
+      "status": "completed"
+    },
+    {
+      "id": 9,
+      "name": "Konfliktová matice (vyplnění klientem)",
+      "status": "pending_input"
+    },
+    {
+      "id": 10,
+      "name": "Test responzivity (klient odešle e-mail)",
+      "status": "pending_action"
+    },
+    {
+      "id": 11,
+      "name": "RFP odeslání + paralelní oslovení 2–3 alternativ",
+      "status": "pending_action"
+    },
+    {
+      "id": 12,
+      "name": "Network expansion depth+2 (~85 uzlů) + 5 nových grafů",
+      "status": "completed"
+    },
+    {
+      "id": 13,
+      "name": "Network expansion depth+4 (~210 uzlů) + 5 dalších grafů + depth slider + KOREKCE",
+      "status": "completed"
+    }
   ],
   "key_corrections_v4": [
     "JUDr. Markéta Vaňková (primátorka Brna) = vlastní AK → POTENCIÁLNÍ KONFLIKT ZÁJMŮ. Vyžaduje ověření přes ČAK detail.",
@@ -71,11 +123,37 @@
     "Robert Kerndl není 1. nám., je nám.; 1. nám. = René Černý"
   ],
   "candidates_disambiguation": [
-    { "rank": 1, "name": "Procházka & Co., advokátní kancelář, s.r.o.", "ico": "09963430", "address": "Kobližná 71/2, Brno", "primary": true },
-    { "rank": 2, "name": "JUDr. Petr Procházka — advokát", "ico": null, "address": "Nám. Svobody 12, Brno" },
-    { "rank": 3, "name": "JUDr. Lubomír Procházka (akprocha.cz)", "ico": null, "address": "Brno" },
-    { "rank": 4, "name": "Procházka s.r.o., advokátní kancelář", "ico": "09633481", "address": "Ovocný trh 11, Praha (NE Brno)" },
-    { "rank": 5, "name": "Jan Procházka (ak-prochazka.cz)", "ico": null, "address": "Brno" }
+    {
+      "rank": 1,
+      "name": "Procházka & Co., advokátní kancelář, s.r.o.",
+      "ico": "09963430",
+      "address": "Kobližná 71/2, Brno",
+      "primary": true
+    },
+    {
+      "rank": 2,
+      "name": "JUDr. Petr Procházka — advokát",
+      "ico": null,
+      "address": "Nám. Svobody 12, Brno"
+    },
+    {
+      "rank": 3,
+      "name": "JUDr. Lubomír Procházka (akprocha.cz)",
+      "ico": null,
+      "address": "Brno"
+    },
+    {
+      "rank": 4,
+      "name": "Procházka s.r.o., advokátní kancelář",
+      "ico": "09633481",
+      "address": "Ovocný trh 11, Praha (NE Brno)"
+    },
+    {
+      "rank": 5,
+      "name": "Jan Procházka (ak-prochazka.cz)",
+      "ico": null,
+      "address": "Brno"
+    }
   ],
   "key_findings": {
     "positive": [
@@ -123,5 +201,15 @@
       "08-comms-templates/03-conflict-matrix-template.md",
       "08-comms-templates/04-email-test-responzivity.md"
     ]
+  },
+  "display": {
+    "headline": "Procházka & Co. — Brno (Generalista, ZZVZ)",
+    "tagline": "Posouzení potenciálního právního zástupce. 8+4 tým, ~80 % portfolia z SMB skupiny města (KCR signál), generalistický profil, 5/10 specializační hloubka, 8/10 finanční stabilita. 193-uzlová síťová mapa s 235 hranami a betweenness centralitou.",
+    "risk_grade": "B",
+    "color": "emerald",
+    "entity_count": 193,
+    "graph_depth": 4,
+    "verification_status": "Triple-check OK",
+    "dashboard_path": "index.html"
   }
 }

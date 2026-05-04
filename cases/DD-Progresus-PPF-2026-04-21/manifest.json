@@ -1,72 +1,58 @@
 {
-  "name": "Project Mycelium — DD Command",
-  "short_name": "Mycelium DD",
-  "description": "Pracovní prostor Due Diligence Progresus → PPF | 42 ha Nový Zeleneč | Cíl 5-6 mld. Kč",
-  "start_url": "./index.html",
-  "scope": "./",
-  "display": "standalone",
-  "orientation": "landscape",
-  "theme_color": "#1e40af",
-  "background_color": "#0f172a",
-  "lang": "cs",
-  "dir": "ltr",
-  "categories": ["business", "finance", "productivity"],
-  "icons": [
-    {
-      "src": "./_assets/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "./_assets/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
+  "case_id": "DD-Progresus-PPF-2026-04-21",
+  "title": "Due Diligence — Progresus → PPF (Nový Zeleneč)",
+  "subject": {
+    "name": "Nový Zeleneč a.s. (cíl) · PPF reality 2 s.r.o. (SPV kupujícího)",
+    "ico": "27825981",
+    "buyer_ico": "24654744",
+    "sidlo": "k.ú. Mstětice 792764, Středočeský kraj",
+    "kontakt": {
+      "context": "M&A na straně prodávajícího — 42 ha greenfield"
     }
-  ],
-  "shortcuts": [
-    {
-      "name": "Manažerský briefing",
-      "short_name": "Briefing",
-      "description": "Manažerský briefing pro Zrůsta připravený k tisku",
-      "url": "./executive-briefing.html"
-    },
-    {
-      "name": "Rizikové signály",
-      "short_name": "Signály",
-      "description": "Dashboard aktivních rizikových signálů",
-      "url": "./06-reports/red-flags-dashboard.html"
-    },
-    {
-      "name": "Ocenění",
-      "short_name": "Oceň.",
-      "description": "Interaktivní kalkulačka ocenění",
-      "url": "./06-reports/valuation-calculator.html"
-    },
-    {
-      "name": "Monte Carlo",
-      "short_name": "MC",
-      "description": "Pravděpodobnostní simulace ocenění (10k iterací)",
-      "url": "./06-reports/monte-carlo-valuation.html"
-    },
-    {
-      "name": "Porovnání scénářů",
-      "short_name": "AB",
-      "description": "Side-by-side porovnání 2 scénářů s diff metrikami",
-      "url": "./06-reports/scenario-compare.html"
-    },
-    {
-      "name": "Živý ticker",
-      "short_name": "Ticker",
-      "description": "Status feed týmu DD",
-      "url": "./06-reports/live-ticker.html"
-    },
-    {
-      "name": "Tiskový balík",
-      "short_name": "Tisk",
-      "description": "Kombinovaný PDF balík (A4 ready)",
-      "url": "./print-pack.html"
-    }
-  ]
+  },
+  "context": "M&A pracovní prostor pro prodej 42 ha greenfield Mstětice 792764 (Nový Zeleneč a.s.) skupině PPF reality. Cíl 5–6 mld. Kč. 22 interaktivních nástrojů + 7 ploch Pass-10. Knowledge graph 189 uzlů × 460 hran.",
+  "doctrine": "AIAD-DD",
+  "language": "cs-CZ",
+  "created_at": "2026-04-21",
+  "updated_at": "2026-04-28",
+  "display": {
+    "headline": "Project Mycelium — Progresus → PPF",
+    "tagline": "M&A na straně prodávajícího · 42 ha greenfield Nový Zeleneč · Cíl 5–6 mld. Kč. Interaktivní DD řídicí prostor s 22 nástroji, knowledge grafem (189×460), bond stack drill-down a tax kalkulátorem.",
+    "risk_grade": "C",
+    "color": "amber",
+    "entity_count": 189,
+    "graph_depth": 4,
+    "verification_status": "Pass-11 final",
+    "dashboard_path": "index.html"
+  },
+  "deliverables": {
+    "case_md": "00-INDEX.md",
+    "raw_reports": [
+      "executive-briefing.html",
+      "knowledge-graph.html",
+      "reader.html",
+      "search.html",
+      "sitemap.html",
+      "export-pack.html",
+      "print-pack.html"
+    ]
+  },
+  "key_findings": {
+    "positive": [
+      "Konzistentní greenfield s katastrální shodou Mstětice 792764",
+      "PPF kupující (PPF reality 2 s.r.o., IČO 24654744) — důvěryhodný protistranný subjekt"
+    ],
+    "yellow_flags": [
+      "Bond stack 7,6 mld. CZK / 68 tranší — nutná koordinace souhlasů CoC",
+      "PPF governance vede přes trust Kellnerové — strukturní komplexita"
+    ],
+    "red_flags_blocking": [
+      "RF-27: Nový Zeleneč a.s. FY21–24 výkazy chybí — porušení §21a zákona o účetnictví"
+    ]
+  },
+  "tools_count": 22,
+  "graph": {
+    "nodes": 189,
+    "edges": 460
+  }
 }

@@ -9,7 +9,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4"></script>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.10.0/lib/p5.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+  <!-- Alpine collapse plugin must load BEFORE alpinejs core; @3.x.x → latest 3.x (3.14.1 didn't exist for collapse plugin) -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   <style>
     :root {
       --color-positive: #16a34a;
@@ -24,7 +26,12 @@
     .verdict-green { background: linear-gradient(135deg, #16a34a, #22c55e); }
     .risk-low { background: linear-gradient(135deg, #15803d, #16a34a); }
     .score-66 { background: linear-gradient(135deg, #2563eb, #06b6d4); }
-    .p5-canvas-wrapper canvas { display: block; max-width: 100%; height: auto; border-radius: 0.5rem; }
+    .p5-canvas-wrapper canvas { display: block; max-width: 100%; height: auto; border-radius: 0.5rem; cursor: pointer; }
+    [x-cloak] { display: none !important; }
+    #sit { font-feature-settings: "tnum" 1, "lnum" 1; }
+    #sit .tabular-nums { font-variant-numeric: tabular-nums; }
+    .p5-canvas-wrapper { position: relative; }
+    .p5-legend { position: absolute; top: 8px; right: 8px; z-index: 50; pointer-events: none; }
     .stream-ok { color: #16a34a; }
     .stream-warn { color: #f59e0b; }
     .stream-err { color: #dc2626; }
@@ -472,11 +479,99 @@
 <!-- ═══════════════════════════════════════════════════════════════════
      SECTION: NETWORK GRAPH (p5.js, expanded depth+2, ~85 nodes)
 ═══════════════════════════════════════════════════════════════════ -->
-<section id="sit" x-data="{ depthLevel: 4, filters: { team: true, smb: true, ohl: true, academy: true, cak: true, competitors: true, court: true, gov: true } }">
+<script>
+  // Alpine `x-data` factory for the network section. Defining as a real function
+  // avoids the Alpine `with($data){...}` scope where top-level const/let break.
+  // Alpine auto-calls .init() on mount.
+  function sitNetwork() {
+    return {
+      depthLevel: 4,
+      selectedNode: null,
+      focusMode: false,
+      searchQuery: '',
+      searchOpen: false,
+      searchHits: [],
+      filters: { team: true, smb: true, ohl: true, academy: true, cak: true, competitors: true, court: true, gov: true },
+
+      _writeHash() {
+        const parts = [];
+        if (this.selectedNode && this.selectedNode.id) parts.push('sel=' + encodeURIComponent(this.selectedNode.id));
+        if (this.focusMode) parts.push('focus=1');
+        const hash = parts.length ? '#' + parts.join('&') : location.pathname + location.search;
+        history.replaceState(null, '', hash);
+      },
+
+      init() {
+        // Read initial state from URL hash
+        const sel = location.hash.match(/sel=([^&]+)/);
+        const foc = location.hash.match(/focus=1/);
+        if (foc) this.focusMode = true;
+        if (sel) {
+          setTimeout(() => {
+            if (window.networkSelectNodeById) window.networkSelectNodeById(decodeURIComponent(sel[1]));
+          }, 150);
+        }
+
+        // Reactive bridges to p5 + URL
+        this.$watch('selectedNode', () => {
+          this._writeHash();
+        });
+        this.$watch('focusMode', (v) => {
+          if (window.networkSetFocusMode) window.networkSetFocusMode(v);
+          this._writeHash();
+        });
+
+        // Listen for incoming events from p5 sketch
+        const onSelect = (e) => { this.selectedNode = e.detail; window.__lastNeighbourIdx = 0; };
+        const onSearchResults = (e) => { this.searchHits = e.detail || []; };
+        window.addEventListener('network-select', onSelect);
+        window.addEventListener('network-search-results', onSearchResults);
+
+        // Keyboard shortcuts (capture only when not typing in input/textarea/select)
+        const onKeyDown = (e) => {
+          const tag = e.target && e.target.tagName;
+          if (tag && ['INPUT', 'TEXTAREA', 'SELECT'].includes(tag) && e.target !== document.body) return;
+
+          if (e.key === 'Escape') {
+            this.selectedNode = null;
+            if (window.networkSelectNode) window.networkSelectNode(null);
+            this.searchOpen = false;
+          } else if (e.key === 'f' || e.key === 'F') {
+            this.focusMode = !this.focusMode;
+          } else if (e.key === 'r' || e.key === 'R') {
+            this.depthLevel = 4;
+            Object.keys(this.filters).forEach((k) => { this.filters[k] = true; });
+            this.focusMode = false;
+            this.selectedNode = null;
+            if (window.networkUpdateDepth) window.networkUpdateDepth(4);
+            if (window.networkUpdateFilters) Object.keys(this.filters).forEach((k) => window.networkUpdateFilters(true, k));
+            if (window.networkSelectNode) window.networkSelectNode(null);
+          } else if (e.key === '/' && !this.searchOpen) {
+            e.preventDefault();
+            this.searchOpen = true;
+            setTimeout(() => {
+              const el = document.getElementById('sit-search');
+              if (el) el.focus();
+            }, 50);
+          } else if ((e.key === 'ArrowRight' || e.key === 'ArrowLeft') && this.selectedNode && this.selectedNode.neighbours && this.selectedNode.neighbours.length) {
+            e.preventDefault();
+            const dir = e.key === 'ArrowRight' ? 1 : -1;
+            let idx = window.__lastNeighbourIdx || 0;
+            idx = (idx + dir + this.selectedNode.neighbours.length) % this.selectedNode.neighbours.length;
+            window.__lastNeighbourIdx = idx;
+            if (window.networkSelectNodeById) window.networkSelectNodeById(this.selectedNode.neighbours[idx].id);
+          }
+        };
+        window.addEventListener('keydown', onKeyDown);
+      }
+    };
+  }
+</script>
+<section id="sit" x-data="sitNetwork()">
   <h2 class="text-2xl font-bold mb-4">🕸️ Síť vazeb — depth+2 (~85 uzlů, ~150 hran)</h2>
   <div class="bg-white rounded-2xl p-4 shadow-md">
     <p class="text-sm text-slate-600 mb-3">
-      Interaktivní vizualizace všech relevantních vazeb v 7 clusterech. <strong>Drag</strong> uzly — síla odpuzování + přitahování po hranách.
+      Interaktivní vizualizace všech relevantních vazeb v 7 clusterech. <strong>Klik</strong> na uzel zobrazí detail vlevo, <strong>drag</strong> uzly přesouvá.
       <strong>Filtry</strong> níže zapínají/vypínají kategorie. <strong>Hover</strong> uzlu zvýrazní vazby.
     </p>
 
@@ -528,10 +623,274 @@
       </label>
     </div>
 
-    <div id="p5-network" class="p5-canvas-wrapper bg-slate-50 rounded-lg overflow-hidden" style="height: 850px;"></div>
-    <div id="p5-tooltip" class="absolute bg-slate-900 text-white text-xs rounded px-2 py-1 pointer-events-none opacity-0 transition" style="z-index:100;"></div>
-    <p class="text-xs text-slate-500 mt-2">
-      💡 <strong>Klik</strong> na uzel = drag. <strong>Hover</strong> = zvýraznění propojení. Force-directed layout (repulsion + attraction along edges).
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+      <!-- Detail panel (col 1 on desktop, stacked above canvas on mobile via order classes) -->
+      <aside class="lg:col-span-1 order-2 lg:order-1">
+        <div class="bg-slate-50 rounded-lg p-4 lg:sticky lg:top-4 lg:max-h-[850px] lg:overflow-y-auto border border-slate-200">
+
+          <!-- Toolbar: search + focus mode + reset -->
+          <div class="mb-3 flex items-center gap-1.5">
+            <button type="button"
+                    @click="searchOpen = !searchOpen; if (searchOpen) setTimeout(() => document.getElementById('sit-search')?.focus(), 50)"
+                    class="px-2 py-1 text-[11px] rounded border bg-white hover:bg-slate-100 transition flex items-center gap-1"
+                    :class="searchOpen ? 'border-blue-400 text-blue-700' : 'border-slate-300 text-slate-700'"
+                    title="Hledat (klávesa /)">
+              🔍 <span class="hidden sm:inline">Hledat</span>
+              <kbd class="text-[9px] bg-slate-100 px-1 rounded border border-slate-300 font-mono">/</kbd>
+            </button>
+            <button type="button"
+                    @click="focusMode = !focusMode"
+                    class="px-2 py-1 text-[11px] rounded border transition flex items-center gap-1"
+                    :class="focusMode ? 'bg-amber-100 border-amber-400 text-amber-800' : 'bg-white border-slate-300 text-slate-700 hover:bg-slate-100'"
+                    title="Focus mode — ztlumí vše kromě 1-hop sousedů (klávesa F)">
+              🎯 <span class="hidden sm:inline">Focus</span>
+              <kbd class="text-[9px] bg-white/70 px-1 rounded border border-slate-300 font-mono">F</kbd>
+            </button>
+            <button type="button"
+                    @click="depthLevel = 4; Object.keys(filters).forEach(k => filters[k] = true); focusMode = false; selectedNode = null;
+                            window.networkUpdateDepth && window.networkUpdateDepth(4);
+                            Object.keys(filters).forEach(k => window.networkUpdateFilters && window.networkUpdateFilters(true, k));
+                            window.networkSelectNode && window.networkSelectNode(null);"
+                    class="px-2 py-1 text-[11px] rounded border bg-white hover:bg-slate-100 border-slate-300 text-slate-700 transition flex items-center gap-1 ml-auto"
+                    title="Reset vše (klávesa R)">
+              ↺ <span class="hidden sm:inline">Reset</span>
+              <kbd class="text-[9px] bg-slate-100 px-1 rounded border border-slate-300 font-mono">R</kbd>
+            </button>
+          </div>
+
+          <!-- Search box (collapsible) -->
+          <div x-show="searchOpen" x-cloak class="mb-3">
+            <input type="text"
+                   id="sit-search"
+                   x-model="searchQuery"
+                   @input.debounce.150ms="window.networkSearch && window.networkSearch(searchQuery)"
+                   @keydown.enter.prevent="
+                     if (searchHits.length) { window.networkSelectNodeById && window.networkSelectNodeById(searchHits[0].id); searchOpen = false; searchQuery = ''; searchHits = []; }
+                   "
+                   @keydown.escape="searchOpen = false; searchQuery = ''; searchHits = []; window.networkSearch && window.networkSearch('');"
+                   placeholder="Hledat uzel… (Enter = vybrat první)"
+                   class="w-full text-sm px-2 py-1.5 rounded border border-slate-300 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-200 bg-white" />
+            <div x-show="searchQuery.length >= 1" class="mt-1.5 max-h-48 overflow-y-auto border border-slate-200 rounded bg-white">
+              <template x-for="hit in searchHits" :key="hit.id">
+                <button type="button"
+                        @click="window.networkSelectNodeById && window.networkSelectNodeById(hit.id); searchOpen = false; searchQuery = ''; searchHits = [];"
+                        class="w-full text-left px-2 py-1 text-xs hover:bg-blue-50 border-b border-slate-100 last:border-b-0 flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full shrink-0" :style="`background:${hit.color}`"></span>
+                  <span class="truncate flex-1" x-text="hit.label"></span>
+                  <span class="text-[9px] text-slate-400 uppercase shrink-0" x-text="hit.clusterLabel"></span>
+                </button>
+              </template>
+              <div x-show="searchHits.length === 0 && searchQuery.length >= 1" class="px-2 py-2 text-xs text-slate-400 italic">
+                Žádný uzel neodpovídá.
+              </div>
+            </div>
+          </div>
+
+          <!-- Empty state -->
+          <div x-show="!selectedNode" class="text-center py-8 text-slate-500">
+            <div class="text-4xl mb-2">👆</div>
+            <p class="text-sm font-semibold mb-1">Klikni na uzel</p>
+            <p class="text-xs mb-3">Zobrazí se jeho detail a stručný přehled sousedů s typem a silou vazby.</p>
+            <div class="text-[10px] text-slate-400 leading-relaxed">
+              <kbd class="bg-slate-100 px-1 rounded border border-slate-300 font-mono">/</kbd> hledat ·
+              <kbd class="bg-slate-100 px-1 rounded border border-slate-300 font-mono">F</kbd> focus ·
+              <kbd class="bg-slate-100 px-1 rounded border border-slate-300 font-mono">R</kbd> reset ·
+              <kbd class="bg-slate-100 px-1 rounded border border-slate-300 font-mono">Esc</kbd> deselect ·
+              <kbd class="bg-slate-100 px-1 rounded border border-slate-300 font-mono">←/→</kbd> sousedi
+            </div>
+          </div>
+
+          <!-- Selected node detail -->
+          <div x-show="selectedNode" x-cloak>
+            <div class="flex items-start justify-between mb-3">
+              <div>
+                <div class="flex items-center gap-2 mb-1">
+                  <span class="inline-block w-3 h-3 rounded-full" :style="`background:${selectedNode && selectedNode.color}`"></span>
+                  <span class="text-xs uppercase tracking-wide font-bold text-slate-500" x-text="selectedNode && selectedNode.clusterLabel"></span>
+                </div>
+                <h3 class="font-bold text-base leading-tight" x-text="selectedNode && selectedNode.label"></h3>
+              </div>
+              <button type="button"
+                      @click="window.networkSelectNode && window.networkSelectNode(null)"
+                      class="text-slate-400 hover:text-slate-700 ml-2 -mt-1 text-xl leading-none"
+                      aria-label="Zavřít detail">×</button>
+            </div>
+
+            <!-- Meta strip — tier / depth / degree / weighted (Few-style micro stats) -->
+            <div class="grid grid-cols-4 gap-1.5 mb-3 text-center text-[11px] tabular-nums">
+              <div class="bg-white rounded p-1.5 border border-slate-200">
+                <div class="text-slate-400 text-[9px] uppercase tracking-wide">Tier</div>
+                <div class="font-bold text-slate-800" x-text="selectedNode && selectedNode.tier"></div>
+              </div>
+              <div class="bg-white rounded p-1.5 border border-slate-200">
+                <div class="text-slate-400 text-[9px] uppercase tracking-wide">Hloubka</div>
+                <div class="font-bold text-slate-800" x-text="selectedNode && selectedNode.depth"></div>
+              </div>
+              <div class="bg-white rounded p-1.5 border border-slate-200">
+                <div class="text-slate-400 text-[9px] uppercase tracking-wide">Stupeň</div>
+                <div class="font-bold text-slate-800" x-text="selectedNode && selectedNode.degree"></div>
+              </div>
+              <div class="bg-white rounded p-1.5 border border-slate-200">
+                <div class="text-slate-400 text-[9px] uppercase tracking-wide">Vážený</div>
+                <div class="font-bold text-amber-700" x-text="selectedNode && selectedNode.wdeg"></div>
+              </div>
+            </div>
+
+            <!-- 3 derived metrics — intra% / max weight / betweenness centrality -->
+            <div class="grid grid-cols-3 gap-1.5 mb-3 text-center text-[11px] tabular-nums">
+              <div class="bg-white rounded p-1.5 border border-slate-200">
+                <div class="text-slate-400 text-[9px] uppercase tracking-wide">Intra %</div>
+                <div class="font-bold text-slate-800"
+                     x-text="selectedNode ? Math.round(100 * selectedNode.intraDeg / Math.max(1, selectedNode.degree)) + ' %' : ''"></div>
+              </div>
+              <div class="bg-white rounded p-1.5 border border-slate-200">
+                <div class="text-slate-400 text-[9px] uppercase tracking-wide">Max síla</div>
+                <div class="font-bold"
+                     :class="selectedNode && selectedNode.maxW >= 4 ? 'text-red-700' : (selectedNode && selectedNode.maxW === 3 ? 'text-amber-700' : 'text-slate-700')"
+                     x-text="selectedNode ? selectedNode.maxW + ' / 4' : ''"></div>
+              </div>
+              <div class="bg-white rounded p-1.5 border border-slate-200" title="Betweenness centrality (normalizováno na nejvyšší v síti) — měří jak často daný uzel leží na nejkratších cestách mezi ostatními. Vysoká hodnota = broker / strukturní pivot.">
+                <div class="text-slate-400 text-[9px] uppercase tracking-wide">Broker score</div>
+                <div class="font-bold"
+                     :class="selectedNode && selectedNode.betweenNorm >= 50 ? 'text-purple-700' : (selectedNode && selectedNode.betweenNorm >= 20 ? 'text-blue-700' : 'text-slate-700')"
+                     x-text="selectedNode ? selectedNode.betweenNorm + ' / 100' : ''"></div>
+              </div>
+            </div>
+
+            <!-- Per-cluster distribution sparkline (Few-style micro-histogram) -->
+            <div class="mb-3" x-show="selectedNode && selectedNode.clusterDistArr && selectedNode.clusterDistArr.length">
+              <h4 class="text-[9px] font-bold uppercase tracking-wide text-slate-500 mb-1.5">Rozložení sousedů po clusterech</h4>
+              <div class="space-y-1">
+                <template x-for="cd in (selectedNode ? selectedNode.clusterDistArr : [])" :key="cd.cluster">
+                  <div class="flex items-center gap-1.5 text-[10px] tabular-nums">
+                    <span class="w-2 h-2 rounded-full shrink-0" :style="`background:${cd.color}`"></span>
+                    <span class="w-20 truncate text-slate-600 shrink-0" x-text="cd.label"></span>
+                    <div class="flex-1 bg-slate-100 rounded h-1.5 relative overflow-hidden">
+                      <div class="h-1.5 rounded" :style="`width:${cd.pct}%;background:${cd.color}`"></div>
+                    </div>
+                    <span class="w-5 text-right text-slate-700 font-semibold shrink-0" x-text="cd.count"></span>
+                  </div>
+                </template>
+              </div>
+            </div>
+
+            <!-- Neighbours list -->
+            <div>
+              <h4 class="text-xs font-bold uppercase tracking-wide text-slate-500 mb-2">Vazby na sousedy</h4>
+              <div x-show="selectedNode && selectedNode.neighbours.length === 0" class="text-xs text-slate-400 italic">
+                Žádné viditelné vazby (zkus zvednout hloubku nebo zapnout filtry).
+              </div>
+              <ul class="space-y-1.5">
+                <template x-for="(n, ni) in (selectedNode && Array.isArray(selectedNode.neighbours) ? selectedNode.neighbours : [])" :key="(selectedNode && selectedNode.id ? selectedNode.id : 'none') + ':' + (n.id || ni)">
+                  <li>
+                    <button type="button"
+                            @click="window.networkSelectNodeById && window.networkSelectNodeById(n.id)"
+                            class="w-full text-left bg-white hover:bg-slate-100 border border-slate-200 rounded p-2 transition group">
+                      <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-2 min-w-0 flex-1">
+                          <span class="inline-block w-2.5 h-2.5 rounded-full shrink-0" :style="`background:${n.color}`"></span>
+                          <span class="text-sm font-medium text-slate-800 truncate group-hover:text-blue-700" x-text="n.label"></span>
+                        </div>
+                        <span class="text-[10px] uppercase font-bold shrink-0"
+                              :class="{
+                                'text-emerald-700': n.weight >= 4,
+                                'text-amber-700':   n.weight === 3,
+                                'text-slate-600':   n.weight === 2,
+                                'text-slate-400':   n.weight <= 1
+                              }"
+                              x-text="n.strength"></span>
+                      </div>
+                      <div class="flex items-center gap-2 mt-1.5">
+                        <span class="text-[10px] text-slate-400 shrink-0" x-text="n.clusterLabel"></span>
+                        <!-- Strength bar (4 segments, weight/4 filled) -->
+                        <div class="flex gap-0.5 flex-1 ml-auto max-w-[80px]">
+                          <template x-for="seg in 4" :key="seg">
+                            <div class="h-1.5 flex-1 rounded-sm"
+                                 :class="seg <= n.weight ? 'bg-amber-500' : 'bg-slate-200'"></div>
+                          </template>
+                        </div>
+                      </div>
+                    </button>
+                  </li>
+                </template>
+              </ul>
+            </div>
+
+            <!-- Shortest-path query (U5) -->
+            <div class="mt-4 pt-3 border-t border-slate-200" x-data="{ pathTargetId: '', pathInfo: null, pathOpen: false }"
+                 @network-path.window="pathInfo = $event.detail">
+              <button type="button"
+                      @click="pathOpen = !pathOpen; if (pathOpen && (!window.__pathTargetCache || !window.__pathTargetCache.length)) { window.__pathTargetCache = (window.networkVisibleNodes && window.networkVisibleNodes()) || []; }"
+                      class="w-full flex items-center justify-between text-xs font-bold uppercase tracking-wide text-slate-500 hover:text-slate-700">
+                <span>🛤️ Najít cestu k uzlu</span>
+                <span x-text="pathOpen ? '−' : '+'"></span>
+              </button>
+              <div x-show="pathOpen" x-cloak class="mt-2 space-y-2">
+                <select x-model="pathTargetId"
+                        @change="window.networkComputeShortestPath && window.networkComputeShortestPath(selectedNode.id, pathTargetId)"
+                        class="w-full text-xs px-2 py-1.5 rounded border border-slate-300 bg-white">
+                  <option value="">— vyber cílový uzel —</option>
+                  <template x-for="opt in (window.__pathTargetCache || [])" :key="opt.id">
+                    <option :value="opt.id" x-text="`[${opt.clusterLabel}] ${opt.label}`" :disabled="selectedNode && opt.id === selectedNode.id"></option>
+                  </template>
+                </select>
+                <div x-show="pathInfo && pathInfo.unreachable" class="text-[11px] text-red-700 italic">
+                  Cesta ke „<span x-text="pathInfo && pathInfo.toLabel"></span>" neexistuje (uzel je ve viditelné podsíti odpojený).
+                </div>
+                <div x-show="pathInfo && pathInfo.hops && pathInfo.hops.length" class="bg-purple-50 rounded p-2 border border-purple-200">
+                  <div class="text-[10px] uppercase font-bold text-purple-700 mb-1.5 flex items-center justify-between">
+                    <span>Cesta · <span x-text="pathInfo && pathInfo.totalHops"></span> hop<span x-show="pathInfo && pathInfo.totalHops !== 1">ů</span></span>
+                    <button type="button" @click="pathTargetId = ''; window.networkClearPath && window.networkClearPath();" class="text-purple-500 hover:text-purple-800 font-mono text-[12px]">×</button>
+                  </div>
+                  <ol class="space-y-0.5 text-[11px]">
+                    <template x-for="(hop, i) in (pathInfo ? pathInfo.hops : [])" :key="hop.id + '-' + i">
+                      <li class="flex items-center gap-1.5">
+                        <span class="text-purple-400 font-mono text-[10px] w-3 text-right" x-text="i + 1"></span>
+                        <span class="w-2 h-2 rounded-full shrink-0" :style="`background:${hop.color}`"></span>
+                        <button type="button"
+                                @click="window.networkSelectNodeById && window.networkSelectNodeById(hop.id)"
+                                class="text-left text-slate-800 hover:text-purple-700 truncate flex-1"
+                                x-text="hop.label"></button>
+                        <span class="text-[9px] text-slate-400 uppercase shrink-0" x-text="hop.clusterLabel"></span>
+                      </li>
+                    </template>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Canvas (col 2-3 on desktop) -->
+      <div class="lg:col-span-2 order-1 lg:order-2">
+        <div id="p5-network" class="p5-canvas-wrapper bg-slate-50 rounded-lg overflow-hidden" style="height: 850px;">
+          <!-- Beautiful-Data legend overlay (data-ink minimal, lives where the eye lands) -->
+          <div class="p5-legend bg-white/90 backdrop-blur-sm rounded-md p-2 text-[10px] shadow-sm border border-slate-200 tabular-nums" style="pointer-events:auto;">
+            <div class="font-bold text-slate-700 mb-1 text-[10px] uppercase tracking-wide">Síla vazby</div>
+            <div class="flex items-center gap-0.5 mb-1.5">
+              <span class="w-4 h-2 rounded-sm" style="background:#94a3b8" title="weight 1 — slabá"></span>
+              <span class="w-4 h-2 rounded-sm" style="background:#64748b" title="weight 2 — střední"></span>
+              <span class="w-4 h-2 rounded-sm" style="background:#d97706" title="weight 3 — významná"></span>
+              <span class="w-4 h-2 rounded-sm" style="background:#dc2626" title="weight 4 — silná"></span>
+              <span class="ml-1 text-slate-500">1 → 4</span>
+            </div>
+            <div class="font-bold text-slate-700 mb-1 mt-2 text-[10px] uppercase tracking-wide">Hloubka uzlu</div>
+            <div class="flex items-center gap-0.5 mb-1.5">
+              <span class="w-3 h-3 rounded-full" style="background:#7c3aed;opacity:1.00" title="depth 1"></span>
+              <span class="w-3 h-3 rounded-full" style="background:#7c3aed;opacity:0.78" title="depth 2"></span>
+              <span class="w-3 h-3 rounded-full" style="background:#7c3aed;opacity:0.60" title="depth 3"></span>
+              <span class="w-3 h-3 rounded-full" style="background:#7c3aed;opacity:0.46" title="depth 4"></span>
+              <span class="ml-1 text-slate-500">1 → 4</span>
+            </div>
+            <div class="text-slate-500 mt-1 text-[9px]">Klik = detail · Drag = přesun</div>
+          </div>
+        </div>
+        <div id="p5-tooltip" class="absolute bg-slate-900 text-white text-xs rounded px-2 py-1 pointer-events-none opacity-0 transition" style="z-index:100;"></div>
+      </div>
+    </div>
+    <p class="text-xs text-slate-500 mt-3">
+      💡 <strong>Klik</strong> na uzel = detail vlevo. <strong>Drag</strong> = přesun. <strong>Hover</strong> = zvýraznění propojení. Force-directed layout (repulsion + attraction along edges, alpha cooling).
     </p>
   </div>
 </section>
@@ -1215,26 +1574,234 @@ const networkSketch = (p) => {
   let edges = [];
   let dragging = null;
   let hovered = null;
+  let selectedNodeId = null;
+  let pressInfo = null; // { node|null, x, y, t } — for click-vs-drag disambiguation
 
   // Cluster anchors (8 clusters now incl. gov)
   const CLUSTER_INFO = {
-    team:        { color: '#2563eb', anchorAngle: -Math.PI/2 },         // top
-    smb:         { color: '#16a34a', anchorAngle: -Math.PI/4 },         // upper right
-    gov:         { color: '#be185d', anchorAngle: -Math.PI/8 },         // upper right outer
-    ohl:         { color: '#dc2626', anchorAngle: Math.PI/4 },          // lower right
-    academy:     { color: '#f97316', anchorAngle: Math.PI/2 },          // bottom
-    cak:         { color: '#06b6d4', anchorAngle: 3*Math.PI/4 },        // lower left
-    competitors: { color: '#94a3b8', anchorAngle: -3*Math.PI/4 },       // upper left
-    court:       { color: '#a16207', anchorAngle: Math.PI },            // far left
-    subject:     { color: '#7c3aed', anchorAngle: 0 }                   // center
+    team:        { color: '#2563eb', anchorAngle: -Math.PI/2,    label: 'Tým AK' },
+    smb:         { color: '#16a34a', anchorAngle: -Math.PI/4,    label: 'SMB / Brno' },
+    gov:         { color: '#be185d', anchorAngle: -Math.PI/8,    label: 'Vláda / JMK' },
+    ohl:         { color: '#dc2626', anchorAngle: Math.PI/4,     label: 'OHL ŽS / OHLA' },
+    academy:     { color: '#f97316', anchorAngle: Math.PI/2,     label: 'Akademie / znalci' },
+    cak:         { color: '#06b6d4', anchorAngle: 3*Math.PI/4,   label: 'ČAK + AK' },
+    competitors: { color: '#94a3b8', anchorAngle: -3*Math.PI/4,  label: 'Konkurence (Brno)' },
+    court:       { color: '#a16207', anchorAngle: Math.PI,       label: 'Soudy / ČB' },
+    subject:     { color: '#7c3aed', anchorAngle: 0,             label: 'Subjekt' }
   };
+  const clusterLabel = (key) => (CLUSTER_INFO[key] && CLUSTER_INFO[key].label) || key;
 
   // Depth filter level (1-4) — nodes with depth > level are hidden
   let currentDepth = 4;
+
+  // Force-directed cooling (d3-force style alpha decay)
+  let alpha = 1.0;
+  const ALPHA_DECAY = 0.992;
+  const ALPHA_MIN = 0.005;
+  const ALPHA_REHEAT = 0.6;        // strong reheat for topology changes (filter/depth)
+  const ALPHA_NUDGE  = 0.04;       // soft nudge — barely moves layout, just keeps draw alive briefly
+  const reheat = () => { alpha = Math.max(alpha, ALPHA_REHEAT); };
+  const nudge  = () => { alpha = Math.max(alpha, ALPHA_NUDGE); };
+
+  // Neighbours of a node: visible direct connections via edges.
+  // Multi-graph dedupe: if multiple edges connect the same pair (a→b),
+  // keep the strongest one. Without this, the panel showed duplicate
+  // entries (e.g. BRNO/AK twice) which broke Alpine's x-for :key tracking
+  // (Cannot read properties of undefined (reading 'after' / '_x_effects')).
+  const neighboursOf = (node) => {
+    if (!node || !edges.length) return [];
+    const byOther = new Map();
+    edges.forEach(e => {
+      if (e.a !== node && e.b !== node) return;
+      if (e.a.hidden || e.b.hidden || e.a.depthHidden || e.b.depthHidden) return;
+      const other = e.a === node ? e.b : e.a;
+      if (!other || !other.id) return;
+      const prev = byOther.get(other.id);
+      if (!prev || e.weight > prev.edge.weight) byOther.set(other.id, { other, edge: e });
+    });
+    return Array.from(byOther.values()).sort((x, y) => y.edge.weight - x.edge.weight);
+  };
+
+  // Bridge: p5 → Alpine via window CustomEvent
+  const STRENGTH_LABEL = { 4: 'silná', 3: 'významná', 2: 'střední', 1: 'slabá' };
+  const buildSelectionDetail = (node) => {
+    if (!node) return null;
+    const neigh = neighboursOf(node);
+    // Derived: degree / weighted / max / intra / cluster-distribution
+    const degree = neigh.length;
+    const wdeg   = neigh.reduce((s, x) => s + x.edge.weight, 0);
+    const maxW   = neigh.reduce((m, x) => Math.max(m, x.edge.weight), 0);
+    const intraDeg = neigh.filter(x => x.other.cluster === node.cluster).length;
+    const distMap = {};
+    neigh.forEach(({ other }) => {
+      const k = other.cluster;
+      if (!distMap[k]) distMap[k] = { cluster: k, label: clusterLabel(k), color: other.color, count: 0 };
+      distMap[k].count += 1;
+    });
+    const clusterDistArr = Object.values(distMap)
+      .map(d => ({ ...d, pct: Math.round(100 * d.count / Math.max(1, degree)) }))
+      .sort((a, b) => b.count - a.count);
+
+    return {
+      id: node.id,
+      label: node.label,
+      cluster: node.cluster,
+      clusterLabel: clusterLabel(node.cluster),
+      color: node.color,
+      tier: node.tier,
+      depth: node.depth,
+      degree,
+      wdeg,
+      maxW,
+      intraDeg,
+      betweenness: node.betweenness || 0,
+      betweenNorm: node.betweenNorm || 0,
+      clusterDistArr,
+      neighbours: neigh.map(({ other, edge }) => ({
+        id: other.id,
+        label: other.label,
+        cluster: other.cluster,
+        clusterLabel: clusterLabel(other.cluster),
+        color: other.color,
+        weight: edge.weight,
+        strength: STRENGTH_LABEL[edge.weight] || 'vazba'
+      }))
+    };
+  };
+
+  window.networkSelectNode = (node) => {
+    selectedNodeId = node ? node.id : null;
+    window.dispatchEvent(new CustomEvent('network-select', { detail: buildSelectionDetail(node) }));
+    // Selection is purely visual — don't reheat physics.
+    // Nudge alpha just enough to redraw 1-2 frames so the highlight appears immediately
+    // (covers the case when the simulation was fully cooled and physics was skipped).
+    nudge();
+  };
+  window.networkSelectNodeById = (id) => {
+    const n = nodes.find(nn => nn.id === id);
+    if (n) window.networkSelectNode(n);
+  };
+
+  // Focus mode — when ON and a node is selected, non-neighbours fade to ~15% alpha
+  let focusModeOn = false;
+  window.networkSetFocusMode = (v) => { focusModeOn = !!v; nudge(); };
+
+  // Shortest path — BFS over visible subgraph; sets currentPath = { nodeSet, edgeSet, hops }
+  // Hops include endpoints. Renders as magenta glow over edges; other edges dim.
+  let currentPath = null;
+  window.networkComputeShortestPath = (fromId, toId) => {
+    if (!fromId || !toId || fromId === toId) { currentPath = null; window.dispatchEvent(new CustomEvent('network-path', { detail: null })); nudge(); return; }
+    const from = nodes.find(n => n.id === fromId);
+    const to   = nodes.find(n => n.id === toId);
+    if (!from || !to || from.hidden || from.depthHidden || to.hidden || to.depthHidden) {
+      currentPath = null; window.dispatchEvent(new CustomEvent('network-path', { detail: null })); nudge(); return;
+    }
+    // Build adjacency over visible subgraph
+    const adj = new Map();
+    nodes.forEach(n => { if (!n.hidden && !n.depthHidden) adj.set(n, []); });
+    edges.forEach(e => {
+      if (e.a.hidden || e.b.hidden || e.a.depthHidden || e.b.depthHidden) return;
+      adj.get(e.a).push({ other: e.b, edge: e });
+      adj.get(e.b).push({ other: e.a, edge: e });
+    });
+    // BFS (unweighted shortest path = fewest hops; weight not used for cost — could be later)
+    const prev = new Map();
+    const visited = new Set([from]);
+    const queue = [from];
+    let found = false;
+    while (queue.length) {
+      const v = queue.shift();
+      if (v === to) { found = true; break; }
+      for (const { other, edge } of (adj.get(v) || [])) {
+        if (visited.has(other)) continue;
+        visited.add(other);
+        prev.set(other, { from: v, edge });
+        queue.push(other);
+      }
+    }
+    if (!found) {
+      currentPath = null;
+      window.dispatchEvent(new CustomEvent('network-path', { detail: { unreachable: true, toLabel: to.label } }));
+      nudge();
+      return;
+    }
+    // Reconstruct
+    const hops = [];
+    const pathEdges = new Set();
+    const pathNodes = new Set();
+    let cur = to;
+    while (cur) {
+      hops.unshift({ id: cur.id, label: cur.label, cluster: cur.cluster, clusterLabel: clusterLabel(cur.cluster), color: cur.color });
+      pathNodes.add(cur);
+      const back = prev.get(cur);
+      if (!back) break;
+      pathEdges.add(back.edge);
+      cur = back.from;
+    }
+    currentPath = { nodeSet: pathNodes, edgeSet: pathEdges, hops };
+    window.dispatchEvent(new CustomEvent('network-path', { detail: { hops, totalHops: hops.length - 1, fromLabel: from.label, toLabel: to.label } }));
+    nudge();
+  };
+  window.networkClearPath = () => {
+    currentPath = null;
+    window.dispatchEvent(new CustomEvent('network-path', { detail: null }));
+    nudge();
+  };
+
+  // Expose all visible nodes for the path dropdown (Alpine-readable snapshot)
+  window.networkVisibleNodes = () => nodes
+    .filter(n => !n.hidden && !n.depthHidden)
+    .map(n => ({ id: n.id, label: n.label, cluster: n.cluster, clusterLabel: clusterLabel(n.cluster), color: n.color }))
+    .sort((a, b) => a.clusterLabel.localeCompare(b.clusterLabel) || a.label.localeCompare(b.label));
+
+  // Fuzzy search — case-insensitive substring + cluster + id
+  // Returns up to 8 hits sorted by match strength (label start > label substring > id > cluster)
+  window.networkSearchResultsAlpine = []; // separate ref so Alpine sees mutation
+  window.networkSearch = (q) => {
+    const query = (q || '').trim().toLowerCase();
+    if (!query) {
+      window.networkSearchResults = [];
+      window.networkSearchResultsAlpine = [];
+      window.dispatchEvent(new CustomEvent('network-search-results', { detail: [] }));
+      return;
+    }
+    const hits = [];
+    nodes.forEach(n => {
+      if (n.hidden || n.depthHidden) return;
+      const lbl = (n.label || '').toLowerCase();
+      const id  = (n.id    || '').toLowerCase();
+      const cls = clusterLabel(n.cluster).toLowerCase();
+      let score = 0;
+      if (lbl.startsWith(query)) score = 100;
+      else if (lbl.includes(query)) score = 70;
+      else if (id.includes(query)) score = 50;
+      else if (cls.includes(query)) score = 30;
+      if (score > 0) hits.push({ score, id: n.id, label: n.label, cluster: n.cluster, clusterLabel: clusterLabel(n.cluster), color: n.color });
+    });
+    hits.sort((a, b) => b.score - a.score || a.label.localeCompare(b.label));
+    const top = hits.slice(0, 8);
+    window.networkSearchResults = top;
+    window.networkSearchResultsAlpine = top; // Alpine reads this
+    window.dispatchEvent(new CustomEvent('network-search-results', { detail: top }));
+  };
+
+  // Re-emit selection detail (after filter/depth changes neighbours may differ)
+  const refreshSelection = () => {
+    if (!selectedNodeId) return;
+    const n = nodes.find(nn => nn.id === selectedNodeId);
+    if (!n || n.hidden || n.depthHidden) {
+      window.networkSelectNode(null);
+    } else {
+      window.dispatchEvent(new CustomEvent('network-select', { detail: buildSelectionDetail(n) }));
+    }
+  };
+
   window.networkUpdateDepth = (lvl) => {
     currentDepth = lvl;
     if (!nodes || !nodes.length) return;
     nodes.forEach(n => { n.depthHidden = (n.depth > lvl); });
+    refreshSelection();
+    reheat();
   };
 
   // Node definitions: id, label, cluster, r (radius), tier (1=major, 2=mid, 3=minor)
@@ -1276,11 +1843,9 @@ const networkSketch = (p) => {
     { id: 'FILH', label: 'Filharmonie', cluster: 'smb', r: 9, tier: 3 },
     { id: 'KJM', label: 'Knih. J. Mahena', cluster: 'smb', r: 9, tier: 3 },
     { id: 'VANK', label: 'M. Vaňková (prim.)', cluster: 'smb', r: 13, tier: 2 },
-    { id: 'KERN', label: 'R. Kerndl (1.nám.)', cluster: 'smb', r: 11, tier: 3 },
     { id: 'CERN', label: 'R. Černý (nám.)', cluster: 'smb', r: 10, tier: 3 },
     { id: 'SUCH', label: 'J. Suchý (nám.)', cluster: 'smb', r: 10, tier: 3 },
     { id: 'KARA', label: 'K. Karasová (nám.)', cluster: 'smb', r: 10, tier: 3 },
-    { id: 'POSP', label: 'O. Pospíšil (taj.)', cluster: 'smb', r: 11, tier: 3 },
 
     // OHL ŽS skupina
     { id: 'OHLZS', label: 'OHLA ŽS', cluster: 'ohl', r: 20, tier: 1 },
@@ -1331,15 +1896,8 @@ const networkSketch = (p) => {
     { id: 'SRE', label: 'Sekce real est.', cluster: 'cak', r: 9, tier: 3 },
     { id: 'SVP', label: 'Sekce veř. práva', cluster: 'cak', r: 9, tier: 3 },
 
-    // Competitors (cluster brněnských AK)
-    { id: 'SOLK', label: 'Solkind AK', cluster: 'competitors', r: 14, tier: 2 },
-    { id: 'FBA', label: 'Frank Bold AK', cluster: 'competitors', r: 12, tier: 2 },
-    { id: 'VYM', label: 'Vymazalová (notář)', cluster: 'competitors', r: 11, tier: 3 },
-    { id: 'FT', label: 'Fiala+Tejkal', cluster: 'competitors', r: 13, tier: 2 },
-    { id: 'STO', label: 'Štourač AK', cluster: 'competitors', r: 12, tier: 3 },
-    { id: 'JEL', label: 'AK Jelínek', cluster: 'competitors', r: 11, tier: 3 },
-    { id: 'VAL', label: 'Valíček+Valíčková', cluster: 'competitors', r: 11, tier: 3 },
-    { id: 'COU', label: 'Coufalová+Kubíková', cluster: 'competitors', r: 10, tier: 3 },
+    // Competitors — full definitions live in the depth-expanded competitors block below
+    // (deduplicated 2026-05-04: SOLK/FBA/VYM/FT/STO/JEL/VAL/COU were defined twice)
 
     // Court / judikát strany
     { id: 'KSCB', label: 'KS Č. Budějovice', cluster: 'court', r: 13, tier: 2, depth: 2 },
@@ -1639,6 +2197,8 @@ const networkSketch = (p) => {
         n.hidden = !enabled;
       }
     });
+    refreshSelection();
+    reheat();
   };
 
   p.setup = () => {
@@ -1667,7 +2227,9 @@ const networkSketch = (p) => {
         const ringRadius = baseSpread + (Math.floor(i / 12) * 50); // multi-ring for >12 in cluster
         nodes.push({
           ...d,
-          depth: d.depth || 2, // default depth 2 for legacy nodes
+          // Subject + team are by definition the core (depth 1); everything else
+          // defaults to depth 2 (direct relationships) unless explicitly tagged.
+          depth: d.depth || ((d.cluster === 'subject' || d.cluster === 'team') ? 1 : 2),
           color: ci.color,
           x: anchorX + Math.cos(angle) * ringRadius,
           y: anchorY + Math.sin(angle) * ringRadius,
@@ -1685,6 +2247,63 @@ const networkSketch = (p) => {
       b: nodes.find(n => n.id === b),
       weight
     })).filter(e => e.a && e.b);
+
+    // Precompute structural metrics per node (Tufte: encode once, render many)
+    nodes.forEach(n => {
+      const incident = edges.filter(e => e.a === n || e.b === n);
+      n.degree = incident.length;
+      n.wdeg   = incident.reduce((s, e) => s + e.weight, 0);
+      n.maxW   = incident.reduce((m, e) => Math.max(m, e.weight), 0);
+      n.intraDeg = incident.filter(e => (e.a === n ? e.b : e.a).cluster === n.cluster).length;
+      // Depth-shaded fill: depth 1 → 1.0 alpha, depth 4 → 0.46 alpha
+      n.depthShade = Math.max(0.4, 1 - (n.depth - 1) * 0.18);
+    });
+
+    // Betweenness centrality (Brandes 2001) — unweighted BFS over node graph.
+    // O(N·(N+E)) ≈ 193·(193+235) ≈ 83k ops once at setup. Surfaces "brokers".
+    const nodeIdx = new Map(nodes.map((n, i) => [n, i]));
+    const adj = nodes.map(() => []);
+    edges.forEach(e => {
+      const ai = nodeIdx.get(e.a), bi = nodeIdx.get(e.b);
+      if (ai === undefined || bi === undefined) return;
+      adj[ai].push(bi);
+      adj[bi].push(ai);
+    });
+    const N = nodes.length;
+    const between = new Float64Array(N);
+    for (let s = 0; s < N; s++) {
+      const stack = [];
+      const pred = Array.from({ length: N }, () => []);
+      const sigma = new Float64Array(N);
+      const dist = new Int32Array(N).fill(-1);
+      sigma[s] = 1;
+      dist[s] = 0;
+      const queue = [s];
+      let head = 0;
+      while (head < queue.length) {
+        const v = queue[head++];
+        stack.push(v);
+        for (const w of adj[v]) {
+          if (dist[w] < 0) { dist[w] = dist[v] + 1; queue.push(w); }
+          if (dist[w] === dist[v] + 1) { sigma[w] += sigma[v]; pred[w].push(v); }
+        }
+      }
+      const delta = new Float64Array(N);
+      for (let i = stack.length - 1; i >= 0; i--) {
+        const w = stack[i];
+        for (const v of pred[w]) delta[v] += (sigma[v] / sigma[w]) * (1 + delta[w]);
+        if (w !== s) between[w] += delta[w];
+      }
+    }
+    // Normalize to 0-100 using max — easier to read than raw counts
+    const maxBetween = Math.max(1, ...between);
+    nodes.forEach((n, i) => {
+      n.betweenness = between[i];
+      n.betweenNorm = Math.round(100 * between[i] / maxBetween);
+    });
+
+    const maxWdegGlobal = Math.max(1, ...nodes.map(n => n.wdeg));
+    window.networkMetrics = { maxWdegGlobal, maxBetween };
   };
 
   p.windowResized = () => {
@@ -1698,54 +2317,100 @@ const networkSketch = (p) => {
     const ATTRACT = 0.012;
     const ANCHOR_PULL = 0.008;
     const DAMP = 0.82;
+    const VEL_FLOOR = 0.05;
+
+    // ── Background context layer (Tufte: faint data-ink, no competition) ─────
+    const cx = p.width / 2, cy = p.height / 2;
+
+    // Cluster anchor halos + labels (Bertin associative channel — soft grouping)
+    const clusterRadius = Math.min(p.width, p.height) * 0.32;
+    Object.keys(CLUSTER_INFO).forEach(key => {
+      if (key === 'subject') return;
+      const ci = CLUSTER_INFO[key];
+      const ax = cx + Math.cos(ci.anchorAngle) * clusterRadius;
+      const ay = cy + Math.sin(ci.anchorAngle) * clusterRadius;
+      const c = p.color(ci.color);
+      // Soft halo
+      p.noStroke();
+      p.fill(p.red(c), p.green(c), p.blue(c), 14);
+      p.circle(ax, ay, 240);
+      // Anchor label (offset toward center)
+      const labelOffset = 110;
+      const lx = ax - Math.cos(ci.anchorAngle) * labelOffset;
+      const ly = ay - Math.sin(ci.anchorAngle) * labelOffset;
+      p.fill(p.red(c), p.green(c), p.blue(c), 200);
+      p.textAlign(p.CENTER, p.CENTER);
+      p.textSize(10);
+      p.textStyle(p.BOLD);
+      p.text((ci.label || key).toUpperCase(), lx, ly);
+      p.textStyle(p.NORMAL);
+    });
+
+    // Faint radial Tufte grid (every 100px from center)
+    p.noFill();
+    p.stroke(226, 232, 240, 70);
+    p.strokeWeight(1);
+    const maxR = Math.max(p.width, p.height);
+    for (let r = 100; r < maxR; r += 100) p.circle(cx, cy, r * 2);
 
     const visibleNodes = nodes.filter(n => !n.hidden && !n.depthHidden);
 
-    visibleNodes.forEach(n => { n.fx = 0; n.fy = 0; });
+    // Skip physics entirely once cooled (still redraw for hover/highlight)
+    const physicsActive = alpha > ALPHA_MIN || dragging;
 
-    // Node-node repulsion
-    for (let i = 0; i < visibleNodes.length; i++) {
-      for (let j = i + 1; j < visibleNodes.length; j++) {
-        const a = visibleNodes[i], b = visibleNodes[j];
-        const dx = a.x - b.x, dy = a.y - b.y;
-        const d = Math.max(0.01, Math.sqrt(dx*dx + dy*dy));
-        const f = REPEL / (d * d);
-        a.fx += (dx / d) * f;
-        a.fy += (dy / d) * f;
-        b.fx -= (dx / d) * f;
-        b.fy -= (dy / d) * f;
+    if (physicsActive) {
+      visibleNodes.forEach(n => { n.fx = 0; n.fy = 0; });
+
+      // Node-node repulsion (scaled by alpha)
+      for (let i = 0; i < visibleNodes.length; i++) {
+        for (let j = i + 1; j < visibleNodes.length; j++) {
+          const a = visibleNodes[i], b = visibleNodes[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const d = Math.max(0.01, Math.sqrt(dx*dx + dy*dy));
+          const f = (REPEL * alpha) / (d * d);
+          a.fx += (dx / d) * f;
+          a.fy += (dy / d) * f;
+          b.fx -= (dx / d) * f;
+          b.fy -= (dy / d) * f;
+        }
       }
+
+      // Edge attraction (scaled by alpha)
+      edges.forEach(({ a, b, weight }) => {
+        if (a.hidden || b.hidden || a.depthHidden || b.depthHidden) return;
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const d = Math.max(0.01, Math.sqrt(dx*dx + dy*dy));
+        const targetD = 100 + (4 - weight) * 20;
+        const f = ATTRACT * (d - targetD) * weight * alpha;
+        a.fx += (dx / d) * f * 8;
+        a.fy += (dy / d) * f * 8;
+        b.fx -= (dx / d) * f * 8;
+        b.fy -= (dy / d) * f * 8;
+      });
+
+      // Anchor pull (cluster cohesion, scaled by alpha)
+      visibleNodes.forEach(n => {
+        n.fx += (n.anchorX - n.x) * ANCHOR_PULL * alpha;
+        n.fy += (n.anchorY - n.y) * ANCHOR_PULL * alpha;
+      });
+
+      // Integrate with velocity floor to kill micro-jitter near equilibrium
+      visibleNodes.forEach(n => {
+        if (n === dragging) return;
+        n.vx = (n.vx + n.fx) * DAMP;
+        n.vy = (n.vy + n.fy) * DAMP;
+        if (Math.abs(n.vx) < VEL_FLOOR) n.vx = 0;
+        if (Math.abs(n.vy) < VEL_FLOOR) n.vy = 0;
+        n.x += n.vx;
+        n.y += n.vy;
+        n.x = p.constrain(n.x, n.r + 5, p.width - n.r - 5);
+        n.y = p.constrain(n.y, n.r + 5, p.height - n.r - 5);
+      });
+
+      // Cool down — alpha decays each frame
+      alpha *= ALPHA_DECAY;
+      if (alpha < ALPHA_MIN && !dragging) alpha = 0;
     }
-
-    // Edge attraction
-    edges.forEach(({ a, b, weight }) => {
-      if (a.hidden || b.hidden || a.depthHidden || b.depthHidden) return;
-      const dx = b.x - a.x, dy = b.y - a.y;
-      const d = Math.max(0.01, Math.sqrt(dx*dx + dy*dy));
-      const targetD = 100 + (4 - weight) * 20;
-      const f = ATTRACT * (d - targetD) * weight;
-      a.fx += (dx / d) * f * 8;
-      a.fy += (dy / d) * f * 8;
-      b.fx -= (dx / d) * f * 8;
-      b.fy -= (dy / d) * f * 8;
-    });
-
-    // Anchor pull (cluster cohesion)
-    visibleNodes.forEach(n => {
-      n.fx += (n.anchorX - n.x) * ANCHOR_PULL;
-      n.fy += (n.anchorY - n.y) * ANCHOR_PULL;
-    });
-
-    // Integrate
-    visibleNodes.forEach(n => {
-      if (n === dragging) return;
-      n.vx = (n.vx + n.fx) * DAMP;
-      n.vy = (n.vy + n.fy) * DAMP;
-      n.x += n.vx;
-      n.y += n.vy;
-      n.x = p.constrain(n.x, n.r + 5, p.width - n.r - 5);
-      n.y = p.constrain(n.y, n.r + 5, p.height - n.r - 5);
-    });
 
     // Hover detect
     hovered = null;
@@ -1754,34 +2419,189 @@ const networkSketch = (p) => {
       if (d < n.r) { hovered = n; break; }
     }
 
-    // Draw edges
-    edges.forEach(({ a, b, weight }) => {
+    // Selection set for highlight (selected node + direct neighbours)
+    const selectedNode = selectedNodeId ? nodes.find(n => n.id === selectedNodeId) : null;
+    const selectionActive = !!selectedNode;
+    const focusActive = focusModeOn && selectionActive; // focus only meaningful with selection
+    const selectedSet = new Set();
+    if (selectedNode) {
+      selectedSet.add(selectedNode);
+      edges.forEach(e => {
+        if (e.a.hidden || e.b.hidden || e.a.depthHidden || e.b.depthHidden) return;
+        if (e.a === selectedNode) selectedSet.add(e.b);
+        else if (e.b === selectedNode) selectedSet.add(e.a);
+      });
+    }
+    // Hover neighbour set (cached once per frame to avoid O(N·E) hot loop)
+    const hoverSet = new Set();
+    if (hovered) {
+      hoverSet.add(hovered);
+      edges.forEach(e => {
+        if (e.a.hidden || e.b.hidden || e.a.depthHidden || e.b.depthHidden) return;
+        if (e.a === hovered) hoverSet.add(e.b);
+        else if (e.b === hovered) hoverSet.add(e.a);
+      });
+    }
+
+    // Draw edges — perceptual weight color ramp + bezier curves
+    // Tufte: redundant encoding (color + width + curvature) reinforces magnitude
+    const WEIGHT_RAMP = [
+      [148, 163, 184, 130], // w=1 slate-400
+      [100, 116, 139, 170], // w=2 slate-500
+      [217, 119,   6, 210], // w=3 amber-600
+      [220,  38,  38, 230]  // w=4 red-600
+    ];
+    p.noFill();
+    const pathActive = !!currentPath;
+    // Helper: bezier control point for an edge (factored — same math used by path overlay)
+    const ctrlFor = (a, b) => {
+      const mx = (a.x + b.x) / 2, my = (a.y + b.y) / 2;
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const len = Math.sqrt(dx * dx + dy * dy) || 1;
+      const k = (a.cluster === b.cluster) ? 0.06 : 0.16;
+      return { cx: mx + (-dy / len) * len * k, cy: my + (dx / len) * len * k };
+    };
+
+    edges.forEach((edgeObj) => {
+      const { a, b, weight } = edgeObj;
       if (a.hidden || b.hidden || a.depthHidden || b.depthHidden) return;
-      const isHi = hovered && (a === hovered || b === hovered);
-      p.strokeWeight(isHi ? Math.max(2, weight * 1.5) : Math.max(0.6, weight * 0.8));
-      p.stroke(isHi ? p.color(31, 41, 55, 220) : p.color(180, 188, 208, 150));
-      p.line(a.x, a.y, b.x, b.y);
+      const isPathEdge = pathActive && currentPath.edgeSet.has(edgeObj);
+      const isSel   = selectionActive && (a === selectedNode || b === selectedNode);
+      const isHover = hovered && (a === hovered || b === hovered);
+      const isDim   = (pathActive && !isPathEdge) || (selectionActive && !isSel && !isPathEdge);
+      const { cx: ctrlX, cy: ctrlY } = ctrlFor(a, b);
+
+      // Path edge wins — render glow halo + bold purple stroke and stop
+      if (isPathEdge) {
+        p.push();
+        p.stroke(168, 85, 247, 80);
+        p.strokeWeight(Math.max(6, weight * 2.4 + 4));
+        p.bezier(a.x, a.y, ctrlX, ctrlY, ctrlX, ctrlY, b.x, b.y);
+        p.pop();
+        p.stroke(168, 85, 247, 240);
+        p.strokeWeight(Math.max(3, weight * 1.8 + 1));
+        p.bezier(a.x, a.y, ctrlX, ctrlY, ctrlX, ctrlY, b.x, b.y);
+        return;
+      }
+
+      const ramp = WEIGHT_RAMP[Math.min(3, Math.max(0, weight - 1))];
+      if (isSel) {
+        p.stroke(217, 119, 6, 235);
+        p.strokeWeight(Math.max(2.5, weight * 1.6 + 0.5));
+      } else if (isHover) {
+        p.stroke(31, 41, 55, 220);
+        p.strokeWeight(Math.max(2, weight * 1.4));
+      } else if (isDim) {
+        const dimAlpha = (focusActive || pathActive) ? 12 : 30;
+        p.stroke(ramp[0], ramp[1], ramp[2], dimAlpha);
+        p.strokeWeight(Math.max(0.3, weight * ((focusActive || pathActive) ? 0.25 : 0.4)));
+      } else {
+        p.stroke(ramp[0], ramp[1], ramp[2], ramp[3]);
+        p.strokeWeight(0.6 + weight * 0.7);
+      }
+      p.bezier(a.x, a.y, ctrlX, ctrlY, ctrlX, ctrlY, b.x, b.y);
     });
 
-    // Draw nodes
-    p.noStroke();
+    // Draw nodes — multilayer Beautiful-Data encoding:
+    //   1. Selection halo (only for actively selected)
+    //   2. Cluster border ring (persistent identity even when dimmed)
+    //   3. Depth-shaded fill (concentric depth rhythm)
+    //   4. Inner weighted-degree ring (Few-style sparkline inside the mark)
+    //   5. Selection/neighbour/hover stroke overlay
+    //   6. Tier-1 degree badge
+    const maxWdeg = (window.networkMetrics && window.networkMetrics.maxWdegGlobal) || 1;
     visibleNodes.forEach(n => {
-      const isHi = hovered && (n === hovered || edges.some(e => (e.a === hovered && e.b === n) || (e.b === hovered && e.a === n)));
-      p.fill(n.color);
-      if (isHi) {
+      const isHover = hovered && hoverSet.has(n);
+      const isSelected  = selectionActive && n === selectedNode;
+      const isPathNode  = pathActive && currentPath.nodeSet.has(n);
+      const isNeighbour = selectionActive && !isSelected && !isPathNode && selectedSet.has(n);
+      const isDimmed    = (pathActive && !isPathNode) || (selectionActive && !isSelected && !isNeighbour && !isPathNode);
+      // Focus mode amplifies the dim — non-neighbours go to ~15% alpha
+      const focusFade   = (focusActive || pathActive) && isDimmed;
+
+      const c = p.color(n.color);
+      const cr = p.red(c), cg = p.green(c), cb = p.blue(c);
+
+      // 1. Selection halo (outside, soft amber)
+      if (isSelected) {
+        p.noFill();
+        p.stroke(245, 158, 11, 110);
+        p.strokeWeight(2);
+        p.circle(n.x, n.y, n.r * 2 + 16);
+      }
+
+      // 2. Cluster border ring — always visible, alpha reduces when dimmed
+      p.noFill();
+      const ringAlpha = focusFade ? 50 : (isDimmed ? 130 : 230);
+      p.stroke(cr, cg, cb, ringAlpha);
+      p.strokeWeight(1.5);
+      p.circle(n.x, n.y, n.r * 2 + 2);
+
+      // 3. Depth-shaded fill (Beautiful Data: layered semantic — depth as visual rhythm)
+      const baseAlpha = focusFade ? 25 : (isDimmed ? 60 : Math.round(255 * (n.depthShade || 1)));
+      p.noStroke();
+      p.fill(cr, cg, cb, baseAlpha);
+      p.circle(n.x, n.y, n.r * 2);
+
+      // 4. Inner weighted-degree ring — micro-sparkline inside the mark itself
+      const wRatio = (n.wdeg || 0) / maxWdeg;
+      if (wRatio > 0.18 && !isDimmed) {
+        p.noFill();
+        p.stroke(255, 255, 255, 200);
+        p.strokeWeight(1.5);
+        p.circle(n.x, n.y, n.r * 2 * (0.45 + wRatio * 0.4));
+      }
+
+      // 5. Selection/path/neighbour/hover stroke overlay (priority: path > selected > neighbour > hover)
+      if (isPathNode && !isSelected) {
+        // Path nodes get a purple ring + halo
+        p.noFill();
+        p.stroke(168, 85, 247, 110);
+        p.strokeWeight(2);
+        p.circle(n.x, n.y, n.r * 2 + 14);
+        p.stroke(168, 85, 247);
+        p.strokeWeight(3);
+        p.circle(n.x, n.y, n.r * 2 + 2);
+      } else if (isSelected) {
+        p.noFill();
+        p.stroke(245, 158, 11);
+        p.strokeWeight(3.5);
+        p.circle(n.x, n.y, n.r * 2 + 2);
+      } else if (isNeighbour) {
+        p.noFill();
+        p.stroke(217, 119, 6);
+        p.strokeWeight(2.5);
+        p.circle(n.x, n.y, n.r * 2 + 2);
+      } else if (isHover) {
+        p.noFill();
         p.stroke(31, 41, 55);
         p.strokeWeight(2);
-      } else {
-        p.noStroke();
+        p.circle(n.x, n.y, n.r * 2 + 2);
       }
-      p.circle(n.x, n.y, n.r * 2);
+
+      // 6. Tier-1 degree badge (Tufte macro/micro: "who" + "how connected" in one mark)
+      if (n.tier === 1 && !isDimmed && (n.degree || 0) > 3) {
+        const bx = n.x + n.r * 0.78;
+        const by = n.y - n.r * 0.78;
+        p.fill(15, 23, 42, 235);
+        p.noStroke();
+        p.circle(bx, by, 14);
+        p.fill(255);
+        p.textAlign(p.CENTER, p.CENTER);
+        p.textStyle(p.BOLD);
+        p.textSize(8);
+        p.text(n.degree, bx, by);
+        p.textStyle(p.NORMAL);
+      }
+
+      // Label
       p.noStroke();
-      p.fill(255);
       p.textAlign(p.CENTER, p.CENTER);
-      // Only show full label if tier 1-2 OR hovered
-      if (n.tier <= 2 || isHi) {
-        p.textSize(n.tier === 1 ? 11 : 9);
-        p.fill(40, 50, 70);
+      const showLabel = n.tier <= 2 || isHover || isSelected || isNeighbour;
+      if (showLabel) {
+        p.textSize(n.tier === 1 || isSelected ? 11 : 9);
+        if (isDimmed) p.fill(120, 130, 150, 140);
+        else p.fill(40, 50, 70);
         p.text(n.label, n.x, n.y + n.r + 10);
       }
     });
@@ -1802,25 +2622,69 @@ const networkSketch = (p) => {
     }
   };
 
+  // Click vs drag: do NOT move the node or reheat physics until the cursor
+  // travels more than DRAG_THRESHOLD pixels from the press point. Pure clicks
+  // (and tiny mouse drift during a click) leave the layout completely untouched.
+  const DRAG_THRESHOLD = 5;
+  const CLICK_MAX_DURATION_MS = 400;
+
   p.mousePressed = () => {
+    // Ignore presses outside canvas
+    if (p.mouseX < 0 || p.mouseY < 0 || p.mouseX > p.width || p.mouseY > p.height) return;
     for (const n of nodes) {
-      if (n.hidden) continue;
+      if (n.hidden || n.depthHidden) continue;
       const d = p.dist(p.mouseX, p.mouseY, n.x, n.y);
-      if (d < n.r) { dragging = n; return; }
+      if (d < n.r) {
+        // Track potential drag candidate but do NOT activate physics yet.
+        pressInfo = { node: n, x: p.mouseX, y: p.mouseY, t: p.millis(), dragStarted: false };
+        return;
+      }
     }
+    // Press on empty canvas — track for empty-area click (deselect)
+    pressInfo = { node: null, x: p.mouseX, y: p.mouseY, t: p.millis(), dragStarted: false };
   };
+
   p.mouseDragged = () => {
+    if (!pressInfo || !pressInfo.node) return;
+    const dx = p.mouseX - pressInfo.x;
+    const dy = p.mouseY - pressInfo.y;
+    const moved = Math.sqrt(dx*dx + dy*dy);
+    // Promote to real drag only after threshold — silent up to that point
+    if (!pressInfo.dragStarted) {
+      if (moved < DRAG_THRESHOLD) return;
+      pressInfo.dragStarted = true;
+      dragging = pressInfo.node;
+      reheat(); // reheat ONCE at the moment a real drag begins
+    }
     if (dragging) {
       dragging.x = p.mouseX;
       dragging.y = p.mouseY;
       dragging.vx = 0; dragging.vy = 0;
     }
   };
-  p.mouseReleased = () => { dragging = null; };
+
+  p.mouseReleased = () => {
+    if (pressInfo) {
+      const dx = p.mouseX - pressInfo.x;
+      const dy = p.mouseY - pressInfo.y;
+      const moved = Math.sqrt(dx*dx + dy*dy);
+      const elapsed = p.millis() - pressInfo.t;
+      // Click = no real drag started AND quick AND barely moved
+      if (!pressInfo.dragStarted && moved < DRAG_THRESHOLD && elapsed < CLICK_MAX_DURATION_MS) {
+        window.networkSelectNode(pressInfo.node); // node or null (empty area deselects)
+      }
+    }
+    dragging = null;
+    pressInfo = null;
+  };
 };
 
 new p5(networkSketch);
 </script>
+
+<!-- Shared promo bridge — back-navigation pill, single source at cases/_shared/promo-bridge.js (DRY).
+     Relative path so this resolves under both file:// (local preview) and http:// (promo deploy). -->
+<script src="../_shared/promo-bridge.js" defer></script>
 
 </body>
 </html>

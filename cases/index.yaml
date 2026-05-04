@@ -1,4 +1,9 @@
 # Single source of truth for promo build (data-driven from manifest.json files)
-# To add new case: drop directory under cases/ AND copy here, append slug below
+# Each case must have:
+#   static/cases/<slug>/manifest.json   — case-style schema (case_id/title/subject/display/key_findings)
+#   static/cases/<slug>/index.html      — interactive dashboard (linked from card)
+# To add a new case: sync its directory under static/cases/ AND append the slug below.
+# Source-of-truth lives in repo root cases/<slug>/. Sync via scripts/sync-cases-to-promo.sh.
 cases:
   - DD-AK-Prochazka-Brno-2026-05-03
+  - DD-Progresus-PPF-2026-04-21

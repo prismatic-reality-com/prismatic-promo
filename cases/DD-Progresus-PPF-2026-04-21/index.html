@@ -9,7 +9,7 @@
   <meta name="description" content="DD řídicí pracovní prostor strany prodávajícího pro M&A Progresus → PPF na 42 ha Nový Zeleneč. Interaktivní dashboard." />
 
   <!-- PWA -->
-  <link rel="manifest" href="./manifest.json" />
+  <link rel="manifest" href="./app.webmanifest" />
   <meta name="theme-color" content="#1e40af" />
   <link rel="icon" type="image/png" sizes="192x192" href="./_assets/icon-192.png" />
   <link rel="apple-touch-icon" href="./_assets/icon-192.png" />
@@ -1487,5 +1487,10 @@
   <script src="_assets/dd-entity-index.js"></script>
   <script defer src="_assets/dd-auto-linkify.js"></script>
 <!-- END:DD_AUTO_LINKIFY -->
+
+<!-- Shared promo bridge — back-navigation pill, single source at cases/_shared/promo-bridge.js (DRY).
+     Relative path so this resolves under both file:// (local preview) and http:// (promo deploy). -->
+<script src="../_shared/promo-bridge.js" defer></script>
+
 </body>
 </html>
