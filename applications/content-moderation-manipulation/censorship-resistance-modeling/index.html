@@ -599,20 +599,159 @@
     <div class="max-w-screen-xl px-4 mx-auto">
         <div class="max-w-4xl mx-auto">
             
+<!-- FLLM:FOUC_OK — x-show toggles non-initial UI states (collapsibles, tooltips); cards themselves are server-rendered and initially visible -->
 
-<!-- Content Toxicity Scanner -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-orange-900/20 rounded-2xl border border-orange-500/20 p-6 mb-8 shadow-2xl shadow-orange-900/20" x-data="{
-    toxicity: 28, chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.toxicCanvas.getContext('2d');
-        this.chart = new Chart(ctx, { type: 'doughnut', data: { datasets: [{ data: [self.toxicity, 100 - self.toxicity], backgroundColor: [self.toxicity >= 70 ? 'rgba(248,113,113,0.6)' : 'rgba(52,211,153,0.6)', 'rgba(255,255,255,0.03)'], borderWidth: 0 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '75%', rotation: -90, circumference: 180, plugins: { legend: { display: false } } } });
+<!-- Content Moderation: Real-Time Toxicity Stream Scanner -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-orange-900/20 rounded-2xl border border-orange-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-orange-900/20" x-data="{
+    msgRate: 12, hateRate: 5, harassRate: 8, spamRate: 15, modCapacity: 30,
+    queue: 0, blocked: 0, reviewed: 0, falsePositives: 0,
+    catCounts: { hate: 0, harass: 0, spam: 0 }, toxScore: 0,
+    catChart: null, lineChart: null, scoreHist: [],
+    raidMode: false, calibMode: false, eventTicks: 0,
+    running: false, interval: null, ticks: 0,
+    rationale: 'Idle. Press Start to scan content stream.',
+    showAdvanced: false,
+    init() {
+        for (var i = 0; i < 30; i++) this.scoreHist.push(0);
+        var self = this; this.$nextTick(function() { self.initCharts(); });
     },
-    get severity() { return this.toxicity >= 70 ? 'High' : this.toxicity >= 40 ? 'Medium' : 'Low'; }
+    initCharts() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+        if (!this.$refs.toxBarCanvas || !this.$refs.toxLineCanvas) return;
+        var self = this;
+        this.catChart = new Chart(this.$refs.toxBarCanvas.getContext('2d'), {
+            type: 'bar',
+            data: { labels: ['Hate', 'Harass', 'Spam'], datasets: [{
+                data: [this.catCounts.hate, this.catCounts.harass, this.catCounts.spam],
+                backgroundColor: ['rgba(248,113,113,0.7)', 'rgba(251,146,60,0.7)', 'rgba(251,191,36,0.7)'],
+                borderRadius: 6
+            }]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } }, x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.5)', font: { size: 10 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(124,45,18,0.95)', borderColor: 'rgba(251,146,60,0.3)', borderWidth: 1 } }
+            }
+        });
+        this.lineChart = new Chart(this.$refs.toxLineCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: this.scoreHist.map(function(_, i){ return i; }), datasets: [
+                { label: 'Toxicity', data: [...self.scoreHist], borderColor: '#fb923c', backgroundColor: 'rgba(251,146,60,0.08)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.3 }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false }, y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: function(v){ return v+'%'; } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(124,45,18,0.95)', borderColor: 'rgba(251,146,60,0.3)', borderWidth: 1 } }
+            }
+        });
+    },
+    sample() {
+        var raidMul = this.raidMode ? (1 + 3 * Math.exp(-this.eventTicks / 8)) : 1;
+        var hate = this.hateRate * raidMul / 100, harass = this.harassRate * raidMul / 100, spam = this.spamRate / 100;
+        var r = Math.random();
+        if (r < hate) return 'hate';
+        if (r < hate + harass) return 'harass';
+        if (r < hate + harass + spam) return 'spam';
+        return 'clean';
+    },
+    tick() {
+        var inbound = Math.floor(this.msgRate * 0.5);
+        for (var i = 0; i < inbound; i++) {
+            var s = this.sample();
+            if (s !== 'clean') {
+                this.queue++;
+                if (s === 'hate') this.catCounts.hate++;
+                else if (s === 'harass') this.catCounts.harass++;
+                else this.catCounts.spam++;
+            }
+        }
+        var processed = Math.min(this.queue, Math.floor(this.modCapacity * 0.4));
+        this.queue -= processed;
+        this.reviewed += processed;
+        var blockRate = this.calibMode ? 0.4 : 0.85;
+        var batch_blocked = Math.floor(processed * blockRate);
+        this.blocked += batch_blocked;
+        if (this.calibMode) this.falsePositives += Math.floor(processed * 0.05);
+        var totalToxic = this.catCounts.hate + this.catCounts.harass + this.catCounts.spam;
+        this.toxScore = totalToxic > 0 ? Math.min(100, Math.round(this.queue / 2 + (this.catCounts.hate * 2 + this.catCounts.harass + this.catCounts.spam * 0.5) / Math.max(1, this.ticks))) : 0;
+        this.scoreHist.push(this.toxScore);
+        if (this.scoreHist.length > 60) this.scoreHist.shift();
+        if (this.raidMode || this.calibMode) this.eventTicks++;
+        this.ticks++;
+        this.computeRationale();
+        this.updateCharts();
+    },
+    computeRationale() {
+        var why = [];
+        if (this.raidMode) why.push('RAID event - hate/harass spiking');
+        else if (this.calibMode) why.push('CALIBRATION - lenient thresholds');
+        if (this.queue > 100) why.push('queue OVERLOADED (' + this.queue + ')');
+        if (this.toxScore > 70) why.push('HIGH toxicity (' + this.toxScore + ')');
+        if (this.falsePositives > 5) why.push(this.falsePositives + ' false positives');
+        why.push(this.blocked + ' blocked / ' + this.reviewed + ' reviewed');
+        this.rationale = why.join(' · ');
+    },
+    updateCharts() {
+        if (this.catChart) {
+            this.catChart.data.datasets[0].data = [this.catCounts.hate, this.catCounts.harass, this.catCounts.spam];
+            this.catChart.update('none');
+        }
+        if (this.lineChart) {
+            this.lineChart.data.labels = this.scoreHist.map(function(_, i){ return i; });
+            this.lineChart.data.datasets[0].data = [...this.scoreHist];
+            this.lineChart.update('none');
+        }
+    },
+    toggle() { if (this.running) { clearInterval(this.interval); this.running = false; return; } var self = this; this.interval = setInterval(function(){ self.tick(); }, 350); this.running = true; },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        this.queue = 0; this.blocked = 0; this.reviewed = 0; this.falsePositives = 0;
+        this.catCounts = { hate: 0, harass: 0, spam: 0 }; this.toxScore = 0;
+        this.raidMode = false; this.calibMode = false; this.ticks = 0; this.eventTicks = 0;
+        this.scoreHist = []; for (var i = 0; i < 30; i++) this.scoreHist.push(0);
+        this.rationale = 'Reset. Press Start.';
+        this.updateCharts();
+    },
+    get statusLabel() { return this.queue > 100 ? 'OVERLOADED' : this.toxScore > 70 ? 'CRITICAL' : this.toxScore > 40 ? 'ELEVATED' : 'NOMINAL'; },
+    get statusColor() { return this.queue > 100 ? 'text-red-400' : this.toxScore > 70 ? 'text-red-400' : this.toxScore > 40 ? 'text-amber-300' : 'text-emerald-400'; },
+    get statusBadgeClass() { return (this.queue > 100 || this.toxScore > 70) ? 'bg-red-900/30 border-red-500/30' : this.toxScore > 40 ? 'bg-amber-900/30 border-amber-500/30' : 'bg-emerald-900/30 border-emerald-500/30'; }
 }">
-    <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-orange-600/20 border border-orange-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-orange-300/70">Toxicity Scanner</p></div></div><div class="text-center"><div class="text-xs text-gray-400">Risk</div><div class="text-sm font-bold text-orange-400" x-text="severity"></div></div></div>
-    <div class="flex items-center justify-center mb-3"><div class="w-40 h-24 relative"><canvas x-ref="toxicCanvas"></canvas><div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center"><div class="text-2xl font-black text-orange-400" x-text="toxicity + '%'"></div></div></div></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-orange-600/20 border border-orange-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </div>
+            <div class="min-w-0"><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-orange-300/70 break-words">Toxicity Stream Scanner</p></div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-orange-500/40 focus-visible:outline-none" :class="running ? 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30' : 'bg-orange-600 hover:bg-orange-500 text-white shadow-orange-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+            <button type="button" @click="raidMode = !raidMode; calibMode = false; eventTicks = 0" :aria-pressed="raidMode" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none" :class="raidMode ? 'bg-red-600 text-white shadow-lg shadow-red-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Raid</button>
+            <button type="button" @click="calibMode = !calibMode; raidMode = false; eventTicks = 0" :aria-pressed="calibMode" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none" :class="calibMode ? 'bg-amber-600 text-white shadow-lg shadow-amber-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Calibrate</button>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-3 text-center" :class="statusBadgeClass"><div class="text-[10px] uppercase tracking-wider opacity-70" x-text="statusLabel"></div><div class="text-2xl font-black font-mono" :class="statusColor" x-text="toxScore + '%'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Queue</div><div class="text-2xl font-black font-mono tabular-nums" :class="queue > 100 ? 'text-red-400' : queue > 50 ? 'text-amber-300' : 'text-gray-300'" x-text="queue"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Blocked</div><div class="text-2xl font-black font-mono text-red-400 tabular-nums" x-text="blocked"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">False+</div><div class="text-2xl font-black font-mono tabular-nums" :class="falsePositives > 5 ? 'text-amber-300' : 'text-gray-300'" x-text="falsePositives"></div></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Category counts (cumulative)</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="toxBarCanvas" aria-label="Toxicity category bar chart"></canvas></div></div>
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Toxicity score over time</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="toxLineCanvas" aria-label="Toxicity score timeline"></canvas></div></div>
+    </div>
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-orange-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-orange-300 uppercase tracking-wider">Stream &amp; Moderation Inputs</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Msg rate</label><input type="range" min="1" max="50" step="1" x-model.number="msgRate" aria-label="Message rate" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-orange-500 min-w-0"><span class="text-xs text-orange-400 font-mono w-12 text-right tabular-nums" x-text="msgRate + '/t'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Hate rate</label><input type="range" min="0" max="30" step="0.5" x-model.number="hateRate" aria-label="Hate speech rate" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500 min-w-0"><span class="text-xs text-red-400 font-mono w-12 text-right tabular-nums" x-text="hateRate + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Harassment rate</label><input type="range" min="0" max="30" step="0.5" x-model.number="harassRate" aria-label="Harassment rate" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500 min-w-0"><span class="text-xs text-amber-400 font-mono w-12 text-right tabular-nums" x-text="harassRate + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-yellow-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Spam rate</label><input type="range" min="0" max="40" step="0.5" x-model.number="spamRate" aria-label="Spam rate" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-yellow-500 min-w-0"><span class="text-xs text-yellow-400 font-mono w-12 text-right tabular-nums" x-text="spamRate + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Mod capacity</label><input type="range" min="5" max="100" step="1" x-model.number="modCapacity" aria-label="Moderator capacity" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 min-w-0"><span class="text-xs text-emerald-400 font-mono w-12 text-right tabular-nums" x-text="modCapacity"></span></div>
+        </div>
+    </div>
+    <div class="rounded-xl border p-3" :class="(queue > 100 || toxScore > 70) ? 'border-red-500/30 bg-red-900/10' : 'border-orange-500/20 bg-orange-900/10'"><div class="flex items-start gap-2 min-w-0"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" :class="(queue > 100 || toxScore > 70) ? 'text-red-400' : 'text-orange-400'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div class="min-w-0 flex-1"><div class="text-[10px] uppercase tracking-wider mb-0.5" :class="(queue > 100 || toxScore > 70) ? 'text-red-300/70' : 'text-orange-300/70'">Moderation readout</div><p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p></div></div></div>
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400"><span>Sample → classify → queue → moderate at capacity</span><span class="text-gray-500 hidden sm:inline">3-tier classifier model</span></div>
 </div>
 
 
