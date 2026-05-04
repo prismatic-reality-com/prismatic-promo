@@ -599,20 +599,183 @@
     <div class="max-w-screen-xl px-4 mx-auto">
         <div class="max-w-4xl mx-auto">
             
+<!-- FLLM:FOUC_OK — x-show toggles non-initial UI states (collapsibles, tooltips); cards themselves are server-rendered and initially visible -->
 
-<!-- SLA Metrics Dashboard -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-teal-900/20 rounded-2xl border border-teal-500/20 p-6 mb-8 shadow-2xl shadow-teal-900/20" x-data="{
-    uptime: 99.97, responseTime: 145, chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.slaCanvas.getContext('2d');
-        this.chart = new Chart(ctx, { type: 'doughnut', data: { datasets: [{ data: [self.uptime, 100 - self.uptime], backgroundColor: [self.uptime >= 99.9 ? 'rgba(20,184,166,0.6)' : 'rgba(245,101,101,0.6)', 'rgba(255,255,255,0.03)'], borderWidth: 0 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '70%', rotation: -90, circumference: 180, plugins: { legend: { display: false } } } });
+<!-- Engineering Systems: Live SLA & Latency Simulator -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-teal-900/20 rounded-2xl border border-teal-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-teal-900/20" x-data="{
+    trafficLoad: 60, deployFreq: 3, reliability: 95, mttrMin: 15, maintenanceHrs: 2,
+    p50: 80, p95: 200, p99: 450, errorRate: 0.5, uptimePct: 99.95,
+    uptimeHist: [], latencyHist: { p50: [], p95: [], p99: [] },
+    barChart: null, lineChart: null,
+    spikeMode: false, outageMode: false, eventTicks: 0,
+    running: false, interval: null, ticks: 0, totalDowntimeSec: 0,
+    rationale: 'Idle. Adjust factors to model SLA posture.',
+    showAdvanced: false,
+    init() {
+        for (var i = 0; i < 30; i++) { this.uptimeHist.push(this.uptimePct); this.latencyHist.p50.push(80); this.latencyHist.p95.push(200); this.latencyHist.p99.push(450); }
+        var self = this; this.$nextTick(function() { self.initCharts(); });
     },
-    get slaStatus() { return this.uptime >= 99.9 ? 'Met' : 'Breach'; }
+    initCharts() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+        if (!this.$refs.slaBarCanvas || !this.$refs.slaLineCanvas) return;
+        var self = this;
+        this.barChart = new Chart(this.$refs.slaBarCanvas.getContext('2d'), {
+            type: 'bar',
+            data: { labels: ['p50', 'p95', 'p99'], datasets: [{
+                data: [self.p50, self.p95, self.p99],
+                backgroundColor: ['rgba(20,184,166,0.7)', 'rgba(251,191,36,0.7)', 'rgba(248,113,113,0.7)'],
+                borderRadius: 6
+            }]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: function(v){ return v+'ms'; } } }, x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.5)', font: { size: 10 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(19,78,74,0.95)', borderColor: 'rgba(20,184,166,0.3)', borderWidth: 1, callbacks: { label: function(ctx){ return ctx.parsed.y + 'ms'; } } } }
+            }
+        });
+        this.lineChart = new Chart(this.$refs.slaLineCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: this.uptimeHist.map(function(_, i){ return i; }), datasets: [
+                { label: 'Uptime %', data: [...self.uptimeHist], borderColor: '#14b8a6', backgroundColor: 'rgba(20,184,166,0.08)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.3 },
+                { label: 'Target 99.9%', data: self.uptimeHist.map(function(){ return 99.9; }), borderColor: '#fbbf24', borderWidth: 1, pointRadius: 0, borderDash: [4,4] }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false }, y: { min: 95, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: function(v){ return v.toFixed(2)+'%'; } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(19,78,74,0.95)', borderColor: 'rgba(20,184,166,0.3)', borderWidth: 1 } }
+            }
+        });
+    },
+    computeMetrics() {
+        var loadFactor = 1 + (this.trafficLoad / 100) * 1.5;
+        var deployRisk = this.deployFreq * 0.3;
+        var basePct = this.reliability;
+        if (this.spikeMode) loadFactor *= (1 + 1.5 * Math.exp(-this.eventTicks / 8));
+        if (this.outageMode) basePct = Math.max(80, basePct - 8 * Math.exp(-this.eventTicks / 6));
+        this.p50 = Math.round(60 * loadFactor);
+        this.p95 = Math.round(150 * loadFactor + deployRisk * 30);
+        this.p99 = Math.round(350 * loadFactor + deployRisk * 80);
+        this.errorRate = Math.round((100 - basePct) / 5 * loadFactor * 100) / 100;
+        var maintFraction = (this.maintenanceHrs * 60) / (30 * 24 * 60) * 100;
+        this.uptimePct = Math.max(80, Math.min(100, Math.round((basePct - maintFraction - deployRisk) * 100) / 100));
+        if (this.uptimePct < 99.9 && this.running) this.totalDowntimeSec += 0.4;
+    },
+    tick() {
+        if (this.spikeMode || this.outageMode) this.eventTicks++;
+        this.computeMetrics();
+        this.uptimeHist.push(this.uptimePct);
+        if (this.uptimeHist.length > 60) this.uptimeHist.shift();
+        ['p50','p95','p99'].forEach(k => { this.latencyHist[k].push(this[k]); if (this.latencyHist[k].length > 60) this.latencyHist[k].shift(); });
+        this.ticks++;
+        this.computeRationale();
+        this.updateCharts();
+    },
+    computeRationale() {
+        var why = [];
+        if (this.outageMode) why.push('OUTAGE event - uptime degrading');
+        else if (this.spikeMode) why.push('TRAFFIC SPIKE active');
+        if (this.uptimePct < 99.9) why.push('SLA BREACH (' + this.uptimePct + '% < 99.9%)');
+        if (this.p99 > 1000) why.push('p99 ' + this.p99 + 'ms (latency budget exceeded)');
+        if (this.errorRate > 1) why.push('error rate ' + this.errorRate + '% (high)');
+        if (this.deployFreq > 6) why.push(this.deployFreq + ' deploys/day (risk premium)');
+        if (this.uptimePct >= 99.95 && this.errorRate < 0.5) why.push('healthy steady-state');
+        this.rationale = why.length ? why.join(' · ') : 'All metrics nominal.';
+    },
+    updateCharts() {
+        if (this.barChart) {
+            this.barChart.data.datasets[0].data = [this.p50, this.p95, this.p99];
+            this.barChart.update('none');
+        }
+        if (this.lineChart) {
+            this.lineChart.data.labels = this.uptimeHist.map(function(_, i){ return i; });
+            this.lineChart.data.datasets[0].data = [...this.uptimeHist];
+            this.lineChart.data.datasets[1].data = this.uptimeHist.map(function(){ return 99.9; });
+            this.lineChart.update('none');
+        }
+    },
+    toggle() {
+        if (this.running) { clearInterval(this.interval); this.running = false; return; }
+        this.computeMetrics(); var self = this; this.interval = setInterval(function(){ self.tick(); }, 350); this.running = true;
+    },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        this.trafficLoad = 60; this.deployFreq = 3; this.reliability = 95; this.mttrMin = 15; this.maintenanceHrs = 2;
+        this.spikeMode = false; this.outageMode = false; this.ticks = 0; this.eventTicks = 0; this.totalDowntimeSec = 0;
+        this.computeMetrics();
+        this.uptimeHist = []; for (var i = 0; i < 30; i++) this.uptimeHist.push(this.uptimePct);
+        ['p50','p95','p99'].forEach(k => { this.latencyHist[k] = []; for (var i = 0; i < 30; i++) this.latencyHist[k].push(this[k]); });
+        this.rationale = 'Reset. Adjust factors and Start.';
+        this.updateCharts();
+    },
+    get slaStatus() { return this.uptimePct >= 99.95 ? 'EXCEEDS' : this.uptimePct >= 99.9 ? 'MET' : 'BREACH'; },
+    get slaColor() { return this.uptimePct >= 99.95 ? 'text-emerald-400' : this.uptimePct >= 99.9 ? 'text-teal-300' : 'text-red-400'; },
+    get slaBadgeClass() { return this.uptimePct >= 99.95 ? 'bg-emerald-900/30 border-emerald-500/30' : this.uptimePct >= 99.9 ? 'bg-teal-900/30 border-teal-500/30' : 'bg-red-900/30 border-red-500/30'; }
 }">
-    <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-teal-600/20 border border-teal-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-teal-300/70">SLA Monitor</p></div></div><div class="text-center"><div class="text-xs text-gray-400">SLA</div><div class="text-sm font-bold text-teal-400" x-text="slaStatus"></div></div></div>
-    <div class="flex items-center justify-center mb-3"><div class="w-36 h-20 relative"><canvas x-ref="slaCanvas"></canvas><div class="absolute bottom-0 left-1/2 -translate-x-1/2 text-center"><span class="text-lg font-black text-teal-400" x-text="uptime + '%'"></span></div></div></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-teal-600/20 border border-teal-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div class="min-w-0">
+                <h3 class="text-sm font-bold text-white">Interactive Demo</h3>
+                <p class="text-xs text-teal-300/70 break-words">Live SLA &amp; Latency Simulator</p>
+            </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-teal-500/40 focus-visible:outline-none" :class="running ? 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30' : 'bg-teal-600 hover:bg-teal-500 text-white shadow-teal-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+            <button type="button" @click="spikeMode = !spikeMode; outageMode = false; eventTicks = 0" :aria-pressed="spikeMode" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none" :class="spikeMode ? 'bg-amber-600 text-white shadow-lg shadow-amber-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Traffic Spike</button>
+            <button type="button" @click="outageMode = !outageMode; spikeMode = false; eventTicks = 0" :aria-pressed="outageMode" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none" :class="outageMode ? 'bg-red-600 text-white shadow-lg shadow-red-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Outage</button>
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-3 text-center" :class="slaBadgeClass"><div class="text-[10px] uppercase tracking-wider opacity-70" x-text="slaStatus"></div><div class="text-2xl font-black font-mono" :class="slaColor" x-text="uptimePct + '%'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Error rate</div><div class="text-2xl font-black font-mono tabular-nums" :class="errorRate >= 1 ? 'text-red-400' : errorRate >= 0.5 ? 'text-amber-300' : 'text-emerald-400'" x-text="errorRate + '%'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">p99 latency</div><div class="text-2xl font-black font-mono tabular-nums" :class="p99 > 1000 ? 'text-red-400' : p99 > 500 ? 'text-amber-300' : 'text-teal-300'" x-text="p99 + 'ms'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Downtime</div><div class="text-2xl font-black font-mono text-amber-300 tabular-nums" x-text="totalDowntimeSec.toFixed(1) + 's'"></div></div>
+    </div>
+
+    <!-- Charts: latency bars + uptime trend -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
+        <div>
+            <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Response time percentiles</div>
+            <div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="slaBarCanvas" aria-label="Response time percentile chart"></canvas></div>
+        </div>
+        <div>
+            <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Uptime trend (vs 99.9% SLA)</div>
+            <div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="slaLineCanvas" aria-label="Uptime trend chart"></canvas></div>
+        </div>
+    </div>
+
+    <!-- Sliders (collapsible) -->
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-teal-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-teal-300 uppercase tracking-wider">Workload &amp; Reliability Inputs</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-teal-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Traffic load</label><input type="range" min="0" max="100" step="1" x-model.number="trafficLoad" @input="computeMetrics(); updateCharts()" aria-label="Traffic load percentage" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-teal-500 min-w-0"><span class="text-xs text-teal-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(trafficLoad) + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Deploys/day</label><input type="range" min="0" max="20" step="1" x-model.number="deployFreq" @input="computeMetrics(); updateCharts()" aria-label="Deploy frequency per day" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 min-w-0"><span class="text-xs text-blue-400 font-mono w-12 text-right tabular-nums" x-text="deployFreq"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Infra reliability</label><input type="range" min="80" max="100" step="0.1" x-model.number="reliability" @input="computeMetrics(); updateCharts()" aria-label="Infrastructure reliability" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 min-w-0"><span class="text-xs text-emerald-400 font-mono w-12 text-right tabular-nums" x-text="reliability + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">MTTR (min)</label><input type="range" min="1" max="120" step="1" x-model.number="mttrMin" aria-label="Mean time to recovery" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 min-w-0"><span class="text-xs text-purple-400 font-mono w-12 text-right tabular-nums" x-text="mttrMin + 'm'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Maintenance hrs/mo</label><input type="range" min="0" max="40" step="0.5" x-model.number="maintenanceHrs" @input="computeMetrics(); updateCharts()" aria-label="Maintenance hours per month" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500 min-w-0"><span class="text-xs text-amber-400 font-mono w-12 text-right tabular-nums" x-text="maintenanceHrs + 'h'"></span></div>
+        </div>
+    </div>
+
+    <!-- Rationale panel -->
+    <div class="rounded-xl border p-3" :class="uptimePct < 99.9 ? 'border-red-500/30 bg-red-900/10' : 'border-teal-500/20 bg-teal-900/10'">
+        <div class="flex items-start gap-2 min-w-0">
+            <svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" :class="uptimePct < 99.9 ? 'text-red-400' : 'text-teal-400'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div class="min-w-0 flex-1">
+                <div class="text-[10px] uppercase tracking-wider mb-0.5" :class="uptimePct < 99.9 ? 'text-red-300/70' : 'text-teal-300/70'">Reliability readout</div>
+                <p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400">
+        <span>p99 = base × load × (1 + deploy_risk)</span>
+        <span class="text-gray-500 hidden sm:inline">99.9% = 43.2min/month allowed</span>
+    </div>
 </div>
 
 
