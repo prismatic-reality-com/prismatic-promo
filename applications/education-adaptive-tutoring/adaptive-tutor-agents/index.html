@@ -599,19 +599,149 @@
     <div class="max-w-screen-xl px-4 mx-auto">
         <div class="max-w-4xl mx-auto">
             
+<!-- FLLM:FOUC_OK — x-show toggles non-initial UI states (collapsibles, tooltips); cards themselves are server-rendered and initially visible -->
 
-<!-- Learning Progress Tracker -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-indigo-900/20 rounded-2xl border border-indigo-500/20 p-6 mb-8 shadow-2xl shadow-indigo-900/20" x-data="{
-    progress: 65, modules: [{ name: 'Basics', completed: 100 }, { name: 'Intermediate', completed: 80 }, { name: 'Advanced', completed: 25 }], chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.learningCanvas.getContext('2d');
-        this.chart = new Chart(ctx, { type: 'bar', data: { labels: self.modules.map(function(m) { return m.name; }), datasets: [{ data: self.modules.map(function(m) { return m.completed; }), backgroundColor: self.modules.map(function(m) { return m.completed === 100 ? 'rgba(52,211,153,0.6)' : m.completed >= 50 ? 'rgba(59,130,246,0.6)' : 'rgba(156,163,175,0.4)'; }), borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { callback: function(value) { return value + '%'; } } } } } });
-    }
+<!-- Education Adaptive Tutoring: Skill Mastery & Spaced Repetition -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-indigo-900/20 rounded-2xl border border-indigo-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-indigo-900/20" x-data="{
+    studyMin: 30, difficulty: 50, retention: 70, srsInterval: 3, hintsAllowed: 30,
+    modules: [{ name: 'Basics', mastery: 100 }, { name: 'Inter', mastery: 60 }, { name: 'Advanced', mastery: 25 }, { name: 'Expert', mastery: 5 }],
+    barChart: null, lineChart: null, retainHist: [],
+    crammingMode: false, distractedMode: false, eventTicks: 0,
+    running: false, interval: null, ticks: 0, sessions: 0, correctAnswers: 0, totalAnswers: 0,
+    rationale: 'Idle. Adjust learning conditions and Start.',
+    showAdvanced: false,
+    init() { for (var i = 0; i < 30; i++) this.retainHist.push(this.retention); var self = this; this.$nextTick(function(){ self.initCharts(); }); },
+    initCharts() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+        if (!this.$refs.lpBarCanvas || !this.$refs.lpLineCanvas) return;
+        var self = this;
+        this.barChart = new Chart(this.$refs.lpBarCanvas.getContext('2d'), {
+            type: 'bar',
+            data: { labels: this.modules.map(function(m){ return m.name; }), datasets: [{
+                data: this.modules.map(function(m){ return m.mastery; }),
+                backgroundColor: this.modules.map(function(m){ return m.mastery >= 80 ? 'rgba(52,211,153,0.7)' : m.mastery >= 50 ? 'rgba(99,102,241,0.7)' : m.mastery >= 25 ? 'rgba(167,139,250,0.6)' : 'rgba(156,163,175,0.4)'; }),
+                borderRadius: 6
+            }]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: function(v){ return v+'%'; } } }, x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.5)', font: { size: 10 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(49,46,129,0.95)', borderColor: 'rgba(99,102,241,0.3)', borderWidth: 1 } }
+            }
+        });
+        this.lineChart = new Chart(this.$refs.lpLineCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: this.retainHist.map(function(_, i){ return i; }), datasets: [
+                { label: 'Retention', data: [...self.retainHist], borderColor: '#6366f1', backgroundColor: 'rgba(99,102,241,0.08)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.4 }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false }, y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: function(v){ return v+'%'; } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(49,46,129,0.95)', borderColor: 'rgba(99,102,241,0.3)', borderWidth: 1 } }
+            }
+        });
+    },
+    get overall() { return Math.round(this.modules.reduce(function(a,m){return a+m.mastery},0) / this.modules.length); },
+    get accuracy() { return this.totalAnswers > 0 ? Math.round(this.correctAnswers / this.totalAnswers * 100) : 0; },
+    get currentModule() { for (var i = 0; i < this.modules.length; i++) if (this.modules[i].mastery < 80) return this.modules[i]; return this.modules[this.modules.length - 1]; },
+    tick() {
+        this.sessions++;
+        var focusFactor = this.crammingMode ? 0.6 : (this.distractedMode ? 0.4 : 1);
+        var difficultyPenalty = this.difficulty > 70 ? -3 : 0;
+        var hintBonus = this.hintsAllowed > 50 ? 1.5 : 1;
+        var gain = (this.studyMin / 60) * 2 * focusFactor * hintBonus + difficultyPenalty;
+        var cur = this.currentModule;
+        cur.mastery = Math.min(100, Math.max(0, cur.mastery + gain));
+        var attempts = Math.floor(this.studyMin / 5);
+        for (var i = 0; i < attempts; i++) {
+            this.totalAnswers++;
+            var correctChance = (cur.mastery / 100) * (1 - this.difficulty / 200) + (this.hintsAllowed / 200);
+            if (Math.random() < correctChance) this.correctAnswers++;
+        }
+        var decayRate = 100 / (Math.max(1, this.srsInterval) * 5);
+        for (var i = 0; i < this.modules.length; i++) {
+            if (this.modules[i] !== cur) this.modules[i].mastery = Math.max(0, this.modules[i].mastery - decayRate);
+        }
+        this.retention = Math.max(0, Math.min(100, Math.round((this.overall * 0.7) + (this.accuracy * 0.3))));
+        if (this.crammingMode || this.distractedMode) this.eventTicks++;
+        this.retainHist.push(this.retention);
+        if (this.retainHist.length > 60) this.retainHist.shift();
+        this.ticks++;
+        this.computeRationale();
+        this.updateCharts();
+    },
+    computeRationale() {
+        var why = [];
+        if (this.crammingMode) why.push('CRAMMING - 40% loss factor');
+        else if (this.distractedMode) why.push('DISTRACTED - 60% loss factor');
+        why.push(this.currentModule.name + ' module ' + Math.round(this.currentModule.mastery) + '%');
+        if (this.accuracy > 85) why.push('high accuracy (' + this.accuracy + '%)');
+        else if (this.accuracy < 50 && this.totalAnswers > 10) why.push('struggling (' + this.accuracy + '%)');
+        if (this.retention < 50) why.push('LOW retention (' + this.retention + '%)');
+        if (this.overall >= 80) why.push('mastery achieved');
+        this.rationale = why.join(' · ');
+    },
+    updateCharts() {
+        var self = this;
+        if (this.barChart) {
+            this.barChart.data.datasets[0].data = this.modules.map(function(m){ return m.mastery; });
+            this.barChart.data.datasets[0].backgroundColor = this.modules.map(function(m){ return m.mastery >= 80 ? 'rgba(52,211,153,0.7)' : m.mastery >= 50 ? 'rgba(99,102,241,0.7)' : m.mastery >= 25 ? 'rgba(167,139,250,0.6)' : 'rgba(156,163,175,0.4)'; });
+            this.barChart.update('none');
+        }
+        if (this.lineChart) {
+            this.lineChart.data.labels = this.retainHist.map(function(_, i){ return i; });
+            this.lineChart.data.datasets[0].data = [...this.retainHist];
+            this.lineChart.update('none');
+        }
+    },
+    toggle() { if (this.running) { clearInterval(this.interval); this.running = false; return; } var self = this; this.interval = setInterval(function(){ self.tick(); }, 350); this.running = true; },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        this.modules = [{ name: 'Basics', mastery: 100 }, { name: 'Inter', mastery: 60 }, { name: 'Advanced', mastery: 25 }, { name: 'Expert', mastery: 5 }];
+        this.crammingMode = false; this.distractedMode = false; this.ticks = 0; this.eventTicks = 0; this.sessions = 0; this.correctAnswers = 0; this.totalAnswers = 0; this.retention = 70;
+        this.retainHist = []; for (var i = 0; i < 30; i++) this.retainHist.push(70);
+        this.rationale = 'Reset. Adjust factors.';
+        this.updateCharts();
+    },
+    get statusLabel() { return this.overall >= 80 ? 'MASTERED' : this.overall >= 50 ? 'PROGRESSING' : 'LEARNING'; },
+    get statusColor() { return this.overall >= 80 ? 'text-emerald-400' : this.overall >= 50 ? 'text-indigo-300' : 'text-amber-300'; },
+    get statusBadgeClass() { return this.overall >= 80 ? 'bg-emerald-900/30 border-emerald-500/30' : this.overall >= 50 ? 'bg-indigo-900/30 border-indigo-500/30' : 'bg-amber-900/30 border-amber-500/30'; }
 }">
-    <div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-indigo-300/70">Learning Progress</p></div></div>
-    <div class="h-32 mb-3 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-3"><canvas x-ref="learningCanvas"></canvas></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+            </div>
+            <div class="min-w-0"><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-indigo-300/70 break-words">Adaptive Learning Path</p></div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-indigo-500/40 focus-visible:outline-none" :class="running ? 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30' : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-indigo-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+            <button type="button" @click="crammingMode = !crammingMode; distractedMode = false; eventTicks = 0" :aria-pressed="crammingMode" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none" :class="crammingMode ? 'bg-amber-600 text-white shadow-lg shadow-amber-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Cram</button>
+            <button type="button" @click="distractedMode = !distractedMode; crammingMode = false; eventTicks = 0" :aria-pressed="distractedMode" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none" :class="distractedMode ? 'bg-red-600 text-white shadow-lg shadow-red-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Distract</button>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-3 text-center" :class="statusBadgeClass"><div class="text-[10px] uppercase tracking-wider opacity-70" x-text="statusLabel"></div><div class="text-2xl font-black font-mono" :class="statusColor" x-text="overall + '%'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Retention</div><div class="text-2xl font-black font-mono tabular-nums" :class="retention < 50 ? 'text-red-400' : 'text-indigo-300'" x-text="retention + '%'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Accuracy</div><div class="text-2xl font-black font-mono text-emerald-300 tabular-nums" x-text="accuracy + '%'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Sessions</div><div class="text-2xl font-black font-mono text-gray-200 tabular-nums" x-text="sessions"></div></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Module mastery</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="lpBarCanvas" aria-label="Module mastery chart"></canvas></div></div>
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Retention over time</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="lpLineCanvas" aria-label="Retention timeline"></canvas></div></div>
+    </div>
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-indigo-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-indigo-300 uppercase tracking-wider">Study &amp; Material Inputs</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-indigo-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Study min/session</label><input type="range" min="5" max="180" step="5" x-model.number="studyMin" aria-label="Study minutes per session" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-indigo-500 min-w-0"><span class="text-xs text-indigo-400 font-mono w-12 text-right tabular-nums" x-text="studyMin + 'm'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Difficulty</label><input type="range" min="0" max="100" step="1" x-model.number="difficulty" aria-label="Material difficulty" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500 min-w-0"><span class="text-xs text-red-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(difficulty)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">SRS interval (days)</label><input type="range" min="1" max="30" step="1" x-model.number="srsInterval" aria-label="Spaced repetition interval" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-violet-500 min-w-0"><span class="text-xs text-violet-400 font-mono w-12 text-right tabular-nums" x-text="srsInterval + 'd'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Hints allowed</label><input type="range" min="0" max="100" step="1" x-model.number="hintsAllowed" aria-label="Hints allowed percentage" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 min-w-0"><span class="text-xs text-emerald-400 font-mono w-12 text-right tabular-nums" x-text="hintsAllowed + '%'"></span></div>
+        </div>
+    </div>
+    <div class="rounded-xl border border-indigo-500/20 bg-indigo-900/10 p-3"><div class="flex items-start gap-2 min-w-0"><svg aria-hidden="true" class="w-4 h-4 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div class="min-w-0 flex-1"><div class="text-[10px] uppercase tracking-wider text-indigo-300/70 mb-0.5">Tutoring readout</div><p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p></div></div></div>
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400"><span>Mastery decays without SRS · Difficulty &gt; 70 = penalty</span><span class="text-gray-500 hidden sm:inline">Bloom + Ebbinghaus model</span></div>
 </div>
 
 

@@ -599,20 +599,149 @@
     <div class="max-w-screen-xl px-4 mx-auto">
         <div class="max-w-4xl mx-auto">
             
+<!-- FLLM:FOUC_OK — x-show toggles non-initial UI states (collapsibles, tooltips); cards themselves are server-rendered and initially visible -->
 
-<!-- Conflict Escalation Tracker -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-red-900/20 rounded-2xl border border-red-500/20 p-6 mb-8 shadow-2xl shadow-red-900/20" x-data="{
-    level: 4, history: [1,2,3,4,3,5,4], chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.escalationCanvas.getContext('2d');
-        this.chart = new Chart(ctx, { type: 'line', data: { labels: self.history.map(function(_, i) { return i; }), datasets: [{ data: [...self.history], borderColor: 'rgba(248,113,113,0.8)', backgroundColor: 'rgba(248,113,113,0.1)', fill: true, tension: 0.4, borderWidth: 2 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { x: { display: false }, y: { min: 0, max: 10, grid: { color: 'rgba(255,255,255,0.04)' } } }, plugins: { legend: { display: false } } } });
+<!-- Crisis Intervention: Conflict Escalation Dynamics Simulator -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-red-900/20 rounded-2xl border border-red-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-red-900/20" x-data="{
+    aggression: 50, mediation: 60, communication: 55, trust: 40, stress: 50,
+    level: 4, history: [], deescAttempts: 0, criticalEvents: 0,
+    lineChart: null, barChart: null,
+    triggerMode: false, mediationMode: false, eventTicks: 0,
+    running: false, interval: null, ticks: 0,
+    rationale: 'Idle. Adjust factors and Start.',
+    showAdvanced: false,
+    init() { for (var i = 0; i < 30; i++) this.history.push(this.level); var self = this; this.$nextTick(function(){ self.initCharts(); }); },
+    initCharts() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+        if (!this.$refs.escLineCanvas || !this.$refs.escBarCanvas) return;
+        var self = this;
+        this.lineChart = new Chart(this.$refs.escLineCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: this.history.map(function(_, i){ return i; }), datasets: [
+                { label: 'Level', data: [...self.history], borderColor: '#f87171', backgroundColor: 'rgba(248,113,113,0.1)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.4 },
+                { label: 'Critical 8', data: self.history.map(function(){ return 8; }), borderColor: '#ef4444', borderWidth: 1, pointRadius: 0, borderDash: [4,4] }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false }, y: { min: 0, max: 10, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(127,29,29,0.95)', borderColor: 'rgba(248,113,113,0.3)', borderWidth: 1 } }
+            }
+        });
+        this.barChart = new Chart(this.$refs.escBarCanvas.getContext('2d'), {
+            type: 'bar',
+            data: { labels: ['Aggression', 'Mediation', 'Comm', 'Trust', 'Stress'], datasets: [{
+                data: [this.aggression, this.mediation, this.communication, this.trust, this.stress],
+                backgroundColor: ['rgba(248,113,113,0.7)', 'rgba(52,211,153,0.7)', 'rgba(96,165,250,0.7)', 'rgba(167,139,250,0.7)', 'rgba(251,146,60,0.7)'],
+                borderRadius: 4
+            }]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                indexAxis: 'y',
+                scales: { x: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } }, y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.6)', font: { size: 9 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(127,29,29,0.95)', borderColor: 'rgba(248,113,113,0.3)', borderWidth: 1 } }
+            }
+        });
     },
-    get status() { return this.level >= 8 ? 'Critical' : this.level >= 6 ? 'High' : this.level >= 4 ? 'Elevated' : 'Watch'; }
+    computeLevel() {
+        var raw = (this.aggression / 10) + (this.stress / 20) - (this.mediation / 25) - (this.communication / 30) - (this.trust / 40);
+        return Math.max(0, Math.min(10, Math.round(raw * 10) / 10));
+    },
+    tick() {
+        if (this.triggerMode) {
+            this.aggression = Math.min(100, this.aggression + 1.2);
+            this.stress = Math.min(100, this.stress + 0.8);
+            this.trust = Math.max(10, this.trust - 0.5);
+        } else if (this.mediationMode) {
+            this.mediation = Math.min(100, this.mediation + 1.0);
+            this.aggression = Math.max(10, this.aggression - 0.6);
+            this.communication = Math.min(100, this.communication + 0.5);
+            this.deescAttempts++;
+        }
+        this.level = this.computeLevel();
+        if (this.level >= 8) this.criticalEvents++;
+        if (this.triggerMode || this.mediationMode) this.eventTicks++;
+        this.history.push(this.level);
+        if (this.history.length > 60) this.history.shift();
+        this.ticks++;
+        this.computeRationale();
+        this.updateCharts();
+    },
+    computeRationale() {
+        var why = [];
+        if (this.triggerMode) why.push('TRIGGER event - aggression rising');
+        else if (this.mediationMode) why.push('MEDIATION - de-escalation active');
+        if (this.level >= 8) why.push('CRITICAL (' + this.level + ') - intervention needed');
+        else if (this.level >= 6) why.push('HIGH (' + this.level + ')');
+        else if (this.level >= 4) why.push('elevated (' + this.level + ')');
+        else why.push('manageable (' + this.level + ')');
+        if (this.aggression > 70 && this.trust < 30) why.push('aggression-trust spiral');
+        if (this.communication < 30) why.push('communication broken');
+        if (this.criticalEvents > 0) why.push(this.criticalEvents + ' critical events');
+        this.rationale = why.join(' · ');
+    },
+    updateCharts() {
+        if (this.lineChart) {
+            this.lineChart.data.labels = this.history.map(function(_, i){ return i; });
+            this.lineChart.data.datasets[0].data = [...this.history];
+            this.lineChart.data.datasets[1].data = this.history.map(function(){ return 8; });
+            this.lineChart.update('none');
+        }
+        if (this.barChart) {
+            this.barChart.data.datasets[0].data = [this.aggression, this.mediation, this.communication, this.trust, this.stress];
+            this.barChart.update('none');
+        }
+    },
+    toggle() { if (this.running) { clearInterval(this.interval); this.running = false; return; } var self = this; this.interval = setInterval(function(){ self.tick(); }, 350); this.running = true; },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        this.aggression = 50; this.mediation = 60; this.communication = 55; this.trust = 40; this.stress = 50;
+        this.triggerMode = false; this.mediationMode = false; this.ticks = 0; this.eventTicks = 0; this.deescAttempts = 0; this.criticalEvents = 0;
+        this.level = this.computeLevel();
+        this.history = []; for (var i = 0; i < 30; i++) this.history.push(this.level);
+        this.rationale = 'Reset. Adjust factors.';
+        this.updateCharts();
+    },
+    get statusLabel() { return this.level >= 8 ? 'CRITICAL' : this.level >= 6 ? 'HIGH' : this.level >= 4 ? 'ELEVATED' : 'WATCH'; },
+    get statusColor() { return this.level >= 8 ? 'text-red-400' : this.level >= 6 ? 'text-amber-300' : this.level >= 4 ? 'text-yellow-300' : 'text-emerald-300'; },
+    get statusBadgeClass() { return this.level >= 8 ? 'bg-red-900/30 border-red-500/30' : this.level >= 6 ? 'bg-amber-900/30 border-amber-500/30' : this.level >= 4 ? 'bg-yellow-900/30 border-yellow-500/30' : 'bg-emerald-900/30 border-emerald-500/30'; }
 }">
-    <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-red-300/70">Escalation Tracker</p></div></div><div class="text-center"><div class="text-xs text-gray-400">Status</div><div class="text-sm font-bold text-red-400" x-text="status"></div></div></div>
-    <div class="h-32 mb-3 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="escalationCanvas"></canvas></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-red-600/20 border border-red-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"/></svg>
+            </div>
+            <div class="min-w-0"><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-red-300/70 break-words">Conflict Escalation Dynamics</p></div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none" :class="running ? 'bg-gray-600 hover:bg-gray-500 text-white shadow-gray-900/30' : 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+            <button type="button" @click="triggerMode = !triggerMode; mediationMode = false; eventTicks = 0" :aria-pressed="triggerMode" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-orange-500/40 focus-visible:outline-none" :class="triggerMode ? 'bg-orange-600 text-white shadow-lg shadow-orange-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Trigger</button>
+            <button type="button" @click="mediationMode = !mediationMode; triggerMode = false; eventTicks = 0" :aria-pressed="mediationMode" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-emerald-500/40 focus-visible:outline-none" :class="mediationMode ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Mediate</button>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-3 text-center" :class="statusBadgeClass"><div class="text-[10px] uppercase tracking-wider opacity-70" x-text="statusLabel"></div><div class="text-2xl font-black font-mono" :class="statusColor" x-text="level"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Crit events</div><div class="text-2xl font-black font-mono tabular-nums" :class="criticalEvents > 0 ? 'text-red-400' : 'text-emerald-400'" x-text="criticalEvents"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">De-esc attempts</div><div class="text-2xl font-black font-mono text-emerald-300 tabular-nums" x-text="deescAttempts"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Ticks</div><div class="text-2xl font-black font-mono text-gray-200 tabular-nums" x-text="ticks"></div></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Escalation timeline (vs critical=8)</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="escLineCanvas" aria-label="Escalation timeline"></canvas></div></div>
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Conflict factors</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="escBarCanvas" aria-label="Factor weights"></canvas></div></div>
+    </div>
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-red-300 uppercase tracking-wider">Conflict Factor Inputs</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Aggression</label><input type="range" min="0" max="100" step="1" x-model.number="aggression" @input="level = computeLevel(); updateCharts()" aria-label="Aggression" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500 min-w-0"><span class="text-xs text-red-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(aggression)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Mediation</label><input type="range" min="0" max="100" step="1" x-model.number="mediation" @input="level = computeLevel(); updateCharts()" aria-label="Mediation skill" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 min-w-0"><span class="text-xs text-emerald-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(mediation)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Communication</label><input type="range" min="0" max="100" step="1" x-model.number="communication" @input="level = computeLevel(); updateCharts()" aria-label="Communication quality" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 min-w-0"><span class="text-xs text-blue-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(communication)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Trust</label><input type="range" min="0" max="100" step="1" x-model.number="trust" @input="level = computeLevel(); updateCharts()" aria-label="Trust level" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-violet-500 min-w-0"><span class="text-xs text-violet-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(trust)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Stress</label><input type="range" min="0" max="100" step="1" x-model.number="stress" @input="level = computeLevel(); updateCharts()" aria-label="Environmental stress" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-orange-500 min-w-0"><span class="text-xs text-orange-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(stress)"></span></div>
+        </div>
+    </div>
+    <div class="rounded-xl border p-3" :class="level >= 8 ? 'border-red-500/30 bg-red-900/10' : 'border-orange-500/20 bg-orange-900/10'"><div class="flex items-start gap-2 min-w-0"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" :class="level >= 8 ? 'text-red-400' : 'text-orange-400'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div class="min-w-0 flex-1"><div class="text-[10px] uppercase tracking-wider mb-0.5" :class="level >= 8 ? 'text-red-300/70' : 'text-orange-300/70'">Mediator readout</div><p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p></div></div></div>
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400"><span>Level = (Aggr/10 + Stress/20) − (Med/25 + Comm/30 + Trust/40)</span><span class="text-gray-500 hidden sm:inline">Glasl 9-stage model + adapter</span></div>
 </div>
 
 
