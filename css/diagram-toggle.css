@@ -106,6 +106,16 @@
     height: auto;
 }
 
+/* Global mermaid SVG scaling — fixes mobile overflow on standalone mermaid
+ * blocks (e.g. homepage 3NL architecture diagram in index.html line 391).
+ * Without this, Mermaid CDN renders SVG at intrinsic width which exceeds
+ * viewport on screens <375px, causing horizontal page scroll.
+ * Added 2026-05-05 (iter-3 of /archer-supreme proceed cycle). */
+.mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Mermaid rendered state */
 .mermaid-rendered {
     min-height: 100px;

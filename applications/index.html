@@ -639,23 +639,54 @@
             <!-- Main Content (3/4) -->
             <div class="lg:col-span-3">
 
-                <!-- Stats Summary (mobile-first: 1 col → 2 → 3) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+                <!-- Banner: 4-cell metric summary (mobile-first 2→4) -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                     <div class="p-4 bg-amber-900/20 rounded-xl border border-amber-800 text-center">
-                        <div class="text-3xl font-black text-amber-400 tabular-nums">25</div>
-                        <div class="text-sm text-gray-400 mt-1">Total Categories</div>
+                        <div class="text-2xl sm:text-3xl font-black text-amber-400 tabular-nums">626</div>
+                        <div class="text-xs text-gray-300 mt-1">Total Applications</div>
                     </div>
-                    <div class="p-4 bg-white/[0.03] rounded-xl border border-white/10 text-center">
-                        <div class="text-3xl font-black text-white tabular-nums">626</div>
-                        <div class="text-sm text-gray-400 mt-1">Total Applications</div>
+                    <div class="p-4 bg-gray-800 rounded-xl border border-gray-700 text-center">
+                        <div class="text-2xl sm:text-3xl font-black text-white tabular-nums">25</div>
+                        <div class="text-xs text-gray-300 mt-1">Categories</div>
                     </div>
-                    <div class="p-4 bg-white/[0.03] rounded-xl border border-white/10 text-center">
-                        <div class="text-3xl font-black text-white tabular-nums">25</div>
-                        <div class="text-sm text-gray-400 mt-1">Domains</div>
+                    <div class="p-4 bg-gray-800 rounded-xl border border-gray-700 text-center">
+                        <div class="text-2xl sm:text-3xl font-black text-white tabular-nums" x-text="avgPerCategory"></div>
+                        <div class="text-xs text-gray-300 mt-1">Avg/Category</div>
+                    </div>
+                    <div class="p-4 bg-gray-800 rounded-xl border border-gray-700 text-center">
+                        <div class="text-sm sm:text-base font-bold text-amber-300 line-clamp-1 break-words" x-text="largestCategoryName"></div>
+                        <div class="text-xs text-gray-300 mt-1">Largest (<span class="tabular-nums" x-text="largestCategoryCount"></span>)</div>
                     </div>
                 </div>
 
-                <p class="text-lg text-gray-400 max-w-3xl leading-relaxed mb-8">626+ applications across 25 industry domains, from cybersecurity and financial intelligence to healthcare and education.</p>
+                <!-- Domain Dashboard (3 charts, click to filter grid below) -->
+                <div class="mb-6 p-4 bg-gray-800/40 rounded-xl border border-white/5">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                        <div class="text-xs font-semibold text-amber-300 uppercase tracking-wider">Domain Overview</div>
+                        <div class="flex items-center gap-2 text-xs">
+                            <span x-show="selectedCategory || selectedComplexity" class="text-amber-300">Filter:
+                                <span x-show="selectedCategory" class="font-mono" x-text="selectedCategory"></span>
+                                <span x-show="selectedComplexity" class="font-mono" x-text="selectedComplexity"></span>
+                            </span>
+                            <button type="button" x-show="selectedCategory || selectedComplexity" @click="clearChartFilters()" class="px-2 py-1 text-[10px] font-medium text-gray-200 bg-gray-700 hover:bg-gray-600 rounded focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none">Clear chart filter</button>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+                        <div>
+                            <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Apps per category</div>
+                            <div class="h-56 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="catBarCanvas" aria-label="Applications per category bar chart"></canvas></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Complexity tiers</div>
+                            <div class="h-56 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="tierDoughCanvas" aria-label="Complexity tier doughnut chart"></canvas></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Avg apps per tier</div>
+                            <div class="h-56 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="tierAvgCanvas" aria-label="Average applications per tier bar chart"></canvas></div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-[10px] text-gray-400">Click any bar/segment to filter the grid below by category or complexity tier.</p>
+                </div>
 
                 <!-- Controls Bar -->
                 <div class="mb-8 p-4 bg-gray-800 rounded-xl border border-gray-700">
@@ -688,7 +719,7 @@
                         </div>
 
                         <!-- Reset -->
-                        <button type="button" @click="searchTerm = ''; sortField = 'title'"
+                        <button type="button" @click="searchTerm = ''; sortField = 'title'; selectedCategory = null; selectedComplexity = null"
                                 class="w-full sm:w-auto px-4 py-2.5 text-sm font-medium text-gray-300 bg-gray-700 border border-gray-600 rounded-lg hover:bg-gray-600 focus:ring-2 focus:ring-amber-500/40 focus:outline-none transition-colors">
                             Reset
                         </button>
@@ -1105,13 +1136,18 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
 [
     
     
+    
+    
     {
         "title": "Crisis Intervention & Negotiation -- Research Frameworks for De-escalation Modeling, Hostage Negotiation Theory, and Multi-Agent Crisis Response",
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/crisis-intervention-negotiation/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and behavioral modeling to crisis inter…",
         "app_count": 25,
-        "weight": 1
+        "weight": 1,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1119,8 +1155,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/education-adaptive-tutoring/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and adaptive learning theory to persona…",
         "app_count": 25,
-        "weight": 2
+        "weight": 2,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1128,8 +1167,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/multi-agent-societies/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and social simulation to emergent socia…",
         "app_count": 25,
-        "weight": 3
+        "weight": 3,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1137,8 +1179,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/algorithmic-trading-finance/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and game-theoretic analysis to algorith…",
         "app_count": 25,
-        "weight": 4
+        "weight": 4,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1146,8 +1191,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/psychology-psychiatry/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and behavioral modeling to clinical psy…",
         "app_count": 25,
-        "weight": 5
+        "weight": 5,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1155,8 +1203,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/content-moderation-manipulation/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and adversarial analysis to disinformat…",
         "app_count": 25,
-        "weight": 6
+        "weight": 6,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1164,8 +1215,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/consciousness-research/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and formal reasoning to consciousness s…",
         "app_count": 25,
-        "weight": 7
+        "weight": 7,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1173,8 +1227,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/academic-research-epistemology/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and formal reasoning to epistemological…",
         "app_count": 25,
-        "weight": 8
+        "weight": 8,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1182,8 +1239,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/legal-governance-systems/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and game-theoretic analysis to legal re…",
         "app_count": 25,
-        "weight": 9
+        "weight": 9,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1191,8 +1251,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/gaming-simulation/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and behavioral modeling to NPC AI, game…",
         "app_count": 25,
-        "weight": 10
+        "weight": 10,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1200,8 +1263,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/engineering-systems-design/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and formal methods to distributed syste…",
         "app_count": 25,
-        "weight": 11
+        "weight": 11,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1209,8 +1275,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/sustainability-ecology/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and systems modeling to climate science…",
         "app_count": 25,
-        "weight": 12
+        "weight": 12,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1218,8 +1287,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/arts-creative-simulation/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and generative modeling to computationa…",
         "app_count": 25,
-        "weight": 13
+        "weight": 13,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1227,8 +1299,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/neuroscience-neurobiology/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and neural simulation to computational …",
         "app_count": 25,
-        "weight": 14
+        "weight": 14,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1236,8 +1311,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/business-organizational-training/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and organizational modeling to leadersh…",
         "app_count": 25,
-        "weight": 15
+        "weight": 15,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1245,8 +1323,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/documentation-knowledge-systems/",
         "description": "Comprehensive frameworks for documentation engineering, knowledge graph construction, content quality validation, and automated technical writing pipe…",
         "app_count": 25,
-        "weight": 16
+        "weight": 16,
+        "complexity": "Intermediate"
     },
+    
+    
     
     
     {
@@ -1254,8 +1335,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/defense-security/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and adversarial reasoning to defense op…",
         "app_count": 25,
-        "weight": 17
+        "weight": 17,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1263,8 +1347,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/communication-media/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and narrative analysis to media studies…",
         "app_count": 25,
-        "weight": 18
+        "weight": 18,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1272,8 +1359,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/experimental-labs-ui-demonstrations/",
         "description": "Comprehensive frameworks for interactive agent monitoring, epistemic graph visualization, LiveView component prototyping, and real-time debugging inte…",
         "app_count": 25,
-        "weight": 19
+        "weight": 19,
+        "complexity": "Intermediate"
     },
+    
+    
     
     
     {
@@ -1281,8 +1371,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/developer-tooling-runtime/",
         "description": "Comprehensive development infrastructure for building, testing, and debugging multi-agent systems within the Prismatic Platform. 26 specialized applic…",
         "app_count": 26,
-        "weight": 19
+        "weight": 19,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1290,8 +1383,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/cross-disciplinary-meta-simulation/",
         "description": "Comprehensive frameworks for cross-domain simulation federation, interoperability standards, research reproducibility infrastructure, and meta-orchest…",
         "app_count": 25,
-        "weight": 20
+        "weight": 20,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1299,8 +1395,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/intelligence-counter-intelligence/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and adversarial reasoning to intelligen…",
         "app_count": 25,
-        "weight": 21
+        "weight": 21,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1308,8 +1407,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/philosophy-metaphysics/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and formal reasoning to metaphysics, ph…",
         "app_count": 25,
-        "weight": 22
+        "weight": 22,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1317,8 +1419,11 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/ethics-moral-philosophy/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and formal reasoning to ethical analysi…",
         "app_count": 25,
-        "weight": 23
+        "weight": 23,
+        "complexity": "Advanced"
     },
+    
+    
     
     
     {
@@ -1326,7 +1431,8 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/medical-healthcare-systems/",
         "description": "Theoretical foundations and research frameworks for applying multi-agent coordination, epistemic verification, and blackboard-based decision support t…",
         "app_count": 25,
-        "weight": 24
+        "weight": 24,
+        "complexity": "Advanced"
     }
     
 ]
@@ -1337,7 +1443,79 @@ function applicationsRegistry() {
         searchTerm: '',
         sortField: 'title',
         sortDesc: false,
+        selectedCategory: null,
+        selectedComplexity: null,
         items: JSON.parse(document.getElementById('applications-data').textContent),
+        catBarChart: null,
+        tierDoughChart: null,
+        tierAvgChart: null,
+
+        init() {
+            var self = this;
+            this.$nextTick(function() { self.initCharts(); });
+        },
+
+        initCharts() {
+            if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+            if (!this.$refs.catBarCanvas || !this.$refs.tierDoughCanvas || !this.$refs.tierAvgCanvas) return;
+            var self = this;
+
+            // Sort items by app_count descending for bar chart
+            var sortedByCount = [...this.items].sort(function(a, b){ return b.app_count - a.app_count; });
+            var labels = sortedByCount.map(function(i){ return i.title.length > 20 ? i.title.slice(0, 20) + '…' : i.title; });
+            var data = sortedByCount.map(function(i){ return i.app_count; });
+            var titles = sortedByCount.map(function(i){ return i.title; });
+
+            this.catBarChart = new Chart(this.$refs.catBarCanvas.getContext('2d'), {
+                type: 'bar',
+                data: { labels: labels, datasets: [{ data: data, backgroundColor: 'rgba(251,191,36,0.7)', hoverBackgroundColor: 'rgba(251,191,36,1)', borderRadius: 4 }] },
+                options: {
+                    indexAxis: 'y', responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                    scales: { x: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } }, y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.6)', font: { size: 8 } } } },
+                    plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(120,53,15,0.95)', borderColor: 'rgba(251,191,36,0.3)', borderWidth: 1, callbacks: { label: function(ctx){ return ctx.parsed.x + ' apps'; }, title: function(items){ return titles[items[0].dataIndex]; } } } },
+                    onClick: function(evt, els) { if (els && els.length) { self.onCategoryClick(titles[els[0].index]); } }
+                }
+            });
+
+            // Tier doughnut: count categories per tier
+            var tierCounts = { Intermediate: 0, Advanced: 0, Expert: 0 };
+            for (var i = 0; i < this.items.length; i++) tierCounts[this.items[i].complexity] = (tierCounts[this.items[i].complexity] || 0) + 1;
+            var tierLabels = ['Intermediate', 'Advanced', 'Expert'];
+            var tierData = tierLabels.map(function(t){ return tierCounts[t] || 0; });
+            this.tierDoughChart = new Chart(this.$refs.tierDoughCanvas.getContext('2d'), {
+                type: 'doughnut',
+                data: { labels: tierLabels, datasets: [{ data: tierData, backgroundColor: ['rgba(251,191,36,0.55)', 'rgba(245,158,11,0.7)', 'rgba(180,83,9,0.85)'], borderWidth: 0, hoverOffset: 8 }] },
+                options: {
+                    responsive: true, maintainAspectRatio: false, cutout: '55%', animation: { duration: 0 },
+                    plugins: { legend: { position: 'bottom', labels: { padding: 6, usePointStyle: true, pointStyleWidth: 8, font: { size: 10 }, color: 'rgba(255,255,255,0.7)' } }, tooltip: { backgroundColor: 'rgba(120,53,15,0.95)', borderColor: 'rgba(251,191,36,0.3)', borderWidth: 1, callbacks: { label: function(ctx){ return ctx.label + ': ' + ctx.parsed + ' categories'; } } } },
+                    onClick: function(evt, els) { if (els && els.length) { self.onComplexityClick(tierLabels[els[0].index]); } }
+                }
+            });
+
+            // Avg apps per tier
+            var tierTotals = { Intermediate: 0, Advanced: 0, Expert: 0 };
+            for (var i = 0; i < this.items.length; i++) tierTotals[this.items[i].complexity] = (tierTotals[this.items[i].complexity] || 0) + this.items[i].app_count;
+            var avgData = tierLabels.map(function(t){ return tierCounts[t] > 0 ? Math.round(tierTotals[t] / tierCounts[t] * 10) / 10 : 0; });
+            this.tierAvgChart = new Chart(this.$refs.tierAvgCanvas.getContext('2d'), {
+                type: 'bar',
+                data: { labels: tierLabels, datasets: [{ data: avgData, backgroundColor: ['rgba(251,191,36,0.55)', 'rgba(245,158,11,0.7)', 'rgba(180,83,9,0.85)'], borderRadius: 6 }] },
+                options: {
+                    responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                    scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } }, x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.6)', font: { size: 10 } } } },
+                    plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(120,53,15,0.95)', borderColor: 'rgba(251,191,36,0.3)', borderWidth: 1, callbacks: { label: function(ctx){ return ctx.parsed.y + ' avg apps'; } } } },
+                    onClick: function(evt, els) { if (els && els.length) { self.onComplexityClick(tierLabels[els[0].index]); } }
+                }
+            });
+        },
+
+        onCategoryClick(name) { this.selectedCategory = (this.selectedCategory === name) ? null : name; this.selectedComplexity = null; },
+        onComplexityClick(tier) { this.selectedComplexity = (this.selectedComplexity === tier) ? null : tier; this.selectedCategory = null; },
+        clearChartFilters() { this.selectedCategory = null; this.selectedComplexity = null; },
+
+        get largestCategory() { return this.items.reduce(function(p, c){ return c.app_count > p.app_count ? c : p; }, this.items[0] || { title: '—', app_count: 0 }); },
+        get largestCategoryName() { return this.largestCategory.title; },
+        get largestCategoryCount() { return this.largestCategory.app_count; },
+        get avgPerCategory() { if (this.items.length === 0) return 0; var s = 0; for (var i = 0; i < this.items.length; i++) s += this.items[i].app_count; return Math.round(s / this.items.length); },
 
         get filteredItems() {
             let result = [...this.items];
@@ -1347,6 +1525,14 @@ function applicationsRegistry() {
                     i.title.toLowerCase().includes(q) ||
                     i.description.toLowerCase().includes(q)
                 );
+            }
+            if (this.selectedCategory) {
+                const sc = this.selectedCategory.toLowerCase();
+                result = result.filter(i => i.title.toLowerCase() === sc);
+            }
+            if (this.selectedComplexity) {
+                const sx = this.selectedComplexity;
+                result = result.filter(i => i.complexity === sx);
             }
             result.sort((a, b) => {
                 let av = a[this.sortField], bv = b[this.sortField];

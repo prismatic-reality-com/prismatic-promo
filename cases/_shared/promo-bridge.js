@@ -1,6 +1,6 @@
 /* Prismatic promo bridge — DRY back-navigation pill for case dashboards.
  * Loaded by every case index.html via:
- *   <script src="/cases/_shared/promo-bridge.js" defer></script>
+ *   <script src="/cases/_shared/promo-bridge.js" defer></script>  // BURL_OK: usage example in JSDoc, not active JS
  *
  * Renders a small floating "← Prismatic Cases" link in the top-left corner
  * pointing at the cases listing on the promo site. Honors prefers-reduced-motion,
