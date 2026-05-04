@@ -599,21 +599,152 @@
     <div class="max-w-screen-xl px-4 mx-auto">
         <div class="max-w-4xl mx-auto">
             
+<!-- FLLM:FOUC_OK — x-show toggles non-initial UI states (collapsibles, tooltips); cards themselves are server-rendered and initially visible -->
 
-<!-- Game State Machine -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-emerald-900/20 rounded-2xl border border-emerald-500/20 p-6 mb-8 shadow-2xl shadow-emerald-900/20" x-data="{
-    states: [{ name: 'Menu', active: false }, { name: 'Playing', active: true }, { name: 'Paused', active: false }, { name: 'GameOver', active: false }], chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.fsmCanvas.getContext('2d');
-        var data = self.states.map(function(s, i) { return s.active ? 100 : 20; });
-        this.chart = new Chart(ctx, { type: 'doughnut', data: { labels: self.states.map(function(s) { return s.name; }), datasets: [{ data: data, backgroundColor: self.states.map(function(s) { return s.active ? 'rgba(52,211,153,0.8)' : 'rgba(107,114,128,0.3)'; }), borderWidth: 0 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '50%', plugins: { legend: { display: false } } } });
+<!-- Gaming Simulation: Live Game State Machine Dynamics -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-emerald-900/20 rounded-2xl border border-emerald-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-emerald-900/20" x-data="{
+    menuAttract: 30, playPace: 70, pauseRate: 15, deathSeverity: 50, transitionSmoothness: 80,
+    state: 'Playing', dwell: { Menu: 0, Playing: 0, Paused: 0, GameOver: 0 },
+    transitions: 0, crashCount: 0, transitionLag: 60,
+    barChart: null, lineChart: null, lagHist: [],
+    crashMode: false, lagMode: false, eventTicks: 0,
+    running: false, interval: null, ticks: 0,
+    rationale: 'Idle. Press Start to simulate game loop.',
+    showAdvanced: false,
+    init() { for (var i = 0; i < 30; i++) this.lagHist.push(this.transitionLag); var self = this; this.$nextTick(function(){ self.initCharts(); }); },
+    initCharts() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+        if (!this.$refs.fsmBarCanvas || !this.$refs.fsmLineCanvas) return;
+        var self = this;
+        this.barChart = new Chart(this.$refs.fsmBarCanvas.getContext('2d'), {
+            type: 'bar',
+            data: { labels: ['Menu', 'Playing', 'Paused', 'GameOver'], datasets: [{
+                data: [this.dwell.Menu, this.dwell.Playing, this.dwell.Paused, this.dwell.GameOver],
+                backgroundColor: ['rgba(96,165,250,0.7)', 'rgba(52,211,153,0.7)', 'rgba(251,191,36,0.7)', 'rgba(248,113,113,0.7)'],
+                borderRadius: 6
+            }]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } }, x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.5)', font: { size: 10 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(6,78,59,0.95)', borderColor: 'rgba(52,211,153,0.3)', borderWidth: 1 } }
+            }
+        });
+        this.lineChart = new Chart(this.$refs.fsmLineCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: this.lagHist.map(function(_, i){ return i; }), datasets: [
+                { label: 'Lag', data: [...self.lagHist], borderColor: '#fbbf24', backgroundColor: 'rgba(251,191,36,0.08)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.4 }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false }, y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: function(v){ return v+'ms'; } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(6,78,59,0.95)', borderColor: 'rgba(52,211,153,0.3)', borderWidth: 1 } }
+            }
+        });
     },
-    get currentState() { for (var i = 0; i < this.states.length; i++) if (this.states[i].active) return this.states[i].name; return 'Unknown'; }
+    transitionTo(next) {
+        if (next !== this.state) { this.transitions++; this.state = next; }
+    },
+    tick() {
+        this.dwell[this.state]++;
+        var lagBase = 200 - this.transitionSmoothness * 1.6;
+        if (this.lagMode) lagBase += 200 * Math.exp(-this.eventTicks / 8);
+        this.transitionLag = Math.round(Math.max(20, lagBase));
+        if (this.crashMode && this.eventTicks < 8) {
+            this.transitionTo('GameOver'); this.crashCount++;
+        } else if (this.state === 'Menu' && Math.random() * 100 < (100 - this.menuAttract) * 0.3) {
+            this.transitionTo('Playing');
+        } else if (this.state === 'Playing') {
+            if (Math.random() * 100 < this.pauseRate * 0.4) this.transitionTo('Paused');
+            else if (Math.random() * 100 < this.deathSeverity * 0.15) this.transitionTo('GameOver');
+            else if (Math.random() * 100 < (100 - this.playPace) * 0.05) this.transitionTo('Menu');
+        } else if (this.state === 'Paused') {
+            if (Math.random() * 100 < 60) this.transitionTo('Playing');
+        } else if (this.state === 'GameOver') {
+            if (Math.random() * 100 < 40) this.transitionTo(Math.random() < 0.7 ? 'Menu' : 'Playing');
+        }
+        if (this.crashMode || this.lagMode) this.eventTicks++;
+        this.lagHist.push(this.transitionLag);
+        if (this.lagHist.length > 60) this.lagHist.shift();
+        this.ticks++;
+        this.computeRationale();
+        this.updateCharts();
+    },
+    get totalDwell() { return this.dwell.Menu + this.dwell.Playing + this.dwell.Paused + this.dwell.GameOver; },
+    get playingPct() { return this.totalDwell > 0 ? Math.round(this.dwell.Playing / this.totalDwell * 100) : 0; },
+    get menuPct() { return this.totalDwell > 0 ? Math.round(this.dwell.Menu / this.totalDwell * 100) : 0; },
+    computeRationale() {
+        var why = [];
+        if (this.crashMode) why.push('CRASH event - locked GameOver');
+        else if (this.lagMode) why.push('INPUT LAG - +200ms transitions');
+        why.push('current: ' + this.state);
+        if (this.transitionLag > 200) why.push('LAGGY (' + this.transitionLag + 'ms)');
+        else if (this.transitionLag < 80) why.push('snappy (' + this.transitionLag + 'ms)');
+        if (this.menuPct > 30) why.push('menu-heavy (' + this.menuPct + '%)');
+        if (this.playingPct < 40 && this.totalDwell > 30) why.push('low engagement (' + this.playingPct + '%)');
+        if (this.crashCount > 0) why.push(this.crashCount + ' crashes');
+        this.rationale = why.join(' · ');
+    },
+    updateCharts() {
+        if (this.barChart) {
+            this.barChart.data.datasets[0].data = [this.dwell.Menu, this.dwell.Playing, this.dwell.Paused, this.dwell.GameOver];
+            this.barChart.update('none');
+        }
+        if (this.lineChart) {
+            this.lineChart.data.labels = this.lagHist.map(function(_, i){ return i; });
+            this.lineChart.data.datasets[0].data = [...this.lagHist];
+            this.lineChart.update('none');
+        }
+    },
+    toggle() { if (this.running) { clearInterval(this.interval); this.running = false; return; } var self = this; this.interval = setInterval(function(){ self.tick(); }, 350); this.running = true; },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        this.state = 'Playing'; this.dwell = { Menu: 0, Playing: 0, Paused: 0, GameOver: 0 };
+        this.transitions = 0; this.crashCount = 0; this.transitionLag = 60;
+        this.crashMode = false; this.lagMode = false; this.ticks = 0; this.eventTicks = 0;
+        this.lagHist = []; for (var i = 0; i < 30; i++) this.lagHist.push(60);
+        this.rationale = 'Reset.';
+        this.updateCharts();
+    },
+    get stateColor() { return this.state === 'Playing' ? 'text-emerald-400' : this.state === 'Paused' ? 'text-amber-300' : this.state === 'GameOver' ? 'text-red-400' : 'text-blue-300'; },
+    get stateBadgeClass() { return this.state === 'Playing' ? 'bg-emerald-900/30 border-emerald-500/30' : this.state === 'Paused' ? 'bg-amber-900/30 border-amber-500/30' : this.state === 'GameOver' ? 'bg-red-900/30 border-red-500/30' : 'bg-blue-900/30 border-blue-500/30'; }
 }">
-    <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-emerald-300/70">Game State Machine</p></div></div><div class="text-center"><div class="text-xs text-gray-400">State</div><div class="text-sm font-bold text-emerald-400" x-text="currentState"></div></div></div>
-    <div class="flex items-center justify-center mb-3"><div class="w-32 h-32"><canvas x-ref="fsmCanvas"></canvas></div></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/></svg>
+            </div>
+            <div class="min-w-0"><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-emerald-300/70 break-words">Live Game State Machine</p></div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-emerald-500/40 focus-visible:outline-none" :class="running ? 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30' : 'bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+            <button type="button" @click="crashMode = !crashMode; lagMode = false; eventTicks = 0" :aria-pressed="crashMode" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none" :class="crashMode ? 'bg-red-600 text-white shadow-lg shadow-red-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Crash</button>
+            <button type="button" @click="lagMode = !lagMode; crashMode = false; eventTicks = 0" :aria-pressed="lagMode" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none" :class="lagMode ? 'bg-amber-600 text-white shadow-lg shadow-amber-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Lag</button>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-3 text-center" :class="stateBadgeClass"><div class="text-[10px] uppercase tracking-wider opacity-70">State</div><div class="text-sm font-black font-mono" :class="stateColor" x-text="state"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Transitions</div><div class="text-2xl font-black font-mono text-emerald-300 tabular-nums" x-text="transitions"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Lag</div><div class="text-2xl font-black font-mono tabular-nums" :class="transitionLag > 200 ? 'text-red-400' : transitionLag > 120 ? 'text-amber-300' : 'text-emerald-300'" x-text="transitionLag + 'ms'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Crashes</div><div class="text-2xl font-black font-mono tabular-nums" :class="crashCount > 0 ? 'text-red-400' : 'text-gray-300'" x-text="crashCount"></div></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">State dwell time</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="fsmBarCanvas" aria-label="State dwell chart"></canvas></div></div>
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Transition lag over time</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="fsmLineCanvas" aria-label="Lag timeline"></canvas></div></div>
+    </div>
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-emerald-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-emerald-300 uppercase tracking-wider">Game Loop Inputs</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Menu attract</label><input type="range" min="0" max="100" step="1" x-model.number="menuAttract" aria-label="Menu attractiveness" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 min-w-0"><span class="text-xs text-blue-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(menuAttract)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Play pacing</label><input type="range" min="0" max="100" step="1" x-model.number="playPace" aria-label="Play pacing" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 min-w-0"><span class="text-xs text-emerald-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(playPace)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Pause rate</label><input type="range" min="0" max="100" step="1" x-model.number="pauseRate" aria-label="Pause rate" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500 min-w-0"><span class="text-xs text-amber-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(pauseRate)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Death severity</label><input type="range" min="0" max="100" step="1" x-model.number="deathSeverity" aria-label="Death severity" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500 min-w-0"><span class="text-xs text-red-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(deathSeverity)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Smoothness</label><input type="range" min="0" max="100" step="1" x-model.number="transitionSmoothness" aria-label="Transition smoothness" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-cyan-500 min-w-0"><span class="text-xs text-cyan-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(transitionSmoothness)"></span></div>
+        </div>
+    </div>
+    <div class="rounded-xl border border-emerald-500/20 bg-emerald-900/10 p-3"><div class="flex items-start gap-2 min-w-0"><svg aria-hidden="true" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div class="min-w-0 flex-1"><div class="text-[10px] uppercase tracking-wider text-emerald-300/70 mb-0.5">FSM readout</div><p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p></div></div></div>
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400"><span>Lag = 200 − smoothness·1.6</span><span class="text-gray-500 hidden sm:inline">FSM: Menu ↔ Playing ↔ Paused → GameOver</span></div>
 </div>
 
 

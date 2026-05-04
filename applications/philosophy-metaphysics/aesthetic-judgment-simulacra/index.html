@@ -599,21 +599,143 @@
     <div class="max-w-screen-xl px-4 mx-auto">
         <div class="max-w-4xl mx-auto">
             
+<!-- FLLM:FOUC_OK — x-show toggles non-initial UI states (collapsibles, tooltips); cards themselves are server-rendered and initially visible -->
 
-<!-- Argument Structure Validator -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-amber-900/20 rounded-2xl border border-amber-500/20 p-6 mb-8 shadow-2xl shadow-amber-900/20" x-data="{
-    components: [{ name: 'Premise', strength: 85 }, { name: 'Evidence', strength: 70 }, { name: 'Logic', strength: 90 }, { name: 'Conclusion', strength: 75 }], chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.argCanvas.getContext('2d');
-        this.chart = new Chart(ctx, { type: 'radar', data: { labels: self.components.map(function(c) { return c.name; }), datasets: [{ data: self.components.map(function(c) { return c.strength; }), backgroundColor: 'rgba(251,191,36,0.15)', borderColor: 'rgba(251,191,36,0.8)', borderWidth: 2, pointRadius: 4 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { r: { beginAtZero: true, max: 100, ticks: { display: false }, grid: { color: 'rgba(255,255,255,0.06)' } } }, plugins: { legend: { display: false } } } });
+<!-- Philosophy Metaphysics: Argument Structure Live Validator -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-amber-900/20 rounded-2xl border border-amber-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-amber-900/20" x-data="{
+    premise: 75, evidence: 65, logic: 80, conclusion: 70, resilience: 55,
+    radarChart: null, lineChart: null, validHist: [],
+    critique: false, fallacy: false, eventTicks: 0,
+    running: false, interval: null, ticks: 0,
+    rationale: 'Idle. Adjust argument components.',
+    showAdvanced: false,
+    init() { for (var i = 0; i < 30; i++) this.validHist.push(this.validity); var self = this; this.$nextTick(function(){ self.initCharts(); }); },
+    initCharts() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+        if (!this.$refs.avRadarCanvas || !this.$refs.avLineCanvas) return;
+        var self = this;
+        this.radarChart = new Chart(this.$refs.avRadarCanvas.getContext('2d'), {
+            type: 'radar',
+            data: { labels: ['Premise', 'Evidence', 'Logic', 'Conclusion', 'Resilience'], datasets: [{
+                data: [this.premise, this.evidence, this.logic, this.conclusion, this.resilience],
+                backgroundColor: 'rgba(251,191,36,0.15)', borderColor: 'rgba(251,191,36,0.8)', borderWidth: 2,
+                pointBackgroundColor: 'rgba(251,191,36,1)', pointRadius: 4
+            }]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { r: { beginAtZero: true, max: 100, ticks: { display: false }, grid: { color: 'rgba(255,255,255,0.06)' }, angleLines: { color: 'rgba(255,255,255,0.06)' }, pointLabels: { color: 'rgba(209,213,219,0.8)', font: { size: 9 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(120,53,15,0.95)', borderColor: 'rgba(251,191,36,0.3)', borderWidth: 1 } }
+            }
+        });
+        this.lineChart = new Chart(this.$refs.avLineCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: this.validHist.map(function(_, i){ return i; }), datasets: [
+                { label: 'Validity', data: [...self.validHist], borderColor: '#fbbf24', backgroundColor: 'rgba(251,191,36,0.08)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.4 }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false }, y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(120,53,15,0.95)', borderColor: 'rgba(251,191,36,0.3)', borderWidth: 1 } }
+            }
+        });
     },
-    get validity() { var total = 0; for (var i = 0; i < this.components.length; i++) total += this.components[i].strength; return Math.round(total / this.components.length); },
-    get status() { return this.validity >= 85 ? 'Strong' : this.validity >= 70 ? 'Moderate' : 'Weak'; }
+    get validity() { return Math.round((this.premise + this.evidence + this.logic + this.conclusion + this.resilience) / 5); },
+    get weakest() {
+        var f = [['Premise',this.premise], ['Evidence',this.evidence], ['Logic',this.logic], ['Conclusion',this.conclusion], ['Resilience',this.resilience]];
+        return f.reduce(function(p,c){return c[1]<p[1]?c:p});
+    },
+    tick() {
+        if (this.critique) {
+            var comps = ['premise','evidence','logic','conclusion','resilience'];
+            var pick = comps[Math.floor(Math.random()*5)];
+            this[pick] = Math.max(15, this[pick] - 1.5);
+        } else if (this.fallacy) {
+            this.logic = Math.max(15, this.logic - 2);
+            this.premise = Math.max(15, this.premise - 0.5);
+            this.evidence = Math.max(15, this.evidence - 0.5);
+            this.conclusion = Math.max(15, this.conclusion - 0.5);
+        }
+        if (this.critique || this.fallacy) this.eventTicks++;
+        this.validHist.push(this.validity);
+        if (this.validHist.length > 60) this.validHist.shift();
+        this.ticks++;
+        this.computeRationale();
+        this.updateCharts();
+    },
+    computeRationale() {
+        var why = [];
+        if (this.critique) why.push('CRITIQUE - components attacked');
+        else if (this.fallacy) why.push('LOGICAL FALLACY discovered');
+        var w = this.weakest;
+        why.push('weakest: ' + w[0] + ' (' + Math.round(w[1]) + ')');
+        if (this.validity >= 85) why.push('STRONG argument (' + this.validity + ')');
+        else if (this.validity >= 65) why.push('moderate (' + this.validity + ')');
+        else why.push('WEAK (' + this.validity + ')');
+        if (this.logic > 85 && this.evidence < 50) why.push('logic-evidence imbalance');
+        if (this.resilience < 40 && this.validity > 70) why.push('vulnerable to attack');
+        this.rationale = why.join(' · ');
+    },
+    updateCharts() {
+        if (this.radarChart) {
+            this.radarChart.data.datasets[0].data = [this.premise, this.evidence, this.logic, this.conclusion, this.resilience];
+            this.radarChart.update('none');
+        }
+        if (this.lineChart) {
+            this.lineChart.data.labels = this.validHist.map(function(_, i){ return i; });
+            this.lineChart.data.datasets[0].data = [...this.validHist];
+            this.lineChart.update('none');
+        }
+    },
+    toggle() { if (this.running) { clearInterval(this.interval); this.running = false; return; } var self = this; this.interval = setInterval(function(){ self.tick(); }, 350); this.running = true; },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        this.premise = 75; this.evidence = 65; this.logic = 80; this.conclusion = 70; this.resilience = 55;
+        this.critique = false; this.fallacy = false; this.ticks = 0; this.eventTicks = 0;
+        this.validHist = []; for (var i = 0; i < 30; i++) this.validHist.push(this.validity);
+        this.rationale = 'Reset.';
+        this.updateCharts();
+    },
+    get statusLabel() { return this.validity >= 85 ? 'STRONG' : this.validity >= 65 ? 'MODERATE' : 'WEAK'; },
+    get statusColor() { return this.validity >= 85 ? 'text-emerald-400' : this.validity >= 65 ? 'text-amber-300' : 'text-red-400'; },
+    get statusBadgeClass() { return this.validity >= 85 ? 'bg-emerald-900/30 border-emerald-500/30' : this.validity >= 65 ? 'bg-amber-900/30 border-amber-500/30' : 'bg-red-900/30 border-red-500/30'; }
 }">
-    <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-amber-600/20 border border-amber-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-amber-300/70">Argument Validator</p></div></div><div class="text-center"><div class="text-xs text-gray-400">Validity</div><div class="text-sm font-bold text-amber-400" x-text="status"></div></div></div>
-    <div class="flex items-center justify-center mb-3"><div class="w-36 h-36"><canvas x-ref="argCanvas"></canvas></div></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-amber-600/20 border border-amber-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div class="min-w-0"><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-amber-300/70 break-words">Argument Structure Validator</p></div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none" :class="running ? 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30' : 'bg-amber-600 hover:bg-amber-500 text-white shadow-amber-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+            <button type="button" @click="critique = !critique; fallacy = false; eventTicks = 0" :aria-pressed="critique" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-orange-500/40 focus-visible:outline-none" :class="critique ? 'bg-orange-600 text-white shadow-lg shadow-orange-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Critique</button>
+            <button type="button" @click="fallacy = !fallacy; critique = false; eventTicks = 0" :aria-pressed="fallacy" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none" :class="fallacy ? 'bg-red-600 text-white shadow-lg shadow-red-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Fallacy</button>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-3 text-center" :class="statusBadgeClass"><div class="text-[10px] uppercase tracking-wider opacity-70" x-text="statusLabel"></div><div class="text-2xl font-black font-mono" :class="statusColor" x-text="validity"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Weakest</div><div class="text-sm font-black font-mono text-amber-300 tabular-nums" x-text="weakest[0]"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Logic</div><div class="text-2xl font-black font-mono text-amber-300 tabular-nums" x-text="Math.round(logic)"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Resilience</div><div class="text-2xl font-black font-mono tabular-nums" :class="resilience < 40 ? 'text-red-400' : 'text-amber-300'" x-text="Math.round(resilience)"></div></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">5-component radar</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="avRadarCanvas" aria-label="Argument component radar"></canvas></div></div>
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Validity over time</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="avLineCanvas" aria-label="Validity timeline"></canvas></div></div>
+    </div>
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-amber-300 uppercase tracking-wider">Argument Component Inputs</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Premise</label><input type="range" min="0" max="100" step="1" x-model.number="premise" @input="updateCharts()" aria-label="Premise strength" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 min-w-0"><span class="text-xs text-emerald-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(premise)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Evidence</label><input type="range" min="0" max="100" step="1" x-model.number="evidence" @input="updateCharts()" aria-label="Evidence quality" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 min-w-0"><span class="text-xs text-blue-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(evidence)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Logic</label><input type="range" min="0" max="100" step="1" x-model.number="logic" @input="updateCharts()" aria-label="Logic chain validity" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500 min-w-0"><span class="text-xs text-amber-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(logic)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Conclusion</label><input type="range" min="0" max="100" step="1" x-model.number="conclusion" @input="updateCharts()" aria-label="Conclusion coherence" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-orange-500 min-w-0"><span class="text-xs text-orange-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(conclusion)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Resilience</label><input type="range" min="0" max="100" step="1" x-model.number="resilience" @input="updateCharts()" aria-label="Counterargument resilience" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-violet-500 min-w-0"><span class="text-xs text-violet-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(resilience)"></span></div>
+        </div>
+    </div>
+    <div class="rounded-xl border border-amber-500/20 bg-amber-900/10 p-3"><div class="flex items-start gap-2 min-w-0"><svg aria-hidden="true" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div class="min-w-0 flex-1"><div class="text-[10px] uppercase tracking-wider text-amber-300/70 mb-0.5">Critique readout</div><p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p></div></div></div>
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400"><span>Validity = mean(5 components)</span><span class="text-gray-500 hidden sm:inline">Toulmin model + adapter</span></div>
 </div>
 
 
