@@ -599,20 +599,134 @@
     <div class="max-w-screen-xl px-4 mx-auto">
         <div class="max-w-4xl mx-auto">
             
+<!-- FLLM:FOUC_OK — x-show toggles non-initial UI states (collapsibles, tooltips); cards themselves are server-rendered and initially visible -->
 
-<!-- Carbon Footprint Calculator -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-green-900/20 rounded-2xl border border-green-500/20 p-6 mb-8 shadow-2xl shadow-green-900/20" x-data="{
-    footprint: 12.5, sources: [{ name: 'Transport', value: 5.2 }, { name: 'Energy', value: 4.1 }, { name: 'Food', value: 2.3 }, { name: 'Other', value: 0.9 }], chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.carbonCanvas.getContext('2d');
-        this.chart = new Chart(ctx, { type: 'doughnut', data: { labels: self.sources.map(function(s) { return s.name; }), datasets: [{ data: self.sources.map(function(s) { return s.value; }), backgroundColor: ['rgba(239,68,68,0.6)', 'rgba(251,146,60,0.6)', 'rgba(34,197,94,0.6)', 'rgba(107,114,128,0.4)'], borderWidth: 0 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '60%', plugins: { legend: { display: false } } } });
+<!-- Sustainability Ecology: Annual Carbon Footprint Simulator -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-green-900/20 rounded-2xl border border-green-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-green-900/20" x-data="{
+    transportKm: 50, kWhPerDay: 25, dietScale: 2, wasteKg: 8, offsetPct: 10,
+    distChart: null, lineChart: null, history: [],
+    heatwave: false, binge: false, eventTicks: 0,
+    running: false, interval: null, ticks: 0,
+    rationale: 'Idle. Adjust lifestyle factors.',
+    showAdvanced: false,
+    init() { for (var i = 0; i < 30; i++) this.history.push(this.netFootprint); var self = this; this.$nextTick(function(){ self.initCharts(); }); },
+    initCharts() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+        if (!this.$refs.cbDistCanvas || !this.$refs.cbLineCanvas) return;
+        var self = this;
+        this.distChart = new Chart(this.$refs.cbDistCanvas.getContext('2d'), {
+            type: 'doughnut',
+            data: { labels: ['Transport', 'Energy', 'Food', 'Waste'], datasets: [{
+                data: [this.transportT, this.energyT, this.foodT, this.wasteT],
+                backgroundColor: ['rgba(239,68,68,0.7)', 'rgba(251,146,60,0.6)', 'rgba(34,197,94,0.7)', 'rgba(156,163,175,0.5)'],
+                borderWidth: 0
+            }]},
+            options: { responsive: true, maintainAspectRatio: false, cutout: '60%', animation: { duration: 0 }, plugins: { legend: { display: false } } }
+        });
+        this.lineChart = new Chart(this.$refs.cbLineCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: this.history.map(function(_, i){ return i; }), datasets: [
+                { label: 'Net t/yr', data: [...self.history], borderColor: '#22c55e', backgroundColor: 'rgba(34,197,94,0.08)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.3 },
+                { label: 'Paris target', data: self.history.map(function(){ return 2; }), borderColor: '#fbbf24', borderWidth: 1, pointRadius: 0, borderDash: [4,4] }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false }, y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: function(v){ return v+'t'; } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(20,83,45,0.95)', borderColor: 'rgba(34,197,94,0.3)', borderWidth: 1 } }
+            }
+        });
     },
-    get rating() { return this.footprint <= 10 ? 'Low Impact' : this.footprint <= 20 ? 'Moderate' : 'High Impact'; }
+    get transportT() { var mul = this.binge ? 1 + 1.5 * Math.exp(-this.eventTicks / 8) : 1; return Math.round(this.transportKm * 365 * 0.18 * mul / 1000 * 10) / 10; },
+    get energyT() { var mul = this.heatwave ? 1 + 1.2 * Math.exp(-this.eventTicks / 10) : 1; return Math.round(this.kWhPerDay * 365 * 0.4 * mul / 1000 * 10) / 10; },
+    get foodT() { return Math.round((1.5 + this.dietScale * 0.8) * 10) / 10; },
+    get wasteT() { return Math.round(this.wasteKg * 52 * 0.5 / 1000 * 10) / 10; },
+    get grossFootprint() { return Math.round((this.transportT + this.energyT + this.foodT + this.wasteT) * 10) / 10; },
+    get netFootprint() { return Math.round(this.grossFootprint * (1 - this.offsetPct / 100) * 10) / 10; },
+    get vsAvg() { var avg = 4.7; return Math.round((this.netFootprint - avg) / avg * 100); },
+    tick() {
+        if (this.heatwave || this.binge) this.eventTicks++;
+        this.history.push(this.netFootprint);
+        if (this.history.length > 60) this.history.shift();
+        this.ticks++;
+        this.computeRationale();
+        this.updateCharts();
+    },
+    computeRationale() {
+        var why = [];
+        if (this.heatwave) why.push('HEATWAVE - energy use spiking');
+        else if (this.binge) why.push('TRAVEL BINGE - transport spiking');
+        var top = [['Transport', this.transportT], ['Energy', this.energyT], ['Food', this.foodT], ['Waste', this.wasteT]].sort(function(a,b){return b[1]-a[1]})[0];
+        why.push('largest: ' + top[0] + ' (' + top[1] + 't)');
+        if (this.netFootprint > 8) why.push('HIGH IMPACT (' + this.netFootprint + 't)');
+        else if (this.netFootprint <= 2) why.push('AT PARIS TARGET');
+        else if (this.vsAvg < 0) why.push('below avg by ' + Math.abs(this.vsAvg) + '%');
+        if (this.offsetPct > 50) why.push(this.offsetPct + '% offset purchased');
+        this.rationale = why.join(' · ');
+    },
+    updateCharts() {
+        if (this.distChart) {
+            this.distChart.data.datasets[0].data = [this.transportT, this.energyT, this.foodT, this.wasteT];
+            this.distChart.update('none');
+        }
+        if (this.lineChart) {
+            this.lineChart.data.labels = this.history.map(function(_, i){ return i; });
+            this.lineChart.data.datasets[0].data = [...this.history];
+            this.lineChart.data.datasets[1].data = this.history.map(function(){ return 2; });
+            this.lineChart.update('none');
+        }
+    },
+    toggle() { if (this.running) { clearInterval(this.interval); this.running = false; return; } var self = this; this.interval = setInterval(function(){ self.tick(); }, 350); this.running = true; },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        this.transportKm = 50; this.kWhPerDay = 25; this.dietScale = 2; this.wasteKg = 8; this.offsetPct = 10;
+        this.heatwave = false; this.binge = false; this.ticks = 0; this.eventTicks = 0;
+        this.history = []; for (var i = 0; i < 30; i++) this.history.push(this.netFootprint);
+        this.rationale = 'Reset. Adjust factors.';
+        this.updateCharts();
+    },
+    get statusLabel() { return this.netFootprint <= 2 ? 'PARIS' : this.netFootprint <= 5 ? 'GOOD' : this.netFootprint <= 10 ? 'MODERATE' : 'HIGH'; },
+    get statusColor() { return this.netFootprint <= 2 ? 'text-emerald-400' : this.netFootprint <= 5 ? 'text-green-400' : this.netFootprint <= 10 ? 'text-amber-300' : 'text-red-400'; },
+    get statusBadgeClass() { return this.netFootprint <= 2 ? 'bg-emerald-900/30 border-emerald-500/30' : this.netFootprint <= 5 ? 'bg-green-900/30 border-green-500/30' : this.netFootprint <= 10 ? 'bg-amber-900/30 border-amber-500/30' : 'bg-red-900/30 border-red-500/30'; },
+    get dietLabel() { return ['Vegan', 'Vegetarian', 'Pescetarian', 'Omnivore', 'Heavy meat'][this.dietScale] || 'Omnivore'; }
 }">
-    <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-green-600/20 border border-green-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-green-300/70">Carbon Calculator</p></div></div><div class="text-center"><div class="text-xs text-gray-400">Impact</div><div class="text-sm font-bold text-green-400" x-text="rating"></div></div></div>
-    <div class="flex items-center justify-center mb-3"><div class="w-32 h-32 relative"><canvas x-ref="carbonCanvas"></canvas><div class="absolute inset-0 flex items-center justify-center flex-col"><span class="text-lg font-black text-green-400" x-text="footprint"></span><span class="text-[10px] text-gray-500">tons CO₂</span></div></div></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-green-600/20 border border-green-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9v-9m0-9v9"/></svg>
+            </div>
+            <div class="min-w-0"><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-green-300/70 break-words">Annual Carbon Footprint Simulator</p></div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-green-500/40 focus-visible:outline-none" :class="running ? 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30' : 'bg-green-600 hover:bg-green-500 text-white shadow-green-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+            <button type="button" @click="heatwave = !heatwave; binge = false; eventTicks = 0" :aria-pressed="heatwave" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none" :class="heatwave ? 'bg-amber-600 text-white shadow-lg shadow-amber-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Heatwave</button>
+            <button type="button" @click="binge = !binge; heatwave = false; eventTicks = 0" :aria-pressed="binge" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none" :class="binge ? 'bg-red-600 text-white shadow-lg shadow-red-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Travel Binge</button>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-3 text-center" :class="statusBadgeClass"><div class="text-[10px] uppercase tracking-wider opacity-70" x-text="statusLabel"></div><div class="text-2xl font-black font-mono" :class="statusColor" x-text="netFootprint + 't'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Gross</div><div class="text-2xl font-black font-mono text-gray-300 tabular-nums" x-text="grossFootprint + 't'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">vs Avg</div><div class="text-2xl font-black font-mono tabular-nums" :class="vsAvg <= 0 ? 'text-emerald-400' : 'text-amber-300'" x-text="(vsAvg >= 0 ? '+' : '') + vsAvg + '%'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Offset</div><div class="text-2xl font-black font-mono text-emerald-300 tabular-nums" x-text="offsetPct + '%'"></div></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 mb-3">
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Source breakdown</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2 relative"><canvas x-ref="cbDistCanvas" aria-label="Carbon source breakdown"></canvas><div class="absolute inset-0 flex items-center justify-center pointer-events-none"><div class="text-center"><div class="text-2xl font-black font-mono text-green-300" x-text="netFootprint"></div><div class="text-[9px] uppercase tracking-wider text-gray-400">tons CO₂/yr</div></div></div></div></div>
+        <div class="lg:col-span-2"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Footprint timeline (vs Paris 2t target)</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="cbLineCanvas" aria-label="Carbon footprint timeline"></canvas></div></div>
+    </div>
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-green-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-green-300 uppercase tracking-wider">Lifestyle Inputs</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Transport</label><input type="range" min="0" max="200" step="5" x-model.number="transportKm" @input="updateCharts()" aria-label="Transport km/day" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500 min-w-0"><span class="text-xs text-red-400 font-mono w-16 text-right tabular-nums" x-text="transportKm + 'km/d'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Electricity</label><input type="range" min="5" max="100" step="1" x-model.number="kWhPerDay" @input="updateCharts()" aria-label="kWh per day" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-orange-500 min-w-0"><span class="text-xs text-orange-400 font-mono w-16 text-right tabular-nums" x-text="kWhPerDay + ' kWh'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Diet</label><input type="range" min="0" max="4" step="1" x-model.number="dietScale" @input="updateCharts()" aria-label="Diet scale" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-green-500 min-w-0"><span class="text-xs text-green-400 font-mono w-16 text-right" x-text="dietLabel"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-gray-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Waste</label><input type="range" min="0" max="50" step="1" x-model.number="wasteKg" @input="updateCharts()" aria-label="Waste kg/week" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-gray-400 min-w-0"><span class="text-xs text-gray-300 font-mono w-16 text-right tabular-nums" x-text="wasteKg + 'kg/w'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Offset</label><input type="range" min="0" max="100" step="5" x-model.number="offsetPct" @input="updateCharts()" aria-label="Offset percentage" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 min-w-0"><span class="text-xs text-emerald-400 font-mono w-16 text-right tabular-nums" x-text="offsetPct + '%'"></span></div>
+        </div>
+    </div>
+    <div class="rounded-xl border border-green-500/20 bg-green-900/10 p-3"><div class="flex items-start gap-2 min-w-0"><svg aria-hidden="true" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div class="min-w-0 flex-1"><div class="text-[10px] uppercase tracking-wider text-green-300/70 mb-0.5">Footprint readout</div><p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p></div></div></div>
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400"><span>EPA tier-1 emission factors · 2t/yr Paris-aligned</span><span class="text-gray-500 hidden sm:inline">Global avg: 4.7t/yr</span></div>
 </div>
 
 
