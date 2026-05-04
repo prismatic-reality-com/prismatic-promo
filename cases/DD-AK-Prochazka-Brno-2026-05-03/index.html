@@ -6,6 +6,19 @@
   <title>DD: AK Procházka & Co. (Brno) — Dashboard</title>
   <meta name="description" content="Due diligence report — Procházka & Co., advokátní kancelář, s.r.o., Brno (IČO 09963430). Generováno 2026-05-03." />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" />
+  <script>
+    // Suppress Tailwind CDN's production-warning (this is a static DD case
+    // dashboard meant for local preview / promo deploy, never standalone prod).
+    // Filter the specific message; pass everything else through unchanged.
+    (function () {
+      var orig = console.warn.bind(console);
+      console.warn = function () {
+        var first = arguments[0];
+        if (typeof first === 'string' && first.indexOf('cdn.tailwindcss.com') !== -1) return;
+        return orig.apply(console, arguments);
+      };
+    })();
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4"></script>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.10.0/lib/p5.min.js"></script>
@@ -578,9 +591,11 @@
     <!-- Depth slider (NEW v4) -->
     <div class="mb-3 p-3 bg-slate-100 rounded-lg">
       <div class="flex items-center gap-3 flex-wrap">
-        <label class="text-xs font-semibold text-slate-700">Hloubka zanoření:</label>
-        <input type="range" min="1" max="4" step="1" value="4" x-model.number="depthLevel"
+        <label for="sit-depth-slider" class="text-xs font-semibold text-slate-700">Hloubka zanoření:</label>
+        <input type="range" id="sit-depth-slider" name="depthLevel" min="1" max="4" step="1" value="4"
+               x-model.number="depthLevel"
                @input="window.networkUpdateDepth && window.networkUpdateDepth(parseInt($event.target.value))"
+               aria-label="Hloubka zanoření grafu (1–4)"
                class="flex-1 max-w-xs" />
         <span class="text-sm font-bold text-blue-700">depth ≤ <span x-text="depthLevel || 4"></span></span>
         <span class="text-xs text-slate-500">(1 = jen tým, 2 = +klienti/akademie, 3 = +rada/management, 4 = +ownership/banky/sport)</span>
@@ -660,8 +675,10 @@
 
           <!-- Search box (collapsible) -->
           <div x-show="searchOpen" x-cloak class="mb-3">
+            <label for="sit-search" class="sr-only">Hledat uzel v grafu</label>
             <input type="text"
                    id="sit-search"
+                   name="search"
                    x-model="searchQuery"
                    @input.debounce.150ms="window.networkSearch && window.networkSearch(searchQuery)"
                    @keydown.enter.prevent="

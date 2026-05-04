@@ -338,11 +338,14 @@
         // Mobile-first: inject CSS safety net BEFORE rendering any diagram
         injectMermaidSafetyNet();
 
-        // First, process blocks to create toggle wrappers
-        var processed = processMermaidBlocks();
-        if (processed.length === 0) return;
+        // Process <pre> code blocks (markdown-emitted) into toggle wrappers.
+        // Direct <div class="mermaid"> elements (template-emitted) are picked up
+        // later by renderDiagrams() — we MUST NOT gate library loading on this
+        // returning > 0, otherwise homepage diagrams render as raw text.
+        processMermaidBlocks();
 
-        // Then load Mermaid and render
+        // Always load Mermaid if hasMermaidContent() said yes — covers both
+        // <pre>-converted blocks and direct <div class="mermaid"> elements.
         loadMermaid(function () {
             initMermaid();
             renderDiagrams();
