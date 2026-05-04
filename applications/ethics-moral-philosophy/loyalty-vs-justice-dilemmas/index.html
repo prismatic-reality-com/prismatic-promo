@@ -599,20 +599,167 @@
     <div class="max-w-screen-xl px-4 mx-auto">
         <div class="max-w-4xl mx-auto">
             
+<!-- FLLM:FOUC_OK — x-show toggles non-initial UI states (collapsibles, tooltips); cards themselves are server-rendered and initially visible -->
 
-<!-- Ethical Decision Balance -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-purple-900/20 rounded-2xl border border-purple-500/20 p-6 mb-8 shadow-2xl shadow-purple-900/20" x-data="{
-    factors: [{ name: 'Autonomy', weight: 85 }, { name: 'Beneficence', weight: 70 }, { name: 'Justice', weight: 75 }, { name: 'Non-maleficence', weight: 90 }], chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.ethicsCanvas.getContext('2d');
-        this.chart = new Chart(ctx, { type: 'bar', data: { labels: self.factors.map(function(f) { return f.name; }), datasets: [{ data: self.factors.map(function(f) { return f.weight; }), backgroundColor: self.factors.map(function(f) { return f.weight >= 80 ? 'rgba(147,51,234,0.6)' : f.weight >= 60 ? 'rgba(168,85,247,0.6)' : 'rgba(196,181,253,0.4)'; }), borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' } }, y: { grid: { display: false } } } } });
+<!-- Ethics & Moral Philosophy: Multi-Framework Decision Weigher -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-purple-900/20 rounded-2xl border border-purple-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-purple-900/20" x-data="{
+    autonomy: 75, beneficence: 70, justice: 65, harm: 85, care: 60,
+    barChart: null, scatterChart: null,
+    historyScore: [], historyConsist: [],
+    trolley: false, autonomyViolation: false, eventTicks: 0,
+    running: false, interval: null, ticks: 0,
+    rationale: 'Idle. Adjust principles to explore ethical tensions.',
+    showAdvanced: false,
+    init() {
+        for (var i = 0; i < 30; i++) { this.historyScore.push(this.score); this.historyConsist.push(this.consistency); }
+        var self = this; this.$nextTick(function() { self.initCharts(); });
     },
-    get ethicalScore() { var total = 0; for (var i = 0; i < this.factors.length; i++) total += this.factors[i].weight; return Math.round(total / this.factors.length); }
+    initCharts() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+        if (!this.$refs.ethBarCanvas || !this.$refs.ethScatterCanvas) return;
+        var self = this;
+        this.barChart = new Chart(this.$refs.ethBarCanvas.getContext('2d'), {
+            type: 'bar',
+            data: { labels: ['Autonomy', 'Beneficence', 'Justice', 'Harm-Prev', 'Care'], datasets: [{
+                data: [this.autonomy, this.beneficence, this.justice, this.harm, this.care],
+                backgroundColor: ['rgba(168,85,247,0.7)', 'rgba(192,132,252,0.6)', 'rgba(216,180,254,0.55)', 'rgba(147,51,234,0.7)', 'rgba(233,213,255,0.5)'],
+                borderRadius: 4
+            }]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                indexAxis: 'y',
+                scales: { x: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } }, y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.6)', font: { size: 10 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(76,29,149,0.95)', borderColor: 'rgba(168,85,247,0.3)', borderWidth: 1 } }
+            }
+        });
+        this.scatterChart = new Chart(this.$refs.ethScatterCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: this.historyScore.map(function(_, i){ return i; }), datasets: [
+                { label: 'Score', data: [...self.historyScore], borderColor: '#a855f7', backgroundColor: 'rgba(168,85,247,0.08)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.3 },
+                { label: 'Consistency', data: [...self.historyConsist], borderColor: '#fbbf24', borderWidth: 1.5, pointRadius: 0, tension: 0.3, borderDash: [4,2] }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false }, y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(76,29,149,0.95)', borderColor: 'rgba(168,85,247,0.3)', borderWidth: 1 } }
+            }
+        });
+    },
+    get score() { return Math.round((this.autonomy + this.beneficence + this.justice + this.harm + this.care) / 5); },
+    get consistency() {
+        var vals = [this.autonomy, this.beneficence, this.justice, this.harm, this.care];
+        var mean = vals.reduce(function(a,b){return a+b}, 0) / vals.length;
+        var variance = vals.reduce(function(a,b){return a + (b - mean) * (b - mean)}, 0) / vals.length;
+        return Math.max(0, Math.round(100 - Math.sqrt(variance)));
+    },
+    get stance() {
+        if (this.harm > 80 && this.justice > 70) return 'DEONTOLOGICAL';
+        if (this.beneficence > 80 && this.harm < 70) return 'UTILITARIAN';
+        if (this.care > 75 && this.autonomy < 60) return 'CARE-ETHICS';
+        if (this.autonomy > 80 && this.justice > 70) return 'LIBERTARIAN';
+        return 'PRAGMATIC';
+    },
+    get conflictWarning() {
+        if (this.autonomy > 80 && this.care > 80) return 'autonomy-care tension';
+        if (this.beneficence > 80 && this.harm > 80 && this.beneficence + this.harm > 170) return 'paternalism risk';
+        if (this.justice < 40 && this.beneficence > 70) return 'unfair benefit';
+        return null;
+    },
+    tick() {
+        if (this.trolley) {
+            this.harm = Math.min(100, this.harm + 0.5);
+            this.beneficence = Math.min(100, this.beneficence + 0.3);
+            this.autonomy = Math.max(20, this.autonomy - 0.4);
+        } else if (this.autonomyViolation) {
+            this.care = Math.min(100, this.care + 0.5);
+            this.beneficence = Math.min(100, this.beneficence + 0.4);
+            this.autonomy = Math.max(15, this.autonomy - 0.7);
+        }
+        if (this.trolley || this.autonomyViolation) this.eventTicks++;
+        this.historyScore.push(this.score);
+        this.historyConsist.push(this.consistency);
+        if (this.historyScore.length > 60) { this.historyScore.shift(); this.historyConsist.shift(); }
+        this.ticks++;
+        this.computeRationale();
+        this.updateCharts();
+    },
+    computeRationale() {
+        var why = [];
+        if (this.trolley) why.push('TROLLEY DILEMMA - harm vs benefit tension');
+        else if (this.autonomyViolation) why.push('AUTONOMY VIOLATION - care overrides will');
+        why.push(this.stance + ' stance');
+        if (this.consistency < 60) why.push('LOW consistency (' + this.consistency + '%)');
+        else if (this.consistency > 85) why.push('coherent (' + this.consistency + '%)');
+        var w = this.conflictWarning;
+        if (w) why.push(w);
+        why.push('score ' + this.score);
+        this.rationale = why.join(' · ');
+    },
+    updateCharts() {
+        if (this.barChart) {
+            this.barChart.data.datasets[0].data = [this.autonomy, this.beneficence, this.justice, this.harm, this.care];
+            this.barChart.update('none');
+        }
+        if (this.scatterChart) {
+            this.scatterChart.data.labels = this.historyScore.map(function(_, i){ return i; });
+            this.scatterChart.data.datasets[0].data = [...this.historyScore];
+            this.scatterChart.data.datasets[1].data = [...this.historyConsist];
+            this.scatterChart.update('none');
+        }
+    },
+    toggle() { if (this.running) { clearInterval(this.interval); this.running = false; return; } var self = this; this.interval = setInterval(function(){ self.tick(); }, 350); this.running = true; },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        this.autonomy = 75; this.beneficence = 70; this.justice = 65; this.harm = 85; this.care = 60;
+        this.trolley = false; this.autonomyViolation = false; this.ticks = 0; this.eventTicks = 0;
+        this.historyScore = []; this.historyConsist = [];
+        for (var i = 0; i < 30; i++) { this.historyScore.push(this.score); this.historyConsist.push(this.consistency); }
+        this.rationale = 'Reset. Adjust principles.';
+        this.updateCharts();
+    },
+    get scoreColor() { return this.consistency >= 75 ? 'text-purple-300' : this.consistency >= 50 ? 'text-amber-300' : 'text-red-400'; },
+    get scoreBadgeClass() { return this.consistency >= 75 ? 'bg-purple-900/30 border-purple-500/30' : this.consistency >= 50 ? 'bg-amber-900/30 border-amber-500/30' : 'bg-red-900/30 border-red-500/30'; }
 }">
-    <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-purple-300/70">Ethics Weigher</p></div></div><div class="text-center"><div class="text-xs text-gray-400">Ethics Score</div><div class="text-lg font-bold text-purple-400" x-text="ethicalScore"></div></div></div>
-    <div class="h-32 mb-3 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-3"><canvas x-ref="ethicsCanvas"></canvas></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
+            </div>
+            <div class="min-w-0">
+                <h3 class="text-sm font-bold text-white">Interactive Demo</h3>
+                <p class="text-xs text-purple-300/70 break-words">Multi-Framework Ethics Weigher</p>
+            </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-purple-500/40 focus-visible:outline-none" :class="running ? 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30' : 'bg-purple-600 hover:bg-purple-500 text-white shadow-purple-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+            <button type="button" @click="trolley = !trolley; autonomyViolation = false; eventTicks = 0" :aria-pressed="trolley" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none" :class="trolley ? 'bg-amber-600 text-white shadow-lg shadow-amber-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Trolley</button>
+            <button type="button" @click="autonomyViolation = !autonomyViolation; trolley = false; eventTicks = 0" :aria-pressed="autonomyViolation" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none" :class="autonomyViolation ? 'bg-red-600 text-white shadow-lg shadow-red-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Paternalism</button>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-3 text-center" :class="scoreBadgeClass"><div class="text-[10px] uppercase tracking-wider opacity-70" x-text="stance"></div><div class="text-2xl font-black font-mono" :class="scoreColor" x-text="score"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Consistency</div><div class="text-2xl font-black font-mono tabular-nums" :class="consistency < 60 ? 'text-red-400' : 'text-purple-300'" x-text="consistency + '%'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Highest</div><div class="text-sm font-black font-mono text-purple-300 tabular-nums" x-text="harm >= 90 ? 'Harm' : autonomy >= 90 ? 'Auton' : beneficence >= 90 ? 'Benef' : justice >= 90 ? 'Just' : care >= 90 ? 'Care' : '—'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Conflict</div><div class="text-sm font-black font-mono tabular-nums" :class="conflictWarning ? 'text-red-400' : 'text-emerald-400'" x-text="conflictWarning ? 'YES' : 'NO'"></div></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Principle weights</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="ethBarCanvas" aria-label="Ethical principle weights"></canvas></div></div>
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Score &amp; consistency over time</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="ethScatterCanvas" aria-label="Score and consistency over time"></canvas></div></div>
+    </div>
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-purple-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-purple-300 uppercase tracking-wider">Ethical Principle Weights</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Autonomy</label><input type="range" min="0" max="100" step="1" x-model.number="autonomy" @input="updateCharts()" aria-label="Autonomy weight" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 min-w-0"><span class="text-xs text-purple-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(autonomy)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-fuchsia-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Beneficence</label><input type="range" min="0" max="100" step="1" x-model.number="beneficence" @input="updateCharts()" aria-label="Beneficence weight" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-fuchsia-500 min-w-0"><span class="text-xs text-fuchsia-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(beneficence)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Justice</label><input type="range" min="0" max="100" step="1" x-model.number="justice" @input="updateCharts()" aria-label="Justice weight" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-violet-500 min-w-0"><span class="text-xs text-violet-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(justice)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Harm prevention</label><input type="range" min="0" max="100" step="1" x-model.number="harm" @input="updateCharts()" aria-label="Harm prevention weight" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500 min-w-0"><span class="text-xs text-red-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(harm)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-pink-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Care ethics</label><input type="range" min="0" max="100" step="1" x-model.number="care" @input="updateCharts()" aria-label="Care ethics weight" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-pink-500 min-w-0"><span class="text-xs text-pink-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(care)"></span></div>
+        </div>
+    </div>
+    <div class="rounded-xl border border-purple-500/20 bg-purple-900/10 p-3"><div class="flex items-start gap-2 min-w-0"><svg aria-hidden="true" class="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div class="min-w-0 flex-1"><div class="text-[10px] uppercase tracking-wider text-purple-300/70 mb-0.5">Moral readout</div><p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p></div></div></div>
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400"><span>Score = mean(5 principles) · Consistency = 100 − stddev</span><span class="text-gray-500 hidden sm:inline">Pluralist normative framework</span></div>
 </div>
 
 
