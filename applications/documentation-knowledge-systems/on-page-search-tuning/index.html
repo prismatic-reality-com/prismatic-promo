@@ -600,19 +600,203 @@
         <div class="max-w-4xl mx-auto">
             
 
-<!-- Documentation Coverage -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-blue-900/20 rounded-2xl border border-blue-500/20 p-6 mb-8 shadow-2xl shadow-blue-900/20" x-data="{
-    coverage: 78, documented: 156, total: 200, chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.docCanvas.getContext('2d');
-        this.chart = new Chart(ctx, { type: 'doughnut', data: { labels: ['Documented', 'Missing'], datasets: [{ data: [self.documented, self.total - self.documented], backgroundColor: ['rgba(59,130,246,0.6)', 'rgba(107,114,128,0.3)'], borderWidth: 0 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '65%', plugins: { legend: { display: false } } } });
+<!-- Documentation & Knowledge Systems: Live Ingest + Coverage Simulator -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-blue-900/20 rounded-2xl border border-blue-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-blue-900/20" x-data="{
+    ingestRate: 60, errorRate: 3, deprecRate: 1.5, indexInterval: 30, target: 85,
+    coverageHist: [], totalFiles: 1200, indexed: 940, brokenRefs: 14, errors: 2, deprecated: 18,
+    fileTypes: { md: 60, json: 18, yaml: 12, rst: 6, other: 4 },
+    indexLagSec: 0, indexAccum: 0,
+    coverageChart: null, distChart: null,
+    massImport: false, brokenBuild: false, eventTicks: 0,
+    running: false, interval: null, ticks: 0,
+    rationale: 'Idle. Press Start to ingest documentation.',
+    showAdvanced: false,
+    init() {
+        for (var i = 0; i < 30; i++) this.coverageHist.push(this.coverage);
+        var self = this; this.$nextTick(function() { self.initCharts(); });
     },
-    get status() { return this.coverage >= 90 ? 'Excellent' : this.coverage >= 70 ? 'Good' : 'Needs Work'; }
+    initCharts() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+        if (!this.$refs.covCanvas || !this.$refs.distCanvas) return;
+        var self = this;
+        this.coverageChart = new Chart(this.$refs.covCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: this.coverageHist.map(function(_, i){ return i; }), datasets: [
+                { label: 'Coverage %', data: [...self.coverageHist], borderColor: '#60a5fa', backgroundColor: 'rgba(96,165,250,0.08)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.3 },
+                { label: 'Target', data: self.coverageHist.map(function(){ return self.target; }), borderColor: '#0ea5e9', borderWidth: 1, pointRadius: 0, borderDash: [4,4] }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false }, y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: function(v){ return v+'%'; } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(30,58,138,0.95)', borderColor: 'rgba(96,165,250,0.3)', borderWidth: 1 } }
+            }
+        });
+        this.distChart = new Chart(this.$refs.distCanvas.getContext('2d'), {
+            type: 'doughnut',
+            data: { labels: ['Markdown', 'JSON', 'YAML', 'RST', 'Other'], datasets: [{
+                data: [this.fileTypes.md, this.fileTypes.json, this.fileTypes.yaml, this.fileTypes.rst, this.fileTypes.other],
+                backgroundColor: ['rgba(96,165,250,0.7)','rgba(14,165,233,0.5)','rgba(56,189,248,0.5)','rgba(125,211,252,0.5)','rgba(186,230,253,0.4)'],
+                borderWidth: 0
+            }]},
+            options: { responsive: true, maintainAspectRatio: false, cutout: '65%', animation: { duration: 0 }, plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(30,58,138,0.95)', borderColor: 'rgba(96,165,250,0.3)', borderWidth: 1 } } }
+        });
+    },
+    get coverage() { return this.totalFiles > 0 ? Math.round(this.indexed / this.totalFiles * 100) : 0; },
+    get coverageColor() { return this.coverage >= this.target ? 'text-emerald-400' : this.coverage >= this.target * 0.8 ? 'text-blue-300' : 'text-amber-400'; },
+    get errorColor() { return this.errors >= 10 ? 'text-red-400' : this.errors >= 3 ? 'text-amber-400' : 'text-gray-300'; },
+    get brokenColor() { return this.brokenRefs >= 30 ? 'text-red-400' : this.brokenRefs >= 10 ? 'text-amber-400' : 'text-gray-300'; },
+    get latencyColor() { return this.indexLagSec >= this.indexInterval * 1.5 ? 'text-amber-400' : 'text-gray-300'; },
+    tick() {
+        var rate = this.ingestRate;
+        var errR = this.errorRate, depR = this.deprecRate;
+        if (this.massImport) { rate = Math.min(500, rate * (1 + 8 * Math.exp(-this.eventTicks / 8))); }
+        if (this.brokenBuild) { errR = 25; depR = 8; }
+        if (this.massImport || this.brokenBuild) this.eventTicks++;
+        var newFiles = Math.max(1, Math.floor(rate * 0.4));
+        var newErrors = Math.floor(newFiles * errR / 100 * (Math.random() + 0.5));
+        var newDeprec = Math.floor(newFiles * depR / 100);
+        var newBroken = Math.floor(newFiles * (errR + depR) / 200);
+        this.totalFiles += newFiles;
+        this.indexed += Math.max(0, newFiles - newErrors);
+        this.errors += newErrors;
+        this.deprecated += newDeprec;
+        this.brokenRefs += newBroken;
+        this.indexAccum += 0.4;
+        if (this.indexAccum >= this.indexInterval) {
+            this.indexLagSec = 0; this.indexAccum = 0;
+        } else {
+            this.indexLagSec = Math.round(this.indexAccum);
+        }
+        var dominant = ['md', 'json', 'yaml', 'rst', 'other'][Math.floor(Math.random() * 5)];
+        if (this.fileTypes[dominant] !== undefined) this.fileTypes[dominant] += Math.floor(newFiles / 10);
+        this.coverageHist.push(this.coverage);
+        if (this.coverageHist.length > 60) this.coverageHist.shift();
+        this.ticks++;
+        this.computeRationale();
+        this.updateCharts();
+    },
+    computeRationale() {
+        var why = [];
+        if (this.brokenBuild) why.push('BROKEN-BUILD event active');
+        else if (this.massImport) why.push('MASS-IMPORT event (' + this.ingestRate + 'x baseline)');
+        if (this.errors > 50) why.push('errors at ' + this.errors + ' (high)');
+        if (this.brokenRefs > 30) why.push(this.brokenRefs + ' broken refs');
+        if (this.indexLagSec > this.indexInterval) why.push('index lag ' + this.indexLagSec + 's');
+        if (this.coverage >= this.target) why.push('coverage at target ' + this.coverage + '%');
+        else why.push('coverage ' + this.coverage + '% (target ' + this.target + '%)');
+        this.rationale = why.join(' · ');
+    },
+    updateCharts() {
+        if (this.coverageChart) {
+            this.coverageChart.data.labels = this.coverageHist.map(function(_, i){ return i; });
+            this.coverageChart.data.datasets[0].data = [...this.coverageHist];
+            this.coverageChart.data.datasets[1].data = this.coverageHist.map(() => this.target);
+            this.coverageChart.update('none');
+        }
+        if (this.distChart) {
+            this.distChart.data.datasets[0].data = [this.fileTypes.md, this.fileTypes.json, this.fileTypes.yaml, this.fileTypes.rst, this.fileTypes.other];
+            this.distChart.update('none');
+        }
+    },
+    toggle() {
+        if (this.running) { clearInterval(this.interval); this.running = false; return; }
+        var self = this; this.interval = setInterval(function(){ self.tick(); }, 400); this.running = true;
+    },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        this.totalFiles = 1200; this.indexed = 940; this.brokenRefs = 14; this.errors = 2; this.deprecated = 18;
+        this.fileTypes = { md: 60, json: 18, yaml: 12, rst: 6, other: 4 };
+        this.indexLagSec = 0; this.indexAccum = 0; this.ticks = 0; this.eventTicks = 0;
+        this.coverageHist = []; for (var i = 0; i < 30; i++) this.coverageHist.push(this.coverage);
+        this.rationale = 'Reset. Press Start.';
+        this.updateCharts();
+    },
+    get statusBadgeClass() { return this.coverage >= this.target ? 'bg-emerald-900/30 border-emerald-500/30' : this.coverage >= this.target * 0.8 ? 'bg-blue-900/30 border-blue-500/30' : 'bg-amber-900/30 border-amber-500/30'; },
+    get statusLabel() { return this.coverage >= this.target ? 'AT TARGET' : this.coverage >= this.target * 0.8 ? 'NEAR' : 'BELOW'; }
 }">
-    <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-blue-300/70">Documentation Coverage</p></div></div><div class="text-center"><div class="text-xs text-gray-400">Status</div><div class="text-sm font-bold text-blue-400" x-text="status"></div></div></div>
-    <div class="flex items-center justify-center mb-3"><div class="w-32 h-32 relative"><canvas x-ref="docCanvas"></canvas><div class="absolute inset-0 flex items-center justify-center"><span class="text-xl font-black text-blue-400" x-text="coverage + '%'"></span></div></div></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            </div>
+            <div class="min-w-0">
+                <h3 class="text-sm font-bold text-white">Interactive Demo</h3>
+                <p class="text-xs text-blue-300/70 break-words">Live Documentation Ingest &amp; Coverage</p>
+            </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:outline-none" :class="running ? 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30' : 'bg-blue-600 hover:bg-blue-500 text-white shadow-blue-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+            <button type="button" @click="massImport = !massImport; brokenBuild = false; eventTicks = 0" :aria-pressed="massImport" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-cyan-500/40 focus-visible:outline-none" :class="massImport ? 'bg-cyan-600 text-white shadow-lg shadow-cyan-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Mass Import</button>
+            <button type="button" @click="brokenBuild = !brokenBuild; massImport = false; eventTicks = 0" :aria-pressed="brokenBuild" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none" :class="brokenBuild ? 'bg-red-600 text-white shadow-lg shadow-red-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Broken Build</button>
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-3 text-center" :class="statusBadgeClass"><div class="text-[10px] uppercase tracking-wider opacity-70" x-text="statusLabel"></div><div class="text-2xl font-black font-mono" :class="coverageColor" x-text="coverage + '%'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Indexed</div><div class="text-2xl font-black font-mono text-white tabular-nums" x-text="indexed"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Broken refs</div><div class="text-2xl font-black font-mono tabular-nums" :class="brokenColor" x-text="brokenRefs"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Errors</div><div class="text-2xl font-black font-mono tabular-nums" :class="errorColor" x-text="errors"></div></div>
+    </div>
+
+    <!-- Charts: coverage timeline + file type distribution -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-3 mb-3">
+        <div class="lg:col-span-2">
+            <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Coverage timeline (vs target)</div>
+            <div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="covCanvas" aria-label="Coverage timeline chart"></canvas></div>
+        </div>
+        <div>
+            <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">File type distribution</div>
+            <div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2 relative">
+                <canvas x-ref="distCanvas" aria-label="File type distribution doughnut"></canvas>
+                <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div class="text-center"><div class="text-2xl font-black font-mono text-blue-300" x-text="totalFiles"></div><div class="text-[9px] uppercase tracking-wider text-gray-400">files</div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detail metrics -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+        <div class="bg-gray-900/50 rounded-xl border border-white/5 p-3 text-center"><div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Total files</div><div class="text-sm font-bold text-white font-mono" x-text="totalFiles"></div></div>
+        <div class="bg-gray-900/50 rounded-xl border border-white/5 p-3 text-center"><div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Deprecated</div><div class="text-sm font-bold text-amber-400 font-mono" x-text="deprecated"></div></div>
+        <div class="bg-gray-900/50 rounded-xl border border-white/5 p-3 text-center"><div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Index lag</div><div class="text-sm font-bold font-mono" :class="latencyColor" x-text="indexLagSec + 's'"></div></div>
+        <div class="bg-gray-900/50 rounded-xl border border-white/5 p-3 text-center"><div class="text-[10px] text-gray-400 uppercase tracking-wider mb-1">Ticks</div><div class="text-sm font-bold text-gray-200 font-mono" x-text="ticks"></div></div>
+    </div>
+
+    <!-- Sliders (collapsible) -->
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-blue-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-blue-300 uppercase tracking-wider">Ingest &amp; Quality Controls</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Ingest rate</label><input type="range" min="10" max="500" step="10" x-model.number="ingestRate" aria-label="Ingestion rate" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 min-w-0"><span class="text-xs text-blue-400 font-mono w-14 text-right tabular-nums" x-text="ingestRate + '/s'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Error rate</label><input type="range" min="0" max="15" step="0.5" x-model.number="errorRate" aria-label="Parser error rate" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500 min-w-0"><span class="text-xs text-red-400 font-mono w-14 text-right tabular-nums" x-text="errorRate + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Deprecation</label><input type="range" min="0" max="20" step="0.5" x-model.number="deprecRate" aria-label="Deprecation rate" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500 min-w-0"><span class="text-xs text-amber-400 font-mono w-14 text-right tabular-nums" x-text="deprecRate + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Index interval</label><input type="range" min="5" max="180" step="5" x-model.number="indexInterval" aria-label="Index update interval" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-cyan-500 min-w-0"><span class="text-xs text-cyan-400 font-mono w-14 text-right tabular-nums" x-text="indexInterval + 's'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Coverage target</label><input type="range" min="50" max="100" step="1" x-model.number="target" aria-label="Coverage target" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 min-w-0"><span class="text-xs text-emerald-400 font-mono w-14 text-right tabular-nums" x-text="target + '%'"></span></div>
+        </div>
+    </div>
+
+    <!-- Rationale panel -->
+    <div class="rounded-xl border border-blue-500/20 bg-blue-900/10 p-3">
+        <div class="flex items-start gap-2 min-w-0">
+            <svg aria-hidden="true" class="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div class="min-w-0 flex-1">
+                <div class="text-[10px] uppercase tracking-wider text-blue-300/70 mb-0.5">Pipeline status</div>
+                <p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400">
+        <div class="flex flex-wrap gap-x-3 gap-y-1">
+            <span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-blue-400 inline-block"></span>Coverage</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-sky-500 inline-block border-dashed border-t"></span>Target</span>
+        </div>
+        <span class="text-gray-500">Synthetic ingest model · rolling window</span>
+    </div>
 </div>
 
 
