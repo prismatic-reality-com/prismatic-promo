@@ -599,19 +599,153 @@
     <div class="max-w-screen-xl px-4 mx-auto">
         <div class="max-w-4xl mx-auto">
             
+<!-- FLLM:FOUC_OK — x-show toggles non-initial UI states (collapsibles, tooltips); cards themselves are server-rendered and initially visible -->
 
-<!-- Domain Expertise Radar -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-indigo-900/20 rounded-2xl border border-indigo-500/20 p-6 mb-8 shadow-2xl shadow-indigo-900/20" x-data="{
-    domains: [{ name: 'Technical', value: 85 }, { name: 'Business', value: 70 }, { name: 'Design', value: 60 }, { name: 'Research', value: 75 }], chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.domainCanvas.getContext('2d');
-        this.chart = new Chart(ctx, { type: 'radar', data: { labels: self.domains.map(function(d) { return d.name; }), datasets: [{ data: self.domains.map(function(d) { return d.value; }), backgroundColor: 'rgba(129,140,248,0.15)', borderColor: 'rgba(129,140,248,0.8)', borderWidth: 2, pointRadius: 4 }] }, options: { responsive: true, maintainAspectRatio: false, scales: { r: { beginAtZero: true, max: 100, ticks: { display: false }, grid: { color: 'rgba(255,255,255,0.06)' } } }, plugins: { legend: { display: false } } } });
-    }
+<!-- Cross-Disciplinary Meta-Simulation: Domain Expertise Radar -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-indigo-900/20 rounded-2xl border border-indigo-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-indigo-900/20" x-data="{
+    technical: 70, business: 55, design: 45, research: 60, synthesis: 50,
+    velocityHist: [],
+    radarChart: null, lineChart: null,
+    convergence: false, drift: false, eventTicks: 0,
+    running: false, interval: null, ticks: 0,
+    rationale: 'Idle. Adjust domain proficiencies.',
+    showAdvanced: false,
+    init() { for (var i = 0; i < 30; i++) this.velocityHist.push(this.overall); var self = this; this.$nextTick(function(){ self.initCharts(); }); },
+    initCharts() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+        if (!this.$refs.drRadarCanvas || !this.$refs.drLineCanvas) return;
+        var self = this;
+        this.radarChart = new Chart(this.$refs.drRadarCanvas.getContext('2d'), {
+            type: 'radar',
+            data: { labels: ['Tech', 'Biz', 'Design', 'Research', 'Synthesis'], datasets: [{
+                data: [this.technical, this.business, this.design, this.research, this.synthesis],
+                backgroundColor: 'rgba(129,140,248,0.15)', borderColor: 'rgba(129,140,248,0.8)', borderWidth: 2,
+                pointBackgroundColor: 'rgba(129,140,248,1)', pointRadius: 4
+            }]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { r: { beginAtZero: true, max: 100, ticks: { display: false }, grid: { color: 'rgba(255,255,255,0.06)' }, angleLines: { color: 'rgba(255,255,255,0.06)' }, pointLabels: { color: 'rgba(209,213,219,0.8)', font: { size: 10 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(49,46,129,0.95)', borderColor: 'rgba(129,140,248,0.3)', borderWidth: 1 } }
+            }
+        });
+        this.lineChart = new Chart(this.$refs.drLineCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: this.velocityHist.map(function(_, i){ return i; }), datasets: [
+                { label: 'Overall', data: [...self.velocityHist], borderColor: '#818cf8', backgroundColor: 'rgba(129,140,248,0.08)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.3 }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false }, y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(49,46,129,0.95)', borderColor: 'rgba(129,140,248,0.3)', borderWidth: 1 } }
+            }
+        });
+    },
+    get overall() { return Math.round((this.technical + this.business + this.design + this.research + this.synthesis) / 5); },
+    get profile() {
+        var vals = [['Tech',this.technical],['Biz',this.business],['Design',this.design],['Research',this.research],['Synth',this.synthesis]];
+        var top = vals.reduce(function(p,c){return c[1]>p[1]?c:p});
+        var diff = top[1] - this.overall;
+        if (diff > 25) return 'T-SHAPED ' + top[0];
+        if (this.overall > 75) return 'POLYMATH';
+        var vari = vals.reduce(function(a,b){return a+(b[1]-this.overall)*(b[1]-this.overall)},0)/5;
+        if (vari < 100) return 'GENERALIST';
+        return 'SPECIALIST';
+    },
+    get spread() {
+        var mean = this.overall;
+        var v = ((this.technical-mean)*(this.technical-mean) + (this.business-mean)*(this.business-mean) + (this.design-mean)*(this.design-mean) + (this.research-mean)*(this.research-mean) + (this.synthesis-mean)*(this.synthesis-mean)) / 5;
+        return Math.round(Math.sqrt(v));
+    },
+    tick() {
+        if (this.convergence) {
+            var dirs = ['technical','business','design','research','synthesis'];
+            var pick = dirs[Math.floor(Math.random()*5)];
+            this[pick] = Math.min(100, this[pick] + 1.5);
+            for (var d of dirs) if (d !== pick) this[d] = Math.max(20, this[d] - 0.4);
+        } else if (this.drift) {
+            this.technical = Math.max(20, this.technical - 0.5);
+            this.business = Math.max(20, this.business - 0.5);
+            this.design = Math.max(20, this.design - 0.5);
+            this.research = Math.max(20, this.research - 0.5);
+            this.synthesis = Math.max(20, this.synthesis - 0.3);
+        }
+        if (this.convergence || this.drift) this.eventTicks++;
+        this.velocityHist.push(this.overall);
+        if (this.velocityHist.length > 60) this.velocityHist.shift();
+        this.ticks++;
+        this.computeRationale();
+        this.updateCharts();
+    },
+    computeRationale() {
+        var why = [];
+        if (this.convergence) why.push('CONVERGENCE - one domain dominating');
+        else if (this.drift) why.push('SKILL DRIFT - all domains decaying');
+        why.push(this.profile + ' profile');
+        why.push('overall ' + this.overall + ', spread ±' + this.spread);
+        if (this.synthesis > 80) why.push('high cross-domain synthesis');
+        if (this.spread > 25) why.push('uneven (specialist trap)');
+        this.rationale = why.join(' · ');
+    },
+    updateCharts() {
+        if (this.radarChart) {
+            this.radarChart.data.datasets[0].data = [this.technical, this.business, this.design, this.research, this.synthesis];
+            this.radarChart.update('none');
+        }
+        if (this.lineChart) {
+            this.lineChart.data.labels = this.velocityHist.map(function(_, i){ return i; });
+            this.lineChart.data.datasets[0].data = [...this.velocityHist];
+            this.lineChart.update('none');
+        }
+    },
+    toggle() { if (this.running) { clearInterval(this.interval); this.running = false; return; } var self = this; this.interval = setInterval(function(){ self.tick(); }, 350); this.running = true; },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        this.technical = 70; this.business = 55; this.design = 45; this.research = 60; this.synthesis = 50;
+        this.convergence = false; this.drift = false; this.ticks = 0; this.eventTicks = 0;
+        this.velocityHist = []; for (var i = 0; i < 30; i++) this.velocityHist.push(this.overall);
+        this.rationale = 'Reset.';
+        this.updateCharts();
+    },
+    get badgeClass() { return this.overall >= 75 ? 'bg-emerald-900/30 border-emerald-500/30' : this.overall >= 50 ? 'bg-indigo-900/30 border-indigo-500/30' : 'bg-amber-900/30 border-amber-500/30'; },
+    get overallColor() { return this.overall >= 75 ? 'text-emerald-400' : this.overall >= 50 ? 'text-indigo-300' : 'text-amber-300'; }
 }">
-    <div class="flex items-center gap-3 mb-4"><div class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-indigo-300/70">Domain Expertise</p></div></div>
-    <div class="flex items-center justify-center mb-3"><div class="w-40 h-40"><canvas x-ref="domainCanvas"></canvas></div></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div class="min-w-0"><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-indigo-300/70 break-words">Cross-Domain Expertise Radar</p></div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-indigo-500/40 focus-visible:outline-none" :class="running ? 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30' : 'bg-indigo-600 hover:bg-indigo-500 text-white shadow-indigo-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+            <button type="button" @click="convergence = !convergence; drift = false; eventTicks = 0" :aria-pressed="convergence" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none" :class="convergence ? 'bg-amber-600 text-white shadow-lg shadow-amber-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Converge</button>
+            <button type="button" @click="drift = !drift; convergence = false; eventTicks = 0" :aria-pressed="drift" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none" :class="drift ? 'bg-red-600 text-white shadow-lg shadow-red-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Drift</button>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-3 text-center" :class="badgeClass"><div class="text-[10px] uppercase tracking-wider opacity-70" x-text="profile"></div><div class="text-2xl font-black font-mono" :class="overallColor" x-text="overall"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Spread</div><div class="text-2xl font-black font-mono tabular-nums" :class="spread > 25 ? 'text-amber-300' : 'text-indigo-300'" x-text="'±' + spread"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Synthesis</div><div class="text-2xl font-black font-mono text-indigo-300 tabular-nums" x-text="Math.round(synthesis)"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Ticks</div><div class="text-2xl font-black font-mono text-gray-200 tabular-nums" x-text="ticks"></div></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Domain breakdown</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="drRadarCanvas" aria-label="Domain proficiency radar"></canvas></div></div>
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Overall mastery velocity</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="drLineCanvas" aria-label="Mastery timeline"></canvas></div></div>
+    </div>
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-indigo-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-indigo-300 uppercase tracking-wider">Domain Proficiency Inputs</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Technical</label><input type="range" min="0" max="100" step="1" x-model.number="technical" @input="updateCharts()" aria-label="Technical depth" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 min-w-0"><span class="text-xs text-blue-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(technical)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Business</label><input type="range" min="0" max="100" step="1" x-model.number="business" @input="updateCharts()" aria-label="Business acumen" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 min-w-0"><span class="text-xs text-emerald-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(business)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-pink-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Design</label><input type="range" min="0" max="100" step="1" x-model.number="design" @input="updateCharts()" aria-label="Design fluency" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-pink-500 min-w-0"><span class="text-xs text-pink-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(design)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-violet-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Research</label><input type="range" min="0" max="100" step="1" x-model.number="research" @input="updateCharts()" aria-label="Research rigor" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-violet-500 min-w-0"><span class="text-xs text-violet-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(research)"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Synthesis</label><input type="range" min="0" max="100" step="1" x-model.number="synthesis" @input="updateCharts()" aria-label="Cross-domain synthesis" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500 min-w-0"><span class="text-xs text-amber-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(synthesis)"></span></div>
+        </div>
+    </div>
+    <div class="rounded-xl border border-indigo-500/20 bg-indigo-900/10 p-3"><div class="flex items-start gap-2 min-w-0"><svg aria-hidden="true" class="w-4 h-4 text-indigo-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div class="min-w-0 flex-1"><div class="text-[10px] uppercase tracking-wider text-indigo-300/70 mb-0.5">Profile readout</div><p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p></div></div></div>
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400"><span>Profile = max(domain) − overall</span><span class="text-gray-500 hidden sm:inline">T-shaped vs Polymath vs Specialist</span></div>
 </div>
 
 
