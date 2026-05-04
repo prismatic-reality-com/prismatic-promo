@@ -517,6 +517,8 @@
   .tnum { font-variant-numeric: tabular-nums; }
 </style>
 
+<script>window.__PROMO_BASE_URL = "https://prismatic-reality-com.github.io/prismatic-promo";</script>
+
 <!-- Cases payload — emitted as raw JSON for Alpine consumption -->
 <script id="dd-cases-payload" type="application/json">
 [{
@@ -718,7 +720,7 @@
                     class="group relative flex flex-col bg-gray-800 rounded-xl border border-gray-700 transition-all duration-200 overflow-hidden"
                     :class="cardHoverBorder(c.color)">
 
-                    <a :href="'/cases/' + c.slug + '/' + c.dashboard_path"
+                    <a :href="caseUrl(c)"
                        target="_blank" rel="noopener"
                        class="flex flex-col flex-1 p-6">
 
@@ -782,7 +784,7 @@
 
                     <!-- Quick actions footer -->
                     <div class="px-6 py-3 bg-gray-900/40 border-t border-gray-700 text-xs flex items-center gap-3 tnum">
-                        <a x-show="c.case_md" :href="'/cases/' + c.slug + '/' + c.case_md"
+                        <a x-show="c.case_md" :href="caseUrl(c, c.case_md)"
                            target="_blank" rel="noopener"
                            class="text-gray-400 hover:text-emerald-400 transition-colors flex items-center gap-1"
                            title="Open full case report">
@@ -861,7 +863,7 @@
                 <tbody>
                     <template x-for="c in filtered()" :key="c.slug">
                         <tr class="bg-gray-900 border-b border-gray-800 hover:bg-gray-800 transition-colors cursor-pointer group"
-                            @click="window.open('/cases/' + c.slug + '/' + c.dashboard_path, '_blank')">
+                            @click="window.open(caseUrl(c), '_blank')">
                             <td class="px-4 py-3 max-w-md">
                                 <div class="font-bold text-white group-hover:text-emerald-400 transition-colors line-clamp-1" x-text="c.headline"></div>
                                 <div class="text-xs text-gray-500 mt-0.5 line-clamp-1" x-show="c.tagline" x-text="c.tagline"></div>
@@ -1160,9 +1162,21 @@ function ddCases(payload) {
             return Math.round((n / total) * 100);
         },
 
+        baseUrl() {
+            const u = window.__PROMO_BASE_URL || '';
+            try { return u ? new URL(u).pathname.replace(/\/$/, '') : ''; } catch (e) { return ''; }
+        },
+        caseUrl(c, file) {
+            const f = file || c.dashboard_path || 'index.html';
+            return this.baseUrl() + '/cases/' + c.slug + '/' + f;
+        },
+        absCaseUrl(c, file) {
+            return location.origin + this.caseUrl(c, file);
+        },
+
         // ---------- copy link to dashboard ----------
         copyLink(c) {
-            const url = location.origin + '/cases/' + c.slug + '/' + c.dashboard_path;
+            const url = absCaseUrl(c);
             try {
                 navigator.clipboard.writeText(url).then(() => {
                     this.copiedSlug = c.slug;

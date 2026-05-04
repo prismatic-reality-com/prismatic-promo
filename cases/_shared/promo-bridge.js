@@ -20,7 +20,11 @@
     //   1. http(s) under any host serving /cases/ (Zola promo OR Phoenix dev) → relative root path
     //   2. file:// preview                                                    → absolute promo URL
     //   3. anything else (loaded from a non-/cases/ path)                     → absolute promo URL
-    if (location.protocol !== 'file:' && location.pathname.includes('/cases/')) return '/cases/';
+    if (location.protocol !== 'file:') {
+      var p = location.pathname;
+      var idx = p.indexOf('/cases/');
+      if (idx >= 0) return p.substring(0, idx) + '/cases/';
+    }
     return 'https://prismatic-reality-com.github.io/prismatic-promo/cases/';
   }
 
