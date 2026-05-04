@@ -1,0 +1,225 @@
+/* FLLM:CUSTOM_CSS_OK — explicit FLLM custom-CSS exemption per .aiad/policies/fllm-universal-enforcement.policy.md. See file body for class-by-class rationale. */
+/* ==========================================================================
+   mobile-first.css — Prismatic Promo Site
+
+   Last-line defense against horizontal overflow at narrow viewports.
+   Loaded synchronously after tailwind.css + flowbite.min.css in base.html
+   so it can override prose/typography utility defaults at <=640px.
+
+   Strategy:
+     1. Hard cap html/body width and clip stray overflow.
+     2. Force layout primitives (article/section/main/.prose) to allow
+        flex/grid children to shrink below intrinsic content size
+        (the classic min-width:auto flexbox overflow trap).
+     3. Wrap long words / URLs / inline code / table cells.
+     4. Allow horizontal scroll inside <pre> and <table>, never on the
+        page itself.
+     5. Downscale prose typography on phones so prose-lg callsites
+        elsewhere in the codebase do not blow out narrow viewports.
+
+   This file is intentionally short. Do not turn it into a theme.
+   ========================================================================== */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+main,
+section,
+article,
+header,
+footer,
+nav,
+.prose {
+  min-width: 0;
+}
+
+img,
+svg,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* `canvas` is sized by Chart.js (and similar libs) via the parent container's
+   computed height. Forcing `height: auto` collapses the canvas to 0px on
+   initial render, recovering only on resize. Cap the width but leave height
+   to JS. */
+canvas {
+  max-width: 100%;
+}
+
+.prose {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.prose p,
+.prose li,
+.prose blockquote,
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.prose pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.prose code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.prose table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Generic table fallback — covers tables outside .prose context (comparison
+   tables, registries, list views). Forces block display + horizontal scroll
+   at <=768px so unwrapped tables never push the page wider than viewport.
+   At >768px, tables retain their natural rendering. */
+@media (max-width: 768px) {
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
+
+/* Form elements (input, select, textarea) used outside .prose: cap width
+   to viewport. iOS Safari zooms in on focus when font-size < 16px, so
+   force 16px floor on phones to disable the auto-zoom. */
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Inline code outside .prose (templates with hand-written <code> tags). */
+code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* min-w-[Npx] Tailwind arbitrary utilities (e.g. min-w-[140px] on selects)
+   force horizontal overflow at narrow viewports. Soften to 0 below 640px. */
+@media (max-width: 640px) {
+  [class*="min-w-["] {
+    min-width: 0;
+  }
+}
+
+/* Hero typography downscale — templates that ship text-6xl / text-7xl
+   without responsive variants overflow phone viewports. Cap at <=640px. */
+@media (max-width: 640px) {
+  .text-7xl {
+    font-size: 2.25rem;
+    line-height: 1.1;
+  }
+  .text-6xl {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+}
+
+/* Reduce gap-8 / space-x-8 horizontal slack on phones. The 2rem gap
+   wastes precious horizontal real estate at 320–414px viewports and
+   commonly causes nav rows / control bars to overflow. */
+@media (max-width: 640px) {
+  .gap-8 {
+    gap: 1rem;
+  }
+  .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 0.75rem;
+  }
+}
+
+/* Phones: downscale prose so global `prose-lg max-w-none` callsites
+   (~27 templates) do not push content past the viewport. Keeps the
+   `prose-lg prose-invert` desktop look intact above 640px. */
+@media (max-width: 640px) {
+  .prose {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  .prose h1 {
+    font-size: 1.875rem;
+    line-height: 1.2;
+  }
+
+  .prose h2 {
+    font-size: 1.5rem;
+    line-height: 1.25;
+  }
+
+  .prose h3 {
+    font-size: 1.25rem;
+    line-height: 1.3;
+  }
+
+  .prose h4 {
+    font-size: 1.125rem;
+    line-height: 1.35;
+  }
+}
+
+/* Mobile navbar slide-down animation when toggled visible.
+   Triggered by the JS toggle removing `.hidden` from #navbar-menu.
+   Disabled on lg+ where the menu is always visible inline. */
+@media (max-width: 1023px) {
+  #navbar-menu:not(.hidden) {
+    animation: prismaticNavSlideDown 220ms ease-out;
+  }
+}
+
+@keyframes prismaticNavSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Respect reduced-motion: skip animations when user prefers them off. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

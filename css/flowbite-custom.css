@@ -1,3 +1,4 @@
+/* FLLM:CUSTOM_CSS_OK — explicit FLLM custom-CSS exemption per .aiad/policies/fllm-universal-enforcement.policy.md. See file body for class-by-class rationale. */
 /*
  * Flowbite Custom Extensions - Prismatic Platform Promo Site
  * Version: 1.0.0
@@ -14,6 +15,44 @@
    ============================================================ */
 [x-cloak] {
   display: none !important;
+}
+
+/* ============================================================
+   MOBILE VIEWPORT SAFETY NET
+   Global guards so that any single oversized element (long URL,
+   wide table, fixed-width SVG, third-party embed) cannot force
+   the whole document wider than the viewport on phones.
+   - overflow-x: hidden on html+body kills horizontal page scroll
+   - media elements default to fluid sizing
+   ============================================================ */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+img,
+svg,
+video,
+iframe,
+embed,
+object {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Long unbreakable strings (URLs, tokens, hashes) often overflow
+   inside narrow prose containers. overflow-wrap keeps them inside. */
+.prose,
+.prose p,
+.prose li,
+.prose blockquote,
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 /* ============================================================

@@ -1,0 +1,42 @@
+Archive: DD-Progresus-PPF-2026-04-21__Pass11__2026-04-28.tar.gz
+Created: 2026-04-28
+Source:  ~/dev/able/DD-Progresus-PPF-2026-04-21
+Size:    3734661 bytes (3.56 MB)
+SHA256:  9bf1ba63b403df79bde607d70769f7648cec6537dc24c92826247ec86c40aee8
+
+Git tip: 4dcada4362b11001fcc6b38574d07d9ef55e0edf
+Branch:  master (local-only repo, no remote)
+
+Contents:
+- 65 .md + 30 .html (Czech-translated, Pass-11)
+- 9 _assets JS/JSON files (cmdk, dd-scenario, dd-entity-index, ticker-feed, etc.)
+- _assets/md-store.js + manifest-store.js + graph-store.js (offline indexes)
+- .manifest.json (162 files indexed) + .graph.json (214 nodes, 909 edges)
+- CHANGELOG, README, manifest.json, sw.js (v1.2.0)
+
+Excluded:
+- .git/ (10.5 MB git history; rollback baseline 1b420dd preserved in workspace)
+- */raw/, */raw-cuzk/ (1.5 MB scraped HTML, regenerable)
+- .pr-drafts/ (PR comment drafts, local working copies)
+- *.bak, __pycache__, .DS_Store
+
+Pass-11 deliverables:
+1. Translation pass: 65 .md + 30 .html → Czech, formal business/legal register
+2. Quant ports: Monte Carlo · PageRank · Bayesian red-flags
+3. Viz ports: Sankey bond stack · ⌘K palette · ČR choropleth
+4. Linking ports: Shared scenarios · Entity↔doc · Temporal replay
+5. Operational ports: Cleanup palette · Live ticker · Print pack · AB compare
+6. Maintenance: sw.js v1.2.0 · indexes regen · CHANGELOG
+7. Code review fixes: 3 CRITICAL + 4 HIGH bugs
+
+Verification:
+  tar -tzf DD-Progresus-PPF-2026-04-21__Pass11__2026-04-28.tar.gz | wc -l   # → 233 entries
+  shasum -a 256 DD-Progresus-PPF-2026-04-21__Pass11__2026-04-28.tar.gz      # → 9bf1ba63b403df79bde607d70769f7648cec6537dc24c92826247ec86c40aee8
+
+Restore:
+  cd ~/destination/
+  tar -xzf DD-Progresus-PPF-2026-04-21__Pass11__2026-04-28.tar.gz
+  cd DD-Progresus-PPF-2026-04-21
+  python3 _assets/build-md-store.py    # rebuild offline store
+  python3 _assets/inject-stores.py     # inject into HTML
+  ./serve.sh                            # browse at http://localhost:8000

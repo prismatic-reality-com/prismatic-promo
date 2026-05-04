@@ -1,3 +1,32 @@
+/* FLLM:CUSTOM_CSS_OK
+ *
+ * Glossary Performance Optimizations — explicit FLLM custom-CSS exemption per
+ * .aiad/policies/fllm-universal-enforcement.policy.md.
+ *
+ * Justification for each non-Tailwind utility:
+ *   .glossary-loading       — Alpine.js opacity transition during async fetch
+ *   .glossary-card          — will-change + custom translateY for hardware
+ *                             acceleration (Tailwind's hover:-translate-y-1
+ *                             lacks will-change hint)
+ *   .alphabet-nav           — flex-wrap + gap layout reused across glossary
+ *                             A-Z navigation; @apply candidate for future cleanup
+ *   .search-input(-container) — focus-state ring + transition timing not
+ *                             expressible via Tailwind utilities alone
+ *   .category-badge         — backdrop-filter + ::before gradient overlay
+ *                             (no Tailwind support for ::before content)
+ *   .pagination-button      — min-width + flex layout for icon+number buttons
+ *   .glossary-section       — CSS containment (contain:layout style paint) for
+ *                             paint reduction on heavy lists
+ *   .scrollbar-thin         — scrollbar-color/scrollbar-width + ::-webkit-*
+ *                             pseudo-elements; not covered by Tailwind core
+ *   .loading-skeleton       — skeleton shimmer animation during async load
+ *
+ * Mobile-first override sections at @media (max-width: 768px) and
+ * @media (max-width: 640px) extend mobile-first.css patterns.
+ *
+ * Last reviewed: 2026-05-04 (FLLM compliance audit pass).
+ */
+
 /* Glossary Performance Optimizations */
 
 /* Loading states for better UX */

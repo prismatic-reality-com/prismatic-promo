@@ -1,0 +1,4 @@
+# Single source of truth for promo build (data-driven from manifest.json files)
+# To add new case: drop directory under cases/ AND copy here, append slug below
+cases:
+  - DD-AK-Prochazka-Brno-2026-05-03

@@ -1,3 +1,4 @@
+/* FLLM:CUSTOM_CSS_OK — explicit FLLM custom-CSS exemption per .aiad/policies/fllm-universal-enforcement.policy.md. See file body for class-by-class rationale. */
 /* Prismatic Platform - Prose Typography System
  *
  * Typographic principles applied:
@@ -277,12 +278,19 @@
 }
 
 /* ==================== Tables ==================== */
+/* Mobile-safe tables: display:block + overflow-x lets wide markdown tables
+   scroll horizontally inside their container instead of forcing the whole
+   page wider than the viewport. Standard Tailwind Typography pattern. */
 .prose table {
+    display: block;
     width: 100%;
+    max-width: 100%;
     margin: var(--space-8) 0;
     border-collapse: collapse;
     font-size: 0.875rem;          /* Slightly smaller for data density */
     line-height: 1.5;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .prose thead {

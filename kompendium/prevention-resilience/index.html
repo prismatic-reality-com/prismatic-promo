@@ -5,24 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="base-url" content="https://prismatic-reality-com.github.io/prismatic-promo">
-    <title>Prevence a rezilience - Prismatic Platform</title>
+    <title>Prevence a rezilience - Kompendium | Prismatic Platform</title>
 
     
-<meta name="description" content="About Prismatic Platform">
-<meta property="og:type" content="website">
+<meta name="description" content="30 článků o prevenci EA a budování reziliencie napříč třemi úrovněmi (primární, sekundární, terciární).">
+<meta property="og:type" content="article">
 <meta property="og:url" content="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;">
-<meta property="og:title" content="Prevence a rezilience - Prismatic Platform">
-<meta property="og:description" content="About Prismatic Platform">
-<meta property="og:image" content="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/images/og-image.png">
+<meta property="og:title" content="Prevence a rezilience - Kompendium | Prismatic Platform">
+<meta property="og:description" content="30 článků o prevenci EA a budování reziliencie napříč třemi úrovněmi (primární, sekundární, terciární).">
+<meta property="og:image" content="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/images/sections/kompendium.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:site_name" content="Prismatic Platform">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale" content="cs_CZ">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;">
-<meta name="twitter:title" content="Prevence a rezilience - Prismatic Platform">
-<meta name="twitter:description" content="About Prismatic Platform">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/images/twitter-card.png">
+<meta name="twitter:title" content="Prevence a rezilience - Kompendium | Prismatic Platform">
+<meta name="twitter:description" content="30 článků o prevenci EA a budování reziliencie napříč třemi úrovněmi (primární, sekundární, terciární).">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/images/sections/kompendium.png">
 <meta name="twitter:creator" content="@korczis">
 
 
@@ -142,11 +142,19 @@
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
-    <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency) -->
+    <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
+         Only the two CRITICAL stylesheets are loaded synchronously here;
+         flowbite-indigo-theme.css + flowbite-custom.css load asynchronously
+         lower in the document via the media=print + onload swap pattern
+         (see lines 776-777). Removed redundant synchronous loads of the
+         theme/custom files — used to ship double, blocking initial paint
+         twice. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/tailwind.css">
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/flowbite.min.css">
-    <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/flowbite-indigo-theme.css">
-    <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/flowbite-custom.css">
+    <!-- Mobile-first overflow protection: must load synchronously after
+         tailwind+flowbite so it can override prose-lg/typography defaults
+         at <=640px. See static/css/mobile-first.css for rationale. -->
+    <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
     <!-- Alpine.js (required for navigation dropdowns) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
@@ -185,7 +193,7 @@
             <div class="flex items-center lg:order-2 gap-2">
                 <!-- GitHub Link -->
                 <a href="https:&#x2F;&#x2F;github.com&#x2F;korczis&#x2F;prismatic-platform"
-                   class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-400 hover:text-white bg-gray-800/50 hover:bg-gray-800 rounded-lg border border-gray-700 transition-colors"
+                   class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-300 hover:text-white bg-gray-800/50 hover:bg-gray-800 rounded-lg border border-gray-700 transition-colors"
                    title="View on GitHub">
                     <svg aria-hidden="true" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -193,7 +201,7 @@
                     GitHub
                 </a>
                 <!-- Version Badge -->
-                <span class="hidden md:inline-flex items-center px-2.5 py-1 text-xs font-semibold text-emerald-400 bg-emerald-900/20 rounded-full border border-emerald-500/20">v8.0.0</span>
+                <span class="hidden lg:inline-flex items-center px-2.5 py-1 text-xs font-semibold text-emerald-400 bg-emerald-900/20 rounded-full border border-emerald-500/20">v8.0.0</span>
 
                 <!-- Mobile menu button -->
                 <button data-collapse-toggle="navbar-menu" type="button"
@@ -229,35 +237,35 @@
                             class="absolute left-0 mt-2 w-56 bg-gray-900 rounded-xl shadow-2xl border border-white/10 py-2 z-50"
                             x-cloak>
                             <div class="px-3 py-1.5 text-xs font-semibold text-indigo-400 uppercase tracking-wider">Intelligence</div>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/dd/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/dd/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-indigo-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
                                 Due Diligence
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/osint/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/osint/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
                                 OSINT
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/lab/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/lab/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714a2.25 2.25 0 00.659 1.591L19 14.5m0 0l-1.47 4.409a2.25 2.25 0 01-2.133 1.541H8.603a2.25 2.25 0 01-2.134-1.541L5 14.5m14 0H5"/></svg>
                                 Interactive Labs
                             </a>
                             <div class="my-1.5 border-t border-white/5"></div>
                             <div class="px-3 py-1.5 text-xs font-semibold text-indigo-400 uppercase tracking-wider">Ecosystem</div>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/agents/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/agents/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                                 Agents
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/apps/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/apps/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-sky-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>
                                 Apps
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/applications/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/applications/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-indigo-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
                                 Applications
                             </a>
                             <div class="my-1.5 border-t border-white/5"></div>
                             <div class="px-3 py-1.5 text-xs font-semibold text-indigo-400 uppercase tracking-wider">Hub</div>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
                                 Dashboard Hub
                             </a>
@@ -282,37 +290,37 @@
                             x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
                             class="absolute left-0 mt-2 w-52 bg-gray-900 rounded-xl shadow-2xl border border-white/10 py-2 z-50"
                             x-cloak>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
                                 Developer Portal
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/sdk/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/sdk/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
                                 SDK
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/api/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/api/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-teal-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
                                 API Reference
                             </a>
                             <div class="my-1.5 border-t border-white/5"></div>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/commands/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/commands/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-blue-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
                                 Commands
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/registry/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/registry/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-blue-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
                                 Registry
                             </a>
                             <div class="my-1.5 border-t border-white/5"></div>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/plugins/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/plugins/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-orange-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"/></svg>
                                 Plugins
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/ui-components/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/ui-components/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-pink-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
                                 UI Components
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/community/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/community/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-yellow-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
                                 Community
                             </a>
@@ -337,36 +345,36 @@
                             x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
                             class="absolute left-0 mt-2 w-52 bg-gray-900 rounded-xl shadow-2xl border border-white/10 py-2 z-50"
                             x-cloak>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/academy/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/academy/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
                                 Academy
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/capabilities/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/capabilities/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                                 Capabilities
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/philosophy/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/philosophy/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
                                 Philosophy
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/architecture/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/architecture/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-lime-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
                                 Architecture
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/technologies/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/technologies/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-emerald-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>
                                 Technologies
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-teal-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
                                 Glossary
                             </a>
                             <div class="my-1.5 border-t border-white/5"></div>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/blog/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/blog/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-emerald-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
                                 Blog
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/faq/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/faq/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-emerald-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                 FAQ
                             </a>
@@ -391,33 +399,33 @@
                             x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95"
                             class="absolute right-0 mt-2 w-52 bg-gray-900 rounded-xl shadow-2xl border border-white/10 py-2 z-50"
                             x-cloak>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/executive/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/executive/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-violet-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                                 Executive Overview
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/teams/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/teams/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-purple-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
                                 Color Teams
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/about/author/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/about/author/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-violet-300 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                                 Author
                             </a>
                             <div class="my-1.5 border-t border-white/5"></div>
                             <div class="px-3 py-1.5 text-xs font-semibold text-violet-400 uppercase tracking-wider">For You</div>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/about/for-executives/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/about/for-executives/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-amber-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
                                 For Executives
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/about/for-architects/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/about/for-architects/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-blue-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
                                 For Architects
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/about/for-developers/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/about/for-developers/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-cyan-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
                                 For Developers
                             </a>
-                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/about/for-security/" class="flex items-center gap-2.5 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5">
+                            <a href="https://prismatic-reality-com.github.io/prismatic-promo/about/for-security/" class="flex items-center gap-2.5 px-3 py-3 text-sm text-gray-300 min-h-[44px] hover:text-white hover:bg-white/5">
                                 <svg aria-hidden="true" class="w-4 h-4 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                                 For Security
                             </a>
@@ -434,886 +442,439 @@
     <main>
         
 <!-- Hero Section -->
-<section class="bg-gray-900 py-16 lg:py-24 border-b border-white/5">
+<section class="bg-gray-900 py-12 lg:py-16 border-b border-white/5">
     <div class="max-w-screen-xl px-4 mx-auto">
-                
-<nav class="flex mb-6" aria-label="Breadcrumb">
-    <ol class="inline-flex items-center space-x-1 md:space-x-2">
-        <li class="inline-flex items-center">
+        
+<nav class="flex mb-6 min-w-0" aria-label="Breadcrumb">
+    <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 min-w-0">
+        <li class="inline-flex items-center min-w-0">
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo" class="inline-flex items-center text-sm font-medium text-gray-400 hover:text-white transition-colors">
-                <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
+                <svg aria-hidden="true" class="w-4 h-4 mr-1.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/></svg>
                 Home
             </a>
         </li>
-        <li aria-current="page">
-            <div class="flex items-center">
-                <svg class="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
-                <span class="ml-1 text-sm font-medium text-gray-300 md:ml-2">Prevence a rezilience</span>
+        <li aria-current="page" class="min-w-0">
+            <div class="flex items-center min-w-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-gray-600 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/></svg>
+                <span class="ml-1 lg:ml-2 text-sm font-medium text-gray-300 break-words min-w-0">Prevence a rezilience</span>
             </div>
         </li>
     </ol>
 </nav>
 
-<div class="mb-8">
+
+        <div class="mb-6">
             <div class="inline-flex items-center gap-2 px-4 py-2 mb-6 text-xs font-bold tracking-widest text-indigo-400 bg-indigo-900/30 rounded-full uppercase border border-indigo-700/30">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                <svg aria-hidden="true" class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                 </svg>
-                Epistemic Development OS
+                
+                Kompendium
+                
             </div>
-            <h1 class="text-4xl md:text-6xl font-black text-white mb-6 tracking-tight">
+
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-6 tracking-tight break-words">
                 Prevence a rezilience
             </h1>
-            <p class="text-lg text-gray-400 max-w-3xl leading-relaxed">
-                Learn about the Prismatic Platform -- an AI-orchestrated intelligence ecosystem built with Elixir/OTP.
+
+            
+            <p class="text-lg text-gray-300 max-w-3xl leading-relaxed break-words">
+                30 článků o prevenci EA a budování reziliencie napříč třemi úrovněmi (primární, sekundární, terciární).
             </p>
+            
+
+            <!-- Section meta badges -->
+            <div class="flex flex-wrap gap-2 mt-5">
+                
+                
+                
+            </div>
         </div>
 
-        <!-- Platform Stats -->
-        <div class="flex flex-wrap justify-center gap-8 mt-12">
-            <div class="text-center">
-                <div class="text-4xl font-black text-indigo-400">434</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">AI Agents</div>
+        <!-- Kompendium Stats (real, not platform stats) -->
+        
+        
+        
+        <div class="flex flex-wrap gap-6 sm:gap-8 mt-8">
+            
+            
+            <div>
+                <div class="text-3xl sm:text-4xl font-black text-purple-400">30</div>
+                <div class="text-xs sm:text-sm text-gray-500 uppercase tracking-wider">Článků</div>
             </div>
-            <div class="text-center">
-                <div class="text-4xl font-black text-emerald-400">100/100</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Quality Score</div>
-            </div>
-            <div class="text-center">
-                <div class="text-4xl font-black text-cyan-400">99</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Umbrella Apps</div>
-            </div>
-            <div class="text-center">
-                <div class="text-4xl font-black text-purple-400">Gen 18</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Evolution</div>
-            </div>
-            <div class="text-center">
-                <div class="text-4xl font-black text-amber-400">2.8M</div>
-                <div class="text-sm text-gray-500 uppercase tracking-wider">Lines of Code</div>
-            </div>
+            
+            
+            
         </div>
+        
     </div>
 </section>
 
 <!-- Main Content + Sidebar -->
-<section class="bg-gray-900 py-12 lg:py-16">
-    <div class="max-w-screen-xl px-4 mx-auto">
-        <div class="grid gap-8 lg:grid-cols-4">
+<section class="bg-gray-900 py-10 lg:py-14">
+    <div class="max-w-screen-xl px-4 mx-auto min-w-0">
+        <div class="grid gap-6 lg:gap-8 grid-cols-1 lg:grid-cols-4 min-w-0">
+
             <!-- Main Content (3/4) -->
-            <div class="lg:col-span-3">
-                <!-- Audience Cards -->
+            <div class="lg:col-span-3 min-w-0">
+
+                <!-- Subsection grid (chapters / categories) -->
+                
+
+                <!-- Articles list (when section contains pages directly) -->
                 
                 <div class="mb-12">
-                    <div class="mb-10">
-                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Choose Your Perspective</h2>
-                        <p class="text-gray-400 max-w-2xl">Prismatic means different things to different people. Find the explanation that matches your role and interests.</p>
+                    <div class="mb-6">
+                        <h2 class="text-2xl lg:text-3xl font-bold text-white mb-2">Články</h2>
+                        <p class="text-gray-400 text-sm sm:text-base">30 článků v této sekci.</p>
                     </div>
 
-                    <div class="grid gap-6 md:grid-cols-2">
+                    <div class="grid gap-3 grid-cols-1 sm:grid-cols-2 min-w-0">
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;1-childhood-resilience-foundation&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Budování dětské reziliencie</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Budování dětské reziliencie</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — budování dětské reziliencie.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;2-school-based-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Školní prevence EA</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Školní prevence EA</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — školní prevence ea.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;3-family-resilience-ea&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Rodinná reziliencie</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Rodinná reziliencie</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — rodinná reziliencie.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;4-community-resilience-ea&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Komunitní reziliencie</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Komunitní reziliencie</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — komunitní reziliencie.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;5-workplace-prevention-ea&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Pracovní prevence EA</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Pracovní prevence EA</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — pracovní prevence ea.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;6-media-literacy-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Mediální gramotnost</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Mediální gramotnost</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — mediální gramotnost.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;7-digital-hygiene-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Digitální hygiena</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Digitální hygiena</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — digitální hygiena.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;8-critical-thinking-curriculum&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Kurikulum kritického myšlení</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Kurikulum kritického myšlení</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — kurikulum kritického myšlení.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;9-civic-education-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Občanské vzdělávání</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Občanské vzdělávání</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — občanské vzdělávání.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;10-public-discourse-quality&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Kvalita veřejného diskurzu</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Kvalita veřejného diskurzu</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — kvalita veřejného diskurzu.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;11-early-screening-ea&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Včasný screening EA</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Včasný screening EA</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — včasný screening ea.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;12-warning-sign-recognition&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Rozpoznání varovných signálů</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Rozpoznání varovných signálů</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — rozpoznání varovných signálů.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;13-rapid-response-protocol&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Rychlá odezva</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Rychlá odezva</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — rychlá odezva.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;14-de-escalation-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Deeskalace</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Deeskalace</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — deeskalace.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;15-relationship-monitoring&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Monitorování vztahů</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Monitorování vztahů</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — monitorování vztahů.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;16-employer-vigilance&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Vigilance zaměstnavatele</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Vigilance zaměstnavatele</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — vigilance zaměstnavatele.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;17-academic-supervision-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Akademický dohled</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Akademický dohled</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — akademický dohled.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;18-clinical-vigilance-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Klinická vigilance</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Klinická vigilance</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — klinická vigilance.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;19-pastoral-vigilance-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Pastorální vigilance</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Pastorální vigilance</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — pastorální vigilance.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;20-peer-vigilance-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Peer vigilance</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Peer vigilance</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — peer vigilance.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;21-relapse-prevention-ea&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Prevence relapsu</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Prevence relapsu</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — prevence relapsu.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;22-post-ea-network-rebuilding&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Obnova sociální sítě</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Obnova sociální sítě</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — obnova sociální sítě.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;23-skills-rebuilding-program&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Obnova dovedností</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Obnova dovedností</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — obnova dovedností.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;24-meaning-restoration-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Obnova smyslu</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Obnova smyslu</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — obnova smyslu.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;25-vocational-rehabilitation-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Pracovní rehabilitace</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Pracovní rehabilitace</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — pracovní rehabilitace.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;26-family-reintegration-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Rodinná reintegrace</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Rodinná reintegrace</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — rodinná reintegrace.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;27-community-reintegration-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Komunitní reintegrace</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Komunitní reintegrace</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — komunitní reintegrace.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;28-spiritual-restoration-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Spirituální obnova</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Spirituální obnova</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — spirituální obnova.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;29-cultural-restoration-prevention&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Kulturní obnova</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Kulturní obnova</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — kulturní obnova.</p>
+                            
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;30-trauma-informed-citizenship&#x2F;"
-                           class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-2xl hover:border-indigo-500/30 transition-all duration-300 hover:-translate-y-1">
-                            <div class="flex items-center gap-3 mb-4">
-                                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-indigo-900/30 border border-indigo-700/30">
-                                    
-                                    <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                    </svg>
-                                    
-                                </div>
+                           class="group block p-4 bg-gray-800 rounded-lg border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start justify-between gap-2 mb-1 min-w-0">
+                                <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Trauma-informované občanství</h3>
                                 
                             </div>
-
-                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">Trauma-informované občanství</h3>
                             
-                            <div class="flex items-center text-sm font-medium text-gray-400 group-hover:text-white transition-colors">
-                                <span>Read more</span>
-                                <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
-                            </div>
+                            <p class="text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2 break-words">Prevence a rezilience — trauma-informované občanství.</p>
+                            
                         </a>
                         
                     </div>
                 </div>
                 
 
-                <!-- Core Pillars -->
-                <div class="mb-12">
-                    <div class="mb-8">
-                        <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Core Pillars</h2>
-                        <p class="text-gray-400 max-w-2xl">
-                            Prismatic is built on five non-negotiable pillars that together form an epistemic development operating system.
-                        </p>
-                    </div>
-
-                    <div class="grid gap-4 md:grid-cols-5">
-                        <div class="text-center p-5 bg-gray-800 rounded-xl border border-gray-700">
-                            <div class="w-10 h-10 mx-auto mb-2 bg-indigo-900/30 rounded-xl flex items-center justify-center">
-                                <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                </svg>
-                            </div>
-                            <h4 class="font-semibold text-white text-sm mb-1">AI Orchestration</h4>
-                            <p class="text-xs text-gray-500">434 agents</p>
-                        </div>
-                        <div class="text-center p-5 bg-gray-800 rounded-xl border border-gray-700">
-                            <div class="w-10 h-10 mx-auto mb-2 bg-red-900/30 rounded-xl flex items-center justify-center">
-                                <svg class="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                                </svg>
-                            </div>
-                            <h4 class="font-semibold text-white text-sm mb-1">Security</h4>
-                            <p class="text-xs text-gray-500">6 Color Teams</p>
-                        </div>
-                        <div class="text-center p-5 bg-gray-800 rounded-xl border border-gray-700">
-                            <div class="w-10 h-10 mx-auto mb-2 bg-emerald-900/30 rounded-xl flex items-center justify-center">
-                                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </svg>
-                            </div>
-                            <h4 class="font-semibold text-white text-sm mb-1">Quality</h4>
-                            <p class="text-xs text-gray-500">100/100 score</p>
-                        </div>
-                        <div class="text-center p-5 bg-gray-800 rounded-xl border border-gray-700">
-                            <div class="w-10 h-10 mx-auto mb-2 bg-cyan-900/30 rounded-xl flex items-center justify-center">
-                                <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
-                                </svg>
-                            </div>
-                            <h4 class="font-semibold text-white text-sm mb-1">Verification</h4>
-                            <p class="text-xs text-gray-500">QEVE + Trinity</p>
-                        </div>
-                        <div class="text-center p-5 bg-gray-800 rounded-xl border border-gray-700">
-                            <div class="w-10 h-10 mx-auto mb-2 bg-purple-900/30 rounded-xl flex items-center justify-center">
-                                <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
-                                </svg>
-                            </div>
-                            <h4 class="font-semibold text-white text-sm mb-1">Self-Evolution</h4>
-                            <p class="text-xs text-gray-500">Gen 18</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Explore Platform -->
-                <div>
-                    <h2 class="text-2xl font-bold text-white mb-6">Explore the Platform</h2>
-                    <div class="grid gap-4 md:grid-cols-3">
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/agents/" class="flex items-center gap-3 p-4 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all">
-                            <span class="w-2 h-2 rounded-full bg-purple-400"></span>
-                            <span class="text-sm text-gray-300">Agents</span>
-                            <span class="ml-auto text-xs text-gray-500">434</span>
-                        </a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/apps/" class="flex items-center gap-3 p-4 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all">
-                            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
-                            <span class="text-sm text-gray-300">Applications</span>
-                            <span class="ml-auto text-xs text-gray-500">99</span>
-                        </a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/architecture/" class="flex items-center gap-3 p-4 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-                            <span class="text-sm text-gray-300">Architecture</span>
-                        </a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/capabilities/" class="flex items-center gap-3 p-4 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all">
-                            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-                            <span class="text-sm text-gray-300">Capabilities</span>
-                        </a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/commands/" class="flex items-center gap-3 p-4 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all">
-                            <span class="w-2 h-2 rounded-full bg-blue-400"></span>
-                            <span class="text-sm text-gray-300">Commands</span>
-                            <span class="ml-auto text-xs text-gray-500">217</span>
-                        </a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/glossary/" class="flex items-center gap-3 p-4 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all">
-                            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
-                            <span class="text-sm text-gray-300">Glossary</span>
-                            <span class="ml-auto text-xs text-gray-500">225+</span>
-                        </a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/teams/" class="flex items-center gap-3 p-4 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all">
-                            <span class="w-2 h-2 rounded-full bg-red-400"></span>
-                            <span class="text-sm text-gray-300">Color Teams</span>
-                            <span class="ml-auto text-xs text-gray-500">6</span>
-                        </a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/technologies/" class="flex items-center gap-3 p-4 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all">
-                            <span class="w-2 h-2 rounded-full bg-teal-400"></span>
-                            <span class="text-sm text-gray-300">Technologies</span>
-                        </a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/osint/" class="flex items-center gap-3 p-4 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/30 transition-all">
-                            <span class="w-2 h-2 rounded-full bg-rose-400"></span>
-                            <span class="text-sm text-gray-300">OSINT</span>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Section Content -->
-                <div class="mt-10 prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed
-                    prose-a:text-emerald-400 prose-a:font-semibold hover:prose-a:text-emerald-300">
+                <!-- Section markdown content -->
+                
+                <div class="mt-8 prose prose-sm sm:prose-base lg:prose-lg prose-invert max-w-none min-w-0 break-words text-gray-300 leading-relaxed
+                    prose-headings:text-white prose-headings:break-words
+                    prose-a:text-emerald-400 prose-a:font-semibold hover:prose-a:text-emerald-300
+                    prose-strong:text-white
+                    prose-code:text-indigo-300
+                    prose-pre:bg-gray-800
+                    prose-blockquote:border-l-indigo-500 prose-blockquote:text-gray-300
+                    prose-table:text-gray-300 prose-th:text-white prose-td:border-gray-700">
                     <h1 id="prevence-a-rezilience">Prevence a rezilience</h1>
 <p><strong>30 článků</strong> | <strong>3 úrovně prevence</strong> | <strong>Public health framework</strong></p>
 <p>Tato sekce aplikuje klasický public-health framework prevence (primární / sekundární / terciární) na epistemické útoky (EA). Každý článek poskytuje cíl, klíčové komponenty, implementační postup, indikátory úspěchu a cílovou populaci.</p>
@@ -1383,180 +944,480 @@
 </ul>
 
                 </div>
+                
             </div>
 
             <!-- Right Sidebar (1/4) -->
-            <div class="hidden lg:block sticky top-4 space-y-6 self-start">
-                <!-- Platform At a Glance -->
-                <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                    <button @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+            <aside class="hidden lg:block sticky top-4 space-y-6 self-start min-w-0">
+
+                <!-- Section overview -->
+                <div x-data="{ expanded: true }" x-cloak class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
                         <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
                             </svg>
-                            <span class="font-semibold text-white text-sm">Platform At a Glance</span>
+                            <span class="font-semibold text-white text-sm">Přehled sekce</span>
                         </div>
-                        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
-                    <div x-show="expanded" x-transition class="px-4 pb-4 space-y-3">
-                        <div class="flex justify-between items-center text-sm">
-                            <span class="text-gray-400">AI Agents</span>
-                            <span class="font-bold text-indigo-400">434</span>
+                    <div x-show="expanded" x-transition class="px-4 pb-4 space-y-2 text-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Podsekcí</span>
+                            <span class="font-bold text-indigo-400">0</span>
                         </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <span class="text-gray-400">Umbrella Apps</span>
-                            <span class="font-bold text-cyan-400">99</span>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">Článků</span>
+                            <span class="font-bold text-purple-400">30</span>
                         </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <span class="text-gray-400">Quality Score</span>
-                            <span class="font-bold text-emerald-400">100/100</span>
-                        </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <span class="text-gray-400">Evolution</span>
-                            <span class="font-bold text-purple-400">Gen 18</span>
-                        </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <span class="text-gray-400">Lines of Code</span>
-                            <span class="font-bold text-amber-400">2.8M</span>
-                        </div>
-                        <div class="pt-2 border-t border-gray-700">
-                            <div class="flex justify-between items-center text-sm">
-                                <span class="text-gray-400">Commands</span>
-                                <span class="font-bold text-white">217</span>
-                            </div>
-                        </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <span class="text-gray-400">Color Teams</span>
-                            <span class="font-bold text-red-400">6</span>
-                        </div>
-                        <div class="flex justify-between items-center text-sm">
-                            <span class="text-gray-400">Glossary Terms</span>
-                            <span class="font-bold text-white">225+</span>
-                        </div>
+                        
+                        
+                        
+                        
                     </div>
                 </div>
 
-                <!-- Key Concepts -->
-                <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                    <button @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                <!-- Kompendium chapter navigation (always show kompendium root chapters) -->
+                
+                <div x-data="{ expanded: true }" x-cloak class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
                         <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                            <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
                             </svg>
-                            <span class="font-semibold text-white text-sm">Key Concepts</span>
+                            <span class="font-semibold text-white text-sm">Kapitoly kompendia</span>
                         </div>
-                        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-                        </svg>
-                    </button>
-                    <div x-show="expanded" x-transition class="px-4 pb-4 space-y-2">
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/glossary/aiad/" class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-700 rounded-lg transition-colors">AIAD Framework</a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/glossary/nabla-infinity/" class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-700 rounded-lg transition-colors">NABLA Infinity</a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/glossary/trinity-gate/" class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-700 rounded-lg transition-colors">Trinity Gate</a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/glossary/qeve/" class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-700 rounded-lg transition-colors">QEVE Verification</a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/glossary/no-mercy-no-doubts/" class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-700 rounded-lg transition-colors">No Mercy, No Doubts</a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/glossary/epistemic-pipeline/" class="block px-3 py-2 text-sm text-gray-400 hover:text-white hover:bg-gray-700 rounded-lg transition-colors">Epistemic Pipeline</a>
-                    </div>
-                </div>
-
-                <!-- Quick Navigation -->
-                <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                    <button @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
-                        <div class="flex items-center gap-2">
-                            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-                            </svg>
-                            <span class="font-semibold text-white text-sm">Quick Navigation</span>
-                        </div>
-                        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="{'rotate-180': !expanded}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                         </svg>
                     </button>
                     <div x-show="expanded" x-transition class="px-4 pb-4 space-y-1">
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/agents/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
-                            <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Agents</span>
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5 ml-6">434 specialized AI agents</p>
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;"
+                           class="block px-3 py-1.5 text-sm rounded-lg transition-all
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            ← Domů kompendia
                         </a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/architecture/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
-                            <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Architecture</span>
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5 ml-6">OTP supervision and topology</p>
-                        </a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/teams/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
-                            <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Color Teams</span>
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5 ml-6">6 adversarial-defensive teams</p>
-                        </a>
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/technologies/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors group">
-                            <div class="flex items-center gap-2">
-                                <svg class="w-4 h-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-                                <span class="text-sm font-medium text-gray-300 group-hover:text-white">Technologies</span>
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5 ml-6">Elixir, Phoenix, OTP stack</p>
-                        </a>
+                        <div class="max-h-[400px] overflow-y-auto pr-1 space-y-0.5 mt-2">
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;cross-domain&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Cross-Domain Bridges
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;07-teoreticke-reflexe&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                7. Teoretické a metakonceptuální reflexe
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;08-prilohy&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                08. Přílohy
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;forensic-legal&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Forenzni a pravni rozmer EA
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;01-predmluva&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                01. Předmluva
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;02-uvod&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                02. Úvod do epistemické anihilace
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;03-zakladni-kategorie&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                03. Základní kategorie epistemických manipulací
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-terminalni-protokoly&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                04. Terminální protokoly
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-ultramari-techniky&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                05. Ultramární techniky fundamentální dekonstrukce
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-klinicke-aplikace&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                06. Klinické aplikace a diagnostika
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;recovery-protocols&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Longitudinální rekonstruktivní protokoly
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;emergency-protocols&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Akutní intervenční protokoly
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;self-defense-guides&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Praktické návody sebe-obrany
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;international&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Mezinárodní perspektivy
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;detection-signatures&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Detekční signatury EA technik
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Vzdělávací scénáře
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Historické případy
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;07-populacni&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Populační rovina &#x2F; Population-level Phenomena
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;case-studies&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Case Studies — anonymizovane pripadove studie
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;visualizations&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Interaktivní vizualizace
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;aiad-integration&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                AIAD Integration &amp; EA detection
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-indigo-400 font-semibold bg-indigo-900/30
+                               ">
+                                Prevence a rezilience
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;population-health&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Populační zdraví a prevence
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;organizational-defense&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Organizační obrana
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;quick-reference&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Quick Reference — rychlé referenční karty
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;glossary-bridges&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Glossary Bridges — propojení kompendia s platformovým glosářem
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;research-methodology&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Research Methodology — Výzkumná Metodologie EA
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;section-bridges&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Section Bridges — propojení sekcí kompendia
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;critical-perspectives&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Critical Perspectives — kritické perspektivy EA frameworku
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;02-doktrinalni-ramec&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Doktrinální rámec
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-klinika&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Klinika
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-operacni-principy&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Operační principy
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-pre-konceptualni-rozklad&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Pre-konceptuální rozklad
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-kolektivni-rozmer&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Kolektivní rozměr
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;03-manipulacni-vzorce&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Manipulační vzorce
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-intervence-a-obrana&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Intervence a obrana
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-epistemicka-singularita&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Epistemická singularita
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-pokrocile-fenomeny&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Pokročilé fenomény
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;techniques&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Techniques — detailní per-technique články
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-diagnostika&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Diagnostika
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;01-zaklady-manipulace&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Základy manipulace
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;konceptualni-mapa&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Konceptuální mapa epistemické anihilace
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-obrana&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Obrana proti epistemické anihilaci
+                            </a>
+                            
+                        </div>
                     </div>
+                </div>
+
+                <!-- Etické upozornění -->
+                <div class="p-4 bg-amber-900/10 border border-amber-700/40 rounded-xl">
+                    <div class="flex items-start gap-2 mb-2">
+                        <svg aria-hidden="true" class="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                        </svg>
+                        <span class="font-semibold text-amber-300 text-sm">Etické upozornění</span>
+                    </div>
+                    <p class="text-xs text-amber-100/80 leading-relaxed">
+                        Kompendium obsahuje detailní popis potenciálně destruktivních technik. Slouží <strong>defenzivnímu</strong>, <strong>diagnostickému</strong> a <strong>edukativnímu</strong> účelu — nikoliv návodu k aplikaci.
+                    </p>
                 </div>
 
                 
 
 
-<div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden" x-data="{ open: true }">
+<div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden" x-data="{ open: true }" x-cloak>
     <button @click="open = !open" class="w-full flex items-center justify-between p-4 text-left">
         <div class="flex items-center gap-2">
-            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg aria-hidden="true" class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
             <span class="font-semibold text-white text-sm">Explore Platform</span>
         </div>
-        <svg class="w-4 h-4 text-gray-400 transition-transform" :class="{ 'rotate-180': !open }" fill="none"
+        <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="{ 'rotate-180': !open }" fill="none"
             stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
         </svg>
     </button>
     <div x-show="open" x-transition class="px-4 pb-4 space-y-1">
         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/dd/"
-            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
                 class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Due Diligence<span
                 class="ml-auto text-xs text-gray-600">122 src</span></a>
+        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/cases/"
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+                class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>Live Cases<span
+                class="ml-auto text-xs text-purple-400 font-semibold">LIVE</span></a>
         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/osint/"
-            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
                 class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>OSINT Sources<span
                 class="ml-auto text-xs text-gray-600">121+</span></a>
         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/lab/"
-            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
                 class="w-1.5 h-1.5 rounded-full bg-teal-400"></span>Interactive Labs<span
                 class="ml-auto text-xs text-gray-600">15 exp</span></a>
         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/academy/"
-            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
                 class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>Academy<span
                 class="ml-auto text-xs text-gray-600">15 courses</span></a>
         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/api/"
-            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
                 class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>API Reference</a>
         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/agents/"
-            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
                 class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>Agents<span
-                class="ml-auto text-xs text-gray-600">434</span></a>
+                class="ml-auto text-xs text-gray-600">552</span></a>
         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/apps/"
-            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
                 class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>Applications<span
-                class="ml-auto text-xs text-gray-600">90</span></a>
+                class="ml-auto text-xs text-gray-600">92</span></a>
         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/glossary/"
-            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
                 class="w-1.5 h-1.5 rounded-full bg-pink-400"></span>Glossary<span
                 class="ml-auto text-xs text-gray-600">225+</span></a>
         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/teams/"
-            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-400 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
+            class="flex items-center gap-2 px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:bg-gray-700/50 rounded-lg transition-colors"><span
                 class="w-1.5 h-1.5 rounded-full bg-red-400"></span>Color Teams<span
                 class="ml-auto text-xs text-gray-600">6</span></a>
     </div>
@@ -1566,7 +1427,7 @@
 <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
     <div class="p-4">
         <div class="flex items-center gap-2 mb-3">
-            <svg class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg aria-hidden="true" class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
             </svg>
@@ -1574,31 +1435,31 @@
         </div>
         <div class="space-y-2">
             <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-indigo-400" fill="none"
+                <div class="flex items-center gap-2"><svg aria-hidden="true" class="w-3.5 h-3.5 text-indigo-400" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg><span class="text-xs text-gray-400">Agents</span></div>
-                <span class="text-xs font-bold text-white">434</span>
+                <span class="text-xs font-bold text-white">552</span>
             </div>
             <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-emerald-400" fill="none"
+                <div class="flex items-center gap-2"><svg aria-hidden="true" class="w-3.5 h-3.5 text-emerald-400" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg><span class="text-xs text-gray-400">Commands</span></div>
-                <span class="text-xs font-bold text-white">217</span>
+                <span class="text-xs font-bold text-white">228</span>
             </div>
             <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-purple-400" fill="none"
+                <div class="flex items-center gap-2"><svg aria-hidden="true" class="w-3.5 h-3.5 text-purple-400" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                     </svg><span class="text-xs text-gray-400">Applications</span></div>
-                <span class="text-xs font-bold text-white">90</span>
+                <span class="text-xs font-bold text-white">92</span>
             </div>
             <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-amber-400" fill="none"
+                <div class="flex items-center gap-2"><svg aria-hidden="true" class="w-3.5 h-3.5 text-amber-400" fill="none"
                         stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -1622,12 +1483,12 @@
     <div class="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
     <div class="p-4 pt-5">
         <div class="flex items-center gap-2 mb-3">
-            <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             <span class="font-semibold text-white text-sm">Want to Know More?</span>
-            <svg class="w-3 h-3 text-purple-400 ml-auto" fill="currentColor" viewBox="0 0 24 24">
+            <svg aria-hidden="true" class="w-3 h-3 text-purple-400 ml-auto" fill="currentColor" viewBox="0 0 24 24">
                 <path
                     d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
@@ -1638,19 +1499,19 @@
         <nav class="space-y-1">
             
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/about/" class="group flex items-center gap-2 px-3 py-1.5 text-xs text-indigo-300 hover:text-white hover:bg-indigo-900&#x2F;30
-rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"><svg class="w-3.5 h-3.5 flex-shrink-0 transition-transform group-hover:scale-110" fill="none" stroke="currentColor"
+rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"><svg aria-hidden="true" class="w-3.5 h-3.5 flex-shrink-0 transition-transform group-hover:scale-110" fill="none" stroke="currentColor"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>About Prismatic</a>
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/agents/" class="group flex items-center gap-2 px-3 py-1.5 text-xs text-indigo-300 hover:text-white hover:bg-indigo-900&#x2F;30
-rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"><svg class="w-3.5 h-3.5 flex-shrink-0 transition-transform group-hover:scale-110" fill="none" stroke="currentColor"
+rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"><svg aria-hidden="true" class="w-3.5 h-3.5 flex-shrink-0 transition-transform group-hover:scale-110" fill="none" stroke="currentColor"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>Agent Ecosystem (434)</a>
+                </svg>Agent Ecosystem (552)</a>
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/architecture/" class="group flex items-center gap-2 px-3 py-1.5 text-xs text-indigo-300 hover:text-white hover:bg-indigo-900&#x2F;30
-rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"><svg class="w-3.5 h-3.5 flex-shrink-0 transition-transform group-hover:scale-110" fill="none" stroke="currentColor"
+rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"><svg aria-hidden="true" class="w-3.5 h-3.5 flex-shrink-0 transition-transform group-hover:scale-110" fill="none" stroke="currentColor"
                     viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
@@ -1660,21 +1521,19 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
 </div>
 
 
-            </div>
+            </aside>
         </div>
     </div>
 </section>
-
-
 
     </main>
 
     <!-- Footer -->
     <footer class="bg-gray-950 border-t border-white/5">
         <div class="max-w-screen-xl px-4 py-12 mx-auto">
-            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
                 <!-- Brand -->
-                <div class="lg:col-span-2">
+                <div class="sm:col-span-2 lg:col-span-2">
                     <a href="https://prismatic-reality-com.github.io/prismatic-promo/" class="flex items-center space-x-3 mb-4">
                         <div
                             class="w-10 h-10 bg-white rounded-xl flex items-center justify-center">
@@ -1743,6 +1602,8 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
                     <ul class="space-y-3">
                         <li><a href="https://prismatic-reality-com.github.io/prismatic-promo/dd/"
                                 class="text-gray-400 hover:text-white transition-colors">Due Diligence</a></li>
+                        <li><a href="https://prismatic-reality-com.github.io/prismatic-promo/cases/"
+                                class="text-emerald-400 hover:text-emerald-300 transition-colors font-medium">DD Cases (LIVE)</a></li>
                         <li><a href="https://prismatic-reality-com.github.io/prismatic-promo/osint/"
                                 class="text-gray-400 hover:text-white transition-colors">OSINT Sources (121+)</a></li>
                         <li><a href="https://prismatic-reality-com.github.io/prismatic-promo/lab/"
@@ -1781,8 +1642,8 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
             </div>
 
             <div class="mt-12 pt-8 border-t border-white/5">
-                <div class="flex flex-col md:flex-row justify-between items-center mb-4">
-                    <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
+                <div class="flex flex-col lg:flex-row justify-between items-center mb-4 gap-4 lg:gap-0">
+                    <div class="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-6 min-w-0">
                         <p class="text-sm text-gray-500">
                             &copy; 2026 <a href="https:&#x2F;&#x2F;github.com&#x2F;korczis" class="text-gray-400 hover:text-white">Tomáš Korcak</a>.
                             Licensed under <a href="https:&#x2F;&#x2F;github.com&#x2F;korczis&#x2F;prismatic-platform/blob/main/LICENSE" class="text-gray-400 hover:text-white">GHL</a>.
@@ -1792,20 +1653,20 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
                             <a href="https://prismatic-reality-com.github.io/prismatic-promo/capabilities/no-doubts/" class="text-gray-400 hover:text-white">NO DOUBTS</a>.
                         </p>
                     </div>
-                    <div class="flex items-center space-x-4 mt-4 md:mt-0">
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-2 mt-4 lg:mt-0">
                         <span class="text-sm text-gray-500">v8.0.0</span>
                         <span class="text-sm text-gray-400 font-semibold">Quality: 100/100</span>
                         <span class="text-sm text-gray-400">Gen 19</span>
                     </div>
                 </div>
-                <div class="flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
-                    <div class="flex items-center space-x-4">
+                <div class="flex flex-col lg:flex-row justify-between items-center text-xs text-gray-600 gap-2 lg:gap-0">
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
                         <a href="https:&#x2F;&#x2F;github.com&#x2F;korczis&#x2F;prismatic-platform" class="hover:text-gray-400">GitHub</a>
                         <a href="https:&#x2F;&#x2F;gitlab.com&#x2F;korczis&#x2F;prismatic-platform" class="hover:text-gray-400">GitLab</a>
                         <a href="https://prismatic-reality-com.github.io/prismatic-promo/blog/" class="hover:text-gray-400">Blog</a>
                         <a href="https://prismatic-reality-com.github.io/prismatic-promo/faq/" class="hover:text-gray-400">FAQ</a>
                     </div>
-                    <div class="flex items-center space-x-2 mt-2 md:mt-0">
+                    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 mt-2 lg:mt-0">
                         <span>552 agents</span>
                         <span>•</span>
                         <span>92 apps</span>
@@ -2101,7 +1962,7 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
     <!-- Flowbite JS -->
     <script src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/flowbite.min.js" defer></script>
 
-    <!-- On-demand: p5.js, Chart.js, Mermaid - only loaded when page needs them -->
+    <!-- On-demand: p5.js, Chart.js, Three.js, Mermaid - only loaded when page needs them -->
     <script>
         (function() {
             // p5.js Creative Manager
@@ -2115,8 +1976,10 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
                 };
                 document.body.appendChild(p5Script);
             }
-            // Chart.js
-            if (document.querySelector('canvas, [data-chart], [data-chart-type], .chart-container')) {
+            // Chart.js — explicit data-attribute opt-in only. Bare <canvas> intentionally
+            // excluded to prevent false-positive 70KB downloads on pages with decorative
+            // canvases (e.g. hero animations) that have nothing to do with Chart.js.
+            if (document.querySelector('[data-chart], [data-chart-type], .chart-container')) {
                 var cs = document.createElement('script');
                 cs.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js';
                 cs.onload = function() {
@@ -2129,8 +1992,26 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
                 };
                 document.body.appendChild(cs);
             }
-            // Mermaid.js
-            if (document.querySelector('.mermaid, [data-mermaid], pre > code.language-mermaid')) {
+            // Three.js — opt-in via [data-three-scene] from fb::three_scene macro.
+            if (document.querySelector('[data-three-scene]')) {
+                var ts = document.createElement('script');
+                ts.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/three-0.160.min.js';
+                ts.onload = function() {
+                    var oc = document.createElement('script');
+                    oc.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/OrbitControls.min.js';
+                    oc.onload = function() {
+                        var sm = document.createElement('script');
+                        sm.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/three-scene-manager.js';
+                        document.body.appendChild(sm);
+                    };
+                    document.body.appendChild(oc);
+                };
+                document.body.appendChild(ts);
+            }
+            // Mermaid.js — Zola with [markdown.highlighting] style="class" emits
+            // <code data-lang="mermaid">, NOT class="language-mermaid". Match both forms
+            // (and let mermaid-init.js do the heavy lifting via the same selector pair).
+            if (document.querySelector('.mermaid, [data-mermaid], pre code.language-mermaid, pre code[data-lang="mermaid"]')) {
                 var ms = document.createElement('script');
                 ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
                 document.body.appendChild(ms);

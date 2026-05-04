@@ -1,0 +1,42 @@
+Archive: DD-Progresus-PPF-2026-04-21__Pass11-final__2026-04-28.tar.gz
+Created: 2026-04-28
+Source:  ~/dev/able/DD-Progresus-PPF-2026-04-21
+Size:    3737816 bytes (3.56 MB)
+SHA256:  5f14e0aab0cb1356b6c79b4f8b22cb1585bea4fdbd8a0c128916a34aff94ab20
+
+Git tip: 3051eb6917fc649bdab31e199ad6ca2be8beec62
+Branch:  master (local-only repo, no remote)
+
+Validation results:
+- Total internal links: 1577 (0 broken in MD, 0 broken in HTML)
+- Czech purity: 0 narrative anglicismy (share deal/escrow/playbook/etc.)
+- Entity mentions index: 76 entities × 66 files = 5528 mentions
+- Graph: 214 nodes, 874 edges, 9 clusters
+- Manifest: 162 files indexed (6 critical / 11 high / 1 medium severity)
+
+Pass-11 deliverables (final):
+1. Translation: 65 .md + 30 .html → Czech, formal business/legal register
+2. Quant ports (A/B/C): Monte Carlo · PageRank · Bayesian red-flags
+3. Viz ports (D/E/F): Sankey bond stack · cmdk palette · ČR choropleth
+4. Linking ports (G/H/I): Shared scenarios · Entity↔doc · Temporal replay
+5. Operational ports (J/K/L/M): Cleanup palette · Live ticker · Print pack · AB compare
+6. Maintenance (N/O/P): sw.js v1.2.0 · indexes regen · CHANGELOG
+7. Code review fixes (Q): 3 CRITICAL + 4 HIGH bugs
+
+Total: 9 commits (1b420dd → 3051eb6)
+
+Excluded:
+- .git/ (10.5 MB)
+- */raw/, */raw-cuzk/ (1.5 MB scraped)
+- .pr-drafts/, *.bak, __pycache__, .DS_Store
+
+Verification:
+  tar -tzf DD-Progresus-PPF-2026-04-21__Pass11-final__2026-04-28.tar.gz | wc -l
+  shasum -a 256 DD-Progresus-PPF-2026-04-21__Pass11-final__2026-04-28.tar.gz
+
+Restore:
+  tar -xzf DD-Progresus-PPF-2026-04-21__Pass11-final__2026-04-28.tar.gz
+  cd DD-Progresus-PPF-2026-04-21
+  python3 _assets/build-md-store.py
+  python3 _assets/inject-stores.py
+  ./serve.sh   # → http://localhost:8000

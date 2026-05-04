@@ -1,0 +1,125 @@
+{
+  "type": "line",
+  "data": {
+    "labels": [
+      "Klid",
+      "Napětí ↗",
+      "Eskalace",
+      "Incident",
+      "Smíření",
+      "Líbánky",
+      "Klid 2",
+      "Napětí 2 ↗",
+      "Eskalace 2",
+      "Incident 2",
+      "Smíření 2",
+      "Líbánky 2"
+    ],
+    "datasets": [
+      {
+        "label": "Stres oběti (kortizol)",
+        "data": [2, 4, 7, 9, 6, 3, 3, 5, 8, 10, 7, 4],
+        "borderColor": "#f87171",
+        "backgroundColor": "rgba(248, 113, 113, 0.12)",
+        "borderWidth": 2,
+        "tension": 0.35,
+        "fill": true,
+        "pointRadius": 4,
+        "pointBackgroundColor": "#f87171"
+      },
+      {
+        "label": "Vazba na agresora (závislost)",
+        "data": [4, 4, 3, 2, 7, 9, 7, 6, 5, 3, 8, 10],
+        "borderColor": "#a78bfa",
+        "backgroundColor": "rgba(167, 139, 250, 0.12)",
+        "borderWidth": 2,
+        "tension": 0.35,
+        "fill": true,
+        "pointRadius": 4,
+        "pointBackgroundColor": "#a78bfa"
+      },
+      {
+        "label": "Sebehodnocení oběti",
+        "data": [5, 4, 3, 1, 3, 5, 4, 3, 2, 1, 3, 4],
+        "borderColor": "#34d399",
+        "backgroundColor": "rgba(52, 211, 153, 0.08)",
+        "borderWidth": 2,
+        "tension": 0.35,
+        "fill": false,
+        "pointRadius": 3,
+        "pointBackgroundColor": "#34d399",
+        "borderDash": [5, 5]
+      }
+    ]
+  },
+  "options": {
+    "responsive": true,
+    "maintainAspectRatio": false,
+    "interaction": {
+      "mode": "index",
+      "intersect": false
+    },
+    "plugins": {
+      "legend": {
+        "labels": {
+          "color": "#d1d5db",
+          "font": {
+            "size": 12
+          },
+          "boxWidth": 14,
+          "padding": 12
+        }
+      },
+      "tooltip": {
+        "backgroundColor": "rgba(17, 24, 39, 0.95)",
+        "titleColor": "#fbbf24",
+        "bodyColor": "#e5e7eb",
+        "borderColor": "#374151",
+        "borderWidth": 1,
+        "padding": 10
+      }
+    },
+    "scales": {
+      "x": {
+        "ticks": {
+          "color": "#9ca3af",
+          "font": {
+            "size": 10
+          },
+          "maxRotation": 45,
+          "minRotation": 30
+        },
+        "grid": {
+          "color": "rgba(75, 85, 99, 0.25)"
+        },
+        "title": {
+          "display": true,
+          "text": "Fáze cyklu (dva po sobě jdoucí cykly)",
+          "color": "#9ca3af",
+          "font": {
+            "size": 11
+          }
+        }
+      },
+      "y": {
+        "min": 0,
+        "max": 10,
+        "ticks": {
+          "color": "#9ca3af",
+          "stepSize": 2
+        },
+        "grid": {
+          "color": "rgba(75, 85, 99, 0.25)"
+        },
+        "title": {
+          "display": true,
+          "text": "Intenzita (0–10)",
+          "color": "#9ca3af",
+          "font": {
+            "size": 11
+          }
+        }
+      }
+    }
+  }
+}

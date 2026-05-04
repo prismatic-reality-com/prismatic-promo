@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DD: AK Procházka & Co. (Brno) — Dashboard</title>
+  <meta name="description" content="Due diligence report — Procházka & Co., advokátní kancelář, s.r.o., Brno (IČO 09963430). Generováno 2026-05-03." />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.10.0/lib/p5.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
+  <style>
+    :root {
+      --color-positive: #16a34a;
+      --color-warning: #f59e0b;
+      --color-negative: #dc2626;
+      --color-neutral: #6b7280;
+    }
+    .glass { background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); }
+    .grad-bg {
+      background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+    }
+    .verdict-green { background: linear-gradient(135deg, #16a34a, #22c55e); }
+    .risk-low { background: linear-gradient(135deg, #15803d, #16a34a); }
+    .score-66 { background: linear-gradient(135deg, #2563eb, #06b6d4); }
+    .p5-canvas-wrapper canvas { display: block; max-width: 100%; height: auto; border-radius: 0.5rem; }
+    .stream-ok { color: #16a34a; }
+    .stream-warn { color: #f59e0b; }
+    .stream-err { color: #dc2626; }
+    @media print {
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     NAVBAR (Flowbite)
+═══════════════════════════════════════════════════════════════════ -->
+<nav class="grad-bg text-white shadow-lg sticky top-0 z-50 no-print" x-data="{ open: false }">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div>
+      <div class="text-xs uppercase tracking-widest opacity-80">Due Diligence Case</div>
+      <div class="text-lg font-bold">AK Procházka & Co. — Brno</div>
+    </div>
+    <div class="hidden md:flex space-x-3 text-sm">
+      <a href="#summary" class="hover:underline">Souhrn</a>
+      <a href="#identita" class="hover:underline">Identita</a>
+      <a href="#tym" class="hover:underline">Tým</a>
+      <a href="#komercni" class="hover:underline">Komerční</a>
+      <a href="#riziko" class="hover:underline">Riziko</a>
+      <a href="#konkurence" class="hover:underline">Konkurence</a>
+      <a href="#sit" class="hover:underline font-bold">🕸️ Síť (85 uzlů)</a>
+      <a href="#grafy" class="hover:underline font-bold">📊 Grafy</a>
+      <a href="#templates" class="hover:underline">📋 Templates</a>
+      <a href="#audit" class="hover:underline">🎯 Audit</a>
+    </div>
+    <button @click="open = !open" class="md:hidden p-2 rounded hover:bg-white/10">☰</button>
+  </div>
+  <div x-show="open" x-cloak class="md:hidden bg-blue-900 text-white px-4 py-2 space-y-1">
+    <a href="#summary" class="block py-1">Souhrn</a>
+    <a href="#identita" class="block py-1">Identita</a>
+    <a href="#tym" class="block py-1">Tým</a>
+    <a href="#komercni" class="block py-1">Komerční</a>
+    <a href="#riziko" class="block py-1">Riziko</a>
+    <a href="#konkurence" class="block py-1">Konkurence</a>
+    <a href="#sit" class="block py-1">Síť</a>
+    <a href="#akce" class="block py-1">Akce</a>
+    <a href="#templates" class="block py-1 font-bold">📋 Templates</a>
+    <a href="#audit" class="block py-1">🎯 Audit</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════════════════════════ -->
+<header class="grad-bg text-white py-12 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-xs uppercase tracking-widest opacity-80 mb-2">Case ID: DD-AK-Prochazka-Brno-2026-05-03</div>
+    <h1 class="text-4xl md:text-5xl font-bold mb-3">Procházka &amp; Co., advokátní kancelář, s.r.o.</h1>
+    <p class="text-xl opacity-90 mb-6">Due Diligence potenciálního právního zástupce · Brno · 2026-05-03</p>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+      <div class="glass text-slate-900 rounded-lg p-3">
+        <div class="text-xs uppercase opacity-60">IČO</div>
+        <div class="font-mono font-bold">09963430</div>
+      </div>
+      <div class="glass text-slate-900 rounded-lg p-3">
+        <div class="text-xs uppercase opacity-60">Spis. zn.</div>
+        <div class="font-mono font-bold">KS Brno C 121872</div>
+      </div>
+      <div class="glass text-slate-900 rounded-lg p-3">
+        <div class="text-xs uppercase opacity-60">Datum vzniku</div>
+        <div class="font-mono font-bold">2021-02-26</div>
+      </div>
+      <div class="glass text-slate-900 rounded-lg p-3">
+        <div class="text-xs uppercase opacity-60">Datová schránka</div>
+        <div class="font-mono font-bold">s6r9vfn</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-7xl mx-auto px-4 py-8 space-y-12">
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: EXECUTIVE SUMMARY (3 KPI cards)
+═══════════════════════════════════════════════════════════════════ -->
+<section id="summary">
+  <h2 class="text-2xl font-bold mb-4">Executive summary</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <div class="verdict-green text-white rounded-2xl p-6 shadow-lg">
+      <div class="text-xs uppercase tracking-widest opacity-80">Verdikt</div>
+      <div class="text-4xl font-bold mt-2">🟢 ZELENÁ</div>
+      <div class="text-sm mt-1 opacity-90">s podmínkami</div>
+    </div>
+    <div class="risk-low text-white rounded-2xl p-6 shadow-lg">
+      <div class="text-xs uppercase tracking-widest opacity-80">Riziková úroveň</div>
+      <div class="text-4xl font-bold mt-2">NÍZKÉ</div>
+      <div class="text-sm mt-1 opacity-90">žádné hard-blockery</div>
+    </div>
+    <div class="score-66 text-white rounded-2xl p-6 shadow-lg">
+      <div class="text-xs uppercase tracking-widest opacity-80">Vážené skóre (v2)</div>
+      <div class="text-4xl font-bold mt-2">6.4 / 10</div>
+      <div class="text-sm mt-1 opacity-90">8 dimenzí (KCR ↓, judikát ↓)</div>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-2xl p-6 shadow-md">
+    <p class="text-slate-700 leading-relaxed">
+      <strong>Procházka &amp; Co., advokátní kancelář, s.r.o.</strong> (IČO 09963430, Kobližná 71/2 Brno) je
+      <strong>legitimní, regulovaná, středně velká brněnská AK</strong> s ~8 advokáty + 4 koncipienty,
+      založená 02/2021 jako pokračování individuální praxe Mgr. Miloše Procházky (advokát od 2001, ČAK ev. č. 9199,
+      <strong>aktivní status, žádná kárná opatření</strong>). Kancelář vykazuje
+      <strong>prokazatelnou tržní stopu</strong> (51 smluv v Registru smluv ~12 mil. Kč kumulativně), avšak s
+      <strong>~80% klientskou koncentrací na Statutární město Brno</strong> (KCR signál). Tým je silně endogenní
+      (7/8 z PrF MU Brno), generalistický s důrazem na obchodní/civilní/správní/veřejné zakázky/real estate.
+      <strong>Žádná insolvence, žádný negativní mediální záznam.</strong>
+      Historický klient vč. <strong>OHL ŽS, a.s.</strong> (Tier-class stavební koncern, mandát na obhajobě
+      multimilionového sporu o azbest — i přes prohru v meritu významná korporátní reference).
+    </p>
+  </div>
+
+  <!-- v2 KOREKCE BANNER -->
+  <div class="bg-amber-50 border-l-4 border-amber-500 rounded-2xl p-5 mt-4">
+    <div class="font-bold text-amber-900 mb-2">🔄 Korekce v2 (po ARCHER deep verification)</div>
+    <ul class="text-sm text-amber-900 space-y-1 list-disc list-inside">
+      <li><strong>Judikát 22 Co 2256/2016</strong>: Mgr. Procházka zastupoval <strong>OHL ŽS, a.s.</strong> (NE SITA CZ jak v v1). Klient prohrál v základu žaloby 16,7M Kč.</li>
+      <li><strong>"Beneficial ownership 12/2025"</strong>: SYSTÉMOVÁ změna ČR (ESM uzavřena), NE specifický red flag.</li>
+      <li><strong>10 smluv bez ceny v 2021–2023</strong> (transparency); v 2024–2026 napraveno.</li>
+      <li><strong>Splitting podezření</strong>: 4 dodatky multifunkční haly × 240 790 Kč + 2,4M v 2023.</li>
+      <li><strong>Sdílené zakázky s Frank Bold</strong> = cluster brněnských AK kolem SMB.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: STREAM STATUS (Alpine.js)
+═══════════════════════════════════════════════════════════════════ -->
+<section id="streams" x-data="{ activeTab: 'all' }">
+  <h2 class="text-2xl font-bold mb-4">Status pracovních proudů (v2 — ARCHER updated)</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+    <template x-for="stream in [
+      { id: 1, name: 'Disambiguace + identifikace', status: 'completed', icon: '✅', detail: '5 kandidátů, primární = Procházka & Co.' },
+      { id: 2, name: 'ČAK + ARES + OR', status: 'completed', icon: '✅', detail: 'IČO 09963430, ČAK 9199 aktivní' },
+      { id: 3, name: 'Hlídač státu / Registr smluv', status: 'completed', icon: '✅', detail: '51 smluv / 12M, KCR 80% SMB' },
+      { id: 4, name: 'Judikátová stopa (KOREKCE v2)', status: 'completed', icon: '🔄', detail: 'OHL ŽS klient — prohra v meritu 16,7M' },
+      { id: 5, name: 'Komparativní shortlist (5 AK)', status: 'completed', icon: '✅', detail: 'Tier A: Fiala+Tejkal, Štourač' },
+      { id: 6, name: 'Extended OSINT týmu', status: 'completed', icon: '✅', detail: '12 osob profilováno' },
+      { id: 7, name: 'ARCHER deep verification (4 paral.)', status: 'completed', icon: '🎯', detail: 'kárná, smlouvy, soudy, ceny' },
+      { id: 8, name: 'RFP + engagement + conflict + email', status: 'completed', icon: '📋', detail: '4 templates v 08-comms-templates' },
+      { id: 9, name: 'Konfliktová matice (vyplnění klientem)', status: 'pending', icon: '⏸️', detail: 'Vyžaduje vstup od klienta' },
+      { id: 10, name: 'Test responzivity (e-mail)', status: 'pending', icon: '📨', detail: 'Šablony připraveny, čeká na akci' },
+      { id: 11, name: 'RFP odeslání + 2-3 alternativy', status: 'pending', icon: '🚀', detail: 'Tier A: Fiala+Tejkal, Štourač' }
+    ]" :key="stream.id">
+      <div class="bg-white rounded-xl p-4 shadow-md border-l-4"
+           :class="stream.status === 'completed' ? 'border-green-500' : 'border-amber-400'">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-mono opacity-60">Stream #<span x-text="stream.id"></span></span>
+          <span class="text-xl" x-text="stream.icon"></span>
+        </div>
+        <div class="font-semibold" x-text="stream.name"></div>
+        <div class="text-sm text-slate-600 mt-1" x-text="stream.detail"></div>
+      </div>
+    </template>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: IDENTITA
+═══════════════════════════════════════════════════════════════════ -->
+<section id="identita">
+  <h2 class="text-2xl font-bold mb-4">Identita a registrace</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-white rounded-2xl p-6 shadow-md">
+      <h3 class="font-bold text-lg mb-3">Subjekt</h3>
+      <dl class="space-y-2 text-sm">
+        <div class="flex justify-between"><dt class="opacity-60">Plný název</dt><dd class="font-medium text-right">Procházka & Co., advokátní kancelář, s.r.o.</dd></div>
+        <div class="flex justify-between"><dt class="opacity-60">IČO</dt><dd class="font-mono">09963430</dd></div>
+        <div class="flex justify-between"><dt class="opacity-60">DIČ</dt><dd class="font-mono">CZ09963430</dd></div>
+        <div class="flex justify-between"><dt class="opacity-60">Spis. zn.</dt><dd>KS Brno C 121872</dd></div>
+        <div class="flex justify-between"><dt class="opacity-60">Sídlo</dt><dd class="text-right">Kobližná 71/2, Brno</dd></div>
+        <div class="flex justify-between"><dt class="opacity-60">Pobočka</dt><dd class="text-right">Žďár nad Sázavou (2024)</dd></div>
+        <div class="flex justify-between"><dt class="opacity-60">Datová schránka</dt><dd class="font-mono">s6r9vfn</dd></div>
+        <div class="flex justify-between"><dt class="opacity-60">Web</dt><dd><a href="https://prochazkaco.cz" class="text-blue-600 hover:underline">prochazkaco.cz</a></dd></div>
+      </dl>
+    </div>
+    <div class="bg-white rounded-2xl p-6 shadow-md">
+      <h3 class="font-bold text-lg mb-3">Zakladatel</h3>
+      <div class="text-center mb-4">
+        <div class="w-20 h-20 mx-auto rounded-full bg-blue-100 flex items-center justify-center text-3xl font-bold text-blue-700">MP</div>
+        <div class="mt-2 font-semibold">Mgr. Miloš Procházka</div>
+        <div class="text-sm text-slate-600">Společník · ČAK 9199</div>
+      </div>
+      <ul class="text-sm space-y-1">
+        <li>✅ Status ČAK: <strong>Aktivní</strong></li>
+        <li>📅 Praxe od: <strong>2001</strong> (24 let)</li>
+        <li>🎓 PrF MU Brno (1998)</li>
+        <li>⚖️ Žádné kárné opatření</li>
+        <li>🌐 Občanské angažmá: Amnesty International ČR</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: DISAMBIGUACE
+═══════════════════════════════════════════════════════════════════ -->
+<section id="disambiguace">
+  <h2 class="text-2xl font-bold mb-4">Disambiguace — který "AK Procházka"?</h2>
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+    <table class="w-full text-sm">
+      <thead class="bg-slate-100">
+        <tr>
+          <th class="px-4 py-2 text-left">#</th>
+          <th class="px-4 py-2 text-left">Subjekt</th>
+          <th class="px-4 py-2 text-left">IČO/ČAK</th>
+          <th class="px-4 py-2 text-left">Sídlo</th>
+          <th class="px-4 py-2 text-left">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="bg-green-50 border-l-4 border-green-500">
+          <td class="px-4 py-2 font-bold">1 ✅</td>
+          <td class="px-4 py-2 font-semibold">Procházka & Co., advokátní kancelář, s.r.o.</td>
+          <td class="px-4 py-2 font-mono">IČO 09963430 / ČAK 9199</td>
+          <td class="px-4 py-2">Kobližná 71/2, Brno</td>
+          <td class="px-4 py-2"><span class="bg-green-200 text-green-900 px-2 py-1 rounded text-xs">Primární</span></td>
+        </tr>
+        <tr class="border-t">
+          <td class="px-4 py-2">2</td>
+          <td class="px-4 py-2">JUDr. Petr Procházka — advokát</td>
+          <td class="px-4 py-2 text-slate-400">n/a</td>
+          <td class="px-4 py-2">Nám. Svobody 12, Brno</td>
+          <td class="px-4 py-2"><span class="bg-slate-200 text-slate-700 px-2 py-1 rounded text-xs">Jiný subjekt</span></td>
+        </tr>
+        <tr class="border-t">
+          <td class="px-4 py-2">3</td>
+          <td class="px-4 py-2">JUDr. Lubomír Procházka (akprocha.cz)</td>
+          <td class="px-4 py-2 text-slate-400">n/a</td>
+          <td class="px-4 py-2">Brno</td>
+          <td class="px-4 py-2"><span class="bg-slate-200 text-slate-700 px-2 py-1 rounded text-xs">Jiný subjekt</span></td>
+        </tr>
+        <tr class="border-t bg-red-50">
+          <td class="px-4 py-2">4</td>
+          <td class="px-4 py-2">Procházka s.r.o., advokátní kancelář</td>
+          <td class="px-4 py-2 font-mono">IČO 09633481</td>
+          <td class="px-4 py-2 font-bold">Praha (NE Brno!)</td>
+          <td class="px-4 py-2"><span class="bg-red-200 text-red-900 px-2 py-1 rounded text-xs">Vyřaďte</span></td>
+        </tr>
+        <tr class="border-t">
+          <td class="px-4 py-2">5</td>
+          <td class="px-4 py-2">Jan Procházka (ak-prochazka.cz)</td>
+          <td class="px-4 py-2 text-slate-400">n/a</td>
+          <td class="px-4 py-2">Brno</td>
+          <td class="px-4 py-2"><span class="bg-slate-200 text-slate-700 px-2 py-1 rounded text-xs">Jiný subjekt</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: TÝM
+═══════════════════════════════════════════════════════════════════ -->
+<section id="tym">
+  <h2 class="text-2xl font-bold mb-4">Tým a kapacita</h2>
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">Rozdělení rolí</h3>
+      <div class="relative h-64"><canvas id="rolesChart"></canvas></div>
+    </div>
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">Vzdělání týmu</h3>
+      <div class="relative h-64"><canvas id="eduChart"></canvas></div>
+    </div>
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">Specializace (počet osob)</h3>
+      <div class="relative h-64"><canvas id="specChart"></canvas></div>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+    <table class="w-full text-sm">
+      <thead class="bg-slate-100">
+        <tr>
+          <th class="px-3 py-2 text-left">Role</th>
+          <th class="px-3 py-2 text-left">Osoba</th>
+          <th class="px-3 py-2 text-left">ČAK</th>
+          <th class="px-3 py-2 text-left">Specializace</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t bg-blue-50"><td class="px-3 py-2 font-semibold">Společník</td><td class="px-3 py-2">Mgr. Miloš Procházka</td><td class="px-3 py-2 font-mono">9199</td><td class="px-3 py-2">Obchodní, správní, veřejné zakázky, směnky</td></tr>
+        <tr class="border-t"><td class="px-3 py-2 font-semibold">Partner</td><td class="px-3 py-2">Mgr. Václav Javora</td><td class="px-3 py-2 font-mono">17969</td><td class="px-3 py-2">Trestní, korporátní, IT, komunální</td></tr>
+        <tr class="border-t"><td class="px-3 py-2 font-semibold">Partner</td><td class="px-3 py-2">Mgr. Petra Jurenová <span class="text-amber-600 text-xs">(rodičovská)</span></td><td class="px-3 py-2 font-mono">18739</td><td class="px-3 py-2">Real estate, civilní, IT, autorské</td></tr>
+        <tr class="border-t bg-purple-50"><td class="px-3 py-2 font-semibold">Ředitelka</td><td class="px-3 py-2">Mgr. Bc. Helena Musilová ⭐</td><td class="px-3 py-2 font-mono">8625</td><td class="px-3 py-2">Civilní, rodinné, pracovní; <strong>VUT FP — vyučující</strong></td></tr>
+        <tr class="border-t"><td class="px-3 py-2 font-semibold">Advokát</td><td class="px-3 py-2">Mgr. Vladimír Kyrych</td><td class="px-3 py-2 font-mono">10673</td><td class="px-3 py-2">Generalista, autorské/IP, ex offo</td></tr>
+        <tr class="border-t"><td class="px-3 py-2 font-semibold">Advokát</td><td class="px-3 py-2">Mgr. Veronika Kapplerová</td><td class="px-3 py-2 font-mono">17750</td><td class="px-3 py-2">Civilní, rodinné, oběti TČ</td></tr>
+        <tr class="border-t"><td class="px-3 py-2 font-semibold">Advokát + pobočka Žďár</td><td class="px-3 py-2">Mgr. Dominik Novák</td><td class="px-3 py-2 font-mono">20064</td><td class="px-3 py-2">Obchodní, civilní, pracovní</td></tr>
+        <tr class="border-t"><td class="px-3 py-2 font-semibold">Advokát</td><td class="px-3 py-2">Mgr. Terezie Kučerová</td><td class="px-3 py-2 font-mono">19229</td><td class="px-3 py-2">Civilní, rodinné, obchodní</td></tr>
+        <tr class="border-t bg-slate-50"><td class="px-3 py-2 text-slate-500">Koncipient</td><td class="px-3 py-2 text-slate-500">Mgr. Jan Klaška</td><td class="px-3 py-2 font-mono text-slate-500">46179</td><td class="px-3 py-2 text-slate-500">Civilní, obchodní, komunální</td></tr>
+        <tr class="border-t bg-slate-50"><td class="px-3 py-2 text-slate-500">Koncipient</td><td class="px-3 py-2 text-slate-500">Mgr. Bc. Karolína Davidová</td><td class="px-3 py-2 font-mono text-slate-500">46576</td><td class="px-3 py-2 text-slate-500">Obchodní + business mgmt</td></tr>
+        <tr class="border-t bg-slate-50"><td class="px-3 py-2 text-slate-500">Koncipient</td><td class="px-3 py-2 text-slate-500">Mgr. Martin Maliňák</td><td class="px-3 py-2 font-mono text-slate-500">44726</td><td class="px-3 py-2 text-slate-500">Civilní, obchodní, in-house</td></tr>
+        <tr class="border-t bg-slate-50"><td class="px-3 py-2 text-slate-500">Koncipient</td><td class="px-3 py-2 text-slate-500">Mgr. Tomáš Mosler</td><td class="px-3 py-2 font-mono text-slate-500">47030</td><td class="px-3 py-2 text-slate-500">Civilní, obchodní</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: KOMERČNÍ STOPA
+═══════════════════════════════════════════════════════════════════ -->
+<section id="komercni">
+  <h2 class="text-2xl font-bold mb-4">Komerční stopa</h2>
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+    <div class="bg-white rounded-2xl p-5 shadow-md text-center">
+      <div class="text-xs uppercase opacity-60">Smlouvy v Registru</div>
+      <div class="text-3xl font-bold text-blue-700 mt-2">51</div>
+    </div>
+    <div class="bg-white rounded-2xl p-5 shadow-md text-center">
+      <div class="text-xs uppercase opacity-60">Kumul. hodnota</div>
+      <div class="text-3xl font-bold text-blue-700 mt-2">~12 M Kč</div>
+    </div>
+    <div class="bg-white rounded-2xl p-5 shadow-md text-center">
+      <div class="text-xs uppercase opacity-60">Veřejné zakázky</div>
+      <div class="text-3xl font-bold text-blue-700 mt-2">2</div>
+    </div>
+    <div class="bg-white rounded-2xl p-5 shadow-md text-center">
+      <div class="text-xs uppercase opacity-60">Dotace přijaté</div>
+      <div class="text-3xl font-bold text-green-600 mt-2">0</div>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">Smlouvy v čase (odhad)</h3>
+      <div class="relative h-64"><canvas id="contractsChart"></canvas></div>
+    </div>
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">Klíčoví klienti veřejného sektoru</h3>
+      <div class="space-y-2 mt-4">
+        <div class="bg-blue-50 rounded-lg p-3 flex justify-between items-center">
+          <span class="font-semibold">Statutární město Brno</span>
+          <span class="bg-blue-200 text-blue-900 px-3 py-1 rounded-full text-xs">Aktivní 2026</span>
+        </div>
+        <div class="bg-blue-50 rounded-lg p-3 flex justify-between items-center">
+          <span class="font-semibold">Technické sítě Brno a.s.</span>
+          <span class="bg-blue-200 text-blue-900 px-3 py-1 rounded-full text-xs">Aktivní 2026</span>
+        </div>
+        <div class="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-3 mt-4">
+          <div class="text-sm font-semibold text-amber-900">⚠️ Konflikt zájmů — flag</div>
+          <div class="text-xs text-amber-800 mt-1">Vyloučeno zastoupení proti Statutárnímu městu Brno a TSB. Ověřit konfliktovou matici před zadáním.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: RIZIKOVÁ MATICE (Radar)
+═══════════════════════════════════════════════════════════════════ -->
+<section id="riziko">
+  <h2 class="text-2xl font-bold mb-4">Riziková matice (8 dimenzí)</h2>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <div class="relative h-96"><canvas id="riskChart"></canvas></div>
+    </div>
+    <div class="bg-white rounded-2xl p-6 shadow-md">
+      <h3 class="font-bold mb-3">Skóre per dimenze (v2, 0–10, 10 = nejnižší riziko)</h3>
+      <div class="space-y-3 text-sm">
+        <template x-data="{}" x-for="d in [
+          { name: 'Regulatorní compliance', score: 9 },
+          { name: 'Finanční stabilita', score: 8 },
+          { name: 'Reputační riziko', score: 7 },
+          { name: 'Tržní validace', score: 8 },
+          { name: 'Kapacitní riziko', score: 7 },
+          { name: 'Konflikt zájmů', score: 5 },
+          { name: 'Specializační hloubka', score: 5 },
+          { name: 'Mezinárodní použitelnost', score: 3 },
+          { name: 'Klientská diverzifikace (KCR)', score: 4 },
+          { name: 'Smluvní transparentnost (HS)', score: 7 }
+        ]">
+          <div>
+            <div class="flex justify-between mb-1">
+              <span x-text="d.name"></span>
+              <span class="font-mono font-bold" x-text="d.score + ' / 10'"></span>
+            </div>
+            <div class="h-2 bg-slate-200 rounded-full overflow-hidden">
+              <div class="h-full rounded-full"
+                   :class="d.score >= 7 ? 'bg-green-500' : (d.score >= 5 ? 'bg-amber-500' : 'bg-red-500')"
+                   :style="`width: ${d.score * 10}%`"></div>
+            </div>
+          </div>
+        </template>
+        <div class="border-t pt-3 mt-3 flex justify-between font-bold">
+          <span>Vážený průměr (v2 — 10 dim.)</span>
+          <span class="text-blue-700">6.4 / 10</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: KONKURENCE
+═══════════════════════════════════════════════════════════════════ -->
+<section id="konkurence">
+  <h2 class="text-2xl font-bold mb-4">Komparativní shortlist (Brno) — alternativy</h2>
+  <div class="bg-white rounded-2xl p-4 shadow-md mb-6">
+    <h3 class="font-bold mb-2 text-center">Srovnání 6 brněnských AK (radar — 5 atributů)</h3>
+    <div class="relative h-96"><canvas id="competitorRadar"></canvas></div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <template x-data="{}" x-for="ak in [
+      { name: 'Procházka & Co. (subjekt)', ico: '09963430', size: '~8+4', spec: 'Generalista, ZZVZ', tier: 'subj', color: 'blue' },
+      { name: 'Fiala, Tejkal a partneři', ico: '28360125', size: '10–15', spec: 'ZZVZ vlajková', tier: 'A', color: 'green' },
+      { name: 'JUDr. František Štourač AK', ico: '73735701', size: '5+2', spec: 'Generalista', tier: 'A', color: 'green' },
+      { name: 'AK Jelínek', ico: '88120872', size: '2+5', spec: 'ZZVZ úzký', tier: 'B', color: 'amber' },
+      { name: 'Valíček & Valíčková', ico: '07754035', size: '11', spec: 'Pracovní (PFR 2025)', tier: 'B', color: 'amber' },
+      { name: 'Coufalová & Kubíková', ico: '29259371', size: '3+spol.', spec: 'Real estate', tier: 'C', color: 'slate' }
+    ]">
+      <div class="bg-white rounded-xl p-4 shadow-md border-t-4"
+           :class="{
+             'border-blue-500': ak.color === 'blue',
+             'border-green-500': ak.color === 'green',
+             'border-amber-500': ak.color === 'amber',
+             'border-slate-400': ak.color === 'slate'
+           }">
+        <div class="flex justify-between items-start">
+          <h3 class="font-bold text-sm" x-text="ak.name"></h3>
+          <span class="text-xs px-2 py-0.5 rounded font-bold"
+                :class="{
+                  'bg-blue-100 text-blue-800': ak.tier === 'subj',
+                  'bg-green-100 text-green-800': ak.tier === 'A',
+                  'bg-amber-100 text-amber-800': ak.tier === 'B',
+                  'bg-slate-200 text-slate-700': ak.tier === 'C'
+                }"
+                x-text="ak.tier === 'subj' ? 'SUBJEKT' : 'Tier ' + ak.tier"></span>
+        </div>
+        <dl class="text-xs mt-2 space-y-1">
+          <div class="flex justify-between"><dt class="opacity-60">IČO</dt><dd class="font-mono" x-text="ak.ico"></dd></div>
+          <div class="flex justify-between"><dt class="opacity-60">Velikost</dt><dd x-text="ak.size"></dd></div>
+          <div class="flex justify-between"><dt class="opacity-60">Profil</dt><dd class="text-right" x-text="ak.spec"></dd></div>
+        </dl>
+      </div>
+    </template>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: NETWORK GRAPH (p5.js, expanded depth+2, ~85 nodes)
+═══════════════════════════════════════════════════════════════════ -->
+<section id="sit" x-data="{ depthLevel: 4, filters: { team: true, smb: true, ohl: true, academy: true, cak: true, competitors: true, court: true, gov: true } }">
+  <h2 class="text-2xl font-bold mb-4">🕸️ Síť vazeb — depth+2 (~85 uzlů, ~150 hran)</h2>
+  <div class="bg-white rounded-2xl p-4 shadow-md">
+    <p class="text-sm text-slate-600 mb-3">
+      Interaktivní vizualizace všech relevantních vazeb v 7 clusterech. <strong>Drag</strong> uzly — síla odpuzování + přitahování po hranách.
+      <strong>Filtry</strong> níže zapínají/vypínají kategorie. <strong>Hover</strong> uzlu zvýrazní vazby.
+    </p>
+
+    <!-- Depth slider (NEW v4) -->
+    <div class="mb-3 p-3 bg-slate-100 rounded-lg">
+      <div class="flex items-center gap-3 flex-wrap">
+        <label class="text-xs font-semibold text-slate-700">Hloubka zanoření:</label>
+        <input type="range" min="1" max="4" step="1" value="4" x-model.number="depthLevel"
+               @input="window.networkUpdateDepth && window.networkUpdateDepth(parseInt($event.target.value))"
+               class="flex-1 max-w-xs" />
+        <span class="text-sm font-bold text-blue-700">depth ≤ <span x-text="depthLevel || 4"></span></span>
+        <span class="text-xs text-slate-500">(1 = jen tým, 2 = +klienti/akademie, 3 = +rada/management, 4 = +ownership/banky/sport)</span>
+      </div>
+    </div>
+
+    <!-- Filter checkboxes -->
+    <div class="flex flex-wrap gap-2 mb-3">
+      <label class="flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer" style="background:#f3e8ff">
+        <input type="checkbox" x-model="filters.team" @change="window.networkUpdateFilters && window.networkUpdateFilters($event.target.checked, 'team')">
+        <span class="font-semibold" style="color:#7c3aed">🏛️ Tým AK (13)</span>
+      </label>
+      <label class="flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer" style="background:#dcfce7">
+        <input type="checkbox" x-model="filters.smb" @change="window.networkUpdateFilters && window.networkUpdateFilters($event.target.checked, 'smb')">
+        <span class="font-semibold" style="color:#16a34a">🏛️ SMB skupina + Brno politika (35)</span>
+      </label>
+      <label class="flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer" style="background:#fee2e2">
+        <input type="checkbox" x-model="filters.ohl" @change="window.networkUpdateFilters && window.networkUpdateFilters($event.target.checked, 'ohl')">
+        <span class="font-semibold" style="color:#dc2626">🏗️ OHL ŽS + OHLA Group (45)</span>
+      </label>
+      <label class="flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer" style="background:#ffedd5">
+        <input type="checkbox" x-model="filters.academy" @change="window.networkUpdateFilters && window.networkUpdateFilters($event.target.checked, 'academy')">
+        <span class="font-semibold" style="color:#f97316">🎓 Akademie + znalci (22)</span>
+      </label>
+      <label class="flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer" style="background:#cffafe">
+        <input type="checkbox" x-model="filters.cak" @change="window.networkUpdateFilters && window.networkUpdateFilters($event.target.checked, 'cak')">
+        <span class="font-semibold" style="color:#0891b2">⚖️ ČAK + jejich AK (28)</span>
+      </label>
+      <label class="flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer" style="background:#f1f5f9">
+        <input type="checkbox" x-model="filters.competitors" @change="window.networkUpdateFilters && window.networkUpdateFilters($event.target.checked, 'competitors')">
+        <span class="font-semibold" style="color:#475569">🏢 Konkurence brněnských AK (28)</span>
+      </label>
+      <label class="flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer" style="background:#fef3c7">
+        <input type="checkbox" x-model="filters.court" @change="window.networkUpdateFilters && window.networkUpdateFilters($event.target.checked, 'court')">
+        <span class="font-semibold" style="color:#a16207">⚖️ Soudní + ČB cluster (8)</span>
+      </label>
+      <label class="flex items-center gap-1 text-xs px-2 py-1 rounded cursor-pointer" style="background:#fce7f3">
+        <input type="checkbox" x-model="filters.gov" @change="window.networkUpdateFilters && window.networkUpdateFilters($event.target.checked, 'gov')">
+        <span class="font-semibold" style="color:#be185d">🏛️ Vláda ČR + JMK (19)</span>
+      </label>
+    </div>
+
+    <div id="p5-network" class="p5-canvas-wrapper bg-slate-50 rounded-lg overflow-hidden" style="height: 850px;"></div>
+    <div id="p5-tooltip" class="absolute bg-slate-900 text-white text-xs rounded px-2 py-1 pointer-events-none opacity-0 transition" style="z-index:100;"></div>
+    <p class="text-xs text-slate-500 mt-2">
+      💡 <strong>Klik</strong> na uzel = drag. <strong>Hover</strong> = zvýraznění propojení. Force-directed layout (repulsion + attraction along edges).
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: ROZŠÍŘENÉ GRAFY (NEW v3 — depth+2 analytics)
+═══════════════════════════════════════════════════════════════════ -->
+<section id="grafy">
+  <h2 class="text-2xl font-bold mb-4">📊 Rozšířené grafy (depth+2 analytics)</h2>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">Klientská koncentrace AK Procházka & Co.</h3>
+      <div class="relative h-72"><canvas id="kcrPie"></canvas></div>
+      <p class="text-xs text-slate-500 mt-2 text-center">⚠️ ~80% portfolia od SMB skupiny — KCR signál.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">Cluster brněnských AK pracujících pro SMB</h3>
+      <div class="relative h-72"><canvas id="smbClusterBar"></canvas></div>
+      <p class="text-xs text-slate-500 mt-2 text-center">Solkind = 6× větší než Procházka & Co. v tomto segmentu.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">Top 5 zadavatelů OHL ŽS 2026 (kontext klienta z judikátu)</h3>
+      <div class="relative h-72"><canvas id="ohlSuppliersBar"></canvas></div>
+      <p class="text-xs text-slate-500 mt-2 text-center">OHL ŽS celkem 587 mld. Kč kumulativně, 43 mld. Kč v 2025.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">Akademická distribuce týmu (univerzita)</h3>
+      <div class="relative h-72"><canvas id="academyTreemap"></canvas></div>
+      <p class="text-xs text-slate-500 mt-2 text-center">11/12 absolventů PrF MU Brno — silně endogenní tým.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 shadow-md lg:col-span-2">
+      <h3 class="font-bold mb-2 text-center">Velikost SMB skupiny — entity v koncernu města (vrstvy depth+1)</h3>
+      <div class="relative h-72"><canvas id="smbGroupBar"></canvas></div>
+      <p class="text-xs text-slate-500 mt-2 text-center">Brno má 11 dceřiných a.s. + ~15 přísp. organizací + 29 MČ + vedení MMB. AK Procházka & Co. má smluvní vazbu na ~10 z těchto entit.</p>
+    </div>
+
+    <!-- ===== NEW v4 charts (depth+4 analytics) ===== -->
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">OHLA Group — vlastnická struktura (depth+4)</h3>
+      <div class="relative h-72"><canvas id="ohlaOwnerPie"></canvas></div>
+      <p class="text-xs text-slate-500 mt-2 text-center">Bratři Amodio (MX, 21,6%) + Tyrus Capital (7%) + Holzer + Navarro = klíčoví vlastníci po Villar Mir exitu (03/2023).</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">Brněnská "Šestikoalice" 2022–26 — politické složení</h3>
+      <div class="relative h-72"><canvas id="brnoCoalitionPie"></canvas></div>
+      <p class="text-xs text-slate-500 mt-2 text-center">SPOLU (ODS+TOP09+KDU) + ANO/Brnoklid. Vaňková NEKANDIDUJE 10/2026 (zdravotní); lídr Zlatušková.</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">ČAK 2025-29 funkcionáři × jejich AK</h3>
+      <div class="relative h-72"><canvas id="cakFunctsBar"></canvas></div>
+      <p class="text-xs text-slate-500 mt-2 text-center">5 funkcionářů ČAK = 5 různých AK (1× Praha mainstream, 1× Tier 1, 1× Ostrava, 2× butik).</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 shadow-md">
+      <h3 class="font-bold mb-2 text-center">Síťové clustery — depth+4 distribuce uzlů</h3>
+      <div class="relative h-72"><canvas id="networkDistBar"></canvas></div>
+      <p class="text-xs text-slate-500 mt-2 text-center">~210 uzlů celkem; nejdenější OHL ŽS (45) + ČAK (28) + Konkurence AK (28).</p>
+    </div>
+
+    <div class="bg-white rounded-2xl p-4 shadow-md lg:col-span-2">
+      <h3 class="font-bold mb-2 text-center">Postupné rozšíření sítě v 4 iteracích</h3>
+      <div class="relative h-72"><canvas id="networkGrowthBar"></canvas></div>
+      <p class="text-xs text-slate-500 mt-2 text-center">v1 (15 uzlů) → v2 (15) → v3 depth+2 (85) → v4 depth+4 (~210). Kvalitativní skok ve v4 přidává ownership chains, vládu a celý ČAK ekosystém.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: AKČNÍ KROKY (Alpine accordion)
+═══════════════════════════════════════════════════════════════════ -->
+<section id="akce" x-data="{ open: 1 }">
+  <h2 class="text-2xl font-bold mb-4">Akční kroky (priorizováno)</h2>
+  <div class="space-y-2">
+    <template x-for="(step, idx) in [
+      { id: 1, prio: 'P0', title: 'Potvrdit subjekt — Procházka & Co. vs. ostatní Procházkové', owner: 'Klient', detail: 'Bez explicitního potvrzení nelze pokračovat — v Brně je 5+ subjektů s podobným názvem (viz disambiguační tabulka).' },
+      { id: 2, prio: 'P0', title: 'Konfliktová matice — písemné prohlášení AK', owner: 'AK', detail: 'AK musí vystavit písemné prohlášení o absenci střetu zájmů s vašimi protistranami a se všemi spřízněnými subjekty (zejm. proti Statutárnímu městu Brno a TSB).' },
+      { id: 3, prio: 'P1', title: 'Vyžádat 3–5 klientských referencí podobného mandátu', owner: 'AK', detail: 'NDA-aware, kontakty na klienty s mandátem podobné velikosti a oboru. Min. 3 reference, ideálně 5.' },
+      { id: 4, prio: 'P1', title: 'CV/medailonek konkrétního advokáta řídícího mandát', owner: 'AK', detail: 'Ne jen partnera; lead counsel musí být jmenovitě určen ve smlouvě. Vyžádat CV + 3 referenční mandáty.' },
+      { id: 5, prio: 'P1', title: 'Smluvní rámec — hodinová sazba + záloha + cap + ukončení', owner: 'Klient + AK', detail: 'Hodinová sazba advokátů a koncipientů, postup fakturace, retainer, cap pro definovanou fázi, ukončovací doložka.' },
+      { id: 6, prio: 'P1', title: 'Doložení navýšeného profesního pojištění', owner: 'AK', detail: 'ČAK minimum je 5 mil. Kč. Pro vysoké mandáty vyžádat copy aktuálního insurance certificate s vyšším limitem.' },
+      { id: 7, prio: 'P2', title: 'Hlídač státu — sledovaná rizika 2025 (paid access)', owner: 'Klient', detail: 'Hlídač státu ukazuje v public profilu „Sledovaná rizika 2025“ — detail za login wall. Doporučuji předplatit přístup pro úplný náhled.' },
+      { id: 8, prio: 'P2', title: 'Telefonická validace přes pobočku ČAK Brno', owner: 'Klient', detail: 'Nám. Svobody 84/15, Brno. Ověřit aktuální status, případně vyžádat oficiální potvrzení o bezúhonnosti.' },
+      { id: 9, prio: 'P2', title: 'Test responzivity — 1 právní dotaz, měřit čas/kvalitu', owner: 'Klient', detail: 'Pošlete 1 konkrétní právní dotaz e-mailem. Měřte čas reakce, kvalitu odpovědi a profesionalitu komunikace.' },
+      { id: 10, prio: 'P2', title: 'Manuální ISIR captcha lustrace', owner: 'Klient', detail: 'ISIR vyžaduje captcha. Manuální dotaz na IČO 09963430 + jméno Miloš Procházka, obec Brno. Periodicky kvartálně.' }
+    ]" :key="step.id">
+      <div class="bg-white rounded-xl shadow-md overflow-hidden">
+        <button @click="open === step.id ? open = null : open = step.id"
+                class="w-full px-4 py-3 flex items-center justify-between hover:bg-slate-50 text-left">
+          <div class="flex items-center gap-3">
+            <span class="text-xs font-bold px-2 py-1 rounded"
+                  :class="{
+                    'bg-red-100 text-red-800': step.prio === 'P0',
+                    'bg-amber-100 text-amber-800': step.prio === 'P1',
+                    'bg-blue-100 text-blue-800': step.prio === 'P2'
+                  }"
+                  x-text="step.prio"></span>
+            <span class="font-semibold" x-text="step.title"></span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-slate-500" x-text="step.owner"></span>
+            <span x-text="open === step.id ? '−' : '+'" class="text-xl font-bold w-5 text-center"></span>
+          </div>
+        </button>
+        <div x-show="open === step.id" x-collapse class="px-4 pb-4 text-sm text-slate-700 border-t bg-slate-50" x-text="step.detail"></div>
+      </div>
+    </template>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: KOMUNIKAČNÍ ŠABLONY (NEW v2)
+═══════════════════════════════════════════════════════════════════ -->
+<section id="templates" x-data="{ activeTab: 'rfp' }">
+  <h2 class="text-2xl font-bold mb-4">📋 Komunikační šablony — připravené k použití</h2>
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+    <div class="border-b bg-slate-50 flex flex-wrap text-sm">
+      <button @click="activeTab='rfp'" :class="activeTab==='rfp' ? 'border-b-2 border-blue-500 text-blue-700 font-semibold' : 'text-slate-600'" class="px-4 py-3 hover:bg-white">📨 RFP dotazník</button>
+      <button @click="activeTab='engagement'" :class="activeTab==='engagement' ? 'border-b-2 border-blue-500 text-blue-700 font-semibold' : 'text-slate-600'" class="px-4 py-3 hover:bg-white">📜 Engagement letter</button>
+      <button @click="activeTab='conflict'" :class="activeTab==='conflict' ? 'border-b-2 border-blue-500 text-blue-700 font-semibold' : 'text-slate-600'" class="px-4 py-3 hover:bg-white">🛡️ Konfliktová matice</button>
+      <button @click="activeTab='email'" :class="activeTab==='email' ? 'border-b-2 border-blue-500 text-blue-700 font-semibold' : 'text-slate-600'" class="px-4 py-3 hover:bg-white">✉️ Test responzivity</button>
+    </div>
+    <div class="p-6">
+      <div x-show="activeTab==='rfp'">
+        <h3 class="font-bold text-lg mb-2">RFP dotazník (43 otázek + hodnotící matice)</h3>
+        <p class="text-sm text-slate-600 mb-3">Strukturovaný poptávkový dotazník pokrývající: identifikaci AK, tým & kapacitu, reference, cenovou nabídku per role, konflikt zájmů, smluvní rámec, operativu. Včetně 5kategoriového hodnocení (cena 30%, reference 25%, konflikty 20%, smluvní 15%, operativa 10%).</p>
+        <a href="08-comms-templates/01-RFP-dotaznik.md" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">📄 Otevřít šablonu</a>
+      </div>
+      <div x-show="activeTab==='engagement'">
+        <h3 class="font-bold text-lg mb-2">Engagement letter (smlouva o poskytování právních služeb)</h3>
+        <p class="text-sm text-slate-600 mb-3">11 článků: scope + lead counsel, třívrstvý cenový model (paušál + hodinovky + fixed fee), hotové výdaje, fakturace + retainer, cap, konflikt zájmů, NDA, limit odpovědnosti, ukončovací doložka, volba práva (KS Brno).</p>
+        <a href="08-comms-templates/02-engagement-letter-template.md" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">📄 Otevřít šablonu</a>
+      </div>
+      <div x-show="activeTab==='conflict'">
+        <h3 class="font-bold text-lg mb-2">Konfliktová matice (klient → AK)</h3>
+        <p class="text-sm text-slate-600 mb-3">Strukturovaný dotazník: spřízněné subjekty (A), aktivní protistrany (B), no-go subjekty (C), <strong>Procházka & Co. specifika</strong> (D — SMB / TSB / Frank Bold / OHL ŽS), závazek AK (E), roční review (F).</p>
+        <a href="08-comms-templates/03-conflict-matrix-template.md" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">📄 Otevřít šablonu</a>
+      </div>
+      <div x-show="activeTab==='email'">
+        <h3 class="font-bold text-lg mb-2">Test responzivity (5 e-mail variant + hodnotící matice)</h3>
+        <p class="text-sm text-slate-600 mb-3">Šablony: iniciální dotaz + 5 variant konkrétního právního dotazu (obchodní / pracovní / civilní spor / real estate / správní). Hodnotící matice 9 kritérií (čas reakce, substantivní obsah, profesionalita...). Best practice: paralelně oslovit 3 alternativní AK pro férové srovnání.</p>
+        <a href="08-comms-templates/04-email-test-responzivity.md" class="inline-block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 text-sm">📄 Otevřít šablonu</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: ARCHER AUDIT TRAIL
+═══════════════════════════════════════════════════════════════════ -->
+<section id="audit">
+  <h2 class="text-2xl font-bold mb-4">🎯 ARCHER deep verification — audit trail (v2)</h2>
+  <div class="bg-white rounded-2xl shadow-md overflow-hidden">
+    <table class="w-full text-sm">
+      <thead class="bg-slate-100">
+        <tr>
+          <th class="px-3 py-2 text-left">Track</th>
+          <th class="px-3 py-2 text-left">Verifikace</th>
+          <th class="px-3 py-2 text-left">Klíčový nález</th>
+          <th class="px-3 py-2 text-left">Raw report</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t">
+          <td class="px-3 py-2 font-mono">A</td>
+          <td class="px-3 py-2">ČAK kárná evidence</td>
+          <td class="px-3 py-2">9/12 osob potvrzeno aktivních; 3 koncipienti vyžadují manuální dotaz; <strong>0 kárných</strong></td>
+          <td class="px-3 py-2"><a href="06-reports/04-karna-evidence-deep.md" class="text-blue-600 hover:underline">04</a></td>
+        </tr>
+        <tr class="border-t bg-amber-50">
+          <td class="px-3 py-2 font-mono">B</td>
+          <td class="px-3 py-2">Hlídač státu deep contracts</td>
+          <td class="px-3 py-2">⚠️ <strong>KCR 80% SMB</strong>; splitting halu; 10 smluv bez ceny 2021-23; pozit. trend 2024-26</td>
+          <td class="px-3 py-2"><a href="06-reports/05-hlidac-statu-deep.md" class="text-blue-600 hover:underline">05</a></td>
+        </tr>
+        <tr class="border-t bg-red-50">
+          <td class="px-3 py-2 font-mono">C</td>
+          <td class="px-3 py-2">Soudní lustrace + verifikace PDF</td>
+          <td class="px-3 py-2">🔄 <strong>KOREKCE</strong>: Procházka zastupoval <strong>OHL ŽS</strong> (NE SITA), prohra v meritu 16,7M</td>
+          <td class="px-3 py-2"><a href="06-reports/06-soudni-lustrace-deep.md" class="text-blue-600 hover:underline">06</a></td>
+        </tr>
+        <tr class="border-t">
+          <td class="px-3 py-2 font-mono">D</td>
+          <td class="px-3 py-2">Cenový benchmark Brno 2026</td>
+          <td class="px-3 py-2">Doporučená sazba advokát 2 400-3 200 Kč/h; třívrstvý model (paušál + hodinovky + fixed)</td>
+          <td class="px-3 py-2"><a href="06-reports/07-cenovy-benchmark.md" class="text-blue-600 hover:underline">07</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="bg-blue-50 p-4 border-t text-sm">
+      <strong>4 paralelní agenti</strong> → <strong>~530 sec</strong> kombinovaný čas (vs. ~2 100 sec sekvenčně). Ověřeno z PDF, public Hlídač státu profile, ČAK detail karty, OR Kurzy.cz, multiple ceník weby brněnských AK.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: VERDIKT
+═══════════════════════════════════════════════════════════════════ -->
+<section id="verdikt">
+  <h2 class="text-2xl font-bold mb-4">Verdikt</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="bg-green-50 border-l-4 border-green-500 rounded-2xl p-6">
+      <h3 class="font-bold text-green-900 text-lg mb-3">✅ Vhodný pro</h3>
+      <ul class="text-sm space-y-2 text-green-900">
+        <li>• Standardní obchodní/civilní/správní mandáty v Jihomoravském kraji</li>
+        <li>• Real estate, rodinné, trestní, pracovní, obecné komerční záležitosti</li>
+        <li>• Klienty z veřejného sektoru s expozicí ZZVZ</li>
+        <li>• Ex-offo trestní obhajobu</li>
+      </ul>
+    </div>
+    <div class="bg-amber-50 border-l-4 border-amber-500 rounded-2xl p-6">
+      <h3 class="font-bold text-amber-900 text-lg mb-3">⚠️ Nedoporučuji bez doplnění</h3>
+      <ul class="text-sm space-y-2 text-amber-900">
+        <li>• Mezinárodní/cross-border M&A a daňové spory</li>
+        <li>• Spory proti Statutárnímu městu Brno či TSB a spřízněným subjektům</li>
+        <li>• Banking & finance, kapitálové trhy, telecom regulace</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     SECTION: ZDROJE
+═══════════════════════════════════════════════════════════════════ -->
+<section id="zdroje">
+  <h2 class="text-2xl font-bold mb-4">Zdroje</h2>
+  <div class="bg-white rounded-2xl p-6 shadow-md">
+    <h3 class="font-bold mb-2">Oficiální registry</h3>
+    <ul class="text-sm space-y-1 mb-4">
+      <li>• <a href="https://vyhledavac.cak.cz/Contact/Details/501b84d0-6623-e711-80d5-00155d040b0c" class="text-blue-600 hover:underline">ČAK detail Mgr. Miloš Procházka (ev. č. 9199)</a></li>
+      <li>• <a href="https://www.hlidacstatu.cz/subjekt/09963430" class="text-blue-600 hover:underline">Hlídač státu — IČO 09963430</a></li>
+      <li>• <a href="https://isir.justice.cz/isir/common/index.do" class="text-blue-600 hover:underline">ISIR insolvenční rejstřík</a></li>
+    </ul>
+    <h3 class="font-bold mb-2">Web subjektu</h3>
+    <ul class="text-sm space-y-1 mb-4">
+      <li>• <a href="https://prochazkaco.cz/" class="text-blue-600 hover:underline">prochazkaco.cz — homepage</a></li>
+      <li>• <a href="https://prochazkaco.cz/lide.html" class="text-blue-600 hover:underline">prochazkaco.cz — Tým</a></li>
+    </ul>
+    <h3 class="font-bold mb-2">Judikatura</h3>
+    <ul class="text-sm space-y-1 mb-4">
+      <li>• <a href="https://msp.gov.cz/documents/15689/2538253/Si329_2021_pr_22Co_2256_2016_1422.pdf/a502c328-6a89-4096-933f-9a3d4e0282b9" class="text-blue-600 hover:underline">Rozsudek 22 Co 2256/2016 (azbest SITA CZ)</a></li>
+    </ul>
+    <h3 class="font-bold mb-2">Konkurence (shortlist)</h3>
+    <ul class="text-sm space-y-1">
+      <li>• <a href="https://www.akfiala.cz/" class="text-blue-600 hover:underline">Fiala, Tejkal a partneři</a></li>
+      <li>• <a href="https://brnoadvokati.cz/" class="text-blue-600 hover:underline">Štourač AK</a></li>
+      <li>• <a href="https://www.akjelinek.cz/" class="text-blue-600 hover:underline">AK Jelínek</a></li>
+      <li>• <a href="https://www.brno-advokatnikancelar.cz/" class="text-blue-600 hover:underline">Valíček & Valíčková</a></li>
+      <li>• <a href="https://www.advokatkybrno.cz/" class="text-blue-600 hover:underline">Coufalová & Kubíková</a></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-slate-900 text-slate-400 text-sm py-6 mt-12">
+  <div class="max-w-7xl mx-auto px-4 text-center">
+    <p>Case ID: <code class="bg-slate-800 px-2 py-0.5 rounded">DD-AK-Prochazka-Brno-2026-05-03</code></p>
+    <p class="mt-2">Generováno: 2026-05-03 · Subjekt: Procházka & Co., advokátní kancelář, s.r.o. (IČO 09963430)</p>
+    <p class="mt-2 text-xs opacity-70">Stack: Tailwind + Flowbite · Alpine.js · Chart.js · p5.js · vlastní DD pipeline</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     CHART.JS DEFINITIONS
+═══════════════════════════════════════════════════════════════════ -->
+<script>
+const chartFontFamily = "'Inter', system-ui, sans-serif";
+Chart.defaults.font.family = chartFontFamily;
+Chart.defaults.font.size = 12;
+Chart.defaults.color = '#475569';
+
+// Roles donut
+new Chart(document.getElementById('rolesChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Společník', 'Partneři', 'Ředitelka', 'Advokáti', 'Koncipienti'],
+    datasets: [{
+      data: [1, 2, 1, 4, 4],
+      backgroundColor: ['#7c3aed', '#2563eb', '#a855f7', '#3b82f6', '#94a3b8'],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    plugins: { legend: { position: 'bottom', labels: { boxWidth: 10 } } },
+    maintainAspectRatio: false
+  }
+});
+
+// Education donut
+new Chart(document.getElementById('eduChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['PrF MU Brno', 'PF UPOL Olomouc', 'FSS MU (2. titul Bc.)'],
+    datasets: [{
+      data: [10, 1, 1],
+      backgroundColor: ['#2563eb', '#06b6d4', '#a855f7'],
+      borderWidth: 0
+    }]
+  },
+  options: {
+    plugins: { legend: { position: 'bottom', labels: { boxWidth: 10 } } },
+    maintainAspectRatio: false
+  }
+});
+
+// Specializations bar
+new Chart(document.getElementById('specChart'), {
+  type: 'bar',
+  data: {
+    labels: ['Civilní', 'Obchodní', 'Rodinné', 'Trestní', 'Správní', 'Real estate', 'Pracovní', 'IT/IP', 'Veřejné zakázky'],
+    datasets: [{
+      label: 'Počet osob s touto specializací',
+      data: [9, 8, 5, 5, 3, 4, 4, 3, 2],
+      backgroundColor: '#3b82f6',
+      borderRadius: 4
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    plugins: { legend: { display: false } },
+    scales: { x: { beginAtZero: true, ticks: { stepSize: 1 } } },
+    maintainAspectRatio: false
+  }
+});
+
+// Contracts over time (estimate)
+new Chart(document.getElementById('contractsChart'), {
+  type: 'line',
+  data: {
+    labels: ['2021', '2022', '2023', '2024', '2025', '2026'],
+    datasets: [
+      {
+        label: 'Smlouvy (počet)',
+        data: [3, 8, 11, 14, 13, 2],
+        borderColor: '#2563eb',
+        backgroundColor: 'rgba(37,99,235,0.1)',
+        tension: 0.3,
+        yAxisID: 'y'
+      },
+      {
+        label: 'Kumulativní hodnota (M Kč)',
+        data: [0.4, 2.1, 4.5, 7.2, 11.3, 12.0],
+        borderColor: '#16a34a',
+        backgroundColor: 'rgba(22,163,74,0.1)',
+        tension: 0.3,
+        yAxisID: 'y1'
+      }
+    ]
+  },
+  options: {
+    scales: {
+      y: { type: 'linear', position: 'left', title: { display: true, text: 'Smlouvy (počet)' } },
+      y1: { type: 'linear', position: 'right', title: { display: true, text: 'Hodnota (M Kč)' }, grid: { drawOnChartArea: false } }
+    },
+    maintainAspectRatio: false
+  }
+});
+
+// Risk radar (v2 — 10 dimensions)
+new Chart(document.getElementById('riskChart'), {
+  type: 'radar',
+  data: {
+    labels: ['Reg. compl.', 'Fin. stab.', 'Reput.', 'Tržní valid.', 'Kapacita', 'Konflikt z.', 'Specializace', 'Mezinár.', 'KCR diverz.', 'Transparentnost'],
+    datasets: [{
+      label: 'Procházka & Co. (v2)',
+      data: [9, 8, 7, 8, 7, 5, 5, 3, 4, 7],
+      backgroundColor: 'rgba(59,130,246,0.25)',
+      borderColor: '#2563eb',
+      borderWidth: 2,
+      pointBackgroundColor: '#2563eb'
+    },
+    {
+      label: 'Tržní benchmark (Tier A)',
+      data: [9, 8, 7, 9, 8, 7, 7, 5, 7, 8],
+      backgroundColor: 'rgba(22,163,74,0.15)',
+      borderColor: '#16a34a',
+      borderWidth: 2,
+      borderDash: [5, 5],
+      pointBackgroundColor: '#16a34a'
+    }]
+  },
+  options: {
+    scales: {
+      r: {
+        beginAtZero: true, max: 10, ticks: { stepSize: 2 },
+        pointLabels: { font: { size: 10 } }
+      }
+    },
+    maintainAspectRatio: false
+  }
+});
+
+// ===== NEW v3 charts (depth+2 analytics) =====
+
+// 1. Klientská koncentrace pie
+new Chart(document.getElementById('kcrPie'), {
+  type: 'doughnut',
+  data: {
+    labels: [
+      'Statutární město Brno',
+      'Technické sítě Brno',
+      'ARENA BRNO',
+      'STAREZ-SPORT',
+      'Teplárny Brno',
+      'Veletrhy Brno',
+      'Muzeum města Brna',
+      'MČ Brno-Královo Pole',
+      'OHL ŽS (judikát)',
+      'Nemovitosti m. Zlína (jediný non-Brno)'
+    ],
+    datasets: [{
+      data: [60, 10, 5, 4, 3, 3, 2, 2, 9, 2],
+      backgroundColor: [
+        '#16a34a', '#22c55e', '#4ade80', '#86efac', '#bbf7d0',
+        '#dcfce7', '#a7f3d0', '#6ee7b7', '#dc2626', '#94a3b8'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { position: 'right', labels: { boxWidth: 10, font: { size: 10 } } },
+      tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ~${ctx.parsed}% portfolia` } }
+    },
+    maintainAspectRatio: false
+  }
+});
+
+// 2. Cluster brněnských AK pro SMB
+new Chart(document.getElementById('smbClusterBar'), {
+  type: 'bar',
+  data: {
+    labels: ['Solkind AK', 'Petra Vymazalová (notář)', 'Frank Bold AK', 'Procházka & Co. (subjekt)'],
+    datasets: [{
+      label: 'Počet smluv s SMB',
+      data: [191, 140, 31, 30],
+      backgroundColor: ['#94a3b8', '#94a3b8', '#94a3b8', '#2563eb'],
+      borderRadius: 4
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { afterLabel: (ctx) => ctx.dataIndex === 3 ? 'Subjekt DD' : '' } }
+    },
+    scales: { x: { beginAtZero: true, title: { display: true, text: 'Počet smluv' } } },
+    maintainAspectRatio: false
+  }
+});
+
+// 3. Top 5 zadavatelů OHL ŽS 2026
+new Chart(document.getElementById('ohlSuppliersBar'), {
+  type: 'bar',
+  data: {
+    labels: ['Správa železnic', 'Národní divadlo', 'Moravskoslezský kraj', 'Kraj Vysočina', 'FN Hradec Králové'],
+    datasets: [{
+      label: 'Pořadí (1 = největší)',
+      data: [5, 4, 3, 2, 1],
+      backgroundColor: ['#dc2626', '#ef4444', '#f87171', '#fca5a5', '#fecaca'],
+      borderRadius: 4
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { display: false },
+      tooltip: { callbacks: { label: (ctx) => `Rank: ${6 - ctx.parsed.y}` } }
+    },
+    scales: { y: { beginAtZero: true, title: { display: true, text: 'Inv. rank (vyšší = lepší)' } } },
+    maintainAspectRatio: false
+  }
+});
+
+// 4. Akademie distribuce týmu
+new Chart(document.getElementById('academyTreemap'), {
+  type: 'bar',
+  data: {
+    labels: ['PrF MU Brno', 'PF UPOL Olomouc', 'FSS MU (2. titul)'],
+    datasets: [{
+      label: 'Počet osob',
+      data: [11, 1, 1],
+      backgroundColor: ['#f97316', '#06b6d4', '#a855f7'],
+      borderRadius: 4
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } },
+    maintainAspectRatio: false
+  }
+});
+
+// ===== NEW v4 charts (depth+4 analytics) =====
+
+// 6. OHLA Group ownership pie
+new Chart(document.getElementById('ohlaOwnerPie'), {
+  type: 'pie',
+  data: {
+    labels: ['Bratři Amodio (MX)', 'Tyrus Capital (MC)', 'José E. Navarro (ES)', 'Andrés Holzer (MX)', 'José E. Poza (ES)', 'Inveready (ES)', 'Coenersol (ES)', 'Free float'],
+    datasets: [{
+      data: [21.6, 7, 9, 8.4, 3.3, 2.35, 1, 47.35],
+      backgroundColor: ['#dc2626', '#f97316', '#a855f7', '#ec4899', '#0ea5e9', '#14b8a6', '#84cc16', '#94a3b8'],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    plugins: {
+      legend: { position: 'right', labels: { boxWidth: 10, font: { size: 10 } } },
+      tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.parsed}%` } }
+    },
+    maintainAspectRatio: false
+  }
+});
+
+// 7. Brněnská koalice pie
+new Chart(document.getElementById('brnoCoalitionPie'), {
+  type: 'doughnut',
+  data: {
+    labels: ['ODS (SPOLU) — Vaňková, Kerndl, Kratochvíl, Aberl', 'KDU-ČSL/STAN (SPOLU) — Hladík→Chvátal, Matonohová', 'TOP 09 (SPOLU)', 'ANO/Brnoklid — Černý 1.nám., Podivinská, Bořecký', 'Opozice (Piráti, SPD, Žít Brno)'],
+    datasets: [{
+      data: [4, 2, 1, 3, 13],
+      backgroundColor: ['#2563eb', '#facc15', '#7c3aed', '#06b6d4', '#94a3b8'],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    plugins: { legend: { position: 'right', labels: { boxWidth: 10, font: { size: 10 } } } },
+    maintainAspectRatio: false
+  }
+});
+
+// 8. ČAK funkcionáři × jejich AK bar
+new Chart(document.getElementById('cakFunctsBar'), {
+  type: 'bar',
+  data: {
+    labels: [
+      'M. Novotná → Rödl & Partner (PR)',
+      'L. Trojan → Sokol-Novák-Trojan-Doleček (PR)',
+      'M. Plachká → PURE Legal (Ostrava)',
+      'M. Nespala → NESPALA s.r.o. (PR)',
+      'M. Žižlavský → ZIZLAVSKY SIGMUND (PR)'
+    ],
+    datasets: [{
+      label: 'Velikost AK (odhad počtu právníků)',
+      data: [110, 50, 12, 8, 35],
+      backgroundColor: ['#06b6d4', '#0891b2', '#0e7490', '#155e75', '#164e63'],
+      borderRadius: 4
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    plugins: { legend: { display: false } },
+    scales: { x: { beginAtZero: true, title: { display: true, text: 'Počet právníků (odhad)' } } },
+    maintainAspectRatio: false
+  }
+});
+
+// 9. Network cluster distribution bar
+new Chart(document.getElementById('networkDistBar'), {
+  type: 'bar',
+  data: {
+    labels: ['Tým AK', 'SMB + Brno politika', 'OHL ŽS + OHLA chain', 'Akademie + znalci', 'ČAK + jejich AK', 'Brněnské konkurenční AK', 'Vláda ČR + JMK', 'Soudní + ČB cluster'],
+    datasets: [{
+      label: 'Počet uzlů v clusteru',
+      data: [13, 35, 45, 22, 28, 28, 19, 8],
+      backgroundColor: ['#7c3aed', '#16a34a', '#dc2626', '#f97316', '#06b6d4', '#94a3b8', '#be185d', '#a16207'],
+      borderRadius: 4
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, ticks: { stepSize: 5 } } },
+    maintainAspectRatio: false
+  }
+});
+
+// 10. Network growth over iterations
+new Chart(document.getElementById('networkGrowthBar'), {
+  type: 'bar',
+  data: {
+    labels: ['v1 (initial)', 'v2 (ARCHER deep)', 'v3 (depth+2)', 'v4 (depth+4) — current'],
+    datasets: [
+      {
+        label: 'Uzly',
+        data: [15, 15, 85, 198],
+        backgroundColor: '#2563eb',
+        borderRadius: 4,
+        yAxisID: 'y'
+      },
+      {
+        label: 'Hran',
+        data: [19, 19, 60, 240],
+        backgroundColor: '#16a34a',
+        borderRadius: 4,
+        yAxisID: 'y'
+      },
+      {
+        label: 'Raw reportů',
+        data: [3, 3, 7, 9],
+        backgroundColor: '#f97316',
+        borderRadius: 4,
+        yAxisID: 'y1'
+      }
+    ]
+  },
+  options: {
+    plugins: { legend: { position: 'top' } },
+    scales: {
+      y: { type: 'linear', position: 'left', title: { display: true, text: 'Uzly + hran' } },
+      y1: { type: 'linear', position: 'right', title: { display: true, text: 'Raw reportů' }, grid: { drawOnChartArea: false }, max: 12 }
+    },
+    maintainAspectRatio: false
+  }
+});
+
+// 5. SMB skupina — entity v koncernu
+new Chart(document.getElementById('smbGroupBar'), {
+  type: 'bar',
+  data: {
+    labels: ['Dceřiné a.s.', 'Příspěv. organizace', 'Městské části (MČ)', 'Funkcionáři (vedení)', 'Klientů AK Procházka'],
+    datasets: [
+      {
+        label: 'Celkem v SMB skupině',
+        data: [11, 15, 29, 6, null],
+        backgroundColor: '#16a34a',
+        borderRadius: 4
+      },
+      {
+        label: 'Z toho klienti AK Procházka',
+        data: [8, 1, 1, 0, 10],
+        backgroundColor: '#7c3aed',
+        borderRadius: 4
+      }
+    ]
+  },
+  options: {
+    plugins: { legend: { position: 'top' } },
+    scales: { y: { beginAtZero: true, ticks: { stepSize: 5 } } },
+    maintainAspectRatio: false
+  }
+});
+
+// Competitor radar
+new Chart(document.getElementById('competitorRadar'), {
+  type: 'radar',
+  data: {
+    labels: ['Velikost týmu', 'Veřejné zakázky', 'Komunální stopa', 'Generalist. šíře', 'Specializ. hloubka'],
+    datasets: [
+      { label: 'Procházka & Co.', data: [7, 7, 8, 8, 5], borderColor: '#2563eb', backgroundColor: 'rgba(37,99,235,0.2)', borderWidth: 2 },
+      { label: 'Fiala+Tejkal', data: [9, 10, 10, 8, 7], borderColor: '#16a34a', backgroundColor: 'rgba(22,163,74,0.15)', borderWidth: 2 },
+      { label: 'Štourač', data: [6, 6, 5, 9, 6], borderColor: '#f97316', backgroundColor: 'rgba(249,115,22,0.15)', borderWidth: 2 },
+      { label: 'AK Jelínek', data: [7, 9, 6, 4, 9], borderColor: '#a855f7', backgroundColor: 'rgba(168,85,247,0.15)', borderWidth: 2 },
+      { label: 'Valíček+Valíčková', data: [8, 4, 4, 8, 8], borderColor: '#ec4899', backgroundColor: 'rgba(236,72,153,0.15)', borderWidth: 2 },
+      { label: 'Coufalová+Kubíková', data: [4, 5, 4, 6, 7], borderColor: '#06b6d4', backgroundColor: 'rgba(6,182,212,0.1)', borderWidth: 2 }
+    ]
+  },
+  options: {
+    scales: { r: { beginAtZero: true, max: 10, ticks: { stepSize: 2 }, pointLabels: { font: { size: 11 } } } },
+    maintainAspectRatio: false
+  }
+});
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════════════
+     P5.JS NETWORK GRAPH (expanded depth+2, ~85 nodes, 7 clusters,
+     filter toggles, hover highlights, cluster layout)
+═══════════════════════════════════════════════════════════════════ -->
+<script>
+const networkSketch = (p) => {
+  const W = () => document.getElementById('p5-network').clientWidth;
+  const H = 850;
+  let nodes = [];
+  let edges = [];
+  let dragging = null;
+  let hovered = null;
+
+  // Cluster anchors (8 clusters now incl. gov)
+  const CLUSTER_INFO = {
+    team:        { color: '#2563eb', anchorAngle: -Math.PI/2 },         // top
+    smb:         { color: '#16a34a', anchorAngle: -Math.PI/4 },         // upper right
+    gov:         { color: '#be185d', anchorAngle: -Math.PI/8 },         // upper right outer
+    ohl:         { color: '#dc2626', anchorAngle: Math.PI/4 },          // lower right
+    academy:     { color: '#f97316', anchorAngle: Math.PI/2 },          // bottom
+    cak:         { color: '#06b6d4', anchorAngle: 3*Math.PI/4 },        // lower left
+    competitors: { color: '#94a3b8', anchorAngle: -3*Math.PI/4 },       // upper left
+    court:       { color: '#a16207', anchorAngle: Math.PI },            // far left
+    subject:     { color: '#7c3aed', anchorAngle: 0 }                   // center
+  };
+
+  // Depth filter level (1-4) — nodes with depth > level are hidden
+  let currentDepth = 4;
+  window.networkUpdateDepth = (lvl) => {
+    currentDepth = lvl;
+    if (!nodes || !nodes.length) return;
+    nodes.forEach(n => { n.depthHidden = (n.depth > lvl); });
+  };
+
+  // Node definitions: id, label, cluster, r (radius), tier (1=major, 2=mid, 3=minor)
+  const nodeDefs = [
+    // SUBJECT (center)
+    { id: 'AK', label: 'Procházka & Co.', cluster: 'subject', r: 28, tier: 1 },
+
+    // TEAM (12 osob)
+    { id: 'MP', label: 'M. Procházka', cluster: 'team', r: 18, tier: 1 },
+    { id: 'VJ', label: 'V. Javora', cluster: 'team', r: 14, tier: 2 },
+    { id: 'PJ', label: 'P. Jurenová', cluster: 'team', r: 14, tier: 2 },
+    { id: 'HM', label: 'H. Musilová', cluster: 'team', r: 16, tier: 2 },
+    { id: 'VK', label: 'V. Kyrych', cluster: 'team', r: 13, tier: 2 },
+    { id: 'VKp', label: 'V. Kapplerová', cluster: 'team', r: 12, tier: 3 },
+    { id: 'DN', label: 'D. Novák', cluster: 'team', r: 13, tier: 2 },
+    { id: 'TK', label: 'T. Kučerová', cluster: 'team', r: 12, tier: 3 },
+    { id: 'JK', label: 'J. Klaška', cluster: 'team', r: 10, tier: 3 },
+    { id: 'KD', label: 'K. Davidová', cluster: 'team', r: 10, tier: 3 },
+    { id: 'MM', label: 'M. Maliňák', cluster: 'team', r: 10, tier: 3 },
+    { id: 'TM', label: 'T. Mosler', cluster: 'team', r: 10, tier: 3 },
+    { id: 'ZNS', label: 'pob. Žďár', cluster: 'team', r: 12, tier: 3 },
+
+    // SMB skupina (město + 11 a.s. + 6 funkcionářů + 5 přísp.)
+    { id: 'BRNO', label: 'SMB (město)', cluster: 'smb', r: 22, tier: 1 },
+    { id: 'DPMB', label: 'DPMB', cluster: 'smb', r: 12, tier: 2 },
+    { id: 'BKOM', label: 'BKOM', cluster: 'smb', r: 12, tier: 2 },
+    { id: 'BVK', label: 'BVK', cluster: 'smb', r: 12, tier: 2 },
+    { id: 'TBR', label: 'Teplárny B.', cluster: 'smb', r: 12, tier: 2 },
+    { id: 'SAKO', label: 'SAKO', cluster: 'smb', r: 12, tier: 2 },
+    { id: 'LMB', label: 'Lesy m. B.', cluster: 'smb', r: 11, tier: 2 },
+    { id: 'BVV', label: 'Veletrhy B.', cluster: 'smb', r: 12, tier: 2 },
+    { id: 'TSB', label: 'TSB', cluster: 'smb', r: 14, tier: 2 },
+    { id: 'STAR', label: 'STAREZ-Sport', cluster: 'smb', r: 11, tier: 2 },
+    { id: 'AREN', label: 'ARENA Brno', cluster: 'smb', r: 13, tier: 2 },
+    { id: 'RSMB', label: 'RSMB', cluster: 'smb', r: 11, tier: 2 },
+    { id: 'MCKP', label: 'MČ Královo P.', cluster: 'smb', r: 10, tier: 3 },
+    { id: 'MMB', label: 'Muzeum m. B.', cluster: 'smb', r: 10, tier: 3 },
+    { id: 'NDB', label: 'Nár. divadlo B.', cluster: 'smb', r: 9, tier: 3 },
+    { id: 'FILH', label: 'Filharmonie', cluster: 'smb', r: 9, tier: 3 },
+    { id: 'KJM', label: 'Knih. J. Mahena', cluster: 'smb', r: 9, tier: 3 },
+    { id: 'VANK', label: 'M. Vaňková (prim.)', cluster: 'smb', r: 13, tier: 2 },
+    { id: 'KERN', label: 'R. Kerndl (1.nám.)', cluster: 'smb', r: 11, tier: 3 },
+    { id: 'CERN', label: 'R. Černý (nám.)', cluster: 'smb', r: 10, tier: 3 },
+    { id: 'SUCH', label: 'J. Suchý (nám.)', cluster: 'smb', r: 10, tier: 3 },
+    { id: 'KARA', label: 'K. Karasová (nám.)', cluster: 'smb', r: 10, tier: 3 },
+    { id: 'POSP', label: 'O. Pospíšil (taj.)', cluster: 'smb', r: 11, tier: 3 },
+
+    // OHL ŽS skupina
+    { id: 'OHLZS', label: 'OHLA ŽS', cluster: 'ohl', r: 20, tier: 1 },
+    { id: 'OHLCE', label: 'OHLA C. Europe', cluster: 'ohl', r: 14, tier: 2 },
+    { id: 'OHLG', label: 'OHLA Group (ES)', cluster: 'ohl', r: 16, tier: 1 },
+    { id: 'FRom', label: 'J.A. Felices Romo', cluster: 'ohl', r: 11, tier: 3 },
+    { id: 'VRSK', label: 'I. Vršková', cluster: 'ohl', r: 10, tier: 3 },
+    { id: 'BART', label: 'V. Bartoněk', cluster: 'ohl', r: 10, tier: 3 },
+    { id: 'MAPOZ', label: 'MAPOZ Zliv', cluster: 'ohl', r: 11, tier: 2 },
+    { id: 'SITA', label: 'SITA CZ', cluster: 'ohl', r: 12, tier: 2 },
+    { id: 'FOST', label: 'Foster Bohemia', cluster: 'ohl', r: 11, tier: 2 },
+    { id: 'SZEL', label: 'Správa železnic', cluster: 'ohl', r: 13, tier: 2 },
+    { id: 'RSD', label: 'ŘSD ČR', cluster: 'ohl', r: 11, tier: 3 },
+    { id: 'ZBR', label: 'FC Zbrojovka', cluster: 'ohl', r: 10, tier: 3 },
+    { id: 'KOM', label: 'HC Kometa', cluster: 'ohl', r: 9, tier: 3 },
+    { id: 'CBC', label: 'SM Č. Budějovice (žalobce)', cluster: 'ohl', r: 12, tier: 2 },
+
+    // Academy
+    { id: 'MU', label: 'Masaryk Univ.', cluster: 'academy', r: 18, tier: 1 },
+    { id: 'PRMU', label: 'PrF MU', cluster: 'academy', r: 16, tier: 1 },
+    { id: 'FSMU', label: 'FSS MU', cluster: 'academy', r: 12, tier: 2 },
+    { id: 'BARES', label: 'M. Bareš (rektor)', cluster: 'academy', r: 11, tier: 3 },
+    { id: 'SKOP', label: 'M. Škop (děkan PrF)', cluster: 'academy', r: 11, tier: 3 },
+    { id: 'KOBC', label: 'Kat. obč. práva', cluster: 'academy', r: 10, tier: 3 },
+    { id: 'KOBCH', label: 'Kat. obch. práva', cluster: 'academy', r: 10, tier: 3 },
+    { id: 'KTRES', label: 'Kat. trest. práva', cluster: 'academy', r: 10, tier: 3 },
+    { id: 'KSPR', label: 'Kat. spr. práva', cluster: 'academy', r: 10, tier: 3 },
+    { id: 'VUT', label: 'VUT Brno', cluster: 'academy', r: 14, tier: 2 },
+    { id: 'FPVUT', label: 'FP VUT', cluster: 'academy', r: 14, tier: 2 },
+    { id: 'UFVUT', label: 'Ústav financí', cluster: 'academy', r: 11, tier: 3 },
+    { id: 'SKAPA', label: 'S. Škapa (děkan FP)', cluster: 'academy', r: 10, tier: 3 },
+    { id: 'UPOL', label: 'PF UPOL', cluster: 'academy', r: 12, tier: 2 },
+    { id: 'STEHL', label: 'V. Stehlík (děkan UPOL)', cluster: 'academy', r: 10, tier: 3 },
+    { id: 'AI', label: 'Amnesty Int. ČR', cluster: 'academy', r: 12, tier: 2 },
+
+    // ČAK
+    { id: 'CAK', label: 'ČAK (centrála)', cluster: 'cak', r: 18, tier: 1 },
+    { id: 'CAKBR', label: 'ČAK pob. Brno', cluster: 'cak', r: 14, tier: 2 },
+    { id: 'NOVOT', label: 'M. Novotná (předs.)', cluster: 'cak', r: 12, tier: 2 },
+    { id: 'TROJ', label: 'L. Trojan (mp.)', cluster: 'cak', r: 10, tier: 3 },
+    { id: 'PLACH', label: 'M. Plachká (mp.)', cluster: 'cak', r: 10, tier: 3 },
+    { id: 'NESP', label: 'M. Nespala', cluster: 'cak', r: 9, tier: 3 },
+    { id: 'ZIZL', label: 'M. Žižlavský', cluster: 'cak', r: 9, tier: 3 },
+    { id: 'KARN', label: 'Kárná komise', cluster: 'cak', r: 11, tier: 3 },
+    { id: 'STR', label: 'Sekce trest.', cluster: 'cak', r: 9, tier: 3 },
+    { id: 'SOB', label: 'Sekce obč.', cluster: 'cak', r: 9, tier: 3 },
+    { id: 'SOH', label: 'Sekce obch.', cluster: 'cak', r: 9, tier: 3 },
+    { id: 'SRE', label: 'Sekce real est.', cluster: 'cak', r: 9, tier: 3 },
+    { id: 'SVP', label: 'Sekce veř. práva', cluster: 'cak', r: 9, tier: 3 },
+
+    // Competitors (cluster brněnských AK)
+    { id: 'SOLK', label: 'Solkind AK', cluster: 'competitors', r: 14, tier: 2 },
+    { id: 'FBA', label: 'Frank Bold AK', cluster: 'competitors', r: 12, tier: 2 },
+    { id: 'VYM', label: 'Vymazalová (notář)', cluster: 'competitors', r: 11, tier: 3 },
+    { id: 'FT', label: 'Fiala+Tejkal', cluster: 'competitors', r: 13, tier: 2 },
+    { id: 'STO', label: 'Štourač AK', cluster: 'competitors', r: 12, tier: 3 },
+    { id: 'JEL', label: 'AK Jelínek', cluster: 'competitors', r: 11, tier: 3 },
+    { id: 'VAL', label: 'Valíček+Valíčková', cluster: 'competitors', r: 11, tier: 3 },
+    { id: 'COU', label: 'Coufalová+Kubíková', cluster: 'competitors', r: 10, tier: 3 },
+
+    // Court / judikát strany
+    { id: 'KSCB', label: 'KS Č. Budějovice', cluster: 'court', r: 13, tier: 2, depth: 2 },
+    { id: 'OSCB', label: 'OS Č. Budějovice', cluster: 'court', r: 11, tier: 3, depth: 2 },
+    { id: 'JARU', label: 'Mgr. J. Jarušek (PZ žalobce)', cluster: 'court', r: 11, tier: 3, depth: 2 },
+    { id: 'PAPO', label: 'JUDr. H. Papoušková (předs. senátu)', cluster: 'court', r: 9, tier: 3, depth: 3 },
+    { id: 'KSBR', label: 'KS Brno', cluster: 'court', r: 11, tier: 3, depth: 2 },
+
+    // ============ DEPTH+4 EXPANSION (~125 nových uzlů) ============
+
+    // OHLA Group ownership (depth 4)
+    { id: 'AMODIO', label: 'L. + J.M. Amodio', cluster: 'ohl', r: 12, tier: 3, depth: 4 },
+    { id: 'CARTERA', label: 'Cartera Concertada', cluster: 'ohl', r: 10, tier: 3, depth: 4 },
+    { id: 'CAABSA', label: 'Grupo CAABSA (MX)', cluster: 'ohl', r: 11, tier: 3, depth: 4 },
+    { id: 'TRG', label: 'T. Ruiz González (CEO)', cluster: 'ohl', r: 10, tier: 3, depth: 4 },
+    { id: 'JEN', label: 'J.E. Navarro', cluster: 'ohl', r: 9, tier: 3, depth: 4 },
+    { id: 'AHO', label: 'A. Holzer (MX)', cluster: 'ohl', r: 9, tier: 3, depth: 4 },
+    { id: 'TYRUS', label: 'Tyrus Capital', cluster: 'ohl', r: 9, tier: 3, depth: 4 },
+    { id: 'VILLAR', label: 'J.M. Villar Mir (ex)', cluster: 'ohl', r: 9, tier: 3, depth: 4 },
+    { id: 'SANTAN', label: 'Banco Santander', cluster: 'ohl', r: 10, tier: 3, depth: 4 },
+    { id: 'BBVA', label: 'BBVA', cluster: 'ohl', r: 10, tier: 3, depth: 4 },
+    { id: 'CAIXA', label: 'CaixaBank', cluster: 'ohl', r: 10, tier: 3, depth: 4 },
+    { id: 'SOCG', label: 'Société Générale', cluster: 'ohl', r: 10, tier: 3, depth: 4 },
+    { id: 'BME', label: 'BME:OHLA Madrid', cluster: 'ohl', r: 9, tier: 3, depth: 4 },
+
+    // SITA CZ → Veolia chain (oprava!)
+    { id: 'RECOV', label: 'Recovera (ex-SITA CZ)', cluster: 'ohl', r: 12, tier: 3, depth: 3 },
+    { id: 'VEOLCR', label: 'Veolia ČR', cluster: 'ohl', r: 11, tier: 3, depth: 3 },
+    { id: 'VEOLG', label: 'Veolia Group (FR)', cluster: 'ohl', r: 12, tier: 3, depth: 4 },
+    { id: 'SUEZ', label: 'SUEZ Group (akv. 2022)', cluster: 'ohl', r: 9, tier: 3, depth: 4 },
+
+    // OHL ŽS in-house & subdodavatelé (verifikováno)
+    { id: 'KOCUR', label: 'R. Kocúrek (CEO OHL ŽS)', cluster: 'ohl', r: 10, tier: 3, depth: 3 },
+    { id: 'GUSCH', label: 'Z. Guschlová (Foster jednatel)', cluster: 'ohl', r: 9, tier: 3, depth: 4 },
+    { id: 'ROWAN', label: 'ROWAN LEGAL (Vrškové ex)', cluster: 'ohl', r: 11, tier: 3, depth: 4 },
+
+    // Sportovní cluster (oprava!)
+    { id: 'KACEN', label: 'V. Kačena (FCZ majitel 8/25)', cluster: 'ohl', r: 10, tier: 3, depth: 4 },
+    { id: 'SECF', label: 'Second Foundation', cluster: 'ohl', r: 9, tier: 3, depth: 4 },
+    { id: 'ONECAP', label: 'OneCap Project', cluster: 'ohl', r: 9, tier: 3, depth: 4 },
+    { id: 'RHK', label: 'RHK Brno (předkup)', cluster: 'ohl', r: 9, tier: 3, depth: 4 },
+    { id: 'WING', label: 'Winning Group (Kometa sp.)', cluster: 'ohl', r: 8, tier: 3, depth: 4 },
+    { id: 'STAR_PIVO', label: 'Pivovar Starobrno', cluster: 'ohl', r: 8, tier: 3, depth: 4 },
+
+    // Znalecké instituty (depth+3)
+    { id: 'VSCHT', label: 'VŠCHT Praha', cluster: 'academy', r: 11, tier: 3, depth: 3 },
+    { id: 'CVUT', label: 'ČVUT FS', cluster: 'academy', r: 11, tier: 3, depth: 3 },
+    { id: 'SKAC', label: 'F. Skácel (znalec)', cluster: 'academy', r: 10, tier: 3, depth: 3 },
+    { id: 'HIRS', label: 'J. Hirš (znalec, prof.)', cluster: 'academy', r: 10, tier: 3, depth: 3 },
+    { id: 'ZMRH', label: 'V. Zmrhal (ČVUT FS)', cluster: 'academy', r: 10, tier: 3, depth: 3 },
+    { id: 'CIA', label: 'ČIA (akreditace)', cluster: 'academy', r: 10, tier: 3, depth: 4 },
+
+    // Brněnská politika (oprava + rozšíření)
+    { id: 'CERN_R', label: 'R. Černý (1. nám.)', cluster: 'smb', r: 11, tier: 3, depth: 3 },
+    { id: 'KERN', label: 'R. Kerndl (nám.)', cluster: 'smb', r: 11, tier: 3, depth: 3 },
+    { id: 'CHVAT', label: 'F. Chvátal (nám.)', cluster: 'smb', r: 10, tier: 3, depth: 3 },
+    { id: 'PODIV', label: 'K. Podivinská (nám.)', cluster: 'smb', r: 10, tier: 3, depth: 3 },
+    { id: 'POSP', label: 'O. Pospíšil (taj.)', cluster: 'smb', r: 10, tier: 3, depth: 3 },
+    { id: 'KRAT', label: 'P. Kratochvíl (rad.)', cluster: 'smb', r: 9, tier: 3, depth: 4 },
+    { id: 'ABERL', label: 'T. Aberl (rad.)', cluster: 'smb', r: 9, tier: 3, depth: 4 },
+    { id: 'BORE', label: 'P. Bořecký (rad.)', cluster: 'smb', r: 9, tier: 3, depth: 4 },
+    { id: 'OLIV', label: 'J. Oliva (rad.)', cluster: 'smb', r: 9, tier: 3, depth: 4 },
+    { id: 'MATON', label: 'I. Matonohová (rad.)', cluster: 'smb', r: 9, tier: 3, depth: 4 },
+    { id: 'VOKR', label: 'P. Vokřál (ex-prim.)', cluster: 'smb', r: 9, tier: 3, depth: 4 },
+    { id: 'OND', label: 'R. Onderka (ex-prim.)', cluster: 'smb', r: 9, tier: 3, depth: 4 },
+    { id: 'VANEK', label: 'T. Vaněk (manžel Vaňkové)', cluster: 'smb', r: 8, tier: 3, depth: 4 },
+    { id: 'ZLATU', label: 'K. Zlatušková (ODS lídr 2026)', cluster: 'smb', r: 9, tier: 3, depth: 4 },
+    { id: 'AKVAN', label: '⚠️ AK Vaňkové (vlastní AK)', cluster: 'smb', r: 11, tier: 3, depth: 4 },
+    { id: 'HOCH', label: 'HOCHTIEF CZ (gen. dod. ARENA)', cluster: 'smb', r: 11, tier: 3, depth: 4 },
+
+    // Vláda ČR 2026 (Babišova III. vláda)
+    { id: 'BABIS', label: 'A. Babiš (premiér)', cluster: 'gov', r: 12, tier: 3, depth: 3 },
+    { id: 'HAVL', label: 'K. Havlíček (1. MP+MPO)', cluster: 'gov', r: 10, tier: 3, depth: 3 },
+    { id: 'SCHIL', label: 'A. Schillerová (MF)', cluster: 'gov', r: 11, tier: 3, depth: 3 },
+    { id: 'TEJC', label: 'J. Tejc (MS)', cluster: 'gov', r: 11, tier: 3, depth: 3 },
+    { id: 'BEDN', label: 'I. Bednárik (MD)', cluster: 'gov', r: 11, tier: 3, depth: 3 },
+    { id: 'METN', label: 'L. Metnar (MV)', cluster: 'gov', r: 9, tier: 3, depth: 4 },
+    { id: 'MAC', label: 'P. Macinka (MZV+ŽP)', cluster: 'gov', r: 9, tier: 3, depth: 4 },
+    { id: 'CERV', label: 'I. Červený (MŽP)', cluster: 'gov', r: 9, tier: 3, depth: 4 },
+    { id: 'HLAD', label: 'P. Hladík (ex-MŽP, KDU-ČSL)', cluster: 'gov', r: 11, tier: 3, depth: 3 },
+
+    // JMK 2026
+    { id: 'JMK', label: 'JMK (Jihomor. kraj)', cluster: 'gov', r: 12, tier: 3, depth: 3 },
+    { id: 'GROL', label: 'J. Grolich (hejtman, KDU)', cluster: 'gov', r: 11, tier: 3, depth: 3 },
+    { id: 'CRHA', label: 'J. Crha (1. nám. JMK)', cluster: 'gov', r: 9, tier: 3, depth: 4 },
+    { id: 'ZAM', label: 'J. Zámečník (nám. JMK)', cluster: 'gov', r: 9, tier: 3, depth: 4 },
+    { id: 'CELY', label: 'R. Celý (nám. JMK)', cluster: 'gov', r: 9, tier: 3, depth: 4 },
+    { id: 'LUKL', label: 'F. Lukl (nám. JMK)', cluster: 'gov', r: 9, tier: 3, depth: 4 },
+
+    // ČAK 2025-29 + jejich AK (depth+3/+4)
+    { id: 'NOVOT_AK', label: 'Rödl & Partner (Novotná)', cluster: 'cak', r: 11, tier: 3, depth: 3 },
+    { id: 'TROJ_AK', label: 'Sokol-Novák-Trojan-Doleček', cluster: 'cak', r: 11, tier: 3, depth: 3 },
+    { id: 'PLAC_AK', label: 'PURE Legal (Plachká, Ostrava)', cluster: 'cak', r: 10, tier: 3, depth: 3 },
+    { id: 'NESP_AK', label: 'NESPALA s.r.o.', cluster: 'cak', r: 10, tier: 3, depth: 3 },
+    { id: 'ZIZL_AK', label: 'ZIZLAVSKY SIGMUND LEGAL', cluster: 'cak', r: 10, tier: 3, depth: 3 },
+    { id: 'SOKOL', label: 'JUDr. T. Sokol', cluster: 'cak', r: 9, tier: 3, depth: 4 },
+    { id: 'NOVAK_J', label: 'JUDr. J. Novák', cluster: 'cak', r: 9, tier: 3, depth: 4 },
+    { id: 'DOLEC', label: 'JUDr. M. Doleček', cluster: 'cak', r: 9, tier: 3, depth: 4 },
+    { id: 'RSHKACR', label: 'Rozhodčí soud HK ČR', cluster: 'cak', r: 9, tier: 3, depth: 4 },
+    { id: 'ARBCOV', label: 'Arbitr. komise ČOV', cluster: 'cak', r: 8, tier: 3, depth: 4 },
+    { id: 'KOM20', label: 'Hnutí Komora 2.0', cluster: 'cak', r: 8, tier: 3, depth: 4 },
+    { id: 'UOCR', label: 'Unie obhájců ČR', cluster: 'cak', r: 9, tier: 3, depth: 4 },
+    { id: 'ASZIZ', label: 'AS ZIZLAVSKY (insolv.)', cluster: 'cak', r: 9, tier: 3, depth: 4 },
+    { id: 'NKCR', label: 'Notářská komora ČR', cluster: 'cak', r: 10, tier: 3, depth: 4 },
+    { id: 'NEUB', label: 'R. Neubauer (NKČR pres.)', cluster: 'cak', r: 9, tier: 3, depth: 4 },
+    { id: 'NKBRNO', label: 'NK Brno (Bernard vp.)', cluster: 'cak', r: 9, tier: 3, depth: 4 },
+    { id: 'SUCR', label: 'Soudcovská unie ČR', cluster: 'cak', r: 9, tier: 3, depth: 4 },
+    { id: 'VAVRA', label: 'L. Vávra (SUČR pres.)', cluster: 'cak', r: 9, tier: 3, depth: 4 },
+
+    // Brněnské konkurenční AK — partneři (depth+3/+4)
+    { id: 'SOLK', label: 'Solkind s.r.o. (MT+UH fúze)', cluster: 'competitors', r: 13, tier: 2, depth: 2 },
+    { id: 'MACH', label: 'T. Machurek (founder MT)', cluster: 'competitors', r: 9, tier: 3, depth: 3 },
+    { id: 'SEB', label: 'M. Šebesta (founder MT)', cluster: 'competitors', r: 9, tier: 3, depth: 3 },
+    { id: 'DVOR_MT', label: 'D. Dvořák (founder MT)', cluster: 'competitors', r: 8, tier: 3, depth: 4 },
+    { id: 'NOV_MT', label: 'P. Novotný (founder MT)', cluster: 'competitors', r: 8, tier: 3, depth: 4 },
+    { id: 'HEJD', label: 'M. Hejduk (ex-Urban&Hejduk)', cluster: 'competitors', r: 9, tier: 3, depth: 3 },
+    { id: 'GRIM', label: 'Grimaldi Alliance (mez. síť)', cluster: 'competitors', r: 9, tier: 3, depth: 4 },
+    { id: 'FBA', label: 'Frank Bold Advokáti', cluster: 'competitors', r: 12, tier: 2, depth: 2 },
+    { id: 'FBSOC', label: 'Frank Bold Society z.s.', cluster: 'competitors', r: 9, tier: 3, depth: 4 },
+    { id: 'FBPL', label: 'Fundacja Frank Bold (PL)', cluster: 'competitors', r: 8, tier: 3, depth: 4 },
+    { id: 'FBADV', label: 'Frank Bold Advisory', cluster: 'competitors', r: 8, tier: 3, depth: 4 },
+    { id: 'FBEN', label: 'Frank Bold Energy', cluster: 'competitors', r: 8, tier: 3, depth: 4 },
+    { id: 'CER_FB', label: 'P. Černý (FB partner)', cluster: 'competitors', r: 9, tier: 3, depth: 3 },
+    { id: 'VYM', label: 'P. Vymazalová (notář)', cluster: 'competitors', r: 11, tier: 3, depth: 2 },
+    { id: 'FT', label: 'Fiala+Tejkal', cluster: 'competitors', r: 12, tier: 3, depth: 2 },
+    { id: 'FIAL', label: 'JUDr. P. Fiala', cluster: 'competitors', r: 9, tier: 3, depth: 3 },
+    { id: 'TEJK', label: 'Mgr. J. Tejkal', cluster: 'competitors', r: 9, tier: 3, depth: 3 },
+    { id: 'JADR', label: 'JUDr. D. Jadrníček', cluster: 'competitors', r: 8, tier: 3, depth: 4 },
+    { id: 'STO', label: 'AK Štourač (AZ Tower)', cluster: 'competitors', r: 11, tier: 3, depth: 2 },
+    { id: 'STOU', label: 'JUDr. F. Štourač', cluster: 'competitors', r: 9, tier: 3, depth: 3 },
+    { id: 'JEL', label: 'AK Jelínek', cluster: 'competitors', r: 11, tier: 3, depth: 2 },
+    { id: 'JELIN', label: 'JUDr. K. Jelínek (PrF MU)', cluster: 'competitors', r: 9, tier: 3, depth: 3 },
+    { id: 'PETRIK', label: 'M. Petřík (komentář ZZVZ)', cluster: 'competitors', r: 8, tier: 3, depth: 4 },
+    { id: 'VAL', label: 'Valíček & Valíčková', cluster: 'competitors', r: 11, tier: 3, depth: 2 },
+    { id: 'VAL_A', label: 'JUDr. A. Valíček', cluster: 'competitors', r: 9, tier: 3, depth: 3 },
+    { id: 'VAL_AN', label: 'Mgr. A. Valíčková', cluster: 'competitors', r: 9, tier: 3, depth: 3 },
+    { id: 'COU', label: 'Coufalová & Kubíková', cluster: 'competitors', r: 10, tier: 3, depth: 2 },
+    { id: 'COUF', label: 'Mgr. M. Coufalová', cluster: 'competitors', r: 8, tier: 3, depth: 3 },
+    { id: 'KUBI', label: 'Mgr. M. Kubíková', cluster: 'competitors', r: 8, tier: 3, depth: 3 }
+  ];
+
+  // Edge defs (~150 hran)
+  const edgeDefs = [
+    // AK <-> tým
+    ['AK', 'MP', 3], ['AK', 'VJ', 2], ['AK', 'PJ', 2], ['AK', 'HM', 2],
+    ['AK', 'VK', 2], ['AK', 'VKp', 1], ['AK', 'DN', 2], ['AK', 'TK', 1],
+    ['AK', 'JK', 1], ['AK', 'KD', 1], ['AK', 'MM', 1], ['AK', 'TM', 1],
+    ['AK', 'ZNS', 1], ['DN', 'ZNS', 2],
+
+    // Tým -> akademie
+    ['MP', 'PRMU', 1], ['VJ', 'PRMU', 1], ['PJ', 'PRMU', 1], ['HM', 'PRMU', 1],
+    ['VKp', 'PRMU', 1], ['DN', 'PRMU', 1], ['TK', 'PRMU', 1], ['JK', 'PRMU', 1],
+    ['KD', 'PRMU', 1], ['MM', 'PRMU', 1], ['TM', 'PRMU', 1],
+    ['VK', 'UPOL', 1],
+    ['HM', 'FSMU', 1], ['HM', 'VUT', 2], ['HM', 'FPVUT', 2], ['HM', 'UFVUT', 2],
+    ['MP', 'AI', 1],
+
+    // Akademie hierarchy
+    ['MU', 'PRMU', 3], ['MU', 'FSMU', 2], ['MU', 'BARES', 2],
+    ['PRMU', 'SKOP', 2], ['PRMU', 'KOBC', 2], ['PRMU', 'KOBCH', 2],
+    ['PRMU', 'KTRES', 2], ['PRMU', 'KSPR', 2],
+    ['VUT', 'FPVUT', 2], ['FPVUT', 'UFVUT', 2], ['FPVUT', 'SKAPA', 2],
+    ['UPOL', 'STEHL', 2],
+
+    // ČAK hierarchy
+    ['CAK', 'CAKBR', 2], ['CAK', 'NOVOT', 3], ['CAK', 'TROJ', 2],
+    ['CAK', 'PLACH', 2], ['CAK', 'NESP', 1], ['CAK', 'ZIZL', 1],
+    ['CAK', 'KARN', 2], ['CAK', 'STR', 1], ['CAK', 'SOB', 1],
+    ['CAK', 'SOH', 1], ['CAK', 'SRE', 1], ['CAK', 'SVP', 1],
+    // Tým <-> ČAK (registrace)
+    ['MP', 'CAK', 1], ['HM', 'CAK', 1], ['VJ', 'CAK', 1], ['PJ', 'CAK', 1],
+    ['MP', 'CAKBR', 1], // pobočka
+
+    // SMB hierarchy
+    ['BRNO', 'DPMB', 2], ['BRNO', 'BKOM', 2], ['BRNO', 'BVK', 1],
+    ['BRNO', 'TBR', 2], ['BRNO', 'SAKO', 2], ['BRNO', 'LMB', 2],
+    ['BRNO', 'BVV', 2], ['BRNO', 'TSB', 3], ['BRNO', 'STAR', 2],
+    ['BRNO', 'AREN', 3], ['BRNO', 'RSMB', 2], ['BRNO', 'MCKP', 1],
+    ['BRNO', 'MMB', 1], ['BRNO', 'NDB', 1], ['BRNO', 'FILH', 1],
+    ['BRNO', 'KJM', 1],
+    ['BRNO', 'VANK', 3], ['BRNO', 'KERN', 2], ['BRNO', 'CERN', 2],
+    ['BRNO', 'SUCH', 2], ['BRNO', 'KARA', 2], ['BRNO', 'POSP', 2],
+
+    // SMB <- AK (klientské)
+    ['AK', 'BRNO', 4], ['AK', 'TSB', 3], ['AK', 'AREN', 3], ['AK', 'STAR', 2],
+    ['AK', 'TBR', 2], ['AK', 'BVV', 2], ['AK', 'MCKP', 1], ['AK', 'MMB', 1],
+
+    // Vaňková jako absolventka PrF MU
+    ['VANK', 'PRMU', 1],
+
+    // OHL ŽS hierarchy
+    ['OHLG', 'OHLCE', 3], ['OHLCE', 'OHLZS', 3], ['OHLZS', 'FRom', 2],
+    ['OHLZS', 'VRSK', 2], ['OHLZS', 'BART', 1],
+    ['OHLZS', 'MAPOZ', 2], ['OHLZS', 'SITA', 2], ['SITA', 'FOST', 2],
+    ['OHLZS', 'SZEL', 3], ['OHLZS', 'RSD', 2],
+    ['OHLZS', 'ZBR', 1], ['BART', 'ZBR', 2],
+
+    // AK <-> OHL ŽS (judikát)
+    ['MP', 'OHLZS', 3], ['AK', 'OHLZS', 2],
+
+    // Court / judikát
+    ['CBC', 'JARU', 2], ['CBC', 'OHLZS', 3], // žalobce vs. žalovaný
+    ['JARU', 'KSCB', 1], ['MP', 'KSCB', 2], ['MP', 'OSCB', 1],
+    ['KSCB', 'OSCB', 2], ['KSCB', 'PAPO', 1],
+    // Znalci ze sporu
+    ['KSCB', 'VUT', 1], // Hirš jako znalec
+
+    // SMB cluster — konkurence AK pracujících pro SMB
+    ['BRNO', 'SOLK', 3], ['BRNO', 'FBA', 2], ['BRNO', 'VYM', 2],
+    ['AK', 'FBA', 1], // sdílené zakázky s Frank Bold
+
+    // Konkurence (depth+1 ostatní brněnské AK pro RFP)
+    ['AK', 'FT', 1], ['AK', 'STO', 1], ['AK', 'JEL', 1],
+    ['AK', 'VAL', 1], ['AK', 'COU', 1],
+
+    // ============ DEPTH+4 EDGES (~150 nových hran) ============
+
+    // OHLA Group ownership chain
+    ['OHLG', 'AMODIO', 3], ['AMODIO', 'CARTERA', 2], ['AMODIO', 'CAABSA', 2],
+    ['OHLG', 'TRG', 2], ['OHLG', 'JEN', 1], ['OHLG', 'AHO', 1],
+    ['OHLG', 'TYRUS', 1], ['VILLAR', 'TYRUS', 2],
+    ['OHLG', 'SANTAN', 2], ['OHLG', 'BBVA', 2], ['OHLG', 'CAIXA', 2],
+    ['OHLG', 'SOCG', 1], ['OHLG', 'BME', 2],
+
+    // SITA→Veolia chain (oprava)
+    ['SITA', 'RECOV', 3], ['RECOV', 'VEOLCR', 3], ['VEOLCR', 'VEOLG', 3],
+    ['VEOLG', 'SUEZ', 2],
+
+    // OHL ŽS in-house
+    ['OHLZS', 'KOCUR', 2], ['VRSK', 'ROWAN', 2],
+    ['FOST', 'GUSCH', 2], ['SKAC', 'CIA', 2], ['FOST', 'CIA', 2],
+
+    // Sportovní cluster oprava
+    ['ZBR', 'KACEN', 2], ['KACEN', 'SECF', 2], ['ZBR', 'ONECAP', 1],
+    ['ZBR', 'RHK', 1], ['KOM', 'WING', 1], ['KOM', 'STAR_PIVO', 1],
+
+    // Znalecké instituty z judikátu
+    ['SKAC', 'VSCHT', 2], ['HIRS', 'VUT', 2], ['ZMRH', 'CVUT', 2],
+    ['MP', 'SKAC', 1], ['MP', 'HIRS', 1], ['MP', 'ZMRH', 1],
+
+    // Brněnská politika (kompletní rada SMB)
+    ['BRNO', 'CERN_R', 2], ['BRNO', 'KERN', 2], ['BRNO', 'CHVAT', 2],
+    ['BRNO', 'PODIV', 2], ['BRNO', 'POSP', 2],
+    ['BRNO', 'KRAT', 1], ['BRNO', 'ABERL', 1], ['BRNO', 'BORE', 1],
+    ['BRNO', 'OLIV', 1], ['BRNO', 'MATON', 1],
+    ['VOKR', 'BRNO', 1], ['OND', 'BRNO', 1],
+    ['VANK', 'VANEK', 1], ['VANK', 'AKVAN', 3], // ⚠️ KONFLIKT primátorka×AK
+    ['ZLATU', 'BRNO', 1],
+    ['BRNO', 'HOCH', 2], // ARENA gen. dodavatel
+
+    // Vláda ČR
+    ['BABIS', 'HAVL', 2], ['BABIS', 'SCHIL', 2], ['BABIS', 'TEJC', 2],
+    ['BABIS', 'BEDN', 1], ['BABIS', 'METN', 1], ['BABIS', 'MAC', 1],
+    ['BABIS', 'CERV', 1],
+    ['HLAD', 'BRNO', 2], // historic vazba ex-1. nám. Brna
+    ['BEDN', 'SZEL', 2], // dohled MD nad Správou železnic
+    ['SZEL', 'OHLZS', 2], // top zadavatel OHL ŽS
+    ['TEJC', 'CAK', 1], // MS dohled na ČAK
+
+    // JMK
+    ['JMK', 'GROL', 3], ['JMK', 'CRHA', 1], ['JMK', 'ZAM', 1],
+    ['JMK', 'CELY', 1], ['JMK', 'LUKL', 1],
+    ['HLAD', 'GROL', 1], // KDU-ČSL vazba
+
+    // ČAK funkcionáři + AK
+    ['NOVOT', 'NOVOT_AK', 3], ['TROJ', 'TROJ_AK', 3],
+    ['PLACH', 'PLAC_AK', 3], ['NESP', 'NESP_AK', 3], ['ZIZL', 'ZIZL_AK', 3],
+    ['TROJ_AK', 'SOKOL', 2], ['TROJ_AK', 'NOVAK_J', 2], ['TROJ_AK', 'DOLEC', 2],
+    ['TROJ', 'RSHKACR', 1], ['TROJ', 'ARBCOV', 1],
+    ['PLACH', 'KOM20', 1], ['NESP', 'UOCR', 1], ['ZIZL', 'ASZIZ', 2],
+    // Profesní organizace
+    ['VYM', 'NKCR', 2], ['NKCR', 'NEUB', 2], ['NKCR', 'NKBRNO', 2],
+    ['NKBRNO', 'VYM', 1], ['PAPO', 'SUCR', 1], ['SUCR', 'VAVRA', 2],
+
+    // Brněnské konkurenční AK — partneři
+    ['BRNO', 'SOLK', 3], ['SOLK', 'MACH', 2], ['SOLK', 'SEB', 2],
+    ['SOLK', 'DVOR_MT', 1], ['SOLK', 'NOV_MT', 1], ['SOLK', 'HEJD', 2],
+    ['SOLK', 'GRIM', 1],
+    ['BRNO', 'FBA', 2], ['FBA', 'FBSOC', 2], ['FBA', 'FBPL', 1],
+    ['FBA', 'FBADV', 1], ['FBA', 'FBEN', 1], ['FBA', 'CER_FB', 2],
+    ['BRNO', 'VYM', 2],
+    ['FT', 'FIAL', 2], ['FT', 'TEJK', 2], ['FT', 'JADR', 1],
+    ['STO', 'STOU', 2],
+    ['JEL', 'JELIN', 2], ['JELIN', 'PETRIK', 1], ['JELIN', 'PRMU', 1],
+    ['VAL', 'VAL_A', 2], ['VAL', 'VAL_AN', 2],
+    ['COU', 'COUF', 2], ['COU', 'KUBI', 2],
+
+    // SMB cluster konkurence (sdílené zakázky)
+    ['BRNO', 'SOLK', 4], ['BRNO', 'FBA', 3] // explicitní vazba SMB→konkurence
+  ];
+
+  // Apply filter from outside
+  window.networkUpdateFilters = (enabled, key) => {
+    if (!nodes.length) return;
+    nodes.forEach(n => {
+      if (n.cluster === key || (key === 'team' && n.cluster === 'subject')) {
+        n.hidden = !enabled;
+      }
+    });
+  };
+
+  p.setup = () => {
+    const cnv = p.createCanvas(W(), H);
+    cnv.parent('p5-network');
+    const cx = p.width / 2, cy = p.height / 2;
+    const clusterRadius = Math.min(p.width, p.height) * 0.32;
+
+    // Group nodes by cluster
+    const byCluster = {};
+    nodeDefs.forEach(d => {
+      (byCluster[d.cluster] = byCluster[d.cluster] || []).push(d);
+    });
+
+    // Position nodes around their cluster anchor
+    nodes = [];
+    Object.keys(byCluster).forEach(clusterKey => {
+      const ci = CLUSTER_INFO[clusterKey] || CLUSTER_INFO.subject;
+      const anchorX = clusterKey === 'subject' ? cx : cx + Math.cos(ci.anchorAngle) * clusterRadius;
+      const anchorY = clusterKey === 'subject' ? cy : cy + Math.sin(ci.anchorAngle) * clusterRadius;
+      const groupNodes = byCluster[clusterKey];
+      // Spread larger clusters further
+      const baseSpread = clusterKey === 'subject' ? 0 : (60 + Math.min(120, groupNodes.length * 4));
+      groupNodes.forEach((d, i) => {
+        const angle = (i / Math.max(1, groupNodes.length)) * Math.PI * 2;
+        const ringRadius = baseSpread + (Math.floor(i / 12) * 50); // multi-ring for >12 in cluster
+        nodes.push({
+          ...d,
+          depth: d.depth || 2, // default depth 2 for legacy nodes
+          color: ci.color,
+          x: anchorX + Math.cos(angle) * ringRadius,
+          y: anchorY + Math.sin(angle) * ringRadius,
+          vx: 0, vy: 0,
+          anchorX, anchorY,
+          hidden: false,
+          depthHidden: false
+        });
+      });
+    });
+
+    // Build edges with weight
+    edges = edgeDefs.map(([a, b, weight = 1]) => ({
+      a: nodes.find(n => n.id === a),
+      b: nodes.find(n => n.id === b),
+      weight
+    })).filter(e => e.a && e.b);
+  };
+
+  p.windowResized = () => {
+    p.resizeCanvas(W(), H);
+  };
+
+  p.draw = () => {
+    p.background(248, 250, 252);
+
+    const REPEL = 6500;
+    const ATTRACT = 0.012;
+    const ANCHOR_PULL = 0.008;
+    const DAMP = 0.82;
+
+    const visibleNodes = nodes.filter(n => !n.hidden && !n.depthHidden);
+
+    visibleNodes.forEach(n => { n.fx = 0; n.fy = 0; });
+
+    // Node-node repulsion
+    for (let i = 0; i < visibleNodes.length; i++) {
+      for (let j = i + 1; j < visibleNodes.length; j++) {
+        const a = visibleNodes[i], b = visibleNodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d = Math.max(0.01, Math.sqrt(dx*dx + dy*dy));
+        const f = REPEL / (d * d);
+        a.fx += (dx / d) * f;
+        a.fy += (dy / d) * f;
+        b.fx -= (dx / d) * f;
+        b.fy -= (dy / d) * f;
+      }
+    }
+
+    // Edge attraction
+    edges.forEach(({ a, b, weight }) => {
+      if (a.hidden || b.hidden || a.depthHidden || b.depthHidden) return;
+      const dx = b.x - a.x, dy = b.y - a.y;
+      const d = Math.max(0.01, Math.sqrt(dx*dx + dy*dy));
+      const targetD = 100 + (4 - weight) * 20;
+      const f = ATTRACT * (d - targetD) * weight;
+      a.fx += (dx / d) * f * 8;
+      a.fy += (dy / d) * f * 8;
+      b.fx -= (dx / d) * f * 8;
+      b.fy -= (dy / d) * f * 8;
+    });
+
+    // Anchor pull (cluster cohesion)
+    visibleNodes.forEach(n => {
+      n.fx += (n.anchorX - n.x) * ANCHOR_PULL;
+      n.fy += (n.anchorY - n.y) * ANCHOR_PULL;
+    });
+
+    // Integrate
+    visibleNodes.forEach(n => {
+      if (n === dragging) return;
+      n.vx = (n.vx + n.fx) * DAMP;
+      n.vy = (n.vy + n.fy) * DAMP;
+      n.x += n.vx;
+      n.y += n.vy;
+      n.x = p.constrain(n.x, n.r + 5, p.width - n.r - 5);
+      n.y = p.constrain(n.y, n.r + 5, p.height - n.r - 5);
+    });
+
+    // Hover detect
+    hovered = null;
+    for (const n of visibleNodes) {
+      const d = p.dist(p.mouseX, p.mouseY, n.x, n.y);
+      if (d < n.r) { hovered = n; break; }
+    }
+
+    // Draw edges
+    edges.forEach(({ a, b, weight }) => {
+      if (a.hidden || b.hidden || a.depthHidden || b.depthHidden) return;
+      const isHi = hovered && (a === hovered || b === hovered);
+      p.strokeWeight(isHi ? Math.max(2, weight * 1.5) : Math.max(0.6, weight * 0.8));
+      p.stroke(isHi ? p.color(31, 41, 55, 220) : p.color(180, 188, 208, 150));
+      p.line(a.x, a.y, b.x, b.y);
+    });
+
+    // Draw nodes
+    p.noStroke();
+    visibleNodes.forEach(n => {
+      const isHi = hovered && (n === hovered || edges.some(e => (e.a === hovered && e.b === n) || (e.b === hovered && e.a === n)));
+      p.fill(n.color);
+      if (isHi) {
+        p.stroke(31, 41, 55);
+        p.strokeWeight(2);
+      } else {
+        p.noStroke();
+      }
+      p.circle(n.x, n.y, n.r * 2);
+      p.noStroke();
+      p.fill(255);
+      p.textAlign(p.CENTER, p.CENTER);
+      // Only show full label if tier 1-2 OR hovered
+      if (n.tier <= 2 || isHi) {
+        p.textSize(n.tier === 1 ? 11 : 9);
+        p.fill(40, 50, 70);
+        p.text(n.label, n.x, n.y + n.r + 10);
+      }
+    });
+
+    // Tooltip for hovered
+    if (hovered) {
+      p.fill(15, 23, 42, 230);
+      p.noStroke();
+      const txt = `${hovered.label} [${hovered.cluster}]`;
+      const tw = p.textWidth(txt) + 16;
+      const tx = Math.min(hovered.x + 14, p.width - tw - 4);
+      const ty = Math.max(hovered.y - 28, 4);
+      p.rect(tx, ty, tw, 22, 4);
+      p.fill(255);
+      p.textAlign(p.LEFT, p.CENTER);
+      p.textSize(11);
+      p.text(txt, tx + 8, ty + 11);
+    }
+  };
+
+  p.mousePressed = () => {
+    for (const n of nodes) {
+      if (n.hidden) continue;
+      const d = p.dist(p.mouseX, p.mouseY, n.x, n.y);
+      if (d < n.r) { dragging = n; return; }
+    }
+  };
+  p.mouseDragged = () => {
+    if (dragging) {
+      dragging.x = p.mouseX;
+      dragging.y = p.mouseY;
+      dragging.vx = 0; dragging.vy = 0;
+    }
+  };
+  p.mouseReleased = () => { dragging = null; };
+};
+
+new p5(networkSketch);
+</script>
+
+</body>
+</html>

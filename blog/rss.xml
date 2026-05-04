@@ -1421,12 +1421,67 @@ explicitly treats indicators of epistemic manipulation as &lt;strong&gt;negative
 &lt;&#x2F;ol&gt;
 &lt;p&gt;Most production problems show up in one of these three tabs in under a minute.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;safety-rules&quot;&gt;Safety rules&lt;&#x2F;h2&gt;
-&lt;p&gt;Observer on prod is powerful enough to hurt you. Three rules:&lt;&#x2F;p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Read-only operations only.&lt;&#x2F;strong&gt; Never kill a process, never delete from a table, never modify state via the UI. Use it to look.&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Cookie hygiene.&lt;&#x2F;strong&gt; The prod cookie is a secret. Rotate after every team member who had it leaves. Treat it like an SSH key.&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Connect from a bastion.&lt;&#x2F;strong&gt; Do not expose the distribution port to the internet. Tunnel through a bastion host and attach locally.&lt;&#x2F;li&gt;
-&lt;&#x2F;ol&gt;
+&lt;p&gt;Observer on prod je dost mocné na to, aby ti ublížilo. Tři pravidla, žádná výjimka:&lt;&#x2F;p&gt;
+
+
+
+  
+  
+
+
+&lt;div role=&quot;alert&quot; aria-live=&quot;polite&quot; class=&quot;not-prose my-6 flex items-start gap-3 p-4 rounded-xl border border-amber-500&amp;#x2F;30 bg-amber-900&amp;#x2F;20 min-w-0&quot;&gt;
+  &lt;svg aria-hidden=&quot;true&quot; class=&quot;w-5 h-5 mt-0.5 flex-shrink-0 text-amber-400&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+    &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M12 9v2m0 4h.01M5 19h14a2 2 0 001.84-2.75L13.74 4a2 2 0 00-3.48 0l-7.1 12.25A2 2 0 005 19z&quot;&#x2F;&gt;
+  &lt;&#x2F;svg&gt;
+  &lt;div class=&quot;flex-1 min-w-0 break-words text-sm sm:text-base text-amber-200&quot;&gt;
+    &lt;p class=&quot;font-semibold mb-1 text-amber-200&quot;&gt;Read-only operations only&lt;&#x2F;p&gt;
+    &lt;div class=&quot;leading-relaxed [&amp;_p]:mt-0 [&amp;_p]:mb-2 [&amp;_p:last-child]:mb-0 [&amp;_a]:underline [&amp;_a]:underline-offset-2 [&amp;_code]:px-1 [&amp;_code]:py-0.5 [&amp;_code]:rounded [&amp;_code]:bg-black&#x2F;30 [&amp;_code]:text-xs&quot;&gt;
+      Nikdy v Observeru neukončuj proces, nemaž z ETS tabulky, neměň stav přes UI.
+Klikání v Observeru je pohodlné — a přesně proto je nebezpečné. **Otevři ho jako čtenář, ne editor.**
+Pokud potřebuješ něco změnit, udělej to záměrně přes řízený kanál (release tooling, runbook, MFA-protected ops endpoint).
+    &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+
+
+
+  
+  
+
+
+&lt;div role=&quot;alert&quot; aria-live=&quot;polite&quot; class=&quot;not-prose my-6 flex items-start gap-3 p-4 rounded-xl border border-red-500&amp;#x2F;30 bg-red-900&amp;#x2F;20 min-w-0&quot;&gt;
+  &lt;svg aria-hidden=&quot;true&quot; class=&quot;w-5 h-5 mt-0.5 flex-shrink-0 text-red-400&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+    &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z&quot;&#x2F;&gt;
+  &lt;&#x2F;svg&gt;
+  &lt;div class=&quot;flex-1 min-w-0 break-words text-sm sm:text-base text-red-200&quot;&gt;
+    &lt;p class=&quot;font-semibold mb-1 text-red-200&quot;&gt;Cookie hygiene — prod cookie je secret&lt;&#x2F;p&gt;
+    &lt;div class=&quot;leading-relaxed [&amp;_p]:mt-0 [&amp;_p]:mb-2 [&amp;_p:last-child]:mb-0 [&amp;_a]:underline [&amp;_a]:underline-offset-2 [&amp;_code]:px-1 [&amp;_code]:py-0.5 [&amp;_code]:rounded [&amp;_code]:bg-black&#x2F;30 [&amp;_code]:text-xs&quot;&gt;
+      Erlang distribution cookie je v podstatě **root credential** pro celý cluster.
+Kdo má cookie + síťový přístup, má `:os.cmd(&quot;rm -rf &#x2F;&quot;)`. Rotuj cookie po každém
+odchodu člena týmu. Zacházej s ním jako s SSH klíčem nebo s API tokenem do Vaultu.
+    &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+
+
+
+  
+  
+
+
+&lt;div role=&quot;alert&quot; aria-live=&quot;polite&quot; class=&quot;not-prose my-6 flex items-start gap-3 p-4 rounded-xl border border-amber-500&amp;#x2F;30 bg-amber-900&amp;#x2F;20 min-w-0&quot;&gt;
+  &lt;svg aria-hidden=&quot;true&quot; class=&quot;w-5 h-5 mt-0.5 flex-shrink-0 text-amber-400&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+    &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M12 9v2m0 4h.01M5 19h14a2 2 0 001.84-2.75L13.74 4a2 2 0 00-3.48 0l-7.1 12.25A2 2 0 005 19z&quot;&#x2F;&gt;
+  &lt;&#x2F;svg&gt;
+  &lt;div class=&quot;flex-1 min-w-0 break-words text-sm sm:text-base text-amber-200&quot;&gt;
+    &lt;p class=&quot;font-semibold mb-1 text-amber-200&quot;&gt;Připoj se z bastionu&lt;&#x2F;p&gt;
+    &lt;div class=&quot;leading-relaxed [&amp;_p]:mt-0 [&amp;_p]:mb-2 [&amp;_p:last-child]:mb-0 [&amp;_a]:underline [&amp;_a]:underline-offset-2 [&amp;_code]:px-1 [&amp;_code]:py-0.5 [&amp;_code]:rounded [&amp;_code]:bg-black&#x2F;30 [&amp;_code]:text-xs&quot;&gt;
+      Nikdy nevystavuj Erlang distribution port (`epmd` 4369 + dynamic ports) do internetu.
+Jde o protokol, který předpokládá důvěryhodnou síť. Tuneluj přes SSH bastion a připojuj
+se lokálně: `ssh -L 4369:prod-01:4369 bastion`, pak `Node.connect&#x2F;1`.
+    &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
 &lt;h2 id=&quot;the-textual-alternative&quot;&gt;The textual alternative&lt;&#x2F;h2&gt;
 &lt;p&gt;If GUI over SSH is too slow, &lt;code&gt;:runtime_tools&lt;&#x2F;code&gt; and &lt;code&gt;:recon&lt;&#x2F;code&gt; give you the same information in IEx:&lt;&#x2F;p&gt;
 &lt;pre class=&quot;giallo z-code&quot;&gt;&lt;code data-lang=&quot;elixir&quot;&gt;&lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-constant z-other z-symbol z-punctuation&quot;&gt;:recon.&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-function&quot;&gt;proc_count&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-constant z-other z-symbol&quot;&gt;(:memory,&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-numeric&quot;&gt; 10&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-comment&quot;&gt;      # top 10 memory-hungry processes&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;
@@ -1434,11 +1489,71 @@ explicitly treats indicators of epistemic manipulation as &lt;strong&gt;negative
 &lt;span class=&quot;giallo-l&quot;&gt;&lt;span class=&quot;z-constant z-other z-symbol z-punctuation&quot;&gt;:recon.&lt;&#x2F;span&gt;&lt;span class=&quot;z-entity z-name z-function&quot;&gt;bin_leak&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;(&lt;&#x2F;span&gt;&lt;span class=&quot;z-constant z-numeric&quot;&gt;10&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation&quot;&gt;)&lt;&#x2F;span&gt;&lt;span class=&quot;z-punctuation z-definition z-comment z-comment&quot;&gt;                 # find binary memory leaks&lt;&#x2F;span&gt;&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;&lt;code&gt;:recon&lt;&#x2F;code&gt; is the tool to reach for on locked-down hosts where Observer is a non-starter. Same information, text-only, scriptable.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;where-to-go-next&quot;&gt;Where to go next&lt;&#x2F;h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Academy&lt;&#x2F;strong&gt;: &lt;a href=&quot;https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;academy&#x2F;otp-fundamentals&#x2F;&quot;&gt;OTP Fundamentals&lt;&#x2F;a&gt; — the supervision trees Observer visualizes&lt;&#x2F;li&gt;
-&lt;li&gt;&lt;strong&gt;Glossary&lt;&#x2F;strong&gt;: &lt;a href=&quot;https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;observer&#x2F;&quot;&gt;Observer&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;introspection&#x2F;&quot;&gt;Introspection&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;beam&#x2F;&quot;&gt;BEAM&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;beam-vm&#x2F;&quot;&gt;BEAM VM&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;monitoring&#x2F;&quot;&gt;Monitoring&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
-&lt;&#x2F;ul&gt;
-&lt;p&gt;Most production debugging in other runtimes is archaeology. In Elixir it is live inspection. Use it.&lt;&#x2F;p&gt;
+
+
+&lt;a href=&quot;&amp;#x2F;academy&amp;#x2F;otp-fundamentals&amp;#x2F;&quot; class=&quot;not-prose block&quot;&gt;
+&lt;div class=&quot;not-prose my-6 p-5 sm:p-6 bg-gray-900 rounded-xl border border-gray-800 hover:border-emerald-500&#x2F;40 transition-colors min-w-0&quot;&gt;
+  &lt;div class=&quot;flex items-start gap-4&quot;&gt;
+    
+    &lt;span class=&quot;flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-emerald-500&#x2F;10 text-emerald-400&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;svg aria-hidden=&quot;true&quot; class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+        &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z&quot;&#x2F;&gt;
+      &lt;&#x2F;svg&gt;
+    &lt;&#x2F;span&gt;
+    
+    &lt;div class=&quot;flex-1 min-w-0 break-words&quot;&gt;
+      &lt;h3 class=&quot;text-lg sm:text-xl font-semibold text-white mb-2 break-words&quot;&gt;OTP Fundamentals (Academy)&lt;&#x2F;h3&gt;
+      &lt;div class=&quot;text-sm sm:text-base text-gray-300 leading-relaxed [&amp;_p]:mb-2 [&amp;_p:last-child]:mb-0 [&amp;_a]:text-emerald-400 [&amp;_a]:font-semibold hover:[&amp;_a]:text-emerald-300 [&amp;_code]:px-1 [&amp;_code]:py-0.5 [&amp;_code]:rounded [&amp;_code]:bg-black&#x2F;30 [&amp;_code]:text-xs [&amp;_ul]:list-disc [&amp;_ul]:ml-5 [&amp;_ol]:list-decimal [&amp;_ol]:ml-5&quot;&gt;
+        Supervision trees, které Observer vizualizuje. Bez OTP intuice je `Applications` tab
+jen barevný graf — s ní je to mapa toho, co se právě v systému děje.
+      &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+&lt;&#x2F;a&gt;
+
+
+
+&lt;div class=&quot;not-prose my-6 p-5 sm:p-6 bg-gray-900 rounded-xl border border-gray-800 hover:border-cyan-500&#x2F;40 transition-colors min-w-0&quot;&gt;
+  &lt;div class=&quot;flex items-start gap-4&quot;&gt;
+    
+    &lt;span class=&quot;flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-lg bg-cyan-500&#x2F;10 text-cyan-400&quot; aria-hidden=&quot;true&quot;&gt;
+      &lt;svg aria-hidden=&quot;true&quot; class=&quot;w-5 h-5&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+        &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z&quot;&#x2F;&gt;
+      &lt;&#x2F;svg&gt;
+    &lt;&#x2F;span&gt;
+    
+    &lt;div class=&quot;flex-1 min-w-0 break-words&quot;&gt;
+      &lt;h3 class=&quot;text-lg sm:text-xl font-semibold text-white mb-2 break-words&quot;&gt;Související glossary entries&lt;&#x2F;h3&gt;
+      &lt;div class=&quot;text-sm sm:text-base text-gray-300 leading-relaxed [&amp;_p]:mb-2 [&amp;_p:last-child]:mb-0 [&amp;_a]:text-cyan-400 [&amp;_a]:font-semibold hover:[&amp;_a]:text-cyan-300 [&amp;_code]:px-1 [&amp;_code]:py-0.5 [&amp;_code]:rounded [&amp;_code]:bg-black&#x2F;30 [&amp;_code]:text-xs [&amp;_ul]:list-disc [&amp;_ul]:ml-5 [&amp;_ol]:list-decimal [&amp;_ol]:ml-5&quot;&gt;
+        [Observer](@&#x2F;glossary&#x2F;observer.md) · [Introspection](@&#x2F;glossary&#x2F;introspection.md) ·
+[BEAM](@&#x2F;glossary&#x2F;beam.md) · [BEAM VM](@&#x2F;glossary&#x2F;beam-vm.md) ·
+[Monitoring](@&#x2F;glossary&#x2F;monitoring.md)
+      &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+
+
+
+
+  
+  
+
+
+&lt;div role=&quot;alert&quot; aria-live=&quot;polite&quot; class=&quot;not-prose my-6 flex items-start gap-3 p-4 rounded-xl border border-purple-500&amp;#x2F;30 bg-purple-900&amp;#x2F;20 min-w-0&quot;&gt;
+  &lt;svg aria-hidden=&quot;true&quot; class=&quot;w-5 h-5 mt-0.5 flex-shrink-0 text-purple-400&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot;&gt;
+    &lt;path stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z&quot;&#x2F;&gt;
+  &lt;&#x2F;svg&gt;
+  &lt;div class=&quot;flex-1 min-w-0 break-words text-sm sm:text-base text-purple-200&quot;&gt;
+    &lt;p class=&quot;font-semibold mb-1 text-purple-200&quot;&gt;TL;DR&lt;&#x2F;p&gt;
+    &lt;div class=&quot;leading-relaxed [&amp;_p]:mt-0 [&amp;_p]:mb-2 [&amp;_p:last-child]:mb-0 [&amp;_a]:underline [&amp;_a]:underline-offset-2 [&amp;_code]:px-1 [&amp;_code]:py-0.5 [&amp;_code]:rounded [&amp;_code]:bg-black&#x2F;30 [&amp;_code]:text-xs&quot;&gt;
+      Most production debugging in other runtimes is **archaeology**. In Elixir it is **live inspection**.
+Attach observer to a real prod node alespoň jednou týdně — uvidíš věci, které ti `top`, `htop`
+a Datadog nikdy neukáží. Use it.
+    &lt;&#x2F;div&gt;
+  &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
 </description>
       </item>
       <item>

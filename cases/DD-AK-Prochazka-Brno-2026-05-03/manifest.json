@@ -1,0 +1,127 @@
+{
+  "case_id": "DD-AK-Prochazka-Brno-2026-05-03",
+  "title": "Due Diligence — AK Procházka & Co. (Brno)",
+  "subject": {
+    "name": "Procházka & Co., advokátní kancelář, s.r.o.",
+    "ico": "09963430",
+    "dic": "CZ09963430",
+    "spis_zn": "C 121872 KS Brno",
+    "datum_vzniku": "2021-02-26",
+    "sidlo": "Kobližná 71/2, 602 00 Brno",
+    "pobocka": "nám. Republiky 72/4, Žďár nad Sázavou (od 2024)",
+    "datova_schranka": "s6r9vfn",
+    "kontakt": {
+      "telefon": "+420 545 242 081",
+      "email": "info@ak-brno.cz",
+      "web": "https://prochazkaco.cz"
+    },
+    "zakladatel": {
+      "jmeno": "Mgr. Miloš Procházka",
+      "cak_evidencni_cislo": 9199,
+      "status": "aktivní",
+      "praxe_od": 2001,
+      "vzdelani": "PrF MU Brno (1998)"
+    }
+  },
+  "context": "Posouzení potenciálního právního zástupce pro budoucí mandát.",
+  "doctrine": "AIAD-DD",
+  "language": "cs-CZ",
+  "created_at": "2026-05-03",
+  "updated_at": "2026-05-03",
+  "version": "v4 (network expansion depth+4 + corrections)",
+  "status": "ready_for_client_action",
+  "verdict": "GREEN_WITH_CONDITIONS",
+  "risk_level": "LOW_TO_MEDIUM",
+  "risk_score": 6.4,
+  "key_corrections_v2": [
+    "KOREKCE: Mgr. Procházka v judikátu 22 Co 2256/2016 zastupoval OHL ŽS, a.s. (NE SITA CZ jak uvedeno v v1). Klient prohrál v základu žaloby 16,7M Kč.",
+    "KOREKCE: 'Beneficial ownership omezeno 12/2025' je SYSTÉMOVÁ změna ČR (ESM uzavřena pro veřejnost), NE specifický red flag pro Procházka & Co.",
+    "DOPLNĚNÍ: Klientská koncentrace 80% na SMB = significant Key Client Risk (KCR).",
+    "DOPLNĚNÍ: 10 smluv bez ceny v 2021–2023 (Vysoká rizika dle Hlídače státu); v 2024–2026 napraveno (0 rizik).",
+    "DOPLNĚNÍ: Splitting podezření multifunkční hala (4 dodatky × 240 790 Kč + 2,4M v 2023).",
+    "DOPLNĚNÍ: Sdílené zakázky s Frank Bold advokáti (smlouva ID 19811231) — cluster brněnských AK kolem SMB.",
+    "POZITIVNÍ NÁLEZ: OHL ŽS jako klient = Tier-class korporátní reference (i přes prohru sporu)."
+  ],
+  "steps": [
+    { "id": 1, "name": "Disambiguace + identifikace subjektu", "status": "completed" },
+    { "id": 2, "name": "ČAK + ARES + OR registrace", "status": "completed" },
+    { "id": 3, "name": "Komerční stopa (Hlídač státu, registr smluv)", "status": "completed" },
+    { "id": 4, "name": "Judikátová stopa + mediální rešerše + insolvence", "status": "completed_v2_corrected" },
+    { "id": 5, "name": "Komparativní shortlist konkurence (5 alternativ)", "status": "completed" },
+    { "id": 6, "name": "Extended OSINT týmu (LinkedIn, publikace, vazby)", "status": "completed" },
+    { "id": 7, "name": "ARCHER deep verification — 4 paralel agents", "status": "completed" },
+    { "id": 8, "name": "RFP draft + engagement letter + conflict matrix + email šablony", "status": "completed" },
+    { "id": 9, "name": "Konfliktová matice (vyplnění klientem)", "status": "pending_input" },
+    { "id": 10, "name": "Test responzivity (klient odešle e-mail)", "status": "pending_action" },
+    { "id": 11, "name": "RFP odeslání + paralelní oslovení 2–3 alternativ", "status": "pending_action" },
+    { "id": 12, "name": "Network expansion depth+2 (~85 uzlů) + 5 nových grafů", "status": "completed" },
+    { "id": 13, "name": "Network expansion depth+4 (~210 uzlů) + 5 dalších grafů + depth slider + KOREKCE", "status": "completed" }
+  ],
+  "key_corrections_v4": [
+    "JUDr. Markéta Vaňková (primátorka Brna) = vlastní AK → POTENCIÁLNÍ KONFLIKT ZÁJMŮ. Vyžaduje ověření přes ČAK detail.",
+    "OHLA Group CEO = Tomás José Ruiz González (NE Marc Mestres-Lezcano)",
+    "Bratři Amodio = Luis + Julio Martín, kontrola 21,6% (NE Antonio + Mauricio, NE 62%)",
+    "FC Zbrojovka aktuální majitel = Vojtěch Kačena (od 8/2025, deal Zábranský padl)",
+    "Foster Bohemia akreditace = ČIA č. 4036 + 1150 (NE 206/2025)",
+    "Doc. Hirš povýšen na profesora; Doc. Zmrhal je na FS ČVUT (ne stavební)",
+    "SITA CZ → Recovera (rebranding 2022) → Veolia ČR (od 2/2026)",
+    "Karasová → Podivinská (správné jméno nám. SMB)",
+    "Jarůšek → Jarušek (správný přepis advokáta žalobce)",
+    "Soudcovská unie prezident = Vávra (NE Zemanová)",
+    "Robert Kerndl není 1. nám., je nám.; 1. nám. = René Černý"
+  ],
+  "candidates_disambiguation": [
+    { "rank": 1, "name": "Procházka & Co., advokátní kancelář, s.r.o.", "ico": "09963430", "address": "Kobližná 71/2, Brno", "primary": true },
+    { "rank": 2, "name": "JUDr. Petr Procházka — advokát", "ico": null, "address": "Nám. Svobody 12, Brno" },
+    { "rank": 3, "name": "JUDr. Lubomír Procházka (akprocha.cz)", "ico": null, "address": "Brno" },
+    { "rank": 4, "name": "Procházka s.r.o., advokátní kancelář", "ico": "09633481", "address": "Ovocný trh 11, Praha (NE Brno)" },
+    { "rank": 5, "name": "Jan Procházka (ak-prochazka.cz)", "ico": null, "address": "Brno" }
+  ],
+  "key_findings": {
+    "positive": [
+      "Aktivní ČAK status (9 z 12 osob přímo ověřeno, 3 koncipienti vyžadují manuální dotaz)",
+      "Žádné kárné rozhodnutí ve veřejně dostupných zdrojích",
+      "Žádná insolvence (subjekt ani zakladatel)",
+      "Žádný negativní mediální záznam",
+      "OHL ŽS, a.s. jako historický klient (Tier-class korporátní reference)",
+      "51 smluv v Registru smluv ~12M Kč kumulativně",
+      "Pozitivní trend 2024–2026: 0 rizik dle Hlídače státu",
+      "Stabilní endogenní tým (7/8 z PrF MU Brno)",
+      "Helena Musilová: VUT FP vyučující (akademická vazba)"
+    ],
+    "yellow_flags": [
+      "Klientská koncentrace ~80% na Statutární město Brno (KCR)",
+      "10 smluv bez ceny v 2021–2023 (transparency)",
+      "Splitting podezření u multifunkční haly (4× 240 790 Kč dodatků)",
+      "1 cena těsně pod limitem ZZVZ v 2021 a 2023",
+      "Sdílené zakázky s Frank Bold (cluster brněnských AK kolem SMB)",
+      "Generalistická AK bez Tier 1 specializace (M&A, daňové spory)",
+      "Pouze francouzština jako cizí jazyk u zakladatele",
+      "Mladá s.r.o. (4 roky), ačkoli kontinuita praxe FO od 2001"
+    ],
+    "red_flags_blocking": [
+      "Konflikt zájmů: vyloučeno zastoupení proti SMB / TSB / ARENA BRNO / dalším městským a.s. (vyžaduje explicitní ověření před mandátem)"
+    ]
+  },
+  "deliverables": {
+    "case_md": "case.md",
+    "dashboard_html": "index.html",
+    "raw_reports": [
+      "06-reports/01-judikatura-media.md",
+      "06-reports/02-shortlist-konkurence.md",
+      "06-reports/03-team-osint.md",
+      "06-reports/04-karna-evidence-deep.md",
+      "06-reports/05-hlidac-statu-deep.md",
+      "06-reports/06-soudni-lustrace-deep.md",
+      "06-reports/07-cenovy-benchmark.md",
+      "06-reports/08-network-expansion.md",
+      "06-reports/09-network-depth4.md"
+    ],
+    "comms_templates": [
+      "08-comms-templates/01-RFP-dotaznik.md",
+      "08-comms-templates/02-engagement-letter-template.md",
+      "08-comms-templates/03-conflict-matrix-template.md",
+      "08-comms-templates/04-email-test-responzivity.md"
+    ]
+  }
+}
