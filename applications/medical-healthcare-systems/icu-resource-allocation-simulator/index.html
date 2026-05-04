@@ -599,21 +599,155 @@
     <div class="max-w-screen-xl px-4 mx-auto">
         <div class="max-w-4xl mx-auto">
             
+<!-- FLLM:FOUC_OK — x-show toggles non-initial UI states (collapsibles, tooltips); cards themselves are server-rendered and initially visible -->
 
-<!-- Risk Assessment Matrix -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-orange-900/20 rounded-2xl border border-orange-500/20 p-6 mb-8 shadow-2xl shadow-orange-900/20" x-data="{
-    risks: [{ name: 'Data Loss', probability: 30, impact: 85 }, { name: 'Downtime', probability: 45, impact: 70 }, { name: 'Security', probability: 25, impact: 90 }], chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.riskCanvas.getContext('2d');
-        var data = self.risks.map(function(r, i) { return { x: r.probability, y: r.impact, r: 15 }; });
-        this.chart = new Chart(ctx, { type: 'bubble', data: { datasets: [{ data: data, backgroundColor: ['rgba(239,68,68,0.6)', 'rgba(251,146,60,0.6)', 'rgba(220,38,38,0.6)'], borderColor: ['rgba(239,68,68,0.8)', 'rgba(251,146,60,0.8)', 'rgba(220,38,38,0.8)'] }] }, options: { responsive: true, maintainAspectRatio: false, scales: { x: { min: 0, max: 100, title: { display: true, text: 'Probability', color: 'rgba(255,255,255,0.6)' } }, y: { min: 0, max: 100, title: { display: true, text: 'Impact', color: 'rgba(255,255,255,0.6)' } } }, plugins: { legend: { display: false } } } });
+<!-- Medical Healthcare Systems: Live Risk Portfolio Simulator -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-orange-900/20 rounded-2xl border border-orange-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-orange-900/20" x-data="{
+    dataLoss: { p: 30, i: 85 }, downtime: { p: 45, i: 70 }, security: { p: 25, i: 90 }, reputation: { p: 20, i: 80 }, recovery: 3,
+    bubbleChart: null, lineChart: null, riskHist: [],
+    breach: false, cascade: false, eventTicks: 0,
+    running: false, interval: null, ticks: 0,
+    rationale: 'Idle. Adjust risk vectors.',
+    showAdvanced: false,
+    init() { for (var i = 0; i < 30; i++) this.riskHist.push(this.portfolio); var self = this; this.$nextTick(function(){ self.initCharts(); }); },
+    initCharts() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+        if (!this.$refs.raBubbleCanvas || !this.$refs.raLineCanvas) return;
+        var self = this;
+        this.bubbleChart = new Chart(this.$refs.raBubbleCanvas.getContext('2d'), {
+            type: 'bubble',
+            data: { datasets: [{
+                data: [
+                    { x: this.dataLoss.p, y: this.dataLoss.i, r: 10 + this.recovery * 1.5 },
+                    { x: this.downtime.p, y: this.downtime.i, r: 10 + this.recovery * 1.5 },
+                    { x: this.security.p, y: this.security.i, r: 10 + this.recovery * 1.5 },
+                    { x: this.reputation.p, y: this.reputation.i, r: 10 + this.recovery * 1.5 }
+                ],
+                backgroundColor: ['rgba(239,68,68,0.6)', 'rgba(251,146,60,0.6)', 'rgba(220,38,38,0.6)', 'rgba(168,85,247,0.6)']
+            }]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { min: 0, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, title: { display: true, text: 'Probability', color: 'rgba(255,255,255,0.5)', font: { size: 9 } }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } }, y: { min: 0, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, title: { display: true, text: 'Impact', color: 'rgba(255,255,255,0.5)', font: { size: 9 } }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(124,45,18,0.95)', borderColor: 'rgba(239,68,68,0.3)', borderWidth: 1, callbacks: { label: function(ctx){ var names = ['DataLoss', 'Downtime', 'Security', 'Reputation']; return names[ctx.dataIndex] + ': p=' + ctx.parsed.x + ' i=' + ctx.parsed.y; } } } }
+            }
+        });
+        this.lineChart = new Chart(this.$refs.raLineCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: this.riskHist.map(function(_, i){ return i; }), datasets: [
+                { label: 'Portfolio', data: [...self.riskHist], borderColor: '#f97316', backgroundColor: 'rgba(249,115,22,0.08)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.3 }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false }, y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(124,45,18,0.95)', borderColor: 'rgba(249,115,22,0.3)', borderWidth: 1 } }
+            }
+        });
     },
-    get overallRisk() { var total = 0; for (var i = 0; i < this.risks.length; i++) total += this.risks[i].probability * this.risks[i].impact / 100; return Math.round(total / this.risks.length); }
+    rpn(r) { return Math.round(r.p * r.i / 100); },
+    get portfolio() {
+        var total = (this.dataLoss.p * this.dataLoss.i + this.downtime.p * this.downtime.i + this.security.p * this.security.i + this.reputation.p * this.reputation.i) / 4;
+        return Math.min(100, Math.round(total / 100 * this.recovery));
+    },
+    get topRisk() {
+        var rpns = [['DataLoss', this.rpn(this.dataLoss)], ['Downtime', this.rpn(this.downtime)], ['Security', this.rpn(this.security)], ['Reputation', this.rpn(this.reputation)]];
+        return rpns.reduce(function(p,c){return c[1]>p[1]?c:p});
+    },
+    tick() {
+        if (this.breach) {
+            this.security.p = Math.min(100, this.security.p + 1.5);
+            this.security.i = Math.min(100, this.security.i + 0.5);
+            this.reputation.p = Math.min(100, this.reputation.p + 0.8);
+            this.reputation.i = Math.min(100, this.reputation.i + 0.5);
+        } else if (this.cascade) {
+            this.recovery = Math.min(10, this.recovery + 0.05);
+            this.dataLoss.p = Math.min(100, this.dataLoss.p + 0.5);
+            this.downtime.p = Math.min(100, this.downtime.p + 0.5);
+        }
+        if (this.breach || this.cascade) this.eventTicks++;
+        this.riskHist.push(this.portfolio);
+        if (this.riskHist.length > 60) this.riskHist.shift();
+        this.ticks++;
+        this.computeRationale();
+        this.updateCharts();
+    },
+    computeRationale() {
+        var why = [];
+        if (this.breach) why.push('BREACH event - Security degrading + Reputation cascade');
+        else if (this.cascade) why.push('CASCADE - Recovery cost spiraling');
+        var t = this.topRisk;
+        why.push('top risk: ' + t[0] + ' (RPN ' + t[1] + ')');
+        if (this.portfolio > 70) why.push('PORTFOLIO CRITICAL (' + this.portfolio + ')');
+        else if (this.portfolio > 40) why.push('elevated (' + this.portfolio + ')');
+        if (this.recovery > 5) why.push('recovery ' + this.recovery + 'x base cost');
+        if (this.security.p > 50 && this.reputation.p > 50) why.push('breach-reputation contagion');
+        this.rationale = why.join(' · ');
+    },
+    updateCharts() {
+        if (this.bubbleChart) {
+            this.bubbleChart.data.datasets[0].data = [
+                { x: this.dataLoss.p, y: this.dataLoss.i, r: 10 + this.recovery * 1.5 },
+                { x: this.downtime.p, y: this.downtime.i, r: 10 + this.recovery * 1.5 },
+                { x: this.security.p, y: this.security.i, r: 10 + this.recovery * 1.5 },
+                { x: this.reputation.p, y: this.reputation.i, r: 10 + this.recovery * 1.5 }
+            ];
+            this.bubbleChart.update('none');
+        }
+        if (this.lineChart) {
+            this.lineChart.data.labels = this.riskHist.map(function(_, i){ return i; });
+            this.lineChart.data.datasets[0].data = [...this.riskHist];
+            this.lineChart.update('none');
+        }
+    },
+    toggle() { if (this.running) { clearInterval(this.interval); this.running = false; return; } var self = this; this.interval = setInterval(function(){ self.tick(); }, 350); this.running = true; },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        this.dataLoss = { p: 30, i: 85 }; this.downtime = { p: 45, i: 70 }; this.security = { p: 25, i: 90 }; this.reputation = { p: 20, i: 80 }; this.recovery = 3;
+        this.breach = false; this.cascade = false; this.ticks = 0; this.eventTicks = 0;
+        this.riskHist = []; for (var i = 0; i < 30; i++) this.riskHist.push(this.portfolio);
+        this.rationale = 'Reset.';
+        this.updateCharts();
+    },
+    get statusLabel() { return this.portfolio > 70 ? 'CRITICAL' : this.portfolio > 40 ? 'ELEVATED' : 'MANAGED'; },
+    get statusColor() { return this.portfolio > 70 ? 'text-red-400' : this.portfolio > 40 ? 'text-amber-300' : 'text-emerald-400'; },
+    get statusBadgeClass() { return this.portfolio > 70 ? 'bg-red-900/30 border-red-500/30' : this.portfolio > 40 ? 'bg-amber-900/30 border-amber-500/30' : 'bg-emerald-900/30 border-emerald-500/30'; }
 }">
-    <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-orange-600/20 border border-orange-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-orange-300/70">Risk Matrix</p></div></div><div class="text-center"><div class="text-xs text-gray-400">Risk Score</div><div class="text-lg font-bold text-orange-400" x-text="overallRisk"></div></div></div>
-    <div class="h-36 mb-3 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-3"><canvas x-ref="riskCanvas"></canvas></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-orange-600/20 border border-orange-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            </div>
+            <div class="min-w-0"><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-orange-300/70 break-words">Live Risk Portfolio Matrix</p></div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-orange-500/40 focus-visible:outline-none" :class="running ? 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30' : 'bg-orange-600 hover:bg-orange-500 text-white shadow-orange-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+            <button type="button" @click="breach = !breach; cascade = false; eventTicks = 0" :aria-pressed="breach" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none" :class="breach ? 'bg-red-600 text-white shadow-lg shadow-red-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Breach</button>
+            <button type="button" @click="cascade = !cascade; breach = false; eventTicks = 0" :aria-pressed="cascade" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none" :class="cascade ? 'bg-amber-600 text-white shadow-lg shadow-amber-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Cascade</button>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-3 text-center" :class="statusBadgeClass"><div class="text-[10px] uppercase tracking-wider opacity-70" x-text="statusLabel"></div><div class="text-2xl font-black font-mono" :class="statusColor" x-text="portfolio"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Top Risk</div><div class="text-sm font-black font-mono text-amber-300 tabular-nums" x-text="topRisk[0]"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Top RPN</div><div class="text-2xl font-black font-mono text-red-400 tabular-nums" x-text="topRisk[1]"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Recovery</div><div class="text-2xl font-black font-mono tabular-nums" :class="recovery > 5 ? 'text-red-400' : 'text-orange-300'" x-text="recovery + 'x'"></div></div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Risk vectors (size = recovery cost)</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="raBubbleCanvas" aria-label="Risk vector bubble chart"></canvas></div></div>
+        <div><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Portfolio risk timeline</div><div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="raLineCanvas" aria-label="Portfolio risk timeline"></canvas></div></div>
+    </div>
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-orange-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-orange-300 uppercase tracking-wider">Risk Vector Inputs</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Data Loss prob</label><input type="range" min="0" max="100" step="1" x-model.number="dataLoss.p" @input="updateCharts()" aria-label="Data loss probability" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500 min-w-0"><span class="text-xs text-red-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(dataLoss.p) + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-orange-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Downtime prob</label><input type="range" min="0" max="100" step="1" x-model.number="downtime.p" @input="updateCharts()" aria-label="Downtime probability" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-orange-500 min-w-0"><span class="text-xs text-orange-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(downtime.p) + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-rose-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Security prob</label><input type="range" min="0" max="100" step="1" x-model.number="security.p" @input="updateCharts()" aria-label="Security breach probability" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-rose-500 min-w-0"><span class="text-xs text-rose-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(security.p) + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Reputation prob</label><input type="range" min="0" max="100" step="1" x-model.number="reputation.p" @input="updateCharts()" aria-label="Reputation impact probability" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 min-w-0"><span class="text-xs text-purple-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(reputation.p) + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Recovery cost</label><input type="range" min="1" max="10" step="0.1" x-model.number="recovery" @input="updateCharts()" aria-label="Recovery cost multiplier" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500 min-w-0"><span class="text-xs text-amber-400 font-mono w-12 text-right tabular-nums" x-text="recovery + 'x'"></span></div>
+        </div>
+    </div>
+    <div class="rounded-xl border p-3" :class="portfolio > 70 ? 'border-red-500/30 bg-red-900/10' : 'border-orange-500/20 bg-orange-900/10'"><div class="flex items-start gap-2 min-w-0"><svg aria-hidden="true" class="w-4 h-4 flex-shrink-0 mt-0.5" :class="portfolio > 70 ? 'text-red-400' : 'text-orange-400'" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg><div class="min-w-0 flex-1"><div class="text-[10px] uppercase tracking-wider mb-0.5" :class="portfolio > 70 ? 'text-red-300/70' : 'text-orange-300/70'">Risk readout</div><p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p></div></div></div>
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400"><span>RPN = probability × impact / 100 · Portfolio = mean × recovery</span><span class="text-gray-500 hidden sm:inline">FMEA + cascading risk model</span></div>
 </div>
 
 
