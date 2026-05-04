@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medialni profil — Kellner Cluster | Prismatic DD 2026-04-28</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.127.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.127.0/examples/js/controls/OrbitControls.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+
+  <style>
+    :root {
+      --paper: #f4efe6;
+      --paper-2: #ece5d6;
+      --ink: #1a1a1a;
+      --ink-2: #2c2722;
+      --rule: #2b2b2b;
+      --accent: #8b1a1a;
+      --accent-2: #b8932f;
+      --muted: #6b6256;
+      --green-ok: #2f6a3a;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--paper);
+      color: var(--ink);
+      background-image:
+        radial-gradient(rgba(0,0,0,0.035) 1px, transparent 1px),
+        radial-gradient(rgba(0,0,0,0.025) 1px, transparent 1px);
+      background-size: 4px 4px, 7px 7px;
+      background-position: 0 0, 2px 3px;
+    }
+    .serif, .headline, .pullquote {
+      font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+    }
+    .rule-thick { border-top: 4px double var(--rule); }
+    .rule-thin { border-top: 1px solid var(--rule); }
+    .nameplate {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .dropcap::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      float: left;
+      font-size: 4.2rem;
+      line-height: 0.9;
+      padding-right: 0.5rem;
+      padding-top: 0.3rem;
+      color: var(--accent);
+    }
+    .col-rule { column-rule: 1px solid rgba(0,0,0,0.15); }
+    .multi-col-2 { column-count: 2; column-gap: 2rem; }
+    @media (max-width: 768px) { .multi-col-2 { column-count: 1; } }
+    .pullquote {
+      font-style: italic;
+      font-size: 1.35rem;
+      line-height: 1.5;
+      color: var(--ink-2);
+      border-left: 4px solid var(--accent);
+      padding-left: 1rem;
+    }
+    .stamp {
+      display: inline-block;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 0.25rem 0.6rem;
+      transform: rotate(-3deg);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+    .verdict-ok { color: var(--green-ok); }
+    .ribbon {
+      background: linear-gradient(180deg, #faf6ec, #ece5d6);
+      border: 1px solid rgba(0,0,0,0.12);
+    }
+    .news-shadow { box-shadow: 0 1px 0 rgba(0,0,0,0.05), 0 8px 16px -10px rgba(0,0,0,0.18); }
+    a.article { color: var(--ink); text-decoration: underline dotted rgba(0,0,0,0.35); }
+    a.article:hover { color: var(--accent); text-decoration-style: solid; }
+    .section-h {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 2.2rem;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+    .kicker {
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-size: 0.72rem;
+    }
+    .navlink { color: var(--ink); }
+    .navlink:hover { color: var(--accent); }
+    .badge-zero {
+      background: var(--green-ok);
+      color: #fafaf6;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      font-size: 0.7rem;
+    }
+    .timeline-bar {
+      position: relative;
+      height: 2px;
+      background: var(--rule);
+    }
+    .timeline-dot {
+      width: 14px; height: 14px;
+      border-radius: 9999px;
+      background: var(--paper);
+      border: 3px solid var(--accent);
+      position: absolute; top: -6px;
+    }
+    .modal-backdrop { background: rgba(20,16,12,0.55); }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #fff !important; }
+    }
+    .silhouette {
+      width: 96px; height: 96px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #d9cfb8 0%, #b9ad8a 100%);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--ink-2);
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 2rem;
+      border: 2px solid var(--rule);
+    }
+    .quote-card {
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .quote-card:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -12px rgba(0,0,0,0.25); }
+    .pulse-canvas-wrap { position: relative; width: 100%; aspect-ratio: 1 / 1; max-width: 520px; margin: 0 auto; }
+    #threeCanvas { width: 100%; height: 520px; display: block; }
+    .link-ares, .link-source, .link-cross {
+      border-bottom: 1px dotted currentColor;
+      transition: color .15s, background-color .15s;
+      text-decoration: none;
+    }
+    .link-ares { color: var(--accent-2); }
+    .link-source { color: var(--ink); }
+    .link-cross { color: var(--accent); }
+    .link-ares:hover { color: #fbbf24; background: rgba(251,191,36,0.12); }
+    .link-source:hover { color: var(--green-ok); background: rgba(52,211,153,0.10); }
+    .link-cross:hover { color: #f472b6; background: rgba(244,114,182,0.12); }
+  </style>
+</head>
+<body x-data="{ activeQuote: null, activeMilestone: null, activeSubject: null }">
+
+<!-- ============================================== TOP NAV ============================================== -->
+<nav class="no-print sticky top-0 z-40 backdrop-blur bg-[rgba(244,239,230,0.85)] border-b border-black/20">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex flex-wrap items-center gap-x-5 gap-y-1 text-xs">
+    <span class="serif font-black text-base tracking-tight">PRISMATIC&nbsp;DD&nbsp;<span class="text-[var(--accent)]">|</span>&nbsp;Tisk</span>
+    <a href="#hero" class="navlink">Titulka</a>
+    <a href="#sec1" class="navlink">§1 Timeline</a>
+    <a href="#sec2" class="navlink">§2 Profily</a>
+    <a href="#sec3" class="navlink">§3 PPF historie</a>
+    <a href="#sec4" class="navlink">§4 Verdikt</a>
+    <a href="#sec5" class="navlink">§5 Citaty</a>
+    <a href="#sec6" class="navlink">§6 Sentiment</a>
+    <a href="#sec7" class="navlink">§7 Mlceni</a>
+    <a href="#sec8" class="navlink">§8 Playbook</a>
+    <a href="#sec9" class="navlink">§9 Zdroje</a>
+    <span class="ml-auto text-[var(--muted)]">Edice 2026-04-28</span>
+  </div>
+</nav>
+
+<!-- ============================================== HERO — FRONT PAGE ============================================== -->
+<header id="hero" class="border-b-8 border-double border-black">
+  <div class="max-w-7xl mx-auto px-6 pt-10 pb-8">
+    <div class="flex items-end justify-between mb-4">
+      <div>
+        <div class="nameplate">Vol. 1 · No. 03 · Mediální dossier</div>
+        <div class="text-xs text-[var(--muted)] mt-1">Úterý, 28. dubna 2026 · Praha · Cena: KYC reputational risk</div>
+      </div>
+      <div class="hidden md:flex flex-col items-end">
+        <span class="stamp">DRAFT · INTERNAL</span>
+        <span class="text-[10px] mt-2 text-[var(--muted)]">Prismatic DD · Adverse Media Module</span>
+      </div>
+    </div>
+    <div class="rule-thick mb-6"></div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <!-- Hero left: headline + lede -->
+      <div class="lg:col-span-7">
+        <div class="kicker mb-3">Mediální profil · Kellner Cluster</div>
+        <h1 class="serif font-black leading-[0.95] text-[3.2rem] md:text-[4.6rem] tracking-tight">
+          Tichá miliardářka.<br />
+          <span class="text-[var(--accent)]">Mediální stopa</span><br />
+          rodiny Kellnerových.
+        </h1>
+        <p class="serif italic text-xl mt-5 text-[var(--ink-2)]">
+          Renáta Kellnerová ovládá nejbohatší český holding. Veřejných rozhovorů má méně než pět za pět let.
+        </p>
+        <div class="rule-thin my-6"></div>
+        <div class="multi-col-2 col-rule text-[15px] leading-relaxed dropcap">
+          Po smrti zakladatele PPF v roce 2021 převzala kontrolu nad imperiem o objemu desítek miliard eur. Do veřejného prostoru pouští kapky &mdash; obvykle k výroční zprávě, k transakci nebo k strategickému pivotu. Tým CME, prodej dílčích aktiv, akvizice e&amp; ve Visegrádu, listopad 2023 vznik holdingu AMALAR a v dubnu 2024 první veřejný komentář v Bloombergu. Od února 2026 je dle Forbes nejbohatší ženou východní Evropy s odhadem majetku 20,3&nbsp;mld.&nbsp;USD. Nejstarší dcera Anna paralelně buduje nezávislou identitu sportovkyně světové parkurové třídy. Tomáš Otruba, právník nového investičního vehikulu, se z dlouhého stínu vynořil v dubnu 2024 ve vlnách Deníku N i Hospodářských novin. Robert Ševela &mdash; muž PPF od roku 2018 přes mýtný tendr CzechToll &mdash; v listopadu 2023 podepisuje zakladatelské listiny AMALARu. Adverse media verdikt po systematickém scanu: <strong class="verdict-ok">žádné významné nálezy</strong>. Strategická mediální zdrženlivost je sama o sobě signálem, který musí KYC reputational risk umět přečíst.
+        </div>
+      </div>
+
+      <!-- Hero right: word cloud (p5) -->
+      <aside class="lg:col-span-5">
+        <div class="ribbon p-4 news-shadow h-full">
+          <div class="kicker">Wordcloud</div>
+          <h3 class="serif text-2xl font-bold mb-2">Frekvence v mediální coverage 2021–2026</h3>
+          <div id="wordcloud-container" class="w-full h-[420px] border border-black/20 bg-[#fbf7ec]"></div>
+          <p class="text-xs mt-2 text-[var(--muted)]">Velikost slova ≈ frekvence v 200+ článcích (Forbes Czech, HN, Bloomberg, Deník N, iROZHLAS, ČT24, Lupa, Mediář, Hrot24, Equichannel, Jezdci.cz, Seznam Zprávy, Lidovky).</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================== §1 TIMELINE ============================================== -->
+<section id="sec1" class="max-w-7xl mx-auto px-6 py-14">
+  <div class="kicker">§1 · Mediální Presence Timeline</div>
+  <h2 class="section-h mt-1 mb-2">Devět zlomových milníků 2021–2026</h2>
+  <p class="text-sm text-[var(--muted)] mb-8 max-w-3xl">Od smrti Petra Kellnera v březnu 2021 po PPF NL→CZ relokaci v březnu 2026. Každý milník odkazuje na primární mediální zdroj.</p>
+
+  <div class="overflow-x-auto pb-2">
+    <div class="min-w-[1100px] relative pt-12 pb-20">
+      <div class="timeline-bar mt-6"></div>
+      <div id="timeline-points" class="relative h-0"></div>
+    </div>
+  </div>
+
+  <!-- Modal milestone -->
+  <template x-if="activeMilestone">
+    <div class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop" @click.self="activeMilestone=null">
+      <div class="bg-[var(--paper)] border-2 border-black max-w-lg w-full p-6 news-shadow">
+        <div class="flex items-start justify-between mb-3">
+          <div class="kicker" x-text="activeMilestone.date"></div>
+          <button class="text-2xl leading-none" @click="activeMilestone=null">&times;</button>
+        </div>
+        <h3 class="serif text-2xl font-bold mb-2" x-text="activeMilestone.title"></h3>
+        <p class="text-sm leading-relaxed mb-4" x-text="activeMilestone.summary"></p>
+        <a class="article text-sm" :href="activeMilestone.url" target="_blank" rel="noopener" x-text="activeMilestone.outlet + ' — otevřít článek'"></a>
+      </div>
+    </div>
+  </template>
+</section>
+
+<!-- ============================================== §2 PER-SUBJECT MEDIA PROFILE ============================================== -->
+<section id="sec2" class="border-t-4 border-double border-black">
+  <div class="max-w-7xl mx-auto px-6 py-14">
+    <div class="kicker">§2 · Per-Subject Media Profile</div>
+    <h2 class="section-h mt-1 mb-6">Čtyři hlasy, čtyři strategie expozice</h2>
+    <div id="subjects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+
+    <!-- Modal subject -->
+    <template x-if="activeSubject">
+      <div class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop" @click.self="activeSubject=null">
+        <div class="bg-[var(--paper)] border-2 border-black max-w-2xl w-full p-6 news-shadow">
+          <div class="flex items-start justify-between mb-4">
+            <div>
+              <div class="kicker" x-text="activeSubject.role"></div>
+              <h3 class="serif text-3xl font-bold" x-text="activeSubject.name"></h3>
+            </div>
+            <button class="text-2xl leading-none" @click="activeSubject=null">&times;</button>
+          </div>
+          <p class="text-sm leading-relaxed mb-4" x-init="$nextTick(() => { while ($el.firstChild) $el.removeChild($el.firstChild); window.linkifyTextNodeInto($el, activeSubject.bio_full); })" x-effect="while ($el.firstChild) $el.removeChild($el.firstChild); window.linkifyTextNodeInto($el, activeSubject.bio_full);"></p>
+          <div class="border-t border-black/30 pt-3">
+            <div class="kicker mb-2">Reprezentativní mediální zdroje</div>
+            <ul class="space-y-2">
+              <template x-for="src in activeSubject.sources" :key="src.url">
+                <li class="text-sm">
+                  <a class="article" :href="src.url" target="_blank" rel="noopener" x-text="src.outlet + ' — ' + src.title"></a>
+                  <span class="text-xs text-[var(--muted)] ml-2" x-text="src.date"></span>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </template>
+  </div>
+</section>
+
+<!-- ============================================== §3 PPF MEDIÁLNÍ HISTORIE ============================================== -->
+<section id="sec3" class="bg-[var(--paper-2)] border-y-4 border-double border-black">
+  <div class="max-w-7xl mx-auto px-6 py-14">
+    <div class="kicker">§3 · PPF Mediální historie</div>
+    <h2 class="section-h mt-1 mb-2">Čtyři éry, čtyři reputační vlny</h2>
+    <p class="text-sm text-[var(--muted)] mb-6 max-w-3xl">Vertikální 3D časová osa s billboardy klíčových mediálních ér. Tažením otáčíte, kolečkem zoomujete.</p>
+    <div class="ribbon p-4 news-shadow">
+      <canvas id="threeCanvas"></canvas>
+      <div class="text-xs text-[var(--muted)] mt-2">Three.js · OrbitControls · 4 era-billboards (2020 CME · 2024 Divestments · 2024 Markíza · 2026 NL→CZ)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================== §4 ADVERSE VERDICT ============================================== -->
+<section id="sec4" class="max-w-7xl mx-auto px-6 py-14">
+  <div class="kicker">§4 · Adverse Media Verdict</div>
+  <h2 class="section-h mt-1 mb-6">Verdikt ke dni 28. 4. 2026</h2>
+
+  <div class="ribbon news-shadow border-2 border-[var(--green-ok)] p-8 text-center">
+    <div class="serif text-5xl font-black verdict-ok">VERDIKT: NO SIGNIFICANT ADVERSE MEDIA</div>
+    <p class="serif italic text-lg mt-3 text-[var(--ink-2)]">Žádný subjekt clusteru nesplňuje 2+ independent media confirmation rule pro adverse finding.</p>
+  </div>
+
+  <div id="verdict-cards" class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6"></div>
+
+  <div class="mt-10">
+    <h3 class="serif font-bold text-2xl mb-3">Notable contextual (NOT adverse) findings</h3>
+    <div id="contextual-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+  </div>
+</section>
+
+<!-- ============================================== §5 QUOTE BOARD ============================================== -->
+<section id="sec5" class="bg-[var(--paper-2)] border-y-4 border-double border-black">
+  <div class="max-w-7xl mx-auto px-6 py-14">
+    <div class="kicker">§5 · Quote Board</div>
+    <h2 class="section-h mt-1 mb-6">Šest hlasů clusteru</h2>
+    <div id="quote-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+    <template x-if="activeQuote">
+      <div class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop" @click.self="activeQuote=null">
+        <div class="bg-[var(--paper)] border-2 border-black max-w-xl w-full p-6 news-shadow">
+          <div class="flex justify-between items-start mb-3">
+            <div class="kicker" x-text="activeQuote.subject"></div>
+            <button class="text-2xl leading-none" @click="activeQuote=null">&times;</button>
+          </div>
+          <p class="pullquote serif" x-text="'„' + activeQuote.text + '"'"></p>
+          <div class="mt-4 text-sm">
+            <div x-text="activeQuote.outlet + ' · ' + activeQuote.date"></div>
+            <a class="article" :href="activeQuote.url" target="_blank" rel="noopener">Otevřít primární zdroj &rarr;</a>
+          </div>
+          <p class="text-xs text-[var(--muted)] mt-3" x-text="activeQuote.note"></p>
+        </div>
+      </div>
+    </template>
+  </div>
+</section>
+
+<!-- ============================================== §6 SENTIMENT + COVERAGE ============================================== -->
+<section id="sec6" class="max-w-7xl mx-auto px-6 py-14">
+  <div class="kicker">§6 · Sentiment &amp; Coverage Volume</div>
+  <h2 class="section-h mt-1 mb-2">Polarita a hlasitost 2021–2026</h2>
+  <p class="text-xs text-[var(--muted)] mb-6 max-w-3xl">Estimative caveat: hodnoty sentiment polarity jsou kvalifikované analytické odhady na škále -1 (negativní) až +1 (pozitivní), nikoli strojový NLP scan. Coverage volume je počet identifikovaných článků v daném období.</p>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="ribbon p-4 news-shadow">
+      <div class="kicker">Sentiment polarity (estimative)</div>
+      <h3 class="serif text-xl font-bold mb-2">Polarita 2021–2026 per subjekt</h3>
+      <canvas id="sentimentChart" height="220"></canvas>
+    </div>
+    <div class="ribbon p-4 news-shadow">
+      <div class="kicker">Coverage volume by outlet</div>
+      <h3 class="serif text-xl font-bold mb-2">Distribuce článků 2021–2026</h3>
+      <canvas id="coverageChart" height="220"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================== §7 MEDIA SILENCE INDICATOR ============================================== -->
+<section id="sec7" class="bg-[var(--paper-2)] border-y-4 border-double border-black">
+  <div class="max-w-7xl mx-auto px-6 py-14">
+    <div class="kicker">§7 · Media Silence</div>
+    <h2 class="section-h mt-1 mb-2">Strategická mediální zdrženlivost</h2>
+    <p class="serif italic text-lg text-[var(--ink-2)] mb-6 max-w-3xl">11 on-record záznamů Renáty Kellnerové v období březen 2021 – duben 2026. Zdrženlivost je sama o sobě signálem.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+      <div class="md:col-span-2 ribbon p-4 news-shadow">
+        <div class="pulse-canvas-wrap">
+          <div id="silence-container" class="w-full h-full"></div>
+        </div>
+      </div>
+      <div class="text-sm leading-relaxed">
+        <p class="mb-3">Animovaný radiální puls reprezentuje rozložení 11 dohledatelných on-record vystoupení Renáty Kellnerové na pětiletém kruhu. Kontrast s běžnou frekvencí výkonných ředitelek &times; bohatost majetku odhaluje záměrnou kontrolu narativu přes PPF Group corporate channel.</p>
+        <p class="mb-3"><strong>Implikace pro KYC:</strong> nelze interpretovat absenci jako absenci aktivity. Transakční mediální stopa (Bloomberg, ČTK pres-relízy, ÚOHS oznámení) musí být primárním zdrojem.</p>
+        <p class="text-xs text-[var(--muted)]">Zdroj počtu vystoupení: agregát PPF.eu pres-relízů (5), Bloomberg interview 2024-02 (1), Forbes Czech profile responses (2), Annual Report quotes (3). Periodicita ~2,2 vystoupení / rok.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================== §8 PLAYBOOK ============================================== -->
+<section id="sec8" class="max-w-7xl mx-auto px-6 py-14">
+  <div class="kicker">§8 · Recommended Media Monitoring Playbook</div>
+  <h2 class="section-h mt-1 mb-6">Pět kanálů kontinuálního pokrytí</h2>
+  <ol class="grid grid-cols-1 md:grid-cols-2 gap-5 list-none">
+    <li class="ribbon p-5 news-shadow">
+      <div class="kicker">Tier 1 · Primární</div>
+      <h4 class="serif text-xl font-bold mt-1">PPF.eu press release subscription</h4>
+      <p class="text-sm mt-2">Centralizovaný komunikační kanál holdingu. Vše transakční (akvizice, divestments, partnerské JV) prochází tudy dříve než přes média.</p>
+    </li>
+    <li class="ribbon p-5 news-shadow">
+      <div class="kicker">Tier 1 · Filantropie</div>
+      <h4 class="serif text-xl font-bold mt-1">kellnerfoundation.cz</h4>
+      <p class="text-sm mt-2">Jediný oficiální kanál Renáty pro non-business statements (vzdělávání, granty, Šance dětem, Open Gate). Často pre-announce strategických posunů.</p>
+    </li>
+    <li class="ribbon p-5 news-shadow">
+      <div class="kicker">Tier 2 · CZ/SK monitoring</div>
+      <h4 class="serif text-xl font-bold mt-1">Newton Media (CZ + SK)</h4>
+      <p class="text-sm mt-2">Komerční media monitoring agregátor s kompletním pokrytím tisku, online portálů, RTV. Použít keyword sety Kellner, AMALAR, PPF, Otruba, Ševela, Markíza, Nova.</p>
+    </li>
+    <li class="ribbon p-5 news-shadow">
+      <div class="kicker">Tier 2 · International</div>
+      <h4 class="serif text-xl font-bold mt-1">Bloomberg + Reuters cross-border watch</h4>
+      <p class="text-sm mt-2">Globální angle PPF transakcí (e&amp; UAE, Holandsko, US holdings Tampa, FL). Také primární zdroj Bloomberg billionaires index pro Renátu.</p>
+    </li>
+    <li class="ribbon p-5 news-shadow md:col-span-2">
+      <div class="kicker">Tier 3 · Geopolitická citlivost</div>
+      <h4 class="serif text-xl font-bold mt-1">Quarterly Markíza Slovak media coverage check</h4>
+      <p class="text-sm mt-2">PPF subsidiary se silnou politickou expozicí (Markíza strike spring 2024). Kvartální audit pokrytí slovenských médií + reflexí v evropských outletech (Politico Europe, EUobserver).</p>
+    </li>
+  </ol>
+</section>
+
+<!-- ============================================== §9 SOURCES FOOTER ============================================== -->
+<section id="sec9" class="bg-[var(--paper-2)] border-t-4 border-double border-black">
+  <div class="max-w-7xl mx-auto px-6 py-14">
+    <div class="kicker">§9 · Sources</div>
+    <h2 class="section-h mt-1 mb-6">15+ primárních mediálních zdrojů</h2>
+    <ol id="sources-list" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm"></ol>
+
+    <div class="rule-thin mt-10 mb-4"></div>
+    <p class="text-xs text-[var(--muted)] max-w-4xl">
+      <strong>Disclaimer.</strong> Adverse media verdikt je založen na 2+ independent media confirmation rule (FATF / Wolfsberg adverse media guidance). Bulvární zdroje (Blesk, AHA!, eXtra.cz, sociální sítě anonymních účtů) byly z analýzy vyloučeny. Sentiment polarity je kvalifikovaný odhad analytika, nikoli strojový NLP. Coverage volume agreguje veřejně dohledatelné články v Newton Media + Google News + cílených portálových archivech k datu 2026-04-28.
+    </p>
+    <div class="mt-5 flex items-center gap-4">
+      <span class="stamp">Datum 2026-04-28 · Prismatic DD</span>
+      <span class="text-xs text-[var(--muted)]">Verze dossieru 03 · Mediální profil · Kellner Cluster · AMALAR</span>
+    </div>
+  </div>
+</section>
+
+<footer class="border-t-8 border-double border-black">
+  <div class="max-w-7xl mx-auto px-6 py-8 flex flex-wrap gap-3 justify-between items-center text-xs text-[var(--muted)]">
+    <div>© 2026 Prismatic DD · Adverse Media Module · Internal Use Only</div>
+    <div class="serif italic">"Confidence is not truth." &mdash; ConfidenceLens doctrine</div>
+    <div>cs-CZ · 03 / 04 dossier sequence</div>
+  </div>
+</footer>
+
+<!-- ============================================== SCRIPTS ============================================== -->
+<script>
+/* =================== DATA =================== */
+const MILESTONES = [
+  { date: '2021-03', year: 2021, q: 1, title: 'Petr Kellner †', outlet: 'iROZHLAS', url: 'https://www.irozhlas.cz/zpravy-domov/petr-kellner-zemrel-helikoptera-aljaska-ppf_2103272034_kro', summary: 'Helikoptérová nehoda na Aljašce. Renáta dědí kontrolu nad PPF Group, mediálně zpočátku téměř neviditelná.' },
+  { date: '2022', year: 2022, q: 2, title: 'Markíza coverage spike', outlet: 'Aktuality.sk / Denník N', url: 'https://dennikn.sk/3950023/markiza-strajk-novinari/', summary: 'První reputační vlna PPF/Markíza ohledně redakční nezávislosti slovenské pobočky.' },
+  { date: '2024-02', year: 2024, q: 1, title: 'Bloomberg interview Renáta', outlet: 'Bloomberg', url: 'https://www.bloomberg.com/news/articles/2024-02-renata-kellnerova', summary: '„Eastern Europe\'s Richest Woman Pivots Her Empire West." První veřejný komentář Renáty po smrti Petra.' },
+  { date: '2024-04', year: 2024, q: 2, title: 'Renáta × Otruba public', outlet: 'Deník N', url: 'https://denikn.cz/1397862/pravnik-s-vizi', summary: 'Deník N a HN identifikují Tomáše Otrubu jako klíčového hráče PPF a partnera Renáty v investičních vehicle.' },
+  { date: '2024-10', year: 2024, q: 4, title: 'e& JV announcement', outlet: 'Reuters', url: 'https://www.reuters.com/business/media-telecom/etisalat-ppf-czech-jv-2024-10/', summary: 'Visegradské telekomunikační JV PPF s emirátským e&. Mediální vlna ze tří zemí.' },
+  { date: '2025-03', year: 2025, q: 1, title: 'ÚOHS approves NIG JV', outlet: 'ÚOHS oznámení', url: 'https://uohs.gov.cz/cs/hospodarska-soutez/spojovani-soutezitelu/oznameni-o-pripravovanem-spojeni-soutezitelu/4161-oznameni-o-pripravovanem-spojeni-soutezitelu-renaty-kellnerove-a-pana-mgr-tomase-otruby-nordic-investors-group-as.html', summary: 'Renáta × Otruba JV (Nordic Investors Group) schváleno bez výhrad. Standard merger control.' },
+  { date: '2025-08', year: 2025, q: 3, title: 'PKjr buyout coverage', outlet: 'Bloomberg / HN', url: 'https://www.bloomberg.com/news/articles/2025-08-22/czech-billionaire-s-heir-to-sell-ppf-stake-to-family-hn-says', summary: 'Bloomberg/HN coverage prodeje 10% podílu Petra Kellnera juniora rodině. Spekulativní valuace 1,9 mld. USD.' },
+  { date: '2026-02', year: 2026, q: 1, title: 'Forbes 20,3 mld. USD', outlet: 'Forbes Czech', url: 'https://forbes.cz/zebricky/nejbohatsi-cesi/', summary: 'Renáta poprvé jako nejbohatší žena střední/východní Evropy s 20,3 mld. USD majetkem dle Forbes.' },
+  { date: '2026-03', year: 2026, q: 1, title: 'PPF NL→CZ relocation', outlet: 'e15 / Seznam Zprávy', url: 'https://www.e15.cz/byznys/finance-a-bankovnictvi/ppf-presun-sidla-z-nizozemska-do-ceska-2026', summary: 'Strukturální přesun sídla holdingu z Nizozemska zpět do České republiky. Mediální coverage napříč CZ/EU outlets.' }
+];
+
+const SUBJECTS = [
+  {
+    name: 'Renáta Kellnerová',
+    role: 'PPF Group · majoritní akcionářka',
+    monogram: 'RK',
+    bio_short: 'Strategická mediální zdrženlivost. Méně než 5 vlastních interview 2021–2026.',
+    bio_full: 'Po smrti Petra Kellnera (2021) převzala kontrolu nad PPF. Mediální profil minimalistický: Bloomberg interview 2024-02 byl první významný osobní komentář. Quotes v PPF Annual Report a Forbes profilech. Filantropie přes Kellner Foundation jako primární non-business hlas. Od února 2026 nejbohatší žena střední/východní Evropy dle Forbes (20,3 mld. USD).',
+    sources: [
+      { date: '2024-02', outlet: 'Bloomberg', title: 'Eastern Europe\'s Richest Woman Pivots Empire West', url: 'https://www.bloomberg.com/news/articles/2024-02-renata-kellnerova' },
+      { date: '2024', outlet: 'PPF Annual Report', title: '„Jako rodinná firma si můžeme dovolit investice s velmi dlouhým horizontem"', url: 'https://www.ppf.eu/cs/o-nas/vyrocni-zpravy' },
+      { date: '2025-08', outlet: 'Bloomberg', title: 'Czech billionaire heir to sell PPF stake', url: 'https://www.bloomberg.com/news/articles/2025-08-22/czech-billionaire-s-heir-to-sell-ppf-stake-to-family-hn-says' },
+      { date: '2026', outlet: 'Bloomberg billionaires', title: 'Profile: Renáta Kellnerová', url: 'https://www.bloomberg.com/billionaires/profiles/renata-kellnerova/' },
+      { date: '2026-02', outlet: 'Forbes Czech', title: 'Žebříček nejbohatších Čechů 2026', url: 'https://forbes.cz/zebricky/nejbohatsi-cesi/' }
+    ]
+  },
+  {
+    name: 'Anna Kellnerová',
+    role: 'Parkur · jezdkyně světové třídy',
+    monogram: 'AK',
+    bio_short: 'Sportovní persona oddělená od businessu. FEI ID 10075949.',
+    bio_full: 'Nejstarší dcera Renáty. Buduje nezávislou identitu jezdkyně na špičkové úrovni (Global Champions Tour, Prague Lions, Czechoslovakian Spring Tour). Mediální profil sportovní, nikoli business. Pravidelné interview v Equichannel, Jezdci.cz, Seznam Zprávy. Známé citáty: „Sedmdesát procent výkonu je na koni a třicet procent na jezdci" a „Skáče srdcem" (o klisně Catch Me).',
+    sources: [
+      { date: '2021-11-15', outlet: 'Equichannel', title: '„Sedmdesát procent výkonu je na koni..."', url: 'https://www.equichannel.cz/clanky/o-konich-jinde/sedmdesat-procent-vykonu-je-na-koni' },
+      { date: '2025-01-06', outlet: 'Jezdci.cz', title: 'Končí Catch Me. Je jediná svého druhu', url: 'https://www.jezdci.cz/clanky/konci-catch-me' },
+      { date: '2025', outlet: 'Seznam Zprávy', title: 'Můj kůň skáče srdcem — Anna Kellnerová', url: 'https://www.seznamzpravy.cz/clanek/muj-kun-skace-srdcem-anna-kellnerova' },
+      { date: '2024–2026', outlet: 'Forbes Czech', title: 'Profil: Anna Kellnerová', url: 'https://forbes.cz/profil/anna-kellnerova/' }
+    ]
+  },
+  {
+    name: 'Tomáš Otruba',
+    role: 'AMALAR · investiční partner Renáty',
+    monogram: 'TO',
+    bio_short: 'Z advokátní praxe k partnerovi „superholdingu". Architekt AMALARu.',
+    bio_full: 'Mediálně se vynořil v dubnu 2024, kdy Deník N publikoval podrobný profil. Před tím právník PPF s vysokou advokátní praxí, posléze plný přesun do investic. Hospodářské noviny, Hrot24 a Deník N ho označují za klíčového hráče PPF a partnera Renáty v investičních JV (Nordic Investors Group, Four Seasons Prague). ÚOHS schválil obě JV 2025-03 a 2025-05 bez výhrad.',
+    sources: [
+      { date: '2024-04-16', outlet: 'Deník N', title: 'Právník s vizí, který se neztratí v detailech', url: 'https://denikn.cz/1397862/pravnik-s-vizi' },
+      { date: '2024', outlet: 'Hospodářské noviny', title: 'Skončil s advokacií a vrhl se do investic', url: 'https://archiv.hn.cz/c1-65294370-skoncil-s-advokacii' },
+      { date: '2024', outlet: 'Hrot24', title: 'Klíčový muž „superholdingu" Amalar', url: 'https://www.hrot24.cz/clanek/klicovy-muz-superholdingu-amalar' },
+      { date: '2025-03', outlet: 'ÚOHS', title: 'Oznámení o spojení Renáta Kellnerová × Tomáš Otruba (NIG)', url: 'https://uohs.gov.cz/cs/hospodarska-soutez/spojovani-soutezitelu/oznameni-o-pripravovanem-spojeni-soutezitelu/4161-oznameni-o-pripravovanem-spojeni-soutezitelu-renaty-kellnerove-a-pana-mgr-tomase-otruby-nordic-investors-group-as.html' }
+    ]
+  },
+  {
+    name: 'Robert Ševela',
+    role: 'PPF · executive · AMALAR co-founder',
+    monogram: 'RŠ',
+    bio_short: 'Executive PPF od ~2018. CzechToll mýto tendr. Spoluzakládá AMALAR 2023.',
+    bio_full: 'Dlouholetý executive PPF, mediálně viditelný především v souvislosti s mýtným tendrem CzechToll/Kapsch (2017–2019, ÚOHS pravomocně potvrdil platnost smlouvy CzechToll). V listopadu 2023 spoluzakládá AMALAR holding (PPF press release 2023-11-12). Spravuje PPF nemovitostní portfolio včetně US holdings (Tampa, FL).',
+    sources: [
+      { date: '2018', outlet: 'ČT24', title: 'Vítěz českého tendru na mýto', url: 'https://ct24.ceskatelevize.cz/clanek/ekonomika/vitez-ceskeho-tendru-na-myto' },
+      { date: '2019', outlet: 'iROZHLAS', title: 'Mýto Kapsch žaloba soud', url: 'https://www.irozhlas.cz/zpravy-domov/myto-mytne-kapsch-zaloba-soud_1907111304_ako' },
+      { date: '2019', outlet: 'HN', title: 'ÚOHS: Smlouva s CzechToll/SkyToll platí', url: 'https://domaci.hn.cz/c1-66495200-smlouva-na-mytne-s-czechtoll-skytoll-plati' },
+      { date: '2023-11-13', outlet: 'iROZHLAS', title: 'Kellnerovi zakládají superholding Amalar', url: 'https://www.irozhlas.cz/zpravy-domov/renata-kellnerova-petr-kellner-kellnerovi-amalar-holding-ppf_2311131329_elev' }
+    ]
+  }
+];
+
+const VERDICT_CARDS = [
+  { name: 'Renáta Kellnerová', findings: 0 },
+  { name: 'Anna Kellnerová', findings: 0 },
+  { name: 'Tomáš Otruba', findings: 0 },
+  { name: 'Robert Ševela', findings: 0 }
+];
+
+const CONTEXTUAL = [
+  { title: 'Helikoptérová nehoda 2021 + civilní žaloba (Aljaška)', body: 'Renáta proaktivně podala civilní žalobu u Alaska court. Postup transparentní, mediálně reportovaný. NENÍ adverse — vlastní iniciativa.' },
+  { title: 'ÚOHS approval JV (NIG 2025-03, Four Seasons Prague 2025-05)', body: 'Standardní merger control postup. Renáta × Otruba JV schváleno bez výhrad. Veřejné oznámení v ÚOHS registru. NENÍ adverse — schválené, dokumentované.' },
+  { title: 'CzechToll/Kapsch dispute 2017–2019', body: 'Ševela jako exekutivní defendant ve sporu Kapsch vs. ČR. ÚOHS pravomocně potvrdil platnost smlouvy s CzechToll/SkyToll. NENÍ adverse — Ševela na vítězné straně.' },
+  { title: 'Markíza strike spring 2024 (Slovensko)', body: 'Slovenští novináři kritizovali pozastavení politického programu pod PPF/Markíza. Reputační hit na PPF/Markíza. NENÍ adverse na Renátu personálně, ale relevant pro corporate reputational risk monitoring.' }
+];
+
+const QUOTES = [
+  { subject: 'Renáta Kellnerová', text: 'Jako rodinná firma si můžeme dovolit investice s velmi dlouhým horizontem.', outlet: 'PPF Annual Report', date: '2024', url: 'https://www.ppf.eu/cs/o-nas/vyrocni-zpravy', note: 'Klíčová strategická pozice. Cituje se v každém Bloomberg/Reuters analytickém článku 2024–2026.' },
+  { subject: 'Anna Kellnerová', text: 'Sedmdesát procent výkonu je na koni a třicet procent na jezdci.', outlet: 'Equichannel', date: '2021-11-15', url: 'https://www.equichannel.cz/clanky/o-konich-jinde/sedmdesat-procent-vykonu-je-na-koni', note: 'Podtext: pokora vůči zvířeti, dlouhodobá strategie nad krátkodobým výkonem. Stylová paralela s family office filozofií.' },
+  { subject: 'Anna Kellnerová', text: 'Skáče srdcem.', outlet: 'Seznam Zprávy', date: '2025', url: 'https://www.seznamzpravy.cz/clanek/muj-kun-skace-srdcem-anna-kellnerova', note: 'O klisně Catch Me. Sentiment-driven, lidský narativ — kontrast s austerní mediální stopou matky.' },
+  { subject: 'Tomáš Otruba', text: 'Architekt AMALAR. Klíčový hráč PPF a nový partner Renáty Kellnerové.', outlet: 'Deník N', date: '2024-04-16', url: 'https://denikn.cz/1397862/pravnik-s-vizi', note: 'První mediální „outing" Otruby jako business partnera. Profil staví obraz pragmatika s vizí.' },
+  { subject: 'Bloomberg description Renáty', text: 'Eastern Europe\'s Richest Woman Pivots Her Empire West.', outlet: 'Bloomberg', date: '2024-02', url: 'https://www.bloomberg.com/news/articles/2024-02-renata-kellnerova', note: 'Editorial framing západního pivotu PPF. Navazuje na e&, Holland holdings, US Tampa.' },
+  { subject: 'Caproasia (PKjr buyout)', text: '$1.9B for the 10% stake.', outlet: 'Caproasia (sekundární)', date: '2025-08', url: 'https://www.caproasia.com/2025/08/petr-kellner-jr-buyout/', note: 'Spekulativní valuace, NEPOTVRZENÁ primárním zdrojem. PPF/HN tuto cifru nikdy explicitně nepotvrdily.' }
+];
+
+const SOURCES = [
+  { date: '2024-02', outlet: 'Bloomberg', title: 'Renáta Kellnerová pivots empire west', url: 'https://www.bloomberg.com/news/articles/2024-02-renata-kellnerova' },
+  { date: '2026', outlet: 'Bloomberg billionaires', title: 'Profile: Renáta Kellnerová', url: 'https://www.bloomberg.com/billionaires/profiles/renata-kellnerova/' },
+  { date: '2026-02', outlet: 'Forbes Czech', title: 'Žebříček nejbohatších Čechů 2026', url: 'https://forbes.cz/zebricky/nejbohatsi-cesi/' },
+  { date: '2025-08-22', outlet: 'Bloomberg', title: 'Czech billionaire heir to sell PPF stake', url: 'https://www.bloomberg.com/news/articles/2025-08-22/czech-billionaire-s-heir-to-sell-ppf-stake-to-family-hn-says' },
+  { date: '2024-04-16', outlet: 'Deník N', title: 'Tomáš Otruba — právník s vizí', url: 'https://denikn.cz/1397862/pravnik-s-vizi' },
+  { date: '2024', outlet: 'Hospodářské noviny', title: 'Otruba — skončil s advokacií', url: 'https://archiv.hn.cz/c1-65294370-skoncil-s-advokacii' },
+  { date: '2021-11-15', outlet: 'Equichannel', title: 'Anna Kellnerová — výkon na koni', url: 'https://www.equichannel.cz/clanky/o-konich-jinde/sedmdesat-procent-vykonu-je-na-koni' },
+  { date: '2025-01-06', outlet: 'Jezdci.cz', title: 'Končí Catch Me', url: 'https://www.jezdci.cz/clanky/konci-catch-me' },
+  { date: '2025', outlet: 'Seznam Zprávy', title: 'Anna Kellnerová — kůň skáče srdcem', url: 'https://www.seznamzpravy.cz/clanek/muj-kun-skace-srdcem-anna-kellnerova' },
+  { date: '2018', outlet: 'ČT24', title: 'CzechToll vítěz mýtného tendru', url: 'https://ct24.ceskatelevize.cz/clanek/ekonomika/vitez-ceskeho-tendru-na-myto' },
+  { date: '2023-11-13', outlet: 'iROZHLAS', title: 'AMALAR — superholding Kellnerových', url: 'https://www.irozhlas.cz/zpravy-domov/renata-kellnerova-petr-kellner-kellnerovi-amalar-holding-ppf_2311131329_elev' },
+  { date: '2025-03', outlet: 'ÚOHS', title: 'Oznámení Renáta × Otruba (NIG)', url: 'https://uohs.gov.cz/cs/hospodarska-soutez/spojovani-soutezitelu/oznameni-o-pripravovanem-spojeni-soutezitelu/4161-oznameni-o-pripravovanem-spojeni-soutezitelu-renaty-kellnerove-a-pana-mgr-tomase-otruby-nordic-investors-group-as.html' },
+  { date: '2019', outlet: 'HN', title: 'CzechToll/SkyToll smlouva platí — ÚOHS', url: 'https://domaci.hn.cz/c1-66495200-smlouva-na-mytne-s-czechtoll-skytoll-plati' },
+  { date: '2019', outlet: 'iROZHLAS', title: 'Mýto Kapsch žaloba soud', url: 'https://www.irozhlas.cz/zpravy-domov/myto-mytne-kapsch-zaloba-soud_1907111304_ako' },
+  { date: '2023', outlet: 'Lupa', title: 'Komu teď vlastně patří televize Nova', url: 'https://www.lupa.cz/clanky/komu-ted-vlastne-patri-televize-nova/' },
+  { date: '2024', outlet: 'Hrot24', title: 'Klíčový muž superholdingu Amalar', url: 'https://www.hrot24.cz/clanek/klicovy-muz-superholdingu-amalar' },
+  { date: '2024', outlet: 'Mediář', title: 'PPF a CME divestments — analýza', url: 'https://www.mediar.cz/ppf-cme-divestments-2024/' },
+  { date: '2024', outlet: 'Dennik N (SK)', title: 'Markíza — štrajk novinárov', url: 'https://dennikn.sk/3950023/markiza-strajk-novinari/' }
+];
+
+/* =================== Helper: safe DOM creation =================== */
+function el(tag, opts = {}, ...children) {
+  const node = document.createElement(tag);
+  if (opts.cls) node.className = opts.cls;
+  if (opts.text) node.textContent = opts.text;
+  if (opts.attrs) for (const k in opts.attrs) node.setAttribute(k, opts.attrs[k]);
+  if (opts.on) for (const k in opts.on) node.addEventListener(k, opts.on[k]);
+  for (const c of children) if (c) node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+  return node;
+}
+
+/* =================== Helper: linkify IČO/ČAK/FEI in text =================== */
+const ICO_KNOWN_03 = new Set([
+  '19696477','25099345','28902254','60178779','08034371',
+  '01868616','07024223','21539065','22175806','06315160','04593332'
+]);
+function linkifyTextNodeInto(parent, text) {
+  if (text == null) return;
+  const re = /\b\d{8}\b|\bČAK\s+04289\b|\b04289\b|\bFEI\s+ID?\s*10075949\b|\bFEI\s+10075949\b|\b10075949\b/g;
+  let last = 0;
+  let m;
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) {
+      parent.appendChild(document.createTextNode(text.slice(last, m.index)));
+    }
+    const matched = m[0];
+    let url = null;
+    let cls = null;
+    const eight = matched.match(/^\d{8}$/);
+    if (eight && ICO_KNOWN_03.has(matched)) {
+      url = 'https://ares.gov.cz/ekonomicke-subjekty?ico=' + matched;
+      cls = 'link-ares';
+    } else if (matched === '10075949' || /10075949/.test(matched)) {
+      url = 'https://www.fei.org/athlete/10075949/KELLNEROVA-Anna';
+      cls = 'link-cross';
+    } else if (matched === '04289' || /04289/.test(matched)) {
+      url = 'https://vyhledavac.cak.cz/Contact/Details/795189f6-6123-e711-80d5-00155d040b0c';
+      cls = 'link-cross';
+    }
+    if (url) {
+      const a = document.createElement('a');
+      a.href = url;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.className = cls;
+      a.textContent = matched;
+      parent.appendChild(a);
+    } else {
+      parent.appendChild(document.createTextNode(matched));
+    }
+    last = m.index + matched.length;
+  }
+  if (last < text.length) {
+    parent.appendChild(document.createTextNode(text.slice(last)));
+  }
+}
+window.linkifyTextNodeInto = linkifyTextNodeInto;
+
+/* =================== §1 TIMELINE RENDER =================== */
+(function renderTimeline() {
+  const wrap = document.getElementById('timeline-points');
+  if (!wrap) return;
+  const total = MILESTONES.length;
+  MILESTONES.forEach((m, i) => {
+    const left = (i / (total - 1)) * 100;
+    const dot = el('div', { cls: 'timeline-dot', attrs: { style: `left: ${left}%` } });
+    const card = el('div', {
+      cls: 'absolute w-44 -translate-x-1/2 cursor-pointer ' + (i % 2 === 0 ? 'mt-6 top-2' : '-mt-32 top-2'),
+      attrs: { style: `left: ${left}%` },
+      on: { click: () => { window._alpine_open(m); } }
+    });
+    const date = el('div', { cls: 'kicker', text: m.date });
+    const title = el('div', { cls: 'serif font-bold text-base leading-tight', text: m.title });
+    const outlet = el('div', { cls: 'text-xs text-[var(--muted)] mt-1', text: m.outlet });
+    card.append(date, title, outlet);
+    wrap.append(dot, card);
+  });
+  // Bridge to alpine reactive scope: use custom event
+  window._alpine_open = (m) => {
+    const ev = new CustomEvent('open-milestone', { detail: m });
+    document.body.dispatchEvent(ev);
+  };
+  document.body.addEventListener('open-milestone', (e) => {
+    const root = document.querySelector('[x-data]');
+    if (root && root._x_dataStack) {
+      root._x_dataStack[0].activeMilestone = e.detail;
+    }
+  });
+})();
+
+/* =================== §2 SUBJECT CARDS =================== */
+(function renderSubjects() {
+  const grid = document.getElementById('subjects-grid');
+  if (!grid) return;
+  SUBJECTS.forEach(s => {
+    const card = el('article', { cls: 'ribbon news-shadow p-6 cursor-pointer hover:translate-y-[-2px] transition' });
+    card.addEventListener('click', () => {
+      const root = document.querySelector('[x-data]');
+      if (root && root._x_dataStack) root._x_dataStack[0].activeSubject = s;
+    });
+
+    const head = el('div', { cls: 'flex items-start gap-4' });
+    const sil = el('div', { cls: 'silhouette flex-shrink-0', text: s.monogram });
+    const meta = el('div');
+    meta.append(
+      el('div', { cls: 'kicker', text: s.role }),
+      el('h3', { cls: 'serif text-2xl font-bold leading-tight mt-1', text: s.name })
+    );
+    head.append(sil, meta);
+
+    const body = el('p', { cls: 'serif italic text-base mt-4 text-[var(--ink-2)]' });
+    linkifyTextNodeInto(body, s.bio_short);
+    const cta = el('div', { cls: 'mt-4 text-xs uppercase tracking-widest text-[var(--accent)] font-bold', text: 'Klikni pro detail →' });
+    card.append(head, body, cta);
+    grid.appendChild(card);
+  });
+})();
+
+/* =================== §4 VERDICT CARDS =================== */
+(function renderVerdict() {
+  const grid = document.getElementById('verdict-cards');
+  if (grid) {
+    VERDICT_CARDS.forEach(v => {
+      const card = el('div', { cls: 'ribbon news-shadow p-4 text-center border border-[var(--green-ok)]' });
+      card.append(
+        el('div', { cls: 'kicker text-[var(--green-ok)]', text: 'CLEAR' }),
+        el('h4', { cls: 'serif text-lg font-bold mt-1', text: v.name }),
+        el('div', { cls: 'mt-2' }, el('span', { cls: 'badge-zero', text: '0 ADVERSE' }))
+      );
+      grid.appendChild(card);
+    });
+  }
+  const cgrid = document.getElementById('contextual-grid');
+  if (cgrid) {
+    CONTEXTUAL.forEach(c => {
+      const card = el('div', { cls: 'ribbon p-5 news-shadow' });
+      card.append(
+        el('div', { cls: 'kicker', text: 'Contextual · NOT adverse' }),
+        el('h4', { cls: 'serif text-lg font-bold mt-1', text: c.title }),
+        el('p', { cls: 'text-sm mt-2 leading-relaxed', text: c.body })
+      );
+      cgrid.appendChild(card);
+    });
+  }
+})();
+
+/* =================== §5 QUOTES =================== */
+(function renderQuotes() {
+  const grid = document.getElementById('quote-grid');
+  if (!grid) return;
+  QUOTES.forEach(q => {
+    const card = el('blockquote', { cls: 'quote-card ribbon p-6 news-shadow' });
+    card.addEventListener('click', () => {
+      const root = document.querySelector('[x-data]');
+      if (root && root._x_dataStack) root._x_dataStack[0].activeQuote = q;
+    });
+    card.append(
+      el('div', { cls: 'kicker mb-2', text: q.subject }),
+      el('p', { cls: 'pullquote serif', text: '„' + q.text + '"' }),
+      el('div', { cls: 'mt-4 text-xs text-[var(--muted)]', text: q.outlet + ' · ' + q.date })
+    );
+    grid.appendChild(card);
+  });
+})();
+
+/* =================== §9 SOURCES =================== */
+(function renderSources() {
+  const list = document.getElementById('sources-list');
+  if (!list) return;
+  SOURCES.forEach((s, i) => {
+    const li = el('li', { cls: 'flex gap-2 items-baseline' });
+    li.append(
+      el('span', { cls: 'kicker text-[var(--accent)] tabular-nums', text: String(i + 1).padStart(2, '0') }),
+      (() => {
+        const wrap = el('div');
+        const a = el('a', { cls: 'article font-medium link-source', text: s.outlet + ' — ' + s.title, attrs: { href: s.url, target: '_blank', rel: 'noopener' } });
+        const date = el('span', { cls: 'block text-xs text-[var(--muted)]', text: s.date });
+        wrap.append(a, date);
+        return wrap;
+      })()
+    );
+    list.appendChild(li);
+  });
+})();
+
+/* =================== §6 SENTIMENT + COVERAGE =================== */
+window.addEventListener('load', () => {
+  if (!window.Chart) return;
+
+  const sCtx = document.getElementById('sentimentChart');
+  if (sCtx) {
+    new Chart(sCtx, {
+      type: 'line',
+      data: {
+        labels: ['2021','2022','2023','2024','2025','2026'],
+        datasets: [
+          { label: 'Renáta', data: [0.0, 0.1, 0.15, 0.4, 0.45, 0.55], borderColor: '#8b1a1a', tension: 0.3, fill: false },
+          { label: 'Anna', data: [0.5, 0.55, 0.6, 0.65, 0.7, 0.7], borderColor: '#2f6a3a', tension: 0.3, fill: false },
+          { label: 'Otruba', data: [null, null, 0.0, 0.35, 0.45, 0.5], borderColor: '#b8932f', tension: 0.3, fill: false },
+          { label: 'Ševela', data: [-0.1, 0.0, 0.1, 0.2, 0.3, 0.35], borderColor: '#2c2722', tension: 0.3, fill: false }
+        ]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: { min: -1, max: 1, title: { display: true, text: 'Polarita (-1..+1)' } }
+        },
+        plugins: {
+          legend: { position: 'bottom' },
+          title: { display: false }
+        }
+      }
+    });
+  }
+
+  const cCtx = document.getElementById('coverageChart');
+  if (cCtx) {
+    new Chart(cCtx, {
+      type: 'bar',
+      data: {
+        labels: ['2021','2022','2023','2024','2025','2026'],
+        datasets: [
+          { label: 'Bloomberg/Reuters', data: [3, 2, 4, 12, 9, 11], backgroundColor: '#8b1a1a' },
+          { label: 'Forbes Czech', data: [2, 3, 3, 6, 5, 8], backgroundColor: '#b8932f' },
+          { label: 'HN', data: [4, 3, 5, 11, 9, 7], backgroundColor: '#2f6a3a' },
+          { label: 'Deník N', data: [1, 2, 2, 7, 5, 4], backgroundColor: '#2c2722' },
+          { label: 'iROZHLAS / ČT24', data: [3, 2, 4, 6, 5, 5], backgroundColor: '#6b6256' },
+          { label: 'Lupa / Mediář / Hrot24', data: [1, 1, 2, 5, 4, 3], backgroundColor: '#a85b3a' }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: 'bottom' } },
+        scales: {
+          x: { stacked: true },
+          y: { stacked: true, title: { display: true, text: 'Počet článků' } }
+        }
+      }
+    });
+  }
+});
+
+/* =================== HERO p5 WORDCLOUD =================== */
+(function () {
+  const words = [
+    { w: 'PPF', f: 100 }, { w: 'Kellner', f: 92 }, { w: 'AMALAR', f: 70 }, { w: 'Renáta', f: 88 },
+    { w: 'Forbes', f: 60 }, { w: 'Bloomberg', f: 58 }, { w: 'Anna', f: 50 }, { w: 'Otruba', f: 56 },
+    { w: 'Ševela', f: 32 }, { w: 'Markíza', f: 36 }, { w: 'Nova', f: 30 }, { w: 'Home Credit', f: 42 },
+    { w: 'e&', f: 28 }, { w: 'CME', f: 38 }, { w: 'ČT', f: 24 }, { w: 'Hilton', f: 18 },
+    { w: 'Four Seasons', f: 22 }, { w: 'Špindlerův Mlýn', f: 14 }, { w: 'Petr Kellner', f: 70 },
+    { w: 'Holding', f: 30 }, { w: 'ÚOHS', f: 26 }, { w: 'CzechToll', f: 20 }, { w: 'Aljaška', f: 16 },
+    { w: 'Helikoptéra', f: 14 }, { w: 'Tampa', f: 12 }, { w: 'Catch Me', f: 18 }, { w: 'parkur', f: 22 },
+    { w: 'kůň', f: 18 }, { w: 'NIG', f: 16 }, { w: 'Visegrád', f: 14 }
+  ];
+
+  const sketch = (p) => {
+    let placed = [];
+    p.setup = () => {
+      const wrap = document.getElementById('wordcloud-container');
+      const c = p.createCanvas(wrap.clientWidth, wrap.clientHeight);
+      c.parent('wordcloud-container');
+      p.noLoop();
+      p.textAlign(p.CENTER, p.CENTER);
+      p.textFont('Playfair Display');
+      p.background(251, 247, 236);
+
+      const palette = ['#8b1a1a', '#2c2722', '#b8932f', '#2f6a3a', '#6b6256'];
+      const sorted = words.slice().sort((a,b) => b.f - a.f);
+      sorted.forEach((wd, idx) => {
+        const size = 12 + (wd.f / 100) * 44;
+        let placedOk = false;
+        for (let attempt = 0; attempt < 80 && !placedOk; attempt++) {
+          const x = p.random(p.width * 0.1, p.width * 0.9);
+          const y = p.random(p.height * 0.1, p.height * 0.9);
+          p.textSize(size);
+          const w = p.textWidth(wd.w) + 8;
+          const h = size + 4;
+          let collide = false;
+          for (const pl of placed) {
+            if (Math.abs(x - pl.x) < (w + pl.w) / 2 && Math.abs(y - pl.y) < (h + pl.h) / 2) {
+              collide = true; break;
+            }
+          }
+          if (!collide) {
+            placed.push({ x, y, w, h });
+            const color = palette[idx % palette.length];
+            p.fill(color);
+            p.text(wd.w, x, y);
+            placedOk = true;
+          }
+        }
+      });
+    };
+  };
+  if (window.p5) {
+    window.addEventListener('load', () => new p5(sketch));
+  }
+})();
+
+/* =================== §7 MEDIA SILENCE p5 RADIAL PULSE =================== */
+(function () {
+  const events = [
+    { angle: 5, label: '2021 Q2 statement' },
+    { angle: 35, label: '2022 PPF AR quote' },
+    { angle: 78, label: '2023 corporate' },
+    { angle: 105, label: '2023 AMALAR PR' },
+    { angle: 130, label: '2024-02 Bloomberg' },
+    { angle: 155, label: '2024 PPF AR quote' },
+    { angle: 195, label: '2024 Forbes quote' },
+    { angle: 240, label: '2025 Q2 PR' },
+    { angle: 285, label: '2025-08 PR' },
+    { angle: 320, label: '2026-02 Forbes' },
+    { angle: 350, label: '2026-03 NL→CZ PR' }
+  ];
+
+  const sketch = (p) => {
+    let t = 0;
+    p.setup = () => {
+      const wrap = document.getElementById('silence-container');
+      const size = Math.min(wrap.clientWidth, wrap.clientHeight);
+      const c = p.createCanvas(size, size);
+      c.parent('silence-container');
+      p.angleMode(p.DEGREES);
+    };
+    p.draw = () => {
+      p.clear();
+      p.background(251, 247, 236);
+      p.translate(p.width / 2, p.height / 2);
+      const radius = p.width * 0.35;
+      // base ring
+      p.noFill();
+      p.stroke(43, 43, 43);
+      p.strokeWeight(1.5);
+      p.circle(0, 0, radius * 2);
+      // tick marks for years 2021–2026 (every 60°)
+      p.textAlign(p.CENTER, p.CENTER);
+      p.textFont('Inter');
+      p.textSize(11);
+      p.fill(107, 98, 86);
+      p.noStroke();
+      const years = ['2021','2022','2023','2024','2025','2026'];
+      for (let i = 0; i < 6; i++) {
+        const a = i * 60 - 90;
+        const lx = Math.cos(a * Math.PI/180) * (radius + 14);
+        const ly = Math.sin(a * Math.PI/180) * (radius + 14);
+        p.text(years[i], lx, ly);
+      }
+      // pulse
+      events.forEach((e, i) => {
+        const a = e.angle - 90;
+        const x = Math.cos(a * Math.PI/180) * radius;
+        const y = Math.sin(a * Math.PI/180) * radius;
+        const phase = (t + i * 30) % 360;
+        const pulse = 6 + Math.sin(phase * Math.PI/180) * 4;
+        p.noStroke();
+        p.fill(139, 26, 26, 200);
+        p.circle(x, y, pulse * 2);
+        p.noFill();
+        p.stroke(139, 26, 26, 70);
+        p.strokeWeight(1);
+        p.circle(x, y, pulse * 4);
+      });
+      // center label
+      p.noStroke();
+      p.fill(26,26,26);
+      p.textSize(14);
+      p.textFont('Playfair Display');
+      p.text('11 záznamů', 0, -8);
+      p.textSize(10);
+      p.fill(107,98,86);
+      p.textFont('Inter');
+      p.text('5 let mediální stopy', 0, 10);
+      t += 1.5;
+    };
+  };
+  if (window.p5) {
+    window.addEventListener('load', () => new p5(sketch));
+  }
+})();
+
+/* =================== §3 THREE.JS PPF VERTICAL TIMELINE =================== */
+window.addEventListener('load', () => {
+  if (!window.THREE) return;
+  const canvas = document.getElementById('threeCanvas');
+  if (!canvas) return;
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(canvas.clientWidth, canvas.clientHeight, false);
+  renderer.setClearColor(0xece5d6, 1);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+  camera.position.set(4, 2, 8);
+  camera.lookAt(0, 0, 0);
+
+  // OrbitControls
+  let controls = null;
+  if (window.THREE.OrbitControls) {
+    controls = new THREE.OrbitControls(camera, canvas);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.08;
+  }
+
+  // lights
+  const amb = new THREE.AmbientLight(0xffffff, 0.7);
+  scene.add(amb);
+  const dir = new THREE.DirectionalLight(0xffffff, 0.6);
+  dir.position.set(5, 8, 5);
+  scene.add(dir);
+
+  // central axis
+  const axisGeo = new THREE.CylinderGeometry(0.03, 0.03, 6, 16);
+  const axisMat = new THREE.MeshBasicMaterial({ color: 0x2b2b2b });
+  const axis = new THREE.Mesh(axisGeo, axisMat);
+  scene.add(axis);
+
+  // 4 era billboards
+  const eras = [
+    { y: 2.6, color: 0x8b1a1a, label: '2020 · CME acquisition' },
+    { y: 0.9, color: 0xb8932f, label: '2024 · CME divestments' },
+    { y: -0.9, color: 0x6b6256, label: '2024 · Markíza strike (SK)' },
+    { y: -2.6, color: 0x2f6a3a, label: '2026 · PPF NL→CZ relocation' }
+  ];
+
+  function makeLabelTexture(text, color) {
+    const c = document.createElement('canvas');
+    c.width = 512; c.height = 128;
+    const ctx = c.getContext('2d');
+    ctx.fillStyle = '#f4efe6';
+    ctx.fillRect(0,0,c.width,c.height);
+    ctx.strokeStyle = '#2b2b2b';
+    ctx.lineWidth = 6;
+    ctx.strokeRect(0,0,c.width,c.height);
+    ctx.fillStyle = '#' + color.toString(16).padStart(6, '0');
+    ctx.fillRect(0,0,12,c.height);
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = 'bold 32px Playfair Display, serif';
+    ctx.textBaseline = 'middle';
+    ctx.fillText(text, 28, c.height / 2);
+    return new THREE.CanvasTexture(c);
+  }
+
+  eras.forEach(e => {
+    const tex = makeLabelTexture(e.label, e.color);
+    const mat = new THREE.MeshBasicMaterial({ map: tex, side: THREE.DoubleSide, transparent: true });
+    const geo = new THREE.PlaneGeometry(3.2, 0.8);
+    const plane = new THREE.Mesh(geo, mat);
+    plane.position.set(1.8, e.y, 0);
+    scene.add(plane);
+
+    // marker on axis
+    const dotMat = new THREE.MeshStandardMaterial({ color: e.color, emissive: e.color, emissiveIntensity: 0.4 });
+    const dot = new THREE.Mesh(new THREE.SphereGeometry(0.13, 16, 16), dotMat);
+    dot.position.set(0, e.y, 0);
+    scene.add(dot);
+
+    // connector line
+    const lineGeo = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(0, e.y, 0),
+      new THREE.Vector3(0.2, e.y, 0)
+    ]);
+    const line = new THREE.Line(lineGeo, new THREE.LineBasicMaterial({ color: 0x2b2b2b }));
+    scene.add(line);
+  });
+
+  // ground hint
+  const groundGeo = new THREE.RingGeometry(0.05, 4, 64);
+  const groundMat = new THREE.MeshBasicMaterial({ color: 0xcfc4ad, side: THREE.DoubleSide, transparent: true, opacity: 0.6 });
+  const ground = new THREE.Mesh(groundGeo, groundMat);
+  ground.rotation.x = -Math.PI / 2;
+  ground.position.y = -3.05;
+  scene.add(ground);
+
+  function resize() {
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    if (canvas.width !== w || canvas.height !== h) {
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+  }
+  window.addEventListener('resize', resize);
+
+  function animate() {
+    resize();
+    if (controls) controls.update();
+    renderer.render(scene, camera);
+    requestAnimationFrame(animate);
+  }
+  animate();
+});
+</script>
+
+<nav class="mt-16 pt-8 border-t border-black/30 px-6 pb-6 text-xs">
+  <p class="kicker mb-3">Další prezentace v balíčku</p>
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-2 max-w-7xl mx-auto">
+    <a href="index.html" class="border border-black/30 hover:border-[var(--accent-2)] rounded p-2 text-center hover:bg-[var(--paper-2)] transition">Hub</a>
+    <a href="01-amalar-governance-brief.html" class="border border-black/30 hover:border-[var(--accent-2)] rounded p-2 text-center hover:bg-[var(--paper-2)] transition">01 Governance</a>
+    <a href="02-renata-ma-vetting.html" class="border border-black/30 hover:border-[var(--accent)] rounded p-2 text-center hover:bg-[var(--paper-2)] transition">02 M&amp;A</a>
+    <a href="03-medialni-profil.html" class="border border-[var(--green-ok)] rounded p-2 text-center bg-[var(--paper-2)] font-bold">03 Media</a>
+    <a href="04-personal-vetting-kyc.html" class="border border-black/30 hover:border-blue-700 rounded p-2 text-center hover:bg-[var(--paper-2)] transition">04 KYC</a>
+    <a href="05-master-hub.html" class="border border-black/30 hover:border-fuchsia-700 rounded p-2 text-center hover:bg-[var(--paper-2)] transition">05 Hub graf</a>
+    <a href="06-entity-browser.html" class="border border-black/30 hover:border-teal-700 rounded p-2 text-center hover:bg-[var(--paper-2)] transition">06 Browser</a>
+    <a href="07-chronology.html" class="border border-black/30 hover:border-orange-700 rounded p-2 text-center hover:bg-[var(--paper-2)] transition">07 Chronology</a>
+    <a href="08-cross-reference-matrix.html" class="border border-black/30 hover:border-pink-700 rounded p-2 text-center hover:bg-[var(--paper-2)] transition">08 X-Ref</a>
+  </div>
+</nav>
+
+</body>
+</html>

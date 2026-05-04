@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kellner Cluster — Master Index</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  body { font-family: Inter, system-ui, sans-serif; }
+  .grain { background-image: radial-gradient(rgba(255,255,255,0.04) 1px,transparent 1px); background-size: 3px 3px; }
+  .card { transition: transform .2s, border-color .2s; }
+  .card:hover { transform: translateY(-2px); }
+  .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; }
+  details > summary::-webkit-details-marker { display: none; }
+  details > summary::after { content: '▸'; margin-left: 0.5em; transition: transform .2s; }
+  details[open] > summary::after { transform: rotate(90deg); }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen grain">
+<div class="max-w-7xl mx-auto px-6 py-12">
+  <header class="border-b border-slate-800 pb-8 mb-12">
+    <div class="flex items-baseline justify-between flex-wrap gap-4">
+      <div>
+        <p class="text-amber-400 uppercase tracking-widest text-xs mb-2">Prismatic Due Diligence — Master Index</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-amber-200">Kellner Cluster — AMALAR Inner Circle</h1>
+        <p class="text-slate-400 mt-3 max-w-3xl"><span class="text-amber-300 font-semibold">10 HTML reportů</span> (incl. Phase 5) + <span class="text-amber-300 font-semibold">8 interaktivních prezentací</span> + <span class="text-amber-300 font-semibold">15 entity JSONs</span> (11 ARES-verified) + Decision Engine output. Veškerý DD obsah jako self-contained klikatelné HTML5.</p>
+      </div>
+      <div class="text-right text-xs text-slate-500 font-mono">
+        <div>Case ID: 2026-04-28-kellner-cluster-amalar</div>
+        <div>Generated 2026-04-28</div>
+        <div class="text-amber-400 mt-2">DE Verdict: caution / risk high / 60</div>
+      </div>
+    </div>
+  </header>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-200 mb-1">Quick start</h2>
+    <p class="text-sm text-slate-500 mb-4">Začni zde podle tvé role.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <a href="README.html" class="card border border-slate-800 hover:border-amber-500 rounded-lg p-5 bg-slate-900/40">
+        <div class="text-amber-400 text-xs font-mono uppercase tracking-wider mb-2">Start</div>
+        <div class="text-lg font-bold text-slate-100">📋 Case README</div>
+        <div class="text-xs text-slate-500 mt-2">Executive summary, risk assessment 8 kategorií, critical flags, entity roster, recommendations.</div>
+      </a>
+      <a href="presentations/index.html" class="card border border-slate-800 hover:border-fuchsia-500 rounded-lg p-5 bg-slate-900/40">
+        <div class="text-fuchsia-400 text-xs font-mono uppercase tracking-wider mb-2">Visualizations</div>
+        <div class="text-lg font-bold text-slate-100">📊 Presentations Hub</div>
+        <div class="text-xs text-slate-500 mt-2">8 interaktivních HTML5 prezentací (governance / M&A / media / KYC + master hub / browser / chronology / x-ref).</div>
+      </a>
+      <a href="reports/PHASE-4-NBS-REPORT.html" class="card border border-slate-800 hover:border-emerald-500 rounded-lg p-5 bg-slate-900/40">
+        <div class="text-emerald-400 text-xs font-mono uppercase tracking-wider mb-2">Final</div>
+        <div class="text-lg font-bold text-slate-100">🎯 Phase 4 NbsReport</div>
+        <div class="text-xs text-slate-500 mt-2">Final consolidation: Decision Engine verdict + 11 sekcí + provenance + doctrine compliance.</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-200 mb-1">Phase narrative reports</h2>
+    <p class="text-sm text-slate-500 mb-4">4-fázový pipeline DD — od architektury po synthesis.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <a href="../../../.claude/dd-cases/2026-04-28-kellner-cluster/DD-PLAN.html" class="card block border border-slate-800 hover:border-amber-500 rounded-lg p-5 bg-slate-900/40">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-amber-400 font-mono text-xs uppercase">Phase 0 / Plan</span>
+          <span class="pill text-slate-500">31 KB · 581 lines · 12 links</span>
+        </div>
+        <div class="text-lg font-semibold">DD-PLAN — 4-phase architecture</div>
+        <div class="text-xs text-slate-500 mt-1">ADR pro 4 subjekty, scope per subject, doctrine framework.</div>
+      </a>
+      <a href="../../../.claude/dd-cases/2026-04-28-kellner-cluster/PROBE-1-PRELIMINARY.html" class="card block border border-slate-800 hover:border-yellow-500 rounded-lg p-5 bg-slate-900/40">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-yellow-400 font-mono text-xs uppercase">Phase 1 / Probe</span>
+          <span class="pill text-slate-500">23 KB · 441 lines · 8 links</span>
+        </div>
+        <div class="text-lg font-semibold">Probe 1 — Preliminary baseline</div>
+        <div class="text-xs text-slate-500 mt-1">⚠️ NCLB violation flagged. 4 GO/STOP verdicts. Model-knowledge baseline.</div>
+      </a>
+      <a href="../../../.claude/dd-cases/2026-04-28-kellner-cluster/PHASE-2-FINAL.html" class="card block border border-slate-800 hover:border-emerald-500 rounded-lg p-5 bg-slate-900/40">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-emerald-400 font-mono text-xs uppercase">Phase 2 / Investigate</span>
+          <span class="pill text-slate-500">30 KB · 542 lines · 8 links</span>
+        </div>
+        <div class="text-lg font-semibold">Phase 2 — Live OSINT</div>
+        <div class="text-xs text-slate-500 mt-1">77 tool calls, 52 URLs, 2 falsifikace (Votruba→Otruba, Ševela ČT).</div>
+      </a>
+      <a href="../../../.claude/dd-cases/2026-04-28-kellner-cluster/PHASE-3-SYNTHESIS.html" class="card block border border-slate-800 hover:border-cyan-500 rounded-lg p-5 bg-slate-900/40">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-cyan-400 font-mono text-xs uppercase">Phase 3 / Synthesis</span>
+          <span class="pill text-slate-500">32 KB · 583 lines · 8 links</span>
+        </div>
+        <div class="text-lg font-semibold">Phase 3 — Synthesis</div>
+        <div class="text-xs text-slate-500 mt-1">Mermaid + Graphviz DOT + Decision Engine JSON input. Cluster hypothesis CONFIRMED.</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-200 mb-1">Findings — sub-reports</h2>
+    <p class="text-sm text-slate-500 mb-4">Specializované findings (Phase 3 synthesis + Phase 5 verification).</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <a href="findings/PHASE-3-SANCTIONS.html" class="card block border border-slate-800 hover:border-emerald-500 rounded-lg p-5 bg-slate-900/40">
+        <div class="text-emerald-400 font-mono text-xs uppercase mb-1">Sanctions</div>
+        <div class="text-base font-semibold">Sanctions + PEP screening</div>
+        <div class="text-xs text-slate-500 mt-1">19 KB · 332 lines · 4×4 NO MATCH</div>
+      </a>
+      <a href="findings/PHASE-3-ENTITIES.html" class="card block border border-slate-800 hover:border-amber-500 rounded-lg p-5 bg-slate-900/40">
+        <div class="text-amber-400 font-mono text-xs uppercase mb-1">ARES</div>
+        <div class="text-base font-semibold">Entity Extraction</div>
+        <div class="text-xs text-slate-500 mt-1">24 KB · 376 lines · 11 IČO</div>
+      </a>
+      <a href="findings/PHASE-3-PLATFORM-MAP.html" class="card block border border-slate-800 hover:border-cyan-500 rounded-lg p-5 bg-slate-900/40">
+        <div class="text-cyan-400 font-mono text-xs uppercase mb-1">Integration</div>
+        <div class="text-base font-semibold">Platform Map</div>
+        <div class="text-xs text-slate-500 mt-1">25 KB · 373 lines · 6 layers</div>
+      </a>
+      <a href="findings/PHASE-5-VERIFICATION.html" class="card block border border-emerald-500/40 hover:border-emerald-400 rounded-lg p-5 bg-emerald-950/20">
+        <div class="text-emerald-400 font-mono text-xs uppercase mb-1">Phase 5</div>
+        <div class="text-base font-semibold">Real Platform Verification</div>
+        <div class="text-xs text-slate-500 mt-1">11/11 ARES verified · 60+ tool calls · −8.5pp manipulation</div>
+      </a>
+      <a href="findings/PHASE-6-DEEP-VERIFICATION.html" class="card block border border-cyan-500/40 hover:border-cyan-400 rounded-lg p-5 bg-cyan-950/20">
+        <div class="text-cyan-400 font-mono text-xs uppercase mb-1">Phase 6</div>
+        <div class="text-base font-semibold">Deep Registry Verification</div>
+        <div class="text-xs text-slate-500 mt-1">106 calls · 7 new entities · PPF redomicile · 3 drift fixes</div>
+      </a>
+      <a href="findings/PHASE-7-CLUSTER-EXPANSION.html" class="card block border border-rose-500/40 hover:border-rose-400 rounded-lg p-5 bg-rose-950/20">
+        <div class="text-rose-400 font-mono text-xs uppercase mb-1">Phase 7</div>
+        <div class="text-base font-semibold">Cluster Expansion + Forensics</div>
+        <div class="text-xs text-slate-500 mt-1">130+ calls · 9 new entities · ITIS deep-dive · pre-merger restructure 12.3.2025</div>
+      </a>
+      <a href="findings/PHASE-8-DE-BREAKTHROUGH.html" class="card block border-2 border-violet-500/60 hover:border-violet-400 rounded-lg p-5 bg-gradient-to-br from-violet-950/30 to-slate-900/40">
+        <div class="text-violet-400 font-mono text-xs uppercase mb-1">Phase 8 — NEW · BREAKTHROUGH</div>
+        <div class="text-base font-semibold">DE Category Breakthrough + Hilton/4Seasons</div>
+        <div class="text-xs text-slate-500 mt-1"><strong class="text-violet-300">Coverage 16.67% → 100%</strong> · Confidence +343% · Manipulation -56% · Anomaly 0% → 74.59% · 6 new entities (PPF Hospitality 1+2, Atrium Hotel, FSHP, IBERTAX, VITRONIC) · Boheme EXCLUDED</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-200 mb-1">Audience-tailored briefs</h2>
+    <p class="text-sm text-slate-500 mb-4">Prezentace pro 4 specifická publika.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+      <a href="presentations/01-amalar-governance-brief.html" class="card block border border-slate-800 hover:border-amber-500 rounded-lg p-4 bg-slate-900/40">
+        <div class="text-amber-400 font-mono text-xs mb-1">01 / Governance</div>
+        <div class="text-sm font-semibold">AMALAR Governance Brief</div>
+        <div class="text-xs text-slate-500 mt-2">Three.js orb · 7 sections · 69 KB</div>
+      </a>
+      <a href="presentations/02-renata-ma-vetting.html" class="card block border border-slate-800 hover:border-red-500 rounded-lg p-4 bg-slate-900/40">
+        <div class="text-red-400 font-mono text-xs mb-1">02 / M&A</div>
+        <div class="text-sm font-semibold">Counterparty Vetting</div>
+        <div class="text-xs text-slate-500 mt-2">Bloomberg style · 9 sections · 49 KB</div>
+      </a>
+      <a href="presentations/03-medialni-profil.html" class="card block border border-slate-800 hover:border-emerald-500 rounded-lg p-4 bg-slate-900/40">
+        <div class="text-emerald-400 font-mono text-xs mb-1">03 / Media</div>
+        <div class="text-sm font-semibold">Mediální Profil</div>
+        <div class="text-xs text-slate-500 mt-2">Newspaper aesthetic · 9 sections · 60 KB</div>
+      </a>
+      <a href="presentations/04-personal-vetting-kyc.html" class="card block border border-slate-800 hover:border-blue-500 rounded-lg p-4 bg-slate-900/40">
+        <div class="text-blue-400 font-mono text-xs mb-1">04 / KYC</div>
+        <div class="text-sm font-semibold">Personal Vetting / KYC</div>
+        <div class="text-xs text-slate-500 mt-2">Compliance dashboard · 11 sections · 79 KB</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <h2 class="text-2xl font-bold text-slate-200 mb-1">Cross-cutting deep dives</h2>
+    <p class="text-sm text-slate-500 mb-4">Vysoké information & link density.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+      <a href="presentations/05-master-hub.html" class="card block border border-slate-800 hover:border-fuchsia-500 rounded-lg p-4 bg-gradient-to-br from-fuchsia-950/30 to-slate-900/40">
+        <div class="text-fuchsia-400 font-mono text-xs mb-1">05 / Force Graph</div>
+        <div class="text-sm font-semibold">Master Hub</div>
+        <div class="text-xs text-slate-500 mt-2">D3 force · 19 nodes · 37 edges · 46 KB</div>
+      </a>
+      <a href="presentations/06-entity-browser.html" class="card block border border-slate-800 hover:border-teal-500 rounded-lg p-4 bg-gradient-to-br from-teal-950/30 to-slate-900/40">
+        <div class="text-teal-400 font-mono text-xs mb-1">06 / Browser</div>
+        <div class="text-sm font-semibold">Entity Browser SPA</div>
+        <div class="text-xs text-slate-500 mt-2">Hash routing · 15 entit · 60 KB</div>
+      </a>
+      <a href="presentations/07-chronology.html" class="card block border border-slate-800 hover:border-orange-500 rounded-lg p-4 bg-gradient-to-br from-orange-950/30 to-slate-900/40">
+        <div class="text-orange-400 font-mono text-xs mb-1">07 / Timeline</div>
+        <div class="text-sm font-semibold">Chronology 2021—2026</div>
+        <div class="text-xs text-slate-500 mt-2">3D helix · 30 events · 49 KB</div>
+      </a>
+      <a href="presentations/08-cross-reference-matrix.html" class="card block border border-slate-800 hover:border-pink-500 rounded-lg p-4 bg-gradient-to-br from-pink-950/30 to-slate-900/40">
+        <div class="text-pink-400 font-mono text-xs mb-1">08 / X-Ref</div>
+        <div class="text-sm font-semibold">Source × Claim × Entity</div>
+        <div class="text-xs text-slate-500 mt-2">Tripartite 3D · 61/61/15 · 121 KB</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="mb-10">
+    <details class="border border-slate-800 rounded-lg p-5 bg-slate-900/40 cursor-pointer">
+      <summary class="text-xl font-bold text-slate-200">Raw data &amp; entity files</summary>
+      <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+        <div>
+          <p class="text-amber-400 font-semibold mb-3 uppercase tracking-wider text-xs">Person entities (4)</p>
+          <ul class="text-slate-400 space-y-1 font-mono text-xs">
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/person/person-renata-kellnerova.json">person-renata-kellnerova.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/person/person-anna-kellnerova.json">person-anna-kellnerova.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/person/person-tomas-otruba.json">person-tomas-otruba.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/person/person-robert-sevela.json">person-robert-sevela.json</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-amber-400 font-semibold mb-3 uppercase tracking-wider text-xs">Company entities (11)</p>
+          <ul class="text-slate-400 space-y-1 font-mono text-xs">
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/company/company-amalar-holding.json">company-amalar-holding.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/company/company-ppf-as.json">company-ppf-as.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/company/company-kellner-family-foundation.json">company-kellner-family-foundation.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/company/company-otruba-advokat.json">company-otruba-advokat.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/company/company-nordic-investors-group.json">company-nordic-investors-group.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/company/company-krkonose-resort-invest.json">company-krkonose-resort-invest.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/company/company-grand-hotel-hradec.json">company-grand-hotel-hradec.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/company/company-harmony-spindleruv-mlyn.json">company-harmony-spindleruv-mlyn.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/company/company-harmony-operations.json">company-harmony-operations.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/company/company-czechtoll.json">company-czechtoll.json</a></li>
+            <li><a class="hover:text-amber-300" href="../../../../apps/prismatic_dd/priv/data/entities/company/company-nordic-telecom-regional.json">company-nordic-telecom-regional.json</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-amber-400 font-semibold mb-3 uppercase tracking-wider text-xs">Decision Engine artifacts</p>
+          <ul class="text-slate-400 space-y-1 font-mono text-xs">
+            <li><a class="hover:text-amber-300" href="reports/inputs.txt">reports/inputs.txt</a> — 20 signals</li>
+            <li><a class="hover:text-amber-300" href="reports/actors.txt">reports/actors.txt</a> — 12 actors</li>
+            <li><a class="hover:text-amber-300" href="reports/run-pipeline.sh">reports/run-pipeline.sh</a> — executable</li>
+            <li><a class="hover:text-amber-300" href="reports/pipeline-output.json">reports/pipeline-output.json</a> — 30 KB / 10 stages</li>
+            <li><a class="hover:text-amber-300" href="evidence/decision-engine-input.json">evidence/decision-engine-input.json</a> — full schema</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-amber-400 font-semibold mb-3 uppercase tracking-wider text-xs">Network artifacts</p>
+          <ul class="text-slate-400 space-y-1 font-mono text-xs">
+            <li><a class="hover:text-amber-300" href="network/ownership-graph.mmd">network/ownership-graph.mmd</a> — Mermaid</li>
+            <li><a class="hover:text-amber-300" href="network/ownership-graph.dot">network/ownership-graph.dot</a> — Graphviz DOT</li>
+            <li><a class="hover:text-amber-300" href="metadata.json">metadata.json</a> — case metadata</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <section class="border border-slate-800 rounded-lg p-6 bg-slate-900/40 mb-12">
+    <h2 class="text-xl font-bold text-slate-200 mb-4">Cluster context — quick reference</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+      <div>
+        <p class="text-amber-400 font-semibold mb-3 uppercase tracking-wider text-xs">Subjekty (4)</p>
+        <ul class="text-slate-400 space-y-2">
+          <li><a href="presentations/06-entity-browser.html#/person/renata-kellnerova" class="hover:text-amber-300">Renáta Kellnerová</a> <span class="text-slate-600 text-xs">DOB 1967-07-04</span></li>
+          <li><a href="presentations/06-entity-browser.html#/person/anna-kellnerova" class="hover:text-amber-300">Anna Kellnerová</a> <span class="text-slate-600 text-xs">FEI 10075949</span></li>
+          <li><a href="presentations/06-entity-browser.html#/person/tomas-otruba" class="hover:text-amber-300">Tomáš Otruba</a> <span class="text-slate-600 text-xs">ČAK 04289</span></li>
+          <li><a href="presentations/06-entity-browser.html#/person/robert-sevela" class="hover:text-amber-300">Robert Ševela</a> <span class="text-slate-600 text-xs">Ing., Ph.D.</span></li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-amber-400 font-semibold mb-3 uppercase tracking-wider text-xs">Klíčové IČO</p>
+        <ul class="text-slate-400 space-y-1 font-mono text-xs">
+          <li><a href="https://ares.gov.cz/ekonomicke-subjekty?ico=19696477" target="_blank" rel="noopener" class="hover:text-amber-300">19696477</a> — AMALAR HOLDING</li>
+          <li><a href="https://ares.gov.cz/ekonomicke-subjekty?ico=25099345" target="_blank" rel="noopener" class="hover:text-amber-300">25099345</a> — PPF a.s.</li>
+          <li><a href="https://ares.gov.cz/ekonomicke-subjekty?ico=28902254" target="_blank" rel="noopener" class="hover:text-amber-300">28902254</a> — Nadace TKFF</li>
+          <li><a href="https://ares.gov.cz/ekonomicke-subjekty?ico=60178779" target="_blank" rel="noopener" class="hover:text-amber-300">60178779</a> — Otruba advokát</li>
+          <li><a href="https://ares.gov.cz/ekonomicke-subjekty?ico=01868616" target="_blank" rel="noopener" class="hover:text-amber-300">01868616</a> — Krkonoše Resort Invest</li>
+          <li><a href="https://ares.gov.cz/ekonomicke-subjekty?ico=21539065" target="_blank" rel="noopener" class="hover:text-amber-300">21539065</a> — Harmony Špindlerův Mlýn</li>
+        </ul>
+      </div>
+      <div>
+        <p class="text-amber-400 font-semibold mb-3 uppercase tracking-wider text-xs">Premise falsifikace</p>
+        <ul class="text-slate-400 space-y-3 text-xs">
+          <li><span class="text-red-400 line-through">Tomáš Votruba</span> → <span class="text-emerald-400">Tomáš Otruba</span> (paronym, ≥95 % confidence)</li>
+          <li><span class="text-red-400 line-through">Ševela = GŘ ČT 2024</span> → vyvráceno; reálný GŘ ČT je <a href="https://www.ceskatelevize.cz/vse-o-ct/historie/novodoba-historie-ct/generalni-reditele-ct/" target="_blank" rel="noopener" class="hover:text-amber-300 underline">Hynek Chudárek</a> od 1.7.2025</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="pt-8 border-t border-slate-800 text-xs text-slate-500 flex justify-between flex-wrap gap-4">
+    <div>
+      <span class="font-mono">2026-04-28T19:54:02Z</span> · Generated by Prismatic DD platform · <span class="text-amber-400">9 reports + 8 presentations + 15 entities + 1 DE pipeline run</span>
+    </div>
+    <div class="flex gap-2 font-mono">
+      <span class="text-emerald-500">NMND</span> · <span class="text-emerald-500">NWB</span> · <span class="text-emerald-500">NCLB</span> · <span class="text-emerald-500">CZE</span> · <span class="text-emerald-500">GDPR</span>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "case_id": "2026-04-13-enhanced-pipeline-demo-petr-novak",
+  "title": "Petr Novák — Enhanced Pipeline Demo",
+  "subject": {
+    "name": "Petr Novák — Enhanced Pipeline Demo"
+  },
+  "context": "End-to-end DD pipeline demonstration with enhanced source verification (research package + agent integration showcase).",
+  "doctrine": "AIAD-DD",
+  "language": "cs-CZ",
+  "created_at": "2026-04-13",
+  "updated_at": "2026-04-13",
+  "status": "research_only",
+  "display": {
+    "headline": "Petr Novák — Enhanced Pipeline Demo",
+    "tagline": "End-to-end DD pipeline demonstration with enhanced source verification (research package + agent integration showcase).",
+    "risk_grade": "B",
+    "color": "emerald",
+    "entity_count": 0,
+    "graph_depth": 1,
+    "verification_status": "research-only",
+    "dashboard_path": "index.html"
+  },
+  "key_findings": {
+    "positive": [],
+    "yellow_flags": [],
+    "red_flags_blocking": []
+  },
+  "deliverables": {
+    "case_md": "README.md"
+  }
+}

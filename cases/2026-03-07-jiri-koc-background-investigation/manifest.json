@@ -1,0 +1,31 @@
+{
+  "case_id": "2026-03-07-jiri-koc-background-investigation",
+  "title": "Jiří Koc — Background Investigation",
+  "subject": {
+    "name": "Jiří Koc — Background Investigation"
+  },
+  "context": "Comprehensive background check & subject profile (research package).",
+  "doctrine": "AIAD-DD",
+  "language": "cs-CZ",
+  "created_at": "2026-03-07",
+  "updated_at": "2026-03-07",
+  "status": "research_only",
+  "display": {
+    "headline": "Jiří Koc — Background Investigation",
+    "tagline": "Comprehensive background check & subject profile (research package).",
+    "risk_grade": "C",
+    "color": "amber",
+    "entity_count": 0,
+    "graph_depth": 1,
+    "verification_status": "research-only",
+    "dashboard_path": "index.html"
+  },
+  "key_findings": {
+    "positive": [],
+    "yellow_flags": [],
+    "red_flags_blocking": []
+  },
+  "deliverables": {
+    "case_md": "README.md"
+  }
+}

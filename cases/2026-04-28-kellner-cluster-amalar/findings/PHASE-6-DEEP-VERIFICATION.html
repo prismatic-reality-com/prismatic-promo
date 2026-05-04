@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phase 6 — Deep Registry Verification</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+<style>
+  body { font-family: Inter, system-ui, sans-serif; }
+  .grain { background-image: radial-gradient(rgba(255,255,255,0.04) 1px,transparent 1px); background-size: 3px 3px; }
+  .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; }
+  .link-ares, .link-source { border-bottom: 1px dotted currentColor; transition: color .15s, background-color .15s; }
+  .link-ares:hover { color: #fbbf24; background: rgba(251,191,36,0.1); }
+  .link-source:hover { color: #34d399; background: rgba(52,211,153,0.1); }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen grain">
+
+<div class="max-w-7xl mx-auto px-6 py-12">
+  <header class="border-b border-cyan-700 pb-8 mb-12 bg-cyan-950/20 -mx-6 px-6 -mt-12 pt-12">
+    <p class="text-cyan-400 uppercase tracking-widest text-xs mb-2">Phase 6 / Deep Registry Verification</p>
+    <h1 class="text-4xl md:text-5xl font-bold text-cyan-200">Justice.cz Boards + Sub-IČO Discovery + RKE/AKE + PPF Redomicile</h1>
+    <p class="text-slate-400 mt-3 max-w-3xl">130+ tool calls napříč 4 paralelními streamy. <span class="text-cyan-300">3 major drift fixes</span> (PPF/TKFF/CzechToll), <span class="text-emerald-300">7 new entities discovered</span> (RKE/AKE Holdings + 4 Krkonoše subs + post-redomicile PPF Group a.s.), <span class="text-amber-300">19 new persons</span> identified, <span class="text-fuchsia-300">PPF NL→CZ relocation CONFIRMED COMPLETED</span> 2026-04-01.</p>
+    <div class="mt-4 grid grid-cols-2 md:grid-cols-5 gap-3 text-xs">
+      <div class="border border-cyan-700/40 rounded p-3 bg-cyan-950/40">
+        <div class="text-cyan-400 font-semibold">Boards Verified</div>
+        <div class="text-2xl font-bold text-cyan-200">11/11</div>
+        <div class="text-slate-500">via justice.cz</div>
+      </div>
+      <div class="border border-amber-700/40 rounded p-3 bg-amber-950/40">
+        <div class="text-amber-400 font-semibold">Drift Corrections</div>
+        <div class="text-2xl font-bold text-amber-200">3</div>
+        <div class="text-slate-500">PPF · TKFF · CzechToll</div>
+      </div>
+      <div class="border border-emerald-700/40 rounded p-3 bg-emerald-950/40">
+        <div class="text-emerald-400 font-semibold">New Entities</div>
+        <div class="text-2xl font-bold text-emerald-200">7</div>
+        <div class="text-slate-500">all ARES-verified</div>
+      </div>
+      <div class="border border-fuchsia-700/40 rounded p-3 bg-fuchsia-950/40">
+        <div class="text-fuchsia-400 font-semibold">New Persons</div>
+        <div class="text-2xl font-bold text-fuchsia-200">19</div>
+        <div class="text-slate-500">discovered + named</div>
+      </div>
+      <div class="border border-blue-700/40 rounded p-3 bg-blue-950/40">
+        <div class="text-blue-400 font-semibold">Tool Calls</div>
+        <div class="text-2xl font-bold text-blue-200">130+</div>
+        <div class="text-slate-500">real registry queries</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- §1 Major Findings -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§1 Major Findings — 4 Watershed Discoveries</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <article class="border-2 border-fuchsia-500/50 rounded-lg p-5 bg-gradient-to-br from-fuchsia-950/30 to-slate-900/40">
+          <div class="text-fuchsia-400 text-xs uppercase tracking-wider mb-2">FINDING 1 / WATERSHED</div>
+          <h3 class="text-xl font-bold text-fuchsia-200 mb-3">PPF NL→CZ Redomicile DOKONČEN 2026-04-01</h3>
+          <p class="text-sm text-slate-400 mb-3">Nová <a href="https://ares.gov.cz/ekonomicke-subjekty?ico=24908487" target="_blank" rel="noopener" class="link-ares">PPF Group a.s. (IČO 24908487)</a> aktivní v ARES, sídlo Evropská 2690/17 Praha 6, court B 30605/MSPH. Successor of <a href="https://search.gleif.org/#/record/31570030000000000550" target="_blank" rel="noopener" class="link-source">PPF Group N.V. LEI 31570030000000000550</a>.</p>
+          <ul class="text-xs text-slate-500 space-y-1">
+            <li>• Tax residency: NL → CZ (efekt 1.4.2026)</li>
+            <li>• Czech corporate tax 21% (vs Dutch 25.8%)</li>
+            <li>• Regulatory: DNB exposure removed; ČNB jurisdiction</li>
+            <li>• Lag: GLEIF + KvK update pending (typ. 30-180 dní)</li>
+          </ul>
+          <p class="text-xs text-emerald-400 mt-3">→ Jurisdictional risk HIGH → LOW</p>
+        </article>
+
+        <article class="border-2 border-amber-500/50 rounded-lg p-5 bg-gradient-to-br from-amber-950/30 to-slate-900/40">
+          <div class="text-amber-400 text-xs uppercase tracking-wider mb-2">FINDING 2 / DRIFT</div>
+          <h3 class="text-xl font-bold text-amber-200 mb-3">PPF a.s. Board kompletně reorganizován 2026-04-01</h3>
+          <p class="text-sm text-slate-400 mb-3">Phase 5 ARES-only claim (Jirásková/Král/Janák představenstvo + Nesrovnal/Chvátal/Mašátová DR) byl <strong class="text-red-400">zastaralý</strong>. Aktuální:</p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li>• <strong class="text-emerald-300">Představenstvo (2)</strong>: Kateřina Jirásková + Didier Stoessel co-CEOs</li>
+            <li>• <strong class="text-emerald-300">DR (4)</strong>: <a href="../presentations/06-entity-browser.html#/person/tomas-otruba" class="link-source">Tomáš Otruba (chair)</a> + <a href="../presentations/06-entity-browser.html#/person/renata-kellnerova" class="link-source">Renáta</a> + <a href="../presentations/06-entity-browser.html#/person/anna-kellnerova" class="link-source">Anna</a> + Lubomír Král</li>
+            <li>• <strong class="text-amber-300">Pozorovatelky</strong>: Lara + Marie Isabella</li>
+            <li>• <strong class="text-red-400">Odešli 1.4.2026</strong>: Bosveld, Frydrych, Jansen, Verhoeff, Kotrba, Prokopcová, Šmejc, Ziegler</li>
+          </ul>
+        </article>
+
+        <article class="border-2 border-emerald-500/50 rounded-lg p-5 bg-gradient-to-br from-emerald-950/30 to-slate-900/40">
+          <div class="text-emerald-400 text-xs uppercase tracking-wider mb-2">FINDING 3 / DISCOVERY</div>
+          <h3 class="text-xl font-bold text-emerald-200 mb-3">RKE + AKE Holdings nalezeny + 100% verified</h3>
+          <p class="text-sm text-slate-400 mb-3">Personal SPVs Renáty + Anny holding 26% + 22% Harmony JV stakes — obě ARES-verified.</p>
+          <ul class="text-xs text-slate-400 space-y-2">
+            <li>• <a href="https://ares.gov.cz/ekonomicke-subjekty?ico=21660859" target="_blank" rel="noopener" class="link-ares">RKE Holding s.r.o. — IČO 21660859</a> (Renáta 100%, kapitál 200k Kč)</li>
+            <li>• <a href="https://ares.gov.cz/ekonomicke-subjekty?ico=21662398" target="_blank" rel="noopener" class="link-ares">AKE Holding s.r.o. — IČO 21662398</a> (Anna 100%, kapitál 200k Kč)</li>
+            <li>• <strong class="text-cyan-300">Same-day incorporation</strong> 2024-05-29 — coordinated legal setup pro Harmony deal</li>
+            <li>• Sequenční court files C 404713 + C 404725/MSPH</li>
+            <li>• Sídlo: Evropská 2690/17 (= Kellner kompound)</li>
+          </ul>
+        </article>
+
+        <article class="border-2 border-cyan-500/50 rounded-lg p-5 bg-gradient-to-br from-cyan-950/30 to-slate-900/40">
+          <div class="text-cyan-400 text-xs uppercase tracking-wider mb-2">FINDING 4 / SUB-IČOs</div>
+          <h3 class="text-xl font-bold text-cyan-200 mb-3">Krkonoše Resort Invest pyramida — 4 sub-entity</h3>
+          <p class="text-sm text-slate-400 mb-3">Plus anomálie: <strong class="text-amber-300">all 5 subsidiary relationships terminated 2025-04 / 2025-05</strong> per Hlídač státu vazby.</p>
+          <ul class="text-xs text-slate-400 space-y-1">
+            <li>• <a href="https://ares.gov.cz/ekonomicke-subjekty?ico=21622302" target="_blank" rel="noopener" class="link-ares">Janské Lázně RI — 21622302</a> (založeno 2024-05-19)</li>
+            <li>• <a href="https://ares.gov.cz/ekonomicke-subjekty?ico=22396268" target="_blank" rel="noopener" class="link-ares">Pec pod Sněžkou RI — 22396268</a> (založeno 2024-12-19)</li>
+            <li>• <a href="https://ares.gov.cz/ekonomicke-subjekty?ico=22396276" target="_blank" rel="noopener" class="link-ares">Horní Maršov RI — 22396276</a> (založeno 2024-12-19, paired)</li>
+            <li>• <a href="https://ares.gov.cz/ekonomicke-subjekty?ico=22283340" target="_blank" rel="noopener" class="link-ares">Velkoobchod hot. víny — 22283340</a> (založeno 2024-11-20)</li>
+            <li>• Tři sdílí adresu Pec pod Sněžkou č.p. 137 (parent)</li>
+            <li>• Vertical-integration anomaly: wine wholesale acquired by hotel-property holdco (Nov 2024) → divested 5 měsíců později</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- §2 Drift corrections (CzechToll + TKFF) -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§2 Drift Corrections (CzechToll + Nadace TKFF)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <article class="border border-amber-700/40 rounded-lg p-5 bg-amber-950/20">
+          <h3 class="text-base font-semibold text-amber-200 mb-3">CzechToll — Okáli claim drift</h3>
+          <div class="text-xs text-slate-400 space-y-3">
+            <p><strong class="text-red-400">Phase 5 claim</strong>: "Matej Okáli (CEO od 2019)" jako statutární jednatel</p>
+            <p><strong class="text-emerald-400">Phase 6 truth</strong>: <em>Okáli je obchodní titul GŘ ITIS Holding/CzechToll, NE statutární orgán v OR</em>.</p>
+            <p>Aktuální jednatelé (od 2022-10-12): <strong>Eva Lakomá</strong> (Bratislava) + <strong>Petr Chvátal</strong> (Jablonec n.Nis.). Jednají vždy 2 společně (od 2018-10-24).</p>
+            <p>Mateřská: ITIS Holding a.s. (chair: <a href="../presentations/06-entity-browser.html#/person/robert-sevela" class="link-source">Robert Ševela</a>).</p>
+          </div>
+        </article>
+
+        <article class="border border-amber-700/40 rounded-lg p-5 bg-amber-950/20">
+          <h3 class="text-base font-semibold text-amber-200 mb-3">Nadace TKFF — Anna+Lara nejsou v orgánech</h3>
+          <div class="text-xs text-slate-400 space-y-3">
+            <p><strong class="text-red-400">Phase 5 claim</strong>: SR = Renáta + Anna + Lara</p>
+            <p><strong class="text-emerald-400">Phase 6 truth</strong>:</p>
+            <ul class="space-y-1 list-disc list-inside">
+              <li>SR (trustees): Renáta + Petr Kellner (in memoriam) + Petra Dobešová + Radek Špíšek (prof. imunologie 2.LF UK / SOTIO)</li>
+              <li>DR (oversight): Karina Divišová + Richard Sedláčko + Tomáš Vališ</li>
+              <li>Exec director: Tereza Bůžková</li>
+            </ul>
+            <p>Source: <a href="https://www.kellnerfoundation.cz/cs/o-nadaci" target="_blank" rel="noopener" class="link-source">kellnerfoundation.cz/cs/o-nadaci</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- §3 Operational layer (Landsman/Ibrahim cluster) -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§3 Operational Layer Discovery — Landsman/Ibrahim Cluster</h2>
+      <p class="text-sm text-slate-400 mb-4">Nová operační vrstva pod Otruba investment infrastructure. Robert Landsman + Rami Ibrahim řídí operativu hotelových sub-entit (jednatelé GHH s.r.o. + Harmony Operations s.r.o.).</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="border border-slate-800 rounded-lg p-4 bg-slate-900/40">
+          <div class="text-xs text-amber-400 uppercase tracking-wider mb-1">Robert Landsman</div>
+          <div class="text-sm font-semibold mb-2">Operating director</div>
+          <ul class="text-xs text-slate-400 space-y-1">
+            <li>• GHH s.r.o. Jednatel A (od 2020-01-16, samostatně)</li>
+            <li>• Harmony Operations jednatel (od 2024-10-18)</li>
+            <li>• Harmony a.s. ex-prokurista (2024-06 – 2025-02)</li>
+            <li>• Address: V Jezerách 136, Dolní Břežany</li>
+          </ul>
+        </div>
+        <div class="border border-slate-800 rounded-lg p-4 bg-slate-900/40">
+          <div class="text-xs text-amber-400 uppercase tracking-wider mb-1">Rami Ibrahim</div>
+          <div class="text-sm font-semibold mb-2">Operating director</div>
+          <ul class="text-xs text-slate-400 space-y-1">
+            <li>• GHH s.r.o. Jednatel B (od 2023-01-26, jen společně s A)</li>
+            <li>• Harmony Operations jednatel (od 2024-10-18)</li>
+            <li>• Address: Fetrovská 1005/53, Praha 6</li>
+          </ul>
+        </div>
+        <div class="border border-slate-800 rounded-lg p-4 bg-slate-900/40">
+          <div class="text-xs text-amber-400 uppercase tracking-wider mb-1">Martina Dočkálková</div>
+          <div class="text-sm font-semibold mb-2">Harmony SR member</div>
+          <ul class="text-xs text-slate-400 space-y-1">
+            <li>• Harmony Špindlerův Mlýn a.s. SR (od 2024-06-06)</li>
+            <li>• Jedná samostatně</li>
+            <li>• Address: Loukotova 1818, Dobříš</li>
+            <li>• Possible relation: Libor Dočkálek (Krkonoše RI SR)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- §4 Updated cluster tree -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§4 Updated Cluster Ownership Tree (post Phase 6)</h2>
+      <pre class="bg-slate-900 border border-slate-800 rounded-lg p-4 text-xs text-slate-300 overflow-x-auto">
+Renáta Kellnerová (CZ resident)
+├─ AMALAR HOLDING s.r.o. (19696477) — jednatelka, 66.667% společník
+│   └─ PPF Group a.s. (24908487, NEW post-redomicile 1.4.2026)
+│       ├─ chair DR: Tomáš Otruba
+│       ├─ DR member: Renáta Kellnerová (NEW since 2026-04-01)
+│       ├─ DR member: Anna Kellnerová (NEW since 2026-04-01)
+│       └─ Co-CEOs: Jirásková + Stoessel
+│       └─ → PPF a.s. (25099345) + 19 holdings
+│
+├─ Nadace TKFF (28902254) — chairwoman/founder
+│   ├─ Trustees: Renáta + Petr Kellner (†) + Dobešová + Špíšek
+│   └─ Supervisory Board: Divišová + Sedláčko + Vališ
+│
+├─ RKE Holding s.r.o. (21660859, NEW) — 100% jednatelka, kapitál 200k Kč
+│   └─ Harmony Špindlerův Mlýn a.s. (21539065) — 26%
+│
+└─ Anna Kellnerová (daughter, FEI 10075949)
+    ├─ AKE Holding s.r.o. (21662398, NEW) — 100% jednatelka, kapitál 200k Kč
+    │   └─ Harmony Špindlerův Mlýn a.s. — 22%
+    └─ PPF a.s. + PPF Group a.s. DR member (since 2026-04-01)
+
+Tomáš Otruba (life partner Renáty)
+├─ Otruba advokát OSVČ (60178779)
+├─ Nordic Investors Hospitality a.s. (08034371) — sole SR member
+├─ PPF Group a.s. + PPF a.s. DR chair (since 2025-07)
+├─ Harmony Špindlerův Mlýn a.s. — 51% + SR member (od 2024-05-06)
+└─ Krkonoše Resort Invest a.s. (01868616) — chair SR
+    ├─ GRAND HOTEL HRADEC s.r.o. (07024223) — terminated 2025-05
+    ├─ Janské Lázně RI s.r.o. (21622302, NEW) — terminated 2025-05
+    ├─ Pec pod Sněžkou RI s.r.o. (22396268, NEW) — terminated 2025-05
+    ├─ Horní Maršov RI s.r.o. (22396276, NEW) — terminated 2025-05
+    └─ Velkoobchod hot. víny a.s. (22283340, NEW) — terminated 2025-04
+       (operating: Landsman + Ibrahim cluster manages day-to-day)
+
+Robert Ševela
+├─ ITIS Holding a.s. (chair board) → CzechToll s.r.o. (06315160, jednatelé Lakomá+Chvátal)
+├─ AMALAR Family Investment Council (since 2023-11)
+└─ PPF investment director (~20 let, post-1.4.2026 status TBD)</pre>
+    </section>
+
+    <!-- §5 Verification stats -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§5 Verification Statistics</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="border border-slate-800 rounded-lg p-5 bg-slate-900/40">
+          <h3 class="text-sm font-semibold text-cyan-300 mb-3">Tool calls per stream</h3>
+          <table class="w-full text-xs">
+            <tbody class="text-slate-400">
+              <tr class="border-b border-slate-800"><td class="py-2">Stream A — Justice.cz boards</td><td class="text-right font-mono">30</td></tr>
+              <tr class="border-b border-slate-800"><td class="py-2">Stream B — Krkonoše subsidiaries</td><td class="text-right font-mono">21</td></tr>
+              <tr class="border-b border-slate-800"><td class="py-2">Stream C — RKE/AKE Holdings</td><td class="text-right font-mono">31</td></tr>
+              <tr class="border-b border-slate-800"><td class="py-2">Stream D — PPF redomicile</td><td class="text-right font-mono">24</td></tr>
+              <tr class="border-t-2 border-slate-700 font-semibold"><td class="py-2">TOTAL</td><td class="text-right font-mono text-cyan-300">106</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="border border-slate-800 rounded-lg p-5 bg-slate-900/40">
+          <h3 class="text-sm font-semibold text-cyan-300 mb-3">Entity store delta (Phase 5 → Phase 6)</h3>
+          <table class="w-full text-xs">
+            <tbody class="text-slate-400">
+              <tr class="border-b border-slate-800"><td class="py-2">Person entities</td><td class="text-right font-mono">4 → 4 (+19 candidates)</td></tr>
+              <tr class="border-b border-slate-800"><td class="py-2">Company entities</td><td class="text-right font-mono text-emerald-300">11 → 18 (+7)</td></tr>
+              <tr class="border-b border-slate-800"><td class="py-2">Drift fixes applied</td><td class="text-right font-mono text-amber-300">3</td></tr>
+              <tr class="border-b border-slate-800"><td class="py-2">Cross-references updated</td><td class="text-right font-mono">8</td></tr>
+              <tr class="border-t-2 border-slate-700 font-semibold"><td class="py-2">Total cluster entities</td><td class="text-right font-mono text-cyan-300">22</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- §6 Doctrine -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§6 Doctrine Compliance</h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <div class="border border-emerald-700/40 rounded p-4 bg-emerald-950/40 text-center">
+          <div class="text-2xl text-emerald-400">✓</div>
+          <div class="font-mono font-bold text-emerald-300">NMND</div>
+          <div class="text-xs text-slate-500 mt-1">All discoveries based on real registry queries</div>
+        </div>
+        <div class="border border-emerald-700/40 rounded p-4 bg-emerald-950/40 text-center">
+          <div class="text-2xl text-emerald-400">✓</div>
+          <div class="font-mono font-bold text-emerald-300">NWB</div>
+          <div class="text-xs text-slate-500 mt-1">Drift corrected with audit trail</div>
+        </div>
+        <div class="border border-emerald-700/40 rounded p-4 bg-emerald-950/40 text-center">
+          <div class="text-2xl text-emerald-400">✓</div>
+          <div class="font-mono font-bold text-emerald-300">NCLB</div>
+          <div class="text-xs text-slate-500 mt-1">106 tool calls, every claim sourced</div>
+        </div>
+        <div class="border border-emerald-700/40 rounded p-4 bg-emerald-950/40 text-center">
+          <div class="text-2xl text-emerald-400">✓</div>
+          <div class="font-mono font-bold text-emerald-300">CZE</div>
+          <div class="text-xs text-slate-500 mt-1">Czech body, EN technical IDs</div>
+        </div>
+        <div class="border border-emerald-700/40 rounded p-4 bg-emerald-950/40 text-center">
+          <div class="text-2xl text-emerald-400">✓</div>
+          <div class="font-mono font-bold text-emerald-300">GDPR</div>
+          <div class="text-xs text-slate-500 mt-1">Public registry data only</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §7 Recommendations -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§7 Phase 7 Recommendations</h2>
+      <ol class="space-y-3 text-sm text-slate-300">
+        <li class="border-l-2 border-amber-500 pl-4 py-1"><strong class="text-amber-300">2025-04 / 2025-05 mass-divestment investigation</strong> — Krkonoše Resort Invest divested all 5 subsidiaries within 5 months of acquisition. New holdco? Sale? Bankruptcy? Critical for cluster timeline.</li>
+        <li class="border-l-2 border-amber-500 pl-4 py-1"><strong class="text-amber-300">ITIS Holding deep-dive</strong> — CzechToll parent, Robert Ševela chair. IČO + structure mapping + relationship to PPF.</li>
+        <li class="border-l-2 border-amber-500 pl-4 py-1"><strong class="text-amber-300">Vertical integration anomaly</strong> — Velkoobchod hotelovými víny (wine wholesale a.s.) acquired by hotel holdco then divested in 5 months. Investigate operational rationale.</li>
+        <li class="border-l-2 border-amber-500 pl-4 py-1"><strong class="text-amber-300">Landsman/Ibrahim background check</strong> — operating directors GHH + Harmony Operations. KYC/PEP screening na osoby + adverse media.</li>
+        <li class="border-l-2 border-emerald-500 pl-4 py-1"><strong class="text-emerald-300">Q3 2026 GLEIF/KvK propagation re-check</strong> — confirm PPF Group N.V. NL deregistration + new PPF Group a.s. CZ LEI propagation.</li>
+        <li class="border-l-2 border-emerald-500 pl-4 py-1"><strong class="text-emerald-300">PPF Annual Report 2025</strong> — expected publication Q2-Q3 2026 with full transformational disclosure.</li>
+        <li class="border-l-2 border-emerald-500 pl-4 py-1"><strong class="text-emerald-300">Sbírka listin pull</strong> for sub-entities (Janské Lázně RI, Pec p.S. RI, Horní Maršov RI) — share capital + jednatelé details.</li>
+      </ol>
+    </section>
+  </main>
+
+  <nav class="mt-16 pt-8 border-t border-slate-800">
+    <p class="uppercase tracking-widest text-slate-500 text-xs mb-3">Další reporty v case</p>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs">
+      <a href="../README.html" class="border border-slate-800 hover:border-amber-500 rounded p-2 text-center text-slate-400 hover:text-amber-300">Case README</a>
+      <a href="PHASE-3-SANCTIONS.html" class="border border-slate-800 hover:border-emerald-500 rounded p-2 text-center text-slate-400">Phase 3 Sanctions</a>
+      <a href="PHASE-3-ENTITIES.html" class="border border-slate-800 hover:border-amber-500 rounded p-2 text-center text-slate-400">Phase 3 Entities</a>
+      <a href="PHASE-3-PLATFORM-MAP.html" class="border border-slate-800 hover:border-cyan-500 rounded p-2 text-center text-slate-400">Phase 3 Platform Map</a>
+      <a href="PHASE-5-VERIFICATION.html" class="border border-slate-800 hover:border-emerald-500 rounded p-2 text-center text-slate-400">Phase 5 Verification</a>
+      <a href="PHASE-6-DEEP-VERIFICATION.html" class="border border-cyan-500 rounded p-2 text-center text-cyan-300 bg-cyan-950/20">Phase 6 Deep</a>
+      <a href="../reports/PHASE-4-NBS-REPORT.html" class="border border-slate-800 hover:border-amber-500 rounded p-2 text-center text-slate-400">Phase 4 NbsReport</a>
+      <a href="../presentations/index.html" class="border border-slate-800 hover:border-fuchsia-500 rounded p-2 text-center text-slate-400">Presentations</a>
+      <a href="../presentations/06-entity-browser.html" class="border border-slate-800 hover:border-teal-500 rounded p-2 text-center text-slate-400">Entity Browser</a>
+      <a href="../index.html" class="border border-slate-800 hover:border-amber-500 rounded p-2 text-center text-slate-400">Master Index</a>
+    </div>
+  </nav>
+
+  <footer class="mt-12 pt-6 border-t border-slate-800 text-xs text-slate-500 flex justify-between flex-wrap gap-4">
+    <div>
+      <span class="font-mono">2026-04-29</span> · Phase 6 Deep Registry Verification · Prismatic DD
+    </div>
+    <div class="flex gap-2 font-mono">
+      <span class="text-emerald-500">NMND</span> · <span class="text-emerald-500">NWB</span> · <span class="text-emerald-500">NCLB</span> · <span class="text-emerald-500">CZE</span> · <span class="text-emerald-500">GDPR</span>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "case_id": "MAKUPAC_SRO_INVESTIGATION",
+  "title": "MAKUPAC s.r.o. — Logistics & Fulfillment DD",
+  "subject": {
+    "name": "MAKUPAC s.r.o. — Logistics & Fulfillment DD"
+  },
+  "context": "Czech fulfillment & logistics company. 91% concentrated control (Petr Kuchyňka, 36 y/o). Severe client concentration (60-80% revenue from single source). Active operation with strategic opportunities + critical vulnerabilities.",
+  "doctrine": "AIAD-DD",
+  "language": "cs-CZ",
+  "created_at": "2026-01-01",
+  "updated_at": "2026-01-01",
+  "status": "research_only",
+  "display": {
+    "headline": "MAKUPAC s.r.o. — Logistics & Fulfillment DD",
+    "tagline": "Czech fulfillment & logistics company. 91% concentrated control (Petr Kuchyňka, 36 y/o). Severe client concentration (60-80% revenue from single source). Active operation with strategic opportunities + critical vulnerabilities.",
+    "risk_grade": "C",
+    "color": "amber",
+    "entity_count": 0,
+    "graph_depth": 1,
+    "verification_status": "research-only",
+    "dashboard_path": "index.html"
+  },
+  "key_findings": {
+    "positive": [],
+    "yellow_flags": [],
+    "red_flags_blocking": []
+  },
+  "deliverables": {
+    "case_md": "comprehensive_executive_summary.md"
+  }
+}

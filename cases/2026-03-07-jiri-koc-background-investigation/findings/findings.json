@@ -1,0 +1,182 @@
+[
+  {
+    "source_id": "ares",
+    "source_name": "ARES",
+    "category": "Business Registry",
+    "query": "Koc, Znojmo",
+    "query_params": {"obchodniJmeno": "Koc", "sidlo": {"kodOkresu": 3713}},
+    "status": "hit",
+    "result_count": 3,
+    "results": [
+      {"ico": "03258009", "name": "Stavby Koc s.r.o.", "address": "Cinova hora A 6186, Znojmo", "founded": "2014-07-25", "status": "AKTIVNI"},
+      {"ico": "01995120", "name": "Dusan Koc (OSVC)", "address": "Ruzova 10, Plavec", "founded": "2013-08-13", "status": "AKTIVNI"},
+      {"ico": "87792842", "name": "Tomas Koc (OSVC)", "address": "Uprkova 2908/38, Znojmo", "founded": "2011-04-20", "status": "AKTIVNI"}
+    ],
+    "entities_found": [
+      {"type": "company", "name": "Stavby Koc s.r.o.", "ico": "03258009", "confidence": "HIGH"},
+      {"type": "person", "name": "Dusan Koc", "ico": "01995120", "confidence": "MEDIUM"},
+      {"type": "person", "name": "Tomas Koc", "ico": "87792842", "confidence": "MEDIUM"}
+    ],
+    "risk_indicators": [],
+    "risk_level": "low",
+    "notes": "No Jiri Koc registered as OSVC or company in Znojmo district. 3 Koc entities found in region.",
+    "queried_at": "2026-03-07T14:30:00Z",
+    "duration_ms": 1250
+  },
+  {
+    "source_id": "justice_cz",
+    "source_name": "Justice.cz (VR)",
+    "category": "Commercial Register",
+    "query": "Stavby Koc s.r.o., ICO 03258009",
+    "query_params": {"ico": "03258009", "spisovna_znacka": "C 84071"},
+    "status": "hit",
+    "result_count": 1,
+    "results": [
+      {"company": "Stavby Koc s.r.o.", "ico": "03258009", "director": "ANTONIN KOC", "director_dob": "1975-11-05", "court": "KS Brno", "file": "C 84071", "status": "sole_director_since_2025-02-21"}
+    ],
+    "entities_found": [
+      {"type": "person", "name": "Antonin Koc", "dob": "1975-11-05", "role": "sole_director", "confidence": "HIGH"},
+      {"type": "person", "name": "Jaroslav Petr", "role": "former_director", "confidence": "CONFIRMED"}
+    ],
+    "risk_indicators": [
+      {"type": "identity_discrepancy", "severity": "medium", "detail": "Subject Jiri Koc (1976) not found, but Antonin Koc (1975) found as director - 1 year DOB difference"},
+      {"type": "recent_restructuring", "severity": "low", "detail": "Ownership restructuring 2024-2025: Jaroslav Petr removed, address changed"}
+    ],
+    "risk_level": "low",
+    "notes": "Jiri Koc NOT registered as jednatel or spolecnik in any Czech company. Antonin Koc (1975) = sole director of Stavby Koc s.r.o.",
+    "queried_at": "2026-03-07T15:00:00Z",
+    "duration_ms": 2100
+  },
+  {
+    "source_id": "isir",
+    "source_name": "ISIR",
+    "category": "Insolvency Registry",
+    "query": "Jiri Koc, Znojmo",
+    "query_params": {"jmeno": "Jiri", "prijmeni": "Koc", "mesto": "Znojmo"},
+    "status": "clean",
+    "result_count": 0,
+    "results": [],
+    "entities_found": [],
+    "risk_indicators": [],
+    "risk_level": "clean",
+    "notes": "No insolvency records found for Jiri Koc in Znojmo.",
+    "queried_at": "2026-03-07T15:15:00Z",
+    "duration_ms": 850
+  },
+  {
+    "source_id": "rzp",
+    "source_name": "RZP",
+    "category": "Trade License Registry",
+    "query": "Jiri Koc, Znojmo",
+    "query_params": {"jmeno": "Jiri", "prijmeni": "Koc", "obec": "Znojmo"},
+    "status": "clean",
+    "result_count": 0,
+    "results": [],
+    "entities_found": [],
+    "risk_indicators": [],
+    "risk_level": "clean",
+    "notes": "No active trade licenses in subject's name in Znojmo.",
+    "queried_at": "2026-03-08T10:00:00Z",
+    "duration_ms": 950
+  },
+  {
+    "source_id": "registr_smluv",
+    "source_name": "Registr smluv",
+    "category": "State Contracts",
+    "query": "Jiri Koc + Stavby Koc s.r.o. (ICO 03258009)",
+    "query_params": {},
+    "status": "clean",
+    "result_count": 0,
+    "results": [],
+    "entities_found": [],
+    "risk_indicators": [],
+    "risk_level": "clean",
+    "notes": "Neither subject nor Stavby Koc s.r.o. have registered state contracts.",
+    "queried_at": "2026-03-08T10:10:00Z",
+    "duration_ms": 1100
+  },
+  {
+    "source_id": "cedr",
+    "source_name": "CEDR",
+    "category": "Subsidies",
+    "query": "Stavby Koc s.r.o. (ICO 03258009)",
+    "query_params": {"ico": "03258009"},
+    "status": "clean",
+    "result_count": 0,
+    "results": [],
+    "entities_found": [],
+    "risk_indicators": [],
+    "risk_level": "clean",
+    "notes": "No subsidy records found.",
+    "queried_at": "2026-03-08T10:15:00Z",
+    "duration_ms": 780
+  },
+  {
+    "source_id": "cuzk",
+    "source_name": "CUZK",
+    "category": "Land Registry",
+    "query": "Jiri Koc",
+    "query_params": {},
+    "status": "blocked",
+    "result_count": 0,
+    "results": [],
+    "entities_found": [],
+    "risk_indicators": [],
+    "risk_level": "unknown",
+    "notes": "Blocked: CAPTCHA-protected, automated search not possible. Requires manual access to nahlizenidokn.cuzk.cz",
+    "queried_at": "2026-03-08T10:20:00Z",
+    "duration_ms": 350
+  },
+  {
+    "source_id": "hlidac_statu",
+    "source_name": "Hlidac Statu",
+    "category": "Government Watch",
+    "query": "Jiri Koc Znojmo + ICO 03258009",
+    "query_params": {},
+    "status": "clean",
+    "result_count": 0,
+    "results": [],
+    "entities_found": [],
+    "risk_indicators": [],
+    "risk_level": "clean",
+    "notes": "No contracts or significant data found.",
+    "queried_at": "2026-03-08T10:25:00Z",
+    "duration_ms": 920
+  },
+  {
+    "source_id": "penize_cz",
+    "source_name": "Penize.cz",
+    "category": "Company Profiles",
+    "query": "Stavby Koc s.r.o.",
+    "query_params": {"ico": "03258009"},
+    "status": "hit",
+    "result_count": 1,
+    "results": [
+      {"company": "Stavby Koc s.r.o.", "director": "Antonin Koc", "ico": "03258009", "status": "active"}
+    ],
+    "entities_found": [],
+    "risk_indicators": [],
+    "risk_level": "low",
+    "notes": "Confirmed: Antonin Koc is sole director.",
+    "queried_at": "2026-03-08T10:30:00Z",
+    "duration_ms": 680
+  },
+  {
+    "source_id": "kurzy_cz",
+    "source_name": "Kurzy.cz",
+    "category": "Company Profiles",
+    "query": "Stavby Koc s.r.o.",
+    "query_params": {"ico": "03258009"},
+    "status": "hit",
+    "result_count": 1,
+    "results": [
+      {"company": "Stavby Koc s.r.o.", "ico": "03258009", "dic": "CZ03258009", "vat_payer": true}
+    ],
+    "entities_found": [],
+    "risk_indicators": [],
+    "risk_level": "low",
+    "notes": "Active VAT payer confirmed.",
+    "queried_at": "2026-03-08T10:35:00Z",
+    "duration_ms": 550
+  }
+]

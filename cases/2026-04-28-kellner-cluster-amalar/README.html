@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="cs" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DD Case · Kellner Cluster AMALAR</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+<style>
+  body{background:#020617;color:#e2e8f0;font-family:ui-sans-serif,system-ui,-apple-system,sans-serif}
+  .prose-invert h2{margin-top:2rem;border-bottom:1px solid #1e293b;padding-bottom:.4rem;color:#cbd5e1}
+  .prose-invert h3{margin-top:1.4rem;color:#94a3b8}
+  .prose-invert table{border-collapse:collapse;width:100%;font-size:.8rem;margin:1rem 0}
+  .prose-invert th{background:#0f172a;color:#cbd5e1;text-align:left;padding:.4rem .6rem;font-weight:600;border-bottom:1px solid #334155}
+  .prose-invert td{padding:.4rem .6rem;border-bottom:1px solid #1e293b;color:#cbd5e1}
+  .prose-invert tr:hover td{background:#0f172a}
+  .prose-invert code{background:#0f172a;color:#93c5fd;padding:.1rem .35rem;border-radius:.25rem;font-size:.78rem}
+  .prose-invert pre{background:#0f172a;border:1px solid #1e293b;border-radius:.5rem;padding:.8rem;overflow:auto;font-size:.72rem}
+  .prose-invert ul{list-style:disc;margin-left:1.4rem;margin-top:.5rem}
+  .prose-invert ol{list-style:decimal;margin-left:1.4rem;margin-top:.5rem}
+  .prose-invert a{color:#60a5fa;text-decoration:underline}
+  .prose-invert a:hover{color:#93c5fd}
+  .prose-invert hr{border-color:#1e293b;margin:1.6rem 0}
+  ::-webkit-scrollbar{width:8px;height:8px}
+  ::-webkit-scrollbar-track{background:#0f172a}
+  ::-webkit-scrollbar-thumb{background:#334155;border-radius:4px}
+  .toc-active{color:#60a5fa!important;border-left-color:#60a5fa!important;font-weight:600}
+  .risk-low{color:#34d399}
+  .risk-med{color:#fbbf24}
+  .risk-high{color:#f87171}
+</style>
+</head>
+<body class="min-h-screen">
+
+<header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/85 border-b border-slate-800">
+  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <span class="text-blue-400 text-2xl">◆</span>
+      <div>
+        <div class="text-xs text-slate-500 uppercase tracking-wider">Due Diligence Case</div>
+        <div class="text-base font-bold text-slate-100">Kellner Cluster · AMALAR Inner Governance Circle</div>
+      </div>
+    </div>
+    <div class="hidden md:flex items-center gap-4 text-xs">
+      <span class="px-2 py-1 rounded bg-blue-950/50 text-blue-300 border border-blue-800/40 text-[11px] font-semibold">CLUSTER</span>
+      <span class="px-2 py-1 rounded bg-emerald-950/50 text-emerald-300 border border-emerald-800/40 text-[11px] font-semibold">ACTIVE</span>
+      <span class="px-2 py-1 rounded bg-amber-950/50 text-amber-300 border border-amber-800/40 text-[11px] font-semibold">RISK: MEDIUM</span>
+    </div>
+  </div>
+  <nav class="max-w-7xl mx-auto px-6 pb-2 text-xs text-slate-500">
+    <a href="../" class="hover:text-blue-300">dd_cases</a>
+    <span class="mx-2 text-slate-700">/</span>
+    <span class="text-blue-400">2026-04-28-kellner-cluster-amalar</span>
+  </nav>
+</header>
+
+<section class="max-w-7xl mx-auto px-6 pt-8 pb-4">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+    <a href="presentations/06-entity-browser.html?id=person-renata-kellnerova" class="block bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-700 hover:border-blue-600 rounded-xl p-4 transition group">
+      <div class="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Principal</div>
+      <div class="text-sm font-bold text-slate-100 group-hover:text-blue-300">Renáta Kellnerová</div>
+      <div class="text-[11px] text-slate-400 mt-2">66.667 % AMALAR · 100% rodinná konsolidace 21.8.2025</div>
+      <div class="mt-2 text-[10px] text-amber-400">UHNW principal · NO MATCH sanctions</div>
+    </a>
+    <a href="presentations/06-entity-browser.html?id=person-anna-kellnerova" class="block bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-700 hover:border-blue-600 rounded-xl p-4 transition group">
+      <div class="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Daughter</div>
+      <div class="text-sm font-bold text-slate-100 group-hover:text-blue-300">Anna Kellnerová</div>
+      <div class="text-[11px] text-slate-400 mt-2">11.111 % AMALAR · Foundation SB · GCL Prague Lions</div>
+      <div class="mt-2 text-[10px] text-amber-400">Derived UHNW · NO MATCH</div>
+    </a>
+    <a href="presentations/06-entity-browser.html?id=person-tomas-otruba" class="block bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-700 hover:border-blue-600 rounded-xl p-4 transition group">
+      <div class="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Life partner / lawyer</div>
+      <div class="text-sm font-bold text-slate-100 group-hover:text-blue-300">Mgr. Tomáš Otruba</div>
+      <div class="text-[11px] text-slate-400 mt-2">PPF SB chair od 7/2025 · ČAK 04289</div>
+      <div class="mt-2 text-[10px] text-orange-400">RCA (FATF R.12) · NO MATCH</div>
+    </a>
+    <a href="presentations/06-entity-browser.html?id=person-robert-sevela" class="block bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-700 hover:border-blue-600 rounded-xl p-4 transition group">
+      <div class="text-[10px] uppercase tracking-widest text-slate-500 mb-1">PPF investment dir.</div>
+      <div class="text-sm font-bold text-slate-100 group-hover:text-blue-300">Ing. Robert Ševela, Ph.D.</div>
+      <div class="text-[11px] text-slate-400 mt-2">~20 let PPF · AMALAR FIC</div>
+      <div class="mt-2 text-[10px] text-amber-400">Derived PEP · NO MATCH</div>
+    </a>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
+    <div class="bg-slate-900/60 border border-slate-700 rounded-lg p-3">
+      <div class="text-[9px] uppercase text-slate-500">Persons</div>
+      <div class="text-2xl font-black text-blue-300">4</div>
+    </div>
+    <div class="bg-slate-900/60 border border-slate-700 rounded-lg p-3">
+      <div class="text-[9px] uppercase text-slate-500">Companies</div>
+      <div class="text-2xl font-black text-blue-300">11</div>
+    </div>
+    <div class="bg-slate-900/60 border border-slate-700 rounded-lg p-3">
+      <div class="text-[9px] uppercase text-slate-500">Tool calls</div>
+      <div class="text-2xl font-black text-blue-300">158+</div>
+    </div>
+    <div class="bg-slate-900/60 border border-slate-700 rounded-lg p-3">
+      <div class="text-[9px] uppercase text-slate-500">Source URLs</div>
+      <div class="text-2xl font-black text-blue-300">~127</div>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-7xl mx-auto px-6 pb-6">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div class="bg-amber-950/30 border border-amber-700/40 rounded-xl p-4">
+      <div class="text-[10px] uppercase tracking-widest text-amber-400 mb-1">Critical flag #1</div>
+      <div class="text-sm font-bold text-amber-200 mb-2">Premise falsification</div>
+      <div class="text-[11px] text-slate-300">2 chyby v zadání: Votruba→Otruba (paronym) + Ševela jako GŘ ČT (vyvráceno).</div>
+    </div>
+    <div class="bg-orange-950/30 border border-orange-700/40 rounded-xl p-4">
+      <div class="text-[10px] uppercase tracking-widest text-orange-400 mb-1">Critical flag #2</div>
+      <div class="text-sm font-bold text-orange-200 mb-2">Role layering · Otruba</div>
+      <div class="text-[11px] text-slate-300">advokát × investor × statutární orgán × životní partner principal · ÚOHS schváleno.</div>
+    </div>
+    <div class="bg-blue-950/30 border border-blue-700/40 rounded-xl p-4">
+      <div class="text-[10px] uppercase tracking-widest text-blue-400 mb-1">Critical flag #3</div>
+      <div class="text-sm font-bold text-blue-200 mb-2">Jurisdiction migration</div>
+      <div class="text-[11px] text-slate-300">PPF Group N.V. NL → CZ relocation H1 2026. Změna domicilu pro DD dopady.</div>
+    </div>
+    <div class="bg-purple-950/30 border border-purple-700/40 rounded-xl p-4">
+      <div class="text-[10px] uppercase tracking-widest text-purple-400 mb-1">Critical flag #4</div>
+      <div class="text-sm font-bold text-purple-200 mb-2">Hospitality / RE concentration</div>
+      <div class="text-[11px] text-slate-300">Krkonoše Resort Invest pyramida + Harmony Špindlerův Mlýn JV 51/26/22.</div>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-7xl mx-auto px-6 pb-6 grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+  <aside class="hidden lg:block lg:col-span-3">
+    <div class="sticky top-28 max-h-[80vh] overflow-y-auto pr-2">
+      <div class="text-[10px] uppercase tracking-widest text-slate-500 mb-2">Obsah</div>
+      <nav id="toc" class="text-xs space-y-1 border-l border-slate-800"></nav>
+
+      <div class="mt-6 bg-slate-900/40 border border-slate-800 rounded-lg p-3">
+        <div class="text-[10px] text-slate-500 uppercase mb-2">Risk profile</div>
+        <div class="aspect-square w-full">
+          <canvas id="riskMini"></canvas>
+        </div>
+      </div>
+
+      <div class="mt-4 space-y-1">
+        <div class="text-[10px] uppercase tracking-widest text-slate-500 mb-1">Phase reports</div>
+        <a href="reports/PHASE-4-NBS-REPORT.html" class="block px-2 py-1.5 rounded bg-amber-950/30 border border-amber-800/40 text-amber-300 text-xs hover:bg-amber-950/60">Phase 4 · NbsReport</a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="lg:col-span-9 min-w-0">
+
+    <article id="content" class="prose-invert max-w-none"></article>
+
+    <section class="mt-10">
+      <h2 class="text-base font-bold text-slate-200 uppercase tracking-widest border-b border-slate-800 pb-2 mb-4">Risk Assessment matrix</h2>
+      <div class="overflow-x-auto">
+      <table class="w-full text-xs">
+        <thead><tr class="text-slate-500 border-b border-slate-800">
+          <th class="text-left p-2">Category</th><th class="text-left p-2">Level</th><th class="text-left p-2">Notes</th>
+        </tr></thead>
+        <tbody class="divide-y divide-slate-900">
+          <tr><td class="p-2">Sanctions</td><td class="p-2"><span class="risk-low font-bold">LOW</span></td><td class="p-2 text-slate-400">Clear napříč 200+ datasetů (OpenSanctions, 2026-04-28)</td></tr>
+          <tr><td class="p-2">PEP / RCA</td><td class="p-2"><span class="risk-med font-bold">MEDIUM</span></td><td class="p-2 text-slate-400">Otruba RCA, Ševela derived PEP</td></tr>
+          <tr><td class="p-2">Financial transparency</td><td class="p-2"><span class="risk-med font-bold">MEDIUM</span></td><td class="p-2 text-slate-400">2025 buyout ceny nezveřejněny</td></tr>
+          <tr><td class="p-2">Jurisdictional</td><td class="p-2"><span class="risk-low font-bold">LOW</span></td><td class="p-2 text-slate-400">PPF NL→CZ relocation H1 2026 (announced)</td></tr>
+          <tr><td class="p-2">Conflict of interest</td><td class="p-2"><span class="risk-med font-bold">MEDIUM</span></td><td class="p-2 text-slate-400">Otruba 3-vrstvý role layering</td></tr>
+          <tr><td class="p-2">Legal disputes</td><td class="p-2"><span class="risk-low font-bold">LOW</span></td><td class="p-2 text-slate-400">Helicopter crash žaloba 2023 (proactive)</td></tr>
+          <tr><td class="p-2">Reputation</td><td class="p-2"><span class="risk-low font-bold">LOW</span></td><td class="p-2 text-slate-400">Žádné významné adverse media 2024-2026</td></tr>
+          <tr><td class="p-2">Operational</td><td class="p-2"><span class="risk-low font-bold">LOW</span></td><td class="p-2 text-slate-400">AMALAR governance public-disclosed, strukturovaná</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-base font-bold text-slate-200 uppercase tracking-widest border-b border-slate-800 pb-2 mb-4">Entity roster · 15</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-sm text-blue-400 font-semibold mb-2">Persons (4)</h3>
+          <div class="space-y-1 text-xs">
+            <a href="presentations/06-entity-browser.html?id=person-renata-kellnerova" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">Renáta Kellnerová <span class="text-slate-500">— Principal · UHNW</span></a>
+            <a href="presentations/06-entity-browser.html?id=person-anna-kellnerova" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">Anna Kellnerová <span class="text-slate-500">— Daughter · Foundation SB</span></a>
+            <a href="presentations/06-entity-browser.html?id=person-tomas-otruba" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">Mgr. Tomáš Otruba <span class="text-slate-500">— PPF SB chair · RCA</span></a>
+            <a href="presentations/06-entity-browser.html?id=person-robert-sevela" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">Ing. Robert Ševela, Ph.D. <span class="text-slate-500">— PPF investment dir.</span></a>
+          </div>
+        </div>
+        <div>
+          <h3 class="text-sm text-blue-400 font-semibold mb-2">Companies (11)</h3>
+          <div class="space-y-1 text-xs">
+            <a href="presentations/06-entity-browser.html?ico=19696477" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">AMALAR HOLDING s.r.o. <code class="text-amber-400">19696477</code></a>
+            <a href="presentations/06-entity-browser.html?ico=25099345" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">PPF a.s. <code class="text-amber-400">25099345</code></a>
+            <a href="presentations/06-entity-browser.html?ico=28902254" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">Nadace TKFF <code class="text-amber-400">28902254</code></a>
+            <a href="presentations/06-entity-browser.html?ico=60178779" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">Otruba — advokát <code class="text-amber-400">60178779</code></a>
+            <a href="presentations/06-entity-browser.html?ico=08034371" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">Nordic Investors Group <code class="text-amber-400">08034371</code></a>
+            <a href="presentations/06-entity-browser.html?ico=01868616" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">Krkonoše Resort Invest <code class="text-amber-400">01868616</code></a>
+            <a href="presentations/06-entity-browser.html?ico=07024223" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">Grand Hotel Hradec <code class="text-amber-400">07024223</code></a>
+            <a href="presentations/06-entity-browser.html?ico=21539065" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">Harmony Špindlerův Mlýn <code class="text-amber-400">21539065</code></a>
+            <a href="presentations/06-entity-browser.html?ico=22175806" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">Harmony Operations <code class="text-amber-400">22175806</code></a>
+            <a href="presentations/06-entity-browser.html?ico=06315160" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">CzechToll s.r.o. <code class="text-amber-400">06315160</code></a>
+            <a href="presentations/06-entity-browser.html?ico=04593332" class="block px-3 py-2 rounded bg-slate-900/50 hover:bg-slate-800 border border-slate-800 hover:border-blue-700">Nordic Telecom Regional <code class="text-amber-400">04593332</code></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-base font-bold text-slate-200 uppercase tracking-widest border-b border-slate-800 pb-2 mb-4">Phase reports</h2>
+      <div class="overflow-x-auto">
+      <table class="w-full text-xs">
+        <thead><tr class="text-slate-500 border-b border-slate-800">
+          <th class="text-left p-2">Phase</th><th class="text-left p-2">Report</th><th class="text-left p-2">Status</th>
+        </tr></thead>
+        <tbody class="divide-y divide-slate-900">
+          <tr><td class="p-2">0 — Plan</td><td class="p-2 text-slate-400"><code>.claude/dd-cases/.../DD-PLAN.md</code></td><td class="p-2"><span class="text-emerald-400">✓</span></td></tr>
+          <tr><td class="p-2">1 — Probe</td><td class="p-2 text-slate-400"><code>.claude/dd-cases/.../PROBE-1-PRELIMINARY.md</code></td><td class="p-2"><span class="text-emerald-400">✓</span></td></tr>
+          <tr><td class="p-2">2 — Investigate</td><td class="p-2 text-slate-400"><code>.claude/dd-cases/.../PHASE-2-FINAL.md</code></td><td class="p-2"><span class="text-emerald-400">✓</span></td></tr>
+          <tr><td class="p-2">3 — Synthesis</td><td class="p-2 text-slate-400"><code>.claude/dd-cases/.../PHASE-3-SYNTHESIS.md</code></td><td class="p-2"><span class="text-emerald-400">✓</span></td></tr>
+          <tr><td class="p-2">3 — Sanctions</td><td class="p-2"><a href="findings/PHASE-3-SANCTIONS.html" class="text-blue-400 hover:text-blue-300">findings/PHASE-3-SANCTIONS.html</a></td><td class="p-2"><span class="text-emerald-400">✓</span></td></tr>
+          <tr><td class="p-2">3 — Entities (ARES)</td><td class="p-2"><a href="findings/PHASE-3-ENTITIES.html" class="text-blue-400 hover:text-blue-300">findings/PHASE-3-ENTITIES.html</a></td><td class="p-2"><span class="text-emerald-400">✓</span></td></tr>
+          <tr><td class="p-2">3 — Platform map</td><td class="p-2"><a href="findings/PHASE-3-PLATFORM-MAP.html" class="text-blue-400 hover:text-blue-300">findings/PHASE-3-PLATFORM-MAP.html</a></td><td class="p-2"><span class="text-emerald-400">✓</span></td></tr>
+          <tr class="bg-amber-950/20"><td class="p-2 font-bold text-amber-300">4 — NbsReport</td><td class="p-2"><a href="reports/PHASE-4-NBS-REPORT.html" class="text-amber-400 hover:text-amber-300 font-bold">reports/PHASE-4-NBS-REPORT.html</a></td><td class="p-2"><span class="text-amber-400">★ FINAL</span></td></tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+
+    <section class="mt-10">
+      <h2 class="text-base font-bold text-slate-200 uppercase tracking-widest border-b border-slate-800 pb-2 mb-4">Investigation log</h2>
+      <ol class="relative border-l border-slate-800 ml-3 space-y-4">
+        <li class="ml-6">
+          <span class="absolute -left-[7px] w-3 h-3 rounded-full bg-blue-500 border-2 border-slate-950"></span>
+          <div class="text-[11px] text-slate-500">2026-04-28T19:54:02Z</div>
+          <div class="text-xs text-slate-200 mt-1">Case created in platform structure (<code>apps/prismatic_web/priv/dd_cases/</code>)</div>
+          <div class="text-[11px] text-slate-400">4 person + 11 company entities materialized</div>
+        </li>
+        <li class="ml-6">
+          <span class="absolute -left-[7px] w-3 h-3 rounded-full bg-slate-600 border-2 border-slate-950"></span>
+          <div class="text-[11px] text-slate-500">2026-04-28 · Phase 0</div>
+          <div class="text-xs text-slate-300">DD Plan (architecture)</div>
+        </li>
+        <li class="ml-6">
+          <span class="absolute -left-[7px] w-3 h-3 rounded-full bg-slate-600 border-2 border-slate-950"></span>
+          <div class="text-[11px] text-slate-500">2026-04-28 · Phase 1</div>
+          <div class="text-xs text-slate-300">Probe — preliminary baseline (4 parallel agents · model knowledge only)</div>
+        </li>
+        <li class="ml-6">
+          <span class="absolute -left-[7px] w-3 h-3 rounded-full bg-emerald-500 border-2 border-slate-950"></span>
+          <div class="text-[11px] text-slate-500">2026-04-28 · Phase 2</div>
+          <div class="text-xs text-slate-300">Live investigation · 4 agents · 77 tool calls · 52 source URLs · 2 premise falsifications</div>
+        </li>
+        <li class="ml-6">
+          <span class="absolute -left-[7px] w-3 h-3 rounded-full bg-emerald-500 border-2 border-slate-950"></span>
+          <div class="text-[11px] text-slate-500">2026-04-28 · Phase 3</div>
+          <div class="text-xs text-slate-300">Synthesis · 4 streams (sanctions/entities/platform/synthesis) · 81 tool calls · 11 IČO-verified</div>
+        </li>
+        <li class="ml-6">
+          <span class="absolute -left-[7px] w-3 h-3 rounded-full bg-amber-500 border-2 border-slate-950"></span>
+          <div class="text-[11px] text-slate-500">2026-04-28 · Phase 4</div>
+          <div class="text-xs text-amber-300 font-bold">Decision Engine · 10 stages · 66ms · verdict CAUTION · risk HIGH</div>
+        </li>
+      </ol>
+    </section>
+
+    <nav class="mt-16 pt-8 border-t border-slate-800 grid grid-cols-2 md:grid-cols-5 gap-2 text-xs">
+      <a href="findings/PHASE-3-SANCTIONS.html" class="px-3 py-2 rounded bg-slate-900/60 border border-slate-700 hover:border-blue-600 hover:bg-blue-950/40 text-center">Sanctions</a>
+      <a href="findings/PHASE-3-ENTITIES.html" class="px-3 py-2 rounded bg-slate-900/60 border border-slate-700 hover:border-blue-600 hover:bg-blue-950/40 text-center">Entities</a>
+      <a href="findings/PHASE-3-PLATFORM-MAP.html" class="px-3 py-2 rounded bg-slate-900/60 border border-slate-700 hover:border-blue-600 hover:bg-blue-950/40 text-center">Platform Map</a>
+      <a href="reports/PHASE-4-NBS-REPORT.html" class="px-3 py-2 rounded bg-amber-950/40 border border-amber-700 hover:bg-amber-950/60 text-amber-300 text-center font-bold">★ Phase 4 NbsReport</a>
+      <a href="presentations/index.html" class="px-3 py-2 rounded bg-slate-900/60 border border-slate-700 hover:border-blue-600 hover:bg-blue-950/40 text-center">Presentations</a>
+      <a href="presentations/05-master-hub.html" class="px-3 py-2 rounded bg-slate-900/60 border border-slate-700 hover:border-blue-600 hover:bg-blue-950/40 text-center">Force Graph</a>
+      <a href="presentations/06-entity-browser.html" class="px-3 py-2 rounded bg-slate-900/60 border border-slate-700 hover:border-blue-600 hover:bg-blue-950/40 text-center">Entity Browser</a>
+      <a href="presentations/07-chronology.html" class="px-3 py-2 rounded bg-slate-900/60 border border-slate-700 hover:border-blue-600 hover:bg-blue-950/40 text-center">Chronology</a>
+      <a href="presentations/08-cross-reference-matrix.html" class="px-3 py-2 rounded bg-slate-900/60 border border-slate-700 hover:border-blue-600 hover:bg-blue-950/40 text-center">X-Ref Matrix</a>
+      <a href="metadata.json" class="px-3 py-2 rounded bg-slate-900/60 border border-slate-700 hover:border-blue-600 hover:bg-blue-950/40 text-center">metadata.json</a>
+    </nav>
+
+    <footer class="mt-8 pb-8 text-center text-[11px] text-slate-600">
+      Case 2026-04-28-kellner-cluster-amalar · Created 2026-04-28T19:54:02Z · Prismatic DD platform · CZE pillar #19
+    </footer>
+
+  </main>
+</section>
+
+<script id="md-source" type="text/markdown">
+# Due Diligence: Kellner Cluster — AMALAR Inner Governance Circle
+
+**Subject**: 4 osob + 11 právnických entit
+**Type**: cluster
+**Status**: active
+**Created**: 2026-04-28T19:54:02Z
+**Risk level**: medium
+
+---
+
+## Executive Summary
+
+DD případ pro **inner governance circle holdingu AMALAR** — rodinného superholdingu Kellnerových založeného 12.11.2023, který od té doby konsoliduje veškerá rodinná aktiva (PPF Group, hotelové portfolio, real-estate). Čtyři vyšetřované osoby tvoří klíčovou rozhodovací vrstvu této struktury:
+
+1. **Renáta Kellnerová** — principal (66.667 % AMALAR, 78.74 % PPF přes AMALAR, 100 % rodinná konsolidace od 21.8.2025)
+2. **Anna Kellnerová** — dcera, 11.111 % AMALAR + Foundation Supervisory Board + Prague Lions GCL
+3. **Tomáš Otruba** — životní partner Renáty, AMALAR Family Advisory Board, předseda dozorčí rady PPF Group od 7/2025, transakční advokát PPF (Telefónica O2 2013)
+4. **Robert Ševela** — PPF investiční ředitel ~20 let, AMALAR Family Investment Council
+
+Zadání obsahovalo dvě **falsifikované premise**, obě byly opraveny v Phase 2:
+- "Tomáš Votruba" → **Tomáš Otruba** (paronym/typo, ≥95 % confidence)
+- "Robert Ševela = GŘ ČT od 2024" → vyvráceno (skutečný GŘ ČT je Hynek Chudárek od 1.7.2025); Ševela je ovšem reálnou postavou clusteru přes PPF/AMALAR
+
+**Sankční clearance (datum 2026-04-28)**: všechny 4 osoby NO MATCH napříč OFAC SDN, EU Consolidated, UK HMT, OpenSanctions aggregator (200+ datasetů včetně UN/Swiss/CA/AU). Otruba a Ševela vyžadují **PEP-EDD** (FATF R.12 + EU AMLD6 RCA scope).
+
+## Key Findings
+
+### Critical Flags
+
+1. **Premise falsification (resolved)**: Original brief měl 2 chyby — name paronym (Votruba→Otruba) + role misattribution (Ševela GŘ ČT). Obě falsifikovány a opraveny.
+2. **Role layering — Otruba**: simultánně advokát (ČAK 04289) + investor (Nordic Investors Hospitality) + statutární orgán PPF (předseda dozorčí rady od 7/2025) + životní partner UHNW principal. ÚOHS schválil JV s Renátou (March + May 2025) bez výhrad.
+3. **Jurisdiction migration**: PPF Group N.V. NL → CZ relocation H1 2026 (announced via PPF press release + AMALAR Holding statement). Změna domicilu pro DD dopady (ČR UBO registry vs. KvK NL).
+4. **Hospitality / RE concentration**: Otruba + Renáta + Anna mají koncentrované investice do horských resortů (Krkonoše Resort Invest pyramida + Harmony Špindlerův Mlýn JV 51/26/22).
+
+## Recommendations
+
+1. **Aplikovat PEP-EDD** na Otrubu a Ševelu — ongoing source-of-funds monitoring + transaction profiling
+2. **Beneficial owner registry verification** — interactive justice.cz POST pro RKE Holding, AKE Holding, Janské Lázně Resort Invest (sub-entity Krkonoše)
+3. **Sledovat NL→CZ relocation completion** — H1 2026 změní jurisdikční rámec, dopad na sankční jurisdikční relevanci
+4. **Press release subscription** PPF.eu + kellnerfoundation.cz — strukturální změny clusteru zveřejňovány centrálně
+5. **Quarterly re-screening** — 200+ sanctions datasetů, OpenSanctions má 24h refresh pro hlavní listy
+
+### Shared addresses
+- **Evropská 2690/17, Praha 6 — Dejvice**: AMALAR HOLDING + PPF a.s. + Nadace TKFF (Kellner kompound)
+- **Bohdalecká 1490/25, Praha 4 — Michle**: Harmony Špindlerův Mlýn a.s. + Operations s.r.o.
+</script>
+
+<script>
+const MD_TEXT = document.getElementById('md-source').textContent;
+marked.setOptions({gfm:true, breaks:false, headerIds:true});
+const rendered = marked.parse(MD_TEXT);
+const fragment = DOMPurify.sanitize(rendered, {ADD_ATTR:['target','rel','id'], RETURN_DOM_FRAGMENT:true});
+const content = document.getElementById('content');
+content.appendChild(fragment);
+
+const toc = document.getElementById('toc');
+const headings = content.querySelectorAll('h2, h3');
+headings.forEach(function(h, i){
+  const id = h.id || ('h-'+i);
+  h.id = id;
+  const a = document.createElement('a');
+  a.href = '#' + id;
+  a.textContent = h.textContent;
+  a.className = 'block py-1 pl-3 border-l border-slate-800 hover:text-blue-300 hover:border-blue-600 ' +
+                (h.tagName === 'H3' ? 'pl-6 text-slate-500' : 'text-slate-400');
+  toc.appendChild(a);
+});
+
+const tocLinks = toc.querySelectorAll('a');
+const obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      const id = e.target.id;
+      tocLinks.forEach(function(l){
+        l.classList.toggle('toc-active', l.getAttribute('href') === '#'+id);
+      });
+    }
+  });
+}, {rootMargin:'-100px 0px -60% 0px'});
+headings.forEach(function(h){ obs.observe(h); });
+
+function linkifyIcoIn(node){
+  if(node.nodeType === 3){
+    const txt = node.nodeValue;
+    const matches = txt.match(/\b\d{8}\b/g);
+    if(matches){
+      const parts = txt.split(/(\b\d{8}\b)/);
+      const frag = document.createDocumentFragment();
+      parts.forEach(function(part){
+        if(/^\d{8}$/.test(part)){
+          const link = document.createElement('a');
+          link.href = 'presentations/06-entity-browser.html?ico='+part;
+          link.textContent = part;
+          link.className = 'text-blue-400 hover:text-blue-300 font-mono';
+          link.title = 'Open in entity browser';
+          frag.appendChild(link);
+        } else {
+          frag.appendChild(document.createTextNode(part));
+        }
+      });
+      node.parentNode.replaceChild(frag, node);
+    }
+  } else if(node.nodeType === 1 && node.tagName !== 'A' && node.tagName !== 'CODE'){
+    Array.from(node.childNodes).forEach(linkifyIcoIn);
+  }
+}
+linkifyIcoIn(content);
+
+const rm = document.getElementById('riskMini').getContext('2d');
+new Chart(rm, {
+  type:'radar',
+  data:{
+    labels:['Sanc','PEP','Fin','Jur','CoI','Leg','Rep','Op'],
+    datasets:[{
+      data:[1,2,2,1,2,1,1,1],
+      backgroundColor:'rgba(96,165,250,0.18)',
+      borderColor:'rgba(96,165,250,0.9)',
+      borderWidth:1.5,
+      pointBackgroundColor:'#60a5fa',
+      pointRadius:2
+    }]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:true,
+    plugins:{legend:{display:false}},
+    scales:{r:{
+      min:0,max:3,
+      ticks:{display:false,stepSize:1},
+      grid:{color:'#1e293b'},
+      angleLines:{color:'#1e293b'},
+      pointLabels:{color:'#94a3b8',font:{size:9}}
+    }}
+  }
+});
+</script>
+
+</body>
+</html>

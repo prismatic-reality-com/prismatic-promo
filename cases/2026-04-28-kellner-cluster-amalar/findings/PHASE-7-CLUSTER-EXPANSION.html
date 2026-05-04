@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phase 7 — Cluster Expansion + Pre-Merger Forensics</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+<style>
+  body { font-family: Inter, system-ui, sans-serif; }
+  .grain { background-image: radial-gradient(rgba(255,255,255,0.04) 1px,transparent 1px); background-size: 3px 3px; }
+  .pill { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; }
+  .link-ares, .link-source { border-bottom: 1px dotted currentColor; transition: color .15s, background-color .15s; }
+  .link-ares:hover { color: #fbbf24; background: rgba(251,191,36,0.1); }
+  .link-source:hover { color: #34d399; background: rgba(52,211,153,0.1); }
+</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen grain">
+
+<div class="max-w-7xl mx-auto px-6 py-12">
+  <header class="border-b border-rose-700 pb-8 mb-12 bg-rose-950/20 -mx-6 px-6 -mt-12 pt-12">
+    <p class="text-rose-400 uppercase tracking-widest text-xs mb-2">Phase 7 / Cluster Expansion + Forensics</p>
+    <h1 class="text-4xl md:text-5xl font-bold text-rose-200">Pre-Merger Restructuring + ITIS Holding + iQ Hospitality Cluster</h1>
+    <p class="text-slate-400 mt-3 max-w-3xl">130+ tool calls, 4 paralelní streamy. <span class="text-rose-300">3 watershed findings</span>: pre-merger restructure (12.3.2025 — 3 Nordic holdings rozpuštěny den před deal), ITIS Holding deep-dive (Robert Ševela chair od 2019, NE od 2022), iQ Hospitality institutional connector (Šalda+Landsman+Ibrahim trio, 20+ hotelů). 9 nových entit přidáno do clusteru.</p>
+    <div class="mt-4 grid grid-cols-2 md:grid-cols-5 gap-3 text-xs">
+      <div class="border border-rose-700/40 rounded p-3 bg-rose-950/40">
+        <div class="text-rose-400 font-semibold">Tool Calls</div>
+        <div class="text-2xl font-bold text-rose-200">130+</div>
+        <div class="text-slate-500">across 4 streams</div>
+      </div>
+      <div class="border border-emerald-700/40 rounded p-3 bg-emerald-950/40">
+        <div class="text-emerald-400 font-semibold">New Entities</div>
+        <div class="text-2xl font-bold text-emerald-200">9</div>
+        <div class="text-slate-500">5 ITIS + 1 iQ + 3 persons</div>
+      </div>
+      <div class="border border-amber-700/40 rounded p-3 bg-amber-950/40">
+        <div class="text-amber-400 font-semibold">Phase 6 Gaps Closed</div>
+        <div class="text-2xl font-bold text-amber-200">7</div>
+        <div class="text-slate-500">incl. Šalda discovery</div>
+      </div>
+      <div class="border border-cyan-700/40 rounded p-3 bg-cyan-950/40">
+        <div class="text-cyan-400 font-semibold">Cluster Total</div>
+        <div class="text-2xl font-bold text-cyan-200">31</div>
+        <div class="text-slate-500">7 persons + 24 companies</div>
+      </div>
+      <div class="border border-fuchsia-700/40 rounded p-3 bg-fuchsia-950/40">
+        <div class="text-fuchsia-400 font-semibold">DE Inputs</div>
+        <div class="text-2xl font-bold text-fuchsia-200">45</div>
+        <div class="text-slate-500">Phase 5: 25 (+80 %)</div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- §1 Three Watershed Findings -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§1 Three Watershed Findings</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="border-2 border-rose-500/50 rounded-lg p-5 bg-gradient-to-br from-rose-950/30 to-slate-900/40">
+          <div class="text-rose-400 text-xs uppercase tracking-wider mb-2">FINDING 1 / WATERSHED</div>
+          <h3 class="text-xl font-bold text-rose-200 mb-3">Pre-Merger Restructuring 12.3.2025</h3>
+          <p class="text-sm text-slate-400 mb-3">Stejný den (12.3.2025) zanikly <strong>tři Otrubovy holdingovky</strong>:</p>
+          <ul class="text-xs text-slate-400 space-y-1 mb-3">
+            <li>• Nordic Investors Holding a.s. (07171447) — zaniklý</li>
+            <li>• Nordic Real Estate Holding a.s. (07171455) — zaniklý</li>
+            <li>• Nordic Investors Holding II a.s. (01960369) — zaniklý (řídil 12 podřízených)</li>
+          </ul>
+          <p class="text-xs text-amber-300 mb-2">→ <strong>6 dní před</strong> ÚOHS notifikací (18.3.2025) Kellnerová+Otruba/NIG</p>
+          <p class="text-xs text-emerald-400">Klasická pre-merger house cleaning. 5 Krkonoše subsidiaries pak divested 2025-04 / 2025-05 — internal restructure, NE distress sale.</p>
+        </article>
+
+        <article class="border-2 border-cyan-500/50 rounded-lg p-5 bg-gradient-to-br from-cyan-950/30 to-slate-900/40">
+          <div class="text-cyan-400 text-xs uppercase tracking-wider mb-2">FINDING 2 / DEEP-DIVE</div>
+          <h3 class="text-xl font-bold text-cyan-200 mb-3">ITIS Holding — Ševela's Parallel Infrastructure</h3>
+          <p class="text-sm text-slate-400 mb-3"><a href="https://ares.gov.cz/ekonomicke-subjekty?ico=07961774" target="_blank" rel="noopener" class="link-ares">ITIS Holding a.s. (IČO 07961774)</a> existuje od <strong class="text-cyan-300">2019-03-06</strong>, NE od 2022 (datum konsolidace).</p>
+          <ul class="text-xs text-slate-400 space-y-1 mb-3">
+            <li>• <strong>Robert Ševela</strong> = předseda představenstva <strong class="text-cyan-300">od založení 2019-03-06</strong></li>
+            <li>• Ownership: PPF a.s. ~95% + Matej Okáli ~5% (post 2025-06-05)</li>
+            <li>• 5 dceřinek: CzechToll + SkyToll (SK) + TollNet (29055059) + PaySystem (SK) + VITRONIC (DE)</li>
+            <li>• 4-člen představenstvo s kategoriemi A+B (PPF veto-pojistka)</li>
+            <li>• <strong>ESOP ITIS Slovakia s.r.o. pledged k PPF Banka</strong> — Okáli "minority" stake je financován PPF Bank</li>
+          </ul>
+          <p class="text-xs text-emerald-400">Ševela má dvojí mandát: AMALAR Family Investment Council (strategy) + ITIS Holding chair (execution). Hlubší zapojení než jen "PPF investment director".</p>
+        </article>
+
+        <article class="border-2 border-amber-500/50 rounded-lg p-5 bg-gradient-to-br from-amber-950/30 to-slate-900/40">
+          <div class="text-amber-400 text-xs uppercase tracking-wider mb-2">FINDING 3 / CONNECTOR</div>
+          <h3 class="text-xl font-bold text-amber-200 mb-3">iQ Hospitality Trio — Šalda + Landsman + Ibrahim</h3>
+          <p class="text-sm text-slate-400 mb-3"><a href="https://ares.gov.cz/ekonomicke-subjekty?ico=09763112" target="_blank" rel="noopener" class="link-ares">iQ Hospitality Group s.r.o. (IČO 09763112)</a> = institutional connector mezi Otruba/Kellner cluster a 20+ hotelovým portfoliem.</p>
+          <ul class="text-xs text-slate-400 space-y-1 mb-3">
+            <li>• <strong class="text-amber-300">Petr Šalda</strong> — Founder (Phase 6 gap, NEW v Phase 7)</li>
+            <li>• <strong class="text-amber-300">Robert Landsman</strong> — Partner (operating director)</li>
+            <li>• <strong class="text-amber-300">Rami Ibrahim</strong> — Co-Owner / CEO (Czech-Jordanian, ISP Praha 1972)</li>
+            <li>• Sídlo Fetrovská 1005/53 = Ibrahim residential</li>
+            <li>• Ovládá: Hilton Prague, Four Seasons Prague (via PPF Hospitality), Diplomat, Stages, Origin, Lipno + 14 dalších</li>
+            <li>• Annual turnover >1.5 mld CZK (self-claim)</li>
+            <li>• <strong>Sanctions: ALL 3 CLEAN</strong> (OpenSanctions 2026-04-28)</li>
+          </ul>
+          <p class="text-xs text-emerald-400">PEP: NOT direct PEP, ale RCA-indirect via Renáta Kellnerová → EDD-equivalent screening.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- §2 Restructuring Timeline -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§2 Pre-Merger Restructuring Timeline</h2>
+      <div class="border border-slate-800 rounded-lg p-5 bg-slate-900/40 overflow-x-auto">
+        <table class="w-full text-xs">
+          <thead>
+            <tr class="border-b border-slate-700 text-slate-400 uppercase">
+              <th class="text-left p-2">Datum</th>
+              <th class="text-left p-2">Událost</th>
+              <th class="text-left p-2">Typ</th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-300">
+            <tr class="border-b border-slate-800"><td class="p-2 font-mono">2024-11-20</td><td class="p-2">Velkoobchod hotelovými víny založen</td><td class="p-2 text-amber-300">SPV setup</td></tr>
+            <tr class="border-b border-slate-800"><td class="p-2 font-mono">2024-12-04</td><td class="p-2">PPF Hospitality s.r.o. založena (IČO 22330020)</td><td class="p-2 text-cyan-300">Kellnerová vehicle</td></tr>
+            <tr class="border-b border-slate-800"><td class="p-2 font-mono">2024-12-19</td><td class="p-2">Pec p. Sněžkou + Horní Maršov RI založeny (paired)</td><td class="p-2 text-amber-300">SPV setup</td></tr>
+            <tr class="border-b border-slate-800"><td class="p-2 font-mono">2024-12-23</td><td class="p-2">Otruba se stává chair Krkonoše Resort Invest</td><td class="p-2 text-cyan-300">Governance</td></tr>
+            <tr class="border-b border-slate-800 bg-rose-950/30"><td class="p-2 font-mono text-rose-300">2025-03-12</td><td class="p-2 text-rose-200"><strong>3 Nordic holdings ZANIKAJÍ</strong> (NIH I + NIH II + NREH) — same day</td><td class="p-2 text-rose-400">⚠ HOUSE CLEANING</td></tr>
+            <tr class="border-b border-slate-800 bg-rose-950/30"><td class="p-2 font-mono text-rose-300">2025-03-18</td><td class="p-2 text-rose-200"><strong>ÚOHS notifikace</strong> Kellnerová+Otruba/NIG</td><td class="p-2 text-rose-400">⚠ DEAL TRIGGER</td></tr>
+            <tr class="border-b border-slate-800"><td class="p-2 font-mono">2025-03-19</td><td class="p-2">Otruba shareholder PPF Hospitality</td><td class="p-2 text-cyan-300">Equity entry</td></tr>
+            <tr class="border-b border-slate-800"><td class="p-2 font-mono">2025-03-20</td><td class="p-2">iQ Hospitality SPV/Solutions/Hotel Mgmt consolidated</td><td class="p-2 text-cyan-300">Operating layer</td></tr>
+            <tr class="border-b border-slate-800"><td class="p-2 font-mono">2025-03-21</td><td class="p-2">Otruba shareholder PPF Hospitality 2</td><td class="p-2 text-cyan-300">Equity entry</td></tr>
+            <tr class="border-b border-slate-800 bg-amber-950/30"><td class="p-2 font-mono text-amber-300">2025-04-18</td><td class="p-2 text-amber-200">Velkoobchod hot. víny divested z KRI (5 měsíců)</td><td class="p-2 text-amber-400">Asset park</td></tr>
+            <tr class="border-b border-slate-800 bg-amber-950/30"><td class="p-2 font-mono text-amber-300">2025-05-03</td><td class="p-2 text-amber-200">4 hotelové dceřinky divested z KRI</td><td class="p-2 text-amber-400">Asset park</td></tr>
+            <tr class="border-b border-slate-800"><td class="p-2 font-mono">2025-05-21</td><td class="p-2">iQ Hospitality Group SPV + Hospitality Management založeny</td><td class="p-2 text-cyan-300">Operating layer</td></tr>
+            <tr class="border-b border-slate-800"><td class="p-2 font-mono">2025-06</td><td class="p-2">Nordic Investors Group → Nordic Investors Hospitality (rebrand)</td><td class="p-2 text-cyan-300">Brand</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-xs text-slate-500 mt-3">⚠ Zanik 3 Nordic holdings <strong class="text-rose-300">6 dní před</strong> ÚOHS deal notifikací = clear pre-merger lawyering pattern. KRI a.s. zůstává prázdná holding shell, kterou Otruba pravděpodobně postupně zlikviduje.</p>
+    </section>
+
+    <!-- §3 ITIS Structure -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§3 ITIS Holding Cap-Table + Structure</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="border border-slate-800 rounded-lg p-5 bg-slate-900/40">
+          <h3 class="text-base font-semibold text-cyan-300 mb-3">Představenstvo (4 členové, A+B)</h3>
+          <table class="w-full text-xs">
+            <thead><tr class="text-slate-400"><th class="text-left">Jméno</th><th class="text-left">Role</th><th class="text-center">Kat.</th><th class="text-left">Od</th></tr></thead>
+            <tbody class="text-slate-300">
+              <tr class="border-t border-slate-800"><td class="py-2"><a href="../presentations/06-entity-browser.html#/person/robert-sevela" class="link-source">Robert Ševela</a></td><td>Předseda</td><td class="text-center text-amber-400">A</td><td>2019-03-06</td></tr>
+              <tr class="border-t border-slate-800"><td class="py-2">Martin Gaško</td><td>Člen</td><td class="text-center text-amber-400">A</td><td>2023-06-07</td></tr>
+              <tr class="border-t border-slate-800"><td class="py-2">Matej Okáli</td><td>Člen</td><td class="text-center text-cyan-400">B</td><td>2022-08-30</td></tr>
+              <tr class="border-t border-slate-800"><td class="py-2">Eva Lakomá</td><td>Člen</td><td class="text-center text-cyan-400">B</td><td>2022-08-30</td></tr>
+            </tbody>
+          </table>
+          <p class="text-xs text-slate-500 mt-2">Acting: vždy 1×A + 1×B (PPF veto-pojistka)</p>
+        </div>
+
+        <div class="border border-slate-800 rounded-lg p-5 bg-slate-900/40">
+          <h3 class="text-base font-semibold text-cyan-300 mb-3">Dozorčí rada (4 členové)</h3>
+          <ul class="text-xs text-slate-300 space-y-2">
+            <li class="flex justify-between border-b border-slate-800 pb-2"><span>Lubomír Král <span class="text-amber-400">(předseda)</span></span><span class="text-slate-500 font-mono">2019-03-06</span></li>
+            <li class="flex justify-between border-b border-slate-800 pb-2"><span>Ondřej Chaloupecký</span><span class="text-slate-500 font-mono">2022-08-30</span></li>
+            <li class="flex justify-between border-b border-slate-800 pb-2"><span>Pavel Bednář</span><span class="text-slate-500 font-mono">2022-08-30</span></li>
+            <li class="flex justify-between"><span>Petr Chvátal <span class="text-amber-400">(also CzechToll jednatel)</span></span><span class="text-slate-500 font-mono">2022-08-30</span></li>
+          </ul>
+          <p class="text-xs text-slate-500 mt-3">Krížové vazby: Král sedí v DR PPF Group + ITIS; Chvátal v DR ITIS + jednatel CzechToll; Lakomá v představenstvu ITIS + jednatel CzechToll.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- §4 iQ Hospitality Trio -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§4 iQ Hospitality Trio — Operating Layer KYC</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="border border-slate-800 rounded-lg p-4 bg-slate-900/40">
+          <div class="text-xs text-amber-400 uppercase tracking-wider mb-1">Founder</div>
+          <a href="../presentations/06-entity-browser.html#/person/petr-salda" class="text-sm font-semibold text-amber-200 hover:underline">Petr Šalda</a>
+          <ul class="text-xs text-slate-400 space-y-1 mt-2">
+            <li>• Founder iQ Hospitality (2018→2020)</li>
+            <li>• České Budějovice base</li>
+            <li>• Sanctions: <span class="text-emerald-400">CLEAN</span></li>
+            <li>• Adverse media: <span class="text-emerald-400">CLEAN</span></li>
+            <li>• PEP: NOT direct, RCA via Renáta</li>
+            <li>• EDD: required</li>
+          </ul>
+        </div>
+        <div class="border border-slate-800 rounded-lg p-4 bg-slate-900/40">
+          <div class="text-xs text-amber-400 uppercase tracking-wider mb-1">Operating director</div>
+          <a href="../presentations/06-entity-browser.html#/person/robert-landsman" class="text-sm font-semibold text-amber-200 hover:underline">Robert Landsman</a>
+          <ul class="text-xs text-slate-400 space-y-1 mt-2">
+            <li>• Hotel School Prague 1988-1992</li>
+            <li>• 32-letá hotelová kariéra</li>
+            <li>• Movenpick + Danubius + Intercontinental</li>
+            <li>• MD Hotel Sovereign Prague od 2011</li>
+            <li>• Jednatel A GHH od 2020</li>
+            <li>• Sanctions: <span class="text-emerald-400">CLEAN</span></li>
+          </ul>
+        </div>
+        <div class="border border-slate-800 rounded-lg p-4 bg-slate-900/40">
+          <div class="text-xs text-amber-400 uppercase tracking-wider mb-1">Co-Owner / CEO</div>
+          <a href="../presentations/06-entity-browser.html#/person/rami-ibrahim" class="text-sm font-semibold text-amber-200 hover:underline">Rami Ibrahim</a>
+          <ul class="text-xs text-slate-400 space-y-1 mt-2">
+            <li>• CZ-JO dual nationality, 1972 Praha</li>
+            <li>• ISP Praha + Innsbruck IB</li>
+            <li>• Sídlo iQ Hospitality = jeho residential</li>
+            <li>• Sanctions: <span class="text-emerald-400">CLEAN</span></li>
+            <li>• EDD: + Jordan-side MENA layer</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- §5 Cluster Final State -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§5 Cluster Final State (Phase 7)</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+        <div class="border border-slate-800 rounded-lg p-4 bg-slate-900/40">
+          <div class="text-cyan-400 uppercase text-xs font-mono mb-2">Persons (7)</div>
+          <ul class="text-xs text-slate-400 space-y-1">
+            <li>• Renáta Kellnerová (principal)</li>
+            <li>• Anna Kellnerová (daughter)</li>
+            <li>• Tomáš Otruba (life partner)</li>
+            <li>• Robert Ševela (PPF/ITIS)</li>
+            <li class="text-amber-300">• Robert Landsman (NEW Phase 7)</li>
+            <li class="text-amber-300">• Rami Ibrahim (NEW Phase 7)</li>
+            <li class="text-amber-300">• Petr Šalda (NEW Phase 7)</li>
+          </ul>
+        </div>
+        <div class="border border-slate-800 rounded-lg p-4 bg-slate-900/40">
+          <div class="text-cyan-400 uppercase text-xs font-mono mb-2">Companies (24)</div>
+          <ul class="text-xs text-slate-400 space-y-1">
+            <li>• Phase 5 baseline: 11 entities</li>
+            <li>• Phase 6: +7 (RKE, AKE, 4 Krkonoše subs, PPF Group a.s.)</li>
+            <li>• Phase 7: +6 (5 ITIS stack + iQ Hospitality)</li>
+            <li>• <strong>Total: 24 ARES-verified</strong></li>
+          </ul>
+        </div>
+        <div class="border border-slate-800 rounded-lg p-4 bg-slate-900/40">
+          <div class="text-cyan-400 uppercase text-xs font-mono mb-2">Decision Engine</div>
+          <ul class="text-xs text-slate-400 space-y-1">
+            <li>• Inputs: 25 → 45 (+80%)</li>
+            <li>• Verdict: caution (unchanged)</li>
+            <li>• Score: 60/100 (unchanged)</li>
+            <li>• Coherence: <span class="text-emerald-300">98.5%</span> (high!)</li>
+            <li>• Coverage: 16.67% (engine cap)</li>
+            <li>• Phase 8 needs: multi-source category breakthrough</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- §6 Doctrine -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§6 Doctrine Compliance</h2>
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+        <div class="border border-emerald-700/40 rounded p-4 bg-emerald-950/40 text-center">
+          <div class="text-2xl text-emerald-400">✓</div><div class="font-mono font-bold text-emerald-300">NMND</div>
+          <div class="text-xs text-slate-500 mt-1">Real registry queries</div>
+        </div>
+        <div class="border border-emerald-700/40 rounded p-4 bg-emerald-950/40 text-center">
+          <div class="text-2xl text-emerald-400">✓</div><div class="font-mono font-bold text-emerald-300">NWB</div>
+          <div class="text-xs text-slate-500 mt-1">3 watershed findings, no rollback</div>
+        </div>
+        <div class="border border-emerald-700/40 rounded p-4 bg-emerald-950/40 text-center">
+          <div class="text-2xl text-emerald-400">✓</div><div class="font-mono font-bold text-emerald-300">NCLB</div>
+          <div class="text-xs text-slate-500 mt-1">130+ tool calls, sources cited</div>
+        </div>
+        <div class="border border-emerald-700/40 rounded p-4 bg-emerald-950/40 text-center">
+          <div class="text-2xl text-emerald-400">✓</div><div class="font-mono font-bold text-emerald-300">CZE</div>
+          <div class="text-xs text-slate-500 mt-1">Czech body, EN tech</div>
+        </div>
+        <div class="border border-emerald-700/40 rounded p-4 bg-emerald-950/40 text-center">
+          <div class="text-2xl text-emerald-400">✓</div><div class="font-mono font-bold text-emerald-300">GDPR</div>
+          <div class="text-xs text-slate-500 mt-1">Public registry data</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- §7 Phase 8 recommendations -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-slate-200 mb-6">§7 Phase 8+ Recommendations</h2>
+      <ol class="space-y-3 text-sm text-slate-300">
+        <li class="border-l-2 border-rose-500 pl-4 py-1"><strong class="text-rose-300">Boheme Hotels a.s. cap-table EDD</strong> — separate od iQ portfolio, possible 3rd-party investor exposure (Landsman MD Hotel Sovereign od 2011)</li>
+        <li class="border-l-2 border-rose-500 pl-4 py-1"><strong class="text-rose-300">SkyToll a.s. (SK) IČO + ORSR lookup</strong> — primary gap z Phase 7</li>
+        <li class="border-l-2 border-rose-500 pl-4 py-1"><strong class="text-rose-300">VITRONIC GmbH (DE) holding vehicle mapping</strong> — která ITIS dcera ho vlastní?</li>
+        <li class="border-l-2 border-amber-500 pl-4 py-1"><strong class="text-amber-300">Jordan-side EDD layer for Rami Ibrahim</strong> — MENA PEP screening</li>
+        <li class="border-l-2 border-amber-500 pl-4 py-1"><strong class="text-amber-300">PPF Hospitality 2 cap-table</strong> — Otruba 5%, kdo zbytek? Renáta+dcery split?</li>
+        <li class="border-l-2 border-cyan-500 pl-4 py-1"><strong class="text-cyan-300">Decision Engine category breakthrough</strong> — engine je category-bound (16.67% coverage cap); přidat <code>[LEGAL]/[FINANCIAL]/[INTEGRITY]</code> prefix tags na inputs aby coverage škálovala</li>
+        <li class="border-l-2 border-emerald-500 pl-4 py-1"><strong class="text-emerald-300">Substance check Fetrovská 1005/53</strong> — residential/business mixed-use red flag (iQ Hospitality seat = Ibrahim home)</li>
+      </ol>
+    </section>
+  </main>
+
+  <nav class="mt-16 pt-8 border-t border-slate-800">
+    <p class="uppercase tracking-widest text-slate-500 text-xs mb-3">Další reporty v case</p>
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs">
+      <a href="../README.html" class="border border-slate-800 hover:border-amber-500 rounded p-2 text-center text-slate-400">Case README</a>
+      <a href="PHASE-3-SANCTIONS.html" class="border border-slate-800 hover:border-emerald-500 rounded p-2 text-center text-slate-400">Phase 3 Sanctions</a>
+      <a href="PHASE-3-ENTITIES.html" class="border border-slate-800 hover:border-amber-500 rounded p-2 text-center text-slate-400">Phase 3 Entities</a>
+      <a href="PHASE-3-PLATFORM-MAP.html" class="border border-slate-800 hover:border-cyan-500 rounded p-2 text-center text-slate-400">Phase 3 Platform Map</a>
+      <a href="PHASE-5-VERIFICATION.html" class="border border-slate-800 hover:border-emerald-500 rounded p-2 text-center text-slate-400">Phase 5</a>
+      <a href="PHASE-6-DEEP-VERIFICATION.html" class="border border-slate-800 hover:border-cyan-500 rounded p-2 text-center text-slate-400">Phase 6</a>
+      <a href="PHASE-7-CLUSTER-EXPANSION.html" class="border border-rose-500 rounded p-2 text-center text-rose-300 bg-rose-950/20">Phase 7</a>
+      <a href="../reports/PHASE-4-NBS-REPORT.html" class="border border-slate-800 hover:border-amber-500 rounded p-2 text-center text-slate-400">Phase 4 NbsReport</a>
+      <a href="../presentations/index.html" class="border border-slate-800 hover:border-fuchsia-500 rounded p-2 text-center text-slate-400">Presentations</a>
+      <a href="../index.html" class="border border-slate-800 hover:border-amber-500 rounded p-2 text-center text-slate-400">Master Index</a>
+    </div>
+  </nav>
+
+  <footer class="mt-12 pt-6 border-t border-slate-800 text-xs text-slate-500 flex justify-between flex-wrap gap-4">
+    <div>
+      <span class="font-mono">2026-04-29</span> · Phase 7 Cluster Expansion + Forensics · Prismatic DD
+    </div>
+    <div class="flex gap-2 font-mono">
+      <span class="text-emerald-500">NMND</span> · <span class="text-emerald-500">NWB</span> · <span class="text-emerald-500">NCLB</span> · <span class="text-emerald-500">CZE</span> · <span class="text-emerald-500">GDPR</span>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

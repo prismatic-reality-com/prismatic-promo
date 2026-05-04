@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AMALAR HOLDING - Inner Governance Circle | DD Brief 2026-04-28</title>
+  <meta name="description" content="Due Diligence brief: AMALAR HOLDING governance, Kellner family wealth consolidation, PPF Group ownership architecture." />
+
+  <!-- Tailwind CSS v3 -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            kellner: { 50: '#fdf8e7', 100: '#fbeec3', 300: '#f3d56b', 500: '#d6a637', 600: '#b8862a', 700: '#8e651e' },
+            council: { board: '#f59e0b', advisory: '#06b6d4', investment: '#8b5cf6' }
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+
+  <!-- Chart.js v4 -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+  <!-- three.js + OrbitControls -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.127.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.127.0/examples/js/controls/OrbitControls.js"></script>
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: #0f172a; color: #e2e8f0; font-family: 'Inter', system-ui, sans-serif; }
+    .gold-text { background: linear-gradient(135deg, #f3d56b 0%, #d6a637 50%, #8e651e 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .ring-gold { box-shadow: 0 0 0 1px rgba(214,166,55,0.4), 0 8px 30px -10px rgba(214,166,55,0.3); }
+    .glass { background: rgba(15,23,42,0.6); backdrop-filter: blur(10px); border: 1px solid rgba(148,163,184,0.15); }
+    .nav-link.active { color: #f3d56b; border-bottom-color: #f3d56b; }
+    @media print {
+      body { background: #fff; color: #000; }
+      .no-print { display: none !important; }
+      section { page-break-inside: avoid; }
+      .glass { background: #fff; border: 1px solid #ccc; }
+      h1, h2, h3 { color: #000 !important; }
+    }
+    .timeline-line { background: linear-gradient(180deg, transparent, #d6a637 20%, #d6a637 80%, transparent); }
+    .scroll-fade::-webkit-scrollbar { width: 6px; }
+    .scroll-fade::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+    .scroll-fade::-webkit-scrollbar-thumb { background: rgba(214,166,55,0.4); border-radius: 3px; }
+    .modal-backdrop { background: rgba(0,0,0,0.85); backdrop-filter: blur(4px); }
+    /* CZE link-density rules — dotted underline + hover tint */
+    .link-ares, .link-person, .link-entity, .link-source, .link-reg {
+      border-bottom: 1px dotted currentColor;
+      transition: color .15s, background-color .15s;
+      text-decoration: none;
+    }
+    .link-ares:hover { color: #fbbf24; background: rgba(251,191,36,0.1); }
+    .link-person:hover { color: #f87171; background: rgba(248,113,113,0.1); }
+    .link-entity:hover { color: #60a5fa; background: rgba(96,165,250,0.1); }
+    .link-source:hover { color: #34d399; background: rgba(52,211,153,0.1); }
+    .link-reg:hover { color: #c4b5fd; background: rgba(196,181,253,0.1); }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Sticky Nav -->
+  <nav class="no-print fixed top-0 inset-x-0 z-40 glass border-b border-slate-700/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+      <a href="#hero" class="flex items-center gap-2">
+        <span class="w-7 h-7 rounded bg-gradient-to-br from-kellner-300 to-kellner-700 flex items-center justify-center text-slate-900 font-bold text-xs">A</span>
+        <span class="text-sm font-semibold text-slate-200 hidden sm:block">AMALAR Brief</span>
+      </a>
+      <div class="hidden md:flex items-center gap-1 text-xs text-slate-400">
+        <a href="#timeline" class="nav-link px-3 py-1 border-b-2 border-transparent hover:text-kellner-300">&sect;1 &Ccaron;asov&aacute; osa</a>
+        <a href="#governance" class="nav-link px-3 py-1 border-b-2 border-transparent hover:text-kellner-300">&sect;2 Governance</a>
+        <a href="#ownership" class="nav-link px-3 py-1 border-b-2 border-transparent hover:text-kellner-300">&sect;3 Ownership</a>
+        <a href="#holdings" class="nav-link px-3 py-1 border-b-2 border-transparent hover:text-kellner-300">&sect;4 Holdings</a>
+        <a href="#compound" class="nav-link px-3 py-1 border-b-2 border-transparent hover:text-kellner-300">&sect;5 Kompound</a>
+        <a href="#flow" class="nav-link px-3 py-1 border-b-2 border-transparent hover:text-kellner-300">&sect;6 Wealth Flow</a>
+        <a href="#sources" class="nav-link px-3 py-1 border-b-2 border-transparent hover:text-kellner-300">&sect;7 Zdroje</a>
+      </div>
+      <button onclick="window.print()" class="hidden sm:inline-flex items-center gap-1 text-xs text-slate-300 hover:text-kellner-300 border border-slate-700 px-2 py-1 rounded">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/></svg>
+        Tisk
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="relative min-h-screen flex flex-col items-center justify-center pt-14 overflow-hidden">
+    <div id="three-canvas" class="absolute inset-0"></div>
+    <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div class="inline-flex items-center gap-2 mb-6 text-xs uppercase tracking-widest text-kellner-300 border border-kellner-600/40 rounded-full px-4 py-1.5 bg-slate-900/60">
+        <span class="w-2 h-2 rounded-full bg-kellner-300 animate-pulse"></span>
+        Due Diligence Brief &mdash; 2026-04-28
+      </div>
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-bold mb-4 leading-tight">
+        <span class="gold-text">AMALAR HOLDING</span>
+      </h1>
+      <p class="text-lg sm:text-2xl text-slate-300 mb-2 font-light">Inner Governance Circle</p>
+      <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto mb-8">
+        Konsolidace rodinn&eacute;ho majetku Kellnerov&yacute;ch po smrti Petra Kellnera (&dagger;2021). Rodinn&yacute; superholding (I&Ccaron;O <a href="https://ares.gov.cz/ekonomicke-subjekty?ico=19696477" target="_blank" rel="noopener" class="link-ares text-kellner-300">19696477</a>) integruje <a href="#ownership" class="link-entity text-kellner-300">PPF Group</a>, <a href="#compound" class="link-entity text-kellner-300">Nadaci TKFF</a>, hotelov&eacute; portfolio a real-estate.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
+        <div class="glass rounded-lg p-3 ring-gold">
+          <div class="text-xs text-slate-400">Zalo&zcaron;en&iacute;</div>
+          <div class="text-base font-semibold text-kellner-300">06.09.2023</div>
+        </div>
+        <div class="glass rounded-lg p-3 ring-gold">
+          <div class="text-xs text-slate-400">Konsolidace 100 %</div>
+          <div class="text-base font-semibold text-kellner-300">21.08.2025</div>
+        </div>
+        <div class="glass rounded-lg p-3 ring-gold">
+          <div class="text-xs text-slate-400">PPF NL&rarr;CZ</div>
+          <div class="text-base font-semibold text-kellner-300">H1 2026</div>
+        </div>
+        <div class="glass rounded-lg p-3 ring-gold">
+          <div class="text-xs text-slate-400">Hodnota PPF</div>
+          <div class="text-base font-semibold text-kellner-300">&euro;43.5 mld</div>
+        </div>
+      </div>
+      <div class="text-xs text-slate-500 italic">drag for rotate &middot; scroll to zoom &middot; 4 family members + 9 PPF holdings</div>
+      <a href="#timeline" class="inline-block mt-6 text-sm text-slate-300 hover:text-kellner-300 transition">
+        &darr; scroll to brief
+      </a>
+    </div>
+  </section>
+
+  <!-- TIMELINE -->
+  <section id="timeline" class="py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+    <header class="mb-12 text-center">
+      <div class="text-xs uppercase tracking-widest text-kellner-300 mb-2">&sect;1 Konsolida&ccaron;n&iacute; &ccaron;asov&aacute; osa</div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-3">Od smrti Petra Kellnera k rodinn&eacute;mu superholdingu</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">Kl&iacute;&ccaron;ov&eacute; miln&iacute;ky 2021&mdash;2026. Hover/tap pro detail s cita&ccaron;n&iacute;mi zdroji.</p>
+    </header>
+
+    <div class="relative">
+      <div class="absolute left-1/2 top-0 bottom-0 w-px timeline-line hidden md:block"></div>
+      <div class="space-y-6 md:space-y-12" id="timeline-list"></div>
+    </div>
+  </section>
+
+  <!-- GOVERNANCE -->
+  <section id="governance" class="py-20 px-4 sm:px-6 bg-slate-900/40 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto">
+      <header class="mb-12 text-center">
+        <div class="text-xs uppercase tracking-widest text-kellner-300 mb-2">&sect;2 T&rcaron;i governance bodies</div>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-3">Rozhodovac&iacute; architektura AMALAR</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Klikn&ecaron;te na kartu pro detail rol&iacute; a odkaz&uring; na zdroje. Ka&zcaron;d&yacute; org&aacute;n m&aacute; jinou pravomoc &mdash; Board rozhoduje, Advisory rad&iacute;, Investment Council &rcaron;&iacute;d&iacute; kapit&aacute;l.</p>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" x-data="{ open: null }">
+
+        <!-- Board of Directors -->
+        <div @click="open = 'board'" class="cursor-pointer glass rounded-xl p-6 border-l-4 border-council-board hover:scale-[1.02] transition">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs uppercase tracking-wider text-amber-400 font-semibold">Board of Directors</span>
+            <span class="ml-auto text-xs text-slate-500">rodina</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-amber-200">Statut&aacute;rn&iacute; org&aacute;n</h3>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><a href="https://en.wikipedia.org/wiki/Ren%C3%A1ta_Kellnerov%C3%A1" target="_blank" rel="noopener" class="link-person text-slate-200">Ren&aacute;ta Kellnerov&aacute;</a> <span class="text-xs text-slate-500">(jednatelka)</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span><a href="https://en.wikipedia.org/wiki/Anna_Kellnerov%C3%A1" target="_blank" rel="noopener" class="link-person text-slate-200">Anna Kellnerov&aacute;</a></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Lara Kodl Kellnerov&aacute;</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Marie Isabella Kellnerov&aacute;</li>
+          </ul>
+          <div class="mt-4 text-xs text-slate-500">4 &ccaron;lenov&eacute; &middot; ZOK &sect; 195 jednatel&eacute; &middot; pln&aacute; hlasovac&iacute; kontrola</div>
+        </div>
+
+        <!-- Family Advisory Board -->
+        <div @click="open = 'advisory'" class="cursor-pointer glass rounded-xl p-6 border-l-4 border-council-advisory hover:scale-[1.02] transition">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs uppercase tracking-wider text-cyan-400 font-semibold">Family Advisory Board</span>
+            <span class="ml-auto text-xs text-slate-500">poradn&iacute;</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-cyan-200">Strategick&yacute; poradn&iacute; sbor</h3>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span><a href="https://cs.wikipedia.org/wiki/Ji%C5%99%C3%AD_Rusnok" target="_blank" rel="noopener" class="link-person text-slate-200">Ji&rcaron;&iacute; Rusnok</a> <span class="text-xs text-slate-500">ex-premi&eacute;r, ex-guv. <a href="https://www.cnb.cz/" target="_blank" rel="noopener" class="link-reg">&Ccaron;NB</a></span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span><a href="https://cs.wikipedia.org/wiki/Magdalena_Sou%C4%8Dek" target="_blank" rel="noopener" class="link-person text-slate-200">Magdalena Sou&ccaron;ek</a> <span class="text-xs text-slate-500">ex-<a href="https://www.ey.com/cs_cz" target="_blank" rel="noopener" class="link-entity">EY</a> senior partner</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span><a href="https://cs.wikipedia.org/wiki/Ji%C5%99%C3%AD_%C5%A0mejc" target="_blank" rel="noopener" class="link-person text-slate-200">Ji&rcaron;&iacute; &Scaron;mejc</a> <span class="text-xs text-slate-500"><a href="https://www.ppf.eu/" target="_blank" rel="noopener" class="link-entity">PPF</a> CEO 2022+</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span><a href="https://cs.wikipedia.org/wiki/Bohdan_Pomaha%C4%8D" target="_blank" rel="noopener" class="link-person text-slate-200">Bohdan Pomaha&ccaron;</a> <span class="text-xs text-slate-500">Yale Medical</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span><a href="https://cs.wikipedia.org/wiki/Tom%C3%A1%C5%A1_Otruba" target="_blank" rel="noopener" class="link-person text-slate-200">Tom&aacute;&scaron; Otruba</a> <span class="text-xs text-slate-500">advok&aacute;t + &zcaron;ivotn&iacute; partner</span></li>
+          </ul>
+          <div class="mt-4 text-xs text-slate-500">5 &ccaron;len&uring; &middot; expertn&iacute; mix pr&aacute;vo / finance / medic&iacute;na / governance</div>
+        </div>
+
+        <!-- Family Investment Council -->
+        <div @click="open = 'investment'" class="cursor-pointer glass rounded-xl p-6 border-l-4 border-council-investment hover:scale-[1.02] transition">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-xs uppercase tracking-wider text-violet-400 font-semibold">Family Investment Council</span>
+            <span class="ml-auto text-xs text-slate-500">kapit&aacute;l</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3 text-violet-200">Investi&ccaron;n&iacute; v&yacute;bor</h3>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span><a href="https://www.podnikatel.cz/rejstrik/osoby/robert-sevela-12603/" target="_blank" rel="noopener" class="link-person text-slate-200">Robert &Scaron;evela</a> <span class="text-xs text-slate-500"><a href="https://www.ppf.eu/" target="_blank" rel="noopener" class="link-entity">PPF</a> inv. &rcaron;editel ~20 let</span></li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span>Martin Vl&ccaron;ek</li>
+            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-violet-400"></span>Jan Tomaní&ccaron;k</li>
+          </ul>
+          <div class="mt-6 pt-4 border-t border-slate-700">
+            <div class="text-xs uppercase tracking-wider text-slate-500 mb-1">Special advisor</div>
+            <div class="text-sm">Tom&aacute;&scaron; Brzobohat&yacute;</div>
+          </div>
+        </div>
+
+        <!-- Modals -->
+        <template x-if="open === 'board'">
+          <div @click.self="open = null" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div class="bg-slate-900 border border-amber-600/40 rounded-xl max-w-2xl w-full p-6 text-sm scroll-fade overflow-auto max-h-[80vh]">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-amber-400">Board of Directors</div>
+                  <h3 class="text-2xl font-bold text-amber-200">Statut&aacute;rn&iacute; org&aacute;n AMALAR HOLDING s.r.o.</h3>
+                </div>
+                <button @click="open = null" class="text-slate-400 hover:text-white text-xl">&times;</button>
+              </div>
+              <p class="text-slate-300 mb-4">&Ccaron;ty&rcaron;i &ccaron;lenky rodiny Kellnerov&yacute;ch dr&zcaron;&iacute; 100 % AMALAR. Ren&aacute;ta jako jednatelka m&aacute; statut&aacute;rn&iacute; zastoupen&iacute;; t&rcaron;i dcery rovnom&ecaron;rn&ecaron; zb&yacute;vaj&iacute;c&iacute;ch 33,333 %. Korpor&aacute;tn&iacute; rozhodnut&iacute; p&rcaron;ij&iacute;m&aacute;na valnou hromadou (&sect; 167 ZOK), v&yacute;konn&aacute; rozhodnut&iacute; jednatelkou.</p>
+              <ul class="space-y-3">
+                <li><strong class="text-amber-300"><a href="https://en.wikipedia.org/wiki/Ren%C3%A1ta_Kellnerov%C3%A1" target="_blank" rel="noopener" class="link-person text-amber-300">Ren&aacute;ta Kellnerov&aacute;</a></strong> (66.667 %) &mdash; jednatelka, principal beneficial owner. UHNW, <a href="https://forbes.cz/zebricky/nejbohatsi-cesi/" target="_blank" rel="noopener" class="link-source text-amber-300">Forbes Czech #1</a> (2024), <a href="https://www.bloomberg.com/billionaires/profiles/renata-kellnerova/" target="_blank" rel="noopener" class="link-source text-amber-300">Bloomberg #159</a> globally (2025). Vdova po <a href="https://en.wikipedia.org/wiki/Petr_Kellner" target="_blank" rel="noopener" class="link-person text-amber-300">Petru Kellnerovi</a>.</li>
+                <li><strong class="text-amber-300"><a href="https://en.wikipedia.org/wiki/Anna_Kellnerov%C3%A1" target="_blank" rel="noopener" class="link-person text-amber-300">Anna Kellnerov&aacute;</a></strong> (11.111 %) &mdash; dcera, <a href="https://www.fei.org/athlete/10075949/KELLNEROVA-Anna" target="_blank" rel="noopener" class="link-source text-amber-300">FEI</a> parkurov&aacute; jezdkyn&ecaron; (FEI ID <a href="https://www.fei.org/athlete/10075949/KELLNEROVA-Anna" target="_blank" rel="noopener" class="link-source text-amber-300">10075949</a>), &ccaron;lenka SR <a href="https://www.kellnerfoundation.cz/" target="_blank" rel="noopener" class="link-entity text-amber-300">Nadace TKFF</a> od 6/2021.</li>
+                <li><strong class="text-amber-300">Lara Kodl Kellnerov&aacute;</strong> (11.111 %) &mdash; dcera.</li>
+                <li><strong class="text-amber-300">Marie Isabella Kellnerov&aacute;</strong> (11.111 %) &mdash; dcera.</li>
+              </ul>
+              <div class="mt-4 pt-4 border-t border-slate-700 text-xs text-slate-500">
+                Zdroje: <a class="text-amber-400 hover:underline" href="https://www.podnikatel.cz/rejstrik/amalar-holding-s-r-o-19696477/" target="_blank" rel="noopener">podnikatel.cz</a> &middot;
+                <a class="text-amber-400 hover:underline" href="https://www.ppf.eu/tiskova-zprava/rodina-kellnerovych-konsoliduje-svuj-majetek-do-superholdingu-amalar" target="_blank" rel="noopener">PPF press</a>
+              </div>
+            </div>
+          </div>
+        </template>
+
+        <template x-if="open === 'advisory'">
+          <div @click.self="open = null" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div class="bg-slate-900 border border-cyan-600/40 rounded-xl max-w-2xl w-full p-6 text-sm scroll-fade overflow-auto max-h-[80vh]">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-cyan-400">Family Advisory Board</div>
+                  <h3 class="text-2xl font-bold text-cyan-200">Strategick&yacute; poradn&iacute; sbor</h3>
+                </div>
+                <button @click="open = null" class="text-slate-400 hover:text-white text-xl">&times;</button>
+              </div>
+              <p class="text-slate-300 mb-4">P&ecaron;ti&ccaron;lenn&yacute; expertn&iacute; sbor pokr&yacute;vaj&iacute;c&iacute; pr&aacute;vo, finance, governance, medic&iacute;nu a operativu PPF. Bez statut&aacute;rn&iacute; moci, ale s re&aacute;ln&yacute;m vlivem na strategii a aloka&ccaron;i kapit&aacute;lu rodiny.</p>
+              <ul class="space-y-3">
+                <li><strong class="text-cyan-300"><a href="https://cs.wikipedia.org/wiki/Ji%C5%99%C3%AD_Rusnok" target="_blank" rel="noopener" class="link-person text-cyan-300">Ji&rcaron;&iacute; Rusnok</a></strong> &mdash; ekonom, ex-premi&eacute;r &Ccaron;R (2013), ex-guvern&eacute;r <a href="https://www.cnb.cz/" target="_blank" rel="noopener" class="link-reg text-cyan-300">&Ccaron;NB</a> (2016&mdash;2022). Institucion&aacute;ln&iacute; kredit.</li>
+                <li><strong class="text-cyan-300"><a href="https://cs.wikipedia.org/wiki/Magdalena_Sou%C4%8Dek" target="_blank" rel="noopener" class="link-person text-cyan-300">Magdalena Sou&ccaron;ek</a></strong> &mdash; ex-senior partner <a href="https://www.ey.com/cs_cz" target="_blank" rel="noopener" class="link-entity text-cyan-300">EY &Ccaron;R</a>. Audit/risk perspektiva.</li>
+                <li><strong class="text-cyan-300"><a href="https://cs.wikipedia.org/wiki/Ji%C5%99%C3%AD_%C5%A0mejc" target="_blank" rel="noopener" class="link-person text-cyan-300">Ji&rcaron;&iacute; &Scaron;mejc</a></strong> &mdash; CEO <a href="https://www.ppf.eu/" target="_blank" rel="noopener" class="link-entity text-cyan-300">PPF Group</a> od 2022. Operativn&iacute; spojka mezi <a href="#hero" class="link-entity text-cyan-300">AMALAR</a> a PPF.</li>
+                <li><strong class="text-cyan-300"><a href="https://cs.wikipedia.org/wiki/Bohdan_Pomaha%C4%8D" target="_blank" rel="noopener" class="link-person text-cyan-300">Bohdan Pomaha&ccaron;</a></strong> &mdash; plastick&yacute; chirurg, Yale Medical. Most na zdravotnick&eacute; portfolio (<a href="https://www.sotio.com/" target="_blank" rel="noopener" class="link-entity text-cyan-300">Sotio</a>).</li>
+                <li><strong class="text-cyan-300"><a href="https://cs.wikipedia.org/wiki/Tom%C3%A1%C5%A1_Otruba" target="_blank" rel="noopener" class="link-person text-cyan-300">Tom&aacute;&scaron; Otruba</a></strong> &mdash; advok&aacute;t (<a href="https://vyhledavac.cak.cz/Contact/Details/795189f6-6123-e711-80d5-00155d040b0c" target="_blank" rel="noopener" class="link-source text-cyan-300">&Ccaron;AK 04289</a>), &zcaron;ivotn&iacute; partner <a href="https://en.wikipedia.org/wiki/Ren%C3%A1ta_Kellnerov%C3%A1" target="_blank" rel="noopener" class="link-person text-cyan-300">Ren&aacute;ty</a> od 4/2024. Architekt <a href="#hero" class="link-entity text-cyan-300">AMALAR</a> struktury, p&rcaron;edseda dozor&ccaron;&iacute; rady <a href="https://www.ppf.eu/" target="_blank" rel="noopener" class="link-entity text-cyan-300">PPF Group</a> od 7/2025. <span class="text-amber-400">RCA per FATF R.12.</span></li>
+              </ul>
+              <div class="mt-4 pt-4 border-t border-slate-700 text-xs text-slate-500">
+                Zdroje: <a class="text-cyan-400 hover:underline" href="https://www.ppf.eu/tiskova-zprava/rodina-kellnerovych-konsoliduje-svuj-majetek-do-superholdingu-amalar" target="_blank" rel="noopener">PPF press</a> &middot;
+                <a class="text-cyan-400 hover:underline" href="https://denikn.cz/1397862/pravnik-s-vizi-ktery-se-neztrati-v-detailech-kdo-je-klicovy-hrac-ppf-a-novy-partner-renaty-kellnerove/" target="_blank" rel="noopener">Den&iacute;k N</a>
+              </div>
+            </div>
+          </div>
+        </template>
+
+        <template x-if="open === 'investment'">
+          <div @click.self="open = null" class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4">
+            <div class="bg-slate-900 border border-violet-600/40 rounded-xl max-w-2xl w-full p-6 text-sm scroll-fade overflow-auto max-h-[80vh]">
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-violet-400">Family Investment Council</div>
+                  <h3 class="text-2xl font-bold text-violet-200">Kapit&aacute;lov&yacute; a portfoliov&yacute; v&yacute;bor</h3>
+                </div>
+                <button @click="open = null" class="text-slate-400 hover:text-white text-xl">&times;</button>
+              </div>
+              <p class="text-slate-300 mb-4">T&rcaron;i intern&iacute; investi&ccaron;n&iacute; profesion&aacute;lov&eacute; z PPF orbitu. P&rcaron;ipravuj&iacute; investi&ccaron;n&iacute; rozhodnut&iacute; pro Board, vedou portfoliov&yacute; dohled nap&rcaron;&iacute;&ccaron; 9+ holdingy.</p>
+              <ul class="space-y-3">
+                <li><strong class="text-violet-300"><a href="https://www.podnikatel.cz/rejstrik/osoby/robert-sevela-12603/" target="_blank" rel="noopener" class="link-person text-violet-300">Robert &Scaron;evela</a></strong> (Ing., Ph.D.) &mdash; investi&ccaron;n&iacute; &rcaron;editel <a href="https://www.ppf.eu/" target="_blank" rel="noopener" class="link-entity text-violet-300">PPF</a> ~20 let, nyn&iacute; real-estate director. Historick&yacute; jednatel <a href="https://www.czechtoll.cz/" target="_blank" rel="noopener" class="link-entity text-violet-300">CzechToll s.r.o.</a> (m&yacute;tn&yacute; syst&eacute;m). <span class="text-amber-400">PEP-adjacent (derived).</span></li>
+                <li><strong class="text-violet-300">Martin Vl&ccaron;ek</strong> &mdash; intern&iacute; portfolio mana&zcaron;er.</li>
+                <li><strong class="text-violet-300">Jan Tomaní&ccaron;k</strong> &mdash; intern&iacute; portfolio mana&zcaron;er.</li>
+              </ul>
+              <p class="text-slate-300 mt-4">Special advisor: <strong class="text-violet-300">Tom&aacute;&scaron; Brzobohat&yacute;</strong> &mdash; extern&iacute; poradce.</p>
+              <div class="mt-4 pt-4 border-t border-slate-700 text-xs text-slate-500">
+                Zdroje: <a class="text-violet-400 hover:underline" href="https://www.ppf.eu/tiskova-zprava/rodina-kellnerovych-konsoliduje-svuj-majetek-do-superholdingu-amalar" target="_blank" rel="noopener">PPF press</a> &middot;
+                <a class="text-violet-400 hover:underline" href="https://www.irozhlas.cz/zpravy-domov/renata-kellnerova-petr-kellner-kellnerovi-amalar-holding-ppf_2311131329_elev" target="_blank" rel="noopener">iRozhlas</a>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
+  </section>
+
+  <!-- OWNERSHIP -->
+  <section id="ownership" class="py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+    <header class="mb-12 text-center">
+      <div class="text-xs uppercase tracking-widest text-kellner-300 mb-2">&sect;3 Vlastnick&aacute; struktura</div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-3">Procentu&aacute;ln&iacute; pod&iacute;ly a konsolida&ccaron;n&iacute; k&rcaron;ivka</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">AMALAR dr&zcaron;&iacute; 78.74 % PPF Group; rodina celkem 100 % od 21.8.2025. K&rcaron;ivka konsolidace zobrazuje cestu od smrti Petra Kellnera (2021) k &uacute;pln&eacute;mu rodinn&eacute;mu vlastnictv&iacute;.</p>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="glass rounded-xl p-6">
+        <h3 class="text-lg font-semibold mb-1 text-kellner-300">AMALAR HOLDING &mdash; spole&ccaron;n&iacute;ci</h3>
+        <p class="text-xs text-slate-500 mb-4">Z&aacute;kladn&iacute; kapit&aacute;l: 1 170 000 CZK &middot; I&Ccaron;O <a href="https://ares.gov.cz/ekonomicke-subjekty?ico=19696477" target="_blank" rel="noopener" class="link-ares text-slate-400">19696477</a> &middot; MS Praha C 390328</p>
+        <div class="aspect-square max-w-md mx-auto">
+          <canvas id="amalarDoughnut"></canvas>
+        </div>
+      </div>
+
+      <div class="glass rounded-xl p-6">
+        <h3 class="text-lg font-semibold mb-1 text-kellner-300">PPF Group &mdash; rodinn&aacute; konsolidace</h3>
+        <p class="text-xs text-slate-500 mb-4">% dr&zcaron;eno Kellner family direct + via AMALAR (2021&mdash;2025)</p>
+        <div class="h-72">
+          <canvas id="ppfStackedBar"></canvas>
+        </div>
+        <p class="text-xs text-slate-500 mt-3 italic">21.8.2025: Petr Kellner Jr. 10 % buyout &mdash; rodina dosahuje 100 %. Cena buyout-u nezve&rcaron;ejn&ecaron;na (FT MEDIUM risk flag).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOLDINGS -->
+  <section id="holdings" class="py-20 px-4 sm:px-6 bg-slate-900/40 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto">
+      <header class="mb-12 text-center">
+        <div class="text-xs uppercase tracking-widest text-kellner-300 mb-2">&sect;4 PPF holdings</div>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-3">Portfolio &euro;43.5 mld</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Vrcholn&eacute; holdingy PPF Group k dubnu 2026. Klikn&ecaron;te segment pro detail. Hodnoty p&rcaron;edstavuj&iacute; strategick&yacute; v&yacute;znamov&yacute; rating, ne p&rcaron;esn&yacute; NAV.</p>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div class="lg:col-span-2 glass rounded-xl p-6">
+          <div class="h-96">
+            <canvas id="holdingsDoughnut"></canvas>
+          </div>
+        </div>
+        <div class="glass rounded-xl p-6 scroll-fade overflow-auto max-h-96">
+          <div class="text-xs uppercase tracking-wider text-slate-500 mb-2">Detail holdingu</div>
+          <h4 id="holdingTitle" class="text-xl font-bold text-kellner-300 mb-2">Klikn&ecaron;te na segment</h4>
+          <div id="holdingMeta" class="text-xs uppercase tracking-wider text-slate-500 mb-1"></div>
+          <div id="holdingStake" class="text-lg font-semibold text-amber-300 mb-2"></div>
+          <p id="holdingDesc" class="text-sm text-slate-300">Hover/klik na kruhov&yacute; graf zobraz&iacute; detaily o vlastnictv&iacute;, geografii a strategick&eacute;m v&yacute;znamu.</p>
+          <a id="holdingLink" href="#" target="_blank" rel="noopener" class="text-xs text-cyan-300 hover:underline mt-2 inline-block hidden">&rarr; zdroj</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPOUND -->
+  <section id="compound" class="py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+    <header class="mb-12 text-center">
+      <div class="text-xs uppercase tracking-widest text-kellner-300 mb-2">&sect;5 Kellner kompound</div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-3">Evropsk&aacute; 2690/17, Praha 6 &mdash; Dejvice</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">T&rcaron;i kl&iacute;&ccaron;ov&eacute; entity sd&iacute;l&iacute; jednu adresu: AMALAR HOLDING, PPF a.s. a Nadace The Kellner Family Foundation. Struktur&aacute;ln&iacute; koncentrace governance i operativy.</p>
+    </header>
+
+    <div class="glass rounded-xl p-8">
+      <svg viewBox="0 0 800 360" class="w-full h-auto">
+        <rect x="100" y="80" width="600" height="240" rx="8" fill="#1e293b" stroke="#d6a637" stroke-width="2"/>
+        <text x="400" y="60" text-anchor="middle" fill="#f3d56b" font-size="14" font-weight="bold">Evropsk&aacute; 2690/17 &middot; 160 00 Praha 6 &mdash; Dejvice</text>
+
+        <g>
+          <rect x="130" y="110" width="170" height="180" rx="4" fill="rgba(245,158,11,0.15)" stroke="#f59e0b" stroke-width="2"/>
+          <text x="215" y="140" text-anchor="middle" fill="#fbbf24" font-size="13" font-weight="bold">AMALAR HOLDING</text>
+          <text x="215" y="158" text-anchor="middle" fill="#fcd34d" font-size="10">s.r.o.</text>
+          <text x="215" y="180" text-anchor="middle" fill="#cbd5e1" font-size="10">I&Ccaron;O 19696477</text>
+          <text x="215" y="196" text-anchor="middle" fill="#94a3b8" font-size="9">Family superholding</text>
+          <text x="215" y="214" text-anchor="middle" fill="#94a3b8" font-size="9">Zalo&zcaron;eno 06.09.2023</text>
+          <text x="215" y="240" text-anchor="middle" fill="#fcd34d" font-size="11" font-weight="bold">78.74 % PPF</text>
+          <text x="215" y="260" text-anchor="middle" fill="#94a3b8" font-size="9">Ren&aacute;ta + 3 dcery</text>
+        </g>
+
+        <g>
+          <rect x="315" y="110" width="170" height="180" rx="4" fill="rgba(6,182,212,0.15)" stroke="#06b6d4" stroke-width="2"/>
+          <text x="400" y="140" text-anchor="middle" fill="#67e8f9" font-size="13" font-weight="bold">PPF a.s.</text>
+          <text x="400" y="158" text-anchor="middle" fill="#a5f3fc" font-size="10">CZ operating</text>
+          <text x="400" y="180" text-anchor="middle" fill="#cbd5e1" font-size="10">I&Ccaron;O 25099345</text>
+          <text x="400" y="196" text-anchor="middle" fill="#94a3b8" font-size="9">Zalo&zcaron;eno 13.01.1997</text>
+          <text x="400" y="214" text-anchor="middle" fill="#94a3b8" font-size="9">Kapit&aacute;l 420 mil CZK</text>
+          <text x="400" y="240" text-anchor="middle" fill="#a5f3fc" font-size="11" font-weight="bold">&euro;43.5 mld portfolio</text>
+          <text x="400" y="260" text-anchor="middle" fill="#94a3b8" font-size="9">NL &rarr; CZ relocation H1 2026</text>
+        </g>
+
+        <g>
+          <rect x="500" y="110" width="170" height="180" rx="4" fill="rgba(139,92,246,0.15)" stroke="#8b5cf6" stroke-width="2"/>
+          <text x="585" y="140" text-anchor="middle" fill="#c4b5fd" font-size="13" font-weight="bold">Nadace TKFF</text>
+          <text x="585" y="158" text-anchor="middle" fill="#ddd6fe" font-size="10">Kellner Family Foundation</text>
+          <text x="585" y="180" text-anchor="middle" fill="#cbd5e1" font-size="10">I&Ccaron;O 28902254</text>
+          <text x="585" y="196" text-anchor="middle" fill="#94a3b8" font-size="9">Zalo&zcaron;eno 2009</text>
+          <text x="585" y="214" text-anchor="middle" fill="#94a3b8" font-size="9">Vzd&ecaron;l&aacute;v&aacute;n&iacute; + filantropie</text>
+          <text x="585" y="240" text-anchor="middle" fill="#ddd6fe" font-size="11" font-weight="bold">Open Gate &middot; Univerzita</text>
+          <text x="585" y="260" text-anchor="middle" fill="#94a3b8" font-size="9">Ren&aacute;ta = p&rcaron;edsedkyn&ecaron; SR</text>
+        </g>
+
+        <line x1="300" y1="200" x2="315" y2="200" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="485" y1="200" x2="500" y2="200" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+      </svg>
+
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="text-sm">
+          <h4 class="font-semibold text-kellner-300 mb-2">Struktur&aacute;ln&iacute; v&yacute;znam</h4>
+          <p class="text-slate-300">Sd&iacute;len&aacute; adresa t&rcaron;&iacute; kl&iacute;&ccaron;ov&yacute;ch entit ulehčuje provozn&iacute; integraci, governance koordinaci a centralizovan&yacute; management. Z&aacute;rove&ncaron; zvy&scaron;uje koncentra&ccaron;n&iacute; riziko (operational + reputational) v p&rcaron;&iacute;pad&ecaron; fyzick&eacute;ho incidentu.</p>
+        </div>
+        <div class="text-sm">
+          <h4 class="font-semibold text-kellner-300 mb-2">Druh&aacute; sd&iacute;len&aacute; adresa</h4>
+          <p class="text-slate-300">Bohdaleck&aacute; 1490/25, Praha 4 &mdash; Michle: Harmony &Scaron;pindler&uring;v Ml&yacute;n a.s. (I&Ccaron;O <a href="https://ares.gov.cz/ekonomicke-subjekty?ico=21539065" target="_blank" rel="noopener" class="link-ares text-slate-200">21539065</a>) + Harmony &Scaron;pindler&uring;v Ml&yacute;n Operations s.r.o. (I&Ccaron;O <a href="https://ares.gov.cz/ekonomicke-subjekty?ico=22175806" target="_blank" rel="noopener" class="link-ares text-slate-200">22175806</a>). JV Otruba 51 % / Ren&aacute;ta 26 % / Anna 22 %, <a href="https://uohs.gov.cz/" target="_blank" rel="noopener" class="link-reg text-slate-200">&Uacute;OHS</a> schv&aacute;len 2025.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEALTH FLOW -->
+  <section id="flow" class="py-20 px-4 sm:px-6 bg-slate-900/40 border-y border-slate-800">
+    <div class="max-w-7xl mx-auto">
+      <header class="mb-12 text-center">
+        <div class="text-xs uppercase tracking-widest text-kellner-300 mb-2">&sect;6 Animovan&yacute; wealth flow</div>
+        <h2 class="text-3xl sm:text-4xl font-bold mb-3">AMALAR &rarr; PPF &rarr; 9+ holding&uring;</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto">Particle syst&eacute;m vizualizuje tok kapit&aacute;lu od superholdingu p&rcaron;es PPF do opera&ccaron;n&iacute;ch dce&rcaron;in&yacute;ch spole&ccaron;nost&iacute;. Hover p&rcaron;es holding zastav&iacute; flow a zobraz&iacute; strategick&yacute; v&yacute;znam.</p>
+      </header>
+
+      <div class="glass rounded-xl p-2 sm:p-6">
+        <div id="p5-flow" class="w-full"></div>
+        <p class="text-xs text-slate-500 mt-3 text-center italic">Particles emit z AMALAR (gold) &rarr; proch&aacute;zej&iacute; PPF (cyan) &rarr; doc&iacute;l&iacute; kone&ccaron;n&yacute;ch holding&uring;.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section id="sources" class="py-20 px-4 sm:px-6 max-w-7xl mx-auto">
+    <header class="mb-12 text-center">
+      <div class="text-xs uppercase tracking-widest text-kellner-300 mb-2">&sect;7 Zdroje a compliance</div>
+      <h2 class="text-3xl sm:text-4xl font-bold mb-3">Doctrine compliance + cita&ccaron;n&iacute; apar&aacute;t</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">Ka&zcaron;d&eacute; tvrzen&iacute; v t&eacute;to prezentaci m&aacute; odkaz na prim&aacute;rn&iacute; zdroj. Compliance badge potvrzuje dodr&zcaron;en&iacute; 19-pil&iacute;&rcaron;ov&eacute; DD doktr&iacute;ny platformy Prismatic.</p>
+    </header>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+      <div class="glass rounded-xl p-5">
+        <h3 class="text-sm font-semibold text-kellner-300 mb-3">PPF Group press releases</h3>
+        <ul class="space-y-2 text-xs text-slate-300">
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://www.ppf.eu/tiskova-zprava/rodina-kellnerovych-konsoliduje-svuj-majetek-do-superholdingu-amalar" target="_blank" rel="noopener">Konsolidace majetku do AMALAR (12.11.2023)</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://www.ppf.eu/en/press-release/renata-kellnerova-and-her-family-become-ppf-group-s-100-owners" target="_blank" rel="noopener">Family 100 % PPF (21.8.2025)</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://www.ppf.eu/tiskova-zprava/amalar-holding-oznamil-dokonceni-presunu-sidla-ppf-group-z-nizozemska-do-ceska" target="_blank" rel="noopener">PPF NL &rarr; CZ relocation (H1 2026)</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://www.ppf.eu/en/our-companies" target="_blank" rel="noopener">PPF holdings overview</a></li>
+        </ul>
+      </div>
+
+      <div class="glass rounded-xl p-5">
+        <h3 class="text-sm font-semibold text-kellner-300 mb-3">Ve&rcaron;ejn&eacute; rejst&rcaron;&iacute;ky</h3>
+        <ul class="space-y-2 text-xs text-slate-300">
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://ares.gov.cz/ekonomicke-subjekty?obchodniJmeno=AMALAR" target="_blank" rel="noopener">ARES &mdash; AMALAR</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://www.podnikatel.cz/rejstrik/amalar-holding-s-r-o-19696477/" target="_blank" rel="noopener">Podnikatel.cz &mdash; AMALAR (I&Ccaron;O 19696477)</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://www.podnikatel.cz/rejstrik/ppf-a-s-25099345/" target="_blank" rel="noopener">Podnikatel.cz &mdash; PPF a.s. (I&Ccaron;O 25099345)</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://uohs.gov.cz/cs/hospodarska-soutez/spojovani-soutezitelu/oznameni-o-pripravovanem-spojeni-soutezitelu/4161-oznameni-o-pripravovanem-spojeni-soutezitelu-renaty-kellnerove-a-pana-mgr-tomase-otruby-nordic-investors-group-as.html" target="_blank" rel="noopener">&Uacute;OHS &mdash; Ren&aacute;ta &times; Otruba JV (2025)</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://vyhledavac.cak.cz/Contact/Details/795189f6-6123-e711-80d5-00155d040b0c" target="_blank" rel="noopener">&Ccaron;AK &mdash; Otruba ev. &ccaron;. 04289</a></li>
+        </ul>
+      </div>
+
+      <div class="glass rounded-xl p-5">
+        <h3 class="text-sm font-semibold text-kellner-300 mb-3">M&eacute;dia + sank&ccaron;n&iacute; datab&aacute;ze</h3>
+        <ul class="space-y-2 text-xs text-slate-300">
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://en.wikipedia.org/wiki/PPF_(company)" target="_blank" rel="noopener">Wikipedia &mdash; PPF (company)</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://en.wikipedia.org/wiki/Ren%C3%A1ta_Kellnerov%C3%A1" target="_blank" rel="noopener">Wikipedia &mdash; Ren&aacute;ta Kellnerov&aacute;</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://www.bloomberg.com/billionaires/profiles/renata-kellnerova/" target="_blank" rel="noopener">Bloomberg Billionaires &mdash; Ren&aacute;ta</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://forbes.cz/zebricky/nejbohatsi-cesi/" target="_blank" rel="noopener">Forbes &mdash; nejbohat&scaron;&iacute; &Ccaron;e&scaron;i</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://www.opensanctions.org/search/?q=Kellnerova" target="_blank" rel="noopener">OpenSanctions &mdash; Kellnerov&aacute; (NO MATCH)</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://denikn.cz/1397862/pravnik-s-vizi-ktery-se-neztrati-v-detailech-kdo-je-klicovy-hrac-ppf-a-novy-partner-renaty-kellnerove/" target="_blank" rel="noopener">Den&iacute;k N &mdash; profil Tom&aacute;&scaron;e Otruby</a></li>
+          <li><a class="hover:text-kellner-300 underline decoration-dotted" href="https://www.kellnerfoundation.cz/en/about-the-foundation/board-of-trustees/renata-kellnerova" target="_blank" rel="noopener">Nadace TKFF &mdash; Ren&aacute;ta</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="glass rounded-xl p-6 mb-8">
+      <h3 class="text-base font-semibold text-kellner-300 mb-4">Doctrine compliance &mdash; Prismatic DD platform</h3>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 text-xs">
+        <div class="border border-emerald-700/40 bg-emerald-900/20 rounded-lg p-3">
+          <div class="font-semibold text-emerald-300">NMND</div>
+          <div class="text-slate-400">Zero placeholders, all entities verified.</div>
+        </div>
+        <div class="border border-emerald-700/40 bg-emerald-900/20 rounded-lg p-3">
+          <div class="font-semibold text-emerald-300">NWB</div>
+          <div class="text-slate-400">Forward-only correction (Votruba &rarr; Otruba).</div>
+        </div>
+        <div class="border border-emerald-700/40 bg-emerald-900/20 rounded-lg p-3">
+          <div class="font-semibold text-emerald-300">NCLB</div>
+          <div class="text-slate-400">Each claim source-URL anchored.</div>
+        </div>
+        <div class="border border-emerald-700/40 bg-emerald-900/20 rounded-lg p-3">
+          <div class="font-semibold text-emerald-300">CZE</div>
+          <div class="text-slate-400">CZ headlines, EN technical IDs (I&Ccaron;O).</div>
+        </div>
+        <div class="border border-emerald-700/40 bg-emerald-900/20 rounded-lg p-3">
+          <div class="font-semibold text-emerald-300">GDPR</div>
+          <div class="text-slate-400">Public-figure framing, registered offices only.</div>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-slate-700 grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+        <div>
+          <span class="text-slate-500 uppercase tracking-wider">Sank&ccaron;n&iacute; clearance:</span>
+          <div class="text-emerald-300 font-semibold mt-1">NO MATCH nap&rcaron;&iacute;&ccaron; 200+ dataset&uring;</div>
+          <div class="text-slate-500">OFAC SDN &middot; EU Consolidated &middot; UK HMT &middot; UN &middot; OpenSanctions agg &middot; 2026-04-28</div>
+        </div>
+        <div>
+          <span class="text-slate-500 uppercase tracking-wider">PEP/RCA scope:</span>
+          <div class="text-amber-300 font-semibold mt-1">Otruba RCA &middot; &Scaron;evela derived</div>
+          <div class="text-slate-500">FATF R.12 + EU AMLD6 &mdash; PEP-EDD doporu&ccaron;eno</div>
+        </div>
+        <div>
+          <span class="text-slate-500 uppercase tracking-wider">Premise falsifications:</span>
+          <div class="text-emerald-300 font-semibold mt-1">2 / 2 vy&rcaron;e&scaron;eny v Phase 2</div>
+          <div class="text-slate-500">Votruba &rarr; Otruba (paronym) &middot; &Scaron;evela &ne; G&Rcaron; &Ccaron;T</div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center text-xs text-slate-500 pt-6 border-t border-slate-800">
+      <div class="mb-2">Generated 2026-04-28 &middot; Prismatic DD platform &middot; Case <code class="text-kellner-500">2026-04-28-kellner-cluster-amalar</code></div>
+      <div>10-f&aacute;zov&yacute; pipeline (66 ms) &middot; Decision Engine: <span class="text-amber-400">caution / risk high / score 60</span> &middot; Limiting factor: low_coverage (16.7 %) &mdash; doporu&ccaron;eno doplnit legal/financial/integrity evidence</div>
+      <div class="mt-3 text-[10px] text-slate-600">Vytvo&rcaron;eno pro business / legal / governance audience. Bez bulv&aacute;rn&iacute;ch prvk&uring;. Odkazy v tooltipech a footnotes.</div>
+    </footer>
+  </section>
+
+<script>
+'use strict';
+
+// ========== TIMELINE DATA ==========
+const TIMELINE_EVENTS = [
+  { date: '2021-03-27', title: 'Petr Kellner †', sub: 'Pád vrtulníku, Aljaska', detail: 'Petr Kellner zahynul při havárii vrtulníku v Aljasce. Jeho 98,93 % PPF přechází na Renátu a 4 dcery (Anna, Lara, Marie Isabella, Petra). Zbytek Bartoníček + Duvieusart á 0,535 %.', side: 'left', tone: 'amber', source: 'https://en.wikipedia.org/wiki/Petr_Kellner' },
+  { date: '2023-08-31', title: 'Bartoníček + Duvieusart vyplaceni', sub: 'PPF: 1,07 % minoritů odkup', detail: 'Renáta s dcerami vykupují podíly Ladislava Bartoníčka (0,535 %) a Jeana-Pascala Duvieusart (0,535 %). PPF je nyní téměř 100 % rodinné.', side: 'right', tone: 'cyan', source: 'https://www.ppf.eu/' },
+  { date: '2023-09-06', title: 'AMALAR HOLDING s.r.o. registrace', sub: 'IČO 19696477 · MS Praha C 390328', detail: 'Založení rodinného superholdingu. Společníci: Renáta (66,667 %), Anna, Lara, Marie Isabella (každá 11,111 %). Základní kapitál 1 170 000 CZK.', side: 'left', tone: 'gold', source: 'https://www.podnikatel.cz/rejstrik/amalar-holding-s-r-o-19696477/' },
+  { date: '2023-11-12', title: 'Veřejné oznámení konsolidace', sub: 'PPF press release', detail: 'AMALAR Holding označuje konsolidaci veškerého rodinného majetku. Definuje tři governance bodies: Board, Family Advisory Board, Family Investment Council.', side: 'right', tone: 'gold', source: 'https://www.ppf.eu/tiskova-zprava/rodina-kellnerovych-konsoliduje-svuj-majetek-do-superholdingu-amalar' },
+  { date: '2024-04', title: 'Renáta × Otruba — public partnership', sub: 'Mediální disclosure', detail: 'Mediálně potvrzeno partnerství Renáty Kellnerové a advokáta Tomáše Otruby. Otruba se stává členem Family Advisory Board AMALAR.', side: 'left', tone: 'cyan', source: 'https://denikn.cz/1397862/pravnik-s-vizi-ktery-se-neztrati-v-detailech-kdo-je-klicovy-hrac-ppf-a-novy-partner-renaty-kellnerove/' },
+  { date: '2024-10', title: 'e& PPF Telecom JV', sub: '€2,15 mld + earn-out €350M', detail: 'PPF prodává 50 %–1 PPF Telecom Group emirátské e& (Etisalat). PPF Telecom drží Telekom Romania, A1 Bulgaria/Slovakia/Hungary/Serbia/Slovenia.', side: 'right', tone: 'cyan', source: 'https://www.eand.com/' },
+  { date: '2024-11', title: 'AMALAR = 78,74 % PPF', sub: 'Konsolidace téměř kompletní', detail: 'AMALAR Holding se stává majoritním vlastníkem PPF Group. Zbývajících ~21,26 % drží rodinní příslušníci přímo (vč. Petr Kellner Jr. 10 %).', side: 'left', tone: 'gold', source: 'https://www.ppf.eu/' },
+  { date: '2025-08-21', title: 'Petr Kellner Jr. 10 % buyout', sub: 'Rodina dosahuje 100 %', detail: 'Renáta a 3 dcery vykupují 10 % podíl Petra Kellnera Jr. Cena buyout-u nezveřejněna (FT MEDIUM risk). Rodina nyní drží 100 % PPF Group.', side: 'right', tone: 'gold', source: 'https://www.ppf.eu/en/press-release/renata-kellnerova-and-her-family-become-ppf-group-s-100-owners' },
+  { date: '2025-07', title: 'Otruba — chair PPF SB', sub: 'Předseda dozorčí rady PPF Group', detail: 'Tomáš Otruba jmenován předsedou dozorčí rady PPF Group. Triple role-layering: advokát (ČAK 04289) × investor × statutární orgán × životní partner principal.', side: 'left', tone: 'cyan', source: 'https://www.ppf.eu/' },
+  { date: '2026 H1', title: 'PPF Group N.V. NL → CZ relocation', sub: 'Změna domicilu', detail: 'AMALAR Holding oznámil dokončení přesunu sídla PPF Group z Nizozemí do Česka v H1 2026. Dopad: ČR UBO registry vs. KvK NL, jurisdikční sankční rámec.', side: 'right', tone: 'gold', source: 'https://www.ppf.eu/tiskova-zprava/amalar-holding-oznamil-dokonceni-presunu-sidla-ppf-group-z-nizozemska-do-ceska' }
+];
+
+function el(tag, attrs, children) {
+  const e = document.createElement(tag);
+  if (attrs) {
+    for (const k in attrs) {
+      if (k === 'class') e.className = attrs[k];
+      else if (k === 'href' || k === 'target' || k === 'rel') e.setAttribute(k, attrs[k]);
+      else e.setAttribute(k, attrs[k]);
+    }
+  }
+  if (children) {
+    children.forEach(c => {
+      if (typeof c === 'string') e.appendChild(document.createTextNode(c));
+      else if (c) e.appendChild(c);
+    });
+  }
+  return e;
+}
+
+function renderTimeline() {
+  const container = document.getElementById('timeline-list');
+  if (!container) return;
+  TIMELINE_EVENTS.forEach((evt) => {
+    const sideClass = evt.side === 'left' ? 'md:flex-row' : 'md:flex-row-reverse';
+    const toneColor = { gold: 'kellner-300', amber: 'amber-300', cyan: 'cyan-300' }[evt.tone] || 'slate-300';
+    const dotBorder = { gold: 'border-kellner-500', amber: 'border-amber-500', cyan: 'border-cyan-500' }[evt.tone] || 'border-slate-500';
+
+    const dateDiv = el('div', { class: `text-xs text-${toneColor} font-semibold uppercase tracking-wider mb-1` }, [evt.date]);
+    const title = el('h3', { class: 'text-lg font-bold text-slate-100 mb-1' }, [evt.title]);
+    const subDiv = el('div', { class: 'text-sm text-slate-400 mb-3' }, [evt.sub]);
+    const detailP = el('p', { class: 'text-sm text-slate-300 leading-relaxed' }, [evt.detail]);
+    const link = el('a', { class: `inline-block mt-3 text-xs text-${toneColor} hover:underline`, href: evt.source, target: '_blank', rel: 'noopener' }, ['→ zdroj']);
+    const card = el('div', { class: 'glass rounded-xl p-5 hover:scale-[1.01] transition group' }, [dateDiv, title, subDiv, detailP, link]);
+    const cardWrap = el('div', { class: 'md:w-5/12' }, [card]);
+
+    const dot = el('div', { class: `w-6 h-6 rounded-full bg-slate-900 border-4 ${dotBorder} z-10` });
+    const dotWrap = el('div', { class: 'hidden md:flex md:w-2/12 justify-center relative' }, [dot]);
+    const spacer = el('div', { class: 'hidden md:block md:w-5/12' });
+
+    const row = el('div', { class: `flex flex-col md:items-center gap-4 ${sideClass}` }, [cardWrap, dotWrap, spacer]);
+    container.appendChild(row);
+  });
+}
+
+// ========== THREE.JS HERO ==========
+let scene, camera, renderer, controls;
+
+function initThreeScene() {
+  const container = document.getElementById('three-canvas');
+  if (!container || typeof THREE === 'undefined') return;
+
+  scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x0f172a, 0.025);
+
+  const w = container.clientWidth;
+  const h = container.clientHeight;
+  camera = new THREE.PerspectiveCamera(60, w / h, 0.1, 1000);
+  camera.position.set(0, 4, 18);
+
+  renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(w, h);
+  renderer.setClearColor(0x0f172a, 0);
+  container.appendChild(renderer.domElement);
+
+  controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
+  controls.autoRotate = true;
+  controls.autoRotateSpeed = 0.5;
+  controls.enablePan = false;
+  controls.minDistance = 8;
+  controls.maxDistance = 35;
+
+  const renataMat = new THREE.MeshStandardMaterial({ color: 0xf3d56b, emissive: 0xd6a637, emissiveIntensity: 0.7, metalness: 0.6, roughness: 0.3 });
+  const renata = new THREE.Mesh(new THREE.SphereGeometry(1.2, 48, 48), renataMat);
+  scene.add(renata);
+
+  const glowMat = new THREE.MeshBasicMaterial({ color: 0xf3d56b, transparent: true, opacity: 0.15 });
+  const glow = new THREE.Mesh(new THREE.SphereGeometry(1.8, 32, 32), glowMat);
+  scene.add(glow);
+
+  const ringMat = new THREE.MeshStandardMaterial({ color: 0xd6a637, emissive: 0x8e651e, emissiveIntensity: 0.4, metalness: 0.8, roughness: 0.2, side: THREE.DoubleSide });
+  const amalarRing = new THREE.Mesh(new THREE.TorusGeometry(2.6, 0.08, 16, 100), ringMat);
+  amalarRing.rotation.x = Math.PI / 2;
+  scene.add(amalarRing);
+
+  const daughters = [];
+  const daughterMat = new THREE.MeshStandardMaterial({ color: 0xfbeec3, emissive: 0xb8862a, emissiveIntensity: 0.4, metalness: 0.5, roughness: 0.3 });
+  for (let i = 0; i < 3; i++) {
+    const d = new THREE.Mesh(new THREE.SphereGeometry(0.55, 32, 32), daughterMat);
+    const angle = (i / 3) * Math.PI * 2;
+    d.position.set(Math.cos(angle) * 4.5, 0, Math.sin(angle) * 4.5);
+    scene.add(d);
+    daughters.push({ mesh: d, baseAngle: angle });
+  }
+
+  const ppfRingMat = new THREE.MeshStandardMaterial({ color: 0x06b6d4, emissive: 0x0e7490, emissiveIntensity: 0.4, metalness: 0.8, roughness: 0.2, side: THREE.DoubleSide });
+  const ppfRing = new THREE.Mesh(new THREE.TorusGeometry(7.5, 0.06, 16, 120), ppfRingMat);
+  ppfRing.rotation.x = Math.PI / 2;
+  ppfRing.rotation.z = 0.1;
+  scene.add(ppfRing);
+
+  const HOLDINGS_3D = ['O2', 'CETIN', 'e&', 'HC', 'Sotio', 'Skoda', 'PPFRE', 'CME', 'AirBank'];
+  const holdingsObjs = [];
+  const holdingMat = new THREE.MeshStandardMaterial({ color: 0x67e8f9, emissive: 0x0891b2, emissiveIntensity: 0.5, metalness: 0.6, roughness: 0.4 });
+  HOLDINGS_3D.forEach((name, i) => {
+    const hMesh = new THREE.Mesh(new THREE.SphereGeometry(0.32, 24, 24), holdingMat);
+    const a = (i / HOLDINGS_3D.length) * Math.PI * 2;
+    hMesh.position.set(Math.cos(a) * 9, (Math.random() - 0.5) * 1.5, Math.sin(a) * 9);
+    scene.add(hMesh);
+    holdingsObjs.push({ mesh: hMesh, baseAngle: a, offsetY: hMesh.position.y });
+  });
+
+  const edgeMat = new THREE.LineBasicMaterial({ color: 0xd6a637, transparent: true, opacity: 0.35 });
+  daughters.forEach(d => {
+    const geo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0), d.mesh.position.clone()]);
+    scene.add(new THREE.Line(geo, edgeMat));
+  });
+
+  const edgeMat2 = new THREE.LineBasicMaterial({ color: 0x06b6d4, transparent: true, opacity: 0.18 });
+  holdingsObjs.forEach(hObj => {
+    const geo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0), hObj.mesh.position.clone()]);
+    scene.add(new THREE.Line(geo, edgeMat2));
+  });
+
+  const ambient = new THREE.AmbientLight(0xffffff, 0.4);
+  scene.add(ambient);
+  const point = new THREE.PointLight(0xf3d56b, 1.5, 30);
+  point.position.set(0, 0, 0);
+  scene.add(point);
+  const dir = new THREE.DirectionalLight(0x06b6d4, 0.6);
+  dir.position.set(10, 10, 10);
+  scene.add(dir);
+
+  const starGeo = new THREE.BufferGeometry();
+  const starPos = new Float32Array(800 * 3);
+  for (let i = 0; i < 800 * 3; i += 3) {
+    starPos[i]   = (Math.random() - 0.5) * 80;
+    starPos[i+1] = (Math.random() - 0.5) * 60;
+    starPos[i+2] = (Math.random() - 0.5) * 80;
+  }
+  starGeo.setAttribute('position', new THREE.BufferAttribute(starPos, 3));
+  const starMat = new THREE.PointsMaterial({ color: 0x94a3b8, size: 0.05, transparent: true, opacity: 0.4 });
+  scene.add(new THREE.Points(starGeo, starMat));
+
+  let t = 0;
+  function animate() {
+    requestAnimationFrame(animate);
+    t += 0.005;
+    daughters.forEach((d, i) => {
+      const a = d.baseAngle + t * 0.4;
+      d.mesh.position.x = Math.cos(a) * 4.5;
+      d.mesh.position.z = Math.sin(a) * 4.5;
+      d.mesh.position.y = Math.sin(t * 1.5 + i) * 0.3;
+    });
+    holdingsObjs.forEach((hObj, i) => {
+      const a = hObj.baseAngle + t * 0.18;
+      hObj.mesh.position.x = Math.cos(a) * 9;
+      hObj.mesh.position.z = Math.sin(a) * 9;
+      hObj.mesh.position.y = hObj.offsetY + Math.sin(t + i * 0.5) * 0.3;
+    });
+    amalarRing.rotation.z = t * 0.2;
+    ppfRing.rotation.z = -t * 0.1;
+    glow.scale.setScalar(1 + Math.sin(t * 2) * 0.05);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  window.addEventListener('resize', () => {
+    const cw = container.clientWidth;
+    const ch = container.clientHeight;
+    camera.aspect = cw / ch;
+    camera.updateProjectionMatrix();
+    renderer.setSize(cw, ch);
+  });
+}
+
+// ========== AMALAR DOUGHNUT ==========
+function initAmalarDoughnut() {
+  const ctx = document.getElementById('amalarDoughnut');
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Renáta Kellnerová', 'Anna Kellnerová', 'Lara Kodl Kellnerová', 'Marie Isabella Kellnerová'],
+      datasets: [{
+        data: [66.667, 11.111, 11.111, 11.111],
+        backgroundColor: ['#d6a637', '#f59e0b', '#fbbf24', '#fcd34d'],
+        borderColor: '#0f172a',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#cbd5e1', font: { size: 11 }, padding: 10, boxWidth: 12 } },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => {
+              const role = ['jednatelka, principal beneficial owner', 'dcera, FEI #10075949', 'dcera', 'dcera'][ctx.dataIndex];
+              return ` ${ctx.parsed}% — ${role}`;
+            }
+          }
+        }
+      },
+      cutout: '55%'
+    }
+  });
+}
+
+// ========== PPF STACKED BAR ==========
+function initPpfStackedBar() {
+  const ctx = document.getElementById('ppfStackedBar');
+  if (!ctx) return;
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['2021-03 †PK', '2023-09', '2024-11', '2025-08-21'],
+      datasets: [
+        { label: 'Rodina direct', data: [98.93, 100, 21.26, 100], backgroundColor: '#d6a637' },
+        { label: 'AMALAR Holding', data: [0, 0, 78.74, 0], backgroundColor: '#06b6d4' },
+        { label: 'Externí (Bartonicek/Duvieusart/Jr.)', data: [1.07, 0, 0, 0], backgroundColor: '#475569' }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      indexAxis: 'y',
+      scales: {
+        x: { stacked: true, max: 100, ticks: { color: '#94a3b8', callback: (v) => v + '%' }, grid: { color: 'rgba(148,163,184,0.1)' } },
+        y: { stacked: true, ticks: { color: '#cbd5e1' }, grid: { display: false } }
+      },
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#cbd5e1', font: { size: 11 }, boxWidth: 12 } },
+        tooltip: {
+          callbacks: {
+            afterLabel: (ctx) => {
+              const notes = {
+                '2021-03 †PK': 'Petr Kellner † · vrtulník Aljaska',
+                '2023-09': 'Bartoníček + Duvieusart vyplaceni · AMALAR vznik',
+                '2024-11': 'AMALAR konsolidace 78,74 %',
+                '2025-08-21': 'Petr Kellner Jr. 10 % buyout · rodina 100 %'
+              };
+              return notes[ctx.label] || '';
+            }
+          }
+        }
+      }
+    }
+  });
+}
+
+// ========== HOLDINGS DOUGHNUT ==========
+const HOLDINGS_DATA = [
+  { name: 'O2 Czech Republic', stake: '100 %', desc: 'Telekomunikace, akvizice 2013–2014. Plně PPF.', source: 'https://www.o2.cz/' },
+  { name: 'CETIN Czech', stake: '100 %', desc: 'Páteřní síťová infrastruktura ČR (vyčleněno z O2 2015).', source: 'https://www.cetin.cz/' },
+  { name: 'e& PPF Telecom Group', stake: '50 % –1 (JV)', desc: '2024-10: e& koupila majoritu za €2,15 mld + earn-out €350M. Holding pro Telekom Romania, A1 Bulgaria/SK/HU/SRB/SI.', source: 'https://www.ppf.eu/' },
+  { name: 'Home Credit', stake: 'majorita', desc: 'Spotřebitelské úvěry CZ/SK/Vietnam (po asijských divestments 2024–2025).', source: 'https://www.homecredit.net/' },
+  { name: 'Sotio Biotech', stake: '100 %', desc: 'Biotechnologie, onkoimunoterapie. Pražský základ.', source: 'https://www.sotio.com/' },
+  { name: 'Škoda Group', stake: 'majorita', desc: 'Rail transport (tramvaje, metro, lokomotivy). Plzeňský výrobce.', source: 'https://www.skodagroup.com/' },
+  { name: 'PPF Real Estate', stake: '100 %', desc: 'Komerční nemovitosti CZ + EU. Holding-level entity.', source: 'https://www.ppf.eu/' },
+  { name: 'CME / Markíza', stake: 'CME ovládáno', desc: 'Mediální skupina, slovenská Markíza, regionální TV. Akvizice 2020.', source: 'https://www.cme.net/' },
+  { name: 'Air Bank', stake: '100 %', desc: 'Retail banka ČR. Součást PPF banking horizontals (vč. ClearBank, Yettel Bank, PPF banka).', source: 'https://www.airbank.cz/' }
+];
+
+function initHoldingsDoughnut() {
+  const ctx = document.getElementById('holdingsDoughnut');
+  if (!ctx) return;
+  const equalShare = 100 / HOLDINGS_DATA.length;
+  const palette = ['#06b6d4', '#0891b2', '#f59e0b', '#d6a637', '#8b5cf6', '#a78bfa', '#10b981', '#0e7490', '#fbbf24'];
+
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: HOLDINGS_DATA.map(h => h.name),
+      datasets: [{
+        data: HOLDINGS_DATA.map(() => equalShare),
+        backgroundColor: palette,
+        borderColor: '#0f172a',
+        borderWidth: 2,
+        hoverOffset: 14
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      onClick: (e, items) => {
+        if (items.length > 0) {
+          const i = items[0].index;
+          const h = HOLDINGS_DATA[i];
+          const titleEl = document.getElementById('holdingTitle');
+          const metaEl = document.getElementById('holdingMeta');
+          const stakeEl = document.getElementById('holdingStake');
+          const descEl = document.getElementById('holdingDesc');
+          const linkEl = document.getElementById('holdingLink');
+          if (titleEl) titleEl.textContent = h.name;
+          if (metaEl) metaEl.textContent = 'PPF Stake';
+          if (stakeEl) stakeEl.textContent = h.stake;
+          if (descEl) descEl.textContent = h.desc;
+          if (linkEl) {
+            linkEl.setAttribute('href', h.source);
+            linkEl.classList.remove('hidden');
+          }
+        }
+      },
+      plugins: {
+        legend: { position: 'right', labels: { color: '#cbd5e1', font: { size: 11 }, boxWidth: 12, padding: 8 } },
+        tooltip: {
+          callbacks: {
+            label: (ctx) => ` ${HOLDINGS_DATA[ctx.dataIndex].stake}`,
+            afterLabel: (ctx) => HOLDINGS_DATA[ctx.dataIndex].desc.substring(0, 80) + '...'
+          }
+        }
+      },
+      cutout: '50%'
+    }
+  });
+}
+
+// ========== P5.JS WEALTH FLOW ==========
+const sketch = (p) => {
+  let particles = [];
+  let nodes = {};
+  const HOLDINGS = HOLDINGS_DATA.map(h => h.name);
+  let hovered = null;
+  let canvasW, canvasH;
+
+  p.setup = () => {
+    const container = document.getElementById('p5-flow');
+    if (!container) return;
+    canvasW = container.clientWidth;
+    canvasH = Math.min(520, Math.max(380, canvasW * 0.5));
+    const cnv = p.createCanvas(canvasW, canvasH);
+    cnv.parent('p5-flow');
+    initNodes();
+  };
+
+  p.windowResized = () => {
+    const container = document.getElementById('p5-flow');
+    if (!container) return;
+    canvasW = container.clientWidth;
+    canvasH = Math.min(520, Math.max(380, canvasW * 0.5));
+    p.resizeCanvas(canvasW, canvasH);
+    initNodes();
+  };
+
+  function initNodes() {
+    nodes = {
+      AMALAR: { x: canvasW * 0.08, y: canvasH * 0.5, label: 'AMALAR', color: [214,166,55] },
+      PPF: { x: canvasW * 0.4, y: canvasH * 0.5, label: 'PPF Group', color: [6,182,212] }
+    };
+    HOLDINGS.forEach((h, i) => {
+      const angle = ((i / HOLDINGS.length) - 0.5) * Math.PI * 0.95;
+      const r = canvasW * 0.4;
+      nodes[h] = {
+        x: canvasW * 0.7 + Math.cos(angle) * r * 0.55,
+        y: canvasH * 0.5 + Math.sin(angle) * canvasH * 0.4,
+        label: h,
+        color: [103,232,249]
+      };
+    });
+  }
+
+  p.draw = () => {
+    p.background(15, 23, 42);
+
+    p.strokeWeight(1);
+    p.stroke(214, 166, 55, 80);
+    p.line(nodes.AMALAR.x, nodes.AMALAR.y, nodes.PPF.x, nodes.PPF.y);
+    p.stroke(6, 182, 212, 50);
+    HOLDINGS.forEach(h => {
+      p.line(nodes.PPF.x, nodes.PPF.y, nodes[h].x, nodes[h].y);
+    });
+
+    if (p.frameCount % 4 === 0 && particles.length < 200) {
+      const target = HOLDINGS[Math.floor(Math.random() * HOLDINGS.length)];
+      particles.push({
+        x: nodes.AMALAR.x, y: nodes.AMALAR.y,
+        stage: 'to_ppf',
+        target: target,
+        progress: 0,
+        speed: 0.008 + Math.random() * 0.012
+      });
+    }
+
+    particles = particles.filter(particle => {
+      const paused = hovered && particle.target === hovered;
+      if (!paused) particle.progress += particle.speed;
+
+      if (particle.stage === 'to_ppf') {
+        const t = Math.min(particle.progress, 1);
+        particle.x = p.lerp(nodes.AMALAR.x, nodes.PPF.x, t);
+        particle.y = p.lerp(nodes.AMALAR.y, nodes.PPF.y, t);
+        if (t >= 1) {
+          particle.stage = 'to_holding';
+          particle.progress = 0;
+        }
+      } else {
+        const t = Math.min(particle.progress, 1);
+        const dst = nodes[particle.target];
+        particle.x = p.lerp(nodes.PPF.x, dst.x, t);
+        particle.y = p.lerp(nodes.PPF.y, dst.y, t);
+        if (t >= 1) return false;
+      }
+
+      const col = particle.stage === 'to_ppf' ? [243, 213, 107] : [103, 232, 249];
+      p.noStroke();
+      p.fill(col[0], col[1], col[2], 220);
+      p.circle(particle.x, particle.y, 4);
+      p.fill(col[0], col[1], col[2], 60);
+      p.circle(particle.x, particle.y, 9);
+      return true;
+    });
+
+    drawNode(nodes.AMALAR, 38, 'AMALAR', '78,74 % PPF', false);
+    drawNode(nodes.PPF, 30, 'PPF Group', '€43.5 mld', false);
+    let nearestHover = null;
+    HOLDINGS.forEach(h => {
+      const n = nodes[h];
+      const isNear = p.dist(p.mouseX, p.mouseY, n.x, n.y) < 18;
+      if (isNear) nearestHover = h;
+    });
+    hovered = nearestHover;
+    HOLDINGS.forEach(h => {
+      const n = nodes[h];
+      const isHovered = hovered === h;
+      drawNode(n, isHovered ? 16 : 12, h, '', isHovered);
+    });
+
+    if (hovered) {
+      const data = HOLDINGS_DATA.find(h => h.name === hovered);
+      if (data) {
+        p.fill(15, 23, 42, 230);
+        p.stroke(214, 166, 55, 120);
+        p.rect(p.mouseX + 10, p.mouseY - 50, 240, 64, 6);
+        p.noStroke();
+        p.fill(243, 213, 107);
+        p.textSize(11);
+        p.textAlign(p.LEFT, p.TOP);
+        p.text(hovered, p.mouseX + 18, p.mouseY - 42);
+        p.fill(203, 213, 225);
+        p.textSize(10);
+        p.text('Stake: ' + data.stake, p.mouseX + 18, p.mouseY - 26);
+        p.text(data.desc.substring(0, 50) + '...', p.mouseX + 18, p.mouseY - 12);
+      }
+    }
+  };
+
+  function drawNode(n, r, label, sub, highlight) {
+    p.noStroke();
+    p.fill(n.color[0], n.color[1], n.color[2], 60);
+    p.circle(n.x, n.y, r * 2.6);
+    p.fill(n.color[0], n.color[1], n.color[2], 220);
+    p.circle(n.x, n.y, r);
+    p.fill(15, 23, 42);
+    p.circle(n.x, n.y, r * 0.5);
+
+    p.fill(highlight ? 243 : 226, highlight ? 213 : 232, highlight ? 107 : 240);
+    p.textSize(highlight ? 12 : 10);
+    p.textAlign(p.CENTER, p.TOP);
+    p.noStroke();
+    p.text(label, n.x, n.y + r * 0.7);
+    if (sub) {
+      p.fill(148, 163, 184);
+      p.textSize(9);
+      p.text(sub, n.x, n.y + r * 0.7 + 13);
+    }
+  }
+};
+
+// ========== INIT ==========
+window.addEventListener('DOMContentLoaded', () => {
+  renderTimeline();
+  initThreeScene();
+  initAmalarDoughnut();
+  initPpfStackedBar();
+  initHoldingsDoughnut();
+  if (typeof p5 !== 'undefined') new p5(sketch);
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
+      }
+    });
+  }, { rootMargin: '-40% 0px -40% 0px' });
+  sections.forEach(s => observer.observe(s));
+});
+</script>
+
+</body>
+</html>

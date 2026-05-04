@@ -1,0 +1,21 @@
+{
+  "id": "2026-04-13-enhanced-pipeline-demo-petr-novak",
+  "name": "Enhanced Pipeline Demo - Petr Novak",
+  "status": "active",
+  "tags": [
+    "demo",
+    "enhanced",
+    "automation"
+  ],
+  "created_at": "2026-04-13T02:45:53.859899Z",
+  "risk_level": "unknown",
+  "entity_ids": [],
+  "updated_at": "2026-04-13T02:45:54.507918Z",
+  "subject": "Petr Novak",
+  "subject_type": "person",
+  "investigation_scope": {
+    "birth_year": 1980,
+    "country": "CZ",
+    "location": "Prague"
+  }
+}

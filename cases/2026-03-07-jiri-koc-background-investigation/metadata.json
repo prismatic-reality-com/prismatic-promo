@@ -1,0 +1,19 @@
+{
+  "id": "2026-03-07-jiri-koc-background-investigation",
+  "name": "Jiri Koc - Background Investigation",
+  "subject": "Jiri Koc, narozen 1976, Znojmo a okoli",
+  "subject_type": "person",
+  "status": "active",
+  "risk_level": "low-medium",
+  "created_at": "2026-03-07T12:00:00Z",
+  "updated_at": "2026-03-07T12:00:00Z",
+  "tags": ["czech", "znojmo", "person", "1976", "jihomoravsky-kraj"],
+  "entity_ids": [],
+  "investigation_scope": {
+    "birth_year": 1976,
+    "location": "Znojmo",
+    "region": "Jihomoravsky kraj",
+    "country": "CZ",
+    "scope_description": "Background verification and network analysis for person born 1976 in Znojmo region"
+  }
+}

@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Kellner Cluster — Entity Browser</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.127.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.127.0/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0b1020;color:#e8ecf3}
+  a{color:#6cb1ff;text-decoration:none}
+  a:hover{text-decoration:underline;color:#9cc7ff}
+  .card{background:linear-gradient(180deg,#10182d,#0d142a);border:1px solid #1f2a44;border-radius:12px}
+  .card:hover{border-color:#3b82f6}
+  .pill{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:600;letter-spacing:.02em}
+  .pill-person{background:#1d3a8f;color:#bcd6ff}
+  .pill-company{background:#2d5b3a;color:#bff5cd}
+  .pill-foundation{background:#5b3e2d;color:#ffd9bf}
+  .pill-risk-low{background:#1f3a2c;color:#9bf0b9}
+  .pill-risk-med{background:#553e1d;color:#ffd17a}
+  .pill-risk-high{background:#5c1f23;color:#ffabad}
+  .pill-info{background:#1f3a55;color:#9ed3ff}
+  .crumb a{color:#9cc7ff}
+  .crumb span{color:#5c6987}
+  .table-key{color:#8ea2c4;font-size:13px}
+  .table-val{color:#e8ecf3;font-size:13px}
+  .ego-canvas{width:100%;height:340px;background:#070b18;border-radius:10px;border:1px solid #1f2a44}
+  .p5-canvas{width:100%;height:120px;background:#070b18;border-radius:10px;border:1px solid #1f2a44}
+  .chart-wrap{background:#070b18;border:1px solid #1f2a44;border-radius:10px;padding:12px;height:280px;position:relative}
+  .section-title{font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:#7d8db1;font-weight:700;margin-bottom:10px;border-bottom:1px solid #1f2a44;padding-bottom:6px}
+  .ext-link::after{content:" \2197";color:#6cb1ff;font-size:11px}
+  .chip{cursor:pointer;user-select:none;padding:6px 12px;border-radius:8px;font-size:12px;font-weight:600;border:1px solid #2a3960;background:#0f1830;color:#9eb1d6}
+  .chip.active{background:#1e3a8a;color:#fff;border-color:#3b82f6}
+  .badge-ico{font-family:'SFMono-Regular',Menlo,monospace;font-size:11px;color:#9eb1d6;background:#10182d;padding:2px 6px;border-radius:4px;border:1px solid #1f2a44}
+  .grid-relations{display:grid;grid-template-columns:1fr;gap:8px}
+  .relation-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#0f1830;border:1px solid #1f2a44;border-radius:8px;font-size:13px}
+  .relation-row:hover{border-color:#3b82f6}
+  .timeline-tip{position:relative;cursor:help;border-bottom:1px dotted #6cb1ff}
+  .timeline-tip:hover::after{content:attr(data-tip);position:absolute;left:0;top:100%;margin-top:6px;background:#0a1024;border:1px solid #3b82f6;border-radius:6px;padding:6px 10px;font-size:11px;color:#bcd6ff;white-space:nowrap;z-index:50}
+  @media print{body{background:#fff;color:#000}.no-print{display:none!important}.card{background:#fff!important;border-color:#ccc!important}}
+</style>
+</head>
+<body>
+<div class="sticky top-0 z-40 bg-[#0b1020]/95 backdrop-blur border-b border-[#1f2a44] no-print">
+  <div class="max-w-7xl mx-auto px-4 py-3">
+    <div class="flex items-center justify-between flex-wrap gap-2">
+      <div>
+        <h1 class="text-xl font-bold text-white">Kellner Cluster <span class="text-[#7d8db1] font-normal">— Entity Browser</span></h1>
+        <nav class="crumb mt-1 text-xs" id="breadcrumb"></nav>
+      </div>
+      <div class="flex items-center gap-3">
+        <input id="search" type="text" placeholder="Hledat (jméno / IČO)..." class="bg-[#0f1830] border border-[#2a3960] text-sm text-white px-3 py-2 rounded-lg w-64 focus:outline-none focus:border-[#3b82f6]"/>
+        <a href="../index.html" class="text-xs text-[#9cc7ff] hover:underline">&larr; DD Hub</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 mt-2 flex-wrap" id="filter-chips">
+      <span class="chip active" data-filter="all">Všechny (15)</span>
+      <span class="chip" data-filter="person">Osoby (4)</span>
+      <span class="chip" data-filter="company">Firmy (10)</span>
+      <span class="chip" data-filter="foundation">Nadace (1)</span>
+    </div>
+  </div>
+</div>
+
+<main class="max-w-7xl mx-auto px-4 py-6" id="app-root"></main>
+
+<footer class="max-w-7xl mx-auto px-4 py-8 border-t border-[#1f2a44] mt-12 text-xs text-[#7d8db1]">
+  <div class="flex justify-between flex-wrap gap-2">
+    <span>Kellner Cluster — AMALAR superholding entity browser. Data verified 2026-04-28.</span>
+    <span><a href="../index.html">DD Case Hub</a> · <a href="01-amalar-governance-brief.html">01 Governance</a> · <a href="02-renata-ma-vetting.html">02 M&amp;A</a> · <a href="03-medialni-profil.html">03 Media</a> · <a href="04-personal-vetting-kyc.html">04 KYC</a></span>
+  </div>
+</footer>
+
+<script>
+const ENTITIES = {
+  "renata-kellnerova": {
+    type:"person", name:"Renáta Kellnerová", monogram:"RK",
+    dob:"1967-07-04", nationality:"Czech", birth_name:"Hacklová",
+    role:"Principal beneficial owner of PPF Group (78.74% via AMALAR Holding, 100% with family). Founder & Chairwoman of The Kellner Family Foundation. AMALAR HOLDING jednatelka, společník (780k Kč). Widow of Petr Kellner (†2021).",
+    amalar_stake:"66.667%", ppf_ubo:"100% (with daughters and Otruba RCA scope)",
+    net_worth:"$15.9B (Bloomberg #159, 2025) → $20.3B (Forbes 2/2026)",
+    rank:"Forbes Czech #1 (2024); Bloomberg #159 globálně",
+    pep:"UHNW family principal — PEP-equivalent for KYC (FATF R.12)",
+    sanctions:"NO MATCH (OpenSanctions, 2026-04-28)",
+    identifiers:{"Wikipedia (EN)":{url:"https://en.wikipedia.org/wiki/Ren%C3%A1ta_Kellnerov%C3%A1",val:"Ren%C3%A1ta_Kellnerov%C3%A1"},"Forbes Czech rank":{val:"#1"},"Bloomberg rank 2025":{val:"#159"}},
+    relations:[
+      {to:"anna-kellnerova", rel:"matka", target_type:"person"},
+      {to:"tomas-otruba", rel:"životní partner od 2024-04 (ÚOHS schváleno 03+05/2025)", target_type:"person"},
+      {to:"robert-sevela", rel:"PPF investiční ředitel pro rodinu", target_type:"person"},
+      {to:"amalar-holding", rel:"jednatelka, majority shareholder (780k CZK)", target_type:"company"},
+      {to:"ppf-as", rel:"ultimate beneficial owner", target_type:"company"},
+      {to:"kellner-family-foundation", rel:"founder, chairwoman supervisory board", target_type:"foundation"},
+      {to:"harmony-spindleruv-mlyn", rel:"26% via RKE Holding", target_type:"company"}
+    ],
+    risk_signals:[
+      {type:"ownership_consolidation_complete", date:"2025-08-21", severity:"info"},
+      {type:"jurisdiction_migration NL→CZ", date:"H1 2026", severity:"info"}
+    ],
+    sources:[
+      "https://en.wikipedia.org/wiki/Ren%C3%A1ta_Kellnerov%C3%A1",
+      "https://www.ppf.eu/en/press-release/renata-kellnerova-and-her-family-become-ppf-group-s-100-owners",
+      "https://www.ppf.eu/tiskova-zprava/rodina-kellnerovych-konsoliduje-svuj-majetek-do-superholdingu-amalar",
+      "https://www.kellnerfoundation.cz/en/about-the-foundation/board-of-trustees/renata-kellnerova",
+      "https://www.bloomberg.com/billionaires/profiles/renata-kellnerova/",
+      "https://forbes.cz/zebricky/nejbohatsi-cesi/",
+      "https://www.opensanctions.org/search/?q=Kellnerova",
+      "https://www.podnikatel.cz/rejstrik/amalar-holding-s-r-o-19696477/",
+      "https://archiv.hn.cz/c1-67336720-rodinny-byznys-horsky-hotel-harmony-kupuje-spolecne-s-pravnikem-otrubou-take-renata-kellnerova-s-dcerou-annou"
+    ]
+  },
+  "anna-kellnerova": {
+    type:"person", name:"Anna Kellnerová", monogram:"AK",
+    dob:"1996-11-26", birth_place:"Praha", nationality:"Czech",
+    role:"Daughter of Renáta and late Petr Kellner. Professional show jumper (FEI). Member of Supervisory Board of Kellner Family Foundation since 6/2021. Manager of Prague Lions GCL team. 11.111% AMALAR shareholder. 22% Harmony via AKE Holding.",
+    amalar_stake:"11.111%", fei_id:"10075949",
+    sport:"Senior team CR jumping; ME 2021 Riesenbeck; Tokyo 2021; Prague Lions GCL 2025",
+    fei_rank:"~632 (2025-01)",
+    pep:"Derived UHNW family member",
+    sanctions:"NO MATCH (low-risk, family aggregator scan)",
+    identifiers:{"Wikipedia (EN)":{url:"https://en.wikipedia.org/wiki/Anna_Kellnerov%C3%A1",val:"Anna_Kellnerov%C3%A1"},"FEI ID":{url:"https://www.fei.org/athlete/10075949/KELLNEROVA-Anna",val:"10075949"}},
+    relations:[
+      {to:"renata-kellnerova", rel:"dcera", target_type:"person"},
+      {to:"amalar-holding", rel:"11.111% shareholder", target_type:"company"},
+      {to:"kellner-family-foundation", rel:"supervisory board member od 2021-06", target_type:"foundation"},
+      {to:"harmony-spindleruv-mlyn", rel:"22% via AKE Holding", target_type:"company"}
+    ],
+    risk_signals:[],
+    sources:[
+      "https://en.wikipedia.org/wiki/Anna_Kellnerov%C3%A1",
+      "https://www.fei.org/athlete/10075949/KELLNEROVA-Anna",
+      "https://www.kellnerfoundation.cz/en/about-the-foundation/board-of-trustees/anna-kellnerova",
+      "https://www.gcglobalchampions.com/gcl/teams/2025/prague-lions",
+      "https://www.c-e-t.cz/en/anna-kellnerova/",
+      "https://www.equichannel.cz/clanky/o-konich-jinde/sedmdesat-procent-vykonu-je-na-koni-a-tricet-procent-na-jezdci-popisuje-parkur-anna-kellnerova",
+      "https://www.jezdci.cz/clanky/konci-catch-me-je-jedina-sveho-druhu-vyznala-se-kellnerova-na-rozloucenou/",
+      "https://www.ppf.eu/tiskova-zprava/rodina-kellnerovych-konsoliduje-svuj-majetek-do-superholdingu-amalar"
+    ]
+  },
+  "tomas-otruba": {
+    type:"person", name:"Tomáš Otruba", monogram:"TO",
+    dob:"1972-09-19", birth_place:"Praha", nationality:"Czech",
+    titles:["Mgr.","Ph.D."],
+    role:"Životní partner Renáty Kellnerové (od 4/2024). Architekt AMALAR Holdingu (založen 12.11.2023). Člen AMALAR Family Advisory Board. Předseda dozorčí rady PPF Group od 7/2025. Aktivní advokát (ČAK 04289). Zakladatel Nordic Investors Group. Předseda DR Krkonoše Resort Invest. 51% vlastník Harmony Špindlerův Mlýn JV.",
+    education:"Mgr. — Právnická fakulta UK",
+    cak:"04289", advokat_ico:"60178779",
+    pep:"RCA (Relatives & Close Associates) — FATF R.12 + EU AMLD6",
+    sanctions:"NO MATCH (OpenSanctions, 2026-04-28)",
+    regulatory:"ÚOHS schválil JV s Renátou Kellnerovou bez podmínek (03+05/2025)",
+    identifiers:{"Wikipedia (CS)":{url:"https://cs.wikipedia.org/wiki/Tom%C3%A1%C5%A1_Otruba",val:"Tom%C3%A1%C5%A1_Otruba"},"ČAK ev. č.":{url:"https://vyhledavac.cak.cz/Contact/Details/795189f6-6123-e711-80d5-00155d040b0c",val:"04289"},"IČO advokát":{url:"https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/60178779",val:"60178779"}},
+    relations:[
+      {to:"renata-kellnerova", rel:"životní partner od 2024-04", target_type:"person"},
+      {to:"amalar-holding", rel:"family advisory board member od 2023-11-12", target_type:"company"},
+      {to:"ppf-as", rel:"supervisory board chair od 2025-07", target_type:"company"},
+      {to:"otruba-advokat", rel:"sole proprietor (OSVČ advokát od 2000-01-01)", target_type:"company"},
+      {to:"nordic-investors-group", rel:"founder, board member od 2024-04-01", target_type:"company"},
+      {to:"krkonose-resort-invest", rel:"supervisory board chair od 2024-12-23", target_type:"company"},
+      {to:"harmony-spindleruv-mlyn", rel:"51% owner", target_type:"company"}
+    ],
+    risk_signals:[
+      {type:"governance_role_layering", description:"advokát × investor × statutární orgán PPF × životní partner principal", severity:"med"},
+      {type:"legal_advisor_history", description:"PPF Telefónica O2 deal 2013 + Generali 2015, později chair PPF SB", severity:"med"}
+    ],
+    sources:[
+      "https://cs.wikipedia.org/wiki/Tom%C3%A1%C5%A1_Otruba",
+      "https://denikn.cz/1397862/pravnik-s-vizi-ktery-se-neztrati-v-detailech-kdo-je-klicovy-hrac-ppf-a-novy-partner-renaty-kellnerove/",
+      "https://archiv.hn.cz/c1-65294370-skoncil-s-advokacii-a-vrhl-se-do-investic-skupuje-problemove-projekty",
+      "https://www.ppf.eu/tiskova-zprava/rodina-kellnerovych-konsoliduje-svuj-majetek-do-superholdingu-amalar",
+      "https://vyhledavac.cak.cz/Contact/Details/795189f6-6123-e711-80d5-00155d040b0c",
+      "https://www.lupa.cz/aktuality/tesnejsi-propojeni-kellnerove-s-otrubou-zacal-posuzovat-uohs/",
+      "https://www.itbiz.cz/zpravicky/o2-koupi-operatora-nordic-telecom-regional-s-vice-nez-100-000-zakazniky",
+      "https://uohs.gov.cz/cs/hospodarska-soutez/spojovani-soutezitelu/oznameni-o-pripravovanem-spojeni-soutezitelu/4161-oznameni-o-pripravovanem-spojeni-soutezitelu-renaty-kellnerove-a-pana-mgr-tomase-otruby-nordic-investors-group-as.html",
+      "https://www.opensanctions.org/search/?q=Tomas+Otruba",
+      "https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/60178779"
+    ]
+  },
+  "robert-sevela": {
+    type:"person", name:"Robert Ševela", monogram:"RŠ",
+    dob:"nezveřejněno", nationality:"Czech",
+    titles:["Ing.","Ph.D."],
+    role:"PPF investiční ředitel ~20 let (~2003/2004 — 2023). Člen AMALAR Family Investment Council od 12.11.2023. Director PPF real-estate (Tampa FL akvizice ~1 mld CZK). Historický CEO/jednatel CzechToll s.r.o. (2018, nahrazen Matejem Okálim 2019).",
+    pep:"Derived / PEP-adjacent (Senior Officer + AMALAR Family Investment Council)",
+    sanctions:"NO MATCH (OpenSanctions, 2026-04-28)",
+    note:"Premise correction: Original DD-PLAN brief mylně tvrdil že Ševela je GŘ ČT od 2024. Falsifikováno v Phase 2 (skutečný GŘ ČT je Hynek Chudárek od 1.7.2025).",
+    identifiers:{"PravéDnes profil":{url:"https://pravednes.cz/SevelaRobert.profil",val:"profil"}},
+    relations:[
+      {to:"renata-kellnerova", rel:"PPF investiční ředitel ~20 let pro Kellner family", target_type:"person"},
+      {to:"amalar-holding", rel:"family investment council member od 2023-11-12", target_type:"company"},
+      {to:"ppf-as", rel:"investment director ~20 let", target_type:"company"},
+      {to:"czechtoll", rel:"historický jednatel 2018", target_type:"company"}
+    ],
+    risk_signals:[
+      {type:"media_holdings_history", description:"CME/TV Nova era 2020-2024 PPF ownership", severity:"low"},
+      {type:"premise_falsification_resolved", description:"Original brief claimed GŘ ČT — falsified in Phase 2", severity:"info"}
+    ],
+    sources:[
+      "https://www.ppf.eu/tiskova-zprava/rodina-kellnerovych-konsoliduje-svuj-majetek-do-superholdingu-amalar",
+      "https://www.irozhlas.cz/zpravy-domov/renata-kellnerova-petr-kellner-kellnerovi-amalar-holding-ppf_2311131329_elev",
+      "https://ct24.ceskatelevize.cz/clanek/ekonomika/vitez-ceskeho-tendru-na-myto-ma-sanci-uspet-i-v-nemecku-82438",
+      "https://www.elogistika.info/generalnim-reditelem-czechtollu-se-stal-sef-skytollu-matej-okali/",
+      "https://pravednes.cz/SevelaRobert.profil",
+      "https://www.podnikatel.cz/rejstrik/osoby/robert-sevela-12603/",
+      "https://www.lupa.cz/clanky/komu-ted-vlastne-patri-televize-nova/",
+      "https://www.opensanctions.org/search/?q=Robert+Sevela"
+    ]
+  },
+  "amalar-holding": {
+    type:"company", name:"AMALAR HOLDING s.r.o.",
+    ico:"19696477", legal_form:"s.r.o.",
+    address:"Evropská 2690/17, Praha 6 — Dejvice, 160 00",
+    incorporated:"2023-09-06",
+    capital:"1 170 000 CZK",
+    court:"C 390328 (Městský soud v Praze)",
+    role:"Family superholding consolidating Kellner wealth (PPF, hotels, real estate). Top of post-Petr-Kellner family ownership tree. Holds 78.74% of PPF Group.",
+    key_event:"Announced completion of PPF Group N.V. relocation NL→CZ in H1 2026",
+    ownership:{"Renáta Kellnerová":66.667,"Anna Kellnerová":11.111,"Lara Kodl Kellnerová":11.111,"Marie Isabella Kellnerová":11.111},
+    governance:{
+      board:["Renáta (jednatelka)","Anna","Lara","Marie"],
+      advisory:["Jiří Rusnok","Magdalena Souček","Jiří Šmejc","Bohdan Pomahač","Tomáš Otruba"],
+      investment_council:["Robert Ševela","Martin Vlček","Jan Tomaník"],
+      special_advisor:"Tomáš Brzobohatý"
+    },
+    identifiers:{"IČO (ARES)":{url:"https://ares.gov.cz/ekonomicke-subjekty?obchodniJmeno=AMALAR",val:"19696477"},"Court file":{val:"C 390328"},"Podnikatel.cz":{url:"https://www.podnikatel.cz/rejstrik/amalar-holding-s-r-o-19696477/",val:"profil"}},
+    relations:[
+      {to:"renata-kellnerova", rel:"jednatelka, 66.667% shareholder", target_type:"person"},
+      {to:"anna-kellnerova", rel:"11.111% shareholder", target_type:"person"},
+      {to:"tomas-otruba", rel:"family advisory board member", target_type:"person"},
+      {to:"robert-sevela", rel:"family investment council member", target_type:"person"},
+      {to:"ppf-as", rel:"holds 78.74% PPF Group", target_type:"company"},
+      {to:"kellner-family-foundation", rel:"sdílená adresa Evropská 2690/17", target_type:"foundation"}
+    ],
+    risk_signals:[
+      {type:"ownership_concentration", description:"100% Kellner family", severity:"info"},
+      {type:"shared_address", description:"Stejné sídlo s PPF a.s. + Kellner Family Foundation", severity:"low"}
+    ],
+    sources:[
+      "https://www.podnikatel.cz/rejstrik/amalar-holding-s-r-o-19696477/",
+      "https://www.ppf.eu/tiskova-zprava/rodina-kellnerovych-konsoliduje-svuj-majetek-do-superholdingu-amalar",
+      "https://www.ppf.eu/tiskova-zprava/amalar-holding-oznamil-dokonceni-presunu-sidla-ppf-group-z-nizozemska-do-ceska",
+      "https://ares.gov.cz/ekonomicke-subjekty?obchodniJmeno=AMALAR"
+    ]
+  },
+  "ppf-as": {
+    type:"company", name:"PPF a.s.",
+    ico:"25099345", legal_form:"a.s.",
+    address:"Evropská 2690/17, Praha 6 — Dejvice, 160 00",
+    incorporated:"1997-01-13",
+    capital:"420 000 000 CZK",
+    role:"PPF Group's primary CZ operating entity. PPF Group N.V. (NL parent) relocates to CZ in H1 2026. €43.5 mld assets (2026-04).",
+    governance:{
+      board:["Ing. Kateřina Jirásková (předseda)","Mgr. Lubomír Král","Ing. Petr Janák"],
+      sb:["JUDr. Ivo Nesrovnal (předseda)","Ing. Ladislav Chvátal","Ing. Jitka Mašátová","Tomáš Otruba (chair PPF Group SB od 7/2025)"],
+      ubo:"Kellner family via AMALAR (78.74%) + family direct (~21.26%)"
+    },
+    holdings:["O2 Czech Republic (100%)","CETIN Czech","e& PPF Telecom Group (50%-1 JV od 2024-10)","Home Credit (CZ/SK/Vietnam)","Sotio Biotech","Škoda Group","PPF Real Estate","CME / Markíza","Air Bank, ClearBank, Yettel Bank, PPF banka","Heureka Group","InPost stake"],
+    holdings_chart:{"Telco":35,"Banking":20,"Real Estate":15,"Media":10,"Healthcare/Bio":8,"Industrial":7,"E-commerce":5},
+    identifiers:{"IČO":{url:"https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/25099345",val:"25099345"},"Wikipedia":{url:"https://en.wikipedia.org/wiki/PPF_(company)",val:"PPF"}},
+    relations:[
+      {to:"amalar-holding", rel:"78.74% vlastník", target_type:"company"},
+      {to:"renata-kellnerova", rel:"ultimate beneficial owner", target_type:"person"},
+      {to:"tomas-otruba", rel:"předseda PPF Group SB od 7/2025", target_type:"person"},
+      {to:"robert-sevela", rel:"investment director ~20 let", target_type:"person"},
+      {to:"czechtoll", rel:"PPF Group portfolio company (mýtný systém)", target_type:"company"},
+      {to:"kellner-family-foundation", rel:"sdílená adresa", target_type:"foundation"}
+    ],
+    risk_signals:[
+      {type:"jurisdiction_migration", description:"NL → CZ relocation H1 2026", severity:"info"},
+      {type:"size_systemic_relevance", description:"€43.5 mld assets, multi-sector conglomerát", severity:"med"}
+    ],
+    sources:[
+      "https://www.podnikatel.cz/rejstrik/ppf-a-s-25099345/",
+      "https://www.ppf.eu/en/our-companies",
+      "https://www.ppf.eu/tiskova-zprava/amalar-holding-oznamil-dokonceni-presunu-sidla-ppf-group-z-nizozemska-do-ceska",
+      "https://en.wikipedia.org/wiki/PPF_(company)"
+    ]
+  },
+  "kellner-family-foundation": {
+    type:"foundation", name:"Nadace The Kellner Family Foundation",
+    ico:"28902254", legal_form:"Nadace",
+    address:"Evropská 2690/17, Praha 6 — Dejvice, 160 00",
+    incorporated:"2009",
+    role:"Largest private philanthropic foundation in CZ. Operates Open Gate Grammar School (founded 2005), university scholarships, public primary school support, humanitarian aid (170 mil. CZK to Ukraine 2022+2026).",
+    disbursements:">1.6 mld CZK (2009-2021)",
+    governance:{
+      sb:["Renáta Kellnerová (chairwoman, founder)","Anna Kellnerová (od 2021-06)","Lara Kellnerová"],
+      founders:["Petr Kellner (†2021)","Renáta Kellnerová"]
+    },
+    programs:["Open Gate Grammar School (Babice u Prahy, 2005, IB-certified)","Educa Foundation (od 2002, scholarships)","University Student Support","Public Primary School Support","Humanitarian aid Ukraine"],
+    identifiers:{"IČO":{val:"28902254"},"Web":{url:"https://www.kellnerfoundation.cz/",val:"kellnerfoundation.cz"},"Wikipedia":{url:"https://en.wikipedia.org/wiki/The_Kellner_Family_Foundation",val:"foundation"}},
+    relations:[
+      {to:"renata-kellnerova", rel:"chairwoman, founder", target_type:"person"},
+      {to:"anna-kellnerova", rel:"supervisory board member od 2021-06", target_type:"person"},
+      {to:"amalar-holding", rel:"sdílená adresa Evropská 2690/17", target_type:"company"},
+      {to:"ppf-as", rel:"sdílená adresa", target_type:"company"}
+    ],
+    risk_signals:[
+      {type:"large_philanthropy", description:">1.6 mld CZK disbursed 2009-2021", severity:"info"}
+    ],
+    sources:[
+      "https://www.kellnerfoundation.cz/",
+      "https://en.wikipedia.org/wiki/The_Kellner_Family_Foundation",
+      "https://rejstrik.penize.cz/28902254-nadace-the-kellner-family-foundation",
+      "https://www.kellnerfoundation.cz/o-nadaci/zakladatele",
+      "https://www.ceska-justice.cz/2026/02/pomoc-civilistum-ukrajine-nadace-kellnerovych/"
+    ]
+  },
+  "otruba-advokat": {
+    type:"company", name:"Mgr. Tomáš Otruba — advokát",
+    ico:"60178779", legal_form:"OSVČ — advokát",
+    address:"Velká Úpa 297, 542 21 Pec pod Sněžkou (alt. Na hřebenech II, Praha 4)",
+    incorporated:"2000-01-01",
+    nace:["69100 (právní a účetní činnosti)","35110","35120"],
+    role:"Sole proprietorship of Mgr. Tomáš Otruba — aktivní advokát (ČAK 04289). Legal advisory for PPF a Renáta Kellnerová.",
+    email:"tomas.otruba@nordic-investors.com",
+    specialization:"M&A, capital markets, telco, energy, banking law",
+    identifiers:{"IČO":{url:"https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/60178779",val:"60178779"},"ČAK ev. č.":{url:"https://vyhledavac.cak.cz/Contact/Details/795189f6-6123-e711-80d5-00155d040b0c",val:"04289"}},
+    relations:[
+      {to:"tomas-otruba", rel:"OSVČ majitel (proprietor)", target_type:"person"}
+    ],
+    risk_signals:[],
+    sources:[
+      "https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/60178779",
+      "https://vyhledavac.cak.cz/Contact/Details/795189f6-6123-e711-80d5-00155d040b0c"
+    ]
+  },
+  "nordic-investors-group": {
+    type:"company", name:"Nordic Investors Group / Hospitality a.s.",
+    ico:"08034371", legal_form:"a.s.",
+    address:"Bedřichov 106, 543 51 Špindlerův Mlýn",
+    incorporated:"2019",
+    original:"Founded 2015 (originally Cyprus)",
+    rebrand:"2025-06 (renamed to Nordic Investors Hospitality)",
+    role:"Otruba's investor vehicle. Acquired Air Telecom (2016, renamed Nordic Telecom 2017), Nordic Telecom Regional sold to O2 6/2024. Pivoted to hospitality/RE 2025.",
+    history:"Founded 2015 Cyprus → moved to CZ 2019 → telco pivot 2016-2024 → exit O2 6/2024 → rebrand to Hospitality 6/2025",
+    identifiers:{"IČO":{url:"https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/08034371",val:"08034371"},"Wikipedia":{url:"https://cs.wikipedia.org/wiki/Nordic_Investors",val:"Nordic_Investors"}},
+    relations:[
+      {to:"tomas-otruba", rel:"founder, board member od 2024-04-01", target_type:"person"},
+      {to:"nordic-telecom-regional", rel:"former parent (sold to O2 6/2024)", target_type:"company"}
+    ],
+    risk_signals:[
+      {type:"jurisdiction_history", description:"Originally Cyprus 2015 → CZ 2019", severity:"low"}
+    ],
+    sources:[
+      "https://cs.wikipedia.org/wiki/Nordic_Investors",
+      "https://www.tyden.cz/rubriky/byznys/cesko/skupina-nordic-investors-se-presune-z-kypru-do-ceska_477685.html",
+      "https://cs.wikipedia.org/wiki/Tom%C3%A1%C5%A1_Otruba"
+    ]
+  },
+  "krkonose-resort-invest": {
+    type:"company", name:"Krkonoše Resort Invest a.s.",
+    ico:"01868616", legal_form:"a.s.",
+    address:"Pec pod Sněžkou 137, 542 21",
+    incorporated:"2016-12-27",
+    capital:"34 600 000 CZK",
+    lei:"315700HXBFOT3EEVRP80",
+    role:"Holdco for Otruba's Krkonoše hotel pyramid. Vydávané dluhopisy (LEI registered).",
+    governance:{
+      sb:["Tomáš Otruba (chair od 2024-12-23)","MUDr. Miroslav Buriánek, MBA","Mgr. Jan Petřík","Ing. Libor Dočkálek"]
+    },
+    subsidiaries:["GRAND HOTEL HRADEC s.r.o.","Horní Maršov Resort Invest s.r.o.","Janské Lázně Resort Invest s.r.o. (Hotel Omnia + Residence Vyhlídka)","Pec pod Sněžkou Resort Invest s.r.o.","Velkoobchod hotelovými víny a.s. (IČO 22283340, acquired 2024-11-20)"],
+    identifiers:{"IČO":{url:"https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/01868616",val:"01868616"},"LEI":{url:"https://lei-ceska.cz/podrobne-informace/333156/315700HXBFOT3EEVRP80/krkonose-resort-invest-a-s/",val:"315700HXBFOT3EEVRP80"}},
+    relations:[
+      {to:"tomas-otruba", rel:"supervisory board chair od 2024-12-23", target_type:"person"},
+      {to:"grand-hotel-hradec", rel:"parent company", target_type:"company"}
+    ],
+    risk_signals:[
+      {type:"bond_issuance", description:"LEI registered, vydávané dluhopisy", severity:"low"}
+    ],
+    sources:[
+      "https://www.podnikatel.cz/rejstrik/pec-resort-invest-a-s-01868616/",
+      "https://www.hlidacstatu.cz/subjekt/Vazby/01868616",
+      "https://lei-ceska.cz/podrobne-informace/333156/315700HXBFOT3EEVRP80/krkonose-resort-invest-a-s/"
+    ]
+  },
+  "grand-hotel-hradec": {
+    type:"company", name:"GRAND HOTEL HRADEC s.r.o.",
+    ico:"07024223", legal_form:"s.r.o.",
+    address:"Praha (operations Pec pod Sněžkou)",
+    incorporated:"2018",
+    role:"Subsidiary of Krkonoše Resort Invest. Hotel v Pec pod Sněžkou.",
+    ownership_change:"2025-05-03 acquired by Krkonoše Resort Invest a.s.",
+    identifiers:{"IČO":{url:"https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/07024223",val:"07024223"}},
+    relations:[
+      {to:"krkonose-resort-invest", rel:"parent (od 2025-05-03)", target_type:"company"}
+    ],
+    risk_signals:[],
+    sources:[
+      "https://www.hlidacstatu.cz/subjekt/Vazby/01868616"
+    ]
+  },
+  "harmony-spindleruv-mlyn": {
+    type:"company", name:"Harmony Špindlerův Mlýn a.s.",
+    ico:"21539065", legal_form:"a.s.",
+    address:"Bohdalecká 1490/25, 101 00 Praha — Michle",
+    incorporated:"2024-05-06",
+    role:"Acquisition SPV for Hotel Harmony Špindlerův Mlýn. JV: Otruba 51%, RKE/Renáta 26%, AKE/Anna 22%. Acquired from Václav Junek (ex-Chemapol) za >700 mil. CZK. ÚOHS schválil bez podmínek.",
+    ownership:{"Tomáš Otruba":51,"RKE Holding (Renáta)":26,"AKE Holding (Anna)":22},
+    regulatory:"ÚOHS approved without conditions (March + May 2025)",
+    identifiers:{"IČO":{url:"https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/21539065",val:"21539065"}},
+    relations:[
+      {to:"tomas-otruba", rel:"51% owner", target_type:"person"},
+      {to:"renata-kellnerova", rel:"26% via RKE Holding", target_type:"person"},
+      {to:"anna-kellnerova", rel:"22% via AKE Holding", target_type:"person"},
+      {to:"harmony-operations", rel:"operational subsidiary", target_type:"company"}
+    ],
+    risk_signals:[
+      {type:"jv_with_legal_advisor", description:"Otruba (advokát) majoritní partner s Kellner family", severity:"med"},
+      {type:"uohs_review_completed", description:"ÚOHS schváleno 03+05/2025 bez podmínek", severity:"info"}
+    ],
+    sources:[
+      "https://archiv.hn.cz/c1-67336720-rodinny-byznys-horsky-hotel-harmony-kupuje-spolecne-s-pravnikem-otrubou-take-renata-kellnerova-s-dcerou-annou",
+      "https://www.echo24.cz/a/HCU6Q/zpravy-ekonomika-kellnerova-koupila-hotel-harmony-spindleruv-mlyn-soucasti-je-i-bunkr-ceskoslovenska-armada",
+      "https://rejstrik.penize.cz/21539065-harmony-spindleruv-mlyn-a-s",
+      "https://uohs.gov.cz/cs/hospodarska-soutez/spojovani-soutezitelu/oznameni-o-pripravovanem-spojeni-soutezitelu/4161-oznameni-o-pripravovanem-spojeni-soutezitelu-renaty-kellnerove-a-pana-mgr-tomase-otruby-nordic-investors-group-as.html"
+    ]
+  },
+  "harmony-operations": {
+    type:"company", name:"Harmony Špindlerův Mlýn Operations s.r.o.",
+    ico:"22175806", legal_form:"s.r.o.",
+    address:"Bohdalecká 1490/25, Praha 4 — Michle",
+    incorporated:"2024-10-18",
+    capital:"20 000 CZK",
+    court:"C 412111 (Městský soud v Praze)",
+    role:"Operating subsidiary of Harmony Špindlerův Mlýn (acquisition SPV). Stejná adresa.",
+    identifiers:{"IČO":{url:"https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/22175806",val:"22175806"},"Court file":{val:"C 412111"}},
+    relations:[
+      {to:"harmony-spindleruv-mlyn", rel:"parent SPV", target_type:"company"}
+    ],
+    risk_signals:[
+      {type:"low_share_capital", description:"20k CZK kapitál pro operační entitu", severity:"low"}
+    ],
+    sources:[
+      "https://www.podnikatel.cz/rejstrik/harmony-spindleruv-mlyn-operations-s-r-o-22175806/"
+    ]
+  },
+  "czechtoll": {
+    type:"company", name:"CzechToll s.r.o.",
+    ico:"06315160", legal_form:"s.r.o.",
+    address:"Argentinská 1610/4, 170 00 Praha 7 — Holešovice",
+    incorporated:"2017",
+    court:"C 280083 (Městský soud v Praze)",
+    role:"Czech road tolling operator (mýtný systém). PPF Group + Matej Okáli partner. Konsolidováno s 3 dalšími firmami do ITIS Holdingu.",
+    governance:{
+      ceo:"Matej Okáli (od 2019)",
+      historic_jednatel_2018:"Robert Ševela (PPF investment director)"
+    },
+    identifiers:{"IČO":{url:"https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/06315160",val:"06315160"},"Court file":{val:"C 280083"}},
+    relations:[
+      {to:"robert-sevela", rel:"historický jednatel 2018", target_type:"person"},
+      {to:"ppf-as", rel:"PPF Group portfolio (mýtný systém)", target_type:"company"}
+    ],
+    risk_signals:[
+      {type:"public_contract_holder", description:"Český mýtný systém — government concession", severity:"med"}
+    ],
+    sources:[
+      "https://rejstrik.penize.cz/06315160-czechtoll-s-r-o",
+      "https://www.skytoll.com/ppf-together-with-partner-matej-okali-consolidate-four-technology-companies-into-its-new-itis-holding-group-it-will-focus-on-the-development-of-toll-services-and-innovation-in-intelligent-traffic-man/",
+      "https://www.elogistika.info/generalnim-reditelem-czechtollu-se-stal-sef-skytollu-matej-okali/",
+      "https://ct24.ceskatelevize.cz/clanek/ekonomika/vitez-ceskeho-tendru-na-myto-ma-sanci-uspet-i-v-nemecku-82438"
+    ]
+  },
+  "nordic-telecom-regional": {
+    type:"company", name:"Nordic Telecom Regional s.r.o.",
+    ico:"04593332", legal_form:"s.r.o.",
+    address:"Za Brumlovkou 266/2, 140 00 Praha 4 — Michle",
+    incorporated:"2015-11-26",
+    capital:"25 000 CZK (post-2025-11)",
+    role:"Otruba's exited telco asset (post-O2 sale); historical context for cluster.",
+    ownership_history:"Founded under Otruba's Nordic Investors Group; sold to O2 Czech Republic 2024-06-24 (SPA signed); 100% O2 ownership od 2024-11-01",
+    milestones:["2024-06-24: SPA signed s O2 (100% sale)","2025-01-01: Demerger do Infrastruktura NTR s.r.o.","2025-04-01: ComCo division transferred to O2","2025-09-01: New jednatelé Karel Jára, Petra Karasová"],
+    identifiers:{"IČO":{url:"https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/04593332",val:"04593332"}},
+    relations:[
+      {to:"nordic-investors-group", rel:"former parent (Otruba vehicle)", target_type:"company"},
+      {to:"tomas-otruba", rel:"original founder via Nordic Investors", target_type:"person"}
+    ],
+    risk_signals:[
+      {type:"ownership_change_recent", description:"Sold to O2 6/2024, currently 100% O2", severity:"info"}
+    ],
+    sources:[
+      "https://www.podnikatel.cz/rejstrik/nordic-telecom-regional-s-r-o-04593332/",
+      "https://www.lupa.cz/aktuality/nordic-telecom-prodan-o2/",
+      "https://www.itbiz.cz/zpravicky/o2-koupi-operatora-nordic-telecom-regional-s-vice-nez-100-000-zakazniky"
+    ]
+  }
+};
+
+const TIMELINE_MILESTONES = {
+  "2021-03-27":"Petr Kellner †",
+  "2023-08-31":"AMALAR Holding přípravná fáze",
+  "2023-09-06":"AMALAR Holding zápis (IČO 19696477)",
+  "2023-11-12":"Konsolidace majetku oznámena",
+  "2024-04":"Renáta + Otruba životní partneři",
+  "2024-10":"Harmony Operations založení",
+  "2024-11-12":"AMALAR Family Council expanded",
+  "2025-08-21":"Konsolidace dokončena (100%)",
+  "2026 H1":"PPF Group N.V. relokace NL→CZ"
+};
+
+// ====================== HELPERS (DOM-only, no innerHTML) ======================
+function el(tag, attrs, ...children){
+  const e = document.createElement(tag);
+  if(attrs){
+    for(const k in attrs){
+      if(k==='class') e.className = attrs[k];
+      else if(k==='onclick') e.addEventListener('click', attrs[k]);
+      else if(k.startsWith('data-')) e.setAttribute(k, attrs[k]);
+      else e.setAttribute(k, attrs[k]);
+    }
+  }
+  for(const c of children){
+    if(c==null) continue;
+    if(Array.isArray(c)){
+      for(const x of c){ if(x==null) continue; e.appendChild(typeof x==='string' || typeof x==='number' ? document.createTextNode(String(x)) : x); }
+    } else if(typeof c==='string' || typeof c==='number'){
+      e.appendChild(document.createTextNode(String(c)));
+    } else {
+      e.appendChild(c);
+    }
+  }
+  return e;
+}
+
+function clearChildren(node){
+  while(node.firstChild){ node.removeChild(node.firstChild); }
+}
+
+function parseHash(){
+  const h = window.location.hash.replace(/^#/,'');
+  if(!h || h==='/' || h===''){return {route:'home'};}
+  const parts = h.split('/').filter(Boolean);
+  if(parts.length===2){return {route:'detail', kind:parts[0], slug:parts[1]};}
+  return {route:'home'};
+}
+
+function navigate(hash){
+  if(window.location.hash !== hash){window.location.hash = hash;}
+  else { render(); }
+}
+
+window.addEventListener('hashchange', render);
+window.addEventListener('popstate', render);
+
+// Linkify entity mentions in text content using DOM-only construction
+function linkifyText(text, currentSlug){
+  if(!text) return document.createTextNode('');
+  const wrap = el('span');
+  const aliases = [];
+  for(const slug in ENTITIES){
+    if(slug===currentSlug) continue;
+    const e = ENTITIES[slug];
+    aliases.push({slug, name:e.name, type:e.type});
+    const parts = e.name.split(' ');
+    if(e.name.includes('Kellnerová') && slug!=='kellner-family-foundation' && parts.length>=2){
+      aliases.push({slug, name:parts[0]+' '+parts[1], type:e.type});
+    }
+  }
+  aliases.sort((a,b)=>b.name.length-a.name.length);
+
+  let remaining = text;
+  let safety = 0;
+  while(remaining.length>0 && safety++<200){
+    let bestIdx = -1, bestAlias = null;
+    for(const al of aliases){
+      const idx = remaining.indexOf(al.name);
+      if(idx!==-1 && (bestIdx===-1 || idx<bestIdx)){
+        bestIdx = idx; bestAlias = al;
+      }
+    }
+    if(bestIdx===-1){ wrap.appendChild(document.createTextNode(remaining)); break; }
+    if(bestIdx>0){ wrap.appendChild(document.createTextNode(remaining.slice(0,bestIdx))); }
+    const kind = bestAlias.type==='person' ? 'person' : 'company';
+    wrap.appendChild(el('a', {href:`#/${kind}/${bestAlias.slug}`}, bestAlias.name));
+    remaining = remaining.slice(bestIdx + bestAlias.name.length);
+  }
+  return wrap;
+}
+
+function severityClass(sev){
+  if(!sev) return 'pill-info';
+  const s = sev.toLowerCase();
+  if(s.includes('high') || s==='high') return 'pill-risk-high';
+  if(s.includes('med') || s==='med' || s==='medium') return 'pill-risk-med';
+  if(s.includes('low') || s==='low') return 'pill-risk-low';
+  return 'pill-info';
+}
+
+function setBreadcrumb(items){
+  const bc = document.getElementById('breadcrumb');
+  clearChildren(bc);
+  items.forEach((item, i)=>{
+    if(i>0){ bc.appendChild(el('span', {}, ' › ')); }
+    if(item.href){ bc.appendChild(el('a', {href:item.href}, item.label)); }
+    else { bc.appendChild(el('span', {class:'text-white'}, item.label)); }
+  });
+}
+
+// ====================== HOME RENDER ======================
+function renderHome(){
+  const root = document.getElementById('app-root');
+  clearChildren(root);
+  setBreadcrumb([{label:'Home', href:'#/'}]);
+
+  const intro = el('div', {class:'mb-6'},
+    el('h2', {class:'text-2xl font-bold text-white mb-2'}, 'Kellner Cluster — 15 entit'),
+    el('p', {class:'text-sm text-[#9eb1d6] max-w-3xl'}, 'AMALAR superholding cluster: 4 osoby + 10 firem + 1 nadace. Konsolidace majetku rodiny Kellnerových po smrti Petra Kellnera (†2021). Sídlo: Evropská 2690/17, Praha 6. Klikem na kartu otevřete detailní profil.')
+  );
+  root.appendChild(intro);
+
+  const grid = el('div', {class:'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4', id:'entity-grid'});
+  root.appendChild(grid);
+
+  for(const slug in ENTITIES){
+    const e = ENTITIES[slug];
+    const kind = e.type==='person' ? 'person' : 'company';
+    const pillClass = e.type==='person'?'pill-person':e.type==='foundation'?'pill-foundation':'pill-company';
+    const pillLabel = e.type==='person'?'Osoba':e.type==='foundation'?'Nadace':'Firma';
+    const searchStr = ((e.name||'')+' '+(e.ico||'')+' '+(e.cak||'')+' '+(e.fei_id||'')).toLowerCase();
+    const desc = (e.role||'').slice(0,140) + ((e.role||'').length>140 ? '...' : '');
+
+    const headerLeft = e.type==='person'
+      ? el('div', {class:'w-12 h-12 rounded-full bg-gradient-to-br from-[#3b82f6] to-[#1e3a8a] flex items-center justify-center text-white font-bold text-lg'}, e.monogram||'?')
+      : el('div', {class:'badge-ico'}, 'IČO '+(e.ico||'—'));
+
+    const card = el('div', {class:'card p-5 cursor-pointer transition-all', 'data-type':e.type, 'data-search':searchStr, onclick:()=>navigate(`#/${kind}/${slug}`)},
+      el('div', {class:'flex items-start justify-between mb-3'},
+        headerLeft,
+        el('span', {class:'pill '+pillClass}, pillLabel)
+      ),
+      el('h3', {class:'text-base font-bold text-white mb-1'}, e.name),
+      el('p', {class:'text-xs text-[#9eb1d6]'}, desc),
+      el('div', {class:'mt-3 pt-3 border-t border-[#1f2a44] text-xs text-[#7d8db1]'},
+        e.type==='person'
+          ? 'DOB: '+(e.dob||'—')
+          : 'Založeno: '+(e.incorporated||'—')+' · Kapitál: '+(e.capital||'—')
+      )
+    );
+    grid.appendChild(card);
+  }
+
+  applyFilter();
+  applySearch();
+}
+
+// ====================== DETAIL RENDER ======================
+function renderDetail(kind, slug){
+  const e = ENTITIES[slug];
+  if(!e){ navigate('#/'); return; }
+  const root = document.getElementById('app-root');
+  clearChildren(root);
+
+  const typeLabel = e.type==='person' ? 'Osoby' : e.type==='foundation' ? 'Nadace' : 'Firmy';
+  setBreadcrumb([
+    {label:'Home', href:'#/'},
+    {label:typeLabel, href:'#/'},
+    {label:e.name}
+  ]);
+
+  // Header card
+  const pillClass = e.type==='person'?'pill-person':e.type==='foundation'?'pill-foundation':'pill-company';
+  const headerLeft = e.type==='person'
+    ? el('div', {class:'w-16 h-16 rounded-full bg-gradient-to-br from-[#3b82f6] to-[#1e3a8a] flex items-center justify-center text-white font-bold text-2xl'}, e.monogram||'?')
+    : el('div', {class:'w-16 h-16 rounded-lg bg-gradient-to-br from-[#10b981] to-[#065f46] flex items-center justify-center text-white font-bold text-xs px-2 text-center'}, e.ico||'—');
+
+  const headerBadges = [];
+  headerBadges.push(el('span', {class:'pill '+pillClass}, e.type==='person'?'Osoba':e.type==='foundation'?'Nadace':'Firma'));
+  if(e.dob) headerBadges.push(el('span', {class:'text-xs text-[#9eb1d6]'}, '* '+e.dob));
+  if(e.incorporated) headerBadges.push(el('span', {class:'text-xs text-[#9eb1d6]'}, 'Založeno: '+e.incorporated));
+  if(e.ico) headerBadges.push(el('a', {class:'badge-ico ext-link', href:`https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/${e.ico}`, target:'_blank', rel:'noopener'}, 'IČO '+e.ico));
+  if(e.cak) headerBadges.push(el('a', {class:'badge-ico ext-link', href:'https://vyhledavac.cak.cz/', target:'_blank', rel:'noopener'}, 'ČAK '+e.cak));
+  if(e.fei_id) headerBadges.push(el('a', {class:'badge-ico ext-link', href:`https://www.fei.org/athlete/${e.fei_id}/KELLNEROVA-Anna`, target:'_blank', rel:'noopener'}, 'FEI '+e.fei_id));
+  if(e.lei) headerBadges.push(el('a', {class:'badge-ico ext-link', href:`https://www.gleif.org/lei/${e.lei}`, target:'_blank', rel:'noopener'}, 'LEI '+e.lei));
+
+  const header = el('div', {class:'card p-6 mb-6'},
+    el('div', {class:'flex items-start justify-between flex-wrap gap-3 mb-3'},
+      el('div', {class:'flex items-center gap-4'},
+        headerLeft,
+        el('div', {},
+          el('h1', {class:'text-2xl font-bold text-white'}, e.name),
+          el('div', {class:'flex flex-wrap items-center gap-2 mt-1'}, headerBadges)
+        )
+      )
+    )
+  );
+  root.appendChild(header);
+
+  const cols = el('div', {class:'grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6'});
+  root.appendChild(cols);
+
+  // LEFT
+  const left = el('div', {});
+  cols.appendChild(left);
+
+  // Profile
+  const profilePara = el('p', {class:'text-sm text-[#cfd8e8] leading-relaxed'});
+  profilePara.appendChild(linkifyText(e.role||'', slug));
+  left.appendChild(el('div', {class:'card p-5 mb-4'},
+    el('div', {class:'section-title'}, 'Profil'),
+    profilePara
+  ));
+
+  // Bio table
+  const bioRows = [];
+  if(e.nationality) bioRows.push(['Národnost', e.nationality]);
+  if(e.dob && e.dob!=='nezveřejněno') bioRows.push(['Datum narození', e.dob]);
+  if(e.birth_place) bioRows.push(['Místo narození', e.birth_place]);
+  if(e.birth_name) bioRows.push(['Rodné jméno', e.birth_name]);
+  if(e.titles) bioRows.push(['Tituly', e.titles.join(', ')]);
+  if(e.education) bioRows.push(['Vzdělání', e.education]);
+  if(e.amalar_stake) bioRows.push(['AMALAR podíl', e.amalar_stake]);
+  if(e.ppf_ubo) bioRows.push(['PPF UBO', e.ppf_ubo]);
+  if(e.net_worth) bioRows.push(['Net worth', e.net_worth]);
+  if(e.rank) bioRows.push(['Žebříčky', e.rank]);
+  if(e.fei_rank) bioRows.push(['FEI ranking', e.fei_rank]);
+  if(e.sport) bioRows.push(['Sport', e.sport]);
+  if(e.address) bioRows.push(['Sídlo', e.address]);
+  if(e.legal_form) bioRows.push(['Právní forma', e.legal_form]);
+  if(e.capital) bioRows.push(['Základní kapitál', e.capital]);
+  if(e.court) bioRows.push(['Soud. spis', e.court]);
+  if(e.original) bioRows.push(['Původ', e.original]);
+  if(e.rebrand) bioRows.push(['Rebrand', e.rebrand]);
+  if(e.history) bioRows.push(['Historie', e.history]);
+  if(e.email) bioRows.push(['E-mail', e.email]);
+  if(e.specialization) bioRows.push(['Specializace', e.specialization]);
+  if(e.disbursements) bioRows.push(['Disbursements', e.disbursements]);
+  if(e.regulatory) bioRows.push(['Regulátor', e.regulatory]);
+  if(e.pep) bioRows.push(['PEP status', e.pep]);
+  if(e.sanctions) bioRows.push(['Sanctions', e.sanctions]);
+  if(e.key_event) bioRows.push(['Klíčová událost', e.key_event]);
+  if(e.note) bioRows.push(['Poznámka', e.note]);
+  if(e.ownership_change) bioRows.push(['Ownership change', e.ownership_change]);
+  if(e.ownership_history) bioRows.push(['Ownership history', e.ownership_history]);
+
+  if(bioRows.length>0){
+    const bioCard = el('div', {class:'card p-5 mb-4'},
+      el('div', {class:'section-title'}, 'Datový list')
+    );
+    const bioBody = el('div', {class:'space-y-2'});
+    bioRows.forEach(([k,v])=>{
+      const tip = TIMELINE_MILESTONES[v];
+      let valNode;
+      if(tip){
+        valNode = el('span', {class:'table-val timeline-tip', 'data-tip':tip}, v);
+      } else {
+        valNode = el('span', {class:'table-val'});
+        valNode.appendChild(linkifyText(String(v), slug));
+      }
+      bioBody.appendChild(el('div', {class:'flex justify-between gap-4 py-1 border-b border-[#1f2a44]/40'},
+        el('span', {class:'table-key whitespace-nowrap'}, k),
+        valNode
+      ));
+    });
+    bioCard.appendChild(bioBody);
+    left.appendChild(bioCard);
+  }
+
+  // Identifiers
+  if(e.identifiers){
+    const idsCard = el('div', {class:'card p-5 mb-4'},
+      el('div', {class:'section-title'}, 'Identifikátory & odkazy')
+    );
+    const idsBody = el('div', {class:'space-y-2'});
+    Object.keys(e.identifiers).forEach(k=>{
+      const v = e.identifiers[k];
+      let valNode;
+      if(v.url){
+        valNode = el('a', {class:'table-val ext-link', href:v.url, target:'_blank', rel:'noopener'}, v.val||v.url);
+      } else {
+        valNode = el('span', {class:'table-val'}, v.val||'—');
+      }
+      idsBody.appendChild(el('div', {class:'flex justify-between gap-4 py-1 border-b border-[#1f2a44]/40'},
+        el('span', {class:'table-key'}, k),
+        valNode
+      ));
+    });
+    idsCard.appendChild(idsBody);
+    left.appendChild(idsCard);
+  }
+
+  // Risk signals
+  if(e.risk_signals && e.risk_signals.length>0){
+    const riskCard = el('div', {class:'card p-5 mb-4'},
+      el('div', {class:'section-title'}, 'Risk signals ('+e.risk_signals.length+')')
+    );
+    const riskBody = el('div', {class:'space-y-2'});
+    e.risk_signals.forEach(rs=>{
+      const inner = el('div', {class:'flex-1'},
+        el('div', {class:'text-sm font-semibold text-white'}, rs.type)
+      );
+      if(rs.description) inner.appendChild(el('div', {class:'text-xs text-[#9eb1d6] mt-1'}, rs.description));
+      if(rs.date) inner.appendChild(el('div', {class:'text-xs text-[#7d8db1] mt-1'}, 'Datum: '+rs.date));
+      riskBody.appendChild(el('div', {class:'flex items-start gap-2 py-2 border-b border-[#1f2a44]/40'},
+        el('span', {class:'pill '+severityClass(rs.severity)}, rs.severity||'info'),
+        inner
+      ));
+    });
+    riskCard.appendChild(riskBody);
+    left.appendChild(riskCard);
+  }
+
+  // RIGHT
+  const right = el('div', {});
+  cols.appendChild(right);
+
+  // Relations
+  if(e.relations && e.relations.length>0){
+    const relCard = el('div', {class:'card p-5 mb-4'},
+      el('div', {class:'section-title'}, 'Vazby ('+e.relations.length+')')
+    );
+    const relBody = el('div', {class:'grid-relations'});
+    e.relations.forEach(r=>{
+      const target = ENTITIES[r.to];
+      const targetKind = (r.target_type==='person') ? 'person' : 'company';
+      relBody.appendChild(el('div', {class:'relation-row cursor-pointer', onclick:()=>navigate(`#/${targetKind}/${r.to}`)},
+        el('div', {class:'flex-1'},
+          el('div', {class:'text-sm font-semibold text-white'}, target ? target.name : r.to),
+          el('div', {class:'text-xs text-[#9eb1d6]'}, r.rel)
+        ),
+        el('span', {class:'text-[#6cb1ff] text-lg'}, '→')
+      ));
+    });
+    relCard.appendChild(relBody);
+    right.appendChild(relCard);
+  }
+
+  // Ownership chart
+  if(e.ownership){
+    right.appendChild(el('div', {class:'card p-5 mb-4'},
+      el('div', {class:'section-title'}, 'Vlastnická struktura'),
+      el('div', {class:'chart-wrap'}, el('canvas', {id:'ownership-chart'}))
+    ));
+    setTimeout(()=>{
+      const ctx = document.getElementById('ownership-chart');
+      if(ctx && window.Chart) new Chart(ctx, {
+        type:'doughnut',
+        data:{labels:Object.keys(e.ownership), datasets:[{data:Object.values(e.ownership), backgroundColor:['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6','#ec4899']}]},
+        options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{position:'right', labels:{color:'#cfd8e8',font:{size:11}}}}}
+      });
+    }, 100);
+  }
+
+  // PPF holdings chart
+  if(e.holdings_chart){
+    right.appendChild(el('div', {class:'card p-5 mb-4'},
+      el('div', {class:'section-title'}, 'Sektorové rozložení holdings'),
+      el('div', {class:'chart-wrap'}, el('canvas', {id:'holdings-chart'}))
+    ));
+    setTimeout(()=>{
+      const ctx = document.getElementById('holdings-chart');
+      if(ctx && window.Chart) new Chart(ctx, {
+        type:'bar',
+        data:{labels:Object.keys(e.holdings_chart), datasets:[{label:'%', data:Object.values(e.holdings_chart), backgroundColor:'#3b82f6', borderRadius:4}]},
+        options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{x:{ticks:{color:'#9eb1d6'},grid:{color:'#1f2a44'}},y:{ticks:{color:'#9eb1d6'},grid:{color:'#1f2a44'}}}}
+      });
+    }, 100);
+  }
+
+  // Holdings list
+  if(e.holdings){
+    const hCard = el('div', {class:'card p-5 mb-4'},
+      el('div', {class:'section-title'}, 'Klíčové holdings ('+e.holdings.length+')')
+    );
+    const hList = el('ul', {class:'list-disc pl-5 space-y-1 text-sm text-[#cfd8e8]'});
+    e.holdings.forEach(h=>hList.appendChild(el('li', {}, h)));
+    hCard.appendChild(hList);
+    right.appendChild(hCard);
+  }
+
+  // Subsidiaries
+  if(e.subsidiaries){
+    const sCard = el('div', {class:'card p-5 mb-4'},
+      el('div', {class:'section-title'}, 'Subsidiaries ('+e.subsidiaries.length+')')
+    );
+    const sList = el('ul', {class:'list-disc pl-5 space-y-1 text-sm text-[#cfd8e8]'});
+    e.subsidiaries.forEach(s=>sList.appendChild(el('li', {}, s)));
+    sCard.appendChild(sList);
+    right.appendChild(sCard);
+  }
+
+  // Programs
+  if(e.programs){
+    const pCard = el('div', {class:'card p-5 mb-4'},
+      el('div', {class:'section-title'}, 'Programy ('+e.programs.length+')')
+    );
+    const pList = el('ul', {class:'list-disc pl-5 space-y-1 text-sm text-[#cfd8e8]'});
+    e.programs.forEach(p=>pList.appendChild(el('li', {}, p)));
+    pCard.appendChild(pList);
+    right.appendChild(pCard);
+  }
+
+  // Milestones
+  if(e.milestones){
+    const mCard = el('div', {class:'card p-5 mb-4'},
+      el('div', {class:'section-title'}, 'Klíčové milníky')
+    );
+    const mList = el('ul', {class:'list-disc pl-5 space-y-1 text-sm text-[#cfd8e8]'});
+    e.milestones.forEach(m=>mList.appendChild(el('li', {}, m)));
+    mCard.appendChild(mList);
+    right.appendChild(mCard);
+  }
+
+  // Governance
+  if(e.governance){
+    const govCard = el('div', {class:'card p-5 mb-4'},
+      el('div', {class:'section-title'}, 'Governance')
+    );
+    for(const k in e.governance){
+      const v = e.governance[k];
+      if(Array.isArray(v)){
+        const block = el('div', {class:'mb-3'},
+          el('div', {class:'text-xs uppercase tracking-wider text-[#7d8db1] mb-1'}, k.replace(/_/g,' '))
+        );
+        const ul = el('ul', {class:'list-disc pl-5 text-sm text-[#cfd8e8]'});
+        v.forEach(x=>{
+          const li = el('li', {});
+          li.appendChild(linkifyText(x, slug));
+          ul.appendChild(li);
+        });
+        block.appendChild(ul);
+        govCard.appendChild(block);
+      } else if(typeof v==='string'){
+        govCard.appendChild(el('div', {class:'flex justify-between gap-4 py-1 border-b border-[#1f2a44]/40'},
+          el('span', {class:'table-key'}, k.replace(/_/g,' ')),
+          el('span', {class:'table-val'}, v)
+        ));
+      }
+    }
+    right.appendChild(govCard);
+  }
+
+  // Three.js ego-network
+  right.appendChild(el('div', {class:'card p-5 mb-4'},
+    el('div', {class:'section-title'}, 'Ego-síť (one-hop, 3D — drag rotate, scroll zoom)'),
+    el('div', {class:'ego-canvas', id:'ego-canvas'})
+  ));
+
+  // p5.js timeline pulse
+  right.appendChild(el('div', {class:'card p-5 mb-4'},
+    el('div', {class:'section-title'}, 'Timeline pulse'),
+    el('div', {class:'p5-canvas', id:'p5-canvas'})
+  ));
+
+  // Sources
+  const srcCard = el('div', {class:'card p-5 mb-6'},
+    el('div', {class:'section-title'}, 'Zdroje ('+(e.sources?.length||0)+')')
+  );
+  const srcBody = el('div', {class:'space-y-1'});
+  (e.sources||[]).forEach((s,i)=>{
+    srcBody.appendChild(el('div', {class:'flex items-start gap-2 text-xs'},
+      el('span', {class:'text-[#5c6987] w-6'}, '['+(i+1)+']'),
+      el('a', {href:s, target:'_blank', rel:'noopener', class:'ext-link break-all flex-1'}, s)
+    ));
+  });
+  srcCard.appendChild(srcBody);
+  root.appendChild(srcCard);
+
+  setTimeout(()=>{ initEgoNetwork(slug); initP5Pulse(slug); }, 50);
+}
+
+// ====================== THREE.JS EGO ======================
+let _threeAnimId = null;
+function initEgoNetwork(slug){
+  const container = document.getElementById('ego-canvas');
+  if(!container || !window.THREE) return;
+  if(_threeAnimId){ cancelAnimationFrame(_threeAnimId); _threeAnimId=null; }
+  clearChildren(container);
+
+  const w = container.clientWidth, h = container.clientHeight || 340;
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x070b18);
+  const camera = new THREE.PerspectiveCamera(60, w/h, 0.1, 1000);
+  camera.position.set(0, 0, 12);
+  const renderer = new THREE.WebGLRenderer({antialias:true});
+  renderer.setSize(w, h);
+  renderer.setPixelRatio(window.devicePixelRatio);
+  container.appendChild(renderer.domElement);
+
+  const center = ENTITIES[slug];
+  const centerColor = center.type==='person' ? 0x3b82f6 : center.type==='foundation' ? 0xf59e0b : 0x10b981;
+  const centerSphere = new THREE.Mesh(
+    new THREE.SphereGeometry(0.8, 24, 24),
+    new THREE.MeshBasicMaterial({color: centerColor})
+  );
+  scene.add(centerSphere);
+
+  const rels = (center.relations||[]);
+  const radius = 5;
+  const nodes = [];
+  rels.forEach((r,i)=>{
+    const target = ENTITIES[r.to];
+    if(!target) return;
+    const phi = Math.acos(-1 + (2*i)/Math.max(rels.length,1));
+    const theta = Math.sqrt(Math.max(rels.length,1) * Math.PI) * phi;
+    const x = radius*Math.cos(theta)*Math.sin(phi);
+    const y = radius*Math.sin(theta)*Math.sin(phi);
+    const z = radius*Math.cos(phi);
+    const color = target.type==='person'?0x3b82f6:target.type==='foundation'?0xf59e0b:0x10b981;
+    const node = new THREE.Mesh(
+      new THREE.SphereGeometry(0.45, 18, 18),
+      new THREE.MeshBasicMaterial({color})
+    );
+    node.position.set(x,y,z);
+    scene.add(node);
+    nodes.push({mesh:node, slug:r.to, target_type:r.target_type});
+
+    const lineGeo = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0,0,0), new THREE.Vector3(x,y,z)]);
+    const line = new THREE.Line(lineGeo, new THREE.LineBasicMaterial({color:0x3b5377, transparent:true, opacity:0.7}));
+    scene.add(line);
+  });
+
+  let controls = null;
+  if(window.THREE && THREE.OrbitControls){
+    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.06;
+  }
+
+  let rotY = 0;
+  function animate(){
+    _threeAnimId = requestAnimationFrame(animate);
+    if(!controls){ rotY += 0.003; scene.rotation.y = rotY; }
+    if(controls) controls.update();
+    renderer.render(scene, camera);
+  }
+  animate();
+
+  const raycaster = new THREE.Raycaster();
+  const mouse = new THREE.Vector2();
+  renderer.domElement.addEventListener('click', (ev)=>{
+    const rect = renderer.domElement.getBoundingClientRect();
+    mouse.x = ((ev.clientX-rect.left)/rect.width)*2 - 1;
+    mouse.y = -((ev.clientY-rect.top)/rect.height)*2 + 1;
+    raycaster.setFromCamera(mouse, camera);
+    const intersects = raycaster.intersectObjects(nodes.map(n=>n.mesh));
+    if(intersects.length>0){
+      const found = nodes.find(n=>n.mesh===intersects[0].object);
+      if(found){
+        const kind = found.target_type==='person'?'person':'company';
+        navigate(`#/${kind}/${found.slug}`);
+      }
+    }
+  });
+}
+
+// ====================== P5 PULSE ======================
+let _p5Inst = null;
+function initP5Pulse(slug){
+  if(_p5Inst){ try{_p5Inst.remove();}catch(_e){} _p5Inst=null; }
+  const container = document.getElementById('p5-canvas');
+  if(!container || !window.p5) return;
+
+  const e = ENTITIES[slug];
+  const events = [];
+  if(e.dob && e.dob!=='nezveřejněno') events.push({date:e.dob, label:'Narození'});
+  if(e.incorporated) events.push({date:e.incorporated, label:'Založení'});
+  if(e.rebrand) events.push({date:e.rebrand.split(' ')[0], label:'Rebrand'});
+  Object.keys(TIMELINE_MILESTONES).forEach(k=>{
+    if(k.match(/\d{4}/)) events.push({date:k, label:TIMELINE_MILESTONES[k]});
+  });
+
+  const sketch = (p)=>{
+    let t = 0;
+    p.setup = ()=>{
+      const c = p.createCanvas(container.clientWidth, container.clientHeight||120);
+      c.parent(container);
+    };
+    p.draw = ()=>{
+      p.background(7,11,24);
+      const w = p.width, h = p.height;
+      p.stroke(58,82,135); p.strokeWeight(1);
+      p.line(20, h/2, w-20, h/2);
+      events.forEach((ev,i)=>{
+        const yearMatch = ev.date.match(/(\d{4})/);
+        if(!yearMatch) return;
+        const year = parseInt(yearMatch[1]);
+        const x = p.map(year, 1995, 2026, 30, w-30);
+        const pulse = p.sin(t*0.05 + i)*3 + 6;
+        p.noStroke();
+        p.fill(108,177,255, 200);
+        p.circle(x, h/2, pulse*2);
+        p.fill(154,180,214);
+        p.textSize(8);
+        p.textAlign(p.CENTER);
+        p.text(year, x, h/2 + 22);
+      });
+      t++;
+    };
+    p.windowResized = ()=>{ p.resizeCanvas(container.clientWidth, container.clientHeight||120); };
+  };
+  _p5Inst = new p5(sketch);
+}
+
+// ====================== FILTER & SEARCH ======================
+let activeFilter = 'all';
+let activeSearch = '';
+
+function applyFilter(){
+  document.querySelectorAll('#entity-grid > div').forEach(card=>{
+    const t = card.getAttribute('data-type');
+    if(activeFilter==='all' || t===activeFilter){ card.style.display=''; }
+    else { card.style.display='none'; }
+  });
+}
+function applySearch(){
+  if(!activeSearch){
+    document.querySelectorAll('#entity-grid > div').forEach(c=>{
+      const t = c.getAttribute('data-type');
+      if(activeFilter==='all' || t===activeFilter){ c.style.display=''; }
+    });
+    return;
+  }
+  document.querySelectorAll('#entity-grid > div').forEach(card=>{
+    const s = card.getAttribute('data-search')||'';
+    const t = card.getAttribute('data-type');
+    const filterMatch = (activeFilter==='all' || t===activeFilter);
+    const searchMatch = s.includes(activeSearch.toLowerCase());
+    card.style.display = (filterMatch && searchMatch) ? '' : 'none';
+  });
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.getElementById('search').addEventListener('input', (ev)=>{
+    activeSearch = ev.target.value.trim();
+    if(window.location.hash==='' || window.location.hash==='#/' ){
+      applyFilter(); applySearch();
+    } else {
+      navigate('#/');
+      setTimeout(()=>{applyFilter(); applySearch();}, 80);
+    }
+  });
+  document.querySelectorAll('#filter-chips .chip').forEach(chip=>{
+    chip.addEventListener('click', ()=>{
+      document.querySelectorAll('#filter-chips .chip').forEach(c=>c.classList.remove('active'));
+      chip.classList.add('active');
+      activeFilter = chip.getAttribute('data-filter');
+      if(window.location.hash==='' || window.location.hash==='#/' ){
+        applyFilter(); applySearch();
+      } else {
+        navigate('#/');
+        setTimeout(()=>{applyFilter(); applySearch();}, 80);
+      }
+    });
+  });
+  render();
+});
+
+function render(){
+  const r = parseHash();
+  if(r.route==='home'){ renderHome(); }
+  else if(r.route==='detail'){ renderDetail(r.kind, r.slug); }
+  else { renderHome(); }
+  window.scrollTo({top:0, behavior:'instant'});
+}
+</script>
+</body>
+</html>

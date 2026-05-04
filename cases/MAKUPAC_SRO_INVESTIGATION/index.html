@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MAKUPAC s.r.o. — Logistics & Fulfillment DD — DD Research Package</title>
+  <meta name="description" content="Czech fulfillment & logistics company. 91% concentrated control (Petr Kuchyňka, 36 y/o). Severe client concentration (60-80% revenue from single source). Active operation with strategic opportunities + critical vulnerabilities." />
+  <meta name="dd-case-id" content="MAKUPAC_SRO_INVESTIGATION" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+  <style>
+    .prose pre { background: #1e293b; color: #f1f5f9; padding: 0.75rem; border-radius: 0.5rem; overflow-x: auto; }
+    .prose code:not(pre code) { background: #f1f5f9; padding: 0 0.25rem; border-radius: 0.25rem; font-size: 0.875em; }
+    .prose h1 { font-size: 2rem; font-weight: 800; margin-top: 1.5rem; }
+    .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; color: #0369a1; }
+    .prose h3 { font-size: 1.125rem; font-weight: 700; margin-top: 1.5rem; }
+    .prose ul { list-style: disc; padding-left: 1.5rem; }
+    .prose table { border-collapse: collapse; }
+    .prose th, .prose td { border: 1px solid #cbd5e1; padding: 0.5rem 0.75rem; text-align: left; }
+    .prose th { background: #f1f5f9; font-weight: 600; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-10">
+    <div class="max-w-4xl mx-auto px-4 py-4">
+      <div class="inline-flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 text-xs font-bold bg-amber-100 text-amber-800 rounded">RESEARCH-ONLY</span>
+        <span class="text-xs text-slate-500 font-mono">MAKUPAC_SRO_INVESTIGATION</span>
+      </div>
+      <h1 class="text-xl font-bold text-slate-900">MAKUPAC s.r.o. — Logistics & Fulfillment DD</h1>
+      <p class="text-sm text-slate-600 mt-1">Czech fulfillment & logistics company. 91% concentrated control (Petr Kuchyňka, 36 y/o). Severe client concentration (60-80% revenue from single source). Active operation with strategic opportunities + critical vulnerabilities.</p>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <div id="content" class="prose prose-slate max-w-none">
+      <p class="text-slate-500 italic">Loading research package…</p>
+    </div>
+    <p id="fallback" class="hidden text-sm text-slate-500 mt-8 border-t pt-4">
+      Cannot render markdown inline (likely opened via file://). Open the raw research:
+      <a class="text-blue-600 hover:underline" href="comprehensive_executive_summary.md">comprehensive_executive_summary.md</a>
+    </p>
+  </main>
+
+  <script>
+    fetch("comprehensive_executive_summary.md", { cache: 'no-store' })
+      .then(function (r) { return r.ok ? r.text() : Promise.reject(r.status); })
+      .then(function (md) {
+        var rendered = marked.parse(md);
+        var clean = (typeof DOMPurify !== 'undefined') ? DOMPurify.sanitize(rendered) : rendered;
+        var el = document.getElementById('content');
+        el.replaceChildren();
+        var tmp = document.createElement('div');
+        tmp.innerHTML = clean;  // sanitized via DOMPurify above
+        while (tmp.firstChild) el.appendChild(tmp.firstChild);
+      })
+      .catch(function (err) {
+        document.getElementById('content').classList.add('hidden');
+        document.getElementById('fallback').classList.remove('hidden');
+        console.warn('Failed to load markdown:', err);
+      });
+  </script>
+
+  <!-- Shared promo bridge — back-pill (BURL doctrine compliant) -->
+  <script src="../_shared/promo-bridge.js" defer></script>
+</body>
+</html>
