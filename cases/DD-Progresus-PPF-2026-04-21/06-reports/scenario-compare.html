@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Porovnání scénářů — DD Progresus · Project Mycelium</title>
+  <link rel="stylesheet" href="../_assets/flowbite.min.css">
+  <link rel="stylesheet" href="../_assets/viz-common.css">
+  <script src="../_assets/tailwind.min.js"></script>
+  <script src="../_assets/chart.min.js" defer></script>
+  <script src="../_assets/flowbite.min.js" defer></script>
+  <script src="../_assets/alpine.min.js" defer></script>
+  <style>
+    [x-cloak]{display:none!important}
+    .kpi-tile{transition:transform .2s ease, box-shadow .2s ease}
+    .kpi-tile:hover{transform:translateY(-2px); box-shadow:0 6px 20px -8px rgba(0,0,0,.25)}
+    .pill{display:inline-block; padding:0.15rem 0.55rem; border-radius:9999px; font-size:0.7rem; font-weight:600}
+    .col-A{border-left:3px solid #2563eb}
+    .col-B{border-left:3px solid #f59e0b}
+    .col-D{border-left:3px solid #14b8a6}
+    .mini-hist{height:120px}
+    .diff-up{color:#16a34a}
+    .diff-down{color:#dc2626}
+    .diff-zero{color:#94a3b8}
+    .badge-A{background:#1d4ed8;color:#e0e7ff}
+    .badge-B{background:#b45309;color:#fef3c7}
+    .badge-T{background:#475569;color:#e2e8f0}
+  </style>
+
+  <!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="../_assets/md-store.js"></script>
+  <script src="../_assets/manifest-store.js"></script>
+  <script src="../_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+  <script defer src="../_assets/cmdk.js"></script>
+  <script defer src="../_assets/dd-scenario.js"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans"
+      x-data="scenarioCompareApp()" :class="{'dark': dark}">
+
+<!-- Navbar -->
+<nav class="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="text-sm text-slate-500 hover:text-red-600 dark:hover:text-red-400">← Portál</a>
+      <span class="text-slate-300 dark:text-slate-700">|</span>
+      <span class="font-bold tracking-tight">PRISMATIC · Porovnání scénářů</span>
+      <span class="hidden md:inline-block text-xs px-2 py-0.5 rounded bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300">A vs B</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="monte-carlo-valuation.html" class="text-xs hidden sm:inline hover:underline">🎲 Monte Carlo</a>
+      <a href="valuation-calculator.html" class="text-xs hidden sm:inline hover:underline">📐 Triangulace</a>
+      <a href="VALUATION-DEFENSE-MEMO.md" class="text-xs hidden sm:inline hover:underline">📄 Memo</a>
+      <button @click="dark=!dark" class="text-sm px-2 py-1 rounded border border-slate-300 dark:border-slate-700">
+        <span x-show="!dark">🌙</span><span x-show="dark">☀️</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb text-sm text-gray-400 mb-4 px-4 max-w-screen-2xl mx-auto no-print" aria-label="breadcrumb">
+  <ol class="flex flex-wrap items-center gap-2">
+    <li><a href="../index.html" class="hover:text-white hover:underline">🏠 Portál</a></li>
+    <li class="text-gray-500">/</li>
+    <li><a href="./README.md" class="hover:text-white hover:underline">📊 06-reports</a></li>
+    <li class="text-gray-500">/</li>
+    <li class="text-white font-medium">scenario-compare.html</li>
+  </ol>
+</nav>
+
+<!-- Header -->
+<header class="max-w-7xl mx-auto px-4 pt-6 pb-4">
+  <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Porovnání scénářů — Side-by-side</h1>
+  <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-3xl">
+    Vyberte dva scénáře a porovnejte je paralelně: <strong>Monte Carlo distribuci</strong>, <strong>triangulaci ocenění</strong>,
+    <strong>daňovou strukturu</strong> a <strong>kombinované skóre</strong>. Sloupec vpravo zobrazuje rozdíly
+    a doporučení, který scénář je celkově silnější.
+  </p>
+  <div class="mt-3 flex flex-wrap gap-2 text-xs">
+    <span class="pill bg-indigo-100 text-indigo-800 dark:bg-indigo-900/40 dark:text-indigo-200">Iterací: <span x-text="iterations.toLocaleString()"></span></span>
+    <span class="pill bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200">Walk-away floor 3,7 mld.</span>
+    <span class="pill bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200" x-text="'Poslední běh: ' + lastRunMs + ' ms'"></span>
+  </div>
+</header>
+
+<!-- Selectors / Run -->
+<section class="max-w-7xl mx-auto px-4 pb-4">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-3 items-end">
+    <div class="col-A pl-3">
+      <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Scénář A</label>
+      <select x-model="nameA" @change="onSelectChange()"
+              class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded px-2 py-1.5 text-sm">
+        <template x-for="n in available" :key="'a-'+n"><option :value="n" x-text="n"></option></template>
+      </select>
+    </div>
+    <div class="col-B pl-3">
+      <label class="block text-xs uppercase tracking-wider text-slate-500 mb-1">Scénář B</label>
+      <select x-model="nameB" @change="onSelectChange()"
+              class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded px-2 py-1.5 text-sm">
+        <template x-for="n in available" :key="'b-'+n"><option :value="n" x-text="n"></option></template>
+      </select>
+    </div>
+    <div class="col-D pl-3 flex flex-col gap-2">
+      <label class="block text-xs uppercase tracking-wider text-slate-500">Akce</label>
+      <div class="flex gap-2">
+        <button @click="runBoth()"
+                class="flex-1 bg-red-600 hover:bg-red-500 text-white text-sm font-semibold py-1.5 px-3 rounded">
+          <span x-show="!busy">▶ Spustit obě</span>
+          <span x-show="busy">⏳ Počítám…</span>
+        </button>
+        <button @click="copyPermalink()" title="Zkopírovat permalink"
+                class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-sm py-1.5 px-3 rounded">🔗</button>
+        <button @click="swap()" title="Prohodit A ↔ B"
+                class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-sm py-1.5 px-3 rounded">⇄</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Three columns: A / B / Diff -->
+<section class="max-w-7xl mx-auto px-4 pb-12 grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+  <!-- COLUMN A -->
+  <div class="col-A pl-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-lg font-bold">Scénář A</h2>
+      <span class="pill bg-indigo-600 text-white" x-text="A.scenario.name"></span>
+    </div>
+
+    <!-- Input summary -->
+    <div class="grid grid-cols-2 gap-2 mb-4">
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">Floor</div>
+        <div class="text-sm font-bold" x-text="fmtMld(A.scenario.floor)"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">Target</div>
+        <div class="text-sm font-bold" x-text="fmtMld(A.scenario.target)"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">Anchor</div>
+        <div class="text-sm font-bold" x-text="fmtMld(A.scenario.anchor)"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">DCF μ / σ</div>
+        <div class="text-sm font-bold" x-text="A.scenario.dcfMu.toFixed(2)+' / '+A.scenario.dcfSigma.toFixed(2)"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">Struktura</div>
+        <div class="text-sm font-bold uppercase" x-text="A.scenario.structure"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">Souhlas</div>
+        <div class="text-sm font-bold" x-text="(A.scenario.consentRate*100).toFixed(0)+' %'"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">Escrow</div>
+        <div class="text-sm font-bold" x-text="(A.scenario.escrowPct*100).toFixed(0)+' %'"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">§19 / §54 / GU</div>
+        <div class="text-sm font-bold" x-text="(A.scenario.section19?'✓':'×')+' / '+(A.scenario.section54?'✓':'×')+' / '+(A.scenario.grossUp?'✓':'×')"></div>
+      </div>
+    </div>
+
+    <!-- 1. Monte Carlo -->
+    <div class="mb-4">
+      <h3 class="text-sm font-bold mb-1 text-slate-500 uppercase tracking-wider">1 · Monte Carlo</h3>
+      <div class="grid grid-cols-3 gap-1 mb-2">
+        <div class="rounded bg-slate-100 dark:bg-slate-800 p-1.5 text-center">
+          <div class="text-[10px] text-slate-500">P10</div>
+          <div class="text-sm font-bold" x-text="fmtMld(A.stats.p10)"></div>
+        </div>
+        <div class="rounded bg-red-100 dark:bg-red-900/30 p-1.5 text-center">
+          <div class="text-[10px] text-red-700 dark:text-red-300">P50</div>
+          <div class="text-sm font-bold text-red-700 dark:text-red-300" x-text="fmtMld(A.stats.p50)"></div>
+        </div>
+        <div class="rounded bg-slate-100 dark:bg-slate-800 p-1.5 text-center">
+          <div class="text-[10px] text-slate-500">P90</div>
+          <div class="text-sm font-bold" x-text="fmtMld(A.stats.p90)"></div>
+        </div>
+      </div>
+      <div class="text-xs text-slate-500 mb-2">
+        P(&lt; floor) <span class="font-bold" :class="A.stats.probFloor < 0.10 ? 'text-emerald-600' : (A.stats.probFloor < 0.25 ? 'text-amber-600' : 'text-red-600')"
+                                  x-text="(A.stats.probFloor*100).toFixed(1)+' %'"></span>
+        · μ <span class="font-bold" x-text="fmtMld(A.stats.mean)"></span>
+        · σ <span x-text="A.stats.stdev.toFixed(2)"></span>
+      </div>
+      <div class="mini-hist"><canvas id="histA"></canvas></div>
+    </div>
+
+    <!-- 2. Valuation triangulation -->
+    <div class="mb-4">
+      <h3 class="text-sm font-bold mb-1 text-slate-500 uppercase tracking-wider">2 · Triangulace ocenění</h3>
+      <div class="rounded bg-slate-100 dark:bg-slate-800 p-2 mb-1">
+        <div class="text-[10px] text-slate-500">Vážený průměr</div>
+        <div class="text-xl font-bold text-emerald-700 dark:text-emerald-400" x-text="fmtMld(A.val.weighted)"></div>
+        <div class="text-[10px] text-slate-500" x-text="'Rozpětí: '+fmtMld(A.val.low)+' – '+fmtMld(A.val.high)"></div>
+      </div>
+      <div class="grid grid-cols-4 gap-1 text-center text-[10px]">
+        <div class="rounded bg-slate-50 dark:bg-slate-800/50 p-1"><div class="text-slate-500">DCF</div><div class="font-bold" x-text="A.scenario.dcfMu.toFixed(1)"></div></div>
+        <div class="rounded bg-slate-50 dark:bg-slate-800/50 p-1"><div class="text-slate-500">Land</div><div class="font-bold" x-text="A.scenario.landMu.toFixed(1)"></div></div>
+        <div class="rounded bg-slate-50 dark:bg-slate-800/50 p-1"><div class="text-slate-500">Prec.</div><div class="font-bold" x-text="A.scenario.precedentMu.toFixed(1)"></div></div>
+        <div class="rounded bg-slate-50 dark:bg-slate-800/50 p-1"><div class="text-slate-500">Liq.</div><div class="font-bold" x-text="A.scenario.liquidationMu.toFixed(1)"></div></div>
+      </div>
+    </div>
+
+    <!-- 3. Tax structure -->
+    <div class="mb-4">
+      <h3 class="text-sm font-bold mb-1 text-slate-500 uppercase tracking-wider">3 · Daňová struktura</h3>
+      <div class="grid grid-cols-2 gap-1">
+        <div class="rounded bg-slate-100 dark:bg-slate-800 p-2">
+          <div class="text-[10px] text-slate-500">Efektivní sazba</div>
+          <div class="text-lg font-bold" x-text="(A.tax.effectiveRate*100).toFixed(1)+' %'"></div>
+        </div>
+        <div class="rounded bg-slate-100 dark:bg-slate-800 p-2">
+          <div class="text-[10px] text-slate-500">Po zdanění</div>
+          <div class="text-lg font-bold text-emerald-700 dark:text-emerald-400" x-text="fmtMld(A.tax.afterTax)"></div>
+        </div>
+      </div>
+      <div class="text-[10px] text-slate-500 mt-1" x-text="A.tax.note"></div>
+    </div>
+
+    <!-- 4. Summary score -->
+    <div>
+      <h3 class="text-sm font-bold mb-1 text-slate-500 uppercase tracking-wider">4 · Souhrnné skóre</h3>
+      <div class="rounded bg-gradient-to-br from-indigo-100 to-indigo-50 dark:from-indigo-900/40 dark:to-indigo-900/10 p-3 border border-indigo-200 dark:border-indigo-800">
+        <div class="text-[10px] uppercase text-indigo-700 dark:text-indigo-300">Combined KPI</div>
+        <div class="text-3xl font-bold text-indigo-700 dark:text-indigo-300" x-text="A.score.total.toFixed(1)"></div>
+        <div class="text-[10px] text-slate-500 mt-1">
+          marže × souhlas × daň. efektivita = <span x-text="A.score.parts.margin.toFixed(2)"></span> · <span x-text="A.score.parts.consent.toFixed(2)"></span> · <span x-text="A.score.parts.tax.toFixed(2)"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COLUMN B -->
+  <div class="col-B pl-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-lg font-bold">Scénář B</h2>
+      <span class="pill bg-amber-600 text-white" x-text="B.scenario.name"></span>
+    </div>
+
+    <div class="grid grid-cols-2 gap-2 mb-4">
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">Floor</div>
+        <div class="text-sm font-bold" x-text="fmtMld(B.scenario.floor)"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">Target</div>
+        <div class="text-sm font-bold" x-text="fmtMld(B.scenario.target)"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">Anchor</div>
+        <div class="text-sm font-bold" x-text="fmtMld(B.scenario.anchor)"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">DCF μ / σ</div>
+        <div class="text-sm font-bold" x-text="B.scenario.dcfMu.toFixed(2)+' / '+B.scenario.dcfSigma.toFixed(2)"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">Struktura</div>
+        <div class="text-sm font-bold uppercase" x-text="B.scenario.structure"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">Souhlas</div>
+        <div class="text-sm font-bold" x-text="(B.scenario.consentRate*100).toFixed(0)+' %'"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">Escrow</div>
+        <div class="text-sm font-bold" x-text="(B.scenario.escrowPct*100).toFixed(0)+' %'"></div>
+      </div>
+      <div class="kpi-tile rounded bg-slate-50 dark:bg-slate-800/50 p-2 border border-slate-200 dark:border-slate-700">
+        <div class="text-[10px] uppercase text-slate-500">§19 / §54 / GU</div>
+        <div class="text-sm font-bold" x-text="(B.scenario.section19?'✓':'×')+' / '+(B.scenario.section54?'✓':'×')+' / '+(B.scenario.grossUp?'✓':'×')"></div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="text-sm font-bold mb-1 text-slate-500 uppercase tracking-wider">1 · Monte Carlo</h3>
+      <div class="grid grid-cols-3 gap-1 mb-2">
+        <div class="rounded bg-slate-100 dark:bg-slate-800 p-1.5 text-center">
+          <div class="text-[10px] text-slate-500">P10</div>
+          <div class="text-sm font-bold" x-text="fmtMld(B.stats.p10)"></div>
+        </div>
+        <div class="rounded bg-amber-100 dark:bg-amber-900/30 p-1.5 text-center">
+          <div class="text-[10px] text-amber-700 dark:text-amber-300">P50</div>
+          <div class="text-sm font-bold text-amber-700 dark:text-amber-300" x-text="fmtMld(B.stats.p50)"></div>
+        </div>
+        <div class="rounded bg-slate-100 dark:bg-slate-800 p-1.5 text-center">
+          <div class="text-[10px] text-slate-500">P90</div>
+          <div class="text-sm font-bold" x-text="fmtMld(B.stats.p90)"></div>
+        </div>
+      </div>
+      <div class="text-xs text-slate-500 mb-2">
+        P(&lt; floor) <span class="font-bold" :class="B.stats.probFloor < 0.10 ? 'text-emerald-600' : (B.stats.probFloor < 0.25 ? 'text-amber-600' : 'text-red-600')"
+                                  x-text="(B.stats.probFloor*100).toFixed(1)+' %'"></span>
+        · μ <span class="font-bold" x-text="fmtMld(B.stats.mean)"></span>
+        · σ <span x-text="B.stats.stdev.toFixed(2)"></span>
+      </div>
+      <div class="mini-hist"><canvas id="histB"></canvas></div>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="text-sm font-bold mb-1 text-slate-500 uppercase tracking-wider">2 · Triangulace ocenění</h3>
+      <div class="rounded bg-slate-100 dark:bg-slate-800 p-2 mb-1">
+        <div class="text-[10px] text-slate-500">Vážený průměr</div>
+        <div class="text-xl font-bold text-emerald-700 dark:text-emerald-400" x-text="fmtMld(B.val.weighted)"></div>
+        <div class="text-[10px] text-slate-500" x-text="'Rozpětí: '+fmtMld(B.val.low)+' – '+fmtMld(B.val.high)"></div>
+      </div>
+      <div class="grid grid-cols-4 gap-1 text-center text-[10px]">
+        <div class="rounded bg-slate-50 dark:bg-slate-800/50 p-1"><div class="text-slate-500">DCF</div><div class="font-bold" x-text="B.scenario.dcfMu.toFixed(1)"></div></div>
+        <div class="rounded bg-slate-50 dark:bg-slate-800/50 p-1"><div class="text-slate-500">Land</div><div class="font-bold" x-text="B.scenario.landMu.toFixed(1)"></div></div>
+        <div class="rounded bg-slate-50 dark:bg-slate-800/50 p-1"><div class="text-slate-500">Prec.</div><div class="font-bold" x-text="B.scenario.precedentMu.toFixed(1)"></div></div>
+        <div class="rounded bg-slate-50 dark:bg-slate-800/50 p-1"><div class="text-slate-500">Liq.</div><div class="font-bold" x-text="B.scenario.liquidationMu.toFixed(1)"></div></div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="text-sm font-bold mb-1 text-slate-500 uppercase tracking-wider">3 · Daňová struktura</h3>
+      <div class="grid grid-cols-2 gap-1">
+        <div class="rounded bg-slate-100 dark:bg-slate-800 p-2">
+          <div class="text-[10px] text-slate-500">Efektivní sazba</div>
+          <div class="text-lg font-bold" x-text="(B.tax.effectiveRate*100).toFixed(1)+' %'"></div>
+        </div>
+        <div class="rounded bg-slate-100 dark:bg-slate-800 p-2">
+          <div class="text-[10px] text-slate-500">Po zdanění</div>
+          <div class="text-lg font-bold text-emerald-700 dark:text-emerald-400" x-text="fmtMld(B.tax.afterTax)"></div>
+        </div>
+      </div>
+      <div class="text-[10px] text-slate-500 mt-1" x-text="B.tax.note"></div>
+    </div>
+
+    <div>
+      <h3 class="text-sm font-bold mb-1 text-slate-500 uppercase tracking-wider">4 · Souhrnné skóre</h3>
+      <div class="rounded bg-gradient-to-br from-amber-100 to-amber-50 dark:from-amber-900/40 dark:to-amber-900/10 p-3 border border-amber-200 dark:border-amber-800">
+        <div class="text-[10px] uppercase text-amber-700 dark:text-amber-300">Combined KPI</div>
+        <div class="text-3xl font-bold text-amber-700 dark:text-amber-300" x-text="B.score.total.toFixed(1)"></div>
+        <div class="text-[10px] text-slate-500 mt-1">
+          marže × souhlas × daň. efektivita = <span x-text="B.score.parts.margin.toFixed(2)"></span> · <span x-text="B.score.parts.consent.toFixed(2)"></span> · <span x-text="B.score.parts.tax.toFixed(2)"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIFF COLUMN -->
+  <div class="col-D pl-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="text-lg font-bold">Rozdíl (A − B)</h2>
+      <span class="pill bg-teal-600 text-white">Δ</span>
+    </div>
+
+    <!-- Recommendation -->
+    <div class="mb-4 rounded bg-gradient-to-br from-teal-100 to-teal-50 dark:from-teal-900/40 dark:to-teal-900/10 p-3 border border-teal-200 dark:border-teal-800">
+      <div class="text-[10px] uppercase text-teal-700 dark:text-teal-300">Doporučení</div>
+      <div class="text-lg font-bold mt-1" x-text="recommendation.headline"></div>
+      <div class="text-xs text-slate-600 dark:text-slate-400 mt-1" x-text="recommendation.reason"></div>
+      <div class="mt-2 flex flex-wrap gap-1">
+        <template x-for="(w, idx) in recommendation.wins" :key="idx">
+          <span class="pill" :class="w.winner==='A'?'badge-A':(w.winner==='B'?'badge-B':'badge-T')"
+                x-text="w.metric+': '+(w.winner==='A'?'A':(w.winner==='B'?'B':'='))"></span>
+        </template>
+      </div>
+    </div>
+
+    <!-- Diff sections -->
+    <div class="mb-4">
+      <h3 class="text-sm font-bold mb-1 text-slate-500 uppercase tracking-wider">1 · Monte Carlo</h3>
+      <template x-for="row in diffMC" :key="row.label">
+        <div class="flex items-center justify-between py-1 border-b border-slate-100 dark:border-slate-800 text-sm">
+          <span class="text-slate-600 dark:text-slate-400" x-text="row.label"></span>
+          <span class="flex items-center gap-2">
+            <span class="font-mono text-xs" x-text="row.formatted"></span>
+            <span class="pill" :class="row.winner==='A'?'badge-A':(row.winner==='B'?'badge-B':'badge-T')"
+                  x-text="row.winner==='A'?'Vítězí A':(row.winner==='B'?'Vítězí B':'Remíza')"></span>
+          </span>
+        </div>
+      </template>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="text-sm font-bold mb-1 text-slate-500 uppercase tracking-wider">2 · Triangulace</h3>
+      <template x-for="row in diffVal" :key="row.label">
+        <div class="flex items-center justify-between py-1 border-b border-slate-100 dark:border-slate-800 text-sm">
+          <span class="text-slate-600 dark:text-slate-400" x-text="row.label"></span>
+          <span class="flex items-center gap-2">
+            <span class="font-mono text-xs" x-text="row.formatted"></span>
+            <span class="pill" :class="row.winner==='A'?'badge-A':(row.winner==='B'?'badge-B':'badge-T')"
+                  x-text="row.winner==='A'?'Vítězí A':(row.winner==='B'?'Vítězí B':'Remíza')"></span>
+          </span>
+        </div>
+      </template>
+    </div>
+
+    <div class="mb-4">
+      <h3 class="text-sm font-bold mb-1 text-slate-500 uppercase tracking-wider">3 · Daň</h3>
+      <template x-for="row in diffTax" :key="row.label">
+        <div class="flex items-center justify-between py-1 border-b border-slate-100 dark:border-slate-800 text-sm">
+          <span class="text-slate-600 dark:text-slate-400" x-text="row.label"></span>
+          <span class="flex items-center gap-2">
+            <span class="font-mono text-xs" x-text="row.formatted"></span>
+            <span class="pill" :class="row.winner==='A'?'badge-A':(row.winner==='B'?'badge-B':'badge-T')"
+                  x-text="row.winner==='A'?'Vítězí A':(row.winner==='B'?'Vítězí B':'Remíza')"></span>
+          </span>
+        </div>
+      </template>
+    </div>
+
+    <div>
+      <h3 class="text-sm font-bold mb-1 text-slate-500 uppercase tracking-wider">4 · Souhrn</h3>
+      <div class="flex items-center justify-between py-1 border-b border-slate-100 dark:border-slate-800 text-sm">
+        <span class="text-slate-600 dark:text-slate-400">Combined skóre</span>
+        <span class="flex items-center gap-2">
+          <span class="font-mono text-xs" x-text="diffScore.formatted"></span>
+          <span class="pill" :class="diffScore.winner==='A'?'badge-A':(diffScore.winner==='B'?'badge-B':'badge-T')"
+                x-text="diffScore.winner==='A'?'Vítězí A':(diffScore.winner==='B'?'Vítězí B':'Remíza')"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer-ish info -->
+<section class="max-w-7xl mx-auto px-4 pb-12">
+  <details class="text-xs text-slate-500">
+    <summary class="cursor-pointer hover:text-slate-700 dark:hover:text-slate-300">Metodika výpočtu</summary>
+    <div class="mt-2 space-y-1">
+      <p><strong>Monte Carlo:</strong> 10 000 iterací · normální rozdělení (Box-Muller) pro 4 metody (DCF, Land, Precedent, Likvidace) · vážený průměr podle scénářových vah · clamp ≥ 0.</p>
+      <p><strong>Triangulace:</strong> deterministický vážený průměr middle-pointů metod; rozpětí = (μ-σ, μ+σ).</p>
+      <p><strong>Daňová struktura:</strong> share deal (§19 participation exemption → 0 %), asset deal (19 % CIT z gainu nad bází 0,75 mld.); gross-up zvedne hrubou cenu pro dorovnání share-net; hybrid průměruje.</p>
+      <p><strong>Souhrnné skóre:</strong> 100 × (P50/floor − 1) × consentRate × (after-tax / pre-tax). Vyšší = lepší. Zohledňuje upside, schopnost dotáhnout deal, daňovou efektivitu.</p>
+    </div>
+  </details>
+</section>
+
+<script>
+function scenarioCompareApp(){
+  const FLOOR_DEFAULT = 3.7;
+  const TAX_BASIS = 0.75; // mld. CZK (m CZK 750)
+  const CIT_RATE = 0.19;
+
+  return {
+    dark: (typeof localStorage !== 'undefined' && localStorage.getItem('dd-dark') !== null)
+            ? localStorage.getItem('dd-dark') !== 'false'
+            : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches),
+    busy: false,
+    iterations: 10000,
+    lastRunMs: 0,
+    available: [],
+    nameA: 'Default',
+    nameB: 'PPF anchor',
+    A: { scenario: emptyScenario(), stats: emptyStats(), val: emptyVal(), tax: emptyTax(), score: emptyScore(), results: [] },
+    B: { scenario: emptyScenario(), stats: emptyStats(), val: emptyVal(), tax: emptyTax(), score: emptyScore(), results: [] },
+
+    // ---- Distributions (Box-Muller normal) ----
+    rnorm(mu, sigma){
+      let u = 0, v = 0;
+      while(u === 0) u = Math.random();
+      while(v === 0) v = Math.random();
+      const z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+      return mu + sigma * z;
+    },
+    sample(mu, sigma){
+      return Math.max(0, this.rnorm(mu, sigma));
+    },
+
+    normWeights(w){
+      const sum = (w.dcf||0) + (w.land||0) + (w.precedent||0) + (w.liquidation||0);
+      if(sum <= 0) return { dcf: 0.4, land: 0.3, precedent: 0.2, liquidation: 0.1 };
+      return { dcf: w.dcf/sum, land: w.land/sum, precedent: w.precedent/sum, liquidation: w.liquidation/sum };
+    },
+
+    runSimCore(s, N){
+      const w = this.normWeights(s.weights || {});
+      const out = new Array(N);
+      for(let i = 0; i < N; i++){
+        const dcf  = this.sample(s.dcfMu,         s.dcfSigma);
+        const land = this.sample(s.landMu,        s.landSigma);
+        const prec = this.sample(s.precedentMu,   s.precedentSigma);
+        const liq  = this.sample(s.liquidationMu, s.liquidationSigma);
+        out[i] = w.dcf*dcf + w.land*land + w.precedent*prec + w.liquidation*liq;
+      }
+      return out;
+    },
+
+    computeStats(arr, floor){
+      const sorted = arr.slice().sort((a,b)=>a-b);
+      const N = sorted.length;
+      const pct = q => sorted[Math.min(N-1, Math.max(0, Math.floor(q * (N-1))))];
+      const mean = sorted.reduce((s,v)=>s+v,0)/N;
+      const variance = sorted.reduce((s,v)=>s+(v-mean)*(v-mean),0)/N;
+      const stdev = Math.sqrt(variance);
+      const below = sorted.filter(v => v < floor).length;
+      return {
+        p10: pct(0.10), p25: pct(0.25), p50: pct(0.50), p75: pct(0.75), p90: pct(0.90),
+        mean, stdev, probFloor: below/N, min: sorted[0], max: sorted[N-1]
+      };
+    },
+
+    // ---- Triangulation (deterministic) ----
+    computeVal(s){
+      const w = this.normWeights(s.weights || {});
+      const weighted = w.dcf*s.dcfMu + w.land*s.landMu + w.precedent*s.precedentMu + w.liquidation*s.liquidationMu;
+      const sigmaW = Math.sqrt(
+        Math.pow(w.dcf*s.dcfSigma,2) +
+        Math.pow(w.land*s.landSigma,2) +
+        Math.pow(w.precedent*s.precedentSigma,2) +
+        Math.pow(w.liquidation*s.liquidationSigma,2)
+      );
+      return { weighted, low: Math.max(0, weighted - sigmaW), high: weighted + sigmaW, sigma: sigmaW };
+    },
+
+    // ---- Tax structure ----
+    computeTax(s, grossPrice){
+      // grossPrice = triangulated valuation in mld. CZK
+      const basis = TAX_BASIS;
+      let citShare = 0, citAsset = (grossPrice > basis) ? (grossPrice - basis) * CIT_RATE : 0;
+
+      // §19 participation exemption only applicable to share deal
+      if(!s.section19) citShare = grossPrice * CIT_RATE * 0.05; // small substitute when exemption denied
+      // §54 reorg / debt allocation effect (modest deduction modelled)
+      if(s.section54) citAsset *= 0.85;
+
+      let afterTax, effectiveRate, note = '';
+      if(s.structure === 'share'){
+        afterTax = grossPrice - citShare;
+        note = '§19 participation exemption' + (s.section19 ? ' aplikováno' : ' zamítnuto');
+      } else if(s.structure === 'asset'){
+        // potentially gross-up
+        let priceUsed = grossPrice;
+        if(s.grossUp){
+          // p needed so that p - 0.19*(p-basis) ≈ shareNet=grossPrice
+          priceUsed = (grossPrice - CIT_RATE*basis)/(1 - CIT_RATE);
+          citAsset = (priceUsed - basis) * CIT_RATE * (s.section54 ? 0.85 : 1);
+        }
+        afterTax = priceUsed - citAsset;
+        note = 'Asset deal ' + (s.grossUp ? '· gross-up aktivní' : '· bez gross-up') + (s.section54 ? ' · §54 sleva' : '');
+      } else {
+        // hybrid 50/50
+        const shareSide = grossPrice - citShare;
+        const assetSide = grossPrice - citAsset;
+        afterTax = (shareSide + assetSide) / 2;
+        note = 'Hybrid 50/50';
+      }
+      effectiveRate = grossPrice > 0 ? Math.max(0, (grossPrice - afterTax) / grossPrice) : 0;
+      return { effectiveRate, afterTax, note };
+    },
+
+    // ---- Combined score ----
+    computeScore(stats, tax, scenario, val){
+      const margin = Math.max(0, (stats.p50 / Math.max(0.01, scenario.floor)) - 1); // upside vs floor
+      const consent = Math.max(0, scenario.consentRate);
+      const taxEff = val.weighted > 0 ? Math.max(0, tax.afterTax / val.weighted) : 0;
+      const total = 100 * margin * consent * taxEff;
+      return { total, parts: { margin, consent, tax: taxEff } };
+    },
+
+    // ---- Compute all outputs for a scenario ----
+    computeFor(scenario){
+      const results = this.runSimCore(scenario, this.iterations);
+      const stats = this.computeStats(results, scenario.floor || FLOOR_DEFAULT);
+      const val = this.computeVal(scenario);
+      const tax = this.computeTax(scenario, val.weighted);
+      const score = this.computeScore(stats, tax, scenario, val);
+      return { scenario, results, stats, val, tax, score };
+    },
+
+    // ---- Histogram render ----
+    histogramBins(values, nBins){
+      if(!values.length) return { labels:[], bins:[] };
+      const min = Math.min(...values), max = Math.max(...values);
+      const step = (max - min) / nBins || 1;
+      const bins = new Array(nBins).fill(0);
+      const labels = [];
+      for(let i = 0; i < nBins; i++) labels.push(min + step*(i+0.5));
+      for(const v of values){
+        let idx = Math.floor((v - min)/step);
+        if(idx >= nBins) idx = nBins-1;
+        if(idx < 0) idx = 0;
+        bins[idx]++;
+      }
+      return { labels, bins, min, max, step };
+    },
+
+    _chartA: null,
+    _chartB: null,
+    drawHist(canvasId, results, floor, color){
+      if(!window.Chart) return null;
+      const el = document.getElementById(canvasId);
+      if(!el) return null;
+      const { labels, bins } = this.histogramBins(results, 30);
+      const lblText = labels.map(v => v.toFixed(2));
+      const ds = {
+        label: 'Frekvence', data: bins, borderWidth: 0,
+        backgroundColor: lblText.map(l => parseFloat(l) < floor ? 'rgba(245,158,11,0.6)' : color),
+        barPercentage: 1.0, categoryPercentage: 1.0
+      };
+      const config = {
+        type: 'bar',
+        data: { labels: lblText, datasets: [ds] },
+        options: {
+          responsive: true, maintainAspectRatio: false, animation: false,
+          plugins: { legend: { display: false }, tooltip: { callbacks: { title: (it)=> it[0].label+' mld.' } } },
+          scales: {
+            x: { ticks: { color: '#94a3b8', maxRotation:0, autoSkip:true, callback:function(v){return Number(this.getLabelForValue(v)).toFixed(1);} }, grid: { display:false } },
+            y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148,163,184,0.15)' }, beginAtZero: true }
+          }
+        }
+      };
+      // Reuse existing chart if available
+      const existingKey = canvasId === 'histA' ? '_chartA' : '_chartB';
+      if(this[existingKey]){
+        this[existingKey].data = config.data;
+        this[existingKey].update('none');
+        return this[existingKey];
+      }
+      const ch = new Chart(el.getContext('2d'), config);
+      this[existingKey] = ch;
+      return ch;
+    },
+
+    // ---- Diff helpers ----
+    get diffMC(){
+      return [
+        this._diffRow('P10', this.A.stats.p10, this.B.stats.p10, 'mld', true),
+        this._diffRow('P50', this.A.stats.p50, this.B.stats.p50, 'mld', true),
+        this._diffRow('P90', this.A.stats.p90, this.B.stats.p90, 'mld', true),
+        this._diffRow('P(< floor)', this.A.stats.probFloor, this.B.stats.probFloor, 'pct', false),
+        this._diffRow('Mean', this.A.stats.mean, this.B.stats.mean, 'mld', true),
+      ];
+    },
+    get diffVal(){
+      return [
+        this._diffRow('Vážený průměr', this.A.val.weighted, this.B.val.weighted, 'mld', true),
+        this._diffRow('Spodní hrana', this.A.val.low, this.B.val.low, 'mld', true),
+        this._diffRow('Horní hrana', this.A.val.high, this.B.val.high, 'mld', true),
+      ];
+    },
+    get diffTax(){
+      return [
+        this._diffRow('Efektivní sazba', this.A.tax.effectiveRate, this.B.tax.effectiveRate, 'pct', false),
+        this._diffRow('Po zdanění', this.A.tax.afterTax, this.B.tax.afterTax, 'mld', true),
+      ];
+    },
+    get diffScore(){
+      return this._diffRow('Combined', this.A.score.total, this.B.score.total, 'num', true);
+    },
+
+    _diffRow(label, a, b, kind, higherIsBetter){
+      const delta = a - b;
+      const pct = b !== 0 ? (delta/Math.abs(b))*100 : 0;
+      const winner = Math.abs(delta) < 1e-6 ? 'T' : ((higherIsBetter ? a > b : a < b) ? 'A' : 'B');
+      let formatted;
+      if(kind === 'mld'){
+        formatted = (delta>=0?'+':'') + delta.toFixed(2) + ' mld. (' + (pct>=0?'+':'') + pct.toFixed(1) + '%)';
+      } else if(kind === 'pct'){
+        formatted = (delta>=0?'+':'') + (delta*100).toFixed(2) + ' pp';
+      } else {
+        formatted = (delta>=0?'+':'') + delta.toFixed(2) + ' (' + (pct>=0?'+':'') + pct.toFixed(1) + '%)';
+      }
+      return { label, a, b, delta, pct, winner, formatted };
+    },
+
+    get recommendation(){
+      const wins = [
+        { metric: 'P50', winner: this._who(this.A.stats.p50, this.B.stats.p50, true) },
+        { metric: 'P(<floor)', winner: this._who(this.A.stats.probFloor, this.B.stats.probFloor, false) },
+        { metric: 'Triangulace', winner: this._who(this.A.val.weighted, this.B.val.weighted, true) },
+        { metric: 'Po zdanění', winner: this._who(this.A.tax.afterTax, this.B.tax.afterTax, true) },
+        { metric: 'Skóre', winner: this._who(this.A.score.total, this.B.score.total, true) },
+      ];
+      const aWins = wins.filter(w=>w.winner==='A').length;
+      const bWins = wins.filter(w=>w.winner==='B').length;
+      let headline, reason;
+      if(aWins > bWins){
+        headline = 'Vítězí A — ' + this.A.scenario.name;
+        reason = 'Scénář A vyhrává v ' + aWins + '/' + wins.length + ' metrikách. Vyšší P50 a/nebo lepší daňová efektivita.';
+      } else if(bWins > aWins){
+        headline = 'Vítězí B — ' + this.B.scenario.name;
+        reason = 'Scénář B vyhrává v ' + bWins + '/' + wins.length + ' metrikách. Lepší kombinace upside/risk/tax.';
+      } else {
+        headline = 'Remíza';
+        reason = 'Oba scénáře se vyrovnávají (' + aWins + ':' + bWins + '). Rozhodnutí závisí na dalších kritériích (časový tlak, exekuovatelnost).';
+      }
+      return { headline, reason, wins };
+    },
+    _who(a, b, higherIsBetter){
+      if(Math.abs(a-b) < 1e-6) return 'T';
+      return (higherIsBetter ? a > b : a < b) ? 'A' : 'B';
+    },
+
+    // ---- Run / re-run ----
+    async runBoth(){
+      this.busy = true;
+      const t0 = performance.now();
+      // microtask defer so UI shows "počítám"
+      await new Promise(r => setTimeout(r, 30));
+      this.A = this.computeFor(this.A.scenario);
+      this.B = this.computeFor(this.B.scenario);
+      this.lastRunMs = Math.round(performance.now() - t0);
+      this.busy = false;
+      // Draw histograms after Alpine renders
+      this.$nextTick(() => {
+        this.drawHist('histA', this.A.results, this.A.scenario.floor, 'rgba(37,99,235,0.6)');
+        this.drawHist('histB', this.B.results, this.B.scenario.floor, 'rgba(245,158,11,0.6)');
+      });
+      this._writeUrl();
+    },
+
+    onSelectChange(){
+      const sa = (window.DD_SCENARIO && DD_SCENARIO.load) ? DD_SCENARIO.load(this.nameA) : null;
+      const sb = (window.DD_SCENARIO && DD_SCENARIO.load) ? DD_SCENARIO.load(this.nameB) : null;
+      if(sa) this.A.scenario = sa;
+      if(sb) this.B.scenario = sb;
+      this.runBoth();
+    },
+
+    swap(){
+      const tmp = this.nameA; this.nameA = this.nameB; this.nameB = tmp;
+      this.onSelectChange();
+    },
+
+    copyPermalink(){
+      try {
+        const url = location.origin + location.pathname + '?a=' + encodeURIComponent(this.nameA) + '&b=' + encodeURIComponent(this.nameB);
+        navigator.clipboard.writeText(url).then(()=>{ this._toast('Permalink zkopírován'); }, ()=>{ prompt('Permalink:', url); });
+      } catch(e){}
+    },
+
+    _writeUrl(){
+      try {
+        const params = new URLSearchParams(location.search);
+        params.set('a', this.nameA);
+        params.set('b', this.nameB);
+        history.replaceState(null, '', location.pathname + '?' + params.toString());
+      } catch(e){}
+    },
+
+    _toast(msg){
+      const el = document.createElement('div');
+      el.textContent = msg;
+      el.style.cssText = 'position:fixed;left:50%;bottom:24px;transform:translateX(-50%);z-index:60;padding:8px 14px;border-radius:6px;background:#0f172a;color:#e5e7eb;font:13px/1.4 system-ui;box-shadow:0 6px 20px -6px rgba(0,0,0,.4)';
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(), 2200);
+    },
+
+    fmtMld(v){ return (v||0).toFixed(2)+' mld.'; },
+
+    init(){
+      // Discover available scenarios
+      if(window.DD_SCENARIO && DD_SCENARIO.list){
+        this.available = DD_SCENARIO.list();
+      } else {
+        // wait for script
+        const wait = () => {
+          if(window.DD_SCENARIO && DD_SCENARIO.list){
+            this.available = DD_SCENARIO.list();
+            this._initFromUrl();
+          } else { setTimeout(wait, 60); }
+        };
+        wait();
+        return;
+      }
+      this._initFromUrl();
+    },
+
+    _initFromUrl(){
+      try {
+        const params = new URLSearchParams(location.search);
+        const a = params.get('a');
+        const b = params.get('b');
+        if(a && this.available.includes(a)) this.nameA = a;
+        if(b && this.available.includes(b)) this.nameB = b;
+      } catch(e){}
+      // Subscribe to cross-tab changes
+      try {
+        if(window.DD_SCENARIO && DD_SCENARIO.subscribe){
+          DD_SCENARIO.subscribe(() => {
+            this.available = DD_SCENARIO.list();
+          });
+        }
+      } catch(e){}
+      // Wait for Chart.js, then compute
+      const tryRun = () => {
+        if(window.Chart){
+          this.onSelectChange();
+        } else {
+          setTimeout(tryRun, 80);
+        }
+      };
+      tryRun();
+    }
+  };
+}
+
+function emptyScenario(){
+  return {
+    name: '—', floor: 3.7, target: 5.0, anchor: 6.0,
+    dcfMu: 5.0, dcfSigma: 0.8, landMu: 4.0, landSigma: 0.6,
+    precedentMu: 4.2, precedentSigma: 0.5, liquidationMu: 2.5, liquidationSigma: 0.4,
+    weights: { dcf: 0.4, land: 0.3, precedent: 0.2, liquidation: 0.1 },
+    escrowPct: 0.15, consentRate: 0.85, dancoreReserve: 0.3,
+    structure: 'share', section19: true, section54: true, grossUp: false, iterations: 10000,
+  };
+}
+function emptyStats(){ return { p10:0,p25:0,p50:0,p75:0,p90:0,mean:0,stdev:0,probFloor:0,min:0,max:0 }; }
+function emptyVal(){ return { weighted:0, low:0, high:0, sigma:0 }; }
+function emptyTax(){ return { effectiveRate:0, afterTax:0, note:'' }; }
+function emptyScore(){ return { total:0, parts:{ margin:0, consent:0, tax:0 } }; }
+</script>
+
+<!-- Related sidebar (injected pattern) -->
+<div data-connections-sidebar="injected" x-data="{ openRel: false }" class="no-print">
+  <button type="button"
+    @click="openRel = !openRel"
+    class="fixed right-4 bottom-4 z-40 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium shadow-lg rounded-full px-4 py-2 flex items-center gap-2"
+    aria-label="Přepnout související soubory">
+    <span>📎</span><span>Související</span>
+  </button>
+  <aside
+    x-show="openRel"
+    x-transition
+    @click.away="openRel = false"
+    class="fixed right-4 bottom-20 z-40 w-80 max-h-[70vh] overflow-y-auto bg-gray-900 border border-gray-700 text-gray-100 rounded-lg shadow-2xl p-4"
+    style="display: none;">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-sm font-semibold text-white">📎 Související soubory</h3>
+      <button type="button" @click="openRel = false" class="text-gray-400 hover:text-white" aria-label="Zavřít">✕</button>
+    </div>
+    <div id="connections-related-panel" class="text-sm">
+      <p class="text-gray-500 italic">Načítání…</p>
+    </div>
+  </aside>
+</div>
+<script src="../_assets/connections.js"></script>
+<script>
+  (function () {
+    if (!window.Connections) return;
+    window.Connections.init().then(function () {
+      var el = document.getElementById('connections-related-panel');
+      if (el) window.Connections.renderBacklinksPanel(el, '06-reports/scenario-compare.html');
+    }).catch(function (err) {
+      var el = document.getElementById('connections-related-panel');
+      if (el) el.textContent = 'Graf není dostupný: ' + err.message;
+    });
+  })();
+</script>
+
+<!-- mycelium-ux:injected -->
+<script src="../_assets/command-palette.js"></script>
+<script src="../_assets/hover-previews.js"></script>
+<script src="../_assets/keyboard-shortcuts.js"></script>
+<script src="../_assets/state-sync.js"></script>
+<script defer src="../_assets/viz-debug.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+/* viz-common.css
+   Reusable viz container classes for consistent canvas/chart/map sizing.
+   Fixes: vertical/horizontal stretch, missing height, print-page overflow.
+
+   Usage:
+     <div class="viz-container"><canvas id="my-chart"></canvas></div>
+     <div class="viz-container viz-container--short"><canvas ...></canvas></div>
+
+   Pair with Chart.js options:
+     responsive: true,
+     maintainAspectRatio: false,
+   ...and add: window.addEventListener('resize', () => chart.resize(), {passive:true});
+*/
+
+.viz-container {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  min-height: 200px;
+}
+
+.viz-container--xshort   { height: 160px; }
+.viz-container--short    { height: 240px; }
+.viz-container--medium   { height: 320px; }
+.viz-container--tall     { height: 480px; }
+.viz-container--xtall    { height: 640px; }
+.viz-container--fullpage { height: calc(100vh - 200px); min-height: 420px; }
+
+/* P5 / custom canvas holders: the p5 element inside will be auto-sized by JS,
+   but the wrapper must have explicit height so clientHeight is non-zero. */
+.viz-p5-host {
+  position: relative;
+  width: 100%;
+  min-height: 420px;
+}
+
+/* Leaflet wrapper – maps must have an explicit height or nothing renders. */
+.viz-leaflet-host {
+  position: relative;
+  width: 100%;
+  height: 640px;
+  min-height: 360px;
+  border-radius: 8px;
+  z-index: 0;
+}
+
+/* When HiDPI is handled by JS (setPixelRatio / pixelDensity), keep CSS crisp. */
+.viz-container canvas,
+.viz-p5-host canvas {
+  display: block;
+  max-width: 100%;
+}
+
+/* Print optimization: collapse tall viz to page-safe heights, avoid breaks. */
+@media print {
+  .viz-container,
+  .viz-container--tall,
+  .viz-container--xtall,
+  .viz-container--fullpage {
+    height: 360px !important;
+    min-height: 200px !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .viz-leaflet-host { height: 480px !important; }
+  .viz-p5-host     { min-height: 360px !important; }
+}
+
+/* ─── dd-xref / dd-tile / dd-entity-link / rf-badge anchors ──────────────── */
+/* Auto cross-references injected by dd-auto-linkify.js / reader.html       */
+a.dd-xref,
+a.dd-entity-link {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: rgba(99, 102, 241, 0.45);
+  text-underline-offset: 2px;
+  cursor: pointer;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+a.dd-xref:hover,
+a.dd-entity-link:hover {
+  color: rgb(67 56 202);
+  text-decoration-color: rgb(67 56 202);
+  text-decoration-style: solid;
+}
+.dark a.dd-xref,
+html.dark a.dd-xref,
+.dark a.dd-entity-link,
+html.dark a.dd-entity-link {
+  text-decoration-color: rgba(165, 180, 252, 0.55);
+}
+.dark a.dd-xref:hover,
+html.dark a.dd-xref:hover,
+.dark a.dd-entity-link:hover,
+html.dark a.dd-entity-link:hover {
+  color: rgb(199 210 254);
+  text-decoration-color: rgb(199 210 254);
+}
+/* RF badge anchor preserves its existing pill styling */
+a.rf-badge.dd-xref { text-decoration: none; }
+
+/* dd-tile (whole card wrapped in <a>) */
+a.dd-tile { color: inherit; text-decoration: none; display: block; transition: all 0.15s; }
+a.dd-tile:hover { transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0,0,0,0.08); }
+.dark a.dd-tile:hover, html.dark a.dd-tile:hover { box-shadow: 0 6px 14px rgba(0,0,0,0.4); }

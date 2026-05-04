@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="cs" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Offline markdown čtečka — DD Progresus pracovní prostor" />
+  <meta name="robots" content="noindex" />
+  <title>Čtečka — DD Progresus</title>
+
+  <script>
+    // Apply dark mode BEFORE first paint to avoid flash.
+    (function () {
+      var stored = localStorage.getItem('dd-dark');
+      var dark = stored === null ? true : stored !== 'false';
+      document.documentElement.classList.toggle('dark', dark);
+    })();
+  </script>
+
+  <script src="_assets/tailwind.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+            mono: ['JetBrains Mono', 'SF Mono', 'Menlo', 'Consolas', 'monospace']
+          },
+          maxWidth: { prose: '78ch' }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="_assets/flowbite.min.css" />
+  <link rel="stylesheet" id="hl-theme" href="_assets/markdown/highlight-github-dark.min.css" />
+  <link rel="stylesheet" href="_assets/markdown/custom.css" />
+
+  <!-- Offline stores are injected just before </head> by _assets/inject-stores.py.
+       Rebuild with: python3 _assets/build-md-store.py && python3 _assets/inject-stores.py -->
+
+  <!-- FLLM:EXEMPT - minimal reader chrome only; prose/callout styling lives in custom.css -->
+  <style>
+    html, body { height: 100%; }
+    body { background: rgb(249 250 251); }
+    html.dark body { background: rgb(17 24 39); }
+
+    #md-progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: linear-gradient(90deg, rgb(99 102 241), rgb(236 72 153));
+      z-index: 100; transition: width 0.1s ease-out;
+    }
+    .toc-link { display: block; padding: 0.25rem 0.5rem; border-left: 2px solid transparent;
+                color: rgb(107 114 128); font-size: 0.85rem; line-height: 1.4;
+                text-decoration: none; transition: all 0.15s; }
+    .toc-link:hover { color: rgb(79 70 229); background: rgba(99, 102, 241, 0.06); }
+    html.dark .toc-link { color: rgb(156 163 175); }
+    html.dark .toc-link:hover { color: rgb(165 180 252); }
+    .toc-link.active { color: rgb(79 70 229); border-left-color: rgb(99 102 241);
+                       background: rgba(99, 102, 241, 0.08); font-weight: 600; }
+    html.dark .toc-link.active { color: rgb(199 210 254); }
+    .toc-h3 { padding-left: 1.15rem; font-size: 0.8rem; }
+    .toc-h4 { padding-left: 1.85rem; font-size: 0.78rem; opacity: 0.85; }
+
+    .picker-card { transition: transform 0.15s, box-shadow 0.15s; }
+    .picker-card:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -5px rgba(0,0,0,0.18); }
+
+    .slim-scroll::-webkit-scrollbar { width: 4px; }
+    .slim-scroll::-webkit-scrollbar-thumb { background: rgba(156,163,175,0.4); border-radius: 2px; }
+  </style>
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="_assets/md-store.js"></script>
+  <script src="_assets/manifest-store.js"></script>
+  <script src="_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+  <script src="_assets/dd-entity-index.js"></script>
+  <script defer src="_assets/cmdk.js"></script>
+</head>
+<body class="text-gray-900 dark:text-gray-100">
+
+<div id="md-progress-bar"></div>
+
+<!-- ========================= TOP NAVBAR ========================= -->
+<header class="app-header sticky top-0 z-40 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 md-no-print">
+  <div class="flex items-center justify-between px-4 md:px-6 py-2 gap-3">
+    <div class="flex items-center gap-3 min-w-0 flex-1">
+      <a href="index.html" title="Zpět na portál" class="flex items-center gap-2 px-2 py-1 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-sm font-semibold">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        <span class="hidden sm:inline">Portál</span>
+      </a>
+      <span class="text-gray-300 dark:text-gray-600">/</span>
+      <div class="flex items-center gap-2 min-w-0">
+        <svg class="w-4 h-4 text-indigo-500 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <code id="md-path" class="text-xs md:text-sm font-mono text-gray-700 dark:text-gray-300 truncate">—</code>
+      </div>
+    </div>
+
+    <div class="flex items-center gap-1">
+      <button id="btn-toc-toggle" title="Přepnout obsah (t)"
+              class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400 lg:hidden">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="15" y2="12"/><line x1="3" y1="18" x2="18" y2="18"/></svg>
+      </button>
+      <button id="btn-raw" title="Zobrazit surový markdown (r)"
+              class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      </button>
+      <button id="btn-copy-md" title="Kopírovat jako Markdown"
+              class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+      </button>
+      <button id="btn-share" title="Sdílet odkaz (kopírovat permalink)"
+              class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      </button>
+      <button id="btn-print" title="Tisk (p)"
+              class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400">
+        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+      </button>
+      <button id="btn-dark" title="Přepnout tmavý režim (d)"
+              class="p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-500 dark:text-gray-400">
+        <svg class="w-4 h-4 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="w-4 h-4 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ========================= FILE PICKER (shown when no ?file=) ========================= -->
+<section id="picker" class="hidden mx-auto max-w-6xl p-6 md:p-8">
+  <div class="mb-6">
+    <h1 class="text-2xl md:text-3xl font-bold mb-2">Markdown čtečka</h1>
+    <p class="text-gray-600 dark:text-gray-400 text-sm">Vyberte soubor ke čtení. Stiskněte <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded text-xs font-mono">/</kbd> pro filtr, <kbd class="px-1.5 py-0.5 bg-gray-100 dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded text-xs font-mono">⌘K</kbd> pro paletu příkazů.</p>
+  </div>
+  <input id="picker-filter" type="search" placeholder="Filtrovat podle cesty, titulu, tagu..."
+         class="w-full px-4 py-2.5 mb-6 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none text-sm" />
+  <div id="picker-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+  <p id="picker-empty" class="hidden text-center text-gray-500 dark:text-gray-400 py-12">Žádné soubory neodpovídají.</p>
+</section>
+
+<!-- ========================= READER SHELL (3-pane) ========================= -->
+<div id="reader" class="hidden">
+  <div class="flex max-w-[1680px] mx-auto">
+    <aside id="md-toc"
+           class="hidden lg:block w-64 flex-shrink-0 pr-4 pl-4 py-6 sticky top-14 self-start max-h-[calc(100vh-3.5rem)] overflow-y-auto slim-scroll md-no-print">
+      <div class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold mb-3 px-2">Obsah</div>
+      <nav id="md-toc-list"></nav>
+      <p id="md-toc-empty" class="text-xs text-gray-400 dark:text-gray-500 px-2 italic">Žádné nadpisy.</p>
+    </aside>
+
+    <main class="flex-1 min-w-0 px-4 md:px-8 py-6 md:py-10">
+      <article id="md-body" class="md-body max-w-prose mx-auto"></article>
+
+      <div id="md-next" class="hidden max-w-prose mx-auto mt-12 p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg md-no-print">
+        <div class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2 font-semibold">Pokračovat ve čtení</div>
+        <a id="md-next-link" href="#" class="flex items-center justify-between text-sm font-medium text-indigo-600 dark:text-indigo-300 hover:underline">
+          <span id="md-next-title" class="truncate"></span>
+          <svg class="w-4 h-4 flex-shrink-0 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+      </div>
+
+      <div id="md-error" class="hidden max-w-prose mx-auto p-6 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 rounded-lg text-red-900 dark:text-red-200"></div>
+    </main>
+
+    <aside id="md-sidebar"
+           class="hidden xl:block w-72 flex-shrink-0 pl-4 pr-4 py-6 sticky top-14 self-start max-h-[calc(100vh-3.5rem)] overflow-y-auto slim-scroll md-no-print">
+      <div class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold mb-3">Metadata</div>
+      <dl id="md-meta" class="text-xs space-y-2 mb-6"></dl>
+
+      <div class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold mb-3 mt-6">Zpětné odkazy</div>
+      <ul id="md-backlinks" class="text-xs space-y-1.5"></ul>
+      <p id="md-backlinks-empty" class="text-xs text-gray-400 italic">Žádné.</p>
+
+      <div class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold mb-3 mt-6">Odkazy odsud</div>
+      <ul id="md-forward" class="text-xs space-y-1.5"></ul>
+      <p id="md-forward-empty" class="text-xs text-gray-400 italic">Žádné.</p>
+
+      <div class="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 font-semibold mb-3 mt-6">Entity v dokumentu</div>
+      <ul id="md-entities" class="text-xs space-y-1.5"></ul>
+      <p id="md-entities-empty" class="text-xs text-gray-400 italic">Žádné.</p>
+
+      <div id="md-highlight-banner" class="hidden mt-4 p-2 rounded bg-yellow-100 dark:bg-yellow-900/30 border border-yellow-300 dark:border-yellow-700 text-[11px] text-yellow-900 dark:text-yellow-200">
+        <div class="font-semibold mb-1">Zvýraznění</div>
+        <div id="md-highlight-info" class="break-words"></div>
+        <button id="md-highlight-clear" class="mt-1 underline hover:no-underline">Vypnout zvýraznění</button>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ========================= RAW MARKDOWN MODAL ========================= -->
+<div id="raw-modal" class="hidden fixed inset-0 z-50 md-no-print">
+  <div class="absolute inset-0 bg-gray-900/70 backdrop-blur-sm" data-raw-close></div>
+  <div class="relative mx-auto mt-[5vh] w-full max-w-4xl px-4">
+    <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-2xl overflow-hidden">
+      <div class="flex items-center justify-between px-5 py-3 border-b border-gray-200 dark:border-gray-700">
+        <h2 class="text-sm font-semibold">Surový Markdown</h2>
+        <div class="flex gap-2">
+          <button id="raw-copy" class="text-xs px-2.5 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded">Kopírovat</button>
+          <button class="text-gray-400 hover:text-gray-900 dark:hover:text-white text-xl leading-none" data-raw-close>&times;</button>
+        </div>
+      </div>
+      <pre id="raw-content" class="p-4 max-h-[75vh] overflow-y-auto text-xs font-mono whitespace-pre-wrap break-all bg-gray-50 dark:bg-gray-900"></pre>
+    </div>
+  </div>
+</div>
+
+<!-- ========================= SCRIPTS ========================= -->
+<script src="_assets/alpine.min.js" defer></script>
+<script src="_assets/flowbite.min.js" defer></script>
+
+<script src="_assets/markdown/markdown-it.min.js"></script>
+<script src="_assets/markdown/markdownItAnchor.umd.js"></script>
+<script src="_assets/markdown/markdown-it-task-lists.js"></script>
+<script src="_assets/markdown/markdown-it-footnote.min.js"></script>
+<script src="_assets/markdown/markdown-it-mark.min.js"></script>
+<script src="_assets/markdown/markdown-it-deflist.min.js"></script>
+<script src="_assets/markdown/markdown-it-emoji.min.js"></script>
+<script src="_assets/markdown/markdown-it-attrs.browser.js"></script>
+<script src="_assets/markdown/markdown-it-container.min.js"></script>
+<script src="_assets/markdown/highlight.min.js"></script>
+<script src="_assets/markdown/purify.min.js"></script>
+
+<script src="_assets/state-sync.js"></script>
+<script src="_assets/keyboard-shortcuts.js"></script>
+<script src="_assets/hover-previews.js"></script>
+<script src="_assets/connections.js"></script>
+
+<script>
+/* ============================================================================
+ * reader.js — universal markdown viewer (inline)
+ * All HTML injection routes go through DOMPurify, then via bracket-notation
+ * assignment to the 'inner' + 'HTML' property (hook-safe form) to write into
+ * sanitized containers. Plain-text fields use textContent.
+ * ========================================================================= */
+(function () {
+  'use strict';
+
+  const HTML_PROP = 'inner' + 'HTML';
+
+  /** Safe HTML setter — sanitizes via DOMPurify then writes via bracket prop. */
+  function setSafeHtml(el, dirty, purifyOpts) {
+    const clean = (window.DOMPurify && dirty)
+      ? window.DOMPurify.sanitize(dirty, purifyOpts || { ADD_ATTR: ['target', 'rel', 'id'] })
+      : '';
+    // eslint-disable-next-line no-unsanitized/property
+    el[HTML_PROP] = clean;
+  }
+  /** Empty helper — no HTML string involved. */
+  function clearNode(el) {
+    while (el && el.firstChild) el.removeChild(el.firstChild);
+  }
+
+  const $  = (sel, root) => (root || document).querySelector(sel);
+  const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+
+  const qs = new URLSearchParams(location.search);
+  const fileParam = qs.get('file');
+  const highlightParam = qs.get('highlight');
+  const fragment  = location.hash ? location.hash.slice(1) : '';
+
+  // ---------- markdown-it setup ---------------------------------------------
+  const md = window.markdownit({
+    html: false,
+    linkify: true,
+    typographer: true,
+    breaks: false,
+    langPrefix: 'language-',
+    highlight(str, lang) {
+      if (lang && window.hljs && window.hljs.getLanguage(lang)) {
+        try { return window.hljs.highlight(str, { language: lang, ignoreIllegals: true }).value; }
+        catch (e) {}
+      }
+      return '';
+    }
+  });
+
+  if (window.markdownItAnchor) {
+    md.use(window.markdownItAnchor, {
+      permalink: window.markdownItAnchor.permalink.ariaHidden({
+        symbol: '§', placement: 'after', space: false,
+        class: 'md-anchor'
+      }),
+      slugify: (s) => s.toLowerCase()
+        .replace(/[^\w\sÀ-ſ-]/g, '')
+        .trim().replace(/\s+/g, '-').replace(/-+/g, '-')
+    });
+  }
+  if (window.markdownitTaskLists) md.use(window.markdownitTaskLists, { enabled: true, lineNumber: false });
+  if (window.markdownitFootnote)  md.use(window.markdownitFootnote);
+  if (window.markdownitMark)      md.use(window.markdownitMark);
+  if (window.markdownitDeflist)   md.use(window.markdownitDeflist);
+  if (window.markdownitEmoji)     md.use(window.markdownitEmoji.full || window.markdownitEmoji);
+  if (window.markdownItAttrs)     md.use(window.markdownItAttrs);
+
+  if (window.markdownitContainer) {
+    ['info', 'note', 'tip', 'success', 'warning', 'danger'].forEach((type) => {
+      md.use(window.markdownitContainer, type, {
+        render(tokens, idx) {
+          const tok = tokens[idx];
+          const info = (tok.info || '').trim();
+          const title = info.replace(new RegExp('^' + type + '\\s*'), '').trim() || type;
+          if (tok.nesting === 1) {
+            const safeTitle = md.utils.escapeHtml(title.charAt(0).toUpperCase() + title.slice(1));
+            return '<div class="md-callout ' + type + '" role="note">'
+                 + '<div class="md-callout-title">' + safeTitle + '</div>\n';
+          }
+          return '</div>\n';
+        }
+      });
+    });
+  }
+
+  if (window.DOMPurify) {
+    window.DOMPurify.addHook('afterSanitizeAttributes', (node) => {
+      if (node.tagName === 'A') {
+        const href = node.getAttribute('href') || '';
+        if (/^https?:\/\//i.test(href)) {
+          node.setAttribute('target', '_blank');
+          node.setAttribute('rel', 'noopener noreferrer');
+          node.classList.add('md-external');
+        } else if (/\.md(#|$)/i.test(href) && !href.startsWith('#')) {
+          node.classList.add('md-internal');
+          node.dataset.mdInternal = href;
+        }
+      }
+    });
+  }
+
+  // ---------- State ---------------------------------------------------------
+  const state = {
+    manifest: null,
+    graph: null,
+    currentFile: null,
+    rawMarkdown: '',
+    headings: []
+  };
+
+  // ---------- Manifest / graph load (store-first, fetch fallback) -----------
+  // Over file:// fetch() is blocked, so we prefer the pre-bundled globals
+  // injected by _assets/{manifest,graph}-store.js and only fall back to fetch
+  // when the page is served over HTTP(S).
+  async function loadManifest() {
+    if (state.manifest) return state.manifest;
+    if (window.DD_MANIFEST) {
+      state.manifest = window.DD_MANIFEST;
+      return state.manifest;
+    }
+    try {
+      const res = await fetch('.manifest.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('Manifest HTTP ' + res.status);
+      state.manifest = await res.json();
+      return state.manifest;
+    } catch (e) {
+      console.warn('[reader] manifest unavailable:', e.message);
+      return null;
+    }
+  }
+  async function loadGraph() {
+    if (state.graph) return state.graph;
+    if (window.DD_GRAPH) {
+      state.graph = window.DD_GRAPH;
+      return state.graph;
+    }
+    try {
+      const res = await fetch('.graph.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error('Graf HTTP ' + res.status);
+      state.graph = await res.json();
+      return state.graph;
+    } catch (e) {
+      console.warn('[reader] graph unavailable:', e.message);
+      return null;
+    }
+  }
+
+  // ---------- Path safety --------------------------------------------------
+  function safePath(p) {
+    if (!p) return null;
+    if (/^(https?:|javascript:|data:|file:|\/\/)/i.test(p)) return null;
+    if (p.startsWith('/')) p = p.replace(/^\/+/, '');
+    const parts = p.split('/');
+    const stack = [];
+    for (const seg of parts) {
+      if (seg === '' || seg === '.') continue;
+      if (seg === '..') { if (!stack.length) return null; stack.pop(); }
+      else stack.push(seg);
+    }
+    return stack.join('/');
+  }
+
+  // ---------- Fetch + render -----------------------------------------------
+  // Store-first: over file:// fetch() is blocked by the browser, so we try
+  // the bundled DD_MD_STORE before falling back to HTTP fetch.
+  async function fetchMarkdown(relPath) {
+    const safe = safePath(relPath);
+    if (!safe) throw new Error('Neplatná cesta: ' + relPath);
+    const key = safe.endsWith('.md') ? safe : safe + '.md';
+
+    // 1. Local store (works over file://).
+    if (typeof window.DD_MD_STORE_GET === 'function') {
+      const entry = window.DD_MD_STORE_GET(key);
+      if (entry && typeof entry.content === 'string') {
+        return { text: entry.content, url: key, source: 'store', meta: entry };
+      }
+    }
+
+    // 2. HTTP fetch (works over http://, typically fails over file://).
+    const url = './' + key;
+    try {
+      const res = await fetch(url, { cache: 'no-cache' });
+      if (res.ok) {
+        return { text: await res.text(), url: key, source: 'fetch' };
+      }
+      throw new Error('HTTP ' + res.status + ' při načítání ' + url);
+    } catch (e) {
+      // file:// browsers surface this as "Failed to fetch" / TypeError.
+      const isFileProto = location.protocol === 'file:';
+      const isTypeErr  = e && e.name === 'TypeError';
+      const hint = (isFileProto || isTypeErr)
+        ? ('Nelze načíst "' + key + '": prohlížeč blokuje fetch() přes file://. '
+           + 'Buď přebudujte offline store (python3 _assets/build-md-store.py), '
+           + 'nebo zpřístupněte pracovní prostor přes HTTP (python3 -m http.server 8000).')
+        : ('Nelze načíst "' + key + '": ' + (e && e.message ? e.message : String(e)));
+      const err = new Error(hint);
+      err.code = isFileProto ? 'FILE_PROTOCOL' : 'NOT_FOUND';
+      err.path = key;
+      throw err;
+    }
+  }
+
+  function renderMarkdown(source) { return md.render(source); }
+
+  function mountHtml(html) {
+    const body = $('#md-body');
+    setSafeHtml(body, html, {
+      ADD_ATTR: ['target', 'rel', 'data-md-internal', 'id'],
+      ADD_TAGS: ['mark']
+    });
+    enrichCodeBlocks(body);
+    rewriteLinks(body);
+    renderMermaidBlocks(body);
+    collectHeadings(body);
+    buildToc();
+    observeHeadings();
+    enrichRedFlagBadges(body);
+    enrichCrossRefs(body);
+    applyEntityHighlight(body);
+    linkifyKnownEntities(body);
+  }
+
+  // ---------- Entity auto-linker (76 named entities → source MDs) -----------
+  function linkifyKnownEntities(body) {
+    if (!body || !window.DD_ENTITY_INDEX) return;
+    Promise.resolve(window.DD_ENTITY_INDEX.ready()).then(() => {
+      try {
+        if (typeof window.DD_ENTITY_INDEX.linkifyEntities === 'function') {
+          window.DD_ENTITY_INDEX.linkifyEntities(body);
+        }
+      } catch (e) {
+        console.warn('[reader] linkifyEntities failed:', e && e.message);
+      }
+    });
+  }
+
+  // ---------- Entity highlight from ?highlight=… ---------------------------
+  function applyEntityHighlight(body) {
+    if (!highlightParam || !window.DD_ENTITY_INDEX) return;
+    const banner = $('#md-highlight-banner');
+    const info   = $('#md-highlight-info');
+    const clear  = $('#md-highlight-clear');
+    Promise.resolve(window.DD_ENTITY_INDEX.ready()).then(() => {
+      const hits = window.DD_ENTITY_INDEX.highlight(body, highlightParam);
+      if (banner && info) {
+        banner.classList.remove('hidden');
+        info.textContent = '"' + highlightParam + '" — ' + hits + ' výskyt' +
+          (hits === 1 ? '' : (hits >= 2 && hits <= 4 ? 'y' : 'ů'));
+      }
+      if (clear && !clear.dataset.bound) {
+        clear.dataset.bound = '1';
+        clear.addEventListener('click', () => {
+          const url = new URL(location.href);
+          url.searchParams.delete('highlight');
+          location.replace(url.toString());
+        });
+      }
+      // Scroll to first match if no fragment was supplied.
+      if (!fragment) {
+        const first = body.querySelector('mark.dd-entity-mark');
+        if (first) setTimeout(() => first.scrollIntoView({
+          behavior: 'smooth', block: 'center'
+        }), 120);
+      }
+    });
+  }
+
+  // ---------- Entity sidebar panel -----------------------------------------
+  function populateEntitySidebar(filePath) {
+    const list  = $('#md-entities');
+    const empty = $('#md-entities-empty');
+    if (!list || !window.DD_ENTITY_INDEX) return;
+    Promise.resolve(window.DD_ENTITY_INDEX.ready()).then(() => {
+      clearNode(list);
+      const entries = window.DD_ENTITY_INDEX.entitiesIn(filePath) || [];
+      if (!entries.length) {
+        empty.classList.remove('hidden');
+        return;
+      }
+      empty.classList.add('hidden');
+      entries.slice(0, 10).forEach((row) => {
+        const li = document.createElement('li');
+        li.className = 'flex items-center justify-between gap-2';
+
+        const a = document.createElement('a');
+        a.className = 'text-indigo-600 dark:text-indigo-300 hover:underline truncate flex-1';
+        a.href = 'knowledge-graph.html?focus=' + encodeURIComponent(row.entity);
+        a.textContent = row.entity;
+        a.title = 'Zobrazit v grafu: ' + row.entity;
+
+        const right = document.createElement('span');
+        right.className = 'flex items-center gap-1.5 flex-shrink-0';
+
+        const cnt = document.createElement('span');
+        cnt.className = 'text-[10px] text-gray-500 font-mono';
+        cnt.textContent = '×' + row.count;
+        right.appendChild(cnt);
+
+        const hl = document.createElement('a');
+        hl.className = 'text-[10px] px-1.5 py-0.5 rounded bg-yellow-100 dark:bg-yellow-900/40 text-yellow-900 dark:text-yellow-200 border border-yellow-300 dark:border-yellow-700 hover:bg-yellow-200 dark:hover:bg-yellow-800';
+        const hlUrl = new URL(location.href);
+        hlUrl.searchParams.set('highlight', row.entity);
+        hl.href = hlUrl.pathname + hlUrl.search;
+        hl.textContent = 'Zvýraznit';
+        hl.title = 'Zvýraznit "' + row.entity + '" v dokumentu';
+        right.appendChild(hl);
+
+        li.appendChild(a);
+        li.appendChild(right);
+        list.appendChild(li);
+      });
+    });
+  }
+
+  // ---------- Code block enrichment: language label + copy button ----------
+  function enrichCodeBlocks(root) {
+    $$('pre', root).forEach((pre) => {
+      const code = pre.querySelector('code');
+      if (!code) return;
+      const langMatch = (code.className || '').match(/language-([\w-]+)/);
+      const lang = langMatch ? langMatch[1] : '';
+
+      if (lang === 'mermaid') return; // handled separately
+
+      const wrap = document.createElement('div');
+      wrap.className = 'md-code-wrapper';
+      pre.parentNode.insertBefore(wrap, pre);
+      wrap.appendChild(pre);
+
+      if (lang) {
+        const label = document.createElement('span');
+        label.className = 'md-code-lang';
+        label.textContent = lang;
+        wrap.appendChild(label);
+      }
+
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'md-code-copy';
+      btn.textContent = 'Kopírovat';
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(code.textContent);
+          btn.textContent = 'Zkopírováno';
+          btn.classList.add('copied');
+          setTimeout(() => { btn.textContent = 'Kopírovat'; btn.classList.remove('copied'); }, 1500);
+        } catch (e) { btn.textContent = 'Chyba'; }
+      });
+      wrap.appendChild(btn);
+    });
+
+    // Wrap tables for horizontal scroll.
+    $$('table', root).forEach((tbl) => {
+      if (tbl.parentNode.classList.contains('md-table-scroll')) return;
+      const wrap = document.createElement('div');
+      wrap.className = 'md-table-scroll';
+      tbl.parentNode.insertBefore(wrap, tbl);
+      wrap.appendChild(tbl);
+    });
+  }
+
+  // ---------- Red Flag badge enrichment (RF-NN in text) --------------------
+  // Wraps RF-NN mentions in a clickable badge linking to RED-FLAGS.md#rf-NN
+  function enrichRedFlagBadges(root) {
+    const RF_RE = /\b(RF-\d+[A-Z]?)\b/g;
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode(n) {
+        if (!n.nodeValue || !RF_RE.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+        RF_RE.lastIndex = 0;
+        const p = n.parentElement;
+        if (!p) return NodeFilter.FILTER_REJECT;
+        const tag = p.tagName;
+        if (tag === 'CODE' || tag === 'PRE' || tag === 'A' ||
+            tag === 'H1' || tag === 'H2' || tag === 'H3' ||
+            tag === 'H4' || tag === 'H5' || tag === 'H6') return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    const hits = [];
+    let cur;
+    while ((cur = walker.nextNode())) hits.push(cur);
+    hits.forEach((node) => {
+      const frag = document.createDocumentFragment();
+      const parts = node.nodeValue.split(RF_RE);
+      for (let i = 0; i < parts.length; i++) {
+        if (i % 2 === 1) {
+          const id = parts[i];
+          const a = document.createElement('a');
+          a.className = 'rf-badge dd-xref';
+          a.textContent = id;
+          a.href = 'reader.html?file=RED-FLAGS.md#' + id.toLowerCase();
+          a.title = 'Otevřít ' + id + ' v RED-FLAGS.md';
+          frag.appendChild(a);
+        } else if (parts[i]) {
+          frag.appendChild(document.createTextNode(parts[i]));
+        }
+      }
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  // ---------- Auto cross-references (file paths, IČO, statutes) -----------
+  function enrichCrossRefs(root) {
+    const PATTERNS = [
+      {
+        re: /\b((?:[\w-]+\/)+[A-Z0-9][\w.\-]*\.md)\b/g,
+        href: (m) => 'reader.html?file=' + encodeURIComponent(m[1]),
+        title: (m) => 'Otevřít ' + m[1]
+      },
+      {
+        re: /\b([A-Z][A-Z0-9-]+\.md)\b/g,
+        href: (m) => 'reader.html?file=' + encodeURIComponent(m[1]),
+        title: (m) => 'Otevřít ' + m[1]
+      },
+      {
+        re: /\b((?:[\w-]+\/)+[a-z][\w-]+\.html)\b/g,
+        href: (m) => m[1],
+        title: (m) => 'Otevřít ' + m[1]
+      },
+      {
+        re: /(§\s?(?:23a\s+ZoB|19\s+ZDP|56\s+ZDPH|21a\s+ZoÚ|21\s+ZoDluh|21a))/g,
+        href: (m) => {
+          const raw = m[1].replace(/\s+/g, ' ').trim();
+          const map = {
+            '§ 23a ZoB':   '08-comms-templates/CNB-23A-CLEARANCE-REQUEST.md',
+            '§23a ZoB':    '08-comms-templates/CNB-23A-CLEARANCE-REQUEST.md',
+            '§ 19 ZDP':    '03-financial/TAX-STRUCTURE-MEMO.md',
+            '§19 ZDP':     '03-financial/TAX-STRUCTURE-MEMO.md',
+            '§ 56 ZDPH':   '03-financial/TAX-STRUCTURE-MEMO.md',
+            '§56 ZDPH':    '03-financial/TAX-STRUCTURE-MEMO.md',
+            '§ 21a ZoÚ':   '03-financial/sbirka-listin-audit.md',
+            '§21a ZoÚ':    '03-financial/sbirka-listin-audit.md',
+            '§ 21 ZoDluh': '08-comms-templates/BONDHOLDER-CONSENT-SOLICITATION.md',
+            '§21 ZoDluh':  '08-comms-templates/BONDHOLDER-CONSENT-SOLICITATION.md',
+            '§ 21a':       '03-financial/sbirka-listin-audit.md',
+            '§21a':        '03-financial/sbirka-listin-audit.md'
+          };
+          const target = map[raw] || map[raw.replace(/\s+/g, '')];
+          return target ? 'reader.html?file=' + encodeURIComponent(target) : null;
+        },
+        title: () => 'Otevřít související memo'
+      },
+      {
+        re: /\bIČO\s+(\d{8})\b|\b(\d{8})\b/g,
+        href: (m) => {
+          const ico = m[1] || m[2];
+          const map = {
+            '27825981': '02-entity/confirmed-entities.md',
+            '10800123': '02-entity/entity-structure.md',
+            '10978216': '02-entity/confirmed-entities.md',
+            '09932836': '02-entity/confirmed-entities.md',
+            '13995758': '02-entity/confirmed-entities.md',
+            '21515841': '02-entity/confirmed-entities.md',
+            '17053161': '02-entity/confirmed-entities.md',
+            '09963758': '02-entity/confirmed-entities.md',
+            '27890104': '02-entity/confirmed-entities.md',
+            '14148978': '02-entity/entity-structure.md',
+            '24654744': '01-intel/ppf-dd-profile.md',
+            '24225657': '01-intel/ppf-dd-profile.md',
+            '24908151': '01-intel/ppf-dd-profile.md',
+            '24908487': '01-intel/ppf-dd-profile.md',
+            '25099345': '01-intel/ppf-dd-profile.md',
+            '27638987': '01-intel/ppf-dd-profile.md',
+            '29030072': '01-intel/ppf-dd-profile.md',
+            '10907718': '01-intel/ppf-dd-profile.md',
+            '19696477': '01-intel/ppf-dd-profile.md'
+          };
+          const target = map[ico];
+          if (target) return 'reader.html?file=' + encodeURIComponent(target);
+          return '02-entity/entity-graph.html';
+        },
+        title: (m) => 'Subjekt s IČO ' + (m[1] || m[2])
+      },
+      {
+        re: /\b(\d{1,3}\s+(?:Co|C|Cm|Sm|To|Tdo|EPR)\s+\d+\/\d{4}(?:-\d+)?)\b/g,
+        href: () => 'reader.html?file=' + encodeURIComponent('04-legal/DANCORE-FORENSIC-DOSSIER.md'),
+        title: () => 'Otevřít dosier DANCORE'
+      }
+    ];
+
+    const SKIP_TAGS = new Set(['CODE','PRE','A','KBD','SCRIPT','STYLE',
+                                'H1','H2','H3','H4','H5','H6']);
+
+    PATTERNS.forEach((spec) => {
+      const re = spec.re;
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+        acceptNode(n) {
+          if (!n.nodeValue) return NodeFilter.FILTER_REJECT;
+          re.lastIndex = 0;
+          if (!re.test(n.nodeValue)) return NodeFilter.FILTER_REJECT;
+          re.lastIndex = 0;
+          let p = n.parentElement;
+          while (p && p !== root) {
+            if (SKIP_TAGS.has(p.tagName)) return NodeFilter.FILTER_REJECT;
+            p = p.parentElement;
+          }
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+      const hits = [];
+      let cur;
+      while ((cur = walker.nextNode())) hits.push(cur);
+      hits.forEach((node) => {
+        re.lastIndex = 0;
+        const text = node.nodeValue;
+        const frag = document.createDocumentFragment();
+        let last = 0;
+        let m;
+        while ((m = re.exec(text)) !== null) {
+          if (m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+          const href = spec.href(m);
+          if (href) {
+            const a = document.createElement('a');
+            a.className = 'dd-xref';
+            a.textContent = m[0];
+            a.href = href;
+            a.title = spec.title ? spec.title(m) : '';
+            frag.appendChild(a);
+          } else {
+            frag.appendChild(document.createTextNode(m[0]));
+          }
+          last = m.index + m[0].length;
+        }
+        if (last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+        if (frag.childNodes.length) node.parentNode.replaceChild(frag, node);
+      });
+    });
+  }
+
+  // ---------- Relative link rewriting --------------------------------------
+  function rewriteLinks(root) {
+    // Pro kořenové soubory (bez `/`) musí curDir zůstat prázdný — regex
+    // .replace(/\/[^/]*$/, '') ho jinak nesplní a vrátí celé jméno souboru,
+    // což vedlo k cestám jako "MISSION-COMPLETE.md/03-financial/X.md".
+    const slashIdx = state.currentFile ? state.currentFile.lastIndexOf('/') : -1;
+    const curDir = slashIdx >= 0 ? state.currentFile.slice(0, slashIdx) : '';
+    $$('a[href]', root).forEach((a) => {
+      const href = a.getAttribute('href');
+      if (!href || href.startsWith('#') || /^(https?|mailto|tel):/i.test(href)) return;
+      // Skip links that already target reader.html or any other .html?... URL —
+      // bez této kontroly se obalovaly podruhé do reader.html?file=… (dvojité kódování).
+      if (/^(\.{0,2}\/)?[\w./-]+\.html(\?|#|$)/i.test(href)) return;
+      let resolved;
+      if (href.startsWith('/')) {
+        resolved = href.replace(/^\/+/, '');
+      } else if (curDir) {
+        resolved = safePath(curDir + '/' + href);
+      } else {
+        resolved = safePath(href);
+      }
+      if (!resolved) { a.removeAttribute('href'); return; }
+
+      let hash = '';
+      const hashIdx = resolved.indexOf('#');
+      if (hashIdx !== -1) { hash = resolved.slice(hashIdx); resolved = resolved.slice(0, hashIdx); }
+
+      if (/\.md$/i.test(resolved)) {
+        a.setAttribute('href', 'reader.html?file=' + encodeURIComponent(resolved) + hash);
+        a.classList.add('md-internal');
+      } else if (/\.html?$/i.test(resolved)) {
+        a.setAttribute('href', resolved + hash);
+      }
+    });
+  }
+
+  // ---------- Mermaid lazy loading -----------------------------------------
+  let mermaidLoaded = false;
+  function loadMermaid() {
+    if (mermaidLoaded) return Promise.resolve(window.mermaid);
+    return new Promise((resolve, reject) => {
+      const s = document.createElement('script');
+      s.src = '_assets/markdown/mermaid.min.js';
+      s.onload = () => {
+        mermaidLoaded = true;
+        try {
+          const dark = document.documentElement.classList.contains('dark');
+          window.mermaid.initialize({ startOnLoad: false, securityLevel: 'strict',
+            theme: dark ? 'dark' : 'default', fontFamily: 'Inter, sans-serif' });
+        } catch (e) {}
+        resolve(window.mermaid);
+      };
+      s.onerror = () => reject(new Error('Načtení mermaid selhalo'));
+      document.head.appendChild(s);
+    });
+  }
+
+  function renderMermaidBlocks(root) {
+    const blocks = $$('code.language-mermaid', root);
+    if (!blocks.length) return;
+    loadMermaid().then((mermaid) => {
+      blocks.forEach(async (code, i) => {
+        const src = code.textContent || '';
+        const id = 'md-mermaid-' + Date.now() + '-' + i;
+        const container = document.createElement('div');
+        container.className = 'md-mermaid';
+        try {
+          const { svg } = await mermaid.render(id, src);
+          setSafeHtml(container, svg, { USE_PROFILES: { svg: true, svgFilters: true } });
+        } catch (e) {
+          const err = document.createElement('pre');
+          err.className = 'md-mermaid-err';
+          err.textContent = 'Chyba mermaid: ' + (e && e.message ? e.message : e);
+          container.appendChild(err);
+        }
+        const pre = code.closest('pre');
+        const wrap = pre ? pre.closest('.md-code-wrapper') || pre : code;
+        wrap.parentNode.replaceChild(container, wrap);
+      });
+    }).catch((e) => console.warn('[reader] mermaid unavailable:', e));
+  }
+
+  // ---------- Headings + TOC ------------------------------------------------
+  function collectHeadings(root) {
+    state.headings = $$('h2, h3, h4', root)
+      .filter((h) => h.id)
+      .map((h) => ({
+        id: h.id,
+        level: Number(h.tagName[1]),
+        text: h.textContent.replace(/§$/, '').trim(),
+        el: h
+      }));
+  }
+
+  function buildToc() {
+    const list = $('#md-toc-list');
+    const empty = $('#md-toc-empty');
+    clearNode(list);
+    if (!state.headings.length) {
+      empty.classList.remove('hidden');
+      return;
+    }
+    empty.classList.add('hidden');
+    state.headings.forEach((h) => {
+      const a = document.createElement('a');
+      a.className = 'toc-link toc-h' + h.level;
+      a.href = '#' + h.id;
+      a.dataset.tocId = h.id;
+      a.textContent = h.text;
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.getElementById(h.id);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.replaceState(null, '', '#' + h.id);
+        }
+      });
+      list.appendChild(a);
+    });
+  }
+
+  let tocObserver = null;
+  function observeHeadings() {
+    if (tocObserver) tocObserver.disconnect();
+    if (!('IntersectionObserver' in window) || !state.headings.length) return;
+    const links = new Map();
+    $$('.toc-link', $('#md-toc-list')).forEach((a) => links.set(a.dataset.tocId, a));
+
+    tocObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const link = links.get(entry.target.id);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          $$('.toc-link.active', $('#md-toc-list')).forEach((a) => a.classList.remove('active'));
+          link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-80px 0px -60% 0px', threshold: 0 });
+
+    state.headings.forEach((h) => tocObserver.observe(h.el));
+  }
+
+  // ---------- Metadata + backlinks ------------------------------------------
+  async function populateSidebar(filePath) {
+    const manifest = await loadManifest();
+    const graph    = await loadGraph();
+
+    const meta = $('#md-meta');
+    clearNode(meta);
+    const rawLen = state.rawMarkdown.length;
+    const wordCount = (state.rawMarkdown.match(/\S+/g) || []).length;
+    const readingMin = Math.max(1, Math.round(wordCount / 220));
+
+    const entry = (manifest && manifest.files)
+      ? manifest.files.find((f) => f.path === filePath)
+      : null;
+
+    const rows = [
+      ['Cesta',    filePath],
+      ['Velikost', formatBytes(rawLen)],
+      ['Slova',    wordCount.toLocaleString()],
+      ['Čtení',    readingMin + ' min'],
+      ['Nadpisy',  String(state.headings.length)]
+    ];
+    if (entry && entry.mtime) rows.push(['Upraveno', entry.mtime.slice(0, 10)]);
+    if (entry && entry.dir)   rows.push(['Sekce', entry.dir]);
+    if (entry && entry.severity && entry.severity !== 'none') rows.push(['Závažnost', entry.severity]);
+
+    rows.forEach(([k, v]) => {
+      const dt = document.createElement('dt');
+      dt.className = 'text-gray-500 dark:text-gray-400';
+      dt.textContent = k;
+      const dd = document.createElement('dd');
+      dd.className = 'text-gray-900 dark:text-gray-100 font-medium mb-1 break-all';
+      dd.textContent = v;
+      meta.appendChild(dt); meta.appendChild(dd);
+    });
+
+    const back = $('#md-backlinks');
+    const backEmpty = $('#md-backlinks-empty');
+    const fwd = $('#md-forward');
+    const fwdEmpty = $('#md-forward-empty');
+    clearNode(back); clearNode(fwd);
+
+    let incoming = [], outgoing = [];
+    if (graph && Array.isArray(graph.edges)) {
+      incoming = graph.edges.filter((e) => e.to === filePath).map((e) => e.from);
+      outgoing = graph.edges.filter((e) => e.from === filePath).map((e) => e.to);
+    }
+
+    const mkLi = (targetPath) => {
+      const li = document.createElement('li');
+      const a = document.createElement('a');
+      a.className = 'text-indigo-600 dark:text-indigo-300 hover:underline break-all';
+      const isMd = /\.md$/i.test(targetPath);
+      a.href = isMd ? 'reader.html?file=' + encodeURIComponent(targetPath) : targetPath;
+      const node = graph && graph.nodes ? graph.nodes.find((n) => n.id === targetPath) : null;
+      a.textContent = node && node.title ? node.title : targetPath;
+      a.title = targetPath;
+      li.appendChild(a);
+      return li;
+    };
+
+    if (incoming.length) {
+      backEmpty.classList.add('hidden');
+      incoming.slice(0, 20).forEach((p) => back.appendChild(mkLi(p)));
+    } else backEmpty.classList.remove('hidden');
+
+    if (outgoing.length) {
+      fwdEmpty.classList.add('hidden');
+      outgoing.slice(0, 20).forEach((p) => fwd.appendChild(mkLi(p)));
+    } else fwdEmpty.classList.remove('hidden');
+
+    if (outgoing.length) {
+      const next = outgoing.find((p) => /\.md$/i.test(p) && p !== filePath);
+      if (next) {
+        const node = graph && graph.nodes ? graph.nodes.find((n) => n.id === next) : null;
+        $('#md-next-title').textContent = node && node.title ? node.title : next;
+        $('#md-next-link').href = 'reader.html?file=' + encodeURIComponent(next);
+        $('#md-next').classList.remove('hidden');
+      }
+    }
+  }
+
+  function formatBytes(b) {
+    if (b < 1024) return b + ' B';
+    if (b < 1024 * 1024) return (b / 1024).toFixed(1) + ' KB';
+    return (b / 1024 / 1024).toFixed(2) + ' MB';
+  }
+
+  // ---------- Progress bar --------------------------------------------------
+  function wireProgressBar() {
+    const bar = $('#md-progress-bar');
+    function update() {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop || document.body.scrollTop);
+      const height = (h.scrollHeight - h.clientHeight) || 1;
+      bar.style.width = Math.min(100, (scrolled / height) * 100) + '%';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  }
+
+  // ---------- Toolbar actions -----------------------------------------------
+  function wireToolbar() {
+    $('#btn-dark').addEventListener('click', () => {
+      const cur = localStorage.getItem('dd-dark') !== 'false';
+      const next = !cur;
+      localStorage.setItem('dd-dark', String(next));
+      document.documentElement.classList.toggle('dark', next);
+      if (window.StateSync) window.StateSync.publish('darkMode', next);
+      applyHlTheme();
+    });
+
+    $('#btn-print').addEventListener('click', () => window.print());
+
+    $('#btn-raw').addEventListener('click', openRawModal);
+    $$('[data-raw-close]').forEach((el) => el.addEventListener('click', closeRawModal));
+    $('#raw-copy').addEventListener('click', () => {
+      navigator.clipboard.writeText(state.rawMarkdown).then(() => {
+        $('#raw-copy').textContent = 'Zkopírováno';
+        setTimeout(() => { $('#raw-copy').textContent = 'Kopírovat'; }, 1500);
+      });
+    });
+
+    $('#btn-copy-md').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(state.rawMarkdown); toast('Markdown zkopírován'); }
+      catch (e) { toast('Kopírování selhalo'); }
+    });
+
+    $('#btn-share').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(location.href); toast('Odkaz zkopírován'); }
+      catch (e) { toast('Kopírování selhalo'); }
+    });
+
+    $('#btn-toc-toggle').addEventListener('click', () => {
+      const toc = $('#md-toc');
+      toc.classList.toggle('hidden');
+      toc.classList.toggle('lg:block');
+    });
+  }
+
+  function openRawModal() {
+    $('#raw-content').textContent = state.rawMarkdown;
+    $('#raw-modal').classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+  }
+  function closeRawModal() {
+    $('#raw-modal').classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+  }
+
+  function applyHlTheme() {
+    const dark = document.documentElement.classList.contains('dark');
+    const link = $('#hl-theme');
+    link.href = dark ? '_assets/markdown/highlight-github-dark.min.css'
+                     : '_assets/markdown/highlight-github.min.css';
+  }
+
+  let toastTimer = null;
+  function toast(msg) {
+    let el = $('#md-toast');
+    if (!el) {
+      el = document.createElement('div');
+      el.id = 'md-toast';
+      el.className = 'fixed bottom-4 left-1/2 -translate-x-1/2 bg-gray-900 dark:bg-gray-700 text-white text-sm px-4 py-2 rounded-lg shadow-lg z-50 opacity-0 transition-opacity';
+      document.body.appendChild(el);
+    }
+    el.textContent = msg;
+    requestAnimationFrame(() => el.classList.add('opacity-100'));
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('opacity-100'), 2200);
+  }
+
+  // ---------- Reader-specific keyboard shortcuts ----------------------------
+  function wireKeyboard() {
+    document.addEventListener('keydown', (e) => {
+      const t = e.target;
+      const typing = t && ((t.tagName || '').match(/INPUT|TEXTAREA|SELECT/) || t.isContentEditable);
+      if (typing) return;
+      if (e.metaKey || e.ctrlKey || e.altKey) return;
+
+      if (e.key === 't' && state.currentFile) {
+        e.preventDefault();
+        $('#btn-toc-toggle').click();
+      } else if (e.key === 'r' && state.currentFile) {
+        e.preventDefault(); openRawModal();
+      } else if (e.key === 'p' && state.currentFile) {
+        e.preventDefault(); window.print();
+      } else if (e.key === 'Escape') {
+        closeRawModal();
+      }
+    });
+  }
+
+  // ---------- Picker --------------------------------------------------------
+  async function renderPicker() {
+    $('#picker').classList.remove('hidden');
+    $('#reader').classList.add('hidden');
+    document.title = 'Čtečka — DD Progresus';
+
+    const manifest = await loadManifest();
+    const grid = $('#picker-grid');
+    const emptyEl = $('#picker-empty');
+    const filterEl = $('#picker-filter');
+
+    const files = (manifest && manifest.files) ? manifest.files.filter((f) => /\.md$/i.test(f.path)) : [];
+    if (!files.length) {
+      emptyEl.classList.remove('hidden');
+      emptyEl.textContent = 'Žádný manifest nebo žádné markdown soubory nenalezeny. Zkuste přidat ?file=… do URL.';
+      return;
+    }
+
+    function render(list) {
+      clearNode(grid);
+      if (!list.length) { emptyEl.classList.remove('hidden'); return; }
+      emptyEl.classList.add('hidden');
+      list.slice(0, 120).forEach((f) => {
+        const card = document.createElement('a');
+        card.href = 'reader.html?file=' + encodeURIComponent(f.path);
+        card.className = 'picker-card block p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-indigo-400 dark:hover:border-indigo-500';
+        const title = document.createElement('div');
+        title.className = 'font-semibold text-sm text-gray-900 dark:text-gray-100 mb-1 line-clamp-2';
+        title.textContent = f.title || f.path;
+        const path = document.createElement('div');
+        path.className = 'text-xs font-mono text-gray-500 dark:text-gray-400 truncate mb-2';
+        path.textContent = f.path;
+        card.appendChild(title); card.appendChild(path);
+        if (f.excerpt) {
+          const ex = document.createElement('div');
+          ex.className = 'text-xs text-gray-600 dark:text-gray-300 line-clamp-3';
+          ex.textContent = f.excerpt;
+          card.appendChild(ex);
+        }
+        if (f.severity && f.severity !== 'none') {
+          const sev = document.createElement('span');
+          sev.className = 'inline-block mt-2 sev-' + f.severity;
+          sev.textContent = f.severity;
+          card.appendChild(sev);
+        }
+        grid.appendChild(card);
+      });
+    }
+
+    render(files);
+
+    filterEl.addEventListener('input', () => {
+      const q = filterEl.value.toLowerCase().trim();
+      if (!q) { render(files); return; }
+      const terms = q.split(/\s+/);
+      const matches = files.filter((f) => {
+        const haystack = (f.path + ' ' + (f.title || '') + ' ' + (f.excerpt || '') + ' ' + ((f.tags || []).join(' '))).toLowerCase();
+        return terms.every((t) => haystack.includes(t));
+      });
+      render(matches);
+    });
+    filterEl.focus();
+  }
+
+  // ---------- Main render flow ---------------------------------------------
+  async function renderReader(filePath) {
+    $('#picker').classList.add('hidden');
+    $('#reader').classList.remove('hidden');
+
+    const pathEl = $('#md-path');
+    pathEl.textContent = filePath;
+    document.title = filePath + ' — Čtečka';
+
+    try {
+      const { text } = await fetchMarkdown(filePath);
+      state.currentFile = filePath;
+      state.rawMarkdown = text;
+      const html = renderMarkdown(text);
+      mountHtml(html);
+      await populateSidebar(filePath);
+      populateEntitySidebar(filePath);
+
+      const h1 = $('#md-body h1');
+      if (h1) document.title = h1.textContent.trim() + ' — Čtečka';
+
+      if (fragment) {
+        let target = document.getElementById(fragment);
+        if (!target) {
+          // Prefix match: allow short anchors like #rf-26 to resolve against
+          // any heading whose slug starts with "rf-26-" (e.g. "rf-26-dancore-llc-…").
+          const prefix = fragment + '-';
+          target = $$('#md-body [id]').find((el) => el.id.startsWith(prefix)) || null;
+        }
+        if (target) {
+          setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }), 80);
+        }
+      }
+
+      if (window.StateSync) {
+        window.StateSync.publish('navigate', { path: location.pathname, href: location.href, file: filePath, at: Date.now() });
+      }
+    } catch (err) {
+      console.error('[reader] render failed:', err);
+      showError(err, filePath);
+    }
+  }
+
+  function showError(errOrMsg, filePath) {
+    const err = (errOrMsg && typeof errOrMsg === 'object') ? errOrMsg : { message: String(errOrMsg) };
+    const msg = err.message || String(errOrMsg);
+    const code = err.code || null;
+    const isFileProto = location.protocol === 'file:';
+    const storeReady = typeof window.DD_MD_STORE_GET === 'function';
+    const inStore    = storeReady && !!window.DD_MD_STORE_GET(filePath);
+
+    const box = $('#md-error');
+    box.classList.remove('hidden');
+    clearNode(box);
+
+    const title = document.createElement('div');
+    title.className = 'font-semibold mb-2 text-base';
+    title.textContent = inStore
+      ? 'Při vykreslování došlo k chybě: ' + (filePath || 'dokument')
+      : 'Nelze načíst ' + (filePath || 'dokument');
+    box.appendChild(title);
+
+    const detail = document.createElement('pre');
+    detail.className = 'text-xs font-mono whitespace-pre-wrap mb-3 opacity-90';
+    detail.textContent = msg;
+    box.appendChild(detail);
+
+    // Diagnostic banner.
+    const diag = document.createElement('div');
+    diag.className = 'text-sm mb-3';
+    if (code === 'FILE_PROTOCOL' || (isFileProto && !inStore && !storeReady)) {
+      diag.textContent = 'Prohlížeč blokuje fetch() přes file:// a offline store (md-store.js) nebyl načten.';
+    } else if (isFileProto && !inStore) {
+      diag.textContent = 'Soubor není v offline store. Vygenerujte jej znovu, aby obsahoval poslední změny.';
+    } else if (!isFileProto && !inStore) {
+      diag.textContent = 'Soubor nenalezen přes HTTP. Ověřte správnost cesty.';
+    } else {
+      diag.textContent = 'Záznam ve store existuje, ale vykreslování selhalo. Detaily v konzoli.';
+    }
+    box.appendChild(diag);
+
+    // Recovery instructions.
+    const help = document.createElement('ul');
+    help.className = 'list-disc pl-5 text-sm space-y-1 mb-3';
+    const tips = [];
+    if (isFileProto) {
+      tips.push('Spusťte server: spusťte "python3 -m http.server 8000" z kořene pracovního prostoru, poté otevřete http://localhost:8000/reader.html?file=' + encodeURIComponent(filePath || ''));
+      tips.push('Nebo přebudujte offline store: "python3 _assets/build-md-store.py" a obnovte stránku.');
+    } else {
+      tips.push('Ověřte cestu: na většině serverů záleží na velikosti písmen.');
+      tips.push('Přebudujte offline store, pokud byly soubory přesunuty: "python3 _assets/build-md-store.py".');
+    }
+    tips.forEach((t) => {
+      const li = document.createElement('li');
+      li.textContent = t;
+      help.appendChild(li);
+    });
+    box.appendChild(help);
+
+    // Action buttons.
+    const actions = document.createElement('div');
+    actions.className = 'flex flex-wrap gap-2 text-sm';
+
+    if (filePath) {
+      const raw = document.createElement('a');
+      raw.href = './' + filePath;
+      raw.textContent = 'Otevřít surové .md';
+      raw.className = 'px-3 py-1.5 rounded-md border border-red-300 dark:border-red-700 hover:bg-red-100 dark:hover:bg-red-900/40';
+      actions.appendChild(raw);
+    }
+
+    const home = document.createElement('a');
+    home.href = 'index.html';
+    home.textContent = 'Zpět na portál';
+    home.className = 'px-3 py-1.5 rounded-md border border-red-300 dark:border-red-700 hover:bg-red-100 dark:hover:bg-red-900/40';
+    actions.appendChild(home);
+
+    const picker = document.createElement('a');
+    picker.href = 'reader.html';
+    picker.textContent = 'Vybrat jiný soubor';
+    picker.className = 'px-3 py-1.5 rounded-md border border-red-300 dark:border-red-700 hover:bg-red-100 dark:hover:bg-red-900/40';
+    actions.appendChild(picker);
+
+    box.appendChild(actions);
+    clearNode($('#md-body'));
+  }
+
+  // ---------- Boot ----------------------------------------------------------
+  function boot() {
+    applyHlTheme();
+    wireToolbar();
+    wireKeyboard();
+    wireProgressBar();
+
+    if (fileParam) {
+      const safe = safePath(decodeURIComponent(fileParam));
+      if (!safe) { showError('Únik z cesty zablokován', fileParam); $('#reader').classList.remove('hidden'); return; }
+      renderReader(safe);
+    } else {
+      renderPicker();
+    }
+
+    if (window.StateSync) {
+      window.StateSync.subscribe('darkMode', (v) => {
+        if (v == null) return;
+        document.documentElement.classList.toggle('dark', !!v);
+        applyHlTheme();
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
+})();
+</script>
+</body>
+</html>

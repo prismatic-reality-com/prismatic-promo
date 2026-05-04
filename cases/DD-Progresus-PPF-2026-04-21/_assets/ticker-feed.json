@@ -1,0 +1,113 @@
+{
+  "entries": [
+    {
+      "id": "evt-001",
+      "ts": "2026-04-27T13:45:00Z",
+      "author": "Zrůst",
+      "severity": "info",
+      "message": "ČÚZK pull LV 927 inicializován, výsledek do 2 dnů",
+      "reference": "RF-1",
+      "tags": ["title", "P0"]
+    },
+    {
+      "id": "evt-002",
+      "ts": "2026-04-27T12:18:00Z",
+      "author": "Marek",
+      "severity": "warning",
+      "message": "DR-FIN-020: čeká dodání auditovaných výkazů 2024 — třetí urgence odeslána",
+      "reference": "DR-FIN-020",
+      "tags": ["finance", "P0"]
+    },
+    {
+      "id": "evt-003",
+      "ts": "2026-04-27T11:02:00Z",
+      "author": "Tereza",
+      "severity": "critical",
+      "message": "DANCORE update: nový soudní dokument NV-DC-2026-04-12 indikuje nárůst expozice o ~120 mil.",
+      "reference": "RF-7",
+      "tags": ["litigation", "DANCORE", "P0"]
+    },
+    {
+      "id": "evt-004",
+      "ts": "2026-04-27T09:48:00Z",
+      "author": "Ondřej",
+      "severity": "info",
+      "message": "RF-12 downgrade z VYSOKÉHO na STŘEDNÍ — environmentální audit potvrdil zanedbatelný kontaminační rozsah",
+      "reference": "RF-12",
+      "tags": ["env", "downgrade"]
+    },
+    {
+      "id": "evt-005",
+      "ts": "2026-04-26T17:20:00Z",
+      "author": "Zrůst",
+      "severity": "info",
+      "message": "DR-LEG-008 přijata: úplné znění SPA smluv (2018–2023) zindexováno do data roomu",
+      "reference": "DR-LEG-008",
+      "tags": ["legal", "dataroom"]
+    },
+    {
+      "id": "evt-006",
+      "ts": "2026-04-26T15:05:00Z",
+      "author": "Tereza",
+      "severity": "warning",
+      "message": "RF-8: protistrana nereaguje na žádost o přístup k daňovým auditům 2022/2023 — eskaluji na partner level",
+      "reference": "RF-8",
+      "tags": ["tax", "escalation"]
+    },
+    {
+      "id": "evt-007",
+      "ts": "2026-04-26T11:32:00Z",
+      "author": "Marek",
+      "severity": "info",
+      "message": "Monte Carlo valuation rerun: medián 5,1 mld (P25 4,3 / P75 5,9). Rozšířený konfidenční interval po novém DANCORE inputu.",
+      "reference": "valuation-calculator.html",
+      "tags": ["valuation", "model"]
+    },
+    {
+      "id": "evt-008",
+      "ts": "2026-04-25T16:14:00Z",
+      "author": "Ondřej",
+      "severity": "critical",
+      "message": "RF-3 eskalace: zjištěn nový vlastnický řetězec přes Kypr — vyžaduje UBO rerun u všech 4 entit",
+      "reference": "RF-3",
+      "tags": ["ubo", "ownership", "P0"]
+    },
+    {
+      "id": "evt-009",
+      "ts": "2026-04-25T09:15:00Z",
+      "author": "Zrůst",
+      "severity": "info",
+      "message": "Kick-off s PPF DD teamem proběhl — sdílená Q&A platforma aktivována, první batch 47 otázek",
+      "reference": "MASTER-ACTION-PLAN.md",
+      "tags": ["coord", "PPF"]
+    },
+    {
+      "id": "evt-010",
+      "ts": "2026-04-24T14:48:00Z",
+      "author": "Tereza",
+      "severity": "warning",
+      "message": "DR-HR-005: 3 z 12 klíčových zaměstnanců nepodepsali change-of-control retention letter",
+      "reference": "DR-HR-005",
+      "tags": ["hr", "retention"]
+    },
+    {
+      "id": "evt-011",
+      "ts": "2026-04-24T10:22:00Z",
+      "author": "Marek",
+      "severity": "info",
+      "message": "Pressure radar update: tlakový index na 0,68 (žlutá zóna) — 3 nová zhoršení, 1 zlepšení",
+      "reference": "pressure-radar.html",
+      "tags": ["pressure", "metrics"]
+    },
+    {
+      "id": "evt-012",
+      "ts": "2026-04-23T16:30:00Z",
+      "author": "Ondřej",
+      "severity": "info",
+      "message": "Knowledge graph rerendered — 189 uzlů, 460 hran, +12 nových vazeb po DANCORE expanzi",
+      "reference": "knowledge-graph.html",
+      "tags": ["graph", "intel"]
+    }
+  ],
+  "lastUpdate": "2026-04-27T13:45:00Z"
+}

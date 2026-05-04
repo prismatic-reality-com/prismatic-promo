@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geografický přehled transakce — Strategický kontext Prahy (Leaflet) · Project Mycelium</title>
+<link rel="stylesheet" href="../_assets/flowbite.min.css">
+<link rel="stylesheet" href="../_assets/leaflet/leaflet.min.css">
+<script src="../_assets/tailwind.min.js"></script>
+<script src="../_assets/flowbite.min.js" defer></script>
+<script src="../_assets/alpine.min.js" defer></script>
+<script src="../_assets/leaflet/leaflet.min.js"></script>
+<style>
+  [x-cloak]{display:none!important}
+  #map{height:680px;border-radius:8px;z-index:0}
+  .leaflet-container{background:#f8fafc}
+  .dark .leaflet-container{background:#020617}
+  .legend{background:rgba(255,255,255,0.95);padding:8px 10px;border-radius:6px;font-size:11px;line-height:1.5;box-shadow:0 1px 4px rgba(0,0,0,0.2);max-width:220px}
+  .dark .legend{background:rgba(15,23,42,0.95);color:#e2e8f0}
+  .legend .chip{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:middle;border:1px solid rgba(0,0,0,0.3)}
+  .leaflet-popup-content{font-family:ui-sans-serif,system-ui,-apple-system,sans-serif;font-size:12px;min-width:240px}
+  .popup-row{margin:2px 0}
+  @media print{.no-print{display:none!important}body{background:white!important;color:black!important}#map{height:520px}}
+</style>
+<!-- mycelium-markdown:injected -->
+  <link rel="stylesheet" href="../_assets/markdown/custom.css">
+  <script defer src="../_assets/markdown/markdown-it.min.js"></script>
+  <script defer src="../_assets/markdown/markdownItAnchor.umd.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-task-lists.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-mark.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script defer src="../_assets/md-embed.js"></script>
+  <script defer src="../_assets/inline-md-autoload.js"></script>
+
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="../_assets/md-store.js"></script>
+  <script src="../_assets/manifest-store.js"></script>
+  <script src="../_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans"
+      x-data="dealMap()" :class="{'dark': dark}">
+
+<nav class="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 no-print">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="text-sm text-slate-500 hover:text-red-600 dark:hover:text-red-400">← Portál</a>
+      <span class="text-slate-300 dark:text-slate-700">|</span>
+      <span class="font-bold tracking-tight">PRISMATIC · Geografický přehled transakce</span>
+      <span class="hidden md:inline-block text-xs px-2 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300">Pražská aglomerace · Leaflet</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="../02-entity/geo-parcel-map.html" class="text-xs hidden sm:inline hover:underline">🗺 Mapa parcel</a>
+      <a href="../02-entity/entity-offices-map.html" class="text-xs hidden sm:inline hover:underline">🏢 Mapa kanceláří</a>
+      <a href="../reader.html?file=06-reports/ALTERNATIVE-BUYERS-WARM-POOL.md" class="text-xs hidden sm:inline hover:underline">🎯 Alt. kupci</a>
+      <button @click="window.print()" class="text-xs hidden sm:inline hover:underline no-print">🖨 Tisk</button>
+      <button @click="dark=!dark" class="text-sm px-2 py-1 rounded border border-slate-300 dark:border-slate-700" aria-label="Přepnout tmavý režim">
+        <span x-show="!dark">🌙</span><span x-show="dark">☀️</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<header class="max-w-7xl mx-auto px-4 pt-8 pb-4">
+  <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">🗺 Geografický přehled transakce v pražské aglomeraci</h1>
+  <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-3xl">
+    Strategický geografický kontext transakce 42 ha Nový Zeleneč. Zobrazuje aktivum transakce, hlavní protistrany,
+    sídla alternativních kupců, železniční a dálniční konektivitu a havarijní zónu SEVESO. Vzdálenost ke každému konkurenčnímu developerovi
+    poskytuje vyjednávací páku založenou na vzdálenosti.
+  </p>
+  <!-- Source links strip -->
+  <div class="mt-4 flex flex-wrap gap-2 text-xs">
+    <a href="../02-entity/parcel-map.html" class="px-3 py-1.5 rounded bg-amber-600 text-white hover:bg-amber-500 font-semibold">🗺 Mapa parcel</a>
+    <a href="../reader.html?file=02-entity/cuzk-cadastre-forensics.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">📜 Katastrální forenzní</a>
+    <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">🧾 Hlavní DD report</a>
+    <a href="../reader.html?file=06-reports/ALTERNATIVE-BUYERS-WARM-POOL.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">🎯 Alt. kupci</a>
+    <a href="../reader.html?file=04-legal/environmental-liability-memo.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">🛢 Env memo</a>
+  </div>
+</header>
+
+<section class="max-w-7xl mx-auto px-4 pt-2 pb-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+  <a href="../02-entity/parcel-map.html" class="rounded-lg bg-amber-50 dark:bg-amber-900/20 border border-amber-300 dark:border-amber-700 p-3 hover:shadow-md hover:border-amber-500 transition block">
+    <div class="text-xs uppercase text-amber-700 dark:text-amber-300">Aktivum</div>
+    <div class="text-2xl font-bold mt-1 text-amber-700 dark:text-amber-300">42 ha</div>
+    <div class="text-xs text-slate-500">Mstětice / Nový Zeleneč</div>
+    <div class="text-[10px] text-amber-700 dark:text-amber-300 mt-1">📖 Otevřít zdroj →</div>
+  </a>
+  <a href="../reader.html?file=01-intel/ppf-dd-profile.md" class="rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-300 dark:border-blue-700 p-3 hover:shadow-md hover:border-blue-500 transition block">
+    <div class="text-xs uppercase text-blue-700 dark:text-blue-300">Vzdálenost k sídlu PPF</div>
+    <div class="text-2xl font-bold mt-1 text-blue-700 dark:text-blue-300">22 km</div>
+    <div class="text-xs text-slate-500">Evropská → Mstětice</div>
+    <div class="text-[10px] text-blue-700 dark:text-blue-300 mt-1">📖 Otevřít zdroj →</div>
+  </a>
+  <a href="../reader.html?file=02-entity/cuzk-cadastre-forensics.md" class="rounded-lg bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-300 dark:border-emerald-700 p-3 hover:shadow-md hover:border-emerald-500 transition block">
+    <div class="text-xs uppercase text-emerald-700 dark:text-emerald-300">Centrum Prahy</div>
+    <div class="text-2xl font-bold mt-1 text-emerald-700 dark:text-emerald-300">18 km</div>
+    <div class="text-xs text-slate-500">vlakem S3 ~20 min</div>
+    <div class="text-[10px] text-emerald-700 dark:text-emerald-300 mt-1">📖 Otevřít zdroj →</div>
+  </a>
+  <a href="../reader.html?file=06-reports/ALTERNATIVE-BUYERS-WARM-POOL.md" class="rounded-lg bg-purple-50 dark:bg-purple-900/20 border border-purple-300 dark:border-purple-700 p-3 hover:shadow-md hover:border-purple-500 transition block">
+    <div class="text-xs uppercase text-purple-700 dark:text-purple-300">Zmapovaní alt. kupci</div>
+    <div class="text-2xl font-bold mt-1 text-purple-700 dark:text-purple-300">5</div>
+    <div class="text-xs text-slate-500">konkurenční developeři</div>
+    <div class="text-[10px] text-purple-700 dark:text-purple-300 mt-1">📖 Otevřít zdroj →</div>
+  </a>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 py-4 grid md:grid-cols-12 gap-4">
+  <div class="md:col-span-9 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-3">
+    <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+      <h2 class="font-bold text-lg">🌐 Strategická mapa pražské aglomerace</h2>
+      <div class="flex gap-2 text-xs">
+        <button @click="zoomTo('overview')" class="px-2 py-1 rounded border border-slate-300 dark:border-slate-700">Přehled</button>
+        <button @click="zoomTo('asset')" class="px-2 py-1 rounded bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300">Aktivum</button>
+        <button @click="zoomTo('prague')" class="px-2 py-1 rounded border border-slate-300 dark:border-slate-700">Praha</button>
+      </div>
+    </div>
+    <div id="map" role="application" aria-label="Mapa přehledu transakce v pražské aglomeraci"></div>
+    <p class="mt-2 text-xs text-slate-500">Dlaždice © OpenStreetMap · ODbL. Vzdálenosti = geodetické (vzdušnou čarou), skutečné vzdálenosti po silnici mohou být o 10–30 % delší.</p>
+  </div>
+
+  <aside class="md:col-span-3 space-y-3">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-3 text-sm">
+      <h3 class="font-bold text-base mb-2">📏 Matice vzdáleností</h3>
+      <div class="text-xs space-y-1">
+        <div class="flex justify-between"><span>Aktivum → sídlo PPF</span><b>22 km</b></div>
+        <div class="flex justify-between"><span>Aktivum → Progresus Karlín</span><b>19 km</b></div>
+        <div class="flex justify-between"><span>Aktivum → centrum Prahy</span><b>18 km</b></div>
+        <div class="flex justify-between"><span>Aktivum → sklad Čepro</span><b>~1,5 km</b></div>
+        <div class="flex justify-between"><span>Aktivum → D11 exit 8</span><b>~4 km</b></div>
+        <div class="flex justify-between"><span>Aktivum → sídlo Penta</span><b>20 km</b></div>
+        <div class="flex justify-between"><span>Aktivum → sídlo CPI</span><b>19 km</b></div>
+        <div class="flex justify-between"><span>Aktivum → Central Group</span><b>21 km</b></div>
+      </div>
+    </div>
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-3 text-sm">
+      <h3 class="font-bold text-base mb-2">🎯 Strategický pohled</h3>
+      <p class="text-xs text-slate-600 dark:text-slate-400">
+        Mstětice leží v <b>severovýchodním pražském příměstském pásu</b> — ve stejné 20minutové železniční zóně jako konkurenční megaprojekty.
+        Pět hlavních českých developerů je v okruhu 25 km; všichni mají kapitál i zájem o 42 ha pozemků.
+        Geografická blízkost PPF (22 km) jí dává <b>nulovou logistickou výhodu</b> — kterýkoli konkurent zvládne prohlídku za jedno dopoledne.
+      </p>
+    </div>
+    <div class="bg-red-50 dark:bg-red-900/20 border border-red-300 dark:border-red-700 rounded-lg p-3 text-sm">
+      <h3 class="font-bold text-base mb-2 text-red-700 dark:text-red-300">⚠️ Vyjednávací páka</h3>
+      <p class="text-xs text-slate-600 dark:text-slate-400">
+        Zóna SEVESO Čepro (poloměr 2 km) geograficky omezuje severovýchodní polovinu projektu.
+        Jakákoli změna využití na rezidenční vyžaduje koordinaci územního plánování s havarijním plánem Čepro — <b>náklad přenesený na kupce</b>.
+      </p>
+    </div>
+  </aside>
+</section>
+
+<!-- Source strip footer -->
+<section class="max-w-7xl mx-auto px-4 py-6">
+  <div class="bg-slate-900 dark:bg-slate-800 rounded-lg p-4">
+    <div class="text-xs uppercase text-slate-400 mb-2 font-bold">📚 Zdrojové dokumenty</div>
+    <div class="flex flex-wrap gap-2">
+      <a href="../02-entity/parcel-map.html" class="px-3 py-1.5 rounded bg-amber-600 text-white hover:bg-amber-500 text-xs font-semibold">🗺 Mapa parcel</a>
+      <a href="../reader.html?file=02-entity/cuzk-cadastre-forensics.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">📜 Katastrální forenzní</a>
+      <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">🧾 Hlavní DD report</a>
+      <a href="../reader.html?file=06-reports/ALTERNATIVE-BUYERS-WARM-POOL.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">🎯 Alt. kupci</a>
+      <a href="../reader.html?file=04-legal/environmental-liability-memo.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">🛢 Env memo</a>
+      <a href="../reader.html?file=02-entity/land-title-chain.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">🔗 Řetězec titulu</a>
+    </div>
+  </div>
+</section>
+
+<footer class="max-w-7xl mx-auto px-4 py-6 text-xs text-slate-500">
+  Zdroj: <a class="underline" href="../reader.html?file=06-reports/ALTERNATIVE-BUYERS-WARM-POOL.md">ALTERNATIVE-BUYERS-WARM-POOL.md</a> · <a class="underline" href="../reader.html?file=04-legal/environmental-liability-memo.md">environmental-liability-memo.md</a> · <a class="underline" href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md">MASTER-DD-REPORT-v1.0.md</a> · OpenStreetMap.
+</footer>
+
+<script>
+function el(tag, attrs, children){
+  const e = document.createElement(tag);
+  if (attrs) for (const k in attrs){
+    if (k === 'class') e.className = attrs[k];
+    else if (k === 'text') e.textContent = attrs[k];
+    else e.setAttribute(k, attrs[k]);
+  }
+  if (children) children.forEach(c => {
+    if (typeof c === 'string') e.appendChild(document.createTextNode(c));
+    else if (c) e.appendChild(c);
+  });
+  return e;
+}
+function legendRow(color, label){
+  return el('div', null, [el('span', {class: 'chip', style: 'background:' + color}), document.createTextNode(label)]);
+}
+function popupNode(rows){
+  const wrap = el('div');
+  rows.forEach(r => {
+    const div = el('div', {class: 'popup-row'});
+    if (r.bold){ const b = el('b'); b.textContent = r.bold; div.appendChild(b); }
+    if (r.text){ div.appendChild(document.createTextNode(r.text)); }
+    if (r.link){ const a = el('a', {href: r.link.href, target: '_blank'}); a.textContent = r.link.text; div.appendChild(a); }
+    wrap.appendChild(div);
+  });
+  return wrap;
+}
+
+const COORDS = {
+  ppf:       [50.099, 14.389],  // Evropská 2690/17
+  progresus: [50.091, 14.445],  // Pobřežní 667/78, Karlín
+  mstetice:  [50.137, 14.644],  // deal asset
+  cepro:     [50.149, 14.662],  // Čepro depot
+  praguecentre:[50.088, 14.420], // Staroměstské nám.
+  praguehln: [50.083, 14.435],  // hl.n.
+  penta:     [50.087, 14.410],  // Penta RE, Florentinum
+  cpi:       [50.077, 14.445],  // Vinohradská ~ CPI HQ
+  centralgroup:[50.065, 14.450], // Central Group (Průmyslová)
+  karlingroup:[50.091, 14.445], // same as Progresus Karlín
+  d11exit:   [50.125, 14.605],  // D11 exit near Jirny
+  mstetice_station: [50.1422, 14.6508]
+};
+
+function dealMap(){
+  return {
+    dark: false,
+    map: null,
+    init(){
+      this.map = L.map('map', {center: [50.075, 14.5], zoom: 10, scrollWheelZoom: true});
+      window.addEventListener('resize', () => this.map && this.map.invalidateSize(), { passive: true });
+      const mapEl = document.getElementById('map');
+      if (mapEl && window.ResizeObserver) new ResizeObserver(() => this.map && this.map.invalidateSize()).observe(mapEl);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors', maxZoom: 19
+      }).addTo(this.map);
+
+      const pin = (color, emoji, size) => L.divIcon({
+        className: 'deal-pin',
+        html: '<div style="width:' + size + 'px;height:' + size + 'px;border-radius:50%;background:' + color + ';border:3px solid white;box-shadow:0 2px 4px rgba(0,0,0,0.5);display:flex;align-items:center;justify-content:center;font-size:' + Math.floor(size*0.5) + 'px">' + emoji + '</div>',
+        iconSize: [size, size], iconAnchor: [size/2, size/2]
+      });
+
+      // Asset
+      L.marker(COORDS.mstetice, {icon: pin('#f59e0b', '🎯', 34)})
+        .bindTooltip('42 ha Nový Zeleneč (asset)', {direction: 'top', permanent: true, offset: [0, -18]})
+        .bindPopup(popupNode([
+          {bold: '42 ha Nový Zeleneč — Deal asset'},
+          {text: 'Mstětice, k.ú. 792764'},
+          {text: 'Owner: Nový Zeleneč a.s. (Progresus side)'},
+          {link: {href: '../reader.html?file=02-entity/cuzk-cadastre-forensics.md', text: '📖 Katastrální forenzní'}},
+          {link: {href: '../reader.html?file=02-entity/land-title-chain.md', text: '🔗 Řetězec titulu'}},
+          {link: {href: '../02-entity/geo-parcel-map.html', text: '🗺 Parcel-level view'}}
+        ])).addTo(this.map);
+
+      // PPF HQ
+      L.marker(COORDS.ppf, {icon: pin('#2563eb', '🏛', 28)})
+        .bindTooltip('PPF HQ — Evropská 2690/17', {direction: 'top'})
+        .bindPopup(popupNode([
+          {bold: 'PPF a.s. — Group HQ'},
+          {text: 'Evropská 2690/17, Dejvice, Praha 6'},
+          {text: 'Buyer-side principal'},
+          {link: {href: '../reader.html?file=01-intel/ppf-dd-profile.md', text: '📖 Otevřít zdroj (PPF DD profile)'}},
+          {link: {href: '../02-entity/entity-offices-map.html', text: '🏢 Full entity map'}}
+        ])).addTo(this.map);
+
+      // Progresus Karlín
+      L.marker(COORDS.progresus, {icon: pin('#dc2626', '🏢', 28)})
+        .bindTooltip('Progresus Karlín HQ', {direction: 'top'})
+        .bindPopup(popupNode([
+          {bold: 'Progresus / Karlín Group — Pobřežní 667/78'},
+          {text: 'Karlín, Praha 8'},
+          {text: 'Seller-side operational HQ'},
+          {link: {href: '../reader.html?file=01-intel/karlin-group-parallel-bidder-dossier.md', text: '📖 Otevřít zdroj (Karlín dossier)'}},
+          {link: {href: '../02-entity/entity-offices-map.html', text: '🏢 Full entity map'}}
+        ])).addTo(this.map);
+
+      // Alternative buyers
+      L.marker(COORDS.penta, {icon: pin('#8b5cf6', '💼', 24)})
+        .bindTooltip('Penta Real Estate', {direction: 'top'})
+        .bindPopup(popupNode([
+          {bold: 'Penta Real Estate'},
+          {text: 'Florentinum, Na Florenci, Praha 1'},
+          {text: 'Warm alternative buyer'},
+          {text: 'Distance to asset: 20 km'},
+          {link: {href: '../reader.html?file=06-reports/ALTERNATIVE-BUYERS-WARM-POOL.md', text: '🎯 Alt buyer pool'}}
+        ])).addTo(this.map);
+
+      L.marker(COORDS.cpi, {icon: pin('#8b5cf6', '💼', 24)})
+        .bindTooltip('CPI Property Group', {direction: 'top'})
+        .bindPopup(popupNode([
+          {bold: 'CPI Property Group'},
+          {text: 'Vinohradská, Praha 2'},
+          {text: 'Warm alternative buyer'},
+          {text: 'Distance to asset: 19 km'},
+          {link: {href: '../reader.html?file=06-reports/ALTERNATIVE-BUYERS-WARM-POOL.md', text: '🎯 Alt buyer pool'}}
+        ])).addTo(this.map);
+
+      L.marker(COORDS.centralgroup, {icon: pin('#8b5cf6', '💼', 24)})
+        .bindTooltip('Central Group', {direction: 'top'})
+        .bindPopup(popupNode([
+          {bold: 'Central Group a.s.'},
+          {text: 'Na Strži, Praha 4'},
+          {text: 'Warm alternative buyer'},
+          {text: 'Distance to asset: 21 km'},
+          {link: {href: '../reader.html?file=06-reports/ALTERNATIVE-BUYERS-WARM-POOL.md', text: '🎯 Alt buyer pool'}}
+        ])).addTo(this.map);
+
+      // Čepro depot
+      L.marker(COORDS.cepro, {icon: pin('#f59e0b', '🛢', 26)})
+        .bindTooltip('Čepro Mstětice — SEVESO Upper-Tier', {direction: 'top'})
+        .bindPopup(popupNode([
+          {bold: 'Čepro a.s. Sklad PHM Mstětice'},
+          {text: 'SEVESO Upper-Tier / skupina B'},
+          {text: '~1.5 km from asset boundary'},
+          {link: {href: '../reader.html?file=04-legal/environmental-liability-memo.md', text: '📄 Env memo'}}
+        ])).addTo(this.map);
+      L.circle(COORDS.cepro, {
+        radius: 2000, color: '#f59e0b', weight: 1, fillColor: '#fbbf24', fillOpacity: 0.1, dashArray: '5,5'
+      }).bindTooltip('Čepro emergency zone ~2 km').addTo(this.map);
+
+      // Prague centre marker
+      L.marker(COORDS.praguecentre, {icon: pin('#059669', '🏛', 22)})
+        .bindTooltip('Prague centre', {direction: 'top'})
+        .bindPopup(popupNode([
+          {bold: 'Prague centre'},
+          {text: 'Distance to asset: 18 km'}
+        ])).addTo(this.map);
+
+      // Rail connectivity — polyline from asset to Praha hl.n. (approx route)
+      L.polyline([COORDS.mstetice_station, [50.105, 14.560], [50.095, 14.480], COORDS.praguehln], {
+        color: '#059669', weight: 3, opacity: 0.7
+      }).bindTooltip('Rail S3: Mstětice → Praha hl.n. (~20 min)').addTo(this.map);
+      L.marker(COORDS.mstetice_station, {icon: pin('#059669', '🚆', 20)})
+        .bindTooltip('Mstětice station', {direction: 'top'}).addTo(this.map);
+
+      // D11 highway
+      L.polyline([[50.127, 14.582], COORDS.d11exit, [50.145, 14.680], [50.155, 14.750]], {
+        color: '#7c3aed', weight: 4, opacity: 0.7, dashArray: '10,5'
+      }).bindTooltip('D11 highway · exit Jirny ~4 km from asset').addTo(this.map);
+
+      // Connection lines — asset to each key point
+      const conns = [
+        {to: COORDS.ppf, label: 'Asset → PPF HQ: 22 km', color: '#2563eb'},
+        {to: COORDS.progresus, label: 'Asset → Progresus Karlín: 19 km', color: '#dc2626'},
+        {to: COORDS.praguecentre, label: 'Asset → Prague centre: 18 km', color: '#059669'},
+        {to: COORDS.penta, label: 'Asset → Penta: 20 km', color: '#8b5cf6'},
+        {to: COORDS.cpi, label: 'Asset → CPI: 19 km', color: '#8b5cf6'},
+        {to: COORDS.centralgroup, label: 'Asset → Central Group: 21 km', color: '#8b5cf6'}
+      ];
+      conns.forEach(c => {
+        L.polyline([COORDS.mstetice, c.to], {
+          color: c.color, weight: 1.2, opacity: 0.4, dashArray: '2,5'
+        }).bindTooltip(c.label).addTo(this.map);
+      });
+
+      L.control.scale({metric: true, imperial: false, position: 'bottomleft'}).addTo(this.map);
+
+      const legend = L.control({position: 'bottomright'});
+      legend.onAdd = () => {
+        const div = L.DomUtil.create('div', 'legend');
+        div.appendChild(el('div', null, [el('b', {text: 'Legend'})]));
+        div.appendChild(legendRow('#f59e0b', 'Deal asset / Čepro depot'));
+        div.appendChild(legendRow('#2563eb', 'PPF HQ (buyer)'));
+        div.appendChild(legendRow('#dc2626', 'Progresus HQ (seller)'));
+        div.appendChild(legendRow('#8b5cf6', 'Alt buyer HQ'));
+        div.appendChild(legendRow('#059669', 'Rail · Prague centre'));
+        div.appendChild(legendRow('#7c3aed', 'D11 highway'));
+        return div;
+      };
+      legend.addTo(this.map);
+
+      this.zoomTo('overview');
+    },
+    zoomTo(target){
+      const views = {
+        overview: {center: [50.105, 14.52], zoom: 11},
+        asset:    {center: COORDS.mstetice, zoom: 14},
+        prague:   {center: [50.085, 14.425], zoom: 13}
+      };
+      const v = views[target];
+      if (v) this.map.setView(v.center, v.zoom);
+    }
+  }
+}
+</script>
+  <script defer src="../_assets/viz-debug.js"></script>
+  <!-- BEGIN:DD_AUTO_LINKIFY -->
+  <script src="../_assets/dd-entity-index.js"></script>
+  <script defer src="../_assets/dd-auto-linkify.js"></script>
+<!-- END:DD_AUTO_LINKIFY -->
+</body>
+</html>

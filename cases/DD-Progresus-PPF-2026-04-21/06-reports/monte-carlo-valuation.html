@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Monte Carlo simulace ocenění — Nový Zeleneč · Project Mycelium</title>
+  <link rel="stylesheet" href="../_assets/flowbite.min.css">
+  <link rel="stylesheet" href="../_assets/viz-common.css">
+  <script src="../_assets/tailwind.min.js"></script>
+  <script src="../_assets/chart.min.js" defer></script>
+  <script src="../_assets/flowbite.min.js" defer></script>
+  <script src="../_assets/alpine.min.js" defer></script>
+  <style>
+    [x-cloak]{display:none!important}
+    .glow{box-shadow:0 0 28px -6px rgba(220,38,38,.35)}
+    .kpi-tile{transition:transform .2s ease, box-shadow .2s ease}
+    .kpi-tile:hover{transform:translateY(-2px); box-shadow:0 6px 20px -8px rgba(0,0,0,.25)}
+    .pill{display:inline-block; padding:0.15rem 0.55rem; border-radius:9999px; font-size:0.7rem; font-weight:600}
+    details>summary{cursor:pointer; list-style:none}
+    details>summary::-webkit-details-marker{display:none}
+  </style>
+  <!-- mycelium-markdown:injected -->
+  <link rel="stylesheet" href="../_assets/markdown/custom.css">
+  <script defer src="../_assets/markdown/markdown-it.min.js"></script>
+  <script defer src="../_assets/markdown/markdownItAnchor.umd.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-task-lists.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-mark.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script defer src="../_assets/md-embed.js"></script>
+  <script defer src="../_assets/inline-md-autoload.js"></script>
+
+  <!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="../_assets/md-store.js"></script>
+  <script src="../_assets/manifest-store.js"></script>
+  <script src="../_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+  <script defer src="../_assets/cmdk.js"></script>
+  <script defer src="../_assets/dd-scenario.js"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans"
+      x-data="monteCarloApp()" :class="{'dark': dark}">
+
+<!-- Navbar -->
+<nav class="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="text-sm text-slate-500 hover:text-red-600 dark:hover:text-red-400">← Portál</a>
+      <span class="text-slate-300 dark:text-slate-700">|</span>
+      <span class="font-bold tracking-tight">PRISMATIC · Monte Carlo ocenění</span>
+      <span class="hidden md:inline-block text-xs px-2 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300">STRANA PRODÁVAJÍCÍHO</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="valuation-calculator.html" class="text-xs hidden sm:inline hover:underline">📐 Triangulace</a>
+      <a href="VALUATION-DEFENSE-MEMO.md" class="text-xs hidden sm:inline hover:underline">📄 Memo</a>
+      <button @click="dark=!dark" class="text-sm px-2 py-1 rounded border border-slate-300 dark:border-slate-700">
+        <span x-show="!dark">🌙</span><span x-show="dark">☀️</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb text-sm text-gray-400 mb-4 px-4 max-w-screen-2xl mx-auto no-print" aria-label="breadcrumb">
+  <ol class="flex flex-wrap items-center gap-2">
+    <li><a href="../index.html" class="hover:text-white hover:underline">🏠 Portál</a></li>
+    <li class="text-gray-500">/</li>
+    <li><a href="./README.md" class="hover:text-white hover:underline">📊 06-reports</a></li>
+    <li class="text-gray-500">/</li>
+    <li class="text-white font-medium">monte-carlo-valuation.html</li>
+  </ol>
+</nav>
+
+<!-- Header -->
+<header class="max-w-7xl mx-auto px-4 pt-8 pb-4">
+  <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Monte Carlo simulace ocenění — 42 ha Nový Zeleneč</h1>
+  <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-3xl">
+    Pravděpodobnostní triangulace čtyř metod pomocí náhodného vzorkování. Místo jediného bodu dostáváte
+    <strong>distribuci možných cen</strong>, percentily a pravděpodobnost prolomení walk-away floor.
+  </p>
+  <div class="mt-4 flex flex-wrap gap-2 text-xs">
+    <span class="px-3 py-1 rounded-full bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200 font-semibold">Walk-away floor 3,7 mld.</span>
+    <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200 font-semibold">Cíl P50 ≥ 4,5 mld.</span>
+    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200 font-semibold">P(floor) ≤ 10 %</span>
+    <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200 font-semibold" x-text="'Iterací: ' + iterations.toLocaleString()"></span>
+  </div>
+  <!-- Quick links -->
+  <div class="mt-4 flex flex-wrap gap-2 text-xs">
+    <a href="valuation-calculator.html" class="px-3 py-1.5 rounded bg-red-600 text-white hover:bg-red-500 font-semibold">📐 Deterministická triangulace</a>
+    <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">📑 Memo obhajoby</a>
+    <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">🧾 Hlavní DD report</a>
+    <a href="../reader.html?file=PPF-PLAYBOOK.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">📜 PPF Playbook</a>
+  </div>
+</header>
+
+<!-- KPI tiles -->
+<section class="max-w-7xl mx-auto px-4 pt-2 pb-4 grid grid-cols-2 md:grid-cols-5 gap-3">
+  <div class="kpi-tile rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4">
+    <div class="text-xs uppercase text-slate-500">P50 (medián)</div>
+    <div class="text-2xl font-bold mt-1 text-red-600 dark:text-red-400" x-text="fmt(stats.p50)"></div>
+    <div class="text-xs text-slate-500 mt-1">centrum distribuce</div>
+  </div>
+  <div class="kpi-tile rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4">
+    <div class="text-xs uppercase text-slate-500">P10 — P90</div>
+    <div class="text-2xl font-bold mt-1" x-text="fmtRange(stats.p10, stats.p90)"></div>
+    <div class="text-xs text-slate-500 mt-1">80% interval spolehlivosti</div>
+  </div>
+  <div class="kpi-tile rounded-lg p-4 border" :class="probFloorClass.box">
+    <div class="text-xs uppercase" :class="probFloorClass.text">P(výsledek &lt; floor)</div>
+    <div class="text-2xl font-bold mt-1" :class="probFloorClass.text" x-text="(stats.probFloor*100).toFixed(1)+' %'"></div>
+    <div class="text-xs mt-1" :class="probFloorClass.text" x-text="probFloorClass.label"></div>
+  </div>
+  <div class="kpi-tile rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4">
+    <div class="text-xs uppercase text-slate-500">Očekávaná cena (mean)</div>
+    <div class="text-2xl font-bold mt-1" x-text="fmt(stats.mean)"></div>
+    <div class="text-xs text-slate-500 mt-1">σ = <span x-text="(stats.stdev||0).toFixed(2)"></span></div>
+  </div>
+  <div class="kpi-tile rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4">
+    <div class="text-xs uppercase text-slate-500">VaR 95 %</div>
+    <div class="text-2xl font-bold mt-1 text-amber-600 dark:text-amber-400" x-text="fmt(stats.var95)"></div>
+    <div class="text-xs text-slate-500 mt-1">5% nejhorší případ</div>
+  </div>
+</section>
+
+<!-- Inputs -->
+<section class="max-w-7xl mx-auto px-4 py-6">
+  <div class="grid md:grid-cols-12 gap-4">
+    <!-- Inputs panel -->
+    <div class="md:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+      <div class="flex items-start justify-between mb-3 gap-2">
+        <h2 class="font-bold text-lg">⚙️ Vstupy distribuce</h2>
+        <span class="text-[11px] text-slate-500" x-text="'last run: ' + lastRunMs + ' ms'"></span>
+      </div>
+      <div class="space-y-5">
+
+        <!-- DCF -->
+        <div>
+          <div class="flex justify-between text-sm">
+            <label><strong>DCF triangulace</strong> — base (mld. CZK)</label>
+            <span class="font-mono font-bold" x-text="dcfMu.toFixed(2)+' mld.'"></span>
+          </div>
+          <input type="range" min="3.5" max="7.0" step="0.05" x-model.number="dcfMu" class="w-full accent-red-600">
+          <div class="flex justify-between text-sm mt-2">
+            <label class="text-xs">σ (volatilita)</label>
+            <span class="font-mono text-xs" x-text="dcfSigma.toFixed(2)"></span>
+          </div>
+          <input type="range" min="0.5" max="1.5" step="0.05" x-model.number="dcfSigma" class="w-full accent-red-600">
+          <div class="flex justify-between text-[10px] text-slate-500"><span>0,5 nízká</span><span>1,0 střed</span><span>1,5 vysoká</span></div>
+        </div>
+
+        <!-- Land comp -->
+        <div>
+          <div class="flex justify-between text-sm">
+            <label><strong>Land comp</strong> — base (mld. CZK)</label>
+            <span class="font-mono font-bold" x-text="landMu.toFixed(2)+' mld.'"></span>
+          </div>
+          <input type="range" min="2.5" max="6.0" step="0.05" x-model.number="landMu" class="w-full accent-red-600">
+          <div class="flex justify-between text-sm mt-2">
+            <label class="text-xs">σ</label>
+            <span class="font-mono text-xs" x-text="landSigma.toFixed(2)"></span>
+          </div>
+          <input type="range" min="0.3" max="1.2" step="0.05" x-model.number="landSigma" class="w-full accent-red-600">
+        </div>
+
+        <!-- Precedent -->
+        <div>
+          <div class="flex justify-between text-sm">
+            <label><strong>Precedenční transakce</strong> — base (mld. CZK)</label>
+            <span class="font-mono font-bold" x-text="precMu.toFixed(2)+' mld.'"></span>
+          </div>
+          <input type="range" min="2.5" max="6.0" step="0.05" x-model.number="precMu" class="w-full accent-red-600">
+          <div class="flex justify-between text-sm mt-2">
+            <label class="text-xs">σ</label>
+            <span class="font-mono text-xs" x-text="precSigma.toFixed(2)"></span>
+          </div>
+          <input type="range" min="0.3" max="1.0" step="0.05" x-model.number="precSigma" class="w-full accent-red-600">
+        </div>
+
+        <!-- Liquidation -->
+        <div>
+          <div class="flex justify-between text-sm">
+            <label><strong>Likvidační hodnota</strong> — base (mld. CZK)</label>
+            <span class="font-mono font-bold" x-text="liqMu.toFixed(2)+' mld.'"></span>
+          </div>
+          <input type="range" min="1.0" max="3.5" step="0.05" x-model.number="liqMu" class="w-full accent-red-600">
+          <div class="flex justify-between text-sm mt-2">
+            <label class="text-xs">σ</label>
+            <span class="font-mono text-xs" x-text="liqSigma.toFixed(2)"></span>
+          </div>
+          <input type="range" min="0.2" max="0.8" step="0.05" x-model.number="liqSigma" class="w-full accent-red-600">
+        </div>
+
+        <!-- Floor -->
+        <div class="border-t border-slate-200 dark:border-slate-800 pt-3">
+          <div class="flex justify-between text-sm">
+            <label><strong>Floor (minimální cena)</strong></label>
+            <span class="font-mono font-bold text-red-600 dark:text-red-400" x-text="floor.toFixed(2)+' mld.'"></span>
+          </div>
+          <input type="range" min="3.0" max="5.0" step="0.05" x-model.number="floor" class="w-full accent-red-600">
+          <div class="flex justify-between text-[10px] text-slate-500"><span>3,0 mld.</span><span>3,7 walk-away</span><span>5,0 mld.</span></div>
+        </div>
+
+        <!-- Iterations -->
+        <div class="border-t border-slate-200 dark:border-slate-800 pt-3">
+          <div class="text-sm font-semibold mb-2">Iterace</div>
+          <div class="flex gap-2">
+            <button @click="iterations=1000; runSim()" :class="iterations===1000?'bg-red-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="flex-1 text-xs py-1.5 rounded">1k</button>
+            <button @click="iterations=10000; runSim()" :class="iterations===10000?'bg-red-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="flex-1 text-xs py-1.5 rounded">10k</button>
+            <button @click="iterations=100000; runSim()" :class="iterations===100000?'bg-red-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="flex-1 text-xs py-1.5 rounded">100k</button>
+          </div>
+        </div>
+
+        <!-- Distribution type -->
+        <div class="border-t border-slate-200 dark:border-slate-800 pt-3">
+          <div class="text-sm font-semibold mb-2">Typ distribuce</div>
+          <div class="flex gap-2">
+            <button @click="distType='normal'" :class="distType==='normal'?'bg-red-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="flex-1 text-xs py-1.5 rounded">Normální</button>
+            <button @click="distType='lognormal'" :class="distType==='lognormal'?'bg-red-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="flex-1 text-xs py-1.5 rounded">LogNormal</button>
+            <button @click="distType='triangular'" :class="distType==='triangular'?'bg-red-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="flex-1 text-xs py-1.5 rounded">Triangulární</button>
+          </div>
+        </div>
+
+        <!-- Action buttons -->
+        <div class="pt-2 grid grid-cols-3 gap-2">
+          <button @click="runSim()" class="text-xs py-2 rounded bg-red-600 text-white hover:bg-red-500 font-semibold">▶ Spustit</button>
+          <button @click="resetDefaults()" class="text-xs py-2 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300">↻ Resetovat</button>
+          <button @click="exportPng()" class="text-xs py-2 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300">📷 Export PNG</button>
+        </div>
+
+        <!-- Weights -->
+        <details class="border-t border-slate-200 dark:border-slate-800 pt-3">
+          <summary class="text-sm font-semibold flex items-center justify-between">
+            <span>⚖️ Váhy metod</span>
+            <span class="text-xs text-slate-500">▼</span>
+          </summary>
+          <div class="mt-3 space-y-2 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="w-24">DCF</span>
+              <input type="range" min="0" max="1" step="0.05" x-model.number="wDcf" class="flex-1 accent-red-600">
+              <span class="font-mono w-10 text-right" x-text="wDcf.toFixed(2)"></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-24">Land</span>
+              <input type="range" min="0" max="1" step="0.05" x-model.number="wLand" class="flex-1 accent-red-600">
+              <span class="font-mono w-10 text-right" x-text="wLand.toFixed(2)"></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-24">Precedent</span>
+              <input type="range" min="0" max="1" step="0.05" x-model.number="wPrec" class="flex-1 accent-red-600">
+              <span class="font-mono w-10 text-right" x-text="wPrec.toFixed(2)"></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="w-24">Likvidace</span>
+              <input type="range" min="0" max="1" step="0.05" x-model.number="wLiq" class="flex-1 accent-red-600">
+              <span class="font-mono w-10 text-right" x-text="wLiq.toFixed(2)"></span>
+            </div>
+            <div class="text-[10px] text-slate-500 pt-1">Váhy se normalizují automaticky (součet = 1).</div>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Histogram -->
+    <div class="md:col-span-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+      <div class="flex items-start justify-between mb-3 gap-2">
+        <h2 class="font-bold text-lg">📊 Histogram výsledků</h2>
+        <span class="text-[11px] text-slate-500">N = <span x-text="iterations.toLocaleString()"></span></span>
+      </div>
+      <div class="viz-container viz-container--medium"><canvas id="histChart"></canvas></div>
+      <p class="text-xs text-slate-500 mt-3">
+        Distribuce vážené hodnoty napříč iteracemi. Svislé čáry: <span class="text-blue-500">P10</span>,
+        <span class="text-red-500">P50 (medián)</span>, <span class="text-blue-500">P90</span>,
+        <span class="text-amber-500">walk-away floor</span>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Fan + CDF -->
+<section class="max-w-7xl mx-auto px-4 py-2 grid md:grid-cols-2 gap-4">
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+    <h2 class="font-bold text-lg mb-3">🌊 Fan chart — pásma percentilů</h2>
+    <div class="viz-container viz-container--short"><canvas id="fanChart"></canvas></div>
+    <p class="text-xs text-slate-500 mt-3">Stínované pásy P10–P90 (světle), P25–P75 (tmavě), P50 (čára). Šířka pásem ukazuje míru nejistoty ocenění.</p>
+  </div>
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+    <h2 class="font-bold text-lg mb-3">📈 CDF — kumulativní pravděpodobnost</h2>
+    <div class="viz-container viz-container--short"><canvas id="cdfChart"></canvas></div>
+    <p class="text-xs text-slate-500 mt-3">P(výsledek ≤ X). Sledujte hodnotu CDF v bodě walk-away floor — to je <strong>P(prolomení floor)</strong>.</p>
+  </div>
+</section>
+
+<!-- Tornado chart -->
+<section class="max-w-7xl mx-auto px-4 py-6">
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+    <div class="flex items-start justify-between mb-3 gap-2">
+      <h2 class="font-bold text-lg">🌪️ Tornado — citlivost vstupů (±1σ na P50)</h2>
+      <span class="text-[11px] text-slate-500">Setříděno podle absolutního dopadu</span>
+    </div>
+    <div class="viz-container viz-container--medium"><canvas id="tornadoChart"></canvas></div>
+    <p class="text-xs text-slate-500 mt-3">Pro každý vstup samostatně: posuneme μ o +1σ (zelený sloupec) a −1σ (červený sloupec) a změříme vliv na P50 vážené distribuce. Delší tyč = vyšší citlivost.</p>
+  </div>
+</section>
+
+<!-- Methodology -->
+<section class="max-w-7xl mx-auto px-4 py-6">
+  <details class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+    <summary class="font-bold text-lg flex items-center justify-between">
+      <span>🧪 Metodologie — Co je Monte Carlo a proč ji používáme</span>
+      <span class="text-xs text-slate-500">▼ rozbalit</span>
+    </summary>
+    <div class="prose prose-sm dark:prose-invert max-w-none mt-4 space-y-3">
+      <h3 class="font-semibold text-base">Co je Monte Carlo simulace?</h3>
+      <p>Monte Carlo je technika, která místo jednoho deterministického odhadu pracuje s <strong>tisíci nezávislými scénáři</strong>.
+        Každá metoda ocenění (DCF, land comps, precedenční transakce, likvidace) má svou střední hodnotu (μ) a směrodatnou odchylku (σ),
+        která vyjadřuje neurčitost odhadu. V každé iteraci náhodně vzorkujeme hodnoty a počítáme vážený průměr — výsledkem je <strong>distribuce možných cen</strong>,
+        nikoli jediná čára.</p>
+
+      <h3 class="font-semibold text-base">Proč je to lepší než deterministický odhad?</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li><strong>Měříme neurčitost</strong> — místo „cena je 4,8 mld." říkáme „90% jistota, že cena bude mezi 3,9 a 5,7 mld.".</li>
+        <li><strong>Pravděpodobnost rizika</strong> — kvantifikujeme P(cena &lt; floor), což je klíčové rozhodovací kritérium.</li>
+        <li><strong>VaR (Value at Risk)</strong> — P5 nám dává odhad „nejhorších 5 % případů", což je standard v risk managementu.</li>
+        <li><strong>Robustnost</strong> — distribuce ukáže, zda je centrální odhad „úzký" (vysoká jistota) nebo „rozlitý" (nízká jistota).</li>
+      </ul>
+
+      <h3 class="font-semibold text-base">Implementované distribuce</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li><strong>Normální (Box-Muller)</strong> — symetrická, vhodná pro odhady kolem středu.</li>
+        <li><strong>LogNormální</strong> — asymetrický „upside" tail, vhodné pro DCF kde je pravostranný tail (úspěch projektu).</li>
+        <li><strong>Triangulární</strong> — bounded (min/mode/max), pro vstupy s tvrdými limity (např. likvidační hodnota nemůže být záporná).</li>
+      </ul>
+
+      <h3 class="font-semibold text-base">Limity (input garbage = output garbage)</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li><strong>Závislost mezi metodami</strong> — DCF a land comps často reagují na stejné makro-šoky (úroky, regulace).
+          Náš model je předpokládá <em>nezávislé</em>, což může <strong>podhodnocovat</strong> ocasní rizika.</li>
+        <li><strong>Volba σ je subjektivní</strong> — pokud nastavíte σ příliš malé, dostanete falešnou jistotu. Pokud příliš velké,
+          šum přebije signál.</li>
+        <li><strong>Distribuce nezachycuje strukturální zlomy</strong> — black-swan události (změna územního plánu, nová tramvajová linka)
+          nejsou v σ obsažené.</li>
+        <li><strong>Konvergence</strong> — 1k iterací stačí pro orientační pohled, 10k pro stabilní P50, 100k pro spolehlivé P10/P90.</li>
+      </ul>
+
+      <h3 class="font-semibold text-base">Algoritmus</h3>
+      <ol class="list-decimal list-inside space-y-1">
+        <li>Pro každou iteraci 1..N: vzorkuj DCF<sub>i</sub>, Land<sub>i</sub>, Prec<sub>i</sub>, Liq<sub>i</sub> ze zvolené distribuce.</li>
+        <li>Spočítej vážený průměr V<sub>i</sub> = w<sub>DCF</sub>·DCF<sub>i</sub> + w<sub>L</sub>·Land<sub>i</sub> + w<sub>P</sub>·Prec<sub>i</sub> + w<sub>Liq</sub>·Liq<sub>i</sub>.</li>
+        <li>Sesbírej pole {V<sub>1</sub>, ..., V<sub>N</sub>} a spočítej percentily, mean, stdev a P(V&lt;floor).</li>
+      </ol>
+    </div>
+  </details>
+</section>
+
+<!-- Results interpretation -->
+<section class="max-w-7xl mx-auto px-4 py-6">
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+    <h2 class="font-bold text-lg mb-3">🎯 Výsledky pro PPF — interpretace v kontextu walk-away floor</h2>
+    <div class="grid md:grid-cols-3 gap-4 text-sm">
+      <div class="p-4 rounded bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-300 dark:border-emerald-800">
+        <div class="text-xs uppercase font-bold text-emerald-700 dark:text-emerald-300 mb-1">P10 — pesimistický scénář</div>
+        <div class="text-xl font-bold text-emerald-700 dark:text-emerald-300" x-text="fmt(stats.p10)"></div>
+        <p class="text-xs mt-2">10% pravděpodobnost, že realizovaná cena bude pod tímto bodem.
+          Pokud P10 &gt; floor (3,7 mld.), <strong>walk-away je málo pravděpodobný</strong>.</p>
+      </div>
+      <div class="p-4 rounded bg-red-50 dark:bg-red-900/20 border border-red-300 dark:border-red-800">
+        <div class="text-xs uppercase font-bold text-red-700 dark:text-red-300 mb-1">P50 — centrální odhad</div>
+        <div class="text-xl font-bold text-red-700 dark:text-red-300" x-text="fmt(stats.p50)"></div>
+        <p class="text-xs mt-2">Medián distribuce — rovnocenná pravděpodobnost vyšší/nižší ceny. Toto je vaše „pravdivá" očekávaná hodnota
+          pro vyjednávání s PPF.</p>
+      </div>
+      <div class="p-4 rounded bg-amber-50 dark:bg-amber-900/20 border border-amber-300 dark:border-amber-800">
+        <div class="text-xs uppercase font-bold text-amber-700 dark:text-amber-300 mb-1">P90 — optimistický strop</div>
+        <div class="text-xl font-bold text-amber-700 dark:text-amber-300" x-text="fmt(stats.p90)"></div>
+        <p class="text-xs mt-2">Pouze 10% pravděpodobnost překročení. <strong>Stretch target</strong> — počáteční pozice
+          v negociaci nebo cíl pro pákový mechanismus z PPF Playbook.</p>
+      </div>
+    </div>
+
+    <div class="mt-4 p-4 rounded bg-slate-100 dark:bg-slate-800/60 text-sm">
+      <div class="font-bold mb-2">💡 Doporučená negociační pozice</div>
+      <ul class="list-disc list-inside space-y-1 text-xs">
+        <li><strong>Otevírací nabídka prodávajícího:</strong> P75 + 10 % (~<span x-text="fmt(stats.p75 * 1.10)"></span>)</li>
+        <li><strong>Cílová zóna uzavření:</strong> P50 ± 10 % (<span x-text="fmtRange(stats.p50*0.9, stats.p50*1.1)"></span>)</li>
+        <li><strong>Walk-away signál:</strong> jakákoli nabídka pod P10 (<span x-text="fmt(stats.p10)"></span>) nebo absolutní floor 3,70 mld.</li>
+        <li><strong>Riziko prolomení floor:</strong> aktuálně <span class="font-bold" :class="probFloorClass.text" x-text="(stats.probFloor*100).toFixed(1)+' %'"></span> —
+          <span x-text="probFloorClass.recommendation"></span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Source strip footer -->
+<section class="max-w-7xl mx-auto px-4 py-6">
+  <div class="bg-slate-900 dark:bg-slate-800 rounded-lg p-4">
+    <div class="text-xs uppercase text-slate-400 mb-2 font-bold">📚 Zdrojové dokumenty</div>
+    <div class="flex flex-wrap gap-2">
+      <a href="valuation-calculator.html" class="px-3 py-1.5 rounded bg-red-600 text-white hover:bg-red-500 text-xs font-semibold">📐 Deterministická triangulace</a>
+      <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">📑 Memo obhajoby ocenění</a>
+      <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">🧾 Hlavní DD report</a>
+      <a href="../reader.html?file=PPF-PLAYBOOK.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">📜 PPF Playbook</a>
+      <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">✅ Akční plán</a>
+      <a href="../reader.html?file=03-financial/financial-analysis.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">📊 Finanční analýza</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="max-w-7xl mx-auto px-4 py-10 text-xs text-slate-500 border-t border-slate-200 dark:border-slate-800 mt-10">
+  <div class="flex flex-wrap gap-4 justify-between">
+    <div>
+      <div class="font-bold text-slate-700 dark:text-slate-300">PRISMATIC · Project Mycelium</div>
+      <div>Monte Carlo simulace ocenění · Progresus → PPF · 42 ha Nový Zeleneč</div>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href="../index.html" class="hover:underline">Portál</a>
+      <a href="valuation-calculator.html" class="hover:underline">Triangulace</a>
+      <a href="VALUATION-DEFENSE-MEMO.md" class="hover:underline">Obranné memo</a>
+      <a href="../03-financial/TAX-STRUCTURE-MEMO.md" class="hover:underline">Daňové memo</a>
+      <a href="../RED-FLAGS.md" class="hover:underline">Rizikové signály</a>
+    </div>
+  </div>
+  <div class="mt-4">Důvěrné · 2026-04-27 · Simulace běží lokálně v prohlížeči, žádná data neopouští zařízení. Zdroj parametrů: VALUATION-DEFENSE-MEMO v1.0.</div>
+</footer>
+
+<script>
+function monteCarloApp(){
+  let _histChart = null;
+  let _fanChart = null;
+  let _cdfChart = null;
+  let _tornadoChart = null;
+  let _debounceTimer = null;
+
+  return {
+    dark: window.matchMedia('(prefers-color-scheme: dark)').matches,
+
+    // --- Inputs ---
+    dcfMu: 5.4, dcfSigma: 0.9,
+    landMu: 4.0, landSigma: 0.6,
+    precMu: 4.2, precSigma: 0.55,
+    liqMu: 2.5, liqSigma: 0.4,
+    floor: 3.7,
+    iterations: 10000,
+    distType: 'normal',
+
+    // weights (default DCF 0.4, land 0.3, prec 0.2, liq 0.1)
+    wDcf: 0.4, wLand: 0.3, wPrec: 0.2, wLiq: 0.1,
+
+    // outputs
+    results: [],
+    stats: { p10: 0, p25: 0, p50: 0, p75: 0, p90: 0, mean: 0, stdev: 0, probFloor: 0, var95: 0, min: 0, max: 0 },
+    lastRunMs: 0,
+
+    // ----- Distributions -----
+    rnorm(mu, sigma){
+      // Box-Muller transform
+      let u = 0, v = 0;
+      while(u === 0) u = Math.random();
+      while(v === 0) v = Math.random();
+      const z = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+      return mu + sigma * z;
+    },
+    rlognormal(mu, sigma){
+      // Translate (mu,sigma) of the underlying normal so the median equals mu
+      // Simple approach: lognormal(ln(mu), sigma_rel) where sigma_rel ~ sigma/mu
+      const sigmaRel = Math.max(0.01, sigma / Math.max(0.1, mu));
+      const muLog = Math.log(Math.max(0.05, mu));
+      return Math.exp(this.rnorm(muLog, sigmaRel));
+    },
+    rtriangular(min, mode, max){
+      const u = Math.random();
+      const F = (mode - min) / (max - min);
+      if(u < F){
+        return min + Math.sqrt(u * (max - min) * (mode - min));
+      } else {
+        return max - Math.sqrt((1 - u) * (max - min) * (max - mode));
+      }
+    },
+    sample(mu, sigma){
+      if(this.distType === 'lognormal'){
+        return this.rlognormal(mu, sigma);
+      }
+      if(this.distType === 'triangular'){
+        // map to (min, mode, max) using ±2σ as bounds
+        const min = Math.max(0.1, mu - 2 * sigma);
+        const max = mu + 2 * sigma;
+        return this.rtriangular(min, mu, max);
+      }
+      // normal default — clamp at 0 (price cannot be negative)
+      return Math.max(0, this.rnorm(mu, sigma));
+    },
+
+    normWeights(){
+      const sum = this.wDcf + this.wLand + this.wPrec + this.wLiq;
+      if(sum <= 0) return { d: 0.4, l: 0.3, p: 0.2, q: 0.1 };
+      return { d: this.wDcf/sum, l: this.wLand/sum, p: this.wPrec/sum, q: this.wLiq/sum };
+    },
+
+    // ----- Simulation -----
+    runSimCore(N){
+      const w = this.normWeights();
+      const results = new Array(N);
+      for(let i = 0; i < N; i++){
+        const dcf  = this.sample(this.dcfMu,  this.dcfSigma);
+        const land = this.sample(this.landMu, this.landSigma);
+        const prec = this.sample(this.precMu, this.precSigma);
+        const liq  = this.sample(this.liqMu,  this.liqSigma);
+        results[i] = w.d*dcf + w.l*land + w.p*prec + w.q*liq;
+      }
+      return results;
+    },
+
+    computeStats(arr, floor){
+      const sorted = arr.slice().sort((a,b)=>a-b);
+      const N = sorted.length;
+      const pct = q => sorted[Math.min(N-1, Math.max(0, Math.floor(q * (N-1))))];
+      const mean = sorted.reduce((s,v)=>s+v, 0) / N;
+      const variance = sorted.reduce((s,v)=>s + (v-mean)*(v-mean), 0) / N;
+      const stdev = Math.sqrt(variance);
+      const below = sorted.filter(v => v < floor).length;
+      return {
+        p10: pct(0.10), p25: pct(0.25), p50: pct(0.50), p75: pct(0.75), p90: pct(0.90),
+        mean, stdev,
+        probFloor: below / N,
+        var95: pct(0.05),
+        min: sorted[0], max: sorted[N-1]
+      };
+    },
+
+    async runSim(){
+      const t0 = performance.now();
+      // Yield to UI before heavy iterations (>10k freezes main thread for hundreds of ms).
+      if (this.iterations > 10000) await new Promise(r => setTimeout(r, 0));
+      this.results = this.runSimCore(this.iterations);
+      this.stats = this.computeStats(this.results, this.floor);
+      this.lastRunMs = Math.round(performance.now() - t0);
+      this.updateAllCharts();
+    },
+
+    runSimDebounced(){
+      clearTimeout(_debounceTimer);
+      _debounceTimer = setTimeout(() => this.runSim(), 220);
+    },
+
+    // ----- Tornado sensitivity -----
+    tornadoData(){
+      const baseStats = this.stats;
+      const inputs = [
+        { key: 'dcfMu',  label: 'DCF μ',       sigma: this.dcfSigma },
+        { key: 'landMu', label: 'Land μ',      sigma: this.landSigma },
+        { key: 'precMu', label: 'Precedent μ', sigma: this.precSigma },
+        { key: 'liqMu',  label: 'Likvidace μ', sigma: this.liqSigma },
+        { key: 'dcfSigma', label: 'DCF σ', sigma: 0.2 },
+        { key: 'landSigma', label: 'Land σ', sigma: 0.15 },
+      ];
+      const N = Math.min(2000, this.iterations); // smaller N for sensitivity speed
+      const out = inputs.map(inp => {
+        const orig = this[inp.key];
+        // +1σ
+        this[inp.key] = orig + inp.sigma;
+        const up = this.computeStats(this.runSimCore(N), this.floor).p50;
+        // -1σ
+        this[inp.key] = orig - inp.sigma;
+        const down = this.computeStats(this.runSimCore(N), this.floor).p50;
+        this[inp.key] = orig;
+        return { label: inp.label, up: up - baseStats.p50, down: down - baseStats.p50, abs: Math.abs(up - down) };
+      });
+      out.sort((a,b)=> b.abs - a.abs);
+      return out;
+    },
+
+    // ----- Histogram bins -----
+    histogramBins(values, nBins = 40){
+      const min = Math.min(...values);
+      const max = Math.max(...values);
+      const step = (max - min) / nBins;
+      const bins = new Array(nBins).fill(0);
+      const labels = [];
+      for(let i = 0; i < nBins; i++){
+        labels.push(min + step * (i + 0.5));
+      }
+      for(const v of values){
+        let idx = Math.floor((v - min) / step);
+        if(idx >= nBins) idx = nBins - 1;
+        if(idx < 0) idx = 0;
+        bins[idx]++;
+      }
+      return { labels, bins, min, max, step };
+    },
+
+    // ----- Charts -----
+    chartTextColor(){ return this.dark ? '#cbd5e1' : '#334155'; },
+    chartGridColor(){ return this.dark ? '#1e293b' : '#e2e8f0'; },
+
+    buildHistChart(){
+      const ctx = document.getElementById('histChart').getContext('2d');
+      _histChart = new Chart(ctx, {
+        type: 'bar',
+        data: { labels: [], datasets: [{ label: 'Frekvence', data: [], backgroundColor: 'rgba(220,38,38,0.6)', borderWidth: 0, barPercentage: 1.0, categoryPercentage: 1.0 }] },
+        options: {
+          responsive: true, maintainAspectRatio: false, animation: false,
+          plugins: {
+            legend: { labels: { color: this.chartTextColor() } },
+            tooltip: { callbacks: { title: (items) => items[0].label + ' mld. CZK' } },
+            annotation: undefined
+          },
+          scales: {
+            x: { title: { display: true, text: 'mld. CZK', color: this.chartTextColor() }, ticks: { color: this.chartTextColor(), maxRotation: 0, autoSkip: true, callback: function(v){ const l = this.getLabelForValue(v); return Number(l).toFixed(2); } }, grid: { display: false } },
+            y: { title: { display: true, text: 'počet iterací', color: this.chartTextColor() }, ticks: { color: this.chartTextColor() }, grid: { color: this.chartGridColor() }, beginAtZero: true }
+          }
+        }
+      });
+    },
+
+    updateHistChart(){
+      if(!_histChart) return;
+      const { labels, bins } = this.histogramBins(this.results, 40);
+      const lblText = labels.map(v => v.toFixed(2));
+      _histChart.data.labels = lblText;
+      _histChart.data.datasets = [{
+        label: 'Frekvence', data: bins,
+        backgroundColor: lblText.map(l => {
+          const v = parseFloat(l);
+          if(v < this.floor) return 'rgba(245,158,11,0.55)'; // amber under floor
+          return 'rgba(220,38,38,0.55)';
+        }),
+        borderWidth: 0, barPercentage: 1.0, categoryPercentage: 1.0
+      }];
+      // overlay percentile vertical lines via dataset (line chart trick): use point dataset with vertical bars instead — simpler: add lines via plugin.
+      _histChart.update('none');
+    },
+
+    buildFanChart(){
+      const ctx = document.getElementById('fanChart').getContext('2d');
+      _fanChart = new Chart(ctx, {
+        type: 'line',
+        data: { labels: [], datasets: [] },
+        options: {
+          responsive: true, maintainAspectRatio: false, animation: false,
+          plugins: { legend: { labels: { color: this.chartTextColor() } } },
+          scales: {
+            x: { title: { display: true, text: 'percentil', color: this.chartTextColor() }, ticks: { color: this.chartTextColor() }, grid: { color: this.chartGridColor() } },
+            y: { title: { display: true, text: 'mld. CZK', color: this.chartTextColor() }, ticks: { color: this.chartTextColor(), callback: v => v.toFixed(2) }, grid: { color: this.chartGridColor() } }
+          }
+        }
+      });
+    },
+
+    updateFanChart(){
+      if(!_fanChart) return;
+      const sorted = this.results.slice().sort((a,b)=>a-b);
+      const N = sorted.length;
+      const pct = q => sorted[Math.min(N-1, Math.max(0, Math.floor(q * (N-1))))];
+      const labels = [], p10 = [], p25 = [], p50 = [], p75 = [], p90 = [];
+      for(let q = 0.05; q <= 0.96; q += 0.05){
+        labels.push((q*100).toFixed(0) + '%');
+        // shows the running percentile of running window — simplification: each tick = quantile at that position
+        const lo = Math.max(0, q - 0.05);
+        const hi = Math.min(1, q + 0.05);
+        p10.push(pct(lo));
+        p90.push(pct(hi));
+        p50.push(pct(q));
+        p25.push(pct(Math.max(0, q - 0.025)));
+        p75.push(pct(Math.min(1, q + 0.025)));
+      }
+      _fanChart.data.labels = labels;
+      _fanChart.data.datasets = [
+        { label: 'P10–P90', data: p90, borderColor: 'transparent', backgroundColor: 'rgba(220,38,38,0.10)', fill: '+1', pointRadius: 0, tension: 0.25 },
+        { label: '_p10', data: p10, borderColor: 'transparent', backgroundColor: 'rgba(220,38,38,0.10)', fill: false, pointRadius: 0, tension: 0.25 },
+        { label: 'P25–P75', data: p75, borderColor: 'transparent', backgroundColor: 'rgba(220,38,38,0.25)', fill: '+1', pointRadius: 0, tension: 0.25 },
+        { label: '_p25', data: p25, borderColor: 'transparent', backgroundColor: 'rgba(220,38,38,0.25)', fill: false, pointRadius: 0, tension: 0.25 },
+        { label: 'P50 (medián)', data: p50, borderColor: '#dc2626', backgroundColor: '#dc2626', fill: false, pointRadius: 0, tension: 0.25, borderWidth: 2 }
+      ];
+      // hide legend duplicates
+      _fanChart.options.plugins.legend.labels.filter = (item) => !item.text.startsWith('_');
+      _fanChart.update('none');
+    },
+
+    buildCdfChart(){
+      const ctx = document.getElementById('cdfChart').getContext('2d');
+      _cdfChart = new Chart(ctx, {
+        type: 'line',
+        data: { labels: [], datasets: [] },
+        options: {
+          responsive: true, maintainAspectRatio: false, animation: false,
+          plugins: { legend: { labels: { color: this.chartTextColor() } } },
+          scales: {
+            x: { title: { display: true, text: 'mld. CZK', color: this.chartTextColor() }, ticks: { color: this.chartTextColor() }, grid: { color: this.chartGridColor() } },
+            y: { title: { display: true, text: 'P(výsledek ≤ X)', color: this.chartTextColor() }, ticks: { color: this.chartTextColor(), callback: v => (v*100).toFixed(0)+' %' }, grid: { color: this.chartGridColor() }, min: 0, max: 1 }
+          }
+        }
+      });
+    },
+
+    updateCdfChart(){
+      if(!_cdfChart) return;
+      const sorted = this.results.slice().sort((a,b)=>a-b);
+      const N = sorted.length;
+      const step = Math.max(1, Math.floor(N / 200));
+      const labels = [], cdf = [];
+      for(let i = 0; i < N; i += step){
+        labels.push(sorted[i].toFixed(2));
+        cdf.push((i+1) / N);
+      }
+      // floor reference dataset
+      const floorLine = labels.map(l => parseFloat(l) <= this.floor ? 1 : null);
+      _cdfChart.data.labels = labels;
+      _cdfChart.data.datasets = [
+        { label: 'CDF', data: cdf, borderColor: '#dc2626', backgroundColor: 'rgba(220,38,38,0.15)', fill: true, pointRadius: 0, tension: 0.1, borderWidth: 2 },
+        { label: 'Floor (' + this.floor.toFixed(2) + ')', data: floorLine, borderColor: '#f59e0b', backgroundColor: 'transparent', fill: false, pointRadius: 0, borderDash: [6,4], borderWidth: 2 }
+      ];
+      _cdfChart.update('none');
+    },
+
+    buildTornadoChart(){
+      const ctx = document.getElementById('tornadoChart').getContext('2d');
+      _tornadoChart = new Chart(ctx, {
+        type: 'bar',
+        data: { labels: [], datasets: [] },
+        options: {
+          indexAxis: 'y',
+          responsive: true, maintainAspectRatio: false, animation: false,
+          plugins: {
+            legend: { labels: { color: this.chartTextColor() } },
+            tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + (ctx.parsed.x>=0?'+':'') + ctx.parsed.x.toFixed(3) + ' mld.' } }
+          },
+          scales: {
+            x: { title: { display: true, text: 'Δ P50 (mld. CZK)', color: this.chartTextColor() }, ticks: { color: this.chartTextColor(), callback: v => (v>=0?'+':'') + Number(v).toFixed(2) }, grid: { color: this.chartGridColor() } },
+            y: { ticks: { color: this.chartTextColor() }, grid: { display: false }, stacked: true }
+          }
+        }
+      });
+    },
+
+    updateTornadoChart(){
+      if(!_tornadoChart) return;
+      const data = this.tornadoData();
+      _tornadoChart.data.labels = data.map(d => d.label);
+      _tornadoChart.data.datasets = [
+        { label: '−1σ', data: data.map(d => d.down), backgroundColor: 'rgba(220,38,38,0.7)' },
+        { label: '+1σ', data: data.map(d => d.up),   backgroundColor: 'rgba(16,185,129,0.7)' }
+      ];
+      _tornadoChart.update('none');
+    },
+
+    updateAllCharts(){
+      this.updateHistChart();
+      this.updateFanChart();
+      this.updateCdfChart();
+      this.updateTornadoChart();
+    },
+
+    // ----- UI helpers -----
+    fmt(v){ if(v===undefined||v===null||isNaN(v)) return '—'; return Number(v).toFixed(2)+' mld.'; },
+    fmtRange(a, b){ if(isNaN(a)||isNaN(b)) return '—'; return Number(a).toFixed(2)+'–'+Number(b).toFixed(2)+' mld.'; },
+
+    get probFloorClass(){
+      const p = this.stats.probFloor || 0;
+      if(p > 0.25) return {
+        box: 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700',
+        text: 'text-red-700 dark:text-red-300',
+        label: 'KRITICKÉ — riziko walk-away',
+        recommendation: 'připravte alternativy (refi, alternativní kupci) a posilněte páky z PPF Playbook.'
+      };
+      if(p > 0.10) return {
+        box: 'bg-amber-50 dark:bg-amber-900/20 border-amber-300 dark:border-amber-700',
+        text: 'text-amber-700 dark:text-amber-300',
+        label: 'ZVÝŠENÉ — sledovat',
+        recommendation: 'monitorujte vstupy DD, snažte se zúžit σ doložením evidence.'
+      };
+      return {
+        box: 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700',
+        text: 'text-emerald-700 dark:text-emerald-300',
+        label: 'NÍZKÉ — komfort',
+        recommendation: 'pokračovat ve standardní negociaci, walk-away málo pravděpodobný.'
+      };
+    },
+
+    resetDefaults(){
+      this.dcfMu = 5.4; this.dcfSigma = 0.9;
+      this.landMu = 4.0; this.landSigma = 0.6;
+      this.precMu = 4.2; this.precSigma = 0.55;
+      this.liqMu = 2.5; this.liqSigma = 0.4;
+      this.floor = 3.7;
+      this.iterations = 10000;
+      this.distType = 'normal';
+      this.wDcf = 0.4; this.wLand = 0.3; this.wPrec = 0.2; this.wLiq = 0.1;
+      this.runSim();
+    },
+
+    // ---- DD_SCENARIO sync ----
+    _ddScenarioApply(s){
+      if(!s) return;
+      if(typeof s.dcfMu === 'number') this.dcfMu = s.dcfMu;
+      if(typeof s.dcfSigma === 'number') this.dcfSigma = s.dcfSigma;
+      if(typeof s.landMu === 'number') this.landMu = s.landMu;
+      if(typeof s.landSigma === 'number') this.landSigma = s.landSigma;
+      if(typeof s.precedentMu === 'number') this.precMu = s.precedentMu;
+      if(typeof s.precedentSigma === 'number') this.precSigma = s.precedentSigma;
+      if(typeof s.liquidationMu === 'number') this.liqMu = s.liquidationMu;
+      if(typeof s.liquidationSigma === 'number') this.liqSigma = s.liquidationSigma;
+      if(typeof s.floor === 'number') this.floor = s.floor;
+      if(typeof s.iterations === 'number') this.iterations = s.iterations;
+      if(s.weights){
+        if(typeof s.weights.dcf === 'number') this.wDcf = s.weights.dcf;
+        if(typeof s.weights.land === 'number') this.wLand = s.weights.land;
+        if(typeof s.weights.precedent === 'number') this.wPrec = s.weights.precedent;
+        if(typeof s.weights.liquidation === 'number') this.wLiq = s.weights.liquidation;
+      }
+      this.runSimDebounced();
+    },
+    _ddScenarioSnapshot(){
+      const cur = (window.DD_SCENARIO && DD_SCENARIO.read) ? DD_SCENARIO.read() : {};
+      return {
+        ...cur,
+        dcfMu: this.dcfMu, dcfSigma: this.dcfSigma,
+        landMu: this.landMu, landSigma: this.landSigma,
+        precedentMu: this.precMu, precedentSigma: this.precSigma,
+        liquidationMu: this.liqMu, liquidationSigma: this.liqSigma,
+        floor: this.floor,
+        iterations: this.iterations,
+        weights: { dcf: this.wDcf, land: this.wLand, precedent: this.wPrec, liquidation: this.wLiq },
+      };
+    },
+    _ddScenarioPersist(){
+      if(!window.DD_SCENARIO) return;
+      try { DD_SCENARIO.write(this._ddScenarioSnapshot()); } catch(e){}
+    },
+
+    exportPng(){
+      // Stitch the 4 canvases into one PNG via a temporary canvas
+      const canvases = ['histChart','fanChart','cdfChart','tornadoChart']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+      if(canvases.length === 0) return;
+      const W = Math.max(...canvases.map(c => c.width));
+      const totalH = canvases.reduce((s,c) => s + c.height + 30, 60);
+      const out = document.createElement('canvas');
+      out.width = W; out.height = totalH;
+      const ctx = out.getContext('2d');
+      ctx.fillStyle = this.dark ? '#0f172a' : '#ffffff';
+      ctx.fillRect(0, 0, W, totalH);
+      ctx.fillStyle = this.dark ? '#e5e7eb' : '#0f172a';
+      ctx.font = 'bold 18px sans-serif';
+      ctx.fillText('Monte Carlo simulace ocenění — Nový Zeleneč · ' + new Date().toLocaleDateString('cs-CZ'), 20, 30);
+      let y = 50;
+      for(const c of canvases){
+        ctx.drawImage(c, 0, y);
+        y += c.height + 30;
+      }
+      const url = out.toDataURL('image/png');
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'monte-carlo-valuation-' + new Date().toISOString().split('T')[0] + '.png';
+      a.click();
+    },
+
+    init(){
+      // Hydrate from shared scenario state (URL > localStorage > defaults)
+      if(window.DD_SCENARIO){
+        try { this._ddScenarioApply(DD_SCENARIO.read()); } catch(e){}
+        try {
+          DD_SCENARIO.subscribe((s) => this._ddScenarioApply(s));
+          DD_SCENARIO.injectHeader({
+            getState: () => this._ddScenarioSnapshot(),
+            onApply: (s) => this._ddScenarioApply(s),
+          });
+        } catch(e){}
+      }
+
+      const tryInit = () => {
+        if(window.Chart){
+          this.buildHistChart();
+          this.buildFanChart();
+          this.buildCdfChart();
+          this.buildTornadoChart();
+          this.runSim();
+        } else {
+          setTimeout(tryInit, 80);
+        }
+      };
+      tryInit();
+
+      // debounced reactive updates on every input change
+      const watchKeys = ['dcfMu','dcfSigma','landMu','landSigma','precMu','precSigma',
+                         'liqMu','liqSigma','floor','distType','wDcf','wLand','wPrec','wLiq'];
+      for(const k of watchKeys){
+        this.$watch(k, () => { this.runSimDebounced(); this._ddScenarioPersist(); });
+      }
+      this.$watch('iterations', () => { this.runSimDebounced(); this._ddScenarioPersist(); });
+      this.$watch('dark', () => {
+        if(_histChart){ _histChart.destroy(); this.buildHistChart(); }
+        if(_fanChart){ _fanChart.destroy(); this.buildFanChart(); }
+        if(_cdfChart){ _cdfChart.destroy(); this.buildCdfChart(); }
+        if(_tornadoChart){ _tornadoChart.destroy(); this.buildTornadoChart(); }
+        this.updateAllCharts();
+      });
+      window.addEventListener('resize', () => {
+        if(_histChart) _histChart.resize();
+        if(_fanChart) _fanChart.resize();
+        if(_cdfChart) _cdfChart.resize();
+        if(_tornadoChart) _tornadoChart.resize();
+      }, { passive: true });
+    }
+  };
+}
+</script>
+
+<!-- Related sidebar (injected pattern) -->
+<div data-connections-sidebar="injected" x-data="{ openRel: false }" class="no-print">
+  <button type="button"
+    @click="openRel = !openRel"
+    class="fixed right-4 bottom-4 z-40 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium shadow-lg rounded-full px-4 py-2 flex items-center gap-2"
+    aria-label="Přepnout související soubory">
+    <span>📎</span><span>Související</span>
+  </button>
+  <aside
+    x-show="openRel"
+    x-transition
+    @click.away="openRel = false"
+    class="fixed right-4 bottom-20 z-40 w-80 max-h-[70vh] overflow-y-auto bg-gray-900 border border-gray-700 text-gray-100 rounded-lg shadow-2xl p-4"
+    style="display: none;">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-sm font-semibold text-white">📎 Související soubory</h3>
+      <button type="button" @click="openRel = false" class="text-gray-400 hover:text-white" aria-label="Zavřít">✕</button>
+    </div>
+    <div id="connections-related-panel" class="text-sm">
+      <p class="text-gray-500 italic">Načítání…</p>
+    </div>
+  </aside>
+</div>
+<script src="../_assets/connections.js"></script>
+<script>
+  (function () {
+    if (!window.Connections) return;
+    window.Connections.init().then(function () {
+      var el = document.getElementById('connections-related-panel');
+      if (el) window.Connections.renderBacklinksPanel(el, '06-reports/monte-carlo-valuation.html');
+    }).catch(function (err) {
+      var el = document.getElementById('connections-related-panel');
+      if (el) el.textContent = 'Graf není dostupný: ' + err.message;
+    });
+  })();
+</script>
+
+<!-- mycelium-ux:injected -->
+<script src="../_assets/hover-previews.js"></script>
+<script src="../_assets/keyboard-shortcuts.js"></script>
+<script src="../_assets/state-sync.js"></script>
+<script defer src="../_assets/viz-debug.js"></script>
+</body>
+</html>

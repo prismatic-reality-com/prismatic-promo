@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="cs" x-data="{ darkMode: localStorage.getItem('dd-dark') !== 'false' }" :class="{ 'dark': darkMode }">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="workspace-version" content="1.0.0">
+  <title>Klávesové zkratky · DD-Progresus-PPF</title>
+  <link rel="stylesheet" href="./_assets/flowbite.min.css">
+  <script src="./_assets/tailwind.min.js"></script>
+  <script src="./_assets/alpine.min.js" defer></script>
+  <script>
+    tailwind.config = { darkMode: 'class', theme: { extend: {} } };
+  </script>
+<!-- mycelium-markdown:injected -->
+  <link rel="stylesheet" href="./_assets/markdown/custom.css">
+  <script defer src="./_assets/markdown/markdown-it.min.js"></script>
+  <script defer src="./_assets/markdown/markdownItAnchor.umd.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-task-lists.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-mark.min.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script defer src="./_assets/md-embed.js"></script>
+  <script defer src="./_assets/inline-md-autoload.js"></script>
+
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="_assets/md-store.js"></script>
+  <script src="_assets/manifest-store.js"></script>
+  <script src="_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 antialiased">
+  <header class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div>
+        <a href="./index.html" class="text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">← Portál</a>
+        <h1 class="text-2xl font-bold mt-1">Klávesové zkratky</h1>
+        <p class="text-sm text-gray-500 dark:text-gray-400">Navigace a příkazy pro pokročilé uživatele. Stiskněte <kbd class="px-1.5 py-0.5 text-xs font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded">?</kbd> na libovolné stránce pro zobrazení tohoto seznamu.</p>
+      </div>
+      <button type="button"
+        @click="darkMode = !darkMode; localStorage.setItem('dd-dark', darkMode)"
+        class="p-2 rounded-lg text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-700" aria-label="Přepnout tmavý režim">
+        <svg x-show="!darkMode" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" /></svg>
+        <svg x-show="darkMode" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" x-cloak><path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-8 space-y-10">
+    <section>
+      <h2 class="text-lg font-semibold mb-3 flex items-center gap-2"><span>🧭</span> Navigace</h2>
+      <div class="relative overflow-x-auto shadow-sm rounded-lg">
+        <table class="w-full text-sm text-left">
+          <thead class="text-xs uppercase text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700">
+            <tr><th class="px-4 py-3 w-52">Zkratka</th><th class="px-4 py-3">Akce</th></tr>
+          </thead>
+          <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-100 dark:divide-gray-700">
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">Cmd/Ctrl + K</kbd></td><td class="px-4 py-2">Otevřít paletu příkazů</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">g h</kbd></td><td class="px-4 py-2">Přejít na portál (domů)</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">g s</kbd></td><td class="px-4 py-2">Přejít na hledání</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">g m</kbd></td><td class="px-4 py-2">Přejít na mapu stránek</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">g r</kbd></td><td class="px-4 py-2">Přejít na přehled red flags</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">g v</kbd></td><td class="px-4 py-2">Přejít na kalkulačku ocenění</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">g t</kbd></td><td class="px-4 py-2">Přejít na časovou osu transakce</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">g e</kbd></td><td class="px-4 py-2">Přejít na graf entit</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">g c</kbd></td><td class="px-4 py-2">Přejít na komunikační centrum</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">g p</kbd></td><td class="px-4 py-2">Přejít na PPF Playbook (markdown)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-lg font-semibold mb-3 flex items-center gap-2"><span>🔍</span> Hledat</h2>
+      <div class="relative overflow-x-auto shadow-sm rounded-lg">
+        <table class="w-full text-sm text-left">
+          <thead class="text-xs uppercase text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700">
+            <tr><th class="px-4 py-3 w-52">Zkratka</th><th class="px-4 py-3">Akce</th></tr>
+          </thead>
+          <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-100 dark:divide-gray-700">
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">/</kbd></td><td class="px-4 py-2">Zaměřit vyhledávací pole (pokud je na stránce)</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">j</kbd></td><td class="px-4 py-2">Posun dolů (vim styl)</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">k</kbd></td><td class="px-4 py-2">Posun nahoru (vim styl)</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">rf-26</kbd> <span class="text-xs text-gray-500">(v paletě)</span></td><td class="px-4 py-2">Skok na red flag podle čísla</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-lg font-semibold mb-3 flex items-center gap-2"><span>🎨</span> Zobrazení</h2>
+      <div class="relative overflow-x-auto shadow-sm rounded-lg">
+        <table class="w-full text-sm text-left">
+          <thead class="text-xs uppercase text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700">
+            <tr><th class="px-4 py-3 w-52">Zkratka</th><th class="px-4 py-3">Akce</th></tr>
+          </thead>
+          <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-100 dark:divide-gray-700">
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">d</kbd></td><td class="px-4 py-2">Přepnout tmavý režim</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">?</kbd></td><td class="px-4 py-2">Zobrazit dialog s nápovědou zkratek</td></tr>
+            <tr><td class="px-4 py-2"><kbd class="font-mono bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 px-2 py-0.5 rounded">Esc</kbd></td><td class="px-4 py-2">Zavřít dialog / opustit zaměření</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-lg font-semibold mb-3 flex items-center gap-2"><span>📁</span> Operace se soubory (v paletě příkazů)</h2>
+      <div class="relative overflow-x-auto shadow-sm rounded-lg">
+        <table class="w-full text-sm text-left">
+          <thead class="text-xs uppercase text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700">
+            <tr><th class="px-4 py-3 w-52">Příkaz</th><th class="px-4 py-3">Akce</th></tr>
+          </thead>
+          <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-100 dark:divide-gray-700">
+            <tr><td class="px-4 py-2 font-mono text-xs">print</td><td class="px-4 py-2">Vytisknout aktuální stránku</td></tr>
+            <tr><td class="px-4 py-2 font-mono text-xs">copy url</td><td class="px-4 py-2">Zkopírovat aktuální URL do schránky</td></tr>
+            <tr><td class="px-4 py-2 font-mono text-xs">go back / go forward</td><td class="px-4 py-2">Navigace v historii prohlížeče</td></tr>
+            <tr><td class="px-4 py-2 font-mono text-xs">toggle dark</td><td class="px-4 py-2">Přepnout tmavý režim</td></tr>
+            <tr><td class="px-4 py-2 font-mono text-xs">search &lt;query&gt;</td><td class="px-4 py-2">Otevřít stránku hledání s předvyplněným dotazem</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-5">
+      <h3 class="font-semibold text-blue-900 dark:text-blue-200 mb-2">Tip</h3>
+      <p class="text-sm text-blue-800 dark:text-blue-300">Najeďte na libovolný <code class="bg-blue-100 dark:bg-blue-900/40 px-1 rounded">.md</code> odkaz na 300 ms pro náhled obsahu souboru, zpětných odkazů a štítku závažnosti — inspirováno Obsidian/Roam.</p>
+    </section>
+  </main>
+
+  <footer class="max-w-5xl mx-auto px-6 py-6 text-xs text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700 mt-10">
+    DD-Progresus-PPF pracovní prostor · <a href="./index.html" class="hover:underline">Portál</a> · <a href="./sitemap.html" class="hover:underline">Mapa stránek</a>
+  </footer>
+
+  <script defer src="./_assets/cmdk.js"></script>
+  <script src="./_assets/hover-previews.js"></script>
+  <script src="./_assets/keyboard-shortcuts.js"></script>
+  <script src="./_assets/state-sync.js"></script>
+
+<!-- mycelium-ux:injected -->
+  <script src="./_assets/hover-previews.js"></script>
+  <script src="./_assets/keyboard-shortcuts.js"></script>
+  <script src="./_assets/state-sync.js"></script>
+  <script src="./_assets/connections.js"></script>
+
+</body>
+</html>

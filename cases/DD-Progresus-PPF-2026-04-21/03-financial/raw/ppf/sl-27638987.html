@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="cs" class="ff ff-1">
+	<head><script type="text/javascript" src="./wicket/resource/org.apache.wicket.resource.JQueryResourceReference/jquery/jquery-1.11.1.min-ver-8101D596B2B8FA35FE3A634EA342D7C3.js"></script>
+
+		<title>Veřejný rejstřík a Sbírka listin - Ministerstvo spravedlnosti České republiky</title>
+
+		<link rel="shortcut icon" href="./resource/images/favicon.ico" type="image/x-icon">
+
+		<!--
+		<link rel="stylesheet" href="./style.css" type="text/css" />
+		 -->
+
+		<link rel="stylesheet" href="./resource/css/reset.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/base.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/layout.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/drop-down-menu.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/columns.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/tables.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/forms.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/buttons.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/messages.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/icons.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/typo.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/search.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/vypis.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/tooltip.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/ias.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/ajax.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/intform.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/dynamic.css" media="screen">
+		<link rel="stylesheet" href="./resource/css/jquery-ui-1.8.17.custom.css" media="screen">
+
+		<link rel="stylesheet" href="./resource/css/print.css" media="print">
+
+		<script src="./resource/js/modernizr-latest.js"></script><!-- feature detection -->
+
+		<script>
+/*<![CDATA[*/
+
+			var APP = {
+				_ready : [],
+				_load : [],
+				run : function(fn,onload){var q=APP[onload?'_load':'_ready'];if(fn){if(q&&typeof q.push==='function'){q.push(fn);}else{fn();}}}
+			};
+		
+/*]]>*/
+</script>
+		<script>
+/*<![CDATA[*/
+
+			APP.Strings = {
+				invalidAjaxResponse : 'CHYBA - při zpracování požadavku došlo k interní chybě.'
+			};
+		
+/*]]>*/
+</script>
+
+		<script src="./resource/js/app-ias.js"></script>
+		<script src="./resource/js/app-tools.js"></script>
+		<script src="./resource/js/modules/drop-down-menu.js"></script>
+		<script src="./resource/js/modules/placeholder.js"></script>
+		<script src="./resource/js/modules/tooltip.js"></script>
+		<script src="./resource/js/modules/message-panel.js"></script>
+
+		<style type="text/css">
+/*<![CDATA[*/
+
+			/* CSS pre nove vypisy */
+			div.vr-hlavicka{font-weight:bold;}
+			.vr-child .vr-child div.vr-child {margin-left: 5mm}
+			.vr-child .vr-child div.vr-hlavicka {margin-left: 5mm}
+			.underline span {border-bottom: 1px solid black;}
+			.underline .nounderline {border-bottom-style: none}
+			.preformatted { white-space: pre-wrap; }
+			.iq_alert {
+				padding: 20px;
+				background-color: #f44336;
+				color: white;
+				text-align: center;
+			}
+		
+/*]]>*/
+</style>
+
+		<!--[if lte IE 6 ]>
+		<script src="./resource/js/supersleight-min.js"></script>
+		<![endif]-->
+		<style>
+/*<![CDATA[*/
+
+			@media print {
+				#chatbot {
+					display: none !important;
+				}
+			}
+		
+/*]]>*/
+</style>
+<script type="text/javascript" src="./wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-event-jquery.min-ver-7C4C4A31B92F211E7D61B1BF2BA81B39.js"></script>
+<script type="text/javascript" src="./wicket/resource/org.apache.wicket.ajax.AbstractDefaultAjaxBehavior/res/js/wicket-ajax-jquery.min-ver-116260811FE9679D5DDCC60F7AE641BD.js"></script>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9" /><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><link rel="stylesheet" type="text/css" href="./wicket/resource/cz.corpus.isror.ui.internet.InternetBasePage/basepage-ver-F0FB650D42CA79C149B4023B5F69BE5C.css" />
+<script type="text/javascript" src="./wicket/resource/cz.corpus.grools.function.JavaScriptFunction/lib-ver-500AA971F6707ED2FBC2DECD679E5755.js"></script>
+<script type="text/javascript" src="./wicket/resource/cz.corpus.isror.ui.internet.analytics.GoogleAnalyticsJs/google-analytics.js"></script>
+</head>
+<body>
+	<div id="page">
+        
+		<div id="page-h" class="noprint">
+			<a id="logo" href="./vypis-sl-firma?-1.ILinkListener-htmlContainer-logo&amp;subjektId=329576"></a>
+			<hr class="hidden">
+		</div>
+		<div id="page-c">
+			<div id="frag-rejstrik-switchComp-wholebead">
+				
+	<div class="section">
+		<div class="vypis-h">
+			<div class="inner">
+				<h1>Sbírka listin</h1>
+				<h2>PPF Real Estate s.r.o.</h2>
+				<a class="vypis-print noprint" onclick="print(); return false;" href="#">Vytisknout</a>
+			</div>
+		</div>
+		<div class="section-c">
+			<div class="inner">
+				<p class="noprint">
+					
+				</p>
+				<table>
+					<colgroup>
+						<col width="200">
+						<col>
+					</colgroup>
+					<tbody>
+						
+	<tr>
+		<th class="title" colspan="2">Základní identifikační údaje</th>
+	</tr>
+	<tr class="subrow">
+		<th>Spisová značka:</th>
+		<td>
+<span style="white-space: nowrap;">C 120743 vedená u Městského soudu v Praze</span>
+</td>
+	</tr>
+	<tr class="subrow">
+		<th>Obchodní jméno:</th>
+		<td>PPF Real Estate s.r.o.</td>
+	</tr>
+	<tr class="subrow" id="id1">
+		<th>Identifikační číslo:</th>
+		<td><span>
+	<span class="nowrap">276<span style="margin-left: 0.5em"></span>38<span style="margin-left: 0.5em"></span>987</span>
+</span> <span class="noprint">(viz <a href="./rejstrik-$firma?ico=27638987">obchodní rejstřík</a>)</span></td>
+	</tr>
+	<tr>
+		<th class="title" colspan="2">Adresa</th>
+	</tr>
+	<tr class="subrow">
+		<th>Sídlo společnosti:</th>
+		<td id="id2">
+	<div>
+	<span>
+		<span>Praha 6, Evropská 2690/17, PSČ 16041</span>
+		
+	</span>
+	
+	
+	
+	
+</div>
+</td>
+	</tr>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<hr class="print">
+
+				
+	
+	<div class="section">
+		<div class="section-h noprint">
+			<div class="inner">
+				<h2>Přehled listin</h2>
+			</div>
+		</div>
+
+		<div class="section-c">
+			<div class="inner">
+				<div id="id3">
+  
+</div>
+				<table class="list">
+					<colgroup>
+						<col>
+						<col>
+						<col width="120">
+						<col width="120">
+						<col width="120">
+						<col width="30">
+						<col width="30">
+					</colgroup>
+					<thead>
+						<tr>
+							<th>Číslo listiny</th>
+							<th>Typ listiny</th>
+							<th>Vznik listiny</th>
+							<th>Došlo na soud</th>
+							<th>Založeno do SL</th>
+							<th colspan="2">Stránek</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="./vypis-sl-detail?dokument=89504347&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL59/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2024]</span>, <span class="symbol">výroční zpráva [2024]</span>, <span class="symbol">zpráva auditora [2024]</span>
+</span> <span>konsolidovaná ÚZ</span></td>
+							<td>31.12.2024</td>
+							<td>23.12.2025</td>
+							<td>7.1.2026</td>
+							<td class="center">231</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=87206527&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL58/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2024]</span>, <span class="symbol">výroční zpráva [2024]</span>, <span class="symbol">zpráva o vztazích [2024]</span>, <span class="symbol">zpráva auditora [2024]</span>
+</span> <span></span></td>
+							<td>31.12.2024</td>
+							<td>1.7.2025</td>
+							<td>11.7.2025</td>
+							<td class="center">89</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=82619546&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL57/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2023]</span>, <span class="symbol">výroční zpráva [2023]</span>, <span class="symbol">zpráva auditora [2023]</span>
+</span> <span>(ÚZ konsolidovaná)</span></td>
+							<td>31.12.2023</td>
+							<td>31.7.2024</td>
+							<td>6.8.2024</td>
+							<td class="center">236</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=82099405&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL56/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2023]</span>, <span class="symbol">výroční zpráva [2023]</span>, <span class="symbol">zpráva o vztazích [2023]</span>, <span class="symbol">zpráva auditora [2023]</span>
+</span> <span></span></td>
+							<td>31.12.2023</td>
+							<td>24.6.2024</td>
+							<td>16.7.2024</td>
+							<td class="center">80</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=79695948&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL55/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2022]</span>, <span class="symbol">výroční zpráva [2022]</span>, <span class="symbol">zpráva auditora [2022]</span>
+</span> <span>ÚZ r. 2022 - konsolidovaná</span></td>
+							<td>31.12.2022</td>
+							<td>22.12.2023</td>
+							<td>8.1.2024</td>
+							<td class="center">249</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=77752366&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL54/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2022]</span>, <span class="symbol">výroční zpráva [2022]</span>, <span class="symbol">zpráva o vztazích [2022]</span>, <span class="symbol">zpráva auditora [2022]</span>
+</span> <span></span></td>
+							<td>31.12.2022</td>
+							<td>19.7.2023</td>
+							<td>25.7.2023</td>
+							<td class="center">74</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=77452618&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL53/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zakladatelské dokumenty</span>, <span class="symbol">notářský zápis [NZ 372/2023]</span>
+</span> <span></span></td>
+							<td>30.3.2023</td>
+							<td></td>
+							<td>30.6.2023</td>
+							<td class="center">19</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=77448579&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL52/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zakladatelské dokumenty</span>, <span class="symbol">notářský zápis [NZ 372/2023]</span>
+</span> <span></span></td>
+							<td>30.6.2023</td>
+							<td></td>
+							<td>30.6.2023</td>
+							<td class="center">18</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=74727098&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL51/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2021]</span>, <span class="symbol">výroční zpráva [2021]</span>, <span class="symbol">zpráva auditora [2021]</span>
+</span> <span></span></td>
+							<td>31.12.2021</td>
+							<td>28.12.2022</td>
+							<td>28.12.2022</td>
+							<td class="center">226</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=74727068&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL50/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2020]</span>, <span class="symbol">výroční zpráva [2020]</span>, <span class="symbol">zpráva auditora [2020]</span>
+</span> <span></span></td>
+							<td>31.12.2020</td>
+							<td>28.12.2022</td>
+							<td>28.12.2022</td>
+							<td class="center">246</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=74727050&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL49/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2019]</span>, <span class="symbol">výroční zpráva [2019]</span>, <span class="symbol">zpráva auditora [2019]</span>
+</span> <span></span></td>
+							<td>31.12.2019</td>
+							<td>28.12.2022</td>
+							<td>28.12.2022</td>
+							<td class="center">212</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=74727042&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL48/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2018]</span>, <span class="symbol">výroční zpráva [2018]</span>, <span class="symbol">zpráva auditora [2018]</span>
+</span> <span></span></td>
+							<td>31.12.2018</td>
+							<td>28.12.2022</td>
+							<td>28.12.2022</td>
+							<td class="center">212</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=72488790&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL47/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2021]</span>, <span class="symbol">výroční zpráva [2021]</span>, <span class="symbol">zpráva o vztazích [2021]</span>, <span class="symbol">zpráva auditora [2021]</span>
+</span> <span></span></td>
+							<td>31.12.2021</td>
+							<td>12.7.2022</td>
+							<td>12.7.2022</td>
+							<td class="center">89</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=69792349&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL45/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zakladatelské dokumenty</span>, <span class="symbol">notářský zápis [NZ 885/2021]</span>
+</span> <span></span></td>
+							<td>20.12.2021</td>
+							<td></td>
+							<td>21.12.2021</td>
+							<td class="center">19</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=68214119&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL44/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2020]</span>, <span class="symbol">výroční zpráva [2020]</span>, <span class="symbol">zpráva o vztazích [2020]</span>, <span class="symbol">zpráva auditora [2020]</span>
+</span> <span></span></td>
+							<td>31.12.2020</td>
+							<td>27.8.2021</td>
+							<td>8.9.2021</td>
+							<td class="center">70</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=62345984&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL43/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2019]</span>, <span class="symbol">výroční zpráva [2019]</span>, <span class="symbol">zpráva o vztazích [2019]</span>, <span class="symbol">zpráva auditora [2019]</span>
+</span> <span></span></td>
+							<td>31.12.2019</td>
+							<td>30.6.2020</td>
+							<td>2.7.2020</td>
+							<td class="center">73</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=58209224&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL42/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2018]</span>, <span class="symbol">výroční zpráva [2018]</span>, <span class="symbol">zpráva o vztazích [2018]</span>, <span class="symbol">zpráva auditora [2018]</span>
+</span> <span></span></td>
+							<td>31.12.2018</td>
+							<td>10.7.2019</td>
+							<td>11.7.2019</td>
+							<td class="center">82</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=55801963&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL41/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zakladatelské dokumenty</span>
+</span> <span></span></td>
+							<td>15.11.2018</td>
+							<td>12.12.2018</td>
+							<td>4.1.2019</td>
+							<td class="center">10</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=53923637&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL40/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2017]</span>, <span class="symbol">výroční zpráva [2017]</span>, <span class="symbol">zpráva o vztazích [2017]</span>, <span class="symbol">zpráva auditora [2017]</span>
+</span> <span></span></td>
+							<td>31.12.2017</td>
+							<td>1.8.2018</td>
+							<td>2.8.2018</td>
+							<td class="center">66</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=50261740&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL39/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2016]</span>, <span class="symbol">výroční zpráva [2016]</span>, <span class="symbol">zpráva o vztazích [2016]</span>, <span class="symbol">zpráva auditora [2016]</span>
+</span> <span></span></td>
+							<td>31.12.2016</td>
+							<td>2.10.2017</td>
+							<td>3.10.2017</td>
+							<td class="center">67</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=46809059&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL38/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2015]</span>, <span class="symbol">výroční zpráva [2015]</span>, <span class="symbol">zpráva o vztazích [2015]</span>, <span class="symbol">zpráva auditora [2015]</span>
+</span> <span></span></td>
+							<td>31.12.2015</td>
+							<td>27.12.2016</td>
+							<td>28.12.2016</td>
+							<td class="center">57</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=45015164&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL37/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zakladatelské dokumenty</span>
+</span> <span></span></td>
+							<td>16.8.2016</td>
+							<td>22.8.2016</td>
+							<td>24.8.2016</td>
+							<td class="center">10</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=45015105&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL36/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zakladatelské dokumenty</span>, <span class="symbol">notářský zápis [NZ 901/2016]</span>
+</span> <span></span></td>
+							<td>5.8.2016</td>
+							<td>22.8.2016</td>
+							<td>24.8.2016</td>
+							<td class="center">19</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=42859732&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL35/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zakladatelské dokumenty</span>, <span class="symbol">notářský zápis [NZ 269/2016]</span>
+</span> <span></span></td>
+							<td>29.2.2016</td>
+							<td>9.3.2016</td>
+							<td>16.3.2016</td>
+							<td class="center">18</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=41740535&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL34/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2014]</span>, <span class="symbol">zpráva auditora [2014]</span>
+</span> <span></span></td>
+							<td>31.12.2014</td>
+							<td>21.12.2015</td>
+							<td>28.12.2015</td>
+							<td class="center">21</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=39777611&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL33/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zpráva o vztazích</span>
+</span> <span>2014</span></td>
+							<td>31.12.2014</td>
+							<td>22.7.2015</td>
+							<td>24.7.2015</td>
+							<td class="center">34</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=20746381&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL32/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zpráva o vztazích</span>
+</span> <span>za rok 2013</span></td>
+							<td>31.12.2013</td>
+							<td>19.12.2014</td>
+							<td>31.12.2014</td>
+							<td class="center">4</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=20731622&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL31/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2013]</span>, <span class="symbol">výroční zpráva [2013]</span>, <span class="symbol">zpráva o vztazích [2013]</span>, <span class="symbol">zpráva auditora [2013]</span>
+</span> <span></span></td>
+							<td>31.12.2013</td>
+							<td>18.12.2014</td>
+							<td>23.12.2014</td>
+							<td class="center">22</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=17409122&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL30/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka [2012]</span>, <span class="symbol">výroční zpráva [2012]</span>, <span class="symbol">zpráva o vztazích [2012]</span>, <span class="symbol">zpráva auditora [2012]</span>
+</span> <span></span></td>
+							<td>31.12.2012</td>
+							<td>19.12.2013</td>
+							<td>27.12.2013</td>
+							<td class="center">27</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=16874186&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL29/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">ostatní</span>
+</span> <span>rozhodnutí jediného společníka</span></td>
+							<td>13.12.2012</td>
+							<td>19.12.2012</td>
+							<td>4.2.2013</td>
+							<td class="center">1</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=16810048&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL28/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka</span>, <span class="symbol">výroční zpráva</span>, <span class="symbol">zpráva o vztazích</span>, <span class="symbol">zpráva auditora</span>
+</span> <span>r.2011</span></td>
+							<td>31.12.2011</td>
+							<td>18.12.2012</td>
+							<td>19.12.2012</td>
+							<td class="center">31</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=16584100&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL27/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zpráva o vztazích</span>
+</span> <span>r.2011</span></td>
+							<td>31.12.2011</td>
+							<td>18.7.2012</td>
+							<td>10.8.2012</td>
+							<td class="center">3</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534072&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL26/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka</span>, <span class="symbol">výroční zpráva</span>, <span class="symbol">zpráva o vztazích</span>, <span class="symbol">zpráva auditora</span>
+</span> <span>r.2010</span></td>
+							<td>31.12.2010</td>
+							<td>13.12.2011</td>
+							<td>14.12.2011</td>
+							<td class="center">26</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534069&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL25/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">ostatní</span>
+</span> <span>rozhodnutí jediného společníka</span></td>
+							<td>4.11.2011</td>
+							<td></td>
+							<td>16.11.2011</td>
+							<td class="center">2</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534064&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL23/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zpráva o vztazích</span>
+</span> <span>r. 2009</span></td>
+							<td>31.12.2009</td>
+							<td>21.2.2011</td>
+							<td>24.2.2011</td>
+							<td class="center">2</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534062&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL22/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka</span>, <span class="symbol">zpráva auditora</span>
+</span> <span>r. 2009</span></td>
+							<td>31.12.2009</td>
+							<td>21.2.2011</td>
+							<td>24.2.2011</td>
+							<td class="center">20</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534061&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL21/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">notářský zápis</span>
+</span> <span>NZ 528/2010</span></td>
+							<td>21.10.2010</td>
+							<td></td>
+							<td>4.11.2010</td>
+							<td class="center">20</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534056&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL19/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">ostatní</span>
+</span> <span>-rozhod.jedin.společ.</span></td>
+							<td>31.8.2010</td>
+							<td></td>
+							<td>22.9.2010</td>
+							<td class="center">3</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534054&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL18/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">ostatní</span>
+</span> <span>-rozhod.jedin.společ.</span></td>
+							<td>31.7.2010</td>
+							<td></td>
+							<td>22.9.2010</td>
+							<td class="center">3</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534052&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL17/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zakladatelské dokumenty</span>
+</span> <span></span></td>
+							<td>18.12.2009</td>
+							<td></td>
+							<td>3.2.2010</td>
+							<td class="center">3</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534050&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL16/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">smlouvy o převodu obchod. podílu</span>
+</span> <span></span></td>
+							<td>14.12.2009</td>
+							<td></td>
+							<td>3.2.2010</td>
+							<td class="center">13</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534048&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL15/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka</span>
+</span> <span>r.2008-příloha</span></td>
+							<td>31.12.2008</td>
+							<td>18.12.2009</td>
+							<td>31.12.2009</td>
+							<td class="center">8</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534046&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL14/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">účetní závěrka</span>
+</span> <span>r.2008</span></td>
+							<td>31.12.2008</td>
+							<td>18.12.2009</td>
+							<td>31.12.2009</td>
+							<td class="center">3</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534044&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL13/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zpráva o vztazích</span>
+</span> <span>r.2008</span></td>
+							<td>31.12.2008</td>
+							<td>18.12.2009</td>
+							<td>31.12.2009</td>
+							<td class="center">1</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534042&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL12/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">notářský zápis</span>
+</span> <span>NZ 284/2009</span></td>
+							<td>22.6.2009</td>
+							<td></td>
+							<td>22.7.2009</td>
+							<td class="center">29</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534040&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL11/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">notářský zápis</span>
+</span> <span>NZ 207/2009</span></td>
+							<td>19.5.2009</td>
+							<td></td>
+							<td>1.6.2009</td>
+							<td class="center">31</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534036&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL10/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zakladatelské dokumenty</span>
+</span> <span></span></td>
+							<td>19.5.2009</td>
+							<td></td>
+							<td>1.6.2009</td>
+							<td class="center">4</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534030&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL8/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zakladatelské dokumenty</span>
+</span> <span></span></td>
+							<td>20.11.2008</td>
+							<td></td>
+							<td>5.2.2009</td>
+							<td class="center">2</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534025&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL7/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">notářský zápis</span>
+</span> <span>NZ 492/2008</span></td>
+							<td>10.11.2008</td>
+							<td></td>
+							<td>21.11.2008</td>
+							<td class="center">26</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534021&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL6/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">smlouvy o převodu obchod. podílu</span>
+</span> <span></span></td>
+							<td>31.12.2007</td>
+							<td>14.4.2008</td>
+							<td>27.5.2008</td>
+							<td class="center">10</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534019&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL5/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">ostatní</span>
+</span> <span>-roz. jed.spol.</span></td>
+							<td>15.1.2008</td>
+							<td></td>
+							<td>5.2.2008</td>
+							<td class="center">1</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534010&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL3/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">notářský zápis</span>
+</span> <span>NZ 58/2007</span></td>
+							<td>12.2.2007</td>
+							<td>14.6.2007</td>
+							<td>22.6.2007</td>
+							<td class="center">7</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr><tr>
+							<td><a href="./vypis-sl-detail?dokument=13534000&amp;subjektId=329576&amp;spis=203308"><span>C&nbsp;120743/SL1/MSPH</span></a></td>
+							<td><span>
+	<span class="symbol">zakladatelské dokumenty</span>, <span class="symbol">notářský zápis</span>
+</span> <span>NZ 439/2006</span></td>
+							<td>20.11.2006</td>
+							<td></td>
+							<td>11.5.2007</td>
+							<td class="center">5</td>
+							<td class="center"><span class="i-16 hint i-document" title="Dokument byl digitalizován." alt="Dokument byl digitalizován.">&nbsp;</span></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	
+
+			</div>
+		</div>
+		<div id="page-f" class="noprint">
+			<div id="page-f-links">
+				<ul class="links1">
+					<li><a href="./soudy">Rejstříkové soudy</a></li>
+					<li><a href="https://or.justice.cz/ias/ui/rejstrik">Obchodní rejstřík</a></li>
+					<li><a href="http://upadci.justice.cz/">Evidence úpadců</a></li>
+					<li><a href="https://isir.justice.cz/isir/common/index.do">Insolvenční rejstřík</a></li>
+					<li><a href="https://esf.justice.cz/ias/isesf/rejstrik">Svěřenské fondy</a></li>
+					<li><a href="https://esm.justice.cz/ias/issm/rejstrik">Skuteční majitelé</a></li>
+				</ul>
+				<ul class="links2">
+					<li><a href="./napoveda">Jak na to?</a></li>
+					<li><a href="./rejstrik-$firma">Veřejný rejstřík podle subjektů</a></li>
+					<li><a href="./rejstrik-$spolecnici">Veřejný rejstřík podle právnických osob v angažmá</a></li>
+					<li><a href="./rejstrik-$osoba">Veřejný rejstřík podle fyzických osob v angažmá</a></li>
+					<li><a href="http://www.businessinfo.cz/cs/clanky/obchodni-spolecnosti-zalozeni-vznik-opu-13164.html">Průvodce: Jak založit firmu / společnost</a></li>
+					<li><a href="http://www.komora.cz/hk-cr/inmp/lang_1/Default.aspx">Informační místa pro podnikatele</a></li>
+					<li><a href="./podani">Podání do veřejného rejstříku</a></li>
+					<li><a href="./vzorsmlouvy">Vzor společenské smlouvy pro založení s. r. o.</a></li>
+				</ul>
+				<ul class="links3">
+
+					<li><a href="./zr">Automatické aktualizace ze základních registrů</a></li>
+					<li><a href="./evypisy">Co s elektronickým výpisem</a></li>
+					<li><a href="http://www.businessinfo.cz/">Portál pro podnikatele: BusinessInfo.cz</a></li>
+					<li><a href="./podminky">Podmínky provozu</a></li>
+					<li><a href="/ias/ui/download/Informace_GDPR_ISVR-2.pdf">Ochrana osobních údajů</a></li>
+					<li><a href="./podpora">Technická podpora</a></li>
+				</ul>
+			</div>
+			<span id="footer-logo"></span>
+			<p class="center">
+				&copy; Ministerstvo spravedlnosti České republiky<br>
+				Verze aplikace: <span>15.3.1</span>
+			</p>
+		</div>
+	</div>
+	<script charset="utf-8" defer="" src="https://chatbot-mspcr-storage.predu.sk/52f8e636-2b74-42f6-a8c1-33e3f5e9e8c4/webchat/integration-script.js"></script>
+</body>
+</html>

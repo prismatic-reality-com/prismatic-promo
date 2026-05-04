@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Živý ticker — Project Mycelium DD</title>
+  <link rel="stylesheet" href="../_assets/flowbite.min.css">
+  <link rel="stylesheet" href="../_assets/viz-common.css">
+  <script src="../_assets/tailwind.min.js"></script>
+  <script src="../_assets/alpine.min.js" defer></script>
+  <script src="../_assets/flowbite.min.js" defer></script>
+  <style>
+    body { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+    .terminal { font-family: ui-monospace, 'SF Mono', Menlo, monospace; }
+    [x-cloak] { display: none !important; }
+    @media print { .no-print { display: none !important; } }
+
+    .sev-info {
+      background-color: rgba(59, 130, 246, 0.12);
+      color: #2563eb;
+      border-color: rgba(59, 130, 246, 0.4);
+    }
+    .dark .sev-info {
+      background-color: rgba(59, 130, 246, 0.18);
+      color: #93c5fd;
+      border-color: rgba(96, 165, 250, 0.5);
+    }
+    .sev-warning {
+      background-color: rgba(245, 158, 11, 0.12);
+      color: #b45309;
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+    .dark .sev-warning {
+      background-color: rgba(245, 158, 11, 0.18);
+      color: #fbbf24;
+      border-color: rgba(251, 191, 36, 0.5);
+    }
+    .sev-critical {
+      background-color: rgba(239, 68, 68, 0.12);
+      color: #b91c1c;
+      border-color: rgba(239, 68, 68, 0.45);
+    }
+    .dark .sev-critical {
+      background-color: rgba(239, 68, 68, 0.18);
+      color: #fca5a5;
+      border-color: rgba(248, 113, 113, 0.55);
+    }
+
+    .ticker-card {
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .ticker-card:hover {
+      transform: translateX(2px);
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+      70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+
+    .modal-backdrop {
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(4px);
+    }
+  </style>
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="../_assets/md-store.js"></script>
+  <script src="../_assets/manifest-store.js"></script>
+  <script src="../_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-100 transition-colors"
+      x-data="tickerApp()" :class="{'dark': dark}" x-init="init()" x-cloak>
+
+<nav class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 no-print">
+  <div class="max-w-screen-2xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="text-sm text-gray-500 hover:text-blue-600">← Portál</a>
+      <span class="text-gray-300 dark:text-gray-600">/</span>
+      <a href="./" class="text-sm text-gray-500 hover:text-blue-600">06-reports</a>
+      <span class="text-gray-300 dark:text-gray-600">/</span>
+      <span class="text-sm font-semibold">Živý ticker</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="./red-flags-dashboard.html" class="text-xs text-gray-500 hover:text-blue-600">Rizikové signály</a>
+      <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="text-xs text-gray-500 hover:text-blue-600">DD report</a>
+      <button @click="dark = !dark; persistDark()" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-sm">
+        <span x-show="!dark">🌙</span><span x-show="dark">☀️</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<nav class="breadcrumb text-sm text-gray-400 mb-4 px-4 max-w-screen-2xl mx-auto no-print" aria-label="breadcrumb">
+  <ol class="flex flex-wrap items-center gap-2">
+    <li><a href="../index.html" class="hover:text-white hover:underline">🏠 Portál</a></li>
+    <li class="text-gray-500">/</li>
+    <li><a href="../reader.html?file=06-reports/README.md" class="hover:text-white hover:underline">📊 06-reports</a></li>
+    <li class="text-gray-500">/</li>
+    <li class="text-white font-medium">live-ticker.html</li>
+  </ol>
+</nav>
+
+<header class="max-w-screen-2xl mx-auto px-4 py-5 no-print">
+  <div class="flex flex-wrap items-center justify-between gap-3">
+    <div>
+      <h1 class="text-2xl md:text-3xl font-bold">Živý ticker — Project Mycelium DD</h1>
+      <p class="text-sm text-gray-600 dark:text-gray-400 terminal">
+        Multi-uživatelská koordinace · sdílený feed + lokální zápisy · auto-refresh 30s
+      </p>
+    </div>
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2 text-xs terminal text-gray-500 dark:text-gray-400">
+        <span class="pulse-dot"></span>
+        <span>Poslední aktualizace: <span class="font-semibold" x-text="lastPollLabel"></span></span>
+      </div>
+      <button @click="openAddModal()"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold shadow-sm">
+        <span>＋</span><span>Přidat zápis</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="max-w-screen-2xl mx-auto px-4 pb-12">
+  <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+
+    <!-- Filters + feed (3 cols) -->
+    <div class="lg:col-span-3 space-y-4">
+
+      <!-- Filter row -->
+      <section class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div>
+            <label class="block text-[11px] uppercase text-gray-500 mb-1 terminal">Filtr závažnosti</label>
+            <select x-model="filterSeverity"
+                    class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md px-2 py-1.5 text-sm">
+              <option value="all">Všechny</option>
+              <option value="info">Info</option>
+              <option value="warning">Warning</option>
+              <option value="critical">Critical</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] uppercase text-gray-500 mb-1 terminal">Filtr autora</label>
+            <select x-model="filterAuthor"
+                    class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md px-2 py-1.5 text-sm">
+              <option value="all">Všichni</option>
+              <template x-for="a in uniqueAuthors" :key="a">
+                <option :value="a" x-text="a"></option>
+              </template>
+            </select>
+          </div>
+          <div>
+            <label class="block text-[11px] uppercase text-gray-500 mb-1 terminal">Časové období</label>
+            <select x-model="filterTimeframe"
+                    class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md px-2 py-1.5 text-sm">
+              <option value="hour">Poslední hodina</option>
+              <option value="day">Posledních 24 h</option>
+              <option value="week">Posledních 7 dní</option>
+              <option value="all">Vše</option>
+            </select>
+          </div>
+        </div>
+        <div class="mt-3 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 terminal">
+          <span>Zobrazeno <span class="font-semibold text-gray-700 dark:text-gray-200" x-text="filteredEntries.length"></span> z <span x-text="allEntries.length"></span> zápisů</span>
+          <button @click="resetFilters()" class="hover:text-blue-600 hover:underline">↺ Reset filtrů</button>
+        </div>
+      </section>
+
+      <!-- Feed list -->
+      <section class="space-y-3">
+        <template x-if="filteredEntries.length === 0">
+          <div class="bg-white dark:bg-gray-800 rounded-lg border border-dashed border-gray-300 dark:border-gray-700 p-8 text-center text-sm text-gray-500">
+            Žádné zápisy odpovídající filtrům.
+          </div>
+        </template>
+
+        <template x-for="entry in filteredEntries" :key="entry.id">
+          <article class="ticker-card bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+            <div class="flex items-start gap-3 flex-wrap">
+              <div class="flex-shrink-0">
+                <span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold border terminal uppercase tracking-wide"
+                      :class="severityClass(entry.severity)"
+                      x-text="entry.severity"></span>
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 flex-wrap text-xs text-gray-500 dark:text-gray-400 terminal mb-1">
+                  <span class="font-semibold text-gray-700 dark:text-gray-200" x-text="entry.author"></span>
+                  <span>·</span>
+                  <span :title="absoluteTime(entry.ts)" x-text="relativeTime(entry.ts)"></span>
+                  <template x-if="entry._local">
+                    <span class="inline-flex items-center px-1.5 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-[10px] font-semibold">LOCAL</span>
+                  </template>
+                </div>
+                <p class="text-sm text-gray-800 dark:text-gray-100 leading-snug" x-text="entry.message"></p>
+                <div class="mt-2 flex items-center gap-2 flex-wrap" x-show="entry.reference || (entry.tags && entry.tags.length)">
+                  <template x-if="entry.reference">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] terminal bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
+                      <span class="text-gray-400">↪</span><span x-text="entry.reference"></span>
+                    </span>
+                  </template>
+                  <template x-for="tag in (entry.tags || [])" :key="tag">
+                    <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] terminal bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300" x-text="'#' + tag"></span>
+                  </template>
+                </div>
+              </div>
+              <template x-if="entry._local">
+                <button @click="deleteLocal(entry.id)"
+                        class="text-xs text-gray-400 hover:text-red-500" title="Smazat lokální zápis">
+                  ✕
+                </button>
+              </template>
+            </div>
+          </article>
+        </template>
+      </section>
+    </div>
+
+    <!-- Stats sidebar -->
+    <aside class="lg:col-span-1 space-y-4">
+      <section class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+        <h2 class="text-sm font-semibold mb-3 terminal uppercase tracking-wide text-gray-500">Statistiky</h2>
+        <dl class="space-y-3 text-sm">
+          <div class="flex items-center justify-between">
+            <dt class="text-gray-500 dark:text-gray-400">Zápisů dnes</dt>
+            <dd class="text-2xl font-bold text-blue-600 dark:text-blue-400" x-text="stats.todayCount"></dd>
+          </div>
+          <div class="flex items-center justify-between">
+            <dt class="text-gray-500 dark:text-gray-400">Critical celkem</dt>
+            <dd class="text-2xl font-bold text-red-600 dark:text-red-400" x-text="stats.criticalCount"></dd>
+          </div>
+          <div class="flex items-center justify-between">
+            <dt class="text-gray-500 dark:text-gray-400">Warning celkem</dt>
+            <dd class="text-2xl font-bold text-amber-600 dark:text-amber-400" x-text="stats.warningCount"></dd>
+          </div>
+          <div class="border-t border-gray-200 dark:border-gray-700 pt-3">
+            <dt class="text-xs uppercase text-gray-500 terminal mb-1">Nejaktivnější autor</dt>
+            <dd class="text-base font-semibold" x-text="stats.topAuthor || '—'"></dd>
+            <dd class="text-xs text-gray-500 terminal" x-text="stats.topAuthorCount ? stats.topAuthorCount + ' zápisů' : ''"></dd>
+          </div>
+          <div>
+            <dt class="text-xs uppercase text-gray-500 terminal mb-1">Poslední aktivita</dt>
+            <dd class="text-base font-semibold" x-text="stats.lastActivityRel || '—'"></dd>
+            <dd class="text-xs text-gray-500 terminal" x-text="stats.lastActivityAbs || ''"></dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+        <h2 class="text-sm font-semibold mb-3 terminal uppercase tracking-wide text-gray-500">Přehled</h2>
+        <ul class="text-xs space-y-2 text-gray-600 dark:text-gray-400">
+          <li class="flex items-center justify-between">
+            <span>Feed entries</span>
+            <span class="font-semibold terminal text-gray-800 dark:text-gray-200" x-text="feedEntries.length"></span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span>Lokální zápisy</span>
+            <span class="font-semibold terminal text-gray-800 dark:text-gray-200" x-text="localEntries.length"></span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span>Polling interval</span>
+            <span class="font-semibold terminal text-gray-800 dark:text-gray-200" x-text="pollingActive ? '30s' : 'manuální'"></span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span>Mode</span>
+            <span class="font-semibold terminal text-gray-800 dark:text-gray-200" x-text="protocolLabel"></span>
+          </li>
+        </ul>
+        <button @click="pollNow()" class="mt-3 w-full text-xs px-3 py-1.5 rounded bg-gray-100 dark:bg-gray-900 hover:bg-gray-200 dark:hover:bg-gray-700 terminal">
+          ↻ Znovu načíst feed
+        </button>
+      </section>
+
+      <section class="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+        <h2 class="text-sm font-semibold mb-2 terminal uppercase tracking-wide text-gray-500">Jak to funguje</h2>
+        <ul class="space-y-1.5">
+          <li>· Feed se načítá z <code class="text-[10px] bg-gray-100 dark:bg-gray-900 px-1 rounded">_assets/ticker-feed.json</code></li>
+          <li>· Lokální zápisy se ukládají do <code class="text-[10px]">localStorage</code></li>
+          <li>· Cross-tab sync přes <code class="text-[10px]">storage</code> event</li>
+          <li>· Polling každých 30 s (HTTP režim)</li>
+        </ul>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<!-- Add entry modal -->
+<div x-show="addModalOpen" x-cloak
+     class="fixed inset-0 z-50 flex items-center justify-center modal-backdrop p-4"
+     @keydown.escape.window="addModalOpen = false">
+  <div @click.outside="addModalOpen = false"
+       class="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 w-full max-w-lg shadow-2xl">
+    <div class="px-5 py-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+      <h3 class="font-semibold text-lg">Přidat zápis</h3>
+      <button @click="addModalOpen = false" class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 text-xl leading-none">✕</button>
+    </div>
+    <form @submit.prevent="submitEntry()" class="p-5 space-y-4">
+      <div>
+        <label class="block text-[11px] uppercase text-gray-500 mb-1 terminal">Autor</label>
+        <input x-model="newEntry.author" type="text" placeholder="Anonymous"
+               class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md px-3 py-2 text-sm">
+      </div>
+      <div>
+        <label class="block text-[11px] uppercase text-gray-500 mb-1 terminal">Závažnost</label>
+        <div class="grid grid-cols-3 gap-2">
+          <template x-for="sev in ['info','warning','critical']" :key="sev">
+            <button type="button"
+                    @click="newEntry.severity = sev"
+                    :class="newEntry.severity === sev ? severityClass(sev) + ' ring-2 ring-offset-1 ring-offset-white dark:ring-offset-gray-800' : 'bg-gray-50 dark:bg-gray-900 text-gray-500 border-gray-300 dark:border-gray-700'"
+                    class="px-3 py-2 rounded-md text-xs font-semibold border terminal uppercase tracking-wide"
+                    x-text="sev"></button>
+          </template>
+        </div>
+      </div>
+      <div>
+        <label class="block text-[11px] uppercase text-gray-500 mb-1 terminal">Zpráva *</label>
+        <textarea x-model="newEntry.message" rows="3" required
+                  placeholder="Co se stalo, co je třeba udělat..."
+                  class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md px-3 py-2 text-sm"></textarea>
+      </div>
+      <div>
+        <label class="block text-[11px] uppercase text-gray-500 mb-1 terminal">Reference (volitelné)</label>
+        <input x-model="newEntry.reference" type="text" placeholder="např. RF-8, DR-FIN-020"
+               class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md px-3 py-2 text-sm">
+      </div>
+      <div>
+        <label class="block text-[11px] uppercase text-gray-500 mb-1 terminal">Tagy (oddělené čárkou)</label>
+        <input x-model="newEntry.tagsRaw" type="text" placeholder="np. legal, P0, dataroom"
+               class="w-full bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-700 rounded-md px-3 py-2 text-sm">
+      </div>
+      <div class="flex items-center justify-end gap-2 pt-2 border-t border-gray-200 dark:border-gray-700">
+        <button type="button" @click="addModalOpen = false"
+                class="px-4 py-2 text-sm rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600">
+          Zrušit
+        </button>
+        <button type="submit"
+                class="px-4 py-2 text-sm rounded-md bg-emerald-600 hover:bg-emerald-700 text-white font-semibold">
+          Uložit zápis
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer class="max-w-screen-2xl mx-auto px-4 py-6 text-xs text-gray-500 dark:text-gray-400 terminal border-t border-gray-200 dark:border-gray-800">
+  Project Mycelium DD · živý ticker · vanilla JS + Alpine · offline-first
+</footer>
+
+<script>
+  const STORAGE_KEY = 'dd:ticker:local';
+  const DARK_KEY = 'dd:ticker:dark';
+  const FEED_URL = '../_assets/ticker-feed.json';
+  const POLL_MS = 30000;
+
+  function tickerApp() {
+    return {
+      dark: false,
+      addModalOpen: false,
+      feedEntries: [],
+      localEntries: [],
+      filterSeverity: 'all',
+      filterAuthor: 'all',
+      filterTimeframe: 'all',
+      lastPoll: null,
+      lastPollLabel: '—',
+      lastFeedHash: null,
+      pollingActive: false,
+      newEntry: { author: 'Anonymous', severity: 'info', message: '', reference: '', tagsRaw: '' },
+
+      _blankEntry() {
+        return {
+          author: 'Anonymous',
+          severity: 'info',
+          message: '',
+          reference: '',
+          tagsRaw: ''
+        };
+      },
+
+      init() {
+        // Dark mode init
+        try {
+          this.dark = localStorage.getItem(DARK_KEY) === '1';
+        } catch (e) {}
+
+        this.loadLocal();
+        this.pollNow();
+
+        // Setup polling for HTTP mode
+        if (location.protocol !== 'file:') {
+          this.pollingActive = true;
+          setInterval(() => this.pollNow(), POLL_MS);
+        }
+
+        // Cross-tab sync
+        window.addEventListener('storage', (e) => {
+          if (e.key === STORAGE_KEY) {
+            this.loadLocal();
+          }
+        });
+
+        // Update relative timestamps every 30s
+        setInterval(() => {
+          // Force Alpine to re-render relative times by tickling lastPollLabel
+          if (this.lastPoll) {
+            this.lastPollLabel = this.relativeTime(this.lastPoll.toISOString());
+          }
+        }, 30000);
+      },
+
+      persistDark() {
+        try {
+          localStorage.setItem(DARK_KEY, this.dark ? '1' : '0');
+        } catch (e) {}
+      },
+
+      get protocolLabel() {
+        return location.protocol === 'file:' ? 'file:// (no polling)' : 'http (polling)';
+      },
+
+      loadLocal() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          this.localEntries = raw ? JSON.parse(raw) : [];
+        } catch (e) {
+          this.localEntries = [];
+        }
+      },
+
+      saveLocal() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(this.localEntries));
+        } catch (e) {
+          console.warn('localStorage write failed', e);
+        }
+      },
+
+      async pollNow() {
+        try {
+          const url = FEED_URL + '?t=' + Date.now();
+          const res = await fetch(url, { cache: 'no-store' });
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          const text = await res.text();
+          const hash = this._hash(text);
+          if (hash !== this.lastFeedHash) {
+            this.lastFeedHash = hash;
+            const data = JSON.parse(text);
+            this.feedEntries = Array.isArray(data.entries) ? data.entries : [];
+          }
+          this.lastPoll = new Date();
+          this.lastPollLabel = this.relativeTime(this.lastPoll.toISOString());
+        } catch (e) {
+          // Silent fail on file:// CORS or missing file
+          if (!this.lastPoll) {
+            this.lastPollLabel = 'feed nedostupný';
+          }
+        }
+      },
+
+      _hash(s) {
+        let h = 0;
+        for (let i = 0; i < s.length; i++) {
+          h = ((h << 5) - h) + s.charCodeAt(i);
+          h |= 0;
+        }
+        return h;
+      },
+
+      get allEntries() {
+        const localMarked = this.localEntries.map(e => ({ ...e, _local: true }));
+        const feedMarked = this.feedEntries.map(e => ({ ...e, _local: false }));
+        const seen = new Set();
+        const merged = [];
+        // Local entries take precedence
+        [...localMarked, ...feedMarked].forEach(e => {
+          if (!e.id || seen.has(e.id)) return;
+          seen.add(e.id);
+          merged.push(e);
+        });
+        merged.sort((a, b) => new Date(b.ts) - new Date(a.ts));
+        return merged;
+      },
+
+      get uniqueAuthors() {
+        const set = new Set();
+        this.allEntries.forEach(e => { if (e.author) set.add(e.author); });
+        return [...set].sort((a, b) => a.localeCompare(b, 'cs'));
+      },
+
+      get filteredEntries() {
+        const now = Date.now();
+        let cutoff = 0;
+        if (this.filterTimeframe === 'hour') cutoff = now - 3600 * 1000;
+        else if (this.filterTimeframe === 'day') cutoff = now - 24 * 3600 * 1000;
+        else if (this.filterTimeframe === 'week') cutoff = now - 7 * 24 * 3600 * 1000;
+
+        return this.allEntries.filter(e => {
+          if (this.filterSeverity !== 'all' && e.severity !== this.filterSeverity) return false;
+          if (this.filterAuthor !== 'all' && e.author !== this.filterAuthor) return false;
+          if (cutoff > 0) {
+            const t = e.ts ? new Date(e.ts).getTime() : 0;
+            if (!isFinite(t) || t < cutoff) return false;
+          }
+          return true;
+        });
+      },
+
+      get stats() {
+        const now = new Date();
+        const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+        let todayCount = 0, criticalCount = 0, warningCount = 0;
+        const authorCounts = {};
+        this.allEntries.forEach(e => {
+          const t = new Date(e.ts).getTime();
+          if (t >= startOfDay) todayCount++;
+          if (e.severity === 'critical') criticalCount++;
+          if (e.severity === 'warning') warningCount++;
+          if (e.author) authorCounts[e.author] = (authorCounts[e.author] || 0) + 1;
+        });
+        let topAuthor = null, topAuthorCount = 0;
+        Object.entries(authorCounts).forEach(([a, c]) => {
+          if (c > topAuthorCount) { topAuthor = a; topAuthorCount = c; }
+        });
+        const last = this.allEntries[0];
+        return {
+          todayCount,
+          criticalCount,
+          warningCount,
+          topAuthor,
+          topAuthorCount,
+          lastActivityRel: last ? this.relativeTime(last.ts) : null,
+          lastActivityAbs: last ? this.absoluteTime(last.ts) : null
+        };
+      },
+
+      severityClass(sev) {
+        if (sev === 'critical') return 'sev-critical';
+        if (sev === 'warning') return 'sev-warning';
+        return 'sev-info';
+      },
+
+      resetFilters() {
+        this.filterSeverity = 'all';
+        this.filterAuthor = 'all';
+        this.filterTimeframe = 'all';
+      },
+
+      relativeTime(ts) {
+        if (!ts) return '—';
+        const then = new Date(ts).getTime();
+        if (isNaN(then)) return ts;
+        const diff = Date.now() - then;
+        if (diff < 0) return 'právě teď';
+        const sec = Math.floor(diff / 1000);
+        if (sec < 30) return 'právě teď';
+        if (sec < 60) return 'před chvílí';
+        const min = Math.floor(sec / 60);
+        if (min < 60) return 'před ' + min + ' min';
+        const hr = Math.floor(min / 60);
+        if (hr < 24) return 'před ' + hr + ' hod';
+        const days = Math.floor(hr / 24);
+        if (days === 1) {
+          const d = new Date(ts);
+          return 'včera ' + this._pad(d.getHours()) + ':' + this._pad(d.getMinutes());
+        }
+        if (days < 7) return 'před ' + days + ' dny';
+        return this.absoluteTime(ts);
+      },
+
+      absoluteTime(ts) {
+        try {
+          const d = new Date(ts);
+          if (isNaN(d.getTime())) return ts;
+          return new Intl.DateTimeFormat('cs-CZ', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit'
+          }).format(d);
+        } catch (e) {
+          return ts;
+        }
+      },
+
+      _pad(n) { return String(n).padStart(2, '0'); },
+
+      openAddModal() {
+        this.newEntry = this._blankEntry();
+        this.addModalOpen = true;
+      },
+
+      submitEntry() {
+        const msg = (this.newEntry.message || '').trim();
+        if (!msg) return;
+        const tags = (this.newEntry.tagsRaw || '')
+          .split(',')
+          .map(t => t.trim())
+          .filter(Boolean);
+        const entry = {
+          id: 'local-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7),
+          ts: new Date().toISOString(),
+          author: (this.newEntry.author || 'Anonymous').trim() || 'Anonymous',
+          severity: this.newEntry.severity || 'info',
+          message: msg,
+          reference: (this.newEntry.reference || '').trim() || null,
+          tags
+        };
+        this.localEntries.unshift(entry);
+        this.saveLocal();
+        this.addModalOpen = false;
+      },
+
+      deleteLocal(id) {
+        this.localEntries = this.localEntries.filter(e => e.id !== id);
+        this.saveLocal();
+      }
+    };
+  }
+</script>
+</body>
+</html>

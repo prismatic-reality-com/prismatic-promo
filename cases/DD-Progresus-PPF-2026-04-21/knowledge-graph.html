@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="cs" x-data="{ dark: true }" :class="{ 'dark': dark }">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Znalostní graf &mdash; DD Progresus &rarr; PPF</title>
+  <meta name="description" content="Interaktivní silově orientovaný znalostní graf pracovního prostoru due-diligence PPF.">
+  <link rel="stylesheet" href="./_assets/flowbite.min.css">
+  <script src="./_assets/tailwind.min.js"></script>
+  <script src="./_assets/alpine.min.js" defer></script>
+  <script src="./_assets/p5.min.js"></script>
+  <style>
+    html,body { height:100%; }
+    body { overflow:hidden; }
+    .legend-dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:middle; }
+    .kbd { font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,monospace; font-size:11px; }
+    .fade-enter { animation: fadeIn 180ms ease-out both; }
+    @keyframes fadeIn { from { opacity:0; transform:translateY(4px);} to { opacity:1; transform:none;} }
+    #graph-canvas { cursor:grab; }
+    #graph-canvas.dragging { cursor:grabbing; }
+    @media print {
+      .no-print { display:none !important; }
+      body { overflow:visible; }
+    }
+    .panel-scroll::-webkit-scrollbar { width:6px; }
+    .panel-scroll::-webkit-scrollbar-thumb { background:#4b5563; border-radius:3px; }
+  </style>
+<!-- mycelium-markdown:injected -->
+  <link rel="stylesheet" href="./_assets/markdown/custom.css">
+  <script defer src="./_assets/markdown/markdown-it.min.js"></script>
+  <script defer src="./_assets/markdown/markdownItAnchor.umd.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-task-lists.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-mark.min.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script defer src="./_assets/md-embed.js"></script>
+  <script defer src="./_assets/inline-md-autoload.js"></script>
+
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="_assets/md-store.js"></script>
+  <script src="_assets/manifest-store.js"></script>
+  <script src="_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+  <script src="_assets/dd-entity-index.js"></script>
+  <script defer src="_assets/cmdk.js"></script>
+</head>
+<body class="bg-gray-950 text-gray-100 antialiased">
+
+<nav class="no-print fixed top-0 inset-x-0 z-40 bg-gray-900/95 backdrop-blur border-b border-gray-800 px-4 py-2 flex items-center gap-3 text-sm">
+  <a href="./index.html" class="text-gray-300 hover:text-white">&larr; Portál</a>
+  <span class="text-gray-700">|</span>
+  <a href="./reader.html?file=00-INDEX.md" class="text-gray-300 hover:text-white">&larr; Index</a>
+  <span class="text-gray-700">|</span>
+  <span class="font-semibold text-white">Znalostní graf</span>
+  <span class="ml-3 text-xs text-gray-500" id="stats-line">načítání&hellip;</span>
+  <div class="ml-auto flex items-center gap-2">
+    <button @click="dark = !dark" class="px-2 py-1 text-xs rounded border border-gray-700 hover:bg-gray-800">
+      <span x-show="dark">Světlý</span><span x-show="!dark">Tmavý</span>
+    </button>
+    <a href="./06-reports/relationships-matrix.html" class="px-2 py-1 text-xs rounded border border-gray-700 hover:bg-gray-800">Maticový pohled</a>
+  </div>
+</nav>
+
+<!-- Header source-strip: prominent links to key DD documents -->
+<div class="no-print fixed top-10 inset-x-0 z-40 bg-gray-900/95 backdrop-blur border-b border-gray-800 px-4 py-1.5 flex flex-wrap items-center gap-1.5 text-[11px]">
+  <span class="text-indigo-300 uppercase tracking-wider font-semibold mr-1">📖 Zdroje:</span>
+  <a href="./reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-indigo-900/60 text-indigo-200 border border-indigo-700 hover:bg-indigo-700 hover:text-white transition">🧾 Hlavní DD report</a>
+  <a href="./reader.html?file=PPF-PLAYBOOK.md" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-indigo-900/60 text-indigo-200 border border-indigo-700 hover:bg-indigo-700 hover:text-white transition">📜 PPF Playbook</a>
+  <a href="./reader.html?file=RED-FLAGS.md" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-red-900/60 text-red-200 border border-red-700 hover:bg-red-700 hover:text-white transition">🚨 Red Flags</a>
+  <a href="./reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-900/60 text-emerald-200 border border-emerald-700 hover:bg-emerald-700 hover:text-white transition">✅ Akční plán</a>
+  <a href="./reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-900/60 text-amber-200 border border-amber-700 hover:bg-amber-700 hover:text-white transition">📊 Memo ocenění</a>
+  <a href="./reader.html?file=README.md" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-gray-800 text-gray-300 border border-gray-600 hover:bg-gray-700 hover:text-white transition">📁 README</a>
+</div>
+
+<aside class="no-print fixed top-[5.25rem] left-0 bottom-9 w-72 bg-gray-900/95 backdrop-blur border-r border-gray-800 p-3 overflow-y-auto panel-scroll text-xs space-y-4 z-30">
+  <div>
+    <label class="block mb-1 text-gray-400 uppercase tracking-wider">Hledat</label>
+    <input id="search" type="text" placeholder="Filtrovat uzly podle názvu&hellip;" autocomplete="off"
+           class="w-full px-2 py-1.5 bg-gray-800 border border-gray-700 rounded text-sm focus:border-blue-500 focus:outline-none">
+  </div>
+
+  <div>
+    <label class="block mb-1 text-gray-400 uppercase tracking-wider">Předvolba rozložení</label>
+    <div class="grid grid-cols-2 gap-1">
+      <button data-layout="force" class="layout-btn px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded">Silové</button>
+      <button data-layout="radial" class="layout-btn px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded">Radiální</button>
+      <button data-layout="hierarchical" class="layout-btn px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded">Hier.</button>
+      <button data-layout="grid" class="layout-btn px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded">Mřížka</button>
+    </div>
+  </div>
+
+  <div>
+    <label class="block mb-1 text-gray-400 uppercase tracking-wider">Fyzika</label>
+    <div class="space-y-2">
+      <div>
+        <div class="flex justify-between"><span>Odpuzování</span><span id="repulsion-val">900</span></div>
+        <input id="repulsion" type="range" min="100" max="2500" value="900" step="50" class="w-full">
+      </div>
+      <div>
+        <div class="flex justify-between"><span>Pružina</span><span id="spring-val">0.03</span></div>
+        <input id="spring" type="range" min="0.005" max="0.2" value="0.03" step="0.005" class="w-full">
+      </div>
+      <div>
+        <div class="flex justify-between"><span>Tlumení</span><span id="damping-val">0.85</span></div>
+        <input id="damping" type="range" min="0.5" max="0.99" value="0.85" step="0.01" class="w-full">
+      </div>
+      <div class="flex items-center gap-2">
+        <button id="physics-toggle" class="px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded flex-1">Pozastavit fyziku</button>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <label class="block mb-1 text-gray-400 uppercase tracking-wider">Analytika grafu</label>
+    <div class="grid grid-cols-2 gap-1">
+      <button id="analytics-pagerank" class="px-2 py-1 bg-indigo-900/60 hover:bg-indigo-700 border border-indigo-700 rounded text-indigo-100">PageRank</button>
+      <button id="analytics-community" class="px-2 py-1 bg-emerald-900/60 hover:bg-emerald-700 border border-emerald-700 rounded text-emerald-100">Komunity</button>
+      <button id="analytics-betweenness" class="px-2 py-1 bg-amber-900/60 hover:bg-amber-700 border border-amber-700 rounded text-amber-100">Centralita brokerů</button>
+      <button id="analytics-reset" class="px-2 py-1 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded">Reset</button>
+    </div>
+    <div id="analytics-status" class="mt-1 text-[10px] text-gray-500"></div>
+  </div>
+
+  <div id="analytics-results" class="hidden space-y-3">
+    <div id="analytics-pagerank-panel" class="hidden">
+      <div class="text-gray-400 uppercase tracking-wider mb-1">Top 10 podle vlivu</div>
+      <ol id="analytics-pagerank-list" class="space-y-0.5 text-[11px] text-gray-200 list-decimal list-inside"></ol>
+    </div>
+    <div id="analytics-community-panel" class="hidden">
+      <div class="text-gray-400 uppercase tracking-wider mb-1">Komunity</div>
+      <ul id="analytics-community-list" class="space-y-1 text-[11px] text-gray-200"></ul>
+    </div>
+    <div id="analytics-betweenness-panel" class="hidden">
+      <div class="text-gray-400 uppercase tracking-wider mb-1">Top 3 brokeři (betweenness)</div>
+      <ol id="analytics-betweenness-list" class="space-y-0.5 text-[11px] text-gray-200 list-decimal list-inside"></ol>
+    </div>
+  </div>
+
+  <div>
+    <label class="block mb-1 text-gray-400 uppercase tracking-wider">Filtr: typ</label>
+    <div class="flex flex-wrap gap-1" id="type-filters"></div>
+  </div>
+
+  <div>
+    <label class="block mb-1 text-gray-400 uppercase tracking-wider">Filtr: shluk</label>
+    <div class="flex flex-wrap gap-1" id="cluster-filters"></div>
+  </div>
+
+  <div>
+    <label class="block mb-1 text-gray-400 uppercase tracking-wider">Filtr: závažnost</label>
+    <div class="flex flex-wrap gap-1" id="severity-filters">
+      <button data-severity="critical" class="sev-btn px-2 py-0.5 rounded border border-red-700 text-red-300 hover:bg-red-900/40">kritická</button>
+      <button data-severity="high" class="sev-btn px-2 py-0.5 rounded border border-orange-700 text-orange-300 hover:bg-orange-900/40">vysoká</button>
+      <button data-severity="medium" class="sev-btn px-2 py-0.5 rounded border border-yellow-700 text-yellow-300 hover:bg-yellow-900/40">střední</button>
+    </div>
+  </div>
+
+  <div>
+    <label class="block mb-1 text-gray-400 uppercase tracking-wider">Zobrazení</label>
+    <label class="flex items-center gap-2"><input type="checkbox" id="show-implicit" checked class="accent-purple-500"> Zobrazit implicitní hrany</label>
+    <label class="flex items-center gap-2"><input type="checkbox" id="show-labels" class="accent-blue-500"> Popisky uzlů</label>
+    <label class="flex items-center gap-2"><input type="checkbox" id="focus-mode" class="accent-green-500"> Režim zaměření</label>
+    <label class="flex items-center gap-2"><input type="checkbox" id="path-mode" class="accent-red-500"> Režim cesty</label>
+  </div>
+
+  <div>
+    <label class="block mb-1 text-gray-400 uppercase tracking-wider">Exportovat</label>
+    <div class="grid grid-cols-3 gap-1">
+      <button id="export-png" class="px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded">PNG</button>
+      <button id="export-svg" class="px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded">SVG</button>
+      <button id="export-json" class="px-2 py-1 bg-gray-800 hover:bg-gray-700 rounded">JSON</button>
+    </div>
+  </div>
+
+  <div class="border-t border-gray-800 pt-3">
+    <div class="text-gray-400 uppercase tracking-wider mb-2">Zkratky</div>
+    <ul class="space-y-0.5 text-gray-400">
+      <li><span class="kbd bg-gray-800 px-1 rounded">táhnout</span> uzel &rarr; připnout</li>
+      <li><span class="kbd bg-gray-800 px-1 rounded">klik</span> uzel &rarr; detail</li>
+      <li><span class="kbd bg-gray-800 px-1 rounded">kolečko</span> &rarr; přiblížit</li>
+      <li><span class="kbd bg-gray-800 px-1 rounded">mezera</span> &rarr; přepnout fyziku</li>
+      <li><span class="kbd bg-gray-800 px-1 rounded">r</span> &rarr; resetovat zobrazení</li>
+    </ul>
+  </div>
+</aside>
+
+<aside id="detail-panel" class="no-print fixed top-[5.25rem] right-0 bottom-9 w-80 bg-gray-900/95 backdrop-blur border-l border-gray-800 p-3 overflow-y-auto panel-scroll text-sm z-30 translate-x-full transition-transform duration-200">
+  <button id="detail-close" class="float-right text-gray-500 hover:text-white text-lg leading-none">&times;</button>
+  <div id="detail-body">
+    <p class="text-gray-500">Klikněte na uzel pro detail.</p>
+  </div>
+</aside>
+
+<div class="no-print fixed bottom-12 left-3 w-72 z-30 bg-gray-900/90 border border-gray-800 rounded p-3 text-xs">
+  <div class="font-semibold mb-2 text-gray-200">Legenda</div>
+  <div class="grid grid-cols-2 gap-y-1">
+    <div><span class="legend-dot" style="background:#3b82f6"></span>Index</div>
+    <div><span class="legend-dot" style="background:#ef4444"></span>Red flag</div>
+    <div><span class="legend-dot" style="background:#f97316"></span>Report</div>
+    <div><span class="legend-dot" style="background:#10b981"></span>Přehled</div>
+    <div><span class="legend-dot" style="background:#eab308"></span>Důkaz</div>
+    <div><span class="legend-dot" style="background:#a855f7"></span>Komunikace</div>
+    <div><span class="legend-dot" style="background:#9ca3af"></span>Markdown</div>
+    <div><span class="legend-dot" style="background:#78350f"></span>Surová data</div>
+  </div>
+  <div class="border-t border-gray-800 mt-2 pt-2 space-y-0.5">
+    <div><span class="inline-block w-6 h-0 border-t border-gray-400 align-middle"></span> přímý odkaz</div>
+    <div><span class="inline-block w-6 h-0 border-t border-dashed border-purple-400 align-middle"></span> implicitní (překryv tagů)</div>
+    <div><span class="inline-block w-6 h-0 border-t-2 border-orange-400 align-middle"></span> tlustá = &gt;5 zmínek</div>
+  </div>
+</div>
+
+<div id="tooltip" class="no-print fixed hidden z-50 pointer-events-none bg-gray-900 border border-gray-700 rounded p-2 text-xs max-w-xs shadow-xl"></div>
+
+<main id="canvas-host" class="absolute inset-0 pt-[5.25rem] pb-10 pl-72 pr-0"></main>
+
+<div id="help-banner" class="no-print fixed top-[5.5rem] right-4 z-20 bg-gray-900 border border-blue-700 text-blue-200 text-xs px-3 py-2 rounded shadow fade-enter">
+  <strong>Tip:</strong> tažením uzlů je připnete, kolečkem přiblížíte, stiskněte <span class="kbd">r</span> pro reset.
+  <button onclick="this.parentElement.remove()" class="ml-2 text-blue-400 hover:text-blue-100">&times;</button>
+</div>
+
+<!-- Sticky footer source-strip -->
+<footer class="no-print fixed bottom-0 inset-x-0 z-40 border-t border-gray-800 bg-gray-900/95 backdrop-blur text-gray-100 px-4 py-1.5">
+  <div class="max-w-screen-2xl mx-auto flex flex-wrap items-center justify-center gap-1.5 text-[11px]">
+    <span class="text-gray-500 uppercase tracking-wider font-semibold">📖 Zdroje:</span>
+    <a href="./reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-indigo-900/50 text-indigo-200 border border-indigo-700 hover:bg-indigo-700 hover:text-white transition">🧾 Hlavní DD report</a>
+    <a href="./reader.html?file=PPF-PLAYBOOK.md" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-indigo-900/50 text-indigo-200 border border-indigo-700 hover:bg-indigo-700 hover:text-white transition">📜 PPF Playbook</a>
+    <a href="./reader.html?file=RED-FLAGS.md" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-red-900/50 text-red-200 border border-red-700 hover:bg-red-700 hover:text-white transition">🚨 Red Flags</a>
+    <a href="./reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-emerald-900/50 text-emerald-200 border border-emerald-700 hover:bg-emerald-700 hover:text-white transition">✅ Akční plán</a>
+    <a href="./reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-amber-900/50 text-amber-200 border border-amber-700 hover:bg-amber-700 hover:text-white transition">📊 Memo ocenění</a>
+    <a href="./reader.html?file=README.md" class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-gray-800 text-gray-300 border border-gray-600 hover:bg-gray-700 hover:text-white transition">📁 README</a>
+  </div>
+</footer>
+
+<script src="./_assets/knowledge-graph.js"></script>
+
+
+<!-- mycelium-ux:injected -->
+  <script src="./_assets/hover-previews.js"></script>
+  <script src="./_assets/keyboard-shortcuts.js"></script>
+  <script src="./_assets/state-sync.js"></script>
+  <script src="./_assets/connections.js"></script>
+
+
+  <script defer src="./_assets/viz-debug.js"></script>
+  <!-- BEGIN:DD_AUTO_LINKIFY -->
+  <script defer src="_assets/dd-auto-linkify.js"></script>
+<!-- END:DD_AUTO_LINKIFY -->
+</body>
+</html>

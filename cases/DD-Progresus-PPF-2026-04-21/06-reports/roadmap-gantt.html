@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gantt roadmapy — 90denní realizace · Project Mycelium</title>
+<link rel="stylesheet" href="../_assets/flowbite.min.css">
+<link rel="stylesheet" href="../_assets/viz-common.css">
+<script src="../_assets/tailwind.min.js"></script>
+<script src="../_assets/chart.min.js" defer></script>
+<script src="../_assets/flowbite.min.js" defer></script>
+<script src="../_assets/alpine.min.js" defer></script>
+<style>
+  [x-cloak]{display:none!important}
+  .crit{background:repeating-linear-gradient(45deg,rgba(220,38,38,.18) 0 8px,transparent 8px 16px)}
+  .milestone{width:0;height:0;border-left:8px solid transparent;border-right:8px solid transparent;border-bottom:12px solid #dc2626}
+  @media print{.no-print{display:none!important}body{background:white!important;color:black!important}}
+  .bar-done{background:linear-gradient(90deg,#10b981,#059669)}
+  .bar-prog{background:linear-gradient(90deg,#f59e0b,#d97706)}
+  .bar-new{background:linear-gradient(90deg,#64748b,#475569)}
+  .bar-crit{background:linear-gradient(90deg,#dc2626,#991b1b);box-shadow:0 0 10px rgba(220,38,38,.6)}
+</style>
+<!-- mycelium-markdown:injected -->
+  <link rel="stylesheet" href="../_assets/markdown/custom.css">
+  <script defer src="../_assets/markdown/markdown-it.min.js"></script>
+  <script defer src="../_assets/markdown/markdownItAnchor.umd.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-task-lists.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-mark.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script defer src="../_assets/md-embed.js"></script>
+  <script defer src="../_assets/inline-md-autoload.js"></script>
+
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="../_assets/md-store.js"></script>
+  <script src="../_assets/manifest-store.js"></script>
+  <script src="../_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans"
+      x-data="ganttApp()" :class="{'dark': dark}">
+
+<nav class="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 no-print">
+  <div class="max-w-[1600px] mx-auto flex items-center justify-between px-4 py-3">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="text-sm text-slate-500 hover:text-red-600 dark:hover:text-red-400">← Portál</a>
+      <span class="text-slate-300 dark:text-slate-700">|</span>
+      <span class="font-bold tracking-tight">PRISMATIC · Gantt roadmapy</span>
+      <span class="hidden md:inline-block text-xs px-2 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300">90DENNÍ PLÁN</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="MASTER-ACTION-PLAN.md" class="text-xs hidden sm:inline hover:underline">📄 Plán</a>
+      <button @click="resetProgress()" class="text-xs hidden sm:inline hover:underline text-red-500">⟲ Resetovat</button>
+      <button @click="window.print()" class="text-xs hidden sm:inline hover:underline">🖨 Tisk</button>
+      <button @click="dark=!dark" class="text-sm px-2 py-1 rounded border border-slate-300 dark:border-slate-700">
+        <span x-show="!dark">🌙</span><span x-show="dark">☀️</span>
+      </button>
+    </div>
+  </div>
+</nav>
+  <nav class="breadcrumb text-sm text-gray-400 mb-4 px-4 max-w-screen-2xl mx-auto no-print" aria-label="breadcrumb">
+    <ol class="flex flex-wrap items-center gap-2">
+      <li><a href="../index.html" class="hover:text-white hover:underline">🏠 Portál</a></li>
+      <li class="text-gray-500">/</li>
+      <li><a href="./README.md" class="hover:text-white hover:underline">📊 06-reports</a></li>
+      <li class="text-gray-500">/</li>
+      <li class="text-white font-medium">roadmap-gantt.html</li>
+    </ol>
+  </nav>
+
+
+
+<header class="max-w-[1600px] mx-auto px-4 pt-8 pb-4">
+  <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">132 akcí · 12 týdnů · €880k · 90 dní do podpisu</h1>
+  <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-4xl">Interaktivní Gantt pro MASTER-ACTION-PLAN. Klikněte na řádek pro přepnutí postupu (uloženo lokálně). Filtry se kombinují jako AND. Kritická cesta zvýrazněna červeně; milníky jako ▼.</p>
+  <!-- Source links strip -->
+  <div class="mt-4 flex flex-wrap gap-2 text-xs">
+    <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="px-3 py-1.5 rounded bg-red-600 text-white hover:bg-red-500 font-semibold">✅ MASTER-ACTION-PLAN.md</a>
+    <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">🧾 Hlavní DD report</a>
+    <a href="../reader.html?file=PPF-PLAYBOOK.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">📜 PPF Playbook</a>
+    <a href="../reader.html?file=RED-FLAGS.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">🚨 Red flags</a>
+  </div>
+</header>
+
+<section class="max-w-[1600px] mx-auto px-4 pt-2 pb-4 grid grid-cols-2 md:grid-cols-6 gap-3">
+  <template x-for="k in ['total','p0','p1','p2','done','budget']" :key="k">
+    <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 hover:border-red-500 hover:shadow-md transition block">
+      <div class="text-xs uppercase text-slate-500" x-text="kpiLabel(k)"></div>
+      <div class="text-2xl font-bold mt-1" x-text="kpiValue(k)"></div>
+      <div class="text-[10px] text-indigo-600 dark:text-indigo-400 mt-1">📖 Otevřít zdroj →</div>
+    </a>
+  </template>
+</section>
+
+<section class="max-w-[1600px] mx-auto px-4 py-4 no-print">
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4 grid md:grid-cols-12 gap-3 items-end">
+    <div class="md:col-span-3">
+      <label class="text-xs uppercase text-slate-500">Priorita</label>
+      <select x-model="filter.priority" class="w-full mt-1 rounded border-slate-300 dark:bg-slate-800 dark:border-slate-700 text-sm">
+        <option value="">Vše</option><option>P0</option><option>P1</option><option>P2</option>
+      </select>
+    </div>
+    <div class="md:col-span-3">
+      <label class="text-xs uppercase text-slate-500">Vlastník</label>
+      <select x-model="filter.owner" class="w-full mt-1 rounded border-slate-300 dark:bg-slate-800 dark:border-slate-700 text-sm">
+        <option value="">Vše</option>
+        <template x-for="o in ownerList" :key="o"><option x-text="o"></option></template>
+      </select>
+    </div>
+    <div class="md:col-span-3">
+      <label class="text-xs uppercase text-slate-500">Rozsah týdnů</label>
+      <div class="flex gap-1 items-center mt-1">
+        <input type="number" min="1" max="12" x-model.number="filter.weekFrom" class="w-16 rounded border-slate-300 dark:bg-slate-800 dark:border-slate-700 text-sm">
+        <span>→</span>
+        <input type="number" min="1" max="12" x-model.number="filter.weekTo" class="w-16 rounded border-slate-300 dark:bg-slate-800 dark:border-slate-700 text-sm">
+      </div>
+    </div>
+    <div class="md:col-span-2">
+      <label class="text-xs uppercase text-slate-500">Zobrazit</label>
+      <label class="block mt-1 text-sm"><input type="checkbox" x-model="filter.criticalOnly" class="rounded"> Pouze kritická cesta</label>
+    </div>
+    <div class="md:col-span-1 text-right">
+      <button @click="clearFilters()" class="text-xs px-3 py-2 rounded bg-slate-200 dark:bg-slate-700">Vymazat</button>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-[1600px] mx-auto px-4 py-4">
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-3 overflow-x-auto">
+    <!-- header grid -->
+    <div class="grid" style="grid-template-columns:90px 1fr repeat(12,minmax(60px,1fr)) 90px">
+      <div class="text-xs font-bold text-slate-500 pb-2 pr-2">ID</div>
+      <div class="text-xs font-bold text-slate-500 pb-2 pr-2">Akce / Vlastník</div>
+      <template x-for="w in 12" :key="w">
+        <div class="text-[10px] text-center font-bold text-slate-500 pb-2 border-l border-slate-100 dark:border-slate-800" x-text="'W'+w"></div>
+      </template>
+      <div class="text-xs font-bold text-right text-slate-500 pb-2">€</div>
+    </div>
+    <!-- rows -->
+    <template x-for="a in visible()" :key="a.id">
+      <div @click="toggleStatus(a.id)"
+           class="grid hover:bg-slate-50 dark:hover:bg-slate-800/40 cursor-pointer border-t border-slate-100 dark:border-slate-800"
+           style="grid-template-columns:90px 1fr repeat(12,minmax(60px,1fr)) 90px">
+        <div class="py-2 pr-2 flex items-center gap-1">
+          <span class="text-[10px] font-mono font-bold"
+                :class="a.priority=='P0'?'text-red-600':a.priority=='P1'?'text-amber-600':'text-slate-500'"
+                x-text="a.id"></span>
+          <span class="text-[10px]"
+                x-text="statusIcon(a.status)"></span>
+        </div>
+        <div class="py-2 pr-2 text-xs">
+          <div class="font-medium leading-tight flex items-center gap-2">
+            <span x-text="a.title"></span>
+            <a :href="'../reader.html?file=06-reports/MASTER-ACTION-PLAN.md#' + a.id.toLowerCase()"
+               @click.stop
+               class="text-[10px] text-indigo-600 dark:text-indigo-400 hover:underline whitespace-nowrap"
+               title="Otevřít zdroj v MASTER-ACTION-PLAN">📖</a>
+          </div>
+          <div class="text-[10px] text-slate-500" x-text="a.owner + (a.deps?.length?' · vyžaduje '+a.deps.join(','):'')"></div>
+        </div>
+        <template x-for="w in 12" :key="w">
+          <div class="relative h-8 border-l border-slate-100 dark:border-slate-800">
+            <div x-show="w>=a.startWeek && w<=a.endWeek"
+                 class="absolute inset-y-1 left-0 right-0 rounded"
+                 :class="a.critical?'bar-crit':(a.status=='COMPLETE'?'bar-done':(a.status=='IN_PROGRESS'?'bar-prog':'bar-new'))"></div>
+            <template x-for="m in milestones.filter(mm=>mm.week==w)" :key="m.label">
+              <div x-show="a.id==m.anchor" class="absolute left-1/2 -translate-x-1/2 top-1" :title="m.label">
+                <div class="milestone"></div>
+              </div>
+            </template>
+          </div>
+        </template>
+        <div class="py-2 text-right text-xs tabular-nums" x-text="a.cost?('€'+fmt(a.cost)):'—'"></div>
+      </div>
+    </template>
+    <div x-show="visible().length==0" class="text-center text-slate-500 text-sm py-6">Žádné akce neodpovídají filtru.</div>
+  </div>
+
+  <!-- dependency legend -->
+  <div class="mt-4 flex flex-wrap gap-3 text-xs text-slate-500">
+    <span><span class="inline-block w-4 h-3 bar-new rounded align-middle"></span> Nezahájeno</span>
+    <span><span class="inline-block w-4 h-3 bar-prog rounded align-middle"></span> Probíhá</span>
+    <span><span class="inline-block w-4 h-3 bar-done rounded align-middle"></span> Dokončeno</span>
+    <span><span class="inline-block w-4 h-3 bar-crit rounded align-middle"></span> Kritická cesta</span>
+    <span><span class="milestone inline-block align-middle" style="transform:translateY(2px)"></span> Milník</span>
+    <span class="ml-auto">Klikněte na řádek pro cyklus stavu · Stav uložen v <code>localStorage</code></span>
+  </div>
+</section>
+
+<!-- Charts row -->
+<section class="max-w-[1600px] mx-auto px-4 py-4 grid md:grid-cols-2 gap-4">
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4">
+    <h3 class="font-bold mb-2">Čerpání rozpočtu po týdnech (€)</h3>
+    <div class="viz-container viz-container--short"><canvas id="budgetChart"></canvas></div>
+  </div>
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-4">
+    <h3 class="font-bold mb-2">Akce podle vlastníka</h3>
+    <div class="viz-container viz-container--short"><canvas id="ownerChart"></canvas></div>
+  </div>
+</section>
+
+<!-- Source strip footer -->
+<section class="max-w-[1600px] mx-auto px-4 py-6">
+  <div class="bg-slate-900 dark:bg-slate-800 rounded-lg p-4">
+    <div class="text-xs uppercase text-slate-400 mb-2 font-bold">📚 Zdrojové dokumenty</div>
+    <div class="flex flex-wrap gap-2">
+      <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="px-3 py-1.5 rounded bg-red-600 text-white hover:bg-red-500 text-xs font-semibold">✅ MASTER-ACTION-PLAN.md</a>
+      <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">🧾 Hlavní DD report</a>
+      <a href="../reader.html?file=PPF-PLAYBOOK.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">📜 PPF Playbook</a>
+      <a href="../reader.html?file=RED-FLAGS.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">🚨 Red flags</a>
+      <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">📑 Memo ocenění</a>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-[1600px] mx-auto px-4 py-4 text-xs text-slate-500 border-t border-slate-200 dark:border-slate-800 mt-6">
+  <p><strong>Zdroj</strong>: <a class="underline" href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md">MASTER-ACTION-PLAN.md</a> (132 akcí · 5 řetězců kritické cesty A–F · výchozí stav 2026-04-21).</p>
+  <p class="mt-1">Týden 1 = 2026-04-21..04-28 · P0 brána T1 · P1 brána T2 · Brána připravenosti T4 · První hovor s PPF T5 · Podpis SPA T12 (2026-07-28)</p>
+</section>
+
+<script>
+function ganttApp(){
+  return {
+    dark:false,
+    filter:{priority:'',owner:'',weekFrom:1,weekTo:12,criticalOnly:false},
+    actions:[],
+    milestones:[
+      {week:1, anchor:'P0-06', label:'ČÚZK account W1'},
+      {week:1, anchor:'P0-32', label:'P0 GATE'},
+      {week:2, anchor:'P1-39', label:'P1 GATE · Dataroom T1'},
+      {week:3, anchor:'P1-38', label:'Red-team review'},
+      {week:4, anchor:'P2-36', label:'Zrůst 8h rehearsal'},
+      {week:4, anchor:'P2-33', label:'READINESS GATE'},
+      {week:5, anchor:'P0-27', label:'PPF first call'},
+      {week:12,anchor:'P2-51', label:'SPA signing 2026-07-28'},
+    ],
+    ownerList:['Zrůst','Foral','Dvořák','Heyduk','Pelikán','Korčák','Duchoň','Faraga','External counsel','Tax advisor','Auditor','Broker','Environmental','Other'],
+    init(){
+      this.buildActions();
+      this.loadProgress();
+      this.$nextTick(()=>this.charts());
+      this.$watch('actions',()=>{ this.charts(); this.persist(); },{deep:true});
+    },
+    buildActions(){
+      // Distilled from MASTER-ACTION-PLAN.md with realistic start/end weeks + costs in €.
+      // Week mapping: W1=2026-04-21..28, W2=..05-05, W3=..05-12, W4=..05-19, W5=..05-26, W6=..06-02,
+      // W7..W10 = DD sprint, W11 = SPA drafting, W12 = signing 2026-07-28.
+      const critIds=['P0-01','P0-06','P0-07','P0-08','P0-13','P0-14','P0-19','P0-23','P0-24','P0-27','P0-28','P1-01','P1-15','P1-38','P1-39','P2-34','P2-35','P2-36','P2-51'];
+      const rows=[
+        // P0 — all Week 1
+        ['P0-01','DANCORE litigation file (docket 30 Co 228/2019)','External counsel',8000,1,1,[]],
+        ['P0-02','DANCORE Nevada SoS record E0353972015-2','External counsel',1500,1,1,[]],
+        ['P0-03','PACER Dancore v. Zika 2:18-cv-01136','External counsel',2500,1,1,['P0-02']],
+        ['P0-04','DANCORE FinCEN BOI / OFAC memo','External counsel',3000,1,1,['P0-02']],
+        ['P0-05','PROGRESUS Group FY24 VZ deep-dive memo','Heyduk',5000,1,1,[]],
+        ['P0-06','ČÚZK dálkový přístup account open','Korčák',2000,1,1,[]],
+        ['P0-07','LV 927 Mstětice — full výpis','External counsel',500,1,1,['P0-06']],
+        ['P0-08','LV 1326 Mstětice — full výpis','External counsel',500,1,1,['P0-06']],
+        ['P0-09','ČÚZK owner query — Nový Zeleneč a.s. 27825981','External counsel',800,1,1,['P0-06']],
+        ['P0-10','ČÚZK owner query — RD Rýmařov Invest III. alpha','External counsel',800,1,1,['P0-06']],
+        ['P0-11','ČÚZK owner query — Nuka Estates 27890104','External counsel',500,1,1,['P0-06']],
+        ['P0-12','ČÚZK owner query — MARSEA MIA 03454029','External counsel',500,1,1,['P0-06']],
+        ['P0-13','NZ a.s. FY21-24 retroactive audit engagement','Heyduk',80000,1,1,[]],
+        ['P0-14','Bond debt master table — 68 tranches × 5 prospectuses','External counsel',15000,1,1,[]],
+        ['P0-15','Nuka Estates liquidator discharge letter','Pelikán',2000,1,1,['P0-07','P0-08']],
+        ['P0-16','MARSEA MIA pledge-discharge letter','Pelikán',2500,1,1,['P0-12']],
+        ['P0-17','Lébr / Ravantino separation letter','Pelikán',3000,1,1,[]],
+        ['P0-18','Single-page group structure chart (≥5 layers)','Dvořák',0,1,1,[]],
+        ['P0-19','DANCORE legal defense brief + §984 stress test','External counsel',15000,1,1,['P0-01']],
+        ['P0-20','Late-filing penalty memo — 5 delinquent entities','Tax advisor',5000,1,1,[]],
+        ['P0-21','ČNB §23a clearance request','External counsel',8000,1,1,[]],
+        ['P0-22','2023-04→2024-01 group reorganisation memo','Tax advisor',12000,1,1,[]],
+        ['P0-23','Engage non-Aegis M&A counsel (KŠB/JŠK/W&C)','Zrůst',50000,1,1,[]],
+        ['P0-24','Engage Big-4 financial DD prep firm','Heyduk',60000,1,1,['P0-23']],
+        ['P0-25','Engage environmental consultant (Phase I)','Dvořák',25000,1,1,[]],
+        ['P0-26','Title insurance indicative quote (W&I + DANCORE)','Broker',0,1,1,['P0-19']],
+        ['P0-27','NDA + Exclusivity draft ready for PPF','External counsel',5000,1,1,['P0-23']],
+        ['P0-28','Bondholder consent solicitation kickoff','External counsel',20000,1,1,['P0-14']],
+        ['P0-29','Savills NDA stress-test','External counsel',2000,1,1,[]],
+        ['P0-30','Aegis Law conflict check letter','Pelikán',0,1,1,[]],
+        ['P0-31','DANCORE pre-first-call disclosure letter','External counsel',0,1,1,['P0-19']],
+        ['P0-32','Dataroom SaaS procurement (Ansarada/Datasite)','Dvořák',20000,1,1,[]],
+        // P1 — Weeks 2
+        ['P1-01','NZ a.s. FY21-24 retroactive audit draft ÚZ','Auditor',0,2,2,['P0-13']],
+        ['P1-02','PROGRESUS RD Rýmařov a.s. FY22-24 audit','Auditor',30000,2,2,['P0-13']],
+        ['P1-03','PROGRESUS RD Rýmařov II a.s. FY23-24 audit','Auditor',25000,2,2,['P0-13']],
+        ['P1-04','PROGRESUS RD Rýmařov III a.s. FY24 audit','Auditor',15000,2,2,['P0-13']],
+        ['P1-05','PROGRESUS Bonds s.r.o. FY21-24 audit','Auditor',30000,2,2,['P0-13']],
+        ['P1-06','RD Rýmařov Invest III. alpha FY21-24 audit','Auditor',20000,2,2,['P0-13']],
+        ['P1-07','Intercompany transaction matrix — 7-yr tail','Tax advisor',15000,2,2,['P0-24']],
+        ['P1-08','Transfer pricing documentation — full group','Tax advisor',25000,2,2,['P0-24']],
+        ['P1-09','Tax basis memo — 2021 Lébr→Progresus step-up','Tax advisor',8000,2,2,[]],
+        ['P1-10','CASPER / Štekl / Vitrablok 800M-vs-229M memo','Heyduk',12000,2,2,[]],
+        ['P1-11','Zrůst Chinese-wall + Konreo non-overlap','Zrůst',5000,2,2,[]],
+        ['P1-12','Foral Dubai / Michl Quant PEP memo','External counsel',18000,2,2,[]],
+        ['P1-13','Complete cap table (fully diluted, notarised)','Dvořák',3000,1,2,[]],
+        ['P1-14','Board/shareholder minutes 5-yr tail','Pelikán',2000,2,2,[]],
+        ['P1-15','CoC solicitation packs — all 5 prospectuses','External counsel',25000,2,2,['P0-14']],
+        ['P1-16','Phase I environmental report — 42 ha','Environmental',0,2,2,['P0-25']],
+        ['P1-17','Soil / groundwater tests — 42 ha','Environmental',0,2,2,['P0-25']],
+        ['P1-18','Full ARES drill — remaining ~75 group entities','Korčák',3000,2,2,[]],
+        ['P1-19','UBO register extract — restricted-access','Pelikán',1000,2,2,[]],
+        ['P1-20','Zeleneč 2022 petition — municipal archive','External counsel',5000,2,2,[]],
+        ['P1-21','Studio Perspektiv "3rd place" CKA verification','External counsel',2000,2,2,[]],
+        ['P1-22','Aegis Law engagement letter (redacted)','Pelikán',0,2,2,['P0-30']],
+        ['P1-23','Utility connections — VaK, ČEZ, GasNet','Dvořák',2000,2,2,[]],
+        ['P1-24','Bond prospectus supplements (current outstanding)','External counsel',5000,2,2,['P0-14']],
+        ['P1-25','D&O policy schedule + tail coverage','Broker',3000,2,2,[]],
+        ['P1-26','Key-person coverage — Zrůst centrality','External counsel',8000,2,2,[]],
+        ['P1-27','GDPR DPIA + DPO — bondholder register','External counsel',8000,2,2,[]],
+        ['P1-28','Insurance claims history 5-yr tail','Broker',0,2,2,[]],
+        ['P1-29','Frank Bold advokáti Zeleneč planning check','External counsel',2000,2,2,[]],
+        ['P1-30','Full ISIR sweep — every group entity as creditor','Korčák',3000,2,2,[]],
+        ['P1-31','Pro Věřitele + newstream.cz rebuttal memo','External counsel',5000,2,2,[]],
+        ['P1-32','ČNB clearance — no enforcement on 5 bond issuers','External counsel',0,2,2,[]],
+        ['P1-33','CENIA EIA STC2258 + continuity opinion','External counsel',2000,2,2,[]],
+        ['P1-34','KN chain-of-title 2007→2026 (Quinlan→Progresus)','External counsel',10000,2,2,['P0-07','P0-08']],
+        ['P1-35','130 ha scheme map — owner overlay','Korčák',4000,2,2,['P0-09','P0-10']],
+        ['P1-36','Retention / non-compete scope memo','External counsel',6000,2,2,[]],
+        ['P1-37','Reciprocal ask package R1-R8 to PPF','Zrůst',0,2,2,['P0-27']],
+        ['P1-38','Seller-side red-team adversarial review','External counsel',15000,3,3,['P0-23','P1-01']],
+        ['P1-39','Dataroom tier-1 populated','Dvořák',0,2,3,['P0-32']],
+        ['P1-40','Emergency contact / escalation matrix','Zrůst',0,2,2,[]],
+        ['P1-41','Post-meeting debrief template dry-run','Dvořák',0,2,2,[]],
+        ['P1-42','Management presentation deck (4-8h grilling)','Dvořák',5000,2,3,['P1-39']],
+        // P2 — Weeks 3..4
+        ['P2-01','Historical LVs 2007→2026','External counsel',5000,3,4,['P1-34']],
+        ['P2-02','Quinlan Private Luxembourg RCS','External counsel',4000,3,4,[]],
+        ['P2-03','Golub Capital historical claims review (IE/US)','External counsel',4000,3,4,[]],
+        ['P2-04','Modransky Haj (Quinlan parallel vehicle) status','External counsel',1000,3,4,[]],
+        ['P2-05','Karlín Group parallel-bidder monitoring SOP','Korčák',0,2,4,[]],
+        ['P2-06','Frydrych Russia/Eldorado post-sanctions memo','External counsel',2000,3,4,[]],
+        ['P2-07','Jirásková/Jirásko PPF-banka §23a clearance','Zrůst',0,3,4,['P0-21']],
+        ['P2-08','AMALAR USD 1.9bn Kellner Jr. source-of-funds ask','Zrůst',0,3,4,[]],
+        ['P2-09','Trademark — ÚPV + EUIPO portfolio','External counsel',2000,3,4,[]],
+        ['P2-10','Domain WHOIS — all group domains','External counsel',0,3,4,[]],
+        ['P2-11','Employee list + key contracts — all group','Pelikán',0,3,4,[]],
+        ['P2-12','Compensation structure + incentive plans','Pelikán',0,3,4,[]],
+        ['P2-13','Full bondholder register (GDPR-redacted)','Pelikán',0,3,4,[]],
+        ['P2-14','Cybersecurity attestation + recent pen-test','External counsel',8000,3,4,[]],
+        ['P2-15','IT systems architecture diagram','Dvořák',0,3,4,[]],
+        ['P2-16','Anti-corruption / anti-bribery policy','External counsel',3000,3,4,[]],
+        ['P2-17','Sanctions compliance policy + screening records','External counsel',2000,3,4,[]],
+        ['P2-18','Carbon footprint / climate risk — Mstětice','Environmental',5000,3,4,[]],
+        ['P2-19','ArcGIS 130 ha scheme map + owner overlay','Korčák',0,3,3,['P1-35']],
+        ['P2-20','Prismatic ČÚZK adapter extension (internal)','Duchoň',0,3,4,[]],
+        ['P2-21','Inženýrské služby Mstětice s.r.o. DD memo','Pelikán',2000,3,4,[]],
+        ['P2-22','"Acquisitions" 2023-24 entities purpose memo','Pelikán',0,3,4,['P1-18']],
+        ['P2-23','PPF reality 2 + PPF CYPRUS UBO chain (reciprocal)','Zrůst',0,3,4,[]],
+        ['P2-24','PPF BoD reciprocal review (Verhoeff/Frydrych/…)','Zrůst',0,3,4,[]],
+        ['P2-25','PROGRESUS invest holding core fúze/rozdělení','Pelikán',0,3,4,['P0-22']],
+        ['P2-26','RD Rýmařov Invest Develop audit review','Auditor',0,3,4,['P0-13']],
+        ['P2-27','Konreo 1000+ case non-overlap declaration','Zrůst',8000,3,4,['P1-11']],
+        ['P2-28','Hospodářské Pozemky "sharing ban" clarification','Pelikán',2000,3,4,[]],
+        ['P2-29','Municipal preemption on 42 ha certification','Pelikán',1500,3,4,[]],
+        ['P2-30','5-yr forecast refresh — ÚP Phase 1 2030','Heyduk',8000,3,4,[]],
+        ['P2-31','Working capital normalization mechanism','Heyduk',0,3,4,[]],
+        ['P2-32','Escrow bank + agent (ČSOB/KB, not PPF banka)','External counsel',5000,3,4,[]],
+        ['P2-33','W&I insurance broker engagement','Broker',5000,3,4,['P0-26']],
+        ['P2-34','Title insurance bound (DANCORE carve-out)','Broker',50000,3,4,['P0-26']],
+        ['P2-35','Bondholder waiver solicitation launched','External counsel',0,3,4,['P0-28','P1-15']],
+        ['P2-36','Management deck full rehearsal (4-8h grilling)','Zrůst',0,4,4,['P1-42']],
+        ['P2-37','Pro Věřitele / newstream.cz holding statement','External counsel',0,3,4,['P1-31']],
+        ['P2-38','Zeleneč municipality correspondence pull','Pelikán',0,3,4,[]],
+        ['P2-39','Historical SPA — 2021 Progresus←Lébr','Pelikán',0,3,4,[]],
+        ['P2-40','Source-of-funds 2021 acquisition financing','Heyduk',0,3,4,[]],
+        ['P2-41','Prismatic ČÚZK adapter internal memo','Duchoň',0,3,4,[]],
+        ['P2-42','ČNB §23a compliance — PPF banka structure','External counsel',5000,3,4,['P0-21']],
+        ['P2-43','DANCORE-specific W&I + title bound policies','Broker',0,3,4,['P2-34']],
+        ['P2-44','Statutory-penalty reserve calculation','Heyduk',0,3,4,['P0-20']],
+        ['P2-45','ESG reporting — PPF post-closing requirements','Environmental',3000,3,4,[]],
+        ['P2-46','Management retention packages (Zrůst/Foral)','External counsel',0,3,4,[]],
+        ['P2-47','Non-compete + non-solicit scope memo','External counsel',0,3,4,['P1-36']],
+        ['P2-48','Property tax reconciliation — historical','Heyduk',0,3,4,[]],
+        ['P2-49','Utility capacity study Phase 2+ horizon','Environmental',5000,3,4,[]],
+        ['P2-50','Neighbor agreements — access, drainage, easements','Pelikán',0,3,4,[]],
+        ['P2-51','Closing mechanics — notarial deed for share transfer','External counsel',3000,11,12,[]],
+        ['P2-52','Alternative buyers warm pool — no-name teasers','Korčák',3000,3,3,[]],
+        ['P2-53','AMALAR approval delay risk memo','External counsel',0,3,4,[]],
+        ['P2-54','Cyprus intermediate tax structure memo','Tax advisor',4000,3,4,[]],
+        ['P2-55','FX denomination CZK vs EUR + hedging','Tax advisor',2000,3,4,[]],
+        ['P2-56','ÚOHS raw-land threshold analysis','External counsel',2000,3,4,[]],
+        ['P2-57','Confidentiality status monitor — ongoing','Korčák',0,1,12,[]],
+        ['P2-58','Post-closing playbook — integration, TSA, D&O tail','External counsel',0,3,4,[]],
+        // PPF live DD window
+        ['LIVE-01','PPF first-call window — scope + excl. + NDA','Zrůst',0,5,5,['P0-27']],
+        ['LIVE-02','PPF DD sprint (200-400 requests buckets A-J)','Zrůst',0,6,9,[]],
+        ['LIVE-03','Valuation recalibration + SPA term sheet','External counsel',0,10,10,[]],
+        ['LIVE-04','SPA negotiation + R&W + disclosure schedule','External counsel',0,11,11,[]],
+      ];
+      this.actions = rows.map(r=>({
+        id:r[0], title:r[1], owner:r[2], cost:r[3],
+        startWeek:r[4], endWeek:r[5], deps:r[6],
+        priority:r[0].split('-')[0],
+        critical: critIds.includes(r[0]),
+        status:'NOT_STARTED'
+      }));
+    },
+    loadProgress(){
+      try{
+        const raw = localStorage.getItem('mycelium-gantt-progress');
+        if(!raw) return;
+        const saved = JSON.parse(raw);
+        this.actions.forEach(a=>{ if(saved[a.id]) a.status = saved[a.id]; });
+      }catch(e){}
+    },
+    persist(){
+      try{
+        const map = Object.fromEntries(this.actions.map(a=>[a.id,a.status]));
+        localStorage.setItem('mycelium-gantt-progress', JSON.stringify(map));
+      }catch(e){}
+    },
+    resetProgress(){
+      if(!confirm('Reset all progress to NOT_STARTED?')) return;
+      this.actions.forEach(a=>a.status='NOT_STARTED');
+      this.persist();
+    },
+    toggleStatus(id){
+      const a = this.actions.find(x=>x.id==id); if(!a) return;
+      a.status = a.status=='NOT_STARTED'?'IN_PROGRESS':a.status=='IN_PROGRESS'?'COMPLETE':'NOT_STARTED';
+    },
+    statusIcon(s){ return s=='COMPLETE'?'🟢':s=='IN_PROGRESS'?'🟡':'⬜'; },
+    clearFilters(){ this.filter={priority:'',owner:'',weekFrom:1,weekTo:12,criticalOnly:false}; },
+    visible(){
+      return this.actions.filter(a=>{
+        if(this.filter.priority && a.priority!=this.filter.priority) return false;
+        if(this.filter.owner && !a.owner.toLowerCase().includes(this.filter.owner.toLowerCase())) return false;
+        if(a.endWeek<this.filter.weekFrom || a.startWeek>this.filter.weekTo) return false;
+        if(this.filter.criticalOnly && !a.critical) return false;
+        return true;
+      });
+    },
+    kpiLabel(k){return {total:'Total',p0:'P0 critical',p1:'P1 DD',p2:'P2 full',done:'Complete %',budget:'Spent / Total'}[k];},
+    kpiValue(k){
+      const v=this.visible();
+      if(k=='total') return v.length;
+      if(k=='p0') return v.filter(a=>a.priority=='P0').length;
+      if(k=='p1') return v.filter(a=>a.priority=='P1').length;
+      if(k=='p2') return v.filter(a=>a.priority=='P2').length;
+      if(k=='done'){ const c=v.filter(a=>a.status=='COMPLETE').length; return v.length?Math.round(100*c/v.length)+'%':'—'; }
+      if(k=='budget'){
+        const spent=v.filter(a=>a.status=='COMPLETE').reduce((s,a)=>s+(a.cost||0),0);
+        const total=v.reduce((s,a)=>s+(a.cost||0),0);
+        return '€'+this.fmt(spent)+' / €'+this.fmt(total);
+      }
+    },
+    fmt(n){ return Number(n||0).toLocaleString('cs-CZ'); },
+    charts(){
+      if(typeof Chart==='undefined'){ setTimeout(()=>this.charts(),200); return; }
+      const weeks=Array.from({length:12},(_,i)=>'W'+(i+1));
+      const spend=new Array(12).fill(0);
+      const ownerAgg={};
+      this.visible().forEach(a=>{
+        const span=a.endWeek-a.startWeek+1;
+        const per=(a.cost||0)/span;
+        for(let w=a.startWeek;w<=a.endWeek;w++) spend[w-1]+=per;
+        ownerAgg[a.owner]=(ownerAgg[a.owner]||0)+1;
+      });
+      if(this._b) this._b.destroy();
+      this._b = new Chart(document.getElementById('budgetChart'),{
+        type:'bar',
+        data:{labels:weeks,datasets:[{label:'€ planned',data:spend,backgroundColor:'rgba(220,38,38,.7)'}]},
+        options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'€'+(v/1000)+'k'}}}}
+      });
+      if(this._o) this._o.destroy();
+      this._o = new Chart(document.getElementById('ownerChart'),{
+        type:'bar',
+        data:{labels:Object.keys(ownerAgg),datasets:[{data:Object.values(ownerAgg),backgroundColor:'rgba(59,130,246,.7)'}]},
+        options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',plugins:{legend:{display:false}}}
+      });
+      if(!this._resizeWired){
+        this._resizeWired = true;
+        window.addEventListener('resize', ()=>{
+          if(this._b) this._b.resize();
+          if(this._o) this._o.resize();
+        }, { passive: true });
+      }
+    }
+  };
+}
+</script>
+
+  <!-- Related sidebar (injected by add-related-sidebar.py) -->
+  <div data-connections-sidebar="injected" x-data="{ openRel: false }" class="no-print">
+    <button type="button"
+      @click="openRel = !openRel"
+      class="fixed right-4 bottom-4 z-40 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium shadow-lg rounded-full px-4 py-2 flex items-center gap-2"
+      aria-label="Přepnout související soubory">
+      <span>📎</span><span>Související</span>
+    </button>
+    <aside
+      x-show="openRel"
+      x-transition
+      @click.away="openRel = false"
+      class="fixed right-4 bottom-20 z-40 w-80 max-h-[70vh] overflow-y-auto bg-gray-900 border border-gray-700 text-gray-100 rounded-lg shadow-2xl p-4"
+      style="display: none;">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-white">📎 Související soubory</h3>
+        <button type="button" @click="openRel = false" class="text-gray-400 hover:text-white" aria-label="Zavřít">✕</button>
+      </div>
+      <div id="connections-related-panel" class="text-sm">
+        <p class="text-gray-500 italic">Načítání…</p>
+      </div>
+    </aside>
+  </div>
+  <script src="../_assets/connections.js"></script>
+  <script>
+    (function () {
+      if (!window.Connections) return;
+      window.Connections.init().then(function () {
+        var el = document.getElementById('connections-related-panel');
+        if (el) window.Connections.renderBacklinksPanel(el, '06-reports/roadmap-gantt.html');
+      }).catch(function (err) {
+        var el = document.getElementById('connections-related-panel');
+        if (el) el.textContent = 'Graf není dostupný: ' + err.message;
+      });
+    })();
+  </script>
+
+<!-- mycelium-ux:injected -->
+  <script defer src="../_assets/cmdk.js"></script>
+  <script src="../_assets/hover-previews.js"></script>
+  <script src="../_assets/keyboard-shortcuts.js"></script>
+  <script src="../_assets/state-sync.js"></script>
+  <script src="../_assets/connections.js"></script>
+
+  <script defer src="../_assets/viz-debug.js"></script>
+  <!-- BEGIN:DD_AUTO_LINKIFY -->
+  <script src="../_assets/dd-entity-index.js"></script>
+  <script defer src="../_assets/dd-auto-linkify.js"></script>
+<!-- END:DD_AUTO_LINKIFY -->
+</body>
+</html>

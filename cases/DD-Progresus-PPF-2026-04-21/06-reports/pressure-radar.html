@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Radar tlaku transakce — Progresus → PPF DD</title>
+<link rel="stylesheet" href="../_assets/flowbite.min.css" />
+<script src="../_assets/tailwind.min.js"></script>
+<script src="../_assets/chart.min.js" defer></script>
+<script src="../_assets/p5.min.js" defer></script>
+<script src="../_assets/three.min.js" defer></script>
+<script src="../_assets/alpine.min.js" defer></script>
+<script src="../_assets/flowbite.min.js" defer></script>
+<style>
+  body { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+  .terminal { font-family: ui-monospace, 'SF Mono', Menlo, monospace; }
+  [x-cloak] { display: none !important; }
+  /* Fix canvas containers so Chart.js cannot stretch parent */
+  .chart-box { position: relative; }
+  .chart-box > canvas { position: absolute; inset: 0; }
+  /* Pyramid canvas host */
+  #pyramid-host { position: relative; }
+  #pyramid-host > canvas { display: block; }
+  .glow-red { box-shadow: 0 0 24px rgba(239,68,68,0.35); }
+  .glow-amber { box-shadow: 0 0 24px rgba(245,158,11,0.30); }
+  .glow-green { box-shadow: 0 0 24px rgba(16,185,129,0.30); }
+  .pressure-tile { transition: transform 120ms ease; }
+  .pressure-tile:hover { transform: translateY(-2px); }
+  @media print {
+    .no-print { display: none !important; }
+    body { background: #fff !important; color: #111 !important; }
+    .page-break { page-break-before: always; }
+  }
+</style>
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="../_assets/md-store.js"></script>
+  <script src="../_assets/manifest-store.js"></script>
+  <script src="../_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+</head>
+<body class="bg-gray-950 text-gray-100" x-data="radarApp()">
+
+<!-- NAV -->
+<nav class="bg-gray-900 border-b border-gray-800 no-print">
+  <div class="max-w-screen-2xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="text-sm text-gray-400 hover:text-indigo-400">← Portál</a>
+      <span class="text-gray-700">/</span>
+      <a href="./" class="text-sm text-gray-400 hover:text-indigo-400">06-reports</a>
+      <span class="text-gray-700">/</span>
+      <span class="text-sm font-semibold text-white">Radar tlaku transakce</span>
+    </div>
+    <div class="flex items-center gap-3 text-xs text-gray-400">
+      <a href="../RED-FLAGS.md" class="hover:text-indigo-400">RED-FLAGS.md</a>
+      <a href="./MASTER-ACTION-PLAN.md" class="hover:text-indigo-400">MASTER-ACTION-PLAN.md</a>
+      <a href="./VALUATION-DEFENSE-MEMO.md" class="hover:text-indigo-400">VALUATION-MEMO.md</a>
+      <button @click="exportPng()" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 rounded text-white font-medium">Exportovat PNG</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="max-w-screen-2xl mx-auto px-4 pt-6">
+  <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+    <div>
+      <h1 class="text-3xl font-bold text-white leading-tight">Radar tlaku transakce</h1>
+      <p class="text-sm text-gray-400">Progresus → PPF · Nový Zeleneč 42 ha · k.ú. Mstětice 792764 · v1.0 · 2026-04-21</p>
+      <!-- Source links strip -->
+      <div class="mt-3 flex flex-wrap gap-2 text-xs">
+        <a href="../reader.html?file=PPF-PLAYBOOK.md" class="px-3 py-1.5 rounded bg-indigo-600 text-white hover:bg-indigo-500 font-semibold">📜 PPF Playbook</a>
+        <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="px-3 py-1.5 rounded bg-gray-800 text-gray-100 hover:bg-gray-700 border border-gray-700">✅ Akční plán</a>
+        <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="px-3 py-1.5 rounded bg-gray-800 text-gray-100 hover:bg-gray-700 border border-gray-700">🧾 Hlavní DD report</a>
+        <a href="../reader.html?file=RED-FLAGS.md" class="px-3 py-1.5 rounded bg-gray-800 text-gray-100 hover:bg-gray-700 border border-gray-700">🚨 Red flags</a>
+        <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="px-3 py-1.5 rounded bg-gray-800 text-gray-100 hover:bg-gray-700 border border-gray-700">📑 Memo ocenění</a>
+      </div>
+    </div>
+    <div class="flex items-center gap-4">
+      <div class="text-center px-4 py-2 bg-gray-900 rounded-lg border border-gray-800">
+        <div class="text-xs uppercase tracking-wide text-gray-500">Připravenost</div>
+        <div class="text-2xl font-bold" :class="readinessColor()" x-text="readinessScore() + '%'"></div>
+        <div class="text-[10px] text-gray-500">cíl 90 % do 2026-05-19</div>
+      </div>
+      <div class="text-center px-4 py-2 bg-gray-900 rounded-lg border border-gray-800">
+        <div class="text-xs uppercase tracking-wide text-gray-500">Dnů do prvního hovoru s PPF</div>
+        <div class="text-2xl font-bold text-white" x-text="daysToPpf()"></div>
+        <div class="text-[10px] text-gray-500">okno se otevírá 2026-05-20</div>
+      </div>
+      <div class="text-center px-4 py-2 bg-gray-900 rounded-lg border border-gray-800 glow-red" :class="tensionGlowClass()">
+        <div class="text-xs uppercase tracking-wide text-gray-500">Index napětí transakce</div>
+        <div class="text-2xl font-bold" :class="tensionColor()" x-text="tensionIndex()"></div>
+        <div class="text-[10px] text-gray-500" x-text="tensionBand()"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN GRID -->
+<main class="max-w-screen-2xl mx-auto px-4 py-6 grid grid-cols-12 gap-4">
+  <!-- LEFT: Pressure gauge (p5) -->
+  <section class="col-span-12 lg:col-span-3 bg-gray-900 border border-gray-800 rounded-lg p-4">
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-300">Měřič tlaku</h2>
+      <span class="text-[10px] text-gray-500">p5.js · živě</span>
+    </div>
+    <p class="text-xs text-gray-500 mb-2">Celkové napětí transakce 0–100 (ručička se pohybuje se změnami posuvníků)</p>
+    <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="inline-block mb-2 text-[11px] text-indigo-400 hover:text-indigo-300 hover:underline">📖 Otevřít zdroj</a>
+    <div id="gauge-host" class="relative w-full" style="height:360px"></div>
+    <div class="mt-2 flex items-center justify-between text-[11px]">
+      <span class="text-green-400">0–40 bezpečné</span>
+      <span class="text-yellow-400">40–70 pozor</span>
+      <span class="text-orange-400">70–90 varování</span>
+      <span class="text-red-500">90–100 kritické</span>
+    </div>
+  </section>
+
+  <!-- CENTER: Multi-axis radar -->
+  <section class="col-span-12 lg:col-span-6 bg-gray-900 border border-gray-800 rounded-lg p-4">
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-300">8osý radar tlaku</h2>
+      <span class="text-[10px] text-gray-500">Chart.js · Aktuální (přerušovaná červená) vs zmírněné (plná zelená)</span>
+    </div>
+    <p class="text-xs text-gray-500 mb-2">
+      Tlak na 8 dimenzích transakce. Prodávající profituje, když je osa 7 (opce alternativních kupců) vysoká.
+    </p>
+    <a href="../reader.html?file=PPF-PLAYBOOK.md" class="inline-block mb-2 text-[11px] text-indigo-400 hover:text-indigo-300 hover:underline">📖 Otevřít zdroj (PPF-PLAYBOOK)</a>
+    <div class="chart-box" style="height:520px"><canvas id="radar"></canvas></div>
+  </section>
+
+  <!-- RIGHT: 3D leverage pyramid (three.js) -->
+  <section class="col-span-12 lg:col-span-3 bg-gray-900 border border-gray-800 rounded-lg p-4">
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-300">Pyramida vlivu</h2>
+      <span class="text-[10px] text-gray-500">Three.js · klikněte na vrstvu</span>
+    </div>
+    <p class="text-xs text-gray-500 mb-2">Vrchol je uzávěrka; základna je řetězec nabývacích titulů. Barva = tlak. Tažením otočíte.</p>
+    <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="inline-block mb-2 text-[11px] text-indigo-400 hover:text-indigo-300 hover:underline">📖 Otevřít zdroj</a>
+    <div id="pyramid-host" class="relative w-full" style="height:360px"></div>
+    <div class="mt-2 bg-gray-950 border border-gray-800 rounded p-2 text-xs min-h-[90px]">
+      <div class="font-semibold text-indigo-300" x-text="pyramidPick ? pyramidPick.title : 'Klikněte na vrstvu pro rizikové signály'"></div>
+      <template x-if="pyramidPick">
+        <ul class="list-disc pl-5 text-gray-300 mt-1 space-y-0.5">
+          <template x-for="rf in pyramidPick.flags" :key="rf">
+            <li x-text="rf"></li>
+          </template>
+        </ul>
+      </template>
+      <div class="mt-2 pt-2 border-t border-gray-800" x-show="pyramidPick">
+        <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="text-[11px] text-red-400 hover:text-red-300 hover:underline">📖 Otevřít zdroj</a>
+        <a href="../reader.html?file=RED-FLAGS.md" class="ml-2 text-[11px] text-red-400 hover:text-red-300 hover:underline">🚨 Red flags</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROW 2: Controls | Waterfall -->
+  <aside class="col-span-12 lg:col-span-3 bg-gray-900 border border-gray-800 rounded-lg p-4 no-print">
+    <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-300">Tlačítka tlaku</h2>
+    <p class="text-xs text-gray-500 mb-3">Táhněte posuvníky; radar/měřič/pyramida se přepočítávají živě.</p>
+    <template x-for="(ax, i) in axes" :key="ax.key">
+      <div class="mb-2">
+        <div class="flex justify-between text-[11px]">
+          <label :for="'ax-'+i" class="text-gray-300" x-text="ax.label"></label>
+          <span class="terminal" :class="valueColor(current[i], ax.invert)" x-text="current[i]"></span>
+        </div>
+        <input :id="'ax-'+i" type="range" min="0" max="100" step="1"
+               class="w-full accent-indigo-500"
+               :value="current[i]" @input="setAxis(i, $event.target.value)" />
+      </div>
+    </template>
+
+    <div class="mt-4 space-y-2">
+      <div class="text-xs uppercase tracking-wide text-gray-400">Předvolby scénářů</div>
+      <button @click="applyPreset('status_quo')" class="w-full text-left text-xs px-2 py-1.5 bg-gray-800 hover:bg-gray-700 rounded border border-gray-700">
+        <span class="text-white font-medium">Současný stav</span>
+        <span class="text-gray-500 block">výchozí 2026-04-21, 0 % akcí dokončeno</span>
+      </button>
+      <button @click="applyPreset('full_mitigation')" class="w-full text-left text-xs px-2 py-1.5 bg-gray-800 hover:bg-gray-700 rounded border border-gray-700">
+        <span class="text-green-300 font-medium">Plné zmírnění P0</span>
+        <span class="text-gray-500 block">všech 32 P0 položek hotovo, před prvním hovorem</span>
+      </button>
+      <button @click="applyPreset('dancore_adverse')" class="w-full text-left text-xs px-2 py-1.5 bg-gray-800 hover:bg-gray-700 rounded border border-gray-700">
+        <span class="text-red-300 font-medium">DANCORE nepříznivě</span>
+        <span class="text-gray-500 block">vyrovnání ~400M, odvolání přetrvává</span>
+      </button>
+      <button @click="applyPreset('ppf_walks')" class="w-full text-left text-xs px-2 py-1.5 bg-gray-800 hover:bg-gray-700 rounded border border-gray-700">
+        <span class="text-amber-300 font-medium">PPF odstoupí</span>
+        <span class="text-gray-500 block">alternativní kupec (Penta/Crestyl) připraven</span>
+      </button>
+    </div>
+
+    <button @click="reset()" class="mt-3 w-full text-xs px-2 py-1.5 bg-red-900/40 hover:bg-red-900/60 text-red-200 rounded border border-red-800">Resetovat</button>
+  </aside>
+
+  <section class="col-span-12 lg:col-span-9 bg-gray-900 border border-gray-800 rounded-lg p-4">
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-300">Časový vodopád tlaku</h2>
+      <span class="text-[10px] text-gray-500">Chart.js · kritické/vysoké/vyřešené s uzavíráním akcí</span>
+    </div>
+    <p class="text-xs text-gray-500 mb-2">Pokles otevřených rizikových signálů v čase. Brána na 45. dni (první hovor s PPF) cílí na ≤2 otevřené KRITICKÉ.</p>
+    <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="inline-block mb-2 text-[11px] text-indigo-400 hover:text-indigo-300 hover:underline">📖 Otevřít zdroj (Akční plán)</a>
+    <div class="chart-box" style="height:320px"><canvas id="waterfall"></canvas></div>
+  </section>
+
+  <!-- ROW 3: Heatmap -->
+  <section class="col-span-12 bg-gray-900 border border-gray-800 rounded-lg p-4">
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-300">Heatmapa vyjednávací páky</h2>
+      <span class="text-[10px] text-gray-500">Maticové sloupce Chart.js · hodnota zachycená scénářem × ústupkem</span>
+    </div>
+    <p class="text-xs text-gray-500 mb-2">
+      Každá buňka = cenově upravená hodnota zachycená, když PPF přijme daný ústupek za danou scénářovou cenu.
+      Optimální místo zvýrazněno (střední 4,5 mld. / mírné escrow). Hodnoty v mld. CZK po odpočtu DD srážky.
+    </p>
+    <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="inline-block mb-2 text-[11px] text-indigo-400 hover:text-indigo-300 hover:underline">📖 Otevřít zdroj (Memo ocenění)</a>
+    <div class="chart-box" style="height:320px"><canvas id="heatmap"></canvas></div>
+  </section>
+
+  <!-- ROW 4: Key actions surface -->
+  <section class="col-span-12 bg-gray-900 border border-gray-800 rounded-lg p-4">
+    <div class="flex items-center justify-between">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-300">Top akční položky (P0, z MASTER-ACTION-PLAN)</h2>
+      <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="text-[11px] text-indigo-400 hover:text-indigo-300 hover:underline">📖 Otevřít zdroj</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 mt-2">
+      <template x-for="a in topActions" :key="a.id">
+        <a :href="'../reader.html?file=06-reports/MASTER-ACTION-PLAN.md'" class="pressure-tile bg-gray-950 border border-gray-800 rounded p-2 text-xs hover:border-indigo-500 block">
+          <div class="flex justify-between text-[10px] uppercase tracking-wide">
+            <span class="text-red-400 font-semibold" x-text="a.id"></span>
+            <span class="text-gray-500" x-text="a.due"></span>
+          </div>
+          <div class="text-white font-medium mt-1" x-text="a.title"></div>
+          <div class="text-gray-500 mt-1">Vlastník: <span class="text-gray-300" x-text="a.owner"></span></div>
+          <div class="text-[10px] text-indigo-400 mt-1">📖 Otevřít zdroj →</div>
+        </a>
+      </template>
+    </div>
+  </section>
+
+  <!-- Source strip footer -->
+  <section class="col-span-12 bg-gray-900 border border-gray-800 rounded-lg p-4">
+    <div class="text-xs uppercase text-gray-400 mb-2 font-bold">📚 Zdrojové dokumenty</div>
+    <div class="flex flex-wrap gap-2">
+      <a href="../reader.html?file=PPF-PLAYBOOK.md" class="px-3 py-1.5 rounded bg-indigo-600 text-white hover:bg-indigo-500 text-xs font-semibold">📜 PPF Playbook</a>
+      <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="px-3 py-1.5 rounded bg-gray-800 text-gray-100 hover:bg-gray-700 border border-gray-700 text-xs">✅ Akční plán</a>
+      <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="px-3 py-1.5 rounded bg-gray-800 text-gray-100 hover:bg-gray-700 border border-gray-700 text-xs">🧾 Hlavní DD report</a>
+      <a href="../reader.html?file=RED-FLAGS.md" class="px-3 py-1.5 rounded bg-gray-800 text-gray-100 hover:bg-gray-700 border border-gray-700 text-xs">🚨 Red flags</a>
+      <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="px-3 py-1.5 rounded bg-gray-800 text-gray-100 hover:bg-gray-700 border border-gray-700 text-xs">📑 Memo ocenění</a>
+    </div>
+  </section>
+
+  <footer class="col-span-12 text-[10px] text-gray-600 text-center pt-2">
+    Data: <a class="dd-xref" href="../reader.html?file=RED-FLAGS.md">RED-FLAGS.md</a> · MASTER-ACTION-PLAN.md · VALUATION-DEFENSE-MEMO.md · vypočteno na straně klienta · napětí = vážený součet 8 os, osa zvýhodňující prodávajícího je invertovaná.
+  </footer>
+</main>
+
+<script>
+/* ===== Data constants sourced from RED-FLAGS.md / MASTER-ACTION-PLAN.md / VALUATION-DEFENSE-MEMO.md ===== */
+const RED_FLAGS = {
+  critical: 18,  // RED-FLAGS.md §CRITICAL
+  high: 12,      // §HIGH
+  resolved: 6    // §RESOLVED/DOWNGRADED
+};
+const ACTIONS = {
+  p0: { total: 32, due: '2026-04-28' }, // MASTER-ACTION-PLAN §1.1
+  p1: { total: 42, due: '2026-05-05' },
+  p2: { total: 58, due: '2026-05-19' }
+};
+const PPF_FIRST_CALL = new Date('2026-05-20'); // MASTER-ACTION-PLAN §1.3
+
+// Axis definitions keep labels aligned with the 8 requested dimensions.
+// invert=true means high value is good for SELLER (axis 7).
+const AXES = [
+  { key:'litigation', label:'Soudní spor (DANCORE)',       weight: 16, invert:false },
+  { key:'coc',        label:'Riziko CoC dluhopisů',         weight: 14, invert:false },
+  { key:'title',      label:'Riziko vad nabývacího titulu', weight: 12, invert:false },
+  { key:'filings',    label:'Prodlení s podáním listin',    weight: 10, invert:false },
+  { key:'regulatory', label:'Regulační (ČNB, ÚP)',          weight: 10, invert:false },
+  { key:'time',       label:'Časový tlak',                  weight:  8, invert:false },
+  { key:'alt_buyer',  label:'Opce alternativních kupců',    weight: 16, invert:true  },
+  { key:'price',      label:'Síla cenové kotvy',            weight: 14, invert:false }
+];
+
+// Scenario presets mapped to axis order.
+const PRESETS = {
+  status_quo:      [92, 82, 70, 85, 60, 55, 45, 75],
+  full_mitigation: [55, 40, 30, 25, 45, 45, 70, 75],
+  dancore_adverse: [98, 70, 85, 75, 65, 70, 40, 60],
+  ppf_walks:       [70, 65, 60, 70, 55, 88, 90, 85]
+};
+
+const TARGET = [35, 30, 25, 20, 35, 40, 75, 78]; // post-mitigation target
+
+// Pyramid layers (base → apex). Each layer maps to RF ids for click detail.
+const PYRAMID = [
+  { title: 'Řetězec nabývacích titulů (Quinlan → Nuka → Lébr → Progresus)',
+    flags: ['RF-9 Quinlan distressovaný původ','RF-10 Nuka v likvidaci','RF-11 zástavy MARSEA MIA','RF-12 Lébr/Ravantino reziduál','RF-13 rozsah 130 vs 42 ha'] },
+  { title: 'Ručitelé dluhopisů + CoC',
+    flags: ['RF-1 spor o kolaterál dluhopisů','RF-4 agresivní retailový prodej','RF-28 stack 7,6 mld., 68 tranší'] },
+  { title: 'Soudní spor (DANCORE)',
+    flags: ['RF-26 DANCORE 6 let KS Praha','Zika 2:18-cv-01136 D.Nev.','odvolání 2024-11-18 živé'] },
+  { title: 'Regulační (ČNB, ÚP)',
+    flags: ['RF-2 napadení ÚP Zeleneč','RF-30 Jirásková §23a','RF-19 první ÚP únor 2025'] },
+  { title: 'Uzávěrka transakce',
+    flags: ['32 P0 brána 04-28','okno PPF 05-20','cíl podpisu 07-28'] }
+];
+
+// Live top 8 actions (pulled from MASTER-ACTION-PLAN Section 2 P0).
+const TOP_ACTIONS = [
+  { id:'P0-01', title:'Kompletní spisový materiál DANCORE (KS Praha 30 Co 228/2019-1538)', owner:'Externí CZ advokát', due:'2026-04-24' },
+  { id:'P0-07', title:'LV 927 Mstětice 792764 úplný výpis', owner:'Realitní advokát', due:'2026-04-23' },
+  { id:'P0-13', title:'NZ a.s. FY2021-2024 zpětný audit engagement', owner:'Heyduk + Big-4/BDO', due:'2026-04-24' },
+  { id:'P0-14', title:'Master tabulka dluhopisového dluhu (5 prosp., 68 tranší, CoC)', owner:'Dluhopisový advokát + treasury', due:'2026-04-26' },
+  { id:'P0-21', title:'Schvalovací dopis ČNB §23a', owner:'Bankovní advokát', due:'2026-04-28' },
+  { id:'P0-23', title:'Angažován externí (mimo Aegis) M&A advokát', owner:'Zrůst', due:'2026-04-25' },
+  { id:'P0-26', title:'Indikativní nabídka pojištění titulu (W&I + DANCORE)', owner:'Marsh/Aon/Willis', due:'2026-04-28' },
+  { id:'P0-28', title:'Zahájení žádosti o souhlas dluhopisových věřitelů', owner:'Dluhopisový advokát', due:'2026-04-28' }
+];
+
+/* ===== Alpine root ===== */
+function radarApp() {
+  // Chart instances live outside the reactive proxy — wrapping a Chart.js
+  // instance in Alpine's Proxy makes chart.update() recurse infinitely.
+  let radarChart = null;
+  let waterfallChart = null;
+  let heatmapChart = null;
+  return {
+    axes: AXES,
+    current: PRESETS.status_quo.slice(),
+    target: TARGET.slice(),
+    scenarios: PRESETS,
+    topActions: TOP_ACTIONS,
+    pyramidPick: null,
+
+    init() {
+      // Wait until libs ready — scripts use defer.
+      const ready = () => (window.Chart && window.p5 && window.THREE);
+      const tryInit = () => {
+        if (!ready()) return setTimeout(tryInit, 40);
+        this.renderRadar();
+        this.renderWaterfall();
+        this.renderHeatmap();
+        this.renderGauge();
+        this.renderPyramid();
+        window.addEventListener('resize', () => this.handleResize());
+      };
+      tryInit();
+    },
+
+    handleResize() {
+      [radarChart, waterfallChart, heatmapChart].forEach(c => c && c.resize());
+      // p5 auto-resizes via its own resize callback we set below.
+      if (this._threeResize) this._threeResize();
+    },
+
+    setAxis(i, v) {
+      this.current[i] = parseInt(v, 10);
+      this.updateRadar();
+      this.updateGauge();
+      this.updatePyramid();
+    },
+
+    applyPreset(name) {
+      this.current = PRESETS[name].slice();
+      this.updateRadar();
+      this.updateGauge();
+      this.updatePyramid();
+    },
+
+    reset() {
+      this.applyPreset('status_quo');
+      this.pyramidPick = null;
+    },
+
+    axisContrib(val, ax) {
+      // sellers benefit when invert axis is high → convert to pressure-equivalent
+      return ax.invert ? (100 - val) : val;
+    },
+
+    tensionRaw() {
+      const totalWeight = AXES.reduce((s,a) => s+a.weight, 0);
+      const weighted = this.current.reduce((s,v,i) => s + this.axisContrib(v, AXES[i]) * AXES[i].weight, 0);
+      return weighted / totalWeight; // 0-100
+    },
+
+    tensionIndex() { return Math.round(this.tensionRaw()); },
+    tensionColor() {
+      const t = this.tensionRaw();
+      if (t >= 90) return 'text-red-500';
+      if (t >= 70) return 'text-orange-400';
+      if (t >= 40) return 'text-yellow-400';
+      return 'text-green-400';
+    },
+    tensionBand() {
+      const t = this.tensionRaw();
+      if (t >= 90) return 'KRITICKÉ';
+      if (t >= 70) return 'VAROVÁNÍ';
+      if (t >= 40) return 'POZOR';
+      return 'BEZPEČNÉ';
+    },
+    tensionGlowClass() {
+      const t = this.tensionRaw();
+      if (t >= 90) return 'glow-red';
+      if (t >= 70) return 'glow-amber';
+      if (t >= 40) return 'glow-amber';
+      return 'glow-green';
+    },
+    valueColor(v, invert) {
+      const effective = invert ? 100 - v : v;
+      if (effective >= 80) return 'text-red-400';
+      if (effective >= 60) return 'text-orange-400';
+      if (effective >= 40) return 'text-yellow-400';
+      return 'text-green-400';
+    },
+
+    readinessScore() {
+      // RED-FLAGS.md reports 55% baseline. We model it as:
+      //   base 55, + up to 35 points for radar decay, - up to 10 for tension spikes.
+      const tension = this.tensionRaw();
+      const decay = Math.max(0, 90 - tension); // 0-90
+      const score = 55 + Math.round((decay / 90) * 35) - Math.max(0, Math.round((tension - 80) * 0.5));
+      return Math.min(100, Math.max(0, score));
+    },
+    readinessColor() {
+      const s = this.readinessScore();
+      if (s >= 90) return 'text-green-400';
+      if (s >= 70) return 'text-yellow-400';
+      return 'text-orange-400';
+    },
+
+    daysToPpf() {
+      const diff = Math.ceil((PPF_FIRST_CALL - new Date()) / 86400000);
+      return diff > 0 ? diff : 0;
+    },
+
+    /* ===== Chart.js: radar ===== */
+    renderRadar() {
+      const ctx = document.getElementById('radar').getContext('2d');
+      radarChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: AXES.map(a => a.label),
+          datasets: [
+            { label:'Aktuální stav', data: this.currentPressureSeries(), borderColor:'#ef4444',
+              backgroundColor:'rgba(239,68,68,0.18)', borderDash:[6,4], pointBackgroundColor:'#ef4444',
+              pointRadius:3 },
+            { label:'Po zmírnění', data: this.targetPressureSeries(), borderColor:'#10b981',
+              backgroundColor:'rgba(16,185,129,0.22)', pointBackgroundColor:'#10b981', pointRadius:3 }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins: {
+            legend: { labels: { color:'#d1d5db', boxWidth:12 } },
+            tooltip: {
+              callbacks: {
+                label: (ctx) => {
+                  const ax = AXES[ctx.dataIndex];
+                  const raw = (ctx.datasetIndex === 0 ? this.current : this.target)[ctx.dataIndex];
+                  const dir = ax.invert ? '(ve prospěch prodávajícího)' : '';
+                  return `${ctx.dataset.label}: ${raw} ${dir}`.trim();
+                }
+              }
+            }
+          },
+          scales: {
+            r: {
+              min:0, max:100, ticks: { stepSize:20, color:'#6b7280', backdropColor:'transparent' },
+              grid: { color:'rgba(107,114,128,0.35)' }, angleLines: { color:'rgba(107,114,128,0.35)' },
+              pointLabels: { color:'#e5e7eb', font:{ size:11 } }
+            }
+          }
+        }
+      });
+    },
+    currentPressureSeries() { return this.current.map((v,i) => this.axisContrib(v, AXES[i])); },
+    targetPressureSeries()  { return this.target.map((v,i) => this.axisContrib(v, AXES[i])); },
+    updateRadar() {
+      if (!radarChart) return;
+      radarChart.data.datasets[0].data = this.currentPressureSeries();
+      radarChart.update('none');
+    },
+
+    /* ===== Chart.js: waterfall (stacked bar over time) ===== */
+    renderWaterfall() {
+      const ctx = document.getElementById('waterfall').getContext('2d');
+      // Action decay profile: day-bucketed closures of flags.
+      // Data sourced from RED-FLAGS totals + MASTER-ACTION-PLAN milestone sequencing.
+      const labels = ['Den 0 (04-21)', 'Den 7 (04-28)', 'Den 14 (05-05)', 'Den 30 (05-19)', 'Den 45 (hovor 05-20)', 'Den 90 (uzávěrka)'];
+      const open = [18, 15, 10, 5, 2, 0];
+      const delta = [0, -3, -5, -5, -3, -2];
+      const resolved = [6, 9, 14, 19, 22, 24];
+      waterfallChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels,
+          datasets: [
+            { label:'Otevřené kritické', data: open, backgroundColor:'#ef4444', stack:'s1', borderRadius:3 },
+            { label:'Uzavřené v tomto okně', data: delta.map(x => -x), backgroundColor:'#10b981', stack:'s1', borderRadius:3 },
+            { label:'Vyřešené kumulativně', data: resolved, backgroundColor:'rgba(79,70,229,0.55)', stack:'s2', borderRadius:3, type:'bar' }
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins: { legend: { labels:{ color:'#d1d5db' }} },
+          scales: {
+            x: { stacked:true, ticks:{ color:'#9ca3af' }, grid:{ display:false } },
+            y: { stacked:true, beginAtZero:true, ticks:{ color:'#9ca3af' }, grid:{ color:'rgba(107,114,128,0.2)' } }
+          }
+        }
+      });
+    },
+
+    /* ===== Chart.js: heatmap-style scenario × concession matrix ===== */
+    renderHeatmap() {
+      const ctx = document.getElementById('heatmap').getContext('2d');
+      // Scenarios (x) and concession lever intensity (y). Value = bn CZK captured by seller.
+      // Derived from VALUATION-DEFENSE-MEMO §1 (ranges) and PPF-PLAYBOOK levers.
+      const scenarios = ['Nízký 3,5 mld.','Střední 4,5 mld.','Vysoký 6,0 mld.','Stretch 7,0 mld.'];
+      const levers = ['Escrow malé','Escrow střední','Escrow velké','Dlouhý earn-out','Limitované reps'];
+      // Matrix value ≈ retained value after concession impact (higher = better for seller).
+      const matrix = [
+        [3.3, 3.2, 3.0, 2.8, 3.1], // Low
+        [4.4, 4.3, 4.1, 3.9, 4.2], // Mid
+        [5.6, 5.5, 5.3, 5.0, 5.4], // High
+        [6.4, 6.0, 5.6, 5.2, 5.8]  // Stretch
+      ];
+      const datasets = scenarios.map((s, si) => ({
+        label: s,
+        data: matrix[si],
+        backgroundColor: matrix[si].map(v => heatColor(v, 2.5, 6.6)),
+        borderRadius: 4, borderSkipped: false
+      }));
+      heatmapChart = new Chart(ctx, {
+        type: 'bar',
+        data: { labels: levers, datasets },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins: {
+            legend: { labels:{ color:'#d1d5db' }},
+            tooltip: { callbacks: {
+              label: (ctx) => `${ctx.dataset.label} · ${ctx.label}: ${ctx.parsed.y.toFixed(1)} mld. CZK zachyceno`
+            }},
+            title: {
+              display:true,
+              text:'Optimální místo: Střední 4,5 mld. × Escrow střední (4,3 mld. zachyceno, DANCORE carve-out sedí)',
+              color:'#a5b4fc', font:{ size:12, weight:'normal' }
+            }
+          },
+          scales: {
+            x: { ticks:{ color:'#9ca3af' }, grid:{ display:false } },
+            y: { beginAtZero:true, ticks:{ color:'#9ca3af', callback:(v)=>v+' mld.' }, grid:{ color:'rgba(107,114,128,0.2)' } }
+          }
+        }
+      });
+      function heatColor(v, lo, hi) {
+        const t = Math.max(0, Math.min(1, (v - lo) / (hi - lo)));
+        // green (low) → amber → red (high capture) — sellers like RED here (more value).
+        const r = Math.round(22 + t * 210);
+        const g = Math.round(163 - Math.abs(t - 0.5) * 200);
+        const b = Math.round(74 + (1 - t) * 60);
+        return `rgba(${r},${Math.max(40, g)},${b},0.82)`;
+      }
+    },
+
+    /* ===== p5.js gauge ===== */
+    renderGauge() {
+      const self = this;
+      const host = document.getElementById('gauge-host');
+      new p5((p) => {
+        let animated = self.tensionRaw();
+        let target = animated;
+        let glow = 0;
+        p.setup = () => {
+          const c = p.createCanvas(host.clientWidth, host.clientHeight);
+          c.parent(host);
+          p.angleMode(p.DEGREES);
+          self._gaugeSetTarget = (v) => { target = v; };
+          self._gaugeResize = () => p.resizeCanvas(host.clientWidth, host.clientHeight);
+          self._gaugeGetAnimated = () => animated;
+        };
+        p.draw = () => {
+          animated += (target - animated) * 0.12;
+          glow = (glow + 1) % 360;
+          p.clear();
+          const cx = p.width/2, cy = p.height*0.78, r = Math.min(p.width, p.height*1.3) * 0.40;
+          // zones
+          const zones = [
+            { from: 180, to: 216, color: p.color(16,185,129) },  // safe
+            { from: 216, to: 252, color: p.color(234,179,8)   }, // caution
+            { from: 252, to: 324, color: p.color(249,115,22)  }, // warning
+            { from: 324, to: 360, color: p.color(239,68,68)   }  // critical
+          ];
+          p.strokeWeight(22);
+          p.noFill();
+          zones.forEach(z => { p.stroke(z.color); p.arc(cx, cy, r*2, r*2, z.from, z.to); });
+          // ticks
+          p.stroke(180); p.strokeWeight(1);
+          for (let i = 0; i <= 10; i++) {
+            const a = 180 + i * 18;
+            const x1 = cx + Math.cos(p.radians(a)) * (r-18);
+            const y1 = cy + Math.sin(p.radians(a)) * (r-18);
+            const x2 = cx + Math.cos(p.radians(a)) * (r-4);
+            const y2 = cy + Math.sin(p.radians(a)) * (r-4);
+            p.line(x1,y1,x2,y2);
+          }
+          // needle
+          const angle = 180 + (animated / 100) * 180;
+          const nx = cx + Math.cos(p.radians(angle)) * (r-14);
+          const ny = cy + Math.sin(p.radians(angle)) * (r-14);
+          // needle glow ring
+          const glowAlpha = 60 + 60 * Math.abs(Math.sin(p.radians(glow*2)));
+          p.noFill();
+          p.stroke(animated > 90 ? p.color(239,68,68,glowAlpha) :
+                   animated > 70 ? p.color(249,115,22,glowAlpha) :
+                   animated > 40 ? p.color(234,179,8,glowAlpha) :
+                                   p.color(16,185,129,glowAlpha));
+          p.strokeWeight(6);
+          p.ellipse(nx, ny, 20, 20);
+          // needle line
+          p.stroke(255); p.strokeWeight(3);
+          p.line(cx, cy, nx, ny);
+          p.noStroke(); p.fill(255); p.ellipse(cx, cy, 14, 14);
+          // readout
+          p.fill(230); p.textSize(p.width * 0.14); p.textAlign(p.CENTER, p.CENTER);
+          p.text(Math.round(animated), cx, cy - r*0.55);
+          p.textSize(11);
+          p.fill(160);
+          p.text('NAPĚTÍ TRANSAKCE', cx, cy - r*0.95);
+        };
+      });
+    },
+    updateGauge() { if (this._gaugeSetTarget) this._gaugeSetTarget(this.tensionRaw()); },
+
+    /* ===== three.js pyramid ===== */
+    renderPyramid() {
+      const host = document.getElementById('pyramid-host');
+      const w = host.clientWidth, h = host.clientHeight;
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(45, w/h, 0.1, 100);
+      camera.position.set(3.5, 3.0, 5.0);
+      camera.lookAt(0, 1.3, 0);
+      const renderer = new THREE.WebGLRenderer({ antialias:true, alpha:true });
+      renderer.setSize(w, h);
+      renderer.setPixelRatio(Math.min(2, window.devicePixelRatio));
+      host.appendChild(renderer.domElement);
+
+      scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+      const dl = new THREE.DirectionalLight(0xffffff, 0.8);
+      dl.position.set(5,8,4);
+      scene.add(dl);
+
+      // Particle field
+      const pg = new THREE.BufferGeometry();
+      const pcount = 220;
+      const positions = new Float32Array(pcount * 3);
+      for (let i = 0; i < pcount*3; i+=3) {
+        positions[i]   = (Math.random() - 0.5) * 10;
+        positions[i+1] = (Math.random() - 0.2) * 5;
+        positions[i+2] = (Math.random() - 0.5) * 10;
+      }
+      pg.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const pm = new THREE.PointsMaterial({ color: 0x4f46e5, size: 0.04, transparent:true, opacity: 0.55 });
+      const particles = new THREE.Points(pg, pm);
+      scene.add(particles);
+
+      // Build 5 stacked truncated pyramids (bottom=wide → top=narrow)
+      const layers = [];
+      const heights = [0.55, 0.5, 0.45, 0.4, 0.35];
+      const radiusTop = [1.55, 1.2, 0.85, 0.5, 0.15];
+      const radiusBot = [1.8, 1.55, 1.2, 0.85, 0.5];
+      let yCursor = 0;
+      for (let i = 0; i < 5; i++) {
+        const geo = new THREE.CylinderGeometry(radiusTop[i], radiusBot[i], heights[i], 4, 1, false);
+        // rotate to make pyramid-like square base orientation
+        geo.rotateY(Math.PI/4);
+        const mat = new THREE.MeshStandardMaterial({
+          color: 0x444444, flatShading:true, metalness: 0.2, roughness: 0.6, transparent:true, opacity: 0.95
+        });
+        const m = new THREE.Mesh(geo, mat);
+        m.position.y = yCursor + heights[i]/2;
+        yCursor += heights[i];
+        m.userData.layerIndex = i;
+        scene.add(m);
+        layers.push(m);
+      }
+
+      // Picking
+      const raycaster = new THREE.Raycaster();
+      const mouse = new THREE.Vector2();
+      renderer.domElement.style.cursor = 'grab';
+      renderer.domElement.addEventListener('pointerdown', (ev) => {
+        const rect = renderer.domElement.getBoundingClientRect();
+        mouse.x = ((ev.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((ev.clientY - rect.top) / rect.height) * 2 + 1;
+        raycaster.setFromCamera(mouse, camera);
+        const hits = raycaster.intersectObjects(layers, false);
+        if (hits.length) {
+          const idx = hits[0].object.userData.layerIndex;
+          this.pyramidPick = PYRAMID[idx];
+        }
+      });
+
+      // Orbit (lightweight — no OrbitControls dep)
+      let dragging = false, lastX = 0, lastY = 0, theta = 0, phi = 0.35;
+      renderer.domElement.addEventListener('pointerdown', (e) => { dragging = true; lastX = e.clientX; lastY = e.clientY; });
+      window.addEventListener('pointerup',   () => { dragging = false; });
+      window.addEventListener('pointermove', (e) => {
+        if (!dragging) return;
+        theta -= (e.clientX - lastX) * 0.01;
+        phi   = Math.max(0.05, Math.min(1.2, phi - (e.clientY - lastY) * 0.01));
+        lastX = e.clientX; lastY = e.clientY;
+      });
+
+      const self = this;
+      this._threeResize = () => {
+        const nw = host.clientWidth, nh = host.clientHeight;
+        renderer.setSize(nw, nh);
+        camera.aspect = nw/nh; camera.updateProjectionMatrix();
+      };
+      this._threeApplyColors = () => {
+        const pressures = self.layerPressures();
+        layers.forEach((m, i) => {
+          const col = pressureToThreeColor(pressures[i]);
+          m.material.color.setStyle(col);
+          m.material.emissive = new THREE.Color(col).multiplyScalar(0.15);
+        });
+      };
+      this._threeApplyColors();
+
+      function pressureToThreeColor(p) {
+        if (p >= 90) return '#ef4444';
+        if (p >= 70) return '#f97316';
+        if (p >= 40) return '#eab308';
+        return '#10b981';
+      }
+
+      function tick() {
+        const r = 6.0;
+        camera.position.x = r * Math.sin(theta) * Math.cos(phi);
+        camera.position.z = r * Math.cos(theta) * Math.cos(phi);
+        camera.position.y = 2.0 + r * Math.sin(phi);
+        camera.lookAt(0, 1.2, 0);
+        particles.rotation.y += 0.0015;
+        renderer.render(scene, camera);
+        requestAnimationFrame(tick);
+      }
+      tick();
+    },
+
+    layerPressures() {
+      // Map axes to pyramid layers:
+      //  0 base chain-of-title ← axes title+alt_buyer(inv)
+      //  1 bonds               ← axes coc + filings
+      //  2 litigation          ← axis litigation
+      //  3 regulatory          ← axes regulatory + price(neutral)
+      //  4 close               ← axis time
+      const c = this.current;
+      const inv = (i) => 100 - c[i];
+      return [
+        (c[2] + inv(6)) / 2,
+        (c[1] + c[3]) / 2,
+        c[0],
+        (c[4] + (100 - c[7]) * 0.5) / 1.5,
+        c[5]
+      ];
+    },
+
+    updatePyramid() { if (this._threeApplyColors) this._threeApplyColors(); },
+
+    exportPng() {
+      // Canvas-based dashboards can be captured via dom-to-canvas; fallback = print dialog.
+      window.print();
+    }
+  };
+}
+</script>
+
+<!-- Keyboard + command palette (shared) -->
+<script src="../_assets/keyboard-shortcuts.js" defer></script>
+
+  <!-- BEGIN:DD_AUTO_LINKIFY -->
+  <script src="../_assets/dd-entity-index.js"></script>
+  <script defer src="../_assets/dd-auto-linkify.js"></script>
+<!-- END:DD_AUTO_LINKIFY -->
+</body>
+</html>

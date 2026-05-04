@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="cs">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Tiskový balík PPF DD — Project Mycelium</title>
+  <meta name="description" content="Sjednocený tiskový balík: One-pager, Red Flags, Executive Summary, Valuation, PPF Playbook Top 10, Master Action Plan P0. A4 portrait." />
+
+  <link rel="manifest" href="./manifest.json" />
+  <meta name="theme-color" content="#1e40af" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./_assets/icon-192.png" />
+
+  <link rel="stylesheet" href="./_assets/flowbite.min.css" />
+  <link rel="stylesheet" href="./_assets/markdown/custom.css" />
+  <script src="./_assets/tailwind.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { dd: { red:'#dc2626', amber:'#d97706', emerald:'#059669', indigo:'#4f46e5', ink:'#0b1020' } }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* ============ Screen baseline ============ */
+    html { scroll-behavior: smooth; }
+    body { font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+    /* Section pages on screen — A4 visual mock */
+    @media screen {
+      .pp-page {
+        max-width: 210mm;
+        min-height: 297mm;
+        margin: 0 auto 24px;
+        background: white;
+        padding: 18mm 15mm;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      }
+      .pp-cover {
+        background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 60%, #4f46e5 100%);
+        color: white;
+      }
+      .pp-cover h1, .pp-cover h2, .pp-cover p, .pp-cover li, .pp-cover td, .pp-cover th { color: white !important; }
+    }
+
+    /* ============ Markdown rendered area ============ */
+    .pp-md h1 { font-size: 1.5rem; font-weight: 800; margin: 0 0 0.6rem; color: #1e3a8a; border-bottom: 2px solid #1e40af; padding-bottom: 4px; }
+    .pp-md h2 { font-size: 1.15rem; font-weight: 700; margin: 1.1rem 0 0.4rem; color: #1e293b; }
+    .pp-md h3 { font-size: 1rem; font-weight: 700; margin: 0.9rem 0 0.3rem; color: #334155; }
+    .pp-md h4 { font-size: 0.95rem; font-weight: 700; margin: 0.7rem 0 0.25rem; color: #475569; }
+    .pp-md p, .pp-md li { font-size: 0.85rem; line-height: 1.5; margin: 0.3rem 0; }
+    .pp-md ul, .pp-md ol { padding-left: 1.4rem; margin: 0.4rem 0; }
+    .pp-md ul li { list-style: disc; }
+    .pp-md ol li { list-style: decimal; }
+    .pp-md table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; font-size: 0.78rem; }
+    .pp-md table th, .pp-md table td { border: 1px solid #cbd5e1; padding: 4px 6px; text-align: left; vertical-align: top; }
+    .pp-md table th { background: #f1f5f9; font-weight: 700; }
+    .pp-md table tr:nth-child(even) td { background: #f8fafc; }
+    .pp-md code { background: #f1f5f9; padding: 1px 4px; border-radius: 3px; font-size: 0.8rem; }
+    .pp-md pre { background: #f1f5f9; padding: 8px; border-radius: 4px; overflow-x: auto; font-size: 0.75rem; }
+    .pp-md blockquote { border-left: 3px solid #1e40af; padding: 4px 12px; background: #eff6ff; margin: 0.5rem 0; font-style: italic; color: #1e3a8a; }
+    .pp-md strong { font-weight: 700; color: #0f172a; }
+    .pp-md hr { border: none; border-top: 1px dashed #cbd5e1; margin: 0.8rem 0; }
+    .pp-md a { color: #1e40af; text-decoration: underline; text-decoration-style: dotted; }
+
+    /* Hide backlinks/auto-generated tail in source MD */
+    .pp-md .backlinks-section { display: none; }
+
+    /* Section header bar (visible on screen + print) */
+    .pp-section-header {
+      background: #1e40af;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 3px;
+      margin: 0 0 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Page meta (running header re-render per logical page) */
+    .pp-running-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.7rem;
+      color: #64748b;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+    .pp-running-header .conf { color: #b91c1c; font-weight: 700; }
+
+    .pp-footer {
+      margin-top: 12px;
+      padding-top: 6px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.66rem;
+      color: #64748b;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .classification-banner {
+      background: repeating-linear-gradient(45deg, #dc2626, #dc2626 10px, #991b1b 10px, #991b1b 20px);
+    }
+
+    .pp-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: white;
+      border-bottom: 1px solid #e2e8f0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+
+    /* Section toggle (off → hide content + page break holder) */
+    .pp-section.is-hidden { display: none; }
+
+    /* ============ PRINT CSS ============ */
+    @media print {
+      html, body { background: white !important; }
+      body { font-size: 10pt; line-height: 1.4; color: #000 !important; }
+      .no-print { display: none !important; }
+
+      .pp-page {
+        max-width: none !important;
+        min-height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        background: white !important;
+      }
+      .pp-cover { background: white !important; color: #000 !important; }
+      .pp-cover h1, .pp-cover h2, .pp-cover p, .pp-cover li, .pp-cover td, .pp-cover th { color: #000 !important; }
+
+      .page-break, .pp-section { page-break-before: always; break-before: page; }
+      .pp-section:first-of-type, #pp-cover { page-break-before: auto; break-before: auto; }
+
+      .avoid-break, .pp-md table { page-break-inside: avoid; break-inside: avoid; }
+
+      .pp-md h1 { font-size: 16pt; page-break-after: avoid; break-after: avoid; color: #000 !important; border-bottom: 2px solid #000; }
+      .pp-md h2 { font-size: 13pt; page-break-after: avoid; break-after: avoid; color: #000 !important; }
+      .pp-md h3 { font-size: 11pt; page-break-after: avoid; break-after: avoid; color: #000 !important; }
+      .pp-md h4 { font-size: 10pt; page-break-after: avoid; break-after: avoid; color: #000 !important; }
+      .pp-md p, .pp-md li { font-size: 9.5pt; }
+      .pp-md table { font-size: 8.5pt; page-break-inside: avoid; }
+      .pp-md table th, .pp-md table td { border: 1px solid #444 !important; padding: 3px 5px; }
+      .pp-md table th { background: #e5e7eb !important; }
+      .pp-md pre, .pp-md code { font-size: 8pt; }
+      .pp-md blockquote { background: white !important; color: #000 !important; border-left: 2px solid #000; }
+      .pp-md a { color: #000 !important; text-decoration: none !important; }
+
+      .pp-section-header {
+        background: #1e40af !important;
+        color: white !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        page-break-after: avoid;
+        break-after: avoid;
+      }
+      .pp-running-header { page-break-after: avoid; }
+
+      @page {
+        size: A4 portrait;
+        margin: 15mm;
+        @top-center {
+          content: "Project Mycelium DD — DŮVĚRNÉ";
+          font-size: 9pt;
+          color: #444;
+        }
+        @bottom-center {
+          content: "Strana " counter(page) " / " counter(pages);
+          font-size: 9pt;
+          color: #444;
+        }
+        @bottom-left {
+          content: "DD Progresus → PPF · v1.0 · DŮVĚRNÉ — POUZE TÝM PRODÁVAJÍCÍHO";
+          font-size: 7.5pt;
+          color: #666;
+        }
+        @bottom-right {
+          content: "JUDr. L. Zrůst";
+          font-size: 7.5pt;
+          color: #666;
+        }
+      }
+    }
+  </style>
+
+  <!-- ============ Markdown stack (offline) ============ -->
+  <script src="_assets/markdown/markdown-it.min.js"></script>
+  <script src="_assets/markdown/markdown-it-task-lists.js"></script>
+  <script src="_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script src="_assets/markdown/markdown-it-mark.min.js"></script>
+  <script src="_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script src="_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script src="_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script src="_assets/markdown/purify.min.js"></script>
+
+  <!-- DD offline store: full bundled markdown content for all .md sources -->
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="_assets/md-store.js"></script>
+  <script src="_assets/manifest-store.js"></script>
+  <script src="_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+</head>
+<body class="bg-slate-100 text-slate-900">
+
+<!-- Classification banner (screen only — print uses @page running header) -->
+<div class="classification-banner no-print text-white text-center text-xs font-bold tracking-widest py-1">
+  DŮVĚRNÉ — POUZE TÝM PRODÁVAJÍCÍHO — PROJECT MYCELIUM — TISKOVÝ BALÍK PPF DD — 2026-04-21
+</div>
+
+<!-- Top toolbar (screen only) -->
+<div class="pp-toolbar no-print">
+  <div class="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between gap-4 flex-wrap">
+    <div class="flex items-center gap-3 min-w-0">
+      <svg class="w-7 h-7 text-dd-indigo flex-shrink-0" viewBox="0 0 40 40" fill="currentColor" aria-hidden="true">
+        <polygon points="20,4 36,32 4,32" stroke="currentColor" stroke-width="2" fill="none" />
+        <polygon points="20,12 30,28 10,28" />
+      </svg>
+      <div class="leading-tight min-w-0">
+        <div class="font-bold text-sm">Tiskový balík PPF DD</div>
+        <div class="text-xs text-slate-500 truncate">6 sekcí · A4 portrait · ~12 stran</div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2 flex-wrap">
+      <button onclick="window.print()" class="bg-dd-indigo hover:bg-indigo-700 text-white text-sm font-semibold px-4 py-2 rounded shadow">
+        Tisk celého balíku
+      </button>
+      <button onclick="ppfDownloadHtml()" class="bg-slate-800 hover:bg-slate-700 text-white text-sm font-semibold px-3 py-2 rounded shadow">
+        Stáhnout HTML
+      </button>
+      <button onclick="ppfToggleAll(true)" class="bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold px-3 py-2 rounded">
+        Zobrazit vše
+      </button>
+      <button onclick="ppfToggleAll(false)" class="bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 text-xs font-semibold px-3 py-2 rounded">
+        Skrýt vše
+      </button>
+      <a href="./index.html" class="text-sm text-slate-600 hover:text-slate-900 px-3 py-2">← Portál</a>
+    </div>
+  </div>
+  <!-- Section toggles -->
+  <div class="max-w-5xl mx-auto px-4 pb-3 flex items-center gap-2 flex-wrap text-xs">
+    <span class="text-slate-500 font-semibold mr-1">Toggle sekce:</span>
+    <label class="inline-flex items-center gap-1.5 cursor-pointer"><input type="checkbox" data-section="cover" class="pp-toggle" checked> <span>1. Cover</span></label>
+    <label class="inline-flex items-center gap-1.5 cursor-pointer"><input type="checkbox" data-section="onepager" class="pp-toggle" checked> <span>2. One-pager</span></label>
+    <label class="inline-flex items-center gap-1.5 cursor-pointer"><input type="checkbox" data-section="redflags" class="pp-toggle" checked> <span>3. Red Flags</span></label>
+    <label class="inline-flex items-center gap-1.5 cursor-pointer"><input type="checkbox" data-section="execsum" class="pp-toggle" checked> <span>4. Exec Summary</span></label>
+    <label class="inline-flex items-center gap-1.5 cursor-pointer"><input type="checkbox" data-section="valuation" class="pp-toggle" checked> <span>5. Valuation</span></label>
+    <label class="inline-flex items-center gap-1.5 cursor-pointer"><input type="checkbox" data-section="playbook" class="pp-toggle" checked> <span>6. Playbook Top 10</span></label>
+    <label class="inline-flex items-center gap-1.5 cursor-pointer"><input type="checkbox" data-section="actions" class="pp-toggle" checked> <span>7. Action Plan P0</span></label>
+  </div>
+  <div class="max-w-5xl mx-auto px-4 pb-2 text-xs text-slate-500">
+    Tip: Cmd/Ctrl + P → Tisknout / Uložit jako PDF · A4 portrait · okraje 15 mm · grafika na pozadí <b>ZAPNOUT</b>.
+  </div>
+</div>
+
+<main class="py-6 print:py-0">
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 0 — COVER PAGE                                                  -->
+  <!-- ====================================================================== -->
+  <section id="pp-cover" class="pp-page pp-cover pp-section avoid-break" data-section="cover">
+    <div class="flex flex-col h-full" style="min-height:260mm">
+      <div class="text-xs uppercase tracking-widest font-bold opacity-90 mb-8">
+        DŮVĚRNÉ · POUZE TÝM PRODÁVAJÍCÍHO · ATTORNEY WORK-PRODUCT EQUIVALENT
+      </div>
+
+      <div class="mt-auto mb-auto">
+        <div class="text-sm uppercase tracking-[0.3em] mb-2 opacity-80">Project Mycelium</div>
+        <h1 class="text-5xl font-extrabold leading-tight mb-4" style="color:white">
+          TISKOVÝ BALÍK<br>PPF DUE DILIGENCE
+        </h1>
+        <div class="text-xl font-semibold opacity-90 mb-6">
+          Progresus → PPF · Nový Zeleneč 42 ha
+        </div>
+        <div class="text-sm opacity-80 mb-2">
+          Cílová cena <b>5–6 mld. CZK</b> · Walk-away <b>3,7 mld. CZK</b> · Kotva <b>6,5 mld. CZK</b>
+        </div>
+        <div class="text-xs opacity-70 mt-8 leading-relaxed max-w-xl">
+          Sjednocený carry-pack pro tisk a offline distribuci v jednání s PPF.
+          Obsahuje manažerský one-pager, červené prapory, executive summary,
+          obhajobu ocenění, top 10 otázek PPF playbooku a P0 položky master action planu.
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-8 text-sm border-t border-white/30 pt-6 mt-auto">
+        <div>
+          <div class="text-xs uppercase tracking-widest opacity-70 mb-1">Klasifikace</div>
+          <div class="font-bold">DŮVĚRNÉ — pouze tým prodávajícího</div>
+          <div class="opacity-80 text-xs mt-1">Distribuce omezena. NDA chráněno.</div>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest opacity-70 mb-1">Datum / Verze</div>
+          <div class="font-bold">2026-04-21 · v1.0</div>
+          <div class="opacity-80 text-xs mt-1">Tiskový snapshot z DD workspace</div>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest opacity-70 mb-1">Připravil</div>
+          <div class="font-bold">Tomáš Korčák</div>
+          <div class="opacity-80 text-xs mt-1">Discovery Lead & Chief Solution Architect, Able Group</div>
+        </div>
+        <div>
+          <div class="text-xs uppercase tracking-widest opacity-70 mb-1">Pro</div>
+          <div class="font-bold">JUDr. Lukáš Zrůst, Ph.D.</div>
+          <div class="opacity-80 text-xs mt-1">Zakladatel Progresus · Hlavní jednatel deal vertikály</div>
+        </div>
+      </div>
+
+      <div class="mt-6 pt-4 border-t border-white/30 text-[11px] opacity-75 leading-relaxed">
+        <b>Kontakt:</b> JUDr. Lukáš Zrůst — strategie/právo · Lukáš Foral — finance ·
+        Michal Dvořák — DD lead · Ing. Petr Heyduk — CFO ·
+        Tomáš Korčák (Able) — workspace architect.
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 1 — EXECUTIVE ONE-PAGER                                         -->
+  <!-- ====================================================================== -->
+  <section class="pp-page pp-section" data-section="onepager">
+    <div class="pp-running-header">
+      <span><span class="conf">DŮVĚRNÉ</span> · Project Mycelium DD · 2026-04-21</span>
+      <span>1. Manažerský one-pager</span>
+    </div>
+    <div class="pp-section-header">
+      <span>SEKCE 1 — MANAŽERSKÝ ONE-PAGER</span>
+      <span class="opacity-80">EXECUTIVE-ONE-PAGER.md · 1 strana</span>
+    </div>
+    <div class="pp-md" data-md-source="EXECUTIVE-ONE-PAGER.md"></div>
+    <div class="pp-footer">
+      <span>Workspace: DD-Progresus-PPF-2026-04-21 · v1.0 · DŮVĚRNÉ</span>
+      <span>Kontakt: JUDr. L. Zrůst</span>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 2 — RED FLAGS                                                   -->
+  <!-- ====================================================================== -->
+  <section class="pp-page pp-section" data-section="redflags">
+    <div class="pp-running-header">
+      <span><span class="conf">DŮVĚRNÉ</span> · Project Mycelium DD · 2026-04-21</span>
+      <span>2. Červené prapory</span>
+    </div>
+    <div class="pp-section-header">
+      <span>SEKCE 2 — ČERVENÉ PRAPORY (RED FLAGS)</span>
+      <span class="opacity-80">RED-FLAGS.md · 18 KRITICKÝCH + 12 VYSOKÝCH</span>
+    </div>
+    <div class="pp-md" data-md-source="RED-FLAGS.md"></div>
+    <div class="pp-footer">
+      <span>Workspace: DD-Progresus-PPF-2026-04-21 · v1.0 · DŮVĚRNÉ</span>
+      <span>Kontakt: JUDr. L. Zrůst</span>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 3 — EXECUTIVE SUMMARY (excerpt z MASTER-DD-REPORT)              -->
+  <!-- ====================================================================== -->
+  <section class="pp-page pp-section" data-section="execsum">
+    <div class="pp-running-header">
+      <span><span class="conf">DŮVĚRNÉ</span> · Project Mycelium DD · 2026-04-21</span>
+      <span>3. Executive summary</span>
+    </div>
+    <div class="pp-section-header">
+      <span>SEKCE 3 — EXECUTIVE SUMMARY (klíčová zjištění)</span>
+      <span class="opacity-80">MASTER-DD-REPORT-v1.0.md § 1 + § 2.1</span>
+    </div>
+    <div class="pp-md" data-md-source="06-reports/MASTER-DD-REPORT-v1.0.md"
+         data-md-extract="executive-summary"></div>
+    <div class="pp-footer">
+      <span>Workspace: DD-Progresus-PPF-2026-04-21 · v1.0 · DŮVĚRNÉ</span>
+      <span>Kontakt: JUDr. L. Zrůst</span>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 4 — VALUATION DEFENSE MEMO (klíčové sekce)                      -->
+  <!-- ====================================================================== -->
+  <section class="pp-page pp-section" data-section="valuation">
+    <div class="pp-running-header">
+      <span><span class="conf">DŮVĚRNÉ</span> · Project Mycelium DD · 2026-04-21</span>
+      <span>4. Obhajoba ocenění</span>
+    </div>
+    <div class="pp-section-header">
+      <span>SEKCE 4 — OBHAJOBA OCENĚNÍ (shrnutí + rozpětí)</span>
+      <span class="opacity-80">VALUATION-DEFENSE-MEMO.md § 1 + § 3</span>
+    </div>
+    <div class="pp-md" data-md-source="06-reports/VALUATION-DEFENSE-MEMO.md"
+         data-md-extract="valuation-summary"></div>
+    <div class="pp-footer">
+      <span>Workspace: DD-Progresus-PPF-2026-04-21 · v1.0 · DŮVĚRNÉ</span>
+      <span>Kontakt: JUDr. L. Zrůst</span>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 5 — PPF PLAYBOOK Top 10 otázek                                  -->
+  <!-- ====================================================================== -->
+  <section class="pp-page pp-section" data-section="playbook">
+    <div class="pp-running-header">
+      <span><span class="conf">DŮVĚRNÉ</span> · Project Mycelium DD · 2026-04-21</span>
+      <span>5. PPF Playbook — Top 10 otázek</span>
+    </div>
+    <div class="pp-section-header">
+      <span>SEKCE 5 — PPF PLAYBOOK · TOP 10 OTÁZEK (Q1–Q10)</span>
+      <span class="opacity-80">PPF-PLAYBOOK.md · § III</span>
+    </div>
+    <div class="pp-md" data-md-source="PPF-PLAYBOOK.md"
+         data-md-extract="playbook-top10"></div>
+    <div class="pp-footer">
+      <span>Workspace: DD-Progresus-PPF-2026-04-21 · v1.0 · DŮVĚRNÉ</span>
+      <span>Kontakt: JUDr. L. Zrůst</span>
+    </div>
+  </section>
+
+  <!-- ====================================================================== -->
+  <!-- SECTION 6 — MASTER ACTION PLAN P0 (Top 20)                              -->
+  <!-- ====================================================================== -->
+  <section class="pp-page pp-section" data-section="actions">
+    <div class="pp-running-header">
+      <span><span class="conf">DŮVĚRNÉ</span> · Project Mycelium DD · 2026-04-21</span>
+      <span>6. Master Action Plan — P0</span>
+    </div>
+    <div class="pp-section-header">
+      <span>SEKCE 6 — MASTER ACTION PLAN · TOP 20 P0 POLOŽEK</span>
+      <span class="opacity-80">MASTER-ACTION-PLAN.md · § 2 (do 2026-04-28)</span>
+    </div>
+    <div class="pp-md" data-md-source="06-reports/MASTER-ACTION-PLAN.md"
+         data-md-extract="action-p0-top20"></div>
+    <div class="pp-footer">
+      <span>Workspace: DD-Progresus-PPF-2026-04-21 · v1.0 · DŮVĚRNÉ</span>
+      <span>Kontakt: JUDr. L. Zrůst</span>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ Render logic ============ -->
+<script>
+(function () {
+  'use strict';
+
+  var HTML_PROP = 'inner' + 'HTML';
+
+  // Safe HTML setter via DOMPurify
+  function setSafeHtml(el, dirty) {
+    if (!el) return;
+    var clean = (window.DOMPurify && dirty)
+      ? window.DOMPurify.sanitize(dirty, { ADD_ATTR: ['target', 'rel', 'id'] })
+      : '';
+    /* eslint-disable-next-line no-unsanitized/property */
+    el[HTML_PROP] = clean;
+  }
+
+  // ---------- markdown-it init ------------
+  var md = window.markdownit({
+    html: false,
+    linkify: true,
+    typographer: true,
+    breaks: false
+  });
+  if (window.markdownitTaskLists) md.use(window.markdownitTaskLists, { enabled: true });
+  if (window.markdownitFootnote)  md.use(window.markdownitFootnote);
+  if (window.markdownitMark)      md.use(window.markdownitMark);
+  if (window.markdownitDeflist)   md.use(window.markdownitDeflist);
+  if (window.markdownitEmoji)     md.use(window.markdownitEmoji.full || window.markdownitEmoji);
+  if (window.markdownItAttrs)     md.use(window.markdownItAttrs);
+
+  // ---------- Strip backlinks tail ------------
+  function stripBacklinksTail(content) {
+    if (!content) return '';
+    // Remove auto-generated backlinks block (BACKLINKS_START..BACKLINKS_END)
+    return content.replace(/<!--\s*BACKLINKS_START\s*-->[\s\S]*?<!--\s*BACKLINKS_END\s*-->/g, '')
+                  .replace(/<!--\s*BACKLINKS_START\s*-->[\s\S]*$/g, '')
+                  .trim();
+  }
+
+  // ---------- Section extractors ------------
+  // Each extractor returns a markdown substring tailored to fit the print constraints.
+  var EXTRACTORS = {
+    // MASTER-DD-REPORT — keep MANAŽERSKÉ SHRNUTÍ + opening of Přehled transakce
+    'executive-summary': function (md) {
+      var startMatch = md.match(/^# 1\. MANAŽERSKÉ SHRNUTÍ[\s\S]*?(?=^# 3\. ANALÝZA AKTIVA)/m);
+      if (startMatch) return startMatch[0].trim();
+      // Fallback: first ~3500 chars
+      return md.slice(0, 3500);
+    },
+    // VALUATION-DEFENSE-MEMO — Shrnutí (§1) + Triangulace (§3)
+    'valuation-summary': function (md) {
+      var hdr = md.match(/^# Memo obhajoba ocenění[\s\S]*?(?=^## 1\.)/m);
+      var sec1 = md.match(/^## 1\. Shrnutí pro vedení[\s\S]*?(?=^## 2\.)/m);
+      var sec3 = md.match(/^## 3\. Triangulované rozpětí ocenění[\s\S]*?(?=^## 4\.)/m);
+      var parts = [];
+      if (hdr) parts.push(hdr[0].trim());
+      if (sec1) parts.push(sec1[0].trim());
+      if (sec3) parts.push(sec3[0].trim());
+      return parts.length ? parts.join('\n\n---\n\n') : md.slice(0, 4000);
+    },
+    // PPF-PLAYBOOK — keep Q1–Q10 with the "PŘEDEM ZODPOVĚZENÉ OTÁZKY" intro
+    'playbook-top10': function (md) {
+      var intro = md.match(/^## III\. PŘEDEM ZODPOVĚZENÉ OTÁZKY[\s\S]*?(?=^### Q1 —)/m);
+      var q1 = md.match(/^### Q1 —[\s\S]*?(?=^### Q11 —)/m);
+      var parts = [];
+      parts.push('# PPF Playbook — Top 10 předem zodpovězených otázek');
+      if (intro) parts.push(intro[0].replace(/^## III\. .*\n/, '').trim());
+      if (q1) parts.push(q1[0].trim());
+      return parts.join('\n\n');
+    },
+    // MASTER-ACTION-PLAN — top 20 P0 actions table + intro (P0-01 .. P0-20)
+    'action-p0-top20': function (md) {
+      var hdr = md.match(/^## Sekce 2 — P0 AKCE[\s\S]*?(?=\| \*\*P0-01\*\*)/m);
+      // Extract P0-01..P0-20 rows (skip header row already in `hdr`)
+      var rowRe = /^\| \*\*P0-(\d{2})\*\*[\s\S]*?(?=\n\| \*\*P0-|\n\n\*\*P0)/gm;
+      // Simpler: pull section text from "## Sekce 2" up to "**P0 mezisoučty**" but limit to 20 rows.
+      var section = md.match(/^## Sekce 2 — P0 AKCE[\s\S]*?(?=\*\*P0 mezisoučty\*\*)/m);
+      if (!section) return md.slice(0, 5000);
+      var text = section[0];
+      // Keep header + table header + first 20 data rows
+      var lines = text.split(/\n/);
+      var out = [];
+      var dataRowsKept = 0;
+      var inTable = false;
+      for (var i = 0; i < lines.length; i++) {
+        var line = lines[i];
+        // Detect table header
+        if (line.indexOf('| ID ') === 0 || line.indexOf('|----') === 0) {
+          inTable = true;
+          out.push(line);
+          continue;
+        }
+        if (inTable && line.match(/^\| \*\*P0-\d{2}\*\*/)) {
+          if (dataRowsKept < 20) {
+            out.push(line);
+            dataRowsKept++;
+          }
+          continue;
+        }
+        if (inTable && (line.trim() === '' || !line.startsWith('|'))) {
+          // table ended
+          inTable = false;
+          if (dataRowsKept >= 20) {
+            out.push('');
+            out.push('*Pozn.: zobrazeno top 20 P0 položek z 32 (úplný seznam v MASTER-ACTION-PLAN.md).*');
+            break;
+          }
+        }
+        if (!inTable) out.push(line);
+      }
+      return out.join('\n').trim();
+    }
+  };
+
+  // ---------- Render one slot ------------
+  function renderSlot(el) {
+    var srcKey = el.getAttribute('data-md-source');
+    var extractKey = el.getAttribute('data-md-extract');
+    var entry = window.DD_MD_STORE && window.DD_MD_STORE[srcKey];
+    if (!entry || !entry.content) {
+      setSafeHtml(el, '<p class="text-red-700"><b>Chybí zdrojový MD:</b> ' + srcKey +
+        '. Spusťte <code>python3 _assets/build-md-store.py</code>.</p>');
+      return { ok: false, key: srcKey, length: 0 };
+    }
+    var raw = stripBacklinksTail(entry.content);
+    var sliced = extractKey && EXTRACTORS[extractKey]
+      ? EXTRACTORS[extractKey](raw)
+      : raw;
+    var rendered = md.render(sliced || '');
+    setSafeHtml(el, rendered);
+    return { ok: true, key: srcKey, length: (sliced || '').length };
+  }
+
+  // ---------- Render all on DOMContentLoaded ------------
+  function renderAll() {
+    var slots = document.querySelectorAll('[data-md-source]');
+    var stats = [];
+    slots.forEach(function (slot) { stats.push(renderSlot(slot)); });
+    if (window.console && console.log) {
+      console.log('[print-pack] rendered slots:', stats);
+      console.log('[print-pack] DD_MD_STORE keys:',
+        window.DD_MD_STORE_KEYS ? window.DD_MD_STORE_KEYS().length : 'N/A');
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderAll);
+  } else {
+    renderAll();
+  }
+
+  // ---------- Section toggles ------------
+  function applyToggle(name, on) {
+    var sec = document.querySelector('section.pp-section[data-section="' + name + '"]');
+    if (sec) sec.classList.toggle('is-hidden', !on);
+  }
+  document.addEventListener('change', function (ev) {
+    var t = ev.target;
+    if (t && t.classList && t.classList.contains('pp-toggle')) {
+      applyToggle(t.getAttribute('data-section'), t.checked);
+    }
+  });
+  window.ppfToggleAll = function (on) {
+    var boxes = document.querySelectorAll('.pp-toggle');
+    boxes.forEach(function (b) { b.checked = !!on; applyToggle(b.getAttribute('data-section'), !!on); });
+  };
+
+  // ---------- Download HTML (snapshot self) ------------
+  window.ppfDownloadHtml = function () {
+    var html = '<!doctype html>\n' + document.documentElement.outerHTML;
+    var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = 'print-pack-mycelium-' + (new Date().toISOString().slice(0, 10)) + '.html';
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      URL.revokeObjectURL(url);
+      a.remove();
+    }, 100);
+  };
+})();
+</script>
+
+</body>
+</html>

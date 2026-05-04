@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Komunikační rozcestník — Spouštěč šablon · Project Mycelium</title>
+<link rel="stylesheet" href="../_assets/flowbite.min.css">
+<link rel="stylesheet" href="../_assets/viz-common.css">
+<script src="../_assets/tailwind.min.js"></script>
+<script src="../_assets/chart.min.js" defer></script>
+<script src="../_assets/flowbite.min.js" defer></script>
+<script src="../_assets/alpine.min.js" defer></script>
+<style>
+  [x-cloak]{display:none!important}
+  pre.preview{white-space:pre-wrap;word-wrap:break-word;font-size:11px;line-height:1.5;max-height:280px;overflow:auto;background:rgba(15,23,42,0.04);padding:.75rem;border-radius:.375rem;border:1px solid rgba(15,23,42,0.08)}
+  .dark pre.preview{background:rgba(15,23,42,0.5);border-color:rgba(148,163,184,.2)}
+</style>
+<!-- mycelium-markdown:injected -->
+  <link rel="stylesheet" href="../_assets/markdown/custom.css">
+  <script defer src="../_assets/markdown/markdown-it.min.js"></script>
+  <script defer src="../_assets/markdown/markdownItAnchor.umd.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-task-lists.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-mark.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script defer src="../_assets/md-embed.js"></script>
+  <script defer src="../_assets/inline-md-autoload.js"></script>
+
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="../_assets/md-store.js"></script>
+  <script src="../_assets/manifest-store.js"></script>
+  <script src="../_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans" x-data="comms()" :class="{'dark':dark}">
+
+<nav class="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="text-sm text-slate-500 hover:text-red-600 dark:hover:text-red-400">← Portál</a>
+      <span class="text-slate-300 dark:text-slate-700">|</span>
+      <span class="font-bold tracking-tight">PRISMATIC · Komunikační rozcestník</span>
+      <span class="hidden md:inline-block text-xs px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">7 ŠABLON</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <span class="text-xs text-slate-500"><span x-text="sentCount()"></span>/7 odesláno</span>
+      <button @click="resetStatus" class="text-xs text-red-500 hover:underline">↻ resetovat</button>
+      <button @click="dark=!dark" class="text-sm px-2 py-1 rounded border border-slate-300 dark:border-slate-700">
+        <span x-show="!dark">🌙</span><span x-show="dark">☀️</span>
+      </button>
+    </div>
+  </div>
+</nav>
+  <nav class="breadcrumb text-sm text-gray-400 mb-4 px-4 max-w-screen-2xl mx-auto no-print" aria-label="breadcrumb">
+    <ol class="flex flex-wrap items-center gap-2">
+      <li><a href="../index.html" class="hover:text-white hover:underline">🏠 Portál</a></li>
+      <li class="text-gray-500">/</li>
+      <li><a href="../reader.html?file=08-comms-templates/README.md" class="hover:text-white hover:underline">✉️ 08-comms</a></li>
+      <li class="text-gray-500">/</li>
+      <li class="text-white font-medium">comms-hub.html</li>
+    </ol>
+  </nav>
+
+
+
+<header class="max-w-7xl mx-auto px-4 pt-8 pb-4">
+  <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Komunikační šablony — Oblouk transakce</h1>
+  <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-3xl">Sedm šablon pokrývá životní cyklus od podpisu NDA přes tlak DD, souhlas dluhopisníků, schválení §23a, proaktivní zveřejnění DANCORE až po stress-test NDA Savills. Kliknutím na kartu zobrazíte trigger, příjemce, náhled a plnou šablonu. Stav se ukládá lokálně.</p>
+</header>
+
+<!-- Progress -->
+<section class="max-w-7xl mx-auto px-4 pb-4">
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+    <div class="flex items-center justify-between">
+      <h2 class="font-bold">🗓️ Časová osa nasazení</h2>
+      <div class="flex items-center gap-3 text-xs">
+        <span><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1"></span>odesláno</span>
+        <span><span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-1"></span>rozpracováno</span>
+        <span><span class="inline-block w-2 h-2 rounded-full bg-slate-400 mr-1"></span>čeká</span>
+        <a href="../reader.html?file=08-comms-templates/README.md" class="text-red-600 hover:underline">📖 Otevřít zdroj</a>
+      </div>
+    </div>
+    <div class="viz-container viz-container--short mt-3"><canvas id="timelineChart"></canvas></div>
+    <p class="text-xs text-slate-500 mt-2">Vodorovná osa = pracovní dny od T=0 (podpis NDA). Šířka pruhu = aktivní okno; barva = aktuální stav. · 📖 Zdroj: <a class="underline hover:text-red-500" href="../reader.html?file=08-comms-templates/README.md">README</a></p>
+  </div>
+</section>
+
+<!-- Cards grid -->
+<section class="max-w-7xl mx-auto px-4 py-6">
+  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <template x-for="t in templates" :key="t.id">
+      <article @click="open(t)"
+        class="cursor-pointer group p-5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-red-500 transition relative">
+        <div class="absolute top-3 right-3 text-xs flex gap-1">
+          <span class="px-2 py-0.5 rounded-full"
+                :class="statusFor(t.id)==='sent'?'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300':statusFor(t.id)==='drafted'?'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300':'bg-slate-200 text-slate-600 dark:bg-slate-800 dark:text-slate-400'"
+                x-text="statusFor(t.id)"></span>
+        </div>
+        <div class="text-3xl" x-text="t.icon"></div>
+        <h3 class="mt-2 font-bold text-lg" x-text="t.title"></h3>
+        <div class="text-xs text-slate-500 mt-1" x-text="t.when"></div>
+        <p class="mt-3 text-sm text-slate-600 dark:text-slate-400" x-text="t.summary"></p>
+        <div class="mt-3 flex flex-wrap gap-1">
+          <template x-for="tag in t.tags" :key="tag">
+            <span class="text-[10px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400" x-text="tag"></span>
+          </template>
+        </div>
+        <div class="mt-3 flex flex-wrap gap-2" @click.stop>
+          <a :href="'../reader.html?file=08-comms-templates/' + t.file"
+             class="text-[11px] px-2.5 py-1 rounded bg-red-600 hover:bg-red-500 text-white">
+            📖 Otevřít šablonu
+          </a>
+          <a :href="t.file" target="_blank"
+             class="text-[11px] px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200">
+            📄 Raw .md
+          </a>
+        </div>
+      </article>
+    </template>
+  </div>
+</section>
+
+<!-- Modal -->
+<div x-show="selected" x-cloak @click="selected=null" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+  <div @click.stop class="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 max-w-3xl w-full max-h-[92vh] overflow-auto" x-show="selected">
+    <template x-if="selected">
+      <div class="p-6">
+        <div class="flex items-start justify-between">
+          <div>
+            <div class="text-3xl" x-text="selected.icon"></div>
+            <h2 class="text-2xl font-bold mt-1" x-text="selected.title"></h2>
+            <p class="text-xs text-slate-500 mt-1" x-text="selected.summary"></p>
+          </div>
+          <button @click="selected=null" class="text-slate-400 hover:text-red-500 text-2xl leading-none">&times;</button>
+        </div>
+
+        <div class="mt-4 grid grid-cols-2 gap-2 text-sm">
+          <div class="p-2 rounded bg-slate-100 dark:bg-slate-800/60">
+            <div class="text-[10px] uppercase text-slate-500">Kdy odeslat</div>
+            <div class="text-xs" x-text="selected.when"></div>
+          </div>
+          <div class="p-2 rounded bg-slate-100 dark:bg-slate-800/60">
+            <div class="text-[10px] uppercase text-slate-500">Komu</div>
+            <div class="text-xs" x-text="selected.to"></div>
+          </div>
+          <div class="p-2 rounded bg-slate-100 dark:bg-slate-800/60">
+            <div class="text-[10px] uppercase text-slate-500">Související red flags</div>
+            <div class="text-xs" x-text="selected.flags.join(', ')"></div>
+          </div>
+          <div class="p-2 rounded bg-slate-100 dark:bg-slate-800/60">
+            <div class="text-[10px] uppercase text-slate-500">Okno (pracovní dny)</div>
+            <div class="text-xs" x-text="'T+'+selected.start+' → T+'+selected.end"></div>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <div class="flex items-center justify-between mb-1 flex-wrap gap-2">
+            <div class="text-xs uppercase text-slate-500">Náhled (prvních 30 řádků)</div>
+            <div class="flex items-center gap-2">
+              <a class="text-xs px-2.5 py-1 rounded bg-red-600 hover:bg-red-500 text-white" :href="'../reader.html?file=08-comms-templates/' + selected.file">📖 Otevřít zdroj v readeru</a>
+              <a class="text-xs px-2.5 py-1 rounded bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200" :href="selected.file" target="_blank">📄 Raw .md →</a>
+            </div>
+          </div>
+          <pre class="preview" x-text="selected.preview || 'Načítání náhledu…'"></pre>
+        </div>
+
+        <div class="mt-4 flex gap-2 flex-wrap">
+          <button @click="setStatus(selected.id,'pending')"
+                  :class="statusFor(selected.id)==='pending'?'bg-slate-500 text-white':'bg-slate-200 dark:bg-slate-800'"
+                  class="text-xs px-3 py-1.5 rounded">Čeká</button>
+          <button @click="setStatus(selected.id,'drafted')"
+                  :class="statusFor(selected.id)==='drafted'?'bg-amber-500 text-white':'bg-slate-200 dark:bg-slate-800'"
+                  class="text-xs px-3 py-1.5 rounded">Označit jako rozpracované</button>
+          <button @click="setStatus(selected.id,'sent')"
+                  :class="statusFor(selected.id)==='sent'?'bg-emerald-500 text-white':'bg-slate-200 dark:bg-slate-800'"
+                  class="text-xs px-3 py-1.5 rounded">Označit jako odeslané</button>
+        </div>
+      </div>
+    </template>
+  </div>
+</div>
+
+<!-- STICKY SOURCE FOOTER STRIP -->
+<section class="max-w-7xl mx-auto px-4 py-4 sticky bottom-0 z-20 no-print">
+  <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur border border-slate-200 dark:border-slate-800 rounded-lg p-3">
+    <div class="flex flex-wrap items-center gap-2 text-xs">
+      <span class="text-slate-500 uppercase tracking-wide font-semibold">📖 Zdroje šablon:</span>
+      <a href="../reader.html?file=08-comms-templates/README.md" class="px-3 py-1.5 rounded bg-red-600 hover:bg-red-500 text-white">📖 README</a>
+      <a href="../reader.html?file=08-comms-templates/NDA-EXCLUSIVITY-DRAFT.md" class="px-3 py-1.5 rounded bg-slate-700 hover:bg-slate-600 text-white">📝 NDA</a>
+      <a href="../reader.html?file=08-comms-templates/BONDHOLDER-CONSENT-SOLICITATION.md" class="px-3 py-1.5 rounded bg-amber-600 hover:bg-amber-500 text-white">📜 Souhlas dluhopisníků</a>
+      <a href="../reader.html?file=08-comms-templates/DANCORE-DISCLOSURE-LETTER.md" class="px-3 py-1.5 rounded bg-rose-600 hover:bg-rose-500 text-white">⚖️ DANCORE disclosure</a>
+      <a href="../reader.html?file=PPF-PLAYBOOK.md" class="px-3 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white">📜 Playbook</a>
+    </div>
+  </div>
+</section>
+
+<footer class="max-w-7xl mx-auto px-4 py-10 text-xs text-slate-500 border-t border-slate-200 dark:border-slate-800 mt-10">
+  <div class="flex flex-wrap gap-4 justify-between">
+    <div>
+      <div class="font-bold text-slate-700 dark:text-slate-300">PRISMATIC · Project Mycelium</div>
+      <div>Disciplína komunikace prodávajícího · v každé šabloně k dispozici česká i anglická verze</div>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href="../index.html" class="hover:underline">Portál</a>
+      <a href="../01-intel/stakeholder-map.html" class="hover:underline">Stakeholdeři</a>
+      <a href="../01-intel/ppf-governance.html" class="hover:underline">Governance</a>
+      <a href="../06-reports/valuation-calculator.html" class="hover:underline">Ocenění</a>
+      <a href="../reader.html?file=RED-FLAGS.md" class="hover:underline">Red flags</a>
+      <a href="../reader.html?file=PPF-PLAYBOOK.md" class="hover:underline">Playbook</a>
+    </div>
+  </div>
+  <div class="mt-4">Důvěrné · 2026-04-21 · Stav se ukládá pouze do localStorage. Žádná data neopouštějí prohlížeč.</div>
+</footer>
+
+<script>
+function comms(){
+  // Chart instance must live outside the Alpine reactive proxy or chart.update()
+  // recurses infinitely through the wrapping Proxy.
+  let _timelineChart = null;
+  return {
+    dark: window.matchMedia('(prefers-color-scheme: dark)').matches,
+    selected: null, status: {},
+    templates: [
+      { id:'nda', icon:'📝', title:'NDA a exkluzivita',
+        file:'NDA-EXCLUSIVITY-DRAFT.md',
+        when:'Den T=0. Před jakýmkoliv přístupem do datové místnosti.',
+        to:'Tým PPF + externí právní zástupce PPF',
+        summary:'Vzájemné NDA + 8týdenní exkluzivita transakce. Lockout jmenovaných uchazečů (Karlín Group + 7 rivalů).',
+        flags:['RF-33 únik informací','RF-28 dluhopisníci'],
+        tags:['NDA','exkluzivita','úvod'],
+        start: 0, end: 3, color:'#10b981' },
+
+      { id:'cnb', icon:'🏦', title:'Žádost o schválení ČNB §23a',
+        file:'CNB-23A-CLEARANCE-REQUEST.md',
+        when:'Trigger: PPF poprvé zmíní PPF banku jako financiéra.',
+        to:'Tým PPF + právní zástupci (BBH/DLA/KŠB) · kopie Zrůst',
+        summary:'Formální žádost o povolení ČNB §23a ZoB pro spřízněnou osobu (manželé Jirásková/Jirásko). Páka vzájemně zaručeného odhalení.',
+        flags:['RF-30 manželé','RF-31 AMALAR SoF'],
+        tags:['regulace','páka','symetrické'],
+        start: 7, end: 21, color:'#dc2626' },
+
+      { id:'bond', icon:'📜', title:'Žádost o souhlas dluhopisníků',
+        file:'BONDHOLDER-CONSENT-SOLICITATION.md',
+        when:'Dny T+10–45. 5 paralelních procesů u 5 emitentů.',
+        to:'Registrovaní vlastníci · 5 emitentů · 68 tranší · 7,6 mld. Kč stack',
+        summary:'Souhlas se změnou ovládání. RD Rýmařov Invest Develop + 4 další emitenti. Náklady na souhlas hradí prodávající.',
+        flags:['RF-28 dluhopisový stack 7,6 mld.','RF-4 retailové prodejní taktiky'],
+        tags:['finance','CoC','více emitentů'],
+        start: 10, end: 45, color:'#f59e0b' },
+
+      { id:'ddresp', icon:'📬', title:'Rámec odpovědí PPF DD',
+        file:'PPF-DD-RESPONSE-FRAMEWORK.md',
+        when:'Každý DD požadavek PPF. 3stupňová SLA: 48 h / 5 d / 10 d.',
+        to:'Tým prodávajícího (Zrůst, Foral, Dvořák, Korčák, Duchoň, Faraga)',
+        summary:'Standardizovaná disciplinovaná odpověď. Stupně triage. Pravidlo jednoho hlasu. Eliminuje rozporné odpovědi.',
+        flags:['Všechny DD RF — meta-šablona'],
+        tags:['provoz','disciplína','standardizace'],
+        start: 1, end: 60, color:'#3b82f6' },
+
+      { id:'debrief', icon:'🎙️', title:'Debrief po jednání',
+        file:'POST-MEETING-DEBRIEF-TEMPLATE.md',
+        when:'Do 3 hodin po každém živém jednání / hovoru / videu s PPF.',
+        to:'Pouze interní tým prodávajícího',
+        summary:'„Pokud debrief neexistuje do 3 hodin, jednání se nestalo." Zachycuje dotazy, závazky, tón, další kroky.',
+        flags:['Provozní disciplína'],
+        tags:['interní','paměť','taktické'],
+        start: 2, end: 60, color:'#8b5cf6' },
+
+      { id:'dancore', icon:'⚖️', title:'Dopis o zveřejnění DANCORE',
+        file:'DANCORE-DISCLOSURE-LETTER.md',
+        when:'Týden 1 aktivního DD, po protipodpisu NDA, datová místnost aktivní.',
+        to:'Tým PPF (Tošek / Ševela) + externí právní zástupce PPF',
+        summary:'Proaktivní zveřejnění sériového sporu DANCORE LLC (Nevada). „Proaktivní zveřejnění poráží reaktivní obranu."',
+        flags:['RF-26 spor DANCORE','RF-27 prodlení s podáním'],
+        tags:['spor','proaktivní','právní'],
+        start: 5, end: 10, color:'#ef4444' },
+
+      { id:'savills', icon:'🏠', title:'Stress-test NDA Savills',
+        file:'SAVILLS-NDA-STRESS-TEST-EMAIL.md',
+        when:'Ihned po podpisu NDA mezi PPF a Progresus. Před nahráním jakéhokoliv dokumentu odkazujícího na Savills.',
+        to:'Savills Czech Republic — partner pro vztah / vedoucí oceňování',
+        summary:'Potvrzuje: (a) žádný konfliktní mandát, (b) pokrytí NDA je jednoznačné, (c) ocenění z roku 2024 nebylo zpřístupněno potenciálním kupujícím.',
+        flags:['Řízení vektorů úniku'],
+        tags:['poradci','kontrola úniku','protistrana'],
+        start: 1, end: 5, color:'#0ea5e9' },
+    ],
+
+    statusFor(id){ return this.status[id] || 'pending'; },
+    sentCount(){ return Object.values(this.status).filter(s=>s==='sent').length; },
+    setStatus(id, s){
+      this.status[id] = s;
+      try { localStorage.setItem('prismatic_comms_status', JSON.stringify(this.status)); } catch(e){}
+      this.updateTimeline();
+    },
+    resetStatus(){ this.status = {}; try { localStorage.removeItem('prismatic_comms_status'); } catch(e){} this.updateTimeline(); },
+    async open(t){
+      this.selected = t;
+      if(!t.preview){
+        // Offline-first: prefer bundled DD_MD_STORE (works over file://).
+        // The comms-hub.html lives at 08-comms-templates/; t.file paths look
+        // like "SAVILLS-NDA-STRESS-TEST-EMAIL.md" relative to that dir, so we
+        // prefix with the dir name for the store lookup.
+        const storeKey = t.file.includes('/') ? t.file : '08-comms-templates/' + t.file;
+        if (typeof window.DD_MD_STORE_GET === 'function') {
+          const entry = window.DD_MD_STORE_GET(storeKey);
+          if (entry && typeof entry.content === 'string') {
+            t.preview = entry.content.split('\n').slice(0, 30).join('\n');
+            return;
+          }
+        }
+        try {
+          const resp = await fetch(t.file);
+          if(resp.ok){
+            const text = await resp.text();
+            const first30 = text.split('\n').slice(0, 30).join('\n');
+            t.preview = first30;
+          } else {
+            t.preview = '(náhled souboru se nepodařilo načíst — otevřete plnou šablonu)';
+          }
+        } catch(e){
+          t.preview = '(náhled nedostupný — spusťte „python3 _assets/build-md-store.py" pro offline náhledy nebo použijte http://)';
+        }
+      }
+    },
+
+    updateTimeline(){
+      if(!_timelineChart) return;
+      const statusColor = (id, base) => {
+        const s = this.statusFor(id);
+        if(s==='sent') return '#10b981';
+        if(s==='drafted') return '#f59e0b';
+        return '#94a3b8';
+      };
+      const backgrounds = this.templates.map(t => statusColor(t.id, t.color));
+      _timelineChart.data.datasets[0].backgroundColor = backgrounds;
+      _timelineChart.update('none');
+    },
+
+    init(){
+      try {
+        const raw = localStorage.getItem('prismatic_comms_status');
+        if(raw) this.status = JSON.parse(raw) || {};
+      } catch(e){}
+
+      const tryInit = () => {
+        if(window.Chart){
+          const labels = this.templates.map(t => t.title);
+          const bars = this.templates.map(t => [t.start, t.end]);
+          const bgs = this.templates.map(t => {
+            const s = this.statusFor(t.id);
+            if(s==='sent') return '#10b981';
+            if(s==='drafted') return '#f59e0b';
+            return '#94a3b8';
+          });
+          const ctx = document.getElementById('timelineChart').getContext('2d');
+          _timelineChart = new Chart(ctx, {
+            type:'bar',
+            data:{
+              labels,
+              datasets:[{
+                label:'Aktivní okno (pracovní dny)',
+                data: bars,
+                backgroundColor: bgs,
+                borderSkipped: false,
+                borderRadius: 4,
+                barThickness: 16,
+              }]
+            },
+            options:{
+              indexAxis:'y',
+              responsive:true, maintainAspectRatio:false,
+              plugins:{ legend:{ display:false }, tooltip:{ callbacks:{ label:(c)=>'T+'+c.raw[0]+' → T+'+c.raw[1] } } },
+              scales:{
+                x:{ min:0, max:65, title:{ display:true, text:'pracovní dny od T=0 (podpis NDA)', color:'#94a3b8' }, ticks:{ color:'#94a3b8' }, grid:{ color:'#334155' } },
+                y:{ ticks:{ color:'#94a3b8', font:{ size:10 } }, grid:{ display:false } }
+              }
+            }
+          });
+        } else setTimeout(tryInit, 80);
+      };
+      tryInit();
+      window.addEventListener('resize', () => {
+        if (_timelineChart) _timelineChart.resize();
+      }, { passive: true });
+    }
+  };
+}
+</script>
+
+  <!-- Related sidebar (injected by add-related-sidebar.py) -->
+  <div data-connections-sidebar="injected" x-data="{ openRel: false }" class="no-print">
+    <button type="button"
+      @click="openRel = !openRel"
+      class="fixed right-4 bottom-4 z-40 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium shadow-lg rounded-full px-4 py-2 flex items-center gap-2"
+      aria-label="Přepnout související soubory">
+      <span>📎</span><span>Související</span>
+    </button>
+    <aside
+      x-show="openRel"
+      x-transition
+      @click.away="openRel = false"
+      class="fixed right-4 bottom-20 z-40 w-80 max-h-[70vh] overflow-y-auto bg-gray-900 border border-gray-700 text-gray-100 rounded-lg shadow-2xl p-4"
+      style="display: none;">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-white">📎 Související soubory</h3>
+        <button type="button" @click="openRel = false" class="text-gray-400 hover:text-white" aria-label="Zavřít">✕</button>
+      </div>
+      <div id="connections-related-panel" class="text-sm">
+        <p class="text-gray-500 italic">Načítání…</p>
+      </div>
+    </aside>
+  </div>
+  <script src="../_assets/connections.js"></script>
+  <script>
+    (function () {
+      if (!window.Connections) return;
+      window.Connections.init().then(function () {
+        var el = document.getElementById('connections-related-panel');
+        if (el) window.Connections.renderBacklinksPanel(el, '08-comms-templates/comms-hub.html');
+      }).catch(function (err) {
+        var el = document.getElementById('connections-related-panel');
+        if (el) el.textContent = 'Graf není dostupný: ' + err.message;
+      });
+    })();
+  </script>
+
+<!-- mycelium-ux:injected -->
+  <script defer src="../_assets/cmdk.js"></script>
+  <script src="../_assets/hover-previews.js"></script>
+  <script src="../_assets/keyboard-shortcuts.js"></script>
+  <script src="../_assets/state-sync.js"></script>
+  <script src="../_assets/connections.js"></script>
+
+  <script defer src="../_assets/viz-debug.js"></script>
+  <!-- BEGIN:DD_AUTO_LINKIFY -->
+  <script src="../_assets/dd-entity-index.js"></script>
+  <script defer src="../_assets/dd-auto-linkify.js"></script>
+<!-- END:DD_AUTO_LINKIFY -->
+</body>
+</html>

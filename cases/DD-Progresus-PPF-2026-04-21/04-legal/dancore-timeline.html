@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Časová osa DANCORE — 6letý oblouk soudního sporu o titul</title>
+<link rel="stylesheet" href="../_assets/flowbite.min.css">
+<link rel="stylesheet" href="../_assets/viz-common.css">
+<script src="../_assets/tailwind.min.js"></script>
+<script src="../_assets/chart.min.js" defer></script>
+<script src="../_assets/alpine.min.js" defer></script>
+<script src="../_assets/flowbite.min.js" defer></script>
+<style>
+  body { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+  .terminal { font-family: ui-monospace, 'SF Mono', Menlo, monospace; }
+  .gauge-svg { transform: rotate(-90deg); }
+  @media print { .no-print { display: none !important; } }
+</style>
+<!-- mycelium-markdown:injected -->
+  <link rel="stylesheet" href="../_assets/markdown/custom.css">
+  <script defer src="../_assets/markdown/markdown-it.min.js"></script>
+  <script defer src="../_assets/markdown/markdownItAnchor.umd.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-task-lists.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-mark.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script defer src="../_assets/md-embed.js"></script>
+  <script defer src="../_assets/inline-md-autoload.js"></script>
+
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="../_assets/md-store.js"></script>
+  <script src="../_assets/manifest-store.js"></script>
+  <script src="../_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-100 transition-colors"
+      x-data="dancoreApp()" :class="{'dark': dark}">
+
+<nav class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 no-print">
+  <div class="max-w-screen-2xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="text-sm text-gray-500 hover:text-blue-600">← Portál</a>
+      <span class="text-gray-300 dark:text-gray-600">/</span>
+      <a href="./" class="text-sm text-gray-500 hover:text-blue-600">04-legal</a>
+      <span class="text-gray-300 dark:text-gray-600">/</span>
+      <span class="text-sm font-semibold">Časová osa DANCORE</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="./DANCORE-FORENSIC-DOSSIER.md" class="text-xs text-gray-500 hover:text-blue-600">Kompletní dosier</a>
+      <a href="./legal-exposure.md" class="text-xs text-gray-500 hover:text-blue-600">legal-exposure.md</a>
+      <button @click="dark = !dark" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-sm">
+        <span x-show="!dark">🌙</span><span x-show="dark">☀️</span>
+      </button>
+    </div>
+  </div>
+</nav>
+  <nav class="breadcrumb text-sm text-gray-400 mb-4 px-4 max-w-screen-2xl mx-auto no-print" aria-label="breadcrumb">
+    <ol class="flex flex-wrap items-center gap-2">
+      <li><a href="../index.html" class="hover:text-white hover:underline">🏠 Portál</a></li>
+      <li class="text-gray-500">/</li>
+      <li><a href="./README.md" class="hover:text-white hover:underline">⚖️ 04-legal</a></li>
+      <li class="text-gray-500">/</li>
+      <li class="text-white font-medium">dancore-timeline.html</li>
+    </ol>
+  </nav>
+
+
+
+<!-- banner -->
+<div class="bg-red-900 text-white text-center py-2 text-xs terminal font-bold tracking-wide">
+  <a class="dd-xref" href="../reader.html?file=RED-FLAGS.md#rf-26">RF-26</a> KRITICKÉ · 6letý sériový soudní spor · odvolání <a class="dd-xref" href="../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md">30 Co 228/2019-1538</a> STÁLE AKTIVNÍ · podáno 2024-11-18
+</div>
+
+<header class="max-w-screen-2xl mx-auto px-4 py-5 no-print">
+  <h1 class="text-2xl md:text-3xl font-bold">DANCORE LLC v. Progresus — Oblouk soudního sporu</h1>
+  <p class="text-sm text-gray-600 dark:text-gray-400 terminal">
+    Nevada LLC #E0353972015-2 · spis <a class="dd-xref" href="../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md">30 Co 228/2019-1538</a> Krajský soud Praha · obrana dobré víry §984
+  </p>
+</header>
+
+<main class="max-w-screen-2xl mx-auto px-4 pb-10 space-y-6">
+
+  <!-- EXPOSURE KPIs -->
+  <section class="grid grid-cols-2 md:grid-cols-4 gap-3">
+    <a href="../reader.html?file=04-legal/legal-exposure.md" class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition block">
+      <p class="text-[11px] uppercase text-gray-500 dark:text-gray-400 terminal">Očekávaná hodnota</p>
+      <p class="text-2xl font-bold terminal">102,5<span class="text-xs text-gray-500">mil. Kč</span></p>
+      <p class="text-[10px] text-blue-500 terminal mt-1">📖 Zdroj: legal-exposure.md</p>
+    </a>
+    <a href="../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md" class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 hover:border-amber-500 transition block">
+      <p class="text-[11px] uppercase text-gray-500 dark:text-gray-400 terminal">Doporučený escrow</p>
+      <p class="text-2xl font-bold text-amber-500 terminal">250-400<span class="text-xs text-gray-500">mil. Kč</span></p>
+      <p class="text-[10px] text-amber-500 terminal mt-1">📖 Zdroj: DANCORE dosier</p>
+    </a>
+    <a href="../reader.html?file=04-legal/legal-exposure.md" class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 hover:border-red-500 transition block">
+      <p class="text-[11px] uppercase text-gray-500 dark:text-gray-400 terminal">Riziko v krajních scénářích</p>
+      <p class="text-2xl font-bold text-red-500 terminal">1,0<span class="text-xs text-gray-500">mld. Kč</span></p>
+      <p class="text-[10px] text-red-500 terminal mt-1">📖 Zdroj: legal-exposure.md</p>
+    </a>
+    <a href="../reader.html?file=04-legal/isir-court-sweep.md" class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 hover:border-blue-500 transition block">
+      <p class="text-[11px] uppercase text-gray-500 dark:text-gray-400 terminal">Velikost spisu</p>
+      <p class="text-2xl font-bold terminal">1 538<span class="text-xs text-gray-500">dok.</span></p>
+      <p class="text-[10px] text-blue-500 terminal mt-1">📖 Zdroj: ISIR sken</p>
+    </a>
+  </section>
+
+  <!-- TIMELINE CHART -->
+  <section class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+    <div class="flex items-center justify-between mb-2">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 terminal">Oblouk soudního sporu (2015 → současnost)</h2>
+      <div class="flex items-center gap-3">
+        <span class="text-[11px] text-gray-500 terminal">najetím myší = detaily</span>
+        <a href="../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md" class="text-[11px] text-blue-500 hover:underline terminal">📖 Otevřít zdroj</a>
+      </div>
+    </div>
+    <div class="viz-container viz-container--medium"><canvas id="timeline-chart"></canvas></div>
+    <p class="text-[11px] text-gray-500 mt-2 terminal">📖 Zdroj: <a class="underline hover:text-blue-500" href="../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md">DANCORE-FORENSIC-DOSSIER.md</a></p>
+  </section>
+
+  <!-- EVENT LIST + GAUGE -->
+  <section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 lg:col-span-2">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 terminal">Záznam událostí</h2>
+        <a href="../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md" class="text-[11px] text-blue-500 hover:underline terminal">📖 Otevřít zdroj</a>
+      </div>
+      <ol class="relative border-s-2 border-gray-200 dark:border-gray-700 ms-2 space-y-4">
+        <template x-for="(e, i) in events" :key="i">
+          <li class="ms-4">
+            <span class="absolute w-3 h-3 rounded-full -start-1.5 mt-1.5 border-2"
+                  :class="{
+                    'bg-red-500 border-red-700': e.severity === 'critical',
+                    'bg-amber-500 border-amber-700': e.severity === 'high',
+                    'bg-blue-500 border-blue-700': e.severity === 'info',
+                    'bg-green-500 border-green-700': e.severity === 'ok'
+                  }"></span>
+            <time class="text-[11px] text-gray-500 terminal" x-text="e.date"></time>
+            <h3 class="text-sm font-bold" x-text="e.title"></h3>
+            <p class="text-xs text-gray-600 dark:text-gray-400" x-text="e.desc"></p>
+            <p x-show="e.next" class="text-[11px] terminal mt-1 text-amber-600 dark:text-amber-300">
+              Další procesní krok: <span x-text="e.next"></span>
+            </p>
+            <a :href="e.source || '../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md'"
+               class="inline-block mt-1 text-[11px] text-blue-500 hover:underline terminal">📖 Otevřít zdroj</a>
+          </li>
+        </template>
+      </ol>
+    </div>
+
+    <!-- Bad-faith gauge -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 terminal">Riziko obrany v dobré víře</h2>
+        <a href="../reader.html?file=04-legal/legal-exposure.md" class="text-[11px] text-blue-500 hover:underline terminal">📖 Otevřít zdroj</a>
+      </div>
+      <div class="relative flex items-center justify-center">
+        <svg class="gauge-svg" width="220" height="220" viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="48" stroke-width="10" fill="none"
+                  class="stroke-gray-200 dark:stroke-gray-700"/>
+          <circle cx="60" cy="60" r="48" stroke-width="10" fill="none"
+                  stroke-linecap="round"
+                  :style="'stroke: ' + riskColor() + '; stroke-dasharray: ' + riskArc() + ', 301.6'"/>
+        </svg>
+        <div class="absolute text-center">
+          <p class="text-4xl font-bold terminal" x-text="riskScore"></p>
+          <p class="text-[11px] text-gray-500 uppercase terminal">expozice §984</p>
+        </div>
+      </div>
+      <div class="mt-4 space-y-2 text-xs terminal">
+        <label class="flex items-center justify-between">
+          <span>Váha profilu IS Zrůst</span>
+          <input type="range" min="0" max="10" x-model.number="factors.iaProfile" class="w-32">
+          <span x-text="factors.iaProfile"></span>
+        </label>
+        <label class="flex items-center justify-between">
+          <span>Práh skutečné vědomosti</span>
+          <input type="range" min="0" max="10" x-model.number="factors.actualKnowledge" class="w-32">
+          <span x-text="factors.actualKnowledge"></span>
+        </label>
+        <label class="flex items-center justify-between">
+          <span>Riziko odvolacího senátu</span>
+          <input type="range" min="0" max="10" x-model.number="factors.tribunalRisk" class="w-32">
+          <span x-text="factors.tribunalRisk"></span>
+        </label>
+        <label class="flex items-center justify-between">
+          <span>Překryv US 2:18-cv-01136</span>
+          <input type="range" min="0" max="10" x-model.number="factors.usOverlap" class="w-32">
+          <span x-text="factors.usOverlap"></span>
+        </label>
+      </div>
+      <p class="text-[11px] text-gray-500 mt-2 terminal">
+        Veřejný profil Zrůsta jako insolvenčního správce vytváří cestu „skutečné vědomosti" podkopávající nabyvatele v dobré víře dle §984.
+      </p>
+    </div>
+  </section>
+
+  <!-- SCENARIO CHART -->
+  <section class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+    <div class="flex items-center justify-between mb-2">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 terminal">Scénáře expozice (mil. Kč)</h2>
+      <a href="../reader.html?file=04-legal/legal-exposure.md" class="text-[11px] text-blue-500 hover:underline terminal">📖 Otevřít zdroj</a>
+    </div>
+    <div class="viz-container viz-container--short"><canvas id="scenario-chart"></canvas></div>
+    <p class="text-[11px] text-gray-500 mt-2 terminal">Rozsah: 0 (zamítnuto) → 1 000+ (odvolání vyhověno, nucené vyrovnání) · 📖 Zdroj: <a class="underline hover:text-blue-500" href="../reader.html?file=04-legal/legal-exposure.md">legal-exposure.md</a></p>
+  </section>
+
+  <!-- STICKY SOURCE FOOTER STRIP -->
+  <section class="sticky bottom-0 z-20 bg-white/95 dark:bg-gray-800/95 backdrop-blur border border-gray-200 dark:border-gray-700 rounded-lg p-3 no-print">
+    <div class="flex flex-wrap items-center gap-2 text-xs terminal">
+      <span class="text-gray-500 uppercase tracking-wide">📖 Zdroje:</span>
+      <a href="../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md" class="px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-500 text-white">📁 Dosier DANCORE</a>
+      <a href="../reader.html?file=04-legal/legal-exposure.md" class="px-3 py-1.5 rounded bg-amber-600 hover:bg-amber-500 text-white">⚖ Právní expozice</a>
+      <a href="../reader.html?file=04-legal/isir-court-sweep.md" class="px-3 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white">🔍 ISIR sken</a>
+      <a href="../reader.html?file=RED-FLAGS.md#rf-26" class="px-3 py-1.5 rounded bg-red-700 hover:bg-red-600 text-white">🚨 RF-26</a>
+      <a href="../reader.html?file=04-legal/README.md" class="px-3 py-1.5 rounded bg-slate-600 hover:bg-slate-500 text-white">📁 04-legal</a>
+    </div>
+  </section>
+</main>
+
+<footer class="max-w-screen-2xl mx-auto px-4 pb-6 text-[11px] text-gray-500 dark:text-gray-400 terminal no-print">
+  Chart.js · Alpine reactive · data: <a class="underline" href="./DANCORE-FORENSIC-DOSSIER.md">DANCORE-FORENSIC-DOSSIER.md</a>
+</footer>
+
+<script>
+function dancoreApp() {
+  return {
+    dark: true,
+    factors: { iaProfile: 7, actualKnowledge: 6, tribunalRisk: 5, usOverlap: 6 },
+    events: [
+      { date:'2015-07-23', title:'DANCORE LLC založeno (Nevada)', desc:'Entita #E0353972015-2 registrována v Las Vegas; shell vlastnictví; účel později identifikován jako vehikl pro jednorázový soudní spor.', severity:'info', next:'BOI dotaz přes subpoenu', source:'../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md' },
+      { date:'2018',       title:'Dancore LLC v. Zika, 2:18-cv-01136', desc:'Samostatná federální žaloba v USA podaná v D. Nev. proti „Zika" (české příjmení) — potvrzuje DANCORE jako AKTIVNÍ žalobce. V žádném dokumentu Progresus neuvedeno.', severity:'critical', next:'Stažení z PACER', source:'../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md' },
+      { date:'2019',       title:'Žaloba v 1. stupni v ČR', desc:'Původní nárok podán u Okresního soudu Praha-východ; soudem prvního stupně zamítnuto.', severity:'high', source:'../reader.html?file=04-legal/isir-court-sweep.md' },
+      { date:'2019',       title:'Odvolání zapsáno 30 Co 228/2019', desc:'DANCORE se odvolává proti zamítnutí. Věc přidělena senátu 30 Krajského soudu Praha — „Co" odvolací občanskoprávní.', severity:'info', source:'../reader.html?file=04-legal/isir-court-sweep.md' },
+      { date:'2021',       title:'Progresus nabývá přes III. alpha', desc:'RD Rýmařov Invest III. alpha s.r.o. přebírá cílovou společnost Nový Zeleneč a.s. uprostřed aktivního soudního sporu. Začíná obrana nabyvatele v dobré víře dle §984.', severity:'high', source:'../reader.html?file=04-legal/legal-exposure.md' },
+      { date:'2024-06-25', title:'Druhé zamítnutí KS Praha', desc:'Druhé zamítnutí na odvolací úrovni nároku DANCORE. Nikoliv res iudicata.', severity:'ok', next:'Sledovat další odvolání', source:'../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md' },
+      { date:'2024-11-18', title:'Odvolání podáno — STÁLE AKTIVNÍ', desc:'Třetí instance / druhé odvolání podáno. 1 538 dokumentů ve spisu = procesní manévrování, znalci. Horizont vyřešení: 12-24 měsíců.', severity:'critical', next:'Čekat na rozhodnutí; připravit důkazní balíček §984', source:'../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md' },
+      { date:'2026-04-21', title:'Aktuální stav (datum DD)', desc:'Odvolání nevyřízeno. Dluhopisový prospekt Progresus charakterizuje jako „vyřešeno" — forenzně zavádějící. Doporučení DD pro PPF: escrow 250-400 mil. Kč + carve-out W&I.', severity:'critical', source:'../reader.html?file=RED-FLAGS.md#rf-26' }
+    ],
+
+    get riskScore() {
+      const f = this.factors;
+      const raw = (f.iaProfile*1.5 + f.actualKnowledge*2 + f.tribunalRisk*1.2 + f.usOverlap*1.0);
+      return Math.min(100, Math.round(raw * 1.8));
+    },
+
+    riskArc() { return (this.riskScore / 100 * 301.6).toFixed(1); },
+    riskColor() {
+      if (this.riskScore >= 70) return '#ef4444';
+      if (this.riskScore >= 45) return '#f59e0b';
+      return '#10b981';
+    },
+
+    init() {
+      this._charts = [];
+      this.renderTimeline();
+      this.renderScenarios();
+      window.addEventListener('resize', () => {
+        (this._charts || []).forEach(c => c && c.resize());
+      }, { passive: true });
+    },
+
+    renderTimeline() {
+      const ev = this.events;
+      const ctx = document.getElementById('timeline-chart').getContext('2d');
+      const sevScore = { info:1, ok:1.5, high:2.5, critical:4 };
+      this._charts.push(new Chart(ctx, {
+        type: 'scatter',
+        data: {
+          datasets: [{
+            label: 'Události',
+            data: ev.map((e,i) => ({ x: parseInt(e.date.slice(0,4)), y: sevScore[e.severity], r: 8 + sevScore[e.severity]*2, e })),
+            backgroundColor: ev.map(e => ({info:'#3b82f6', ok:'#10b981', high:'#f59e0b', critical:'#ef4444'})[e.severity])
+          }]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            title: { display:true, text:'Časová osa událostí DANCORE (2014-2027)', color:'#e5e7eb', font:{ size:13, weight:'600' } },
+            subtitle: { display:true, text:'RF-26 · 6letý spis KS Praha · odvolání 2024-11-18 AKTIVNÍ', color:'#9ca3af', font:{ size:10, style:'italic' }, padding:{ bottom:6 } },
+            legend: { display: false },
+            tooltip: { callbacks: { label: c => c.raw.e.date + ' — ' + c.raw.e.title }}
+          },
+          scales: {
+            x: { type:'linear', min:2014, max:2027, title:{ display:true, text:'Kalendářní rok', color:'#9ca3af' }, ticks:{ color:'#9ca3af' }, grid:{ color:'rgba(148,163,184,0.12)' }},
+            y: { min:0, max:5,
+                 ticks: { color:'#9ca3af',
+                          callback: v => ({ 1:'info', 1.5:'ok', 2.5:'vysoká', 4:'kritická' })[v] || '' },
+                 title: { display:true, text:'Závažnost', color:'#9ca3af' }, grid:{ color:'rgba(148,163,184,0.12)' }}
+          }
+        }
+      }));
+    },
+
+    renderScenarios() {
+      const ctx = document.getElementById('scenario-chart').getContext('2d');
+      this._charts.push(new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Odvolání zamítnuto (status quo)','Částečné vyrovnání','Plné vyrovnání','Částečná restituce','Nucený protiodkup','Nepříznivé rozhodnutí'],
+          datasets: [
+            { label:'Základní odhad mil. Kč',
+              data: [0, 75, 150, 300, 500, 1000],
+              backgroundColor: ['#10b981','#3b82f6','#3b82f6','#f59e0b','#f59e0b','#ef4444'] }
+          ]
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false,
+          plugins: {
+            title: { display:true, text:'Scénáře expozice (základní odhad mil. Kč)', color:'#e5e7eb', font:{ size:13, weight:'600' } },
+            subtitle: { display:true, text:'DANCORE-DOSSIER §5 · vážených 102,5 mil. · escrow 250-400 mil. · tail 1,0 mld.', color:'#9ca3af', font:{ size:10, style:'italic' }, padding:{ bottom:6 } },
+            legend: { display: false },
+            tooltip: { callbacks: { label: c => c.parsed.y + ' mil. Kč' } }
+          },
+          scales: {
+            y: { beginAtZero: true, title:{ display:true, text:'Základní odhad (mil. Kč)', color:'#9ca3af' }, ticks: { color:'#9ca3af' }, grid:{ color:'rgba(148,163,184,0.12)' } },
+            x: { title:{ display:true, text:'Scénář', color:'#9ca3af' }, ticks: { color: '#9ca3af', font:{size:10} }, grid:{ display:false } }
+          }
+        }
+      }));
+    }
+  };
+}
+</script>
+
+  <!-- Related sidebar (injected by add-related-sidebar.py) -->
+  <div data-connections-sidebar="injected" x-data="{ openRel: false }" class="no-print">
+    <button type="button"
+      @click="openRel = !openRel"
+      class="fixed right-4 bottom-4 z-40 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium shadow-lg rounded-full px-4 py-2 flex items-center gap-2"
+      aria-label="Přepnout související soubory">
+      <span>📎</span><span>Související</span>
+    </button>
+    <aside
+      x-show="openRel"
+      x-transition
+      @click.away="openRel = false"
+      class="fixed right-4 bottom-20 z-40 w-80 max-h-[70vh] overflow-y-auto bg-gray-900 border border-gray-700 text-gray-100 rounded-lg shadow-2xl p-4"
+      style="display: none;">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-white">📎 Související soubory</h3>
+        <button type="button" @click="openRel = false" class="text-gray-400 hover:text-white" aria-label="Zavřít">✕</button>
+      </div>
+      <div id="connections-related-panel" class="text-sm">
+        <p class="text-gray-500 italic">Načítání…</p>
+      </div>
+    </aside>
+  </div>
+  <script src="../_assets/connections.js"></script>
+  <script>
+    (function () {
+      if (!window.Connections) return;
+      window.Connections.init().then(function () {
+        var el = document.getElementById('connections-related-panel');
+        if (el) window.Connections.renderBacklinksPanel(el, '04-legal/dancore-timeline.html');
+      }).catch(function (err) {
+        var el = document.getElementById('connections-related-panel');
+        if (el) el.textContent = 'Graf není dostupný: ' + err.message;
+      });
+    })();
+  </script>
+
+<!-- mycelium-ux:injected -->
+  <script defer src="../_assets/cmdk.js"></script>
+  <script src="../_assets/hover-previews.js"></script>
+  <script src="../_assets/keyboard-shortcuts.js"></script>
+  <script src="../_assets/state-sync.js"></script>
+  <script src="../_assets/connections.js"></script>
+
+  <script defer src="../_assets/viz-debug.js"></script>
+  <!-- BEGIN:DD_AUTO_LINKIFY -->
+  <script src="../_assets/dd-entity-index.js"></script>
+  <script defer src="../_assets/dd-auto-linkify.js"></script>
+<!-- END:DD_AUTO_LINKIFY -->
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daňová kalkulačka dopadů — Progresus/PPF · Project Mycelium</title>
+<link rel="stylesheet" href="../_assets/flowbite.min.css">
+<link rel="stylesheet" href="../_assets/viz-common.css">
+<script src="../_assets/tailwind.min.js"></script>
+<script src="../_assets/chart.min.js" defer></script>
+<script src="../_assets/flowbite.min.js" defer></script>
+<script src="../_assets/alpine.min.js" defer></script>
+<style>
+  [x-cloak]{display:none!important}
+  .pulse-red{box-shadow:0 0 0 0 rgba(220,38,38,.6);animation:pulse 2s infinite}
+  @keyframes pulse{70%{box-shadow:0 0 0 16px rgba(220,38,38,0)}100%{box-shadow:0 0 0 0 rgba(220,38,38,0)}}
+  @media print{.no-print{display:none!important}body{background:white!important;color:black!important}}
+  input[type=range]{accent-color:#dc2626}
+</style>
+<!-- mycelium-markdown:injected -->
+  <link rel="stylesheet" href="../_assets/markdown/custom.css">
+  <script defer src="../_assets/markdown/markdown-it.min.js"></script>
+  <script defer src="../_assets/markdown/markdownItAnchor.umd.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-task-lists.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-mark.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script defer src="../_assets/md-embed.js"></script>
+  <script defer src="../_assets/inline-md-autoload.js"></script>
+
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="../_assets/md-store.js"></script>
+  <script src="../_assets/manifest-store.js"></script>
+  <script src="../_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+  <script defer src="../_assets/dd-scenario.js"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans"
+      x-data="taxApp()" :class="{'dark': dark}">
+
+<nav class="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 no-print">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="text-sm text-slate-500 hover:text-red-600 dark:hover:text-red-400">← Portál</a>
+      <span class="text-slate-300 dark:text-slate-700">|</span>
+      <span class="font-bold tracking-tight">PRISMATIC · Daňová kalkulačka dopadů</span>
+      <span class="hidden md:inline-block text-xs px-2 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300"><a class="dd-xref" href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md">§19 ZDP</a> / §54 ZDPH</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="TAX-STRUCTURE-MEMO.md" class="text-xs hidden sm:inline hover:underline">📄 Memorandum</a>
+      <a href="../06-reports/valuation-calculator.html" class="text-xs hidden sm:inline hover:underline">💰 Ocenění</a>
+      <button @click="window.print()" class="text-xs hidden sm:inline hover:underline no-print">🖨</button>
+      <button @click="dark=!dark" class="text-sm px-2 py-1 rounded border border-slate-300 dark:border-slate-700">
+        <span x-show="!dark">🌙</span><span x-show="dark">☀️</span>
+      </button>
+    </div>
+  </div>
+</nav>
+  <nav class="breadcrumb text-sm text-gray-400 mb-4 px-4 max-w-screen-2xl mx-auto no-print" aria-label="breadcrumb">
+    <ol class="flex flex-wrap items-center gap-2">
+      <li><a href="../index.html" class="hover:text-white hover:underline">🏠 Portál</a></li>
+      <li class="text-gray-500">/</li>
+      <li><a href="./README.md" class="hover:text-white hover:underline">💰 03-financial</a></li>
+      <li class="text-gray-500">/</li>
+      <li class="text-white font-medium">tax-calculator.html</li>
+    </ol>
+  </nav>
+
+
+
+<header class="max-w-7xl mx-auto px-4 pt-8 pb-4">
+  <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Daňový dopad — Share vs Asset vs Hybrid</h1>
+  <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-3xl">Živý model pro CZ DPPO 19 % + §19 osvobození podílů + §54 ZDPH + náklady DANCORE / CoC. Posuňte vstupy — vodopád, indikátor rozhodnutí a srovnání se přepočítají v reálném čase. Vše v Kč (přepočet 25 Kč/EUR po najetí myší).</p>
+</header>
+
+<!-- KPI strip -->
+<section class="max-w-7xl mx-auto px-4 pt-2 pb-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+  <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 hover:border-red-500 transition block">
+    <div class="text-xs uppercase text-slate-500">Hrubý výnos</div>
+    <div class="text-2xl font-bold mt-1" x-text="fmt(gross)+' Kč'"></div>
+    <div class="text-xs text-slate-500 mt-1" x-text="structureLabel()"></div>
+    <div class="text-[10px] text-red-600 mt-1">📖 Zdroj: TAX-STRUCTURE-MEMO.md</div>
+  </a>
+  <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 hover:border-red-500 transition block">
+    <div class="text-xs uppercase text-slate-500">Česká DPPO 19 %</div>
+    <div class="text-2xl font-bold mt-1" :class="cit>0?'text-amber-600':'text-emerald-600'"
+         x-text="(cit>0?'-':'')+fmt(Math.abs(cit))+' Kč'"></div>
+    <div class="text-xs text-slate-500 mt-1" x-text="citNote()"></div>
+    <div class="text-[10px] text-red-600 mt-1">📖 Zdroj: TAX-STRUCTURE-MEMO.md</div>
+  </a>
+  <a href="../reader.html?file=04-legal/DANCORE-FORENSIC-DOSSIER.md" class="rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 hover:border-amber-500 transition block">
+    <div class="text-xs uppercase text-slate-500">Vedlejší náklady</div>
+    <div class="text-2xl font-bold mt-1 text-amber-600" x-text="'-'+fmt(sideCosts)+' Kč'"></div>
+    <div class="text-xs text-slate-500 mt-1">DANCORE + poplatek CoC + gross-up</div>
+    <div class="text-[10px] text-red-600 mt-1">📖 Zdroj: DANCORE-FORENSIC-DOSSIER.md</div>
+  </a>
+  <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-300 dark:border-red-700 p-4 pulse-red block hover:border-red-700 transition">
+    <div class="text-xs uppercase text-red-700 dark:text-red-300">Čistý výnos prodávajícího</div>
+    <div class="text-3xl font-bold mt-1 text-red-700 dark:text-red-300" x-text="fmt(netSeller)+' Kč'"></div>
+    <div class="text-xs text-slate-600 dark:text-slate-400 mt-1" x-text="'≈ €'+fmt(Math.round(netSeller/25))+' při 25 Kč/EUR'"></div>
+    <div class="text-[10px] text-red-700 dark:text-red-300 mt-1">📖 Zdroj: TAX-STRUCTURE-MEMO.md</div>
+  </a>
+</section>
+
+<!-- Two-column layout -->
+<section class="max-w-7xl mx-auto px-4 py-4 grid md:grid-cols-12 gap-4">
+  <!-- Inputs -->
+  <div class="md:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="font-bold text-lg">⚙️ Parametry transakce</h2>
+      <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="text-xs text-red-600 hover:underline">📖 Otevřít zdroj</a>
+    </div>
+    <div class="space-y-5">
+      <!-- price -->
+      <div>
+        <div class="flex justify-between text-sm"><span class="font-medium">Kupní cena</span>
+          <span class="tabular-nums font-bold" x-text="fmt(price)+' Kč ('+priceBn.toFixed(1)+' mld.)'"></span></div>
+        <input type="range" min="3000000000" max="8000000000" step="100000000" x-model.number="price" class="w-full mt-1">
+        <div class="flex justify-between text-[10px] text-slate-500"><span>3,0 mld. (dno)</span><span>5,0 mld. (cíl)</span><span>8,0 mld. (býčí)</span></div>
+      </div>
+      <!-- tax basis -->
+      <div>
+        <div class="flex justify-between text-sm"><span class="font-medium">Daňová pořizovací hodnota prodávajícího (historicky 2007-2021)</span>
+          <span class="tabular-nums font-bold" x-text="fmt(basis)+' Kč'"></span></div>
+        <input type="range" min="300000000" max="1500000000" step="50000000" x-model.number="basis" class="w-full mt-1">
+        <div class="flex justify-between text-[10px] text-slate-500"><span>300 mil. (éra Nuka)</span><span>800 mil. (střed)</span><span>1,5 mld. (strop)</span></div>
+      </div>
+      <!-- structure -->
+      <div>
+        <div class="text-sm font-medium mb-1">Struktura transakce</div>
+        <div class="grid grid-cols-3 gap-2">
+          <template x-for="s in ['share','asset','hybrid']" :key="s">
+            <button @click="structure=s"
+                    class="px-3 py-2 rounded text-xs font-bold border transition"
+                    :class="structure===s?'bg-red-600 text-white border-red-700':'bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700'"
+                    x-text="s==='share'?'Share deal':s==='asset'?'Asset deal':'Hybrid'"></button>
+          </template>
+        </div>
+        <p class="mt-2 text-[11px] text-slate-500" x-text="structureExplain()"></p>
+      </div>
+      <!-- participation exemption -->
+      <div x-show="structure!=='asset'" class="border-l-4 border-emerald-500 pl-3">
+        <label class="text-sm font-medium flex items-center gap-2">
+          <input type="checkbox" x-model="partExempt" class="rounded text-red-600">
+          Uplatní se <a class="dd-xref" href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md">§19 ZDP</a> — osvobození podílů
+        </label>
+        <p class="text-[11px] text-slate-500 mt-1">Držba 5+ let (Progresus 2021) ✓ · 100 % ≥10 % ✓ · CZ rezident ✓ · není v likvidaci ✓. Nutno ověřit aktuálnost podání (riziko prodlení NZ a.s. — <a class="dd-xref" href="../reader.html?file=RED-FLAGS.md#rf-27">RF-27</a>).</p>
+      </div>
+      <!-- VAT on asset -->
+      <div x-show="structure==='asset'" class="border-l-4 border-amber-500 pl-3">
+        <label class="text-sm font-medium flex items-center gap-2">
+          <input type="checkbox" x-model="vatApplies" class="rounded text-red-600">
+          <a class="dd-xref" href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md">§56 ZDPH</a> — pozemky se kvalifikují jako stavební pozemek (21 % DPH)
+        </label>
+        <p class="text-[11px] text-slate-500 mt-1">Pokud žádné stavební povolení + žádný „stavební pozemek": osvobozeno od DPH. Pokud spustí ÚP Fáze 1: 21 % DPH účtováno prodávajícím, započteno kupujícím.</p>
+      </div>
+      <!-- DANCORE -->
+      <div>
+        <div class="flex justify-between text-sm"><span class="font-medium">Rezerva na vyrovnání DANCORE</span>
+          <span class="tabular-nums font-bold" x-text="fmt(dancore)+' Kč'"></span></div>
+        <input type="range" min="0" max="500000000" step="10000000" x-model.number="dancore" class="w-full mt-1">
+        <div class="flex justify-between text-[10px] text-slate-500"><span>0 (zamítnuto)</span><span>209 mil. (vyčleněný nárok)</span><span>500 mil. (nejhorší případ)</span></div>
+      </div>
+      <!-- CoC consent fee -->
+      <div>
+        <div class="flex justify-between text-sm"><span class="font-medium">Poplatek za souhlas CoC u dluhopisů</span>
+          <span class="tabular-nums font-bold" x-text="fmt(coc)+' Kč'"></span></div>
+        <input type="range" min="0" max="100000000" step="5000000" x-model.number="coc" class="w-full mt-1">
+        <div class="flex justify-between text-[10px] text-slate-500"><span>0 (refinancování)</span><span>50 mil. (typických 50 bp)</span><span>100 mil. (sporné)</span></div>
+      </div>
+      <!-- asset gross-up -->
+      <div x-show="structure==='asset'">
+        <label class="text-sm flex items-center gap-2">
+          <input type="checkbox" x-model="assetGrossUp" class="rounded text-red-600">
+          <span>Požadovat gross-up u asset deal (prodávající si vrátí DPPO přes cenu +20-25 %)</span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Outputs -->
+  <div class="md:col-span-7 space-y-4">
+    <!-- Waterfall -->
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+      <div class="flex items-center justify-between mb-2">
+        <h2 class="font-bold text-lg">💧 Vodopád — hrubý → čistý</h2>
+        <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="text-xs text-red-600 hover:underline">📖 Otevřít zdroj</a>
+      </div>
+      <div class="viz-container viz-container--short"><canvas id="waterfallChart"></canvas></div>
+    </div>
+    <!-- Side by side comparison -->
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+      <div class="flex items-center justify-between mb-2">
+        <h2 class="font-bold text-lg">⚖️ Share (s §19) vs Asset vs Hybrid</h2>
+        <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="text-xs text-red-600 hover:underline">📖 Otevřít zdroj</a>
+      </div>
+      <div class="viz-container viz-container--short"><canvas id="compareChart"></canvas></div>
+      <div class="mt-3 grid grid-cols-3 gap-3 text-xs">
+        <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="p-3 rounded bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 block hover:border-emerald-500 transition">
+          <div class="font-bold text-emerald-700 dark:text-emerald-300">SHARE (osvobozeno §19)</div>
+          <div class="tabular-nums mt-1" x-text="fmt(scenario('share',true))+' Kč čistého'"></div>
+          <div class="text-[10px] text-slate-500 mt-1">0 % DPPO · §19 ZDP · §54 ZDPH osvobozeno</div>
+          <div class="text-[10px] text-emerald-600 mt-1">📖 Otevřít zdroj</div>
+        </a>
+        <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="p-3 rounded bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 block hover:border-amber-500 transition">
+          <div class="font-bold text-amber-700 dark:text-amber-300">ASSET (step-up)</div>
+          <div class="tabular-nums mt-1" x-text="fmt(scenario('asset',false))+' Kč čistého'"></div>
+          <div class="text-[10px] text-slate-500 mt-1">19 % DPPO z celého zisku · DPH závisí na §56</div>
+          <div class="text-[10px] text-amber-600 mt-1">📖 Otevřít zdroj</div>
+        </a>
+        <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="p-3 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 block hover:border-slate-500 transition">
+          <div class="font-bold">HYBRID</div>
+          <div class="tabular-nums mt-1" x-text="fmt(scenario('hybrid',partExempt))+' Kč čistého'"></div>
+          <div class="text-[10px] text-slate-500 mt-1">Předzávěrečné přeskupení + share deal</div>
+          <div class="text-[10px] text-slate-600 mt-1">📖 Otevřít zdroj</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Decision indicator -->
+    <div class="rounded-lg p-5 border-2"
+         :class="decisionColour()">
+      <div class="flex items-start gap-3">
+        <div class="text-4xl" x-text="decisionEmoji()"></div>
+        <div class="flex-1">
+          <div class="flex items-start justify-between gap-2">
+            <h3 class="font-bold text-lg" x-text="decisionTitle()"></h3>
+            <a href="../reader.html?file=PPF-PLAYBOOK.md" class="text-xs text-red-600 hover:underline whitespace-nowrap">📖 Otevřít zdroj (Playbook)</a>
+          </div>
+          <p class="mt-1 text-sm" x-text="decisionReason()"></p>
+          <p class="mt-2 text-xs opacity-80">Δ vs nejlepší alternativa: <span class="font-bold tabular-nums" x-text="fmtSigned(deltaVsBest())+' Kč'"></span></p>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <a href="../reader.html?file=PPF-PLAYBOOK.md" class="text-[11px] px-2 py-1 rounded bg-slate-700 hover:bg-slate-600 text-white">📜 PPF Playbook</a>
+            <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="text-[11px] px-2 py-1 rounded bg-red-700 hover:bg-red-600 text-white">📑 Memo daňová struktura</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tax memo summary -->
+<section class="max-w-7xl mx-auto px-4 py-4">
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="font-bold text-lg">📚 Zákonné odkazy (z <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="underline text-red-600 dark:text-red-400">TAX-STRUCTURE-MEMO.md</a>)</h2>
+      <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="text-xs text-red-600 hover:underline">📖 Otevřít zdroj</a>
+    </div>
+    <div class="grid md:grid-cols-2 gap-3 text-sm">
+      <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="p-3 rounded bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 block hover:border-emerald-500 transition">
+        <div class="font-bold text-emerald-700 dark:text-emerald-300">§19 odst. 1 písm. ze ZDP — Osvobození podílů</div>
+        <ul class="mt-1 list-disc list-inside text-[12px] text-slate-600 dark:text-slate-400 space-y-0.5">
+          <li>Mateřská = rezident CZ/EU</li><li>Dceřiná = rezident CZ/EU</li>
+          <li>≥10 % základního kapitálu</li><li>≥12 měsíců držby (prospektivně ok)</li>
+          <li>Není v likvidaci</li><li>Není v jurisdikci daňového ráje</li>
+        </ul>
+        <div class="mt-1 text-[11px] font-bold" x-text="part19Status()"></div>
+        <div class="text-[10px] text-emerald-600 mt-1">📖 Otevřít zdroj</div>
+      </a>
+      <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="p-3 rounded bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 block hover:border-blue-500 transition">
+        <div class="font-bold text-blue-700 dark:text-blue-300">§54 ZDPH — Převod podílů osvobozen od DPH</div>
+        <ul class="mt-1 list-disc list-inside text-[12px] text-slate-600 dark:text-slate-400 space-y-0.5">
+          <li>Share deal: osvobozeno (§54 odst. 1 písm. a)</li>
+          <li>Asset deal: závisí na §56 (stavební pozemek ano → 21 %; čistě zemědělský → osvobozeno)</li>
+          <li>Daň z nabytí nemovitosti ZRUŠENA od 26. 9. 2020 (zák. 386/2020 Sb.)</li>
+        </ul>
+        <div class="text-[10px] text-blue-600 mt-1">📖 Otevřít zdroj</div>
+      </a>
+      <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="p-3 rounded bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 block hover:border-amber-500 transition">
+        <div class="font-bold text-amber-700 dark:text-amber-300">§38na ZDP — Převod ztráty do dalších období</div>
+        <p class="mt-1 text-[12px] text-slate-600 dark:text-slate-400">Pokud změna vlastnictví &gt;25 % A změna podnikatelské podstaty: převod ztrát propadá, nesplní-li se test stejné činnosti. Pro SPV držící pozemky snadno splnitelné.</p>
+        <div class="text-[10px] text-amber-600 mt-1">📖 Otevřít zdroj</div>
+      </a>
+      <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="p-3 rounded bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 block hover:border-red-500 transition">
+        <div class="font-bold text-red-700 dark:text-red-300">§27 odst. 1 písm. a — Pozemek je neodepisovatelný</div>
+        <p class="mt-1 text-[12px] text-slate-600 dark:text-slate-400">Step-up u asset deal NEVYTVÁŘÍ roční odpisový štít. Benefit pouze při budoucím prodeji / převodu do zásob pro developerský záměr.</p>
+        <div class="text-[10px] text-red-600 mt-1">📖 Otevřít zdroj</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STICKY SOURCE FOOTER STRIP -->
+<section class="max-w-7xl mx-auto px-4 py-4 sticky bottom-0 z-20 no-print">
+  <div class="bg-white/95 dark:bg-slate-900/95 backdrop-blur border border-slate-200 dark:border-slate-700 rounded-lg p-3">
+    <div class="flex flex-wrap items-center gap-2 text-xs">
+      <span class="text-slate-500 uppercase tracking-wide font-semibold">📖 Zdroje:</span>
+      <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="px-3 py-1.5 rounded bg-red-600 hover:bg-red-500 text-white">📑 Memo daňová struktura</a>
+      <a href="../reader.html?file=06-reports/executive-summary.md" class="px-3 py-1.5 rounded bg-slate-700 hover:bg-slate-600 text-white">🧾 Hlavní DD report</a>
+      <a href="../reader.html?file=PPF-PLAYBOOK.md" class="px-3 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white">📜 PPF Playbook</a>
+      <a href="../reader.html?file=03-financial/financial-analysis.md" class="px-3 py-1.5 rounded bg-blue-600 hover:bg-blue-500 text-white">💰 Finanční analýza</a>
+      <a href="../reader.html?file=03-financial/README.md" class="px-3 py-1.5 rounded bg-slate-500 hover:bg-slate-400 text-white">📁 03-financial</a>
+    </div>
+  </div>
+</section>
+
+<section class="max-w-7xl mx-auto px-4 py-4 text-xs text-slate-500 border-t border-slate-200 dark:border-slate-800 mt-6">
+  <p><strong>Upozornění</strong>: Model je indikativní. Před podpisem SPA je nutné ověření českým daňovým poradcem (KŠB / Baker McKenzie / EY Tax). Veškerá DPPO uvažována 19 %. Žádná zahraniční srážková daň na úrovni Progresus (CZ-rezidentní top holding). Vyrovnání DANCORE bráno jako rezerva na kapitálovou ztrátu, nikoliv daňově uznatelný náklad při uzavření.</p>
+  <p class="mt-1"><strong>Zdroj</strong>: <a class="underline" href="TAX-STRUCTURE-MEMO.md">TAX-STRUCTURE-MEMO.md</a> §1-§5 · zák. 586/1992 Sb. (ZDP) · zák. 235/2004 Sb. (ZDPH) · zák. 386/2020 Sb.</p>
+</section>
+
+<script>
+function taxApp(){
+  // Chart instances live outside the Alpine reactive proxy — wrapping a
+  // Chart.js instance in Alpine's Proxy causes destroy/resize to crash.
+  let _w = null, _c = null, _resizeWired = false;
+  // Coalesce slider bursts: schedule one render per animation frame so that
+  // dragging a range input fires Chart.js update('none') at most once per ~16ms.
+  let _renderRaf = 0;
+  return {
+    dark:false,
+    price:5000000000, basis:800000000,
+    structure:'share', partExempt:true, vatApplies:false,
+    dancore:100000000, coc:50000000, assetGrossUp:false,
+    get priceBn(){ return this.price/1000000000; },
+    get gross(){
+      let g=this.price;
+      if(this.structure==='asset' && this.vatApplies) g += Math.round(g*0.21); // seller collects VAT (cash-flow only; passes through to buyer)
+      if(this.structure==='asset' && this.assetGrossUp) g = Math.round(this.price*1.22);
+      return g;
+    },
+    get cit(){
+      // Share + exempt => 0
+      if(this.structure==='share' && this.partExempt) return 0;
+      // Hybrid + exempt => same
+      if(this.structure==='hybrid' && this.partExempt) return 0;
+      // else 19% on gain (price - basis)
+      const gain = Math.max(0, this.price - this.basis);
+      return Math.round(gain*0.19);
+    },
+    get sideCosts(){
+      // Dancore provision + CoC fee always subtract from net
+      return this.dancore + this.coc;
+    },
+    get netSeller(){
+      // VAT is passed-through (not net to seller); subtract VAT component from gross for net calc
+      let pureProceeds = this.structure==='asset' && this.vatApplies ? this.price : this.gross;
+      if(this.structure==='asset' && this.assetGrossUp && this.vatApplies) pureProceeds = Math.round(this.price*1.22);
+      return pureProceeds - this.cit - this.sideCosts;
+    },
+    init(){
+      // Hydrate from shared scenario state
+      if(window.DD_SCENARIO){
+        try { this._ddScenarioApply(DD_SCENARIO.read()); } catch(e){}
+        try {
+          DD_SCENARIO.subscribe((s) => this._ddScenarioApply(s));
+          DD_SCENARIO.injectHeader({
+            getState: () => this._ddScenarioSnapshot(),
+            onApply: (s) => this._ddScenarioApply(s),
+          });
+        } catch(e){}
+      }
+      // Direct synchronous render — chart.update('none') in render() is
+      // already fast enough (~1-2 ms) that no rAF coalesce is needed.
+      const onChange = () => { this.render(); this._ddScenarioPersist(); };
+      this.$watch('price',       onChange);
+      this.$watch('basis',       onChange);
+      this.$watch('structure',   onChange);
+      this.$watch('partExempt',  onChange);
+      this.$watch('vatApplies',  onChange);
+      this.$watch('dancore',     onChange);
+      this.$watch('coc',         onChange);
+      this.$watch('assetGrossUp',onChange);
+      this.$nextTick(()=>this.render());
+    },
+
+    // ---- DD_SCENARIO sync (this page works in CZK; shared state in mld CZK) ----
+    _ddScenarioApply(s){
+      if(!s) return;
+      if(typeof s.target === 'number' && s.target>0) this.price = Math.round(s.target * 1e9);
+      if(s.structure && ['share','asset','hybrid'].includes(s.structure)) this.structure = s.structure;
+      if(typeof s.section19 === 'boolean') this.partExempt = s.section19;
+      if(typeof s.section54 === 'boolean') this.vatApplies = !s.section54;
+      if(typeof s.grossUp === 'boolean') this.assetGrossUp = s.grossUp;
+      if(typeof s.dancoreReserve === 'number') this.dancore = Math.round(s.dancoreReserve * 1e9);
+      // CoC fee derived loosely from consentRate: lower consent => higher fee
+      if(typeof s.consentRate === 'number'){
+        // map [0..1] to [100m..0]; default 0.85 -> ~15m
+        const f = Math.max(0, Math.min(100000000, Math.round((1 - s.consentRate) * 100000000)));
+        // only sync if user hasn't picked a custom value (heuristic: keep within 5m of derived)
+        if(Math.abs(this.coc - f) > 5000000) { /* don't override aggressively */ }
+      }
+    },
+    _ddScenarioSnapshot(){
+      const cur = (window.DD_SCENARIO && DD_SCENARIO.read) ? DD_SCENARIO.read() : {};
+      return {
+        ...cur,
+        target: this.price / 1e9,
+        structure: this.structure,
+        section19: !!this.partExempt,
+        section54: !this.vatApplies,
+        grossUp: !!this.assetGrossUp,
+        dancoreReserve: this.dancore / 1e9,
+      };
+    },
+    _ddScenarioPersist(){
+      if(!window.DD_SCENARIO) return;
+      try { DD_SCENARIO.write(this._ddScenarioSnapshot()); } catch(e){}
+    },
+    structureLabel(){
+      return this.structure==='share'?'Share deal — RD Rýmařov III. alpha s.r.o.':
+             this.structure==='asset'?'Asset deal — přímý převod pozemku':
+             'Hybrid — předzávěrečné přeskupení + share deal';
+    },
+    structureExplain(){
+      if(this.structure==='share') return 'Hlavní doporučení dle memoranda §1.1. Osvobození podílů dle §19 ZDP dává 0 % DPPO. Čistší řetězec titulů, bez DPH, bez daně z převodu.';
+      if(this.structure==='asset') return 'Preferovaná cesta PPF — získává step-up daňové báze na pozemcích pro budoucí development. Prodávající zaplatí 19 % DPPO z celého zisku → cca 800 mil. Kč náklad vs share deal, pokud není požadován gross-up.';
+      return 'Předzávěrečné přeskupení aktiv uvnitř NZ a.s. + share deal na SPV obálce. Kombinuje osvobození §19 se selektivními carve-out položkami mimo rozsah. Složité, vyžaduje závazné posouzení.';
+    },
+    citNote(){
+      if(this.structure==='share'&&this.partExempt) return '§19 ZDP osvobozeno — 0 %';
+      if(this.structure==='hybrid'&&this.partExempt) return '§19 ZDP osvobozeno na úrovni SPV';
+      return '19 % z (cena − báze)';
+    },
+    part19Status(){
+      if(this.structure==='asset') return 'Neuplatní se — §19 pokrývá podíly, nikoliv aktiva';
+      return this.partExempt?'✓ Testy splněny — 0 % DPPO ze zisku z podílu':'⚠ Testy nesplněny — plných 19 % DPPO ze zisku';
+    },
+    scenario(struct, exempt){
+      const gain = Math.max(0, this.price - this.basis);
+      const cit = (struct==='asset' || !exempt) ? Math.round(gain*0.19) : 0;
+      const gross = struct==='asset' && this.assetGrossUp ? Math.round(this.price*1.22) : this.price;
+      return gross - cit - this.sideCosts;
+    },
+    deltaVsBest(){
+      const cur = this.netSeller;
+      const alts = [this.scenario('share',true), this.scenario('asset',false), this.scenario('hybrid',true)];
+      const best = Math.max(...alts);
+      return cur - best;
+    },
+    decisionColour(){
+      const d = this.deltaVsBest();
+      if(d>=-50000000) return 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-400';
+      if(d>=-500000000) return 'bg-amber-50 dark:bg-amber-900/20 border-amber-400';
+      return 'bg-red-50 dark:bg-red-900/20 border-red-500';
+    },
+    decisionEmoji(){
+      const d = this.deltaVsBest();
+      if(d>=-50000000) return '🟢'; if(d>=-500000000) return '🟡'; return '🔴';
+    },
+    decisionTitle(){
+      const d = this.deltaVsBest();
+      if(d>=-50000000) return 'Struktura odpovídá optimálnímu výsledku';
+      if(d>=-500000000) return 'Suboptimální — značný únik hodnoty';
+      return 'Destrukce hodnoty — znovu vyjednávat nebo odejít';
+    },
+    decisionReason(){
+      if(this.structure==='share' && !this.partExempt) return 'Share deal bez osvobození §19 je striktně horší než asset + gross-up. Před podpisem napravit podání (NZ a.s. RF-27).';
+      if(this.structure==='asset' && !this.assetGrossUp) return 'Prodávající absorbuje 19 % DPPO z celého zisku bez cenové kompenzace. Požadovat gross-up NEBO asset deal odmítnout.';
+      if(this.structure==='asset' && this.assetGrossUp) return 'Asset + 22 % gross-up se přibližuje ekonomice share dealu; PPF získá step-up; obě strany akceptovatelné.';
+      if(this.structure==='share' && this.partExempt) return 'Pro prodávajícího optimální. Tlačit na PPF; jejich fallback je platit DTL diskont (-5 až -10 %) u share dealu.';
+      return 'Hybrid vyžaduje předběžné stanovisko Finančního úřadu (závazné posouzení dle §38na); časové riziko pro podpis 2026-07-28.';
+    },
+    fmt(n){ return Number(Math.round(n||0)).toLocaleString('cs-CZ'); },
+    fmtSigned(n){ return (n>=0?'+':'') + this.fmt(n); },
+    render(){
+      if(typeof Chart==='undefined'){ setTimeout(()=>this.render(),200); return; }
+      // Waterfall (stacked-bar trick: show cumulative anchors)
+      const gross = this.gross, cit = this.cit, dan = this.dancore, co = this.coc;
+      const net = this.netSeller;
+      const bars = [
+        {label:'Hrubý', val:gross, col:'#10b981'},
+        {label:'−DPPO', val:-cit, col:'#f59e0b'},
+        {label:'−DANCORE', val:-dan, col:'#ef4444'},
+        {label:'−Poplatek CoC', val:-co, col:'#dc2626'},
+        {label:'Čistý', val:net, col:'#be185d'},
+      ];
+      // cumulative for waterfall (floating bars)
+      let cum=0; const base=[]; const delta=[];
+      bars.forEach((b,i)=>{
+        if(i===0 || i===bars.length-1){ base.push(0); delta.push(b.val); cum=b.val; }
+        else{
+          if(b.val<0){ base.push(cum+b.val); delta.push(-b.val); cum+=b.val; }
+          else{ base.push(cum); delta.push(b.val); cum+=b.val; }
+        }
+      });
+      const labels = bars.map(b=>b.label);
+      const colours = bars.map(b=>b.col);
+      const subtitle = 'Scénář: '+ this.structure.toUpperCase() + ' · DPH + 19 % DPPO + poplatky';
+      if(_w){
+        _w.data.labels = labels;
+        _w.data.datasets[0].data = base;
+        _w.data.datasets[1].data = delta;
+        _w.data.datasets[1].backgroundColor = colours;
+        if(_w.options.plugins && _w.options.plugins.subtitle){
+          _w.options.plugins.subtitle.text = subtitle;
+        }
+        _w._barVals = bars.map(b=>b.val);
+        _w.update('none');
+      } else {
+        _w = new Chart(document.getElementById('waterfallChart'),{
+          type:'bar',
+          data:{labels,
+            datasets:[
+              {label:'base',data:base,backgroundColor:'rgba(0,0,0,0)',stack:'s'},
+              {label:'value',data:delta,backgroundColor:colours,stack:'s'}
+            ]},
+          options:{responsive:true,maintainAspectRatio:false,animation:false,
+            plugins:{
+              title:{display:true,text:'Daňový vodopád — hrubý k čistému prodávajícímu',color:'#e5e7eb',font:{size:13,weight:'600'}},
+              subtitle:{display:true,text:subtitle,color:'#9ca3af',font:{size:10,style:'italic'},padding:{bottom:6}},
+              legend:{display:false},
+              tooltip:{callbacks:{label:c=>{
+                const vals = c.chart._barVals || bars.map(b=>b.val);
+                return labels[c.dataIndex]+': '+(vals[c.dataIndex]/1e6).toFixed(0)+' mil. Kč';
+              }}}
+            },
+            scales:{
+              x:{title:{display:true,text:'Krok',color:'#9ca3af'},ticks:{color:'#9ca3af'},grid:{display:false}},
+              y:{title:{display:true,text:'Kč v miliardách',color:'#9ca3af'},ticks:{color:'#9ca3af',callback:v=>(v/1e9).toFixed(1)+' mld.'},grid:{color:'rgba(148,163,184,0.12)'}}
+            }}
+        });
+        _w._barVals = bars.map(b=>b.val);
+      }
+      // Compare
+      const sh=this.scenario('share',true), as=this.scenario('asset',false), hy=this.scenario('hybrid',true);
+      if(_c){
+        _c.data.datasets[0].data = [sh,as,hy];
+        _c.update('none');
+      } else {
+        _c = new Chart(document.getElementById('compareChart'),{
+          type:'bar',
+          data:{labels:['SHARE (§19)','ASSET','HYBRID'],
+            datasets:[{label:'Čistý výnos prodávajícího (Kč)',data:[sh,as,hy],
+              backgroundColor:['rgba(16,185,129,.75)','rgba(245,158,11,.75)','rgba(100,116,139,.75)']}]},
+          options:{responsive:true,maintainAspectRatio:false,indexAxis:'y',animation:false,
+            plugins:{
+              title:{display:true,text:'Čistý výnos prodávajícího podle struktury transakce',color:'#e5e7eb',font:{size:13,weight:'600'}},
+              subtitle:{display:true,text:'SHARE vs ASSET vs HYBRID · Kč v miliardách',color:'#9ca3af',font:{size:10,style:'italic'},padding:{bottom:6}},
+              legend:{display:false},
+              tooltip:{callbacks:{label:c=>(c.parsed.x/1e9).toFixed(2)+' mld. Kč'}}
+            },
+            scales:{
+              x:{title:{display:true,text:'Čistý výnos prodávajícího (Kč)',color:'#9ca3af'},ticks:{color:'#9ca3af',callback:v=>(v/1e9).toFixed(1)+' mld.'},grid:{color:'rgba(148,163,184,0.12)'}},
+              y:{ticks:{color:'#9ca3af'},grid:{display:false}}
+            }}
+        });
+      }
+      if(!_resizeWired){
+        _resizeWired = true;
+        window.addEventListener('resize', () => {
+          if(_w) _w.resize();
+          if(_c) _c.resize();
+        }, { passive: true });
+      }
+    }
+  };
+}
+</script>
+
+  <!-- Related sidebar (injected by add-related-sidebar.py) -->
+  <div data-connections-sidebar="injected" x-data="{ openRel: false }" class="no-print">
+    <button type="button"
+      @click="openRel = !openRel"
+      class="fixed right-4 bottom-4 z-40 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium shadow-lg rounded-full px-4 py-2 flex items-center gap-2"
+      aria-label="Přepnout související soubory">
+      <span>📎</span><span>Související</span>
+    </button>
+    <aside
+      x-show="openRel"
+      x-transition
+      @click.away="openRel = false"
+      class="fixed right-4 bottom-20 z-40 w-80 max-h-[70vh] overflow-y-auto bg-gray-900 border border-gray-700 text-gray-100 rounded-lg shadow-2xl p-4"
+      style="display: none;">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-white">📎 Související soubory</h3>
+        <button type="button" @click="openRel = false" class="text-gray-400 hover:text-white" aria-label="Zavřít">✕</button>
+      </div>
+      <div id="connections-related-panel" class="text-sm">
+        <p class="text-gray-500 italic">Načítání…</p>
+      </div>
+    </aside>
+  </div>
+  <script src="../_assets/connections.js"></script>
+  <script>
+    (function () {
+      if (!window.Connections) return;
+      window.Connections.init().then(function () {
+        var el = document.getElementById('connections-related-panel');
+        if (el) window.Connections.renderBacklinksPanel(el, '03-financial/tax-calculator.html');
+      }).catch(function (err) {
+        var el = document.getElementById('connections-related-panel');
+        if (el) el.textContent = 'Graf není dostupný: ' + err.message;
+      });
+    })();
+  </script>
+
+<!-- mycelium-ux:injected -->
+  <script defer src="../_assets/cmdk.js"></script>
+  <script src="../_assets/hover-previews.js"></script>
+  <script src="../_assets/keyboard-shortcuts.js"></script>
+  <script src="../_assets/state-sync.js"></script>
+  <script src="../_assets/connections.js"></script>
+
+  <script defer src="../_assets/viz-debug.js"></script>
+  <!-- BEGIN:DD_AUTO_LINKIFY -->
+  <script src="../_assets/dd-entity-index.js"></script>
+  <script defer src="../_assets/dd-auto-linkify.js"></script>
+<!-- END:DD_AUTO_LINKIFY -->
+</body>
+</html>

@@ -600,20 +600,200 @@
         <div class="max-w-4xl mx-auto">
             
 
-<!-- A/B Testing: Variant Performance Comparison with Chart.js Bar -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-purple-900/20 rounded-2xl border border-purple-500/20 p-6 mb-8 shadow-2xl shadow-purple-900/20" x-data="{
-    variants: [{ name: 'Control', conversion: 12.3, visitors: 1000 }, { name: 'Variant A', conversion: 15.8, visitors: 980 }, { name: 'Variant B', conversion: 11.2, visitors: 1020 }],
-    chart: null, confidence: 94,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.abCanvas.getContext('2d');
-        this.chart = new Chart(ctx, { type: 'bar', data: { labels: self.variants.map(function(v) { return v.name; }), datasets: [{ data: self.variants.map(function(v) { return v.conversion; }), backgroundColor: ['rgba(147,51,234,0.6)','rgba(16,185,129,0.6)','rgba(245,101,101,0.6)'], borderRadius: 6 }] }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 20, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', callback: function(value) { return value + '%'; } } } } } });
+<!-- A/B Testing: Live Bernoulli Simulation with Confidence Tracking -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-purple-900/20 rounded-2xl border border-purple-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-purple-900/20" x-data="{
+    baseline: 0.10, liftA: 0.20, liftB: -0.05, batchSize: 50, sigThreshold: 0.95,
+    variants: [{ key: 'C', name: 'Control', n: 0, k: 0, history: [] }, { key: 'A', name: 'Variant A', n: 0, k: 0, history: [] }, { key: 'B', name: 'Variant B', n: 0, k: 0, history: [] }],
+    chart: null, ticks: 0, running: false, interval: null, rationale: 'Configure parameters and press Start.',
+    showAdvanced: false,
+    init() {
+        for (var v of this.variants) v.history.push(0);
+        var self = this;
+        this.$nextTick(function() { self.initChart(); });
     },
-    get winner() { return this.variants.reduce(function(prev, current) { return prev.conversion > current.conversion ? prev : current; }).name; }
+    initChart() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initChart(); }, 150); }
+        if (!this.$refs.abCanvas) return;
+        var self = this;
+        this.chart = new Chart(this.$refs.abCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: [0], datasets: [
+                { label: 'Control', data: [0], borderColor: '#a78bfa', backgroundColor: 'rgba(167,139,250,0.05)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.3 },
+                { label: 'Variant A', data: [0], borderColor: '#34d399', borderWidth: 2, pointRadius: 0, tension: 0.3 },
+                { label: 'Variant B', data: [0], borderColor: '#f87171', borderWidth: 2, pointRadius: 0, tension: 0.3 }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false },
+                    y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: function(v){ return (v*100).toFixed(1)+'%'; } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(67,56,202,0.95)', borderColor: 'rgba(167,139,250,0.3)', borderWidth: 1, callbacks: { label: function(ctx){ return ctx.dataset.label + ': ' + (ctx.parsed.y*100).toFixed(2) + '%'; } } } }
+            }
+        });
+    },
+    rateOf(variantIndex) {
+        if (variantIndex === 0) return this.baseline;
+        if (variantIndex === 1) return Math.max(0, Math.min(1, this.baseline * (1 + this.liftA)));
+        return Math.max(0, Math.min(1, this.baseline * (1 + this.liftB)));
+    },
+    tick() {
+        for (var i = 0; i < this.variants.length; i++) {
+            var v = this.variants[i], r = this.rateOf(i);
+            for (var j = 0; j < this.batchSize; j++) {
+                v.n++; if (Math.random() < r) v.k++;
+            }
+            v.history.push(v.n > 0 ? v.k / v.n : 0);
+            if (v.history.length > 60) v.history.shift();
+        }
+        this.ticks++;
+        this.computeRationale();
+        this.updateChart();
+    },
+    rate(v) { return v.n > 0 ? v.k / v.n : 0; },
+    se(v) { var p = this.rate(v); return v.n > 0 ? Math.sqrt(p * (1 - p) / v.n) : 0; },
+    ci95(v) { return 1.96 * this.se(v); },
+    pValue(va, vb) {
+        if (va.n === 0 || vb.n === 0) return 1;
+        var pa = this.rate(va), pb = this.rate(vb);
+        var pPool = (va.k + vb.k) / (va.n + vb.n);
+        var sePool = Math.sqrt(pPool * (1 - pPool) * (1 / va.n + 1 / vb.n));
+        if (sePool === 0) return 1;
+        var z = Math.abs(pa - pb) / sePool;
+        return 2 * (1 - this.normCdf(z));
+    },
+    normCdf(z) {
+        var t = 1 / (1 + 0.2316419 * Math.abs(z));
+        var d = 0.3989423 * Math.exp(-z * z / 2);
+        var p = d * t * (0.3193815 + t * (-0.3565638 + t * (1.781478 + t * (-1.821256 + t * 1.330274))));
+        return z > 0 ? 1 - p : p;
+    },
+    sampleNeeded() {
+        var pa = this.rate(this.variants[0]), pb = this.rate(this.variants[1]);
+        var diff = Math.abs(pa - pb);
+        if (diff < 0.001) return '∞';
+        var pAvg = (pa + pb) / 2;
+        var n = Math.ceil(15.7 * pAvg * (1 - pAvg) / (diff * diff));
+        var remaining = Math.max(0, n - this.variants[0].n);
+        return remaining > 0 ? remaining + ' more' : 'reached';
+    },
+    bestVariant() {
+        var rates = this.variants.map((v, i) => ({ idx: i, r: this.rate(v), n: v.n }));
+        var best = rates.reduce((p, c) => c.r > p.r ? c : p);
+        return this.variants[best.idx];
+    },
+    isSignificant(va, vb) { return this.pValue(va, vb) < (1 - this.sigThreshold); },
+    computeRationale() {
+        var c = this.variants[0], a = this.variants[1], b = this.variants[2];
+        if (c.n < 50) { this.rationale = 'Collecting initial samples (n=' + c.n + ').'; return; }
+        var pA = this.pValue(c, a), pB = this.pValue(c, b);
+        var why = [];
+        if (this.isSignificant(c, a)) {
+            why.push('A vs Control p=' + pA.toFixed(3) + ' SIGNIFICANT (' + (this.rate(a) > this.rate(c) ? 'A wins' : 'A loses') + ')');
+        } else {
+            why.push('A vs Control p=' + pA.toFixed(3) + ' (need <' + (1 - this.sigThreshold).toFixed(3) + ')');
+        }
+        if (this.isSignificant(c, b)) {
+            why.push('B vs Control p=' + pB.toFixed(3) + ' SIGNIFICANT');
+        }
+        why.push('Need ' + this.sampleNeeded() + ' samples');
+        this.rationale = why.join(' · ');
+    },
+    updateChart() {
+        if (!this.chart) return;
+        this.chart.data.labels = this.variants[0].history.map(function(_, i) { return i; });
+        for (var i = 0; i < 3; i++) this.chart.data.datasets[i].data = [...this.variants[i].history];
+        this.chart.update('none');
+    },
+    toggle() {
+        if (this.running) { clearInterval(this.interval); this.running = false; return; }
+        var self = this;
+        this.interval = setInterval(function(){ self.tick(); }, 350);
+        this.running = true;
+    },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        for (var v of this.variants) { v.n = 0; v.k = 0; v.history = [0]; }
+        this.ticks = 0; this.rationale = 'Reset. Press Start to resample.';
+        this.updateChart();
+    },
+    get winnerColor() { var w = this.bestVariant(); return w.key === 'C' ? 'text-purple-400' : w.key === 'A' ? 'text-emerald-400' : 'text-red-400'; },
+    get sigBadgeA() { return this.isSignificant(this.variants[0], this.variants[1]) ? 'bg-emerald-900/30 text-emerald-300 border-emerald-500/40' : 'bg-gray-700/30 text-gray-400 border-gray-600/30'; },
+    get sigBadgeB() { return this.isSignificant(this.variants[0], this.variants[2]) ? 'bg-emerald-900/30 text-emerald-300 border-emerald-500/40' : 'bg-gray-700/30 text-gray-400 border-gray-600/30'; }
 }">
-    <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-purple-300/70">A/B Test Performance</p></div></div><div class="text-center"><div class="text-xs text-gray-400">Winner</div><div class="text-sm font-bold text-emerald-400" x-text="winner"></div></div></div>
-    <div class="h-40 mb-3 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-3"><canvas x-ref="abCanvas"></canvas></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+            </div>
+            <div class="min-w-0">
+                <h3 class="text-sm font-bold text-white">Interactive Demo</h3>
+                <p class="text-xs text-purple-300/70 break-words">Live A/B Test Bernoulli Simulator</p>
+            </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-purple-500/40 focus-visible:outline-none" :class="running ? 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30' : 'bg-purple-600 hover:bg-purple-500 text-white shadow-purple-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+        </div>
+    </div>
+
+    <!-- Variant cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mb-3">
+        <template x-for="(v, i) in variants" :key="v.key">
+            <div class="rounded-xl border bg-gray-900/50 p-3" :class="bestVariant().key === v.key && v.n > 100 ? 'border-emerald-500/40' : 'border-white/5'">
+                <div class="flex items-center justify-between mb-1">
+                    <span class="text-xs font-bold uppercase tracking-wider" :class="i === 0 ? 'text-purple-300' : i === 1 ? 'text-emerald-300' : 'text-red-300'" x-text="v.name"></span>
+                    <span x-show="i > 0" class="text-[9px] uppercase tracking-wider px-1.5 py-0.5 rounded border" :class="i === 1 ? sigBadgeA : sigBadgeB" x-text="(i === 1 ? sigBadgeA : sigBadgeB).includes('emerald') ? 'sig' : 'n.s.'"></span>
+                </div>
+                <div class="text-2xl font-black font-mono text-white tabular-nums" x-text="(rate(v)*100).toFixed(2) + '%'"></div>
+                <div class="text-[10px] text-gray-400 tabular-nums">n=<span x-text="v.n"></span> · k=<span x-text="v.k"></span> · ±<span x-text="(ci95(v)*100).toFixed(2)"></span>%</div>
+            </div>
+        </template>
+    </div>
+
+    <!-- Live convergence chart -->
+    <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Conversion rate convergence</div>
+    <div class="h-44 mb-3 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="abCanvas" aria-label="A/B test conversion rate convergence chart"></canvas></div>
+
+    <!-- Top metrics row -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Best</div><div class="text-lg font-black" :class="winnerColor" x-text="bestVariant().name"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Total samples</div><div class="text-lg font-black font-mono text-white tabular-nums" x-text="variants[0].n + variants[1].n + variants[2].n"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">A vs C p-val</div><div class="text-lg font-black font-mono text-purple-300 tabular-nums" x-text="pValue(variants[0], variants[1]).toFixed(3)"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">More needed</div><div class="text-lg font-black font-mono text-amber-300 tabular-nums" x-text="sampleNeeded()"></div></div>
+    </div>
+
+    <!-- Sliders (collapsible) -->
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-purple-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-purple-300 uppercase tracking-wider">Experiment Parameters</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span><label class="text-xs w-28 text-gray-300 flex-shrink-0">Baseline rate</label><input type="range" min="0.01" max="0.5" step="0.01" x-model.number="baseline" aria-label="Baseline conversion rate" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 min-w-0"><span class="text-xs text-purple-400 font-mono w-12 text-right tabular-nums" x-text="(baseline*100).toFixed(0) + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><label class="text-xs w-28 text-gray-300 flex-shrink-0">Variant A lift</label><input type="range" min="-0.5" max="0.5" step="0.01" x-model.number="liftA" aria-label="Variant A lift effect" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 min-w-0"><span class="text-xs text-emerald-400 font-mono w-12 text-right tabular-nums" x-text="(liftA >= 0 ? '+' : '') + (liftA*100).toFixed(0) + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-red-400 flex-shrink-0"></span><label class="text-xs w-28 text-gray-300 flex-shrink-0">Variant B lift</label><input type="range" min="-0.5" max="0.5" step="0.01" x-model.number="liftB" aria-label="Variant B lift effect" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-red-500 min-w-0"><span class="text-xs text-red-400 font-mono w-12 text-right tabular-nums" x-text="(liftB >= 0 ? '+' : '') + (liftB*100).toFixed(0) + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><label class="text-xs w-28 text-gray-300 flex-shrink-0">Batch / tick</label><input type="range" min="10" max="500" step="10" x-model.number="batchSize" aria-label="Visitors per tick" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500 min-w-0"><span class="text-xs text-amber-400 font-mono w-12 text-right tabular-nums" x-text="batchSize"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span><label class="text-xs w-28 text-gray-300 flex-shrink-0">Significance</label><input type="range" min="0.8" max="0.999" step="0.005" x-model.number="sigThreshold" aria-label="Significance threshold" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 min-w-0"><span class="text-xs text-blue-400 font-mono w-12 text-right tabular-nums" x-text="(sigThreshold*100).toFixed(1) + '%'"></span></div>
+        </div>
+    </div>
+
+    <!-- Rationale panel -->
+    <div class="rounded-xl border border-purple-500/20 bg-purple-900/10 p-3">
+        <div class="flex items-start gap-2 min-w-0">
+            <svg aria-hidden="true" class="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div class="min-w-0 flex-1">
+                <div class="text-[10px] uppercase tracking-wider text-purple-300/70 mb-0.5">Statistical readout</div>
+                <p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400">
+        <div class="flex flex-wrap gap-x-3 gap-y-1">
+            <span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-purple-400 inline-block"></span>Control</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-emerald-400 inline-block"></span>Variant A</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-0.5 bg-red-400 inline-block"></span>Variant B</span>
+        </div>
+        <span class="text-gray-500">Two-sample z-test · 95% CI</span>
+    </div>
 </div>
 
 

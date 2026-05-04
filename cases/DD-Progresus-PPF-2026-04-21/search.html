@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="cs" class="dark">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>🔎 Globální hledání — DD Progresus → PPF</title>
+  <meta name="description" content="Fulltextové vyhledávání v pracovním prostoru DD (Project Mycelium).">
+  <script src="./_assets/tailwind.min.js"></script>
+  <link rel="stylesheet" href="./_assets/flowbite.min.css">
+  <script defer src="./_assets/alpine.min.js"></script>
+  <script defer src="./_assets/flowbite.min.js"></script>
+<!-- mycelium-markdown:injected -->
+  <link rel="stylesheet" href="./_assets/markdown/custom.css">
+  <script defer src="./_assets/markdown/markdown-it.min.js"></script>
+  <script defer src="./_assets/markdown/markdownItAnchor.umd.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-task-lists.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-mark.min.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script defer src="./_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script defer src="./_assets/md-embed.js"></script>
+  <script defer src="./_assets/inline-md-autoload.js"></script>
+
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="_assets/md-store.js"></script>
+  <script src="_assets/manifest-store.js"></script>
+  <script src="_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+  <script defer src="_assets/cmdk.js"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 min-h-screen font-sans">
+
+<!-- ── Navbar ───────────────────────────────────────────────── -->
+<nav class="bg-gray-800 border-b border-gray-700 sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-6">
+      <a href="./index.html" class="text-lg font-semibold text-white flex items-center gap-2">
+        <span class="text-2xl">←</span> Portál
+      </a>
+      <span class="text-gray-500">|</span>
+      <a href="./sitemap.html" class="text-sm text-gray-300 hover:text-white">🗺️ Mapa stránek</a>
+      <a href="./reader.html?file=00-INDEX.md" class="text-sm text-gray-300 hover:text-white">📒 Hlavní index</a>
+      <a href="./reader.html?file=RED-FLAGS.md" class="text-sm text-gray-300 hover:text-white">🚨 Red Flags</a>
+    </div>
+    <div class="text-sm text-gray-400">
+      <span class="font-mono">search.html</span> · offline-first
+    </div>
+  </div>
+</nav>
+  <nav class="breadcrumb text-sm text-gray-400 mb-4 px-4 max-w-screen-2xl mx-auto no-print" aria-label="breadcrumb">
+    <ol class="flex flex-wrap items-center gap-2">
+      <li><a href="./index.html" class="hover:text-white hover:underline">🏠 Portál</a></li>
+      <li class="text-gray-500">/</li>
+      <li class="text-white font-medium">search.html</li>
+    </ol>
+  </nav>
+
+
+
+<!-- ── Header ───────────────────────────────────────────────── -->
+<header class="max-w-7xl mx-auto px-4 pt-8 pb-4">
+  <h1 class="text-3xl font-bold text-white flex items-center gap-3">
+    🔎 Globální hledání
+  </h1>
+
+  <!-- Header source-strip: prominent links to key DD documents -->
+  <div class="mt-4 bg-gradient-to-r from-blue-600/30 via-indigo-600/30 to-red-600/30 border border-indigo-700/50 rounded-lg p-3">
+    <div class="text-[10px] uppercase tracking-wider text-indigo-300 font-semibold mb-2">📖 Hlavní zdroje DD</div>
+    <div class="flex flex-wrap gap-2 text-sm">
+      <a href="./reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-indigo-700/60 hover:bg-indigo-600 text-white border border-indigo-500/50 transition">🧾 Hlavní DD report</a>
+      <a href="./reader.html?file=PPF-PLAYBOOK.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-indigo-700/60 hover:bg-indigo-600 text-white border border-indigo-500/50 transition">📜 PPF Playbook</a>
+      <a href="./reader.html?file=RED-FLAGS.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-red-700/60 hover:bg-red-600 text-white border border-red-500/50 transition">🚨 Red Flags</a>
+      <a href="./reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-emerald-700/60 hover:bg-emerald-600 text-white border border-emerald-500/50 transition">✅ Akční plán</a>
+      <a href="./reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-amber-700/60 hover:bg-amber-600 text-white border border-amber-500/50 transition">📊 Memo ocenění</a>
+      <a href="./reader.html?file=README.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-gray-700/80 hover:bg-gray-600 text-white border border-gray-500/50 transition">📁 README</a>
+    </div>
+  </div>
+
+  <p class="text-gray-400 mt-3">
+    Fulltextové vyhledávání ve všech markdown + HTML souborech tohoto pracovního prostoru.
+    Pište pro filtraci podle titulu / obsahu / tagů. Vše lokálně, bez nutnosti připojení.
+  </p>
+</header>
+
+<!-- ── Search app ──────────────────────────────────────────── -->
+<main class="max-w-7xl mx-auto px-4 pb-16" x-data="searchApp()">
+
+  <!-- Query input + loading state -->
+  <div class="bg-gray-800 border border-gray-700 rounded-lg p-4 mb-4">
+    <label for="q" class="block text-sm text-gray-300 mb-2 font-semibold">Vyhledávací dotaz</label>
+    <div class="relative">
+      <svg class="w-5 h-5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      <input id="q" type="text" x-model="query" @keydown.escape="query=''"
+        placeholder="Hledat titul, obsah nebo tagy..."
+        class="w-full pl-11 pr-4 py-3 bg-gray-900 border border-gray-600 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+    </div>
+    <p class="text-xs text-gray-500 mt-2" x-show="!loaded">Načítání manifestu...</p>
+    <p class="text-xs text-gray-500 mt-2" x-show="loaded">
+      Indexováno <span class="text-gray-300 font-mono" x-text="files.length"></span> souborů
+      · vygenerováno <span class="text-gray-300 font-mono" x-text="manifestDate"></span>
+    </p>
+  </div>
+
+  <!-- Filters -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+    <!-- Type -->
+    <div>
+      <label class="block text-xs text-gray-400 mb-1">Typ</label>
+      <select x-model="filterType" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-sm text-gray-200">
+        <option value="">Všechny typy</option>
+        <option value="markdown">markdown (.md)</option>
+        <option value="html">html (.html)</option>
+      </select>
+    </div>
+    <!-- Severity -->
+    <div>
+      <label class="block text-xs text-gray-400 mb-1">Závažnost</label>
+      <select x-model="filterSeverity" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-sm text-gray-200">
+        <option value="">Všechny závažnosti</option>
+        <option value="critical">🔴 kritická</option>
+        <option value="high">🟠 vysoká</option>
+        <option value="medium">🟡 střední</option>
+        <option value="resolved">🟢 vyřešeno</option>
+        <option value="none">⚪ žádná</option>
+      </select>
+    </div>
+    <!-- Directory -->
+    <div>
+      <label class="block text-xs text-gray-400 mb-1">Adresář</label>
+      <select x-model="filterDir" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-sm text-gray-200">
+        <option value="">Všechny adresáře</option>
+        <template x-for="d in dirs" :key="d">
+          <option :value="d" x-text="d"></option>
+        </template>
+      </select>
+    </div>
+    <!-- Date -->
+    <div>
+      <label class="block text-xs text-gray-400 mb-1">Upraveno od</label>
+      <input type="date" x-model="filterDate"
+        class="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-sm text-gray-200">
+    </div>
+  </div>
+
+  <!-- Filter summary / reset -->
+  <div class="flex items-center justify-between mb-4 text-sm">
+    <div class="text-gray-400">
+      <span x-text="results.length"></span> z <span x-text="files.length"></span> souborů odpovídá
+    </div>
+    <button @click="reset()" class="text-blue-400 hover:text-blue-300 underline text-xs"
+      x-show="query || filterType || filterSeverity || filterDir || filterDate">
+      Resetovat filtry
+    </button>
+  </div>
+
+  <!-- Results -->
+  <div class="space-y-3" x-show="loaded">
+    <template x-for="r in results" :key="r.path">
+      <div class="block bg-gray-800 border border-gray-700 rounded-lg p-4 hover:border-blue-500 transition-colors">
+        <div class="flex items-start justify-between gap-4">
+          <div class="flex-1 min-w-0">
+            <a :href="linkFor(r)" target="_blank" class="block group">
+              <!-- Title -->
+              <h3 class="text-base font-semibold text-white truncate group-hover:text-blue-300" x-html="highlight(r.title)"></h3>
+              <!-- Path -->
+              <p class="text-xs text-gray-500 font-mono mt-1 truncate" x-text="r.path"></p>
+              <!-- Excerpt -->
+              <p class="text-sm text-gray-300 mt-2 line-clamp-2" x-html="highlight(r.excerpt)"></p>
+            </a>
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-1 mt-2" x-show="r.tags.length > 0">
+              <template x-for="t in r.tags.slice(0, 6)" :key="t">
+                <span class="text-xs px-2 py-0.5 bg-gray-700 text-gray-300 rounded" x-text="t"></span>
+              </template>
+              <span class="text-xs text-gray-500" x-show="r.tags.length > 6" x-text="'+' + (r.tags.length - 6) + ' dalších'"></span>
+            </div>
+            <!-- Actions -->
+            <div class="mt-3 flex items-center gap-2 text-xs">
+              <a :href="'./reader.html?file=' + r.path" target="_blank" x-show="r.type !== 'html'"
+                 class="inline-flex items-center gap-1 px-2 py-1 rounded bg-indigo-900/50 text-indigo-300 border border-indigo-700 hover:bg-indigo-700 hover:text-white transition">
+                📖 Otevřít ve čtečce
+              </a>
+              <a :href="'./' + r.path" target="_blank"
+                 class="inline-flex items-center gap-1 px-2 py-1 rounded bg-gray-700 text-gray-400 hover:text-white font-mono transition"
+                 x-text="r.type === 'html' ? '🌐 HTML' : '.md raw'"></a>
+              <button type="button" x-show="r.type !== 'html'" @click="preview(r)"
+                      class="inline-flex items-center gap-1 px-2 py-1 rounded bg-gray-700 text-gray-300 hover:bg-gray-600 transition">
+                👁️ Náhled
+              </button>
+            </div>
+          </div>
+          <!-- Metadata -->
+          <div class="flex flex-col items-end gap-1 flex-shrink-0 text-xs">
+            <!-- Severity badge -->
+            <span class="px-2 py-0.5 rounded font-semibold uppercase"
+              :class="{
+                'bg-red-900/50 text-red-300 border border-red-700': r.severity === 'critical',
+                'bg-orange-900/50 text-orange-300 border border-orange-700': r.severity === 'high',
+                'bg-yellow-900/50 text-yellow-300 border border-yellow-700': r.severity === 'medium',
+                'bg-green-900/50 text-green-300 border border-green-700': r.severity === 'resolved',
+                'bg-gray-700 text-gray-400': r.severity === 'none'
+              }" x-text="severityLabel(r.severity)"></span>
+            <!-- Type pill -->
+            <span class="px-2 py-0.5 rounded bg-gray-700 text-gray-400 font-mono" x-text="r.type"></span>
+            <!-- Dir pill -->
+            <span class="px-2 py-0.5 rounded bg-blue-900/50 text-blue-300 font-mono" x-text="r.dir"></span>
+            <!-- Score -->
+            <span class="text-gray-600" x-show="r.score > 0" x-text="'skóre ' + r.score"></span>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <!-- Empty state -->
+    <div x-show="results.length === 0 && loaded" class="text-center py-16 text-gray-500">
+      <p class="text-lg">Žádné výsledky.</p>
+      <p class="text-sm mt-2">Zkuste obecnější dotaz nebo resetujte filtry.</p>
+    </div>
+  </div>
+
+  <!-- Preview drawer (uses md-embed.js if available, falls back to iframe-to-reader) -->
+  <div x-show="previewOpen" x-transition @click.self="previewOpen = false"
+       class="fixed inset-0 z-50 bg-black/70 flex items-stretch justify-end"
+       style="display:none;">
+    <aside class="w-full max-w-3xl bg-gray-900 border-l border-gray-700 shadow-2xl flex flex-col">
+      <div class="flex items-center justify-between px-4 py-3 border-b border-gray-700">
+        <div class="min-w-0">
+          <h2 class="text-sm font-semibold text-white truncate" x-text="previewFile?.title || ''"></h2>
+          <p class="text-[11px] text-gray-500 font-mono truncate" x-text="previewFile?.path || ''"></p>
+        </div>
+        <div class="flex items-center gap-2 shrink-0">
+          <a :href="'./reader.html?file=' + (previewFile?.path || '')" target="_blank"
+             class="text-xs px-2 py-1 rounded bg-indigo-900/50 text-indigo-300 border border-indigo-700 hover:bg-indigo-700 hover:text-white">Otevřít celé</a>
+          <button type="button" @click="previewOpen = false"
+                  class="text-gray-400 hover:text-white">✕</button>
+        </div>
+      </div>
+      <iframe x-show="previewFile" :src="previewFile ? ('./reader.html?file=' + previewFile.path + '&chromeless=1') : 'about:blank'"
+              class="flex-1 w-full bg-white" title="Náhled"></iframe>
+    </aside>
+  </div>
+</main>
+
+<!-- Sticky footer source-strip -->
+<footer class="sticky bottom-0 z-30 border-t border-gray-800 bg-gray-900/95 backdrop-blur text-gray-100 mt-8 py-3 px-4 no-print">
+  <div class="max-w-screen-2xl mx-auto flex flex-wrap items-center justify-center gap-2 text-xs">
+    <span class="text-gray-500 uppercase tracking-wider font-semibold">📖 Zdroje:</span>
+    <a href="./reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-indigo-900/50 text-indigo-200 border border-indigo-700 hover:bg-indigo-700 hover:text-white transition">🧾 Hlavní DD report</a>
+    <a href="./reader.html?file=PPF-PLAYBOOK.md" class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-indigo-900/50 text-indigo-200 border border-indigo-700 hover:bg-indigo-700 hover:text-white transition">📜 PPF Playbook</a>
+    <a href="./reader.html?file=RED-FLAGS.md" class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-red-900/50 text-red-200 border border-red-700 hover:bg-red-700 hover:text-white transition">🚨 Red Flags</a>
+    <a href="./reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-emerald-900/50 text-emerald-200 border border-emerald-700 hover:bg-emerald-700 hover:text-white transition">✅ Akční plán</a>
+    <a href="./reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-amber-900/50 text-amber-200 border border-amber-700 hover:bg-amber-700 hover:text-white transition">📊 Memo ocenění</a>
+    <a href="./reader.html?file=README.md" class="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-gray-800 text-gray-300 border border-gray-600 hover:bg-gray-700 hover:text-white transition">📁 README</a>
+  </div>
+</footer>
+
+<script>
+function searchApp() {
+  return {
+    files: [],
+    loaded: false,
+    manifestDate: '',
+    query: '',
+    filterType: '',
+    filterSeverity: '',
+    filterDir: '',
+    filterDate: '',
+    previewOpen: false,
+    previewFile: null,
+
+    linkFor(f) {
+      if (f.type === 'html') return './' + f.path;
+      return './reader.html?file=' + f.path;
+    },
+
+    severityLabel(s) {
+      const map = {
+        'critical': 'kritická',
+        'high': 'vysoká',
+        'medium': 'střední',
+        'resolved': 'vyřešeno',
+        'none': 'žádná',
+      };
+      return map[s] || s || '';
+    },
+
+    preview(f) {
+      this.previewFile = f;
+      this.previewOpen = true;
+    },
+
+    async init() {
+      try {
+        // Offline-first: prefer bundled DD_MANIFEST (works over file://).
+        let data;
+        if (window.DD_MANIFEST) {
+          data = window.DD_MANIFEST;
+        } else {
+          const res = await fetch('./.manifest.json');
+          data = await res.json();
+        }
+        this.files = data.files || [];
+        this.manifestDate = data.generated || '';
+        this.loaded = true;
+      } catch (e) {
+        console.error('Nepodařilo se načíst manifest:', e);
+        this.manifestDate = 'CHYBA: ' + e.message;
+        this.loaded = true;
+      }
+      // Seed query from ?q=
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('q')) this.query = params.get('q');
+      if (params.get('dir')) this.filterDir = params.get('dir');
+      if (params.get('severity')) this.filterSeverity = params.get('severity');
+    },
+
+    reset() {
+      this.query = '';
+      this.filterType = '';
+      this.filterSeverity = '';
+      this.filterDir = '';
+      this.filterDate = '';
+    },
+
+    get dirs() {
+      const set = new Set();
+      this.files.forEach(f => set.add(f.dir));
+      return [...set].sort();
+    },
+
+    tokenize(s) {
+      return (s || '').toLowerCase().split(/[^a-z0-9áčďéěíňóřšťúůýž]+/i).filter(Boolean);
+    },
+
+    scoreFile(f, tokens) {
+      if (tokens.length === 0) return 0;
+      const titleL = (f.title || '').toLowerCase();
+      const excerptL = (f.excerpt || '').toLowerCase();
+      const tagsL = (f.tags || []).join(' ').toLowerCase();
+      const pathL = (f.path || '').toLowerCase();
+      let score = 0;
+      for (const t of tokens) {
+        if (titleL.includes(t)) score += 10;
+        if (pathL.includes(t)) score += 5;
+        if (tagsL.includes(t)) score += 4;
+        if (excerptL.includes(t)) score += 2;
+      }
+      return score;
+    },
+
+    get results() {
+      const tokens = this.tokenize(this.query);
+      let out = this.files.map(f => ({ ...f, score: this.scoreFile(f, tokens) }));
+
+      // Apply text filter
+      if (tokens.length > 0) {
+        out = out.filter(f => f.score > 0);
+      }
+      // Apply filters
+      if (this.filterType) out = out.filter(f => f.type === this.filterType);
+      if (this.filterSeverity) out = out.filter(f => f.severity === this.filterSeverity);
+      if (this.filterDir) out = out.filter(f => f.dir === this.filterDir);
+      if (this.filterDate) {
+        const cutoff = new Date(this.filterDate).getTime();
+        out = out.filter(f => f.mtime && new Date(f.mtime).getTime() >= cutoff);
+      }
+
+      // Sort: by score desc if querying, else by path asc.
+      if (tokens.length > 0) {
+        out.sort((a, b) => b.score - a.score || a.path.localeCompare(b.path));
+      } else {
+        out.sort((a, b) => a.path.localeCompare(b.path));
+      }
+      return out.slice(0, 200); // cap display to 200 for rendering speed
+    },
+
+    highlight(text) {
+      if (!text) return '';
+      const tokens = this.tokenize(this.query);
+      let escaped = text
+        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      if (tokens.length === 0) return escaped;
+      for (const t of tokens) {
+        if (t.length < 2) continue;
+        const re = new RegExp('(' + t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+        escaped = escaped.replace(re, '<mark class="bg-yellow-500/40 text-yellow-100 rounded px-0.5">$1</mark>');
+      }
+      return escaped;
+    }
+  };
+}
+</script>
+
+
+  <!-- Related sidebar (injected by add-related-sidebar.py) -->
+  <div data-connections-sidebar="injected" x-data="{ openRel: false }" class="no-print">
+    <button type="button"
+      @click="openRel = !openRel"
+      class="fixed right-4 bottom-4 z-40 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium shadow-lg rounded-full px-4 py-2 flex items-center gap-2"
+      aria-label="Přepnout související soubory">
+      <span>📎</span><span>Související</span>
+    </button>
+    <aside
+      x-show="openRel"
+      x-transition
+      @click.away="openRel = false"
+      class="fixed right-4 bottom-20 z-40 w-80 max-h-[70vh] overflow-y-auto bg-gray-900 border border-gray-700 text-gray-100 rounded-lg shadow-2xl p-4"
+      style="display: none;">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-white">📎 Související soubory</h3>
+        <button type="button" @click="openRel = false" class="text-gray-400 hover:text-white" aria-label="Zavřít">✕</button>
+      </div>
+      <div id="connections-related-panel" class="text-sm">
+        <p class="text-gray-500 italic">Načítání…</p>
+      </div>
+    </aside>
+  </div>
+  <script src="./_assets/connections.js"></script>
+  <script>
+    (function () {
+      if (!window.Connections) return;
+      window.Connections.init().then(function () {
+        var el = document.getElementById('connections-related-panel');
+        if (el) window.Connections.renderBacklinksPanel(el, 'search.html');
+      }).catch(function (err) {
+        var el = document.getElementById('connections-related-panel');
+        if (el) el.textContent = 'Graf není dostupný: ' + err.message;
+      });
+    })();
+  </script>
+
+<!-- mycelium-ux:injected -->
+  <script src="./_assets/hover-previews.js"></script>
+  <script src="./_assets/keyboard-shortcuts.js"></script>
+  <script src="./_assets/state-sync.js"></script>
+  <script src="./_assets/connections.js"></script>
+
+</body>
+</html>

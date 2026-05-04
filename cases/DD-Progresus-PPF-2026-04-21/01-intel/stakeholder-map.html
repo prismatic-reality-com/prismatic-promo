@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mapa stakeholderů — Prodávající vs kupující · Project Mycelium</title>
+<link rel="stylesheet" href="../_assets/flowbite.min.css">
+<script src="../_assets/tailwind.min.js"></script>
+<script src="../_assets/chart.min.js" defer></script>
+<script src="../_assets/flowbite.min.js" defer></script>
+<script src="../_assets/alpine.min.js" defer></script>
+<style>
+  .avatar{background:linear-gradient(135deg,#ef4444,#f59e0b);color:#fff;font-weight:700;letter-spacing:.5px}
+  .avatar.seller{background:linear-gradient(135deg,#2563eb,#0ea5e9)}
+  .avatar.buyer{background:linear-gradient(135deg,#dc2626,#7f1d1d)}
+</style>
+<!-- mycelium-markdown:injected -->
+  <link rel="stylesheet" href="../_assets/markdown/custom.css">
+  <script defer src="../_assets/markdown/markdown-it.min.js"></script>
+  <script defer src="../_assets/markdown/markdownItAnchor.umd.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-task-lists.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-mark.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script defer src="../_assets/md-embed.js"></script>
+  <script defer src="../_assets/inline-md-autoload.js"></script>
+
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="../_assets/md-store.js"></script>
+  <script src="../_assets/manifest-store.js"></script>
+  <script src="../_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans" x-data="stake()" :class="{'dark':dark}">
+
+<nav class="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="text-sm text-slate-500 hover:text-red-600 dark:hover:text-red-400">← Portál</a>
+      <span class="text-slate-300 dark:text-slate-700">|</span>
+      <span class="font-bold tracking-tight">PRISMATIC · Mapa stakeholderů</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="../reader.html?file=01-intel/ppf-people-dossiers.md" class="text-xs hidden sm:inline hover:underline">👥 Dossiery PPF</a>
+      <a href="../reader.html?file=01-intel/principals-deep-osint.md" class="text-xs hidden sm:inline hover:underline">📂 OSINT prodávajícího</a>
+      <button @click="dark=!dark" class="text-sm px-2 py-1 rounded border border-slate-300 dark:border-slate-700">
+        <span x-show="!dark">🌙</span><span x-show="dark">☀️</span>
+      </button>
+    </div>
+  </div>
+</nav>
+  <nav class="breadcrumb text-sm text-gray-400 mb-4 px-4 max-w-screen-2xl mx-auto no-print" aria-label="breadcrumb">
+    <ol class="flex flex-wrap items-center gap-2">
+      <li><a href="../index.html" class="hover:text-white hover:underline">🏠 Portál</a></li>
+      <li class="text-gray-500">/</li>
+      <li><a href="../reader.html?file=01-intel/README.md" class="hover:text-white hover:underline">🎯 01-intel</a></li>
+      <li class="text-gray-500">/</li>
+      <li class="text-white font-medium">stakeholder-map.html</li>
+    </ol>
+  </nav>
+
+
+
+<header class="max-w-7xl mx-auto px-4 pt-8 pb-4">
+  <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Stakeholdři u jednacího stolu</h1>
+  <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-3xl">Prodávající vs kupující — 8 vs 9 klíčových principálů. Klikněte na kartu pro úplný dossier. Prostřední sloupec zobrazuje srovnávací metriky mezi oběma stranami.</p>
+
+  <div class="mt-3 flex flex-wrap gap-2 text-xs">
+    <a href="../reader.html?file=01-intel/principals-deep-osint.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-blue-600 text-white hover:bg-blue-500 transition shadow-sm">📂 OSINT prodávajícího (Zrůst, Foral)</a>
+    <a href="../reader.html?file=01-intel/ppf-people-dossiers.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-red-600 text-white hover:bg-red-500 transition shadow-sm">👥 Dossiery PPF (Jirásková, Stoessel, Tošek)</a>
+    <a href="../reader.html?file=01-intel/transaction-context.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-indigo-600 text-white hover:bg-indigo-500 transition shadow-sm">📖 Kontext transakce</a>
+  </div>
+
+  <div class="mt-4 flex flex-wrap gap-2 text-xs">
+    <button @click="filter='all'" :class="filter==='all'?'bg-red-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="px-3 py-1 rounded">Všichni (17)</button>
+    <button @click="filter='seller'" :class="filter==='seller'?'bg-blue-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="px-3 py-1 rounded">Prodávající (8)</button>
+    <button @click="filter='buyer'" :class="filter==='buyer'?'bg-red-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="px-3 py-1 rounded">Kupující (9)</button>
+    <button @click="filter='flags'" :class="filter==='flags'?'bg-amber-500 text-white':'bg-slate-200 dark:bg-slate-800'" class="px-3 py-1 rounded">🚩 S flagy</button>
+  </div>
+</header>
+
+<!-- Comparison bar -->
+<section class="max-w-7xl mx-auto px-4 py-4">
+  <div class="grid grid-cols-2 md:grid-cols-5 gap-3">
+    <template x-for="m in metrics" :key="m.name">
+      <div class="p-4 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div class="text-xs uppercase text-slate-500" x-text="m.name"></div>
+        <div class="mt-1 flex justify-between gap-2">
+          <div class="text-blue-600 dark:text-blue-400 font-bold" x-text="m.seller"></div>
+          <span class="text-slate-400">vs</span>
+          <div class="text-red-600 dark:text-red-400 font-bold" x-text="m.buyer"></div>
+        </div>
+        <div class="text-[10px] text-slate-500 mt-1" x-text="m.unit"></div>
+      </div>
+    </template>
+  </div>
+</section>
+
+<!-- Three-column grid -->
+<section class="max-w-7xl mx-auto px-4 py-6 grid md:grid-cols-12 gap-5">
+
+  <!-- SELLER -->
+  <div class="md:col-span-5">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="text-2xl">🏛️</span>
+      <h2 class="font-bold text-xl text-blue-700 dark:text-blue-400">PRODÁVAJÍCÍ — tým Progresus</h2>
+    </div>
+    <div class="space-y-3">
+      <template x-for="p in visiblePeople('seller')" :key="p.id">
+        <article @click="selected=p"
+          class="cursor-pointer p-4 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-blue-500 transition">
+          <div class="flex gap-3 items-start">
+            <div class="avatar seller flex items-center justify-center w-12 h-12 rounded-full text-sm" x-text="p.initials"></div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="font-bold truncate" x-text="p.name"></h3>
+                <template x-for="flag in p.flagIcons" :key="flag">
+                  <span class="text-xs" x-text="flag"></span>
+                </template>
+              </div>
+              <div class="text-xs text-slate-500" x-text="p.title"></div>
+              <div class="text-xs mt-1 text-slate-600 dark:text-slate-400" x-text="p.keyFact"></div>
+              <div class="mt-2">
+                <a :href="p.srcUrl" @click.stop class="inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded bg-blue-600 text-white hover:bg-blue-500 transition">📖 Otevřít zdroj</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </template>
+    </div>
+  </div>
+
+  <!-- MIDDLE — Chart -->
+  <div class="md:col-span-2 flex flex-col items-center">
+    <div class="sticky top-20">
+      <div class="text-center text-xs text-slate-500 mb-2">Radar tlaku transakce</div>
+      <div class="relative w-[240px] h-[240px] mx-auto"><canvas id="radarChart"></canvas></div>
+      <div class="mt-3 p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs space-y-2">
+        <div><span class="font-bold text-blue-600">Modrá</span> = Prodávající Progresus</div>
+        <div><span class="font-bold text-red-600">Červená</span> = Kupující PPF</div>
+        <div class="pt-2 border-t border-slate-200 dark:border-slate-800 text-slate-500">
+          PPF má převahu v zkušenostech + veřejné stopě. Prodávající má převahu v tlaku DD (insolvenční historie) + naléhavosti připravenosti k transakci.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BUYER -->
+  <div class="md:col-span-5">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="text-2xl">🏦</span>
+      <h2 class="font-bold text-xl text-red-700 dark:text-red-400">KUPUJÍCÍ — tým PPF</h2>
+    </div>
+    <div class="space-y-3">
+      <template x-for="p in visiblePeople('buyer')" :key="p.id">
+        <article @click="selected=p"
+          class="cursor-pointer p-4 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-red-500 transition">
+          <div class="flex gap-3 items-start">
+            <div class="avatar buyer flex items-center justify-center w-12 h-12 rounded-full text-sm" x-text="p.initials"></div>
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-2 flex-wrap">
+                <h3 class="font-bold truncate" x-text="p.name"></h3>
+                <template x-for="flag in p.flagIcons" :key="flag">
+                  <span class="text-xs" x-text="flag"></span>
+                </template>
+              </div>
+              <div class="text-xs text-slate-500" x-text="p.title"></div>
+              <div class="text-xs mt-1 text-slate-600 dark:text-slate-400" x-text="p.keyFact"></div>
+              <div class="mt-2">
+                <a :href="p.srcUrl" @click.stop class="inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded bg-red-600 text-white hover:bg-red-500 transition">📖 Otevřít zdroj</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </template>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div x-show="selected" x-cloak @click="selected=null" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+  <div @click.stop x-show="selected" class="bg-white dark:bg-slate-900 rounded-lg border border-slate-200 dark:border-slate-800 max-w-2xl w-full max-h-[90vh] overflow-auto">
+    <template x-if="selected">
+      <div class="p-6">
+        <div class="flex items-start justify-between">
+          <div class="flex gap-4 items-start">
+            <div class="avatar flex items-center justify-center w-16 h-16 rounded-full text-lg"
+                 :class="selected.side==='seller'?'seller':'buyer'" x-text="selected.initials"></div>
+            <div>
+              <h2 class="text-2xl font-bold" x-text="selected.name"></h2>
+              <div class="text-sm text-slate-500" x-text="selected.title"></div>
+              <div class="text-xs text-slate-400 mt-1" x-text="selected.side==='seller'?'PRODÁVAJÍCÍ — Progresus':'KUPUJÍCÍ — PPF'"></div>
+            </div>
+          </div>
+          <button @click="selected=null" class="text-slate-400 hover:text-red-500 text-2xl leading-none">&times;</button>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 mt-4 text-sm">
+          <template x-for="(v,k) in selected.meta" :key="k">
+            <div class="p-2 rounded bg-slate-100 dark:bg-slate-800/60">
+              <div class="text-[10px] uppercase text-slate-500" x-text="k"></div>
+              <div class="text-xs" x-text="v"></div>
+            </div>
+          </template>
+        </div>
+
+        <div class="mt-4">
+          <div class="text-xs uppercase text-slate-500 mb-1">Klíčová fakta</div>
+          <ul class="text-sm space-y-1 list-disc list-inside">
+            <template x-for="f in selected.facts||[]" :key="f"><li x-text="f"></li></template>
+          </ul>
+        </div>
+
+        <template x-if="selected.flags && selected.flags.length">
+          <div class="mt-4">
+            <div class="text-xs uppercase text-slate-500 mb-1">Red flagy</div>
+            <ul class="text-sm space-y-1">
+              <template x-for="f in selected.flags" :key="f.label">
+                <li :class="f.level==='high'?'text-red-600 dark:text-red-400':f.level==='med'?'text-amber-600 dark:text-amber-400':'text-slate-500'">
+                  <span x-text="f.level==='high'?'🚨':f.level==='med'?'🟡':'🟢'"></span>
+                  <span x-text="f.label"></span>
+                </li>
+              </template>
+            </ul>
+          </div>
+        </template>
+
+        <template x-if="selected.connections && selected.connections.length">
+          <div class="mt-4">
+            <div class="text-xs uppercase text-slate-500 mb-1">Propojen s</div>
+            <div class="flex flex-wrap gap-2">
+              <template x-for="c in selected.connections" :key="c">
+                <span class="text-xs px-2 py-1 rounded bg-slate-200 dark:bg-slate-800" x-text="c"></span>
+              </template>
+            </div>
+          </div>
+        </template>
+
+        <!-- Otevřít zdroj -->
+        <div class="mt-5 pt-3 border-t border-slate-200 dark:border-slate-800">
+          <div class="text-xs uppercase text-slate-500 mb-2">📖 Otevřít zdroj</div>
+          <div class="flex flex-wrap gap-2">
+            <a :href="selected.srcUrl" :class="selected.side==='seller'?'bg-blue-600 hover:bg-blue-500':'bg-red-600 hover:bg-red-500'" class="text-xs px-3 py-1.5 rounded text-white transition">📖 Dossier osoby</a>
+            <template x-if="selected.side==='seller'">
+              <a href="../reader.html?file=01-intel/principals-deep-osint.md" class="text-xs px-3 py-1.5 rounded bg-blue-500 text-white hover:bg-blue-400 transition">📂 OSINT prodávajícího</a>
+            </template>
+            <template x-if="selected.side==='buyer'">
+              <a href="../reader.html?file=01-intel/ppf-people-dossiers.md" class="text-xs px-3 py-1.5 rounded bg-red-500 text-white hover:bg-red-400 transition">👥 Dossiery PPF</a>
+            </template>
+            <a href="../reader.html?file=01-intel/transaction-context.md" class="text-xs px-3 py-1.5 rounded bg-indigo-600 text-white hover:bg-indigo-500 transition">📖 Kontext transakce</a>
+            <a href="ppf-governance.html" class="text-xs px-3 py-1.5 rounded bg-slate-700 text-white hover:bg-slate-600 transition">🗺 Mapa governance</a>
+          </div>
+        </div>
+      </div>
+    </template>
+  </div>
+</div>
+
+<!-- Source strip -->
+<section class="max-w-7xl mx-auto px-4 py-4">
+  <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-red-600 text-white rounded-lg p-4 shadow-lg">
+    <div class="text-xs uppercase tracking-wide opacity-80 mb-2">📖 Hlavní zdroje DD</div>
+    <div class="flex flex-wrap gap-2 text-sm">
+      <a href="../reader.html?file=06-reports/executive-summary.md" class="px-3 py-1.5 rounded bg-white/20 hover:bg-white/30 transition">📑 Hlavní DD report</a>
+      <a href="../reader.html?file=05-osint/ppf-side-deep/README.md" class="px-3 py-1.5 rounded bg-white/20 hover:bg-white/30 transition">📜 PPF Playbook</a>
+      <a href="../06-reports/red-flags-dashboard.html" class="px-3 py-1.5 rounded bg-white/20 hover:bg-white/30 transition">🚨 Red Flags</a>
+      <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="px-3 py-1.5 rounded bg-white/20 hover:bg-white/30 transition">🎯 Master Action Plan</a>
+      <a href="../reader.html?file=01-intel/transaction-context.md" class="px-3 py-1.5 rounded bg-white/20 hover:bg-white/30 transition">📖 Kontext transakce</a>
+    </div>
+  </div>
+</section>
+
+<footer class="max-w-7xl mx-auto px-4 py-10 text-xs text-slate-500 border-t border-slate-200 dark:border-slate-800 mt-10">
+  <div class="flex flex-wrap gap-4 justify-between">
+    <div>
+      <div class="font-bold text-slate-700 dark:text-slate-300">PRISMATIC · Project Mycelium</div>
+      <div>Pouze veřejný OSINT · Hlídač státu · ARES · ppf.eu · HN archiv · Bloomberg</div>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href="../index.html" class="hover:underline">Portál</a>
+      <a href="../reader.html?file=01-intel/README.md" class="hover:underline">01-intel README</a>
+      <a href="ppf-governance.html" class="hover:underline">Mapa governance</a>
+      <a href="../reader.html?file=01-intel/ppf-people-dossiers.md" class="hover:underline">Dossiery PPF</a>
+      <a href="../reader.html?file=01-intel/principals-deep-osint.md" class="hover:underline">Dossiery prodávajícího</a>
+      <a href="../06-reports/valuation-calculator.html" class="hover:underline">Ocenění</a>
+    </div>
+  </div>
+  <div class="mt-4">Důvěrné · 2026-04-21 · Pouze veřejná data z rejstříků / tisku.</div>
+</footer>
+
+<script>
+function stake(){
+  return {
+    dark: window.matchMedia('(prefers-color-scheme: dark)').matches,
+    filter: 'all', selected: null,
+    metrics: [
+      { name:'Principálové', seller:8, buyer:9, unit:'počet osob' },
+      { name:'Zkuš. (prům. let)', seller:20, buyer:22, unit:'profesní' },
+      { name:'Transakce ≥ 1 mld', seller:'12+', buyer:'50+', unit:'kariérní' },
+      { name:'Veřejná stopa', seller:'Vysoká (insolvence)', buyer:'Střední (pouze PPF)', unit:'rozsah' },
+      { name:'Red flagy 🚩', seller:6, buyer:5, unit:'materiální' },
+    ],
+    people: [
+      // Seller
+      { id:'zrust', side:'seller', initials:'LZ', name:'JUDr. Lukáš Zrůst, Ph.D.', title:'50% vlastník Progresus · Spoluzakladatel · Insolvenční správce',
+        srcUrl:'../reader.html?file=01-intel/principals-deep-osint.md#lukáš-zrůst',
+        keyFact:'Zvláštní insolvenční licence · 237 propojených firem · správce Sberbank CZ + Vítkovice Heavy Machinery.',
+        meta:{ 'Narozen':'1985-04-24', 'Bydliště':'Brno / Praha', 'Firma':'Konreo v.o.s. (04706498)', 'Hlídač státu':'237 firem / 480 mil. Kč zakázek' },
+        facts:['Mgr. Masarykova · JUDr. Univerzita Karlova','Správce Sberbank CZ 2022','Správce VHM — prodej za 1,2 mld Kč v únoru 2021','Publikuje o insolvenčním právu (Wolters Kluwer)'],
+        flags:[{level:'high',label:'Opakující se vztah s Casper Group ve spravovaných insolvencích — učebnicový vzorec střetu §36 ZIZ'},{level:'med',label:'Závislost na státních zakázkách (RD Rýmařov 374 mil. Kč)'}],
+        connections:['Foral','Dvořák','Casper / David Štekl','RD Rýmařov'],
+        flagIcons:['🚨','🚩'] },
+      { id:'foral', side:'seller', initials:'LF', name:'Lukáš Foral', title:'50% vlastník Progresus · Spoluzakladatel',
+        srcUrl:'../reader.html?file=01-intel/principals-deep-osint.md#lukáš-foral',
+        keyFact:'2006-2012 historie UAE/Dubaj PE v Q Investment Group — zprostředkováno 2,3 mld Kč. Privátní profil; nízká veřejná stopa.',
+        meta:{ 'Sídlo':'CZ/CH', 'Role':'Finance/deal-side', 'Předchozí':'Dubaj/UAE PE 2006-2012' },
+        facts:['50% Progresus Invest Holding','Historicky Q Investment Group (Dubaj)','Tvrzení o "investované" miliardě korun vyžaduje stopu SoF'],
+        flags:[{level:'high', label:'Dubaj 2006-2012 SoF — PPF AML bude požadovat UBO řetězec'}],
+        connections:['Zrůst','externí investoři'],
+        flagIcons:['🚨'] },
+      { id:'dvorak', side:'seller', initials:'MD', name:'Michal Dvořák', title:'DD lead · provoz na straně prodávajícího',
+        srcUrl:'../reader.html?file=01-intel/transaction-context.md',
+        keyFact:'Vedoucí operací / datové místnosti. Odpovídá na Tier-1 požadavky na vyžádání dokumentů ≤ 48 h dle playbooku.',
+        meta:{ 'Role':'Vedoucí operací prodávajícího', 'Pokrytí':'Vlastnictví dokumentů + datová místnost' },
+        flags:[],
+        connections:['Zrůst','Foral','Korčák'],
+        flagIcons:[] },
+      { id:'korcak', side:'seller', initials:'TK', name:'Tomáš Korčák', title:'Discovery Lead · Able · Prismatic',
+        srcUrl:'../reader.html?file=01-intel/transaction-context.md',
+        keyFact:'Discovery / datové inženýrství na straně prodávajícího. Autor konsolidace DD nálezů + dashboardů.',
+        meta:{ 'Role':'Discovery/data', 'Firma':'Able · Prismatic' },
+        facts:['Vybudoval kompletní DD dataset 42 ha','Autor obhajobního memoranda ocenění','Architekt dashboardů a portálu'],
+        connections:['Dvořák','Duchoň','Faraga','Zrůst'],
+        flagIcons:[] },
+      { id:'duchon', side:'seller', initials:'KD', name:'Karel Duchoň', title:'AI Lead · Able',
+        srcUrl:'../reader.html?file=01-intel/transaction-context.md',
+        keyFact:'Vedoucí AI-asistované DD pipeline — syntéza důkazů, automatizovaná revize dokumentů.',
+        meta:{ 'Role':'AI/analytika', 'Firma':'Able' },
+        connections:['Korčák','Faraga'],
+        flagIcons:[] },
+      { id:'faraga', side:'seller', initials:'VF', name:'Václav Faraga', title:'KAM · CEO Able',
+        srcUrl:'../reader.html?file=01-intel/transaction-context.md',
+        keyFact:'Obchodní vedoucí angažmá Able. Řídí vztah s Progresus + rozsah.',
+        meta:{ 'Role':'Obchodní vedoucí', 'Firma':'Able (CEO)' },
+        connections:['Korčák','Duchoň','Zrůst'],
+        flagIcons:[] },
+      { id:'faltus', side:'seller', initials:'VF', name:'Vojtěch Faltus / Aegis Law', title:'Externí právní zástupce',
+        srcUrl:'../reader.html?file=01-intel/transaction-context.md',
+        keyFact:'Právní zástupce prodávajícího v českém právu. Připravuje NDA + SPA + žádost o souhlas dle §23a.',
+        meta:{ 'Role':'Právní', 'Firma':'Aegis Law' },
+        facts:['Vede šablonu NDA-EXCLUSIVITY','Vede žádost CNB-23A-CLEARANCE'],
+        connections:['Zrůst','Foral'],
+        flagIcons:[] },
+      { id:'lebr', side:'seller', initials:'JL', name:'Josef Lébr', title:'Ravantino Group · historický (2007-2021)',
+        srcUrl:'../reader.html?file=01-intel/principals-deep-osint.md#josef-lébr',
+        keyFact:'Předchozí vlastník 42ha pozemkového bloku přes Ravantino. Web stále inzeruje — flag reziduálního vztahu.',
+        meta:{ 'Role':'Historický prodejce', 'Období':'vlastnictví 2007-2021', 'Pozn.':'Druhý partner Ravantino = Lenka Klopcová (bez tiskové stopy)' },
+        flags:[{level:'high',label:'Web Ravantino stále inzeruje aktivum — vyžadován aktivní dopis o neexistenci nároků'},{level:'med',label:'Založil Inženýrské a technické služby Mstětice s.r.o.; Progresus vstoupil jako spoluakcionář až 2024-10-30'}],
+        connections:['Quinlan','Nuka Estates','MARSEA MIA'],
+        flagIcons:['🚨','🚩'] },
+
+      // Buyer
+      { id:'jiraskova', side:'buyer', initials:'KJ', name:'Kateřina Jirásková', title:'Co-CEO PPF Group · Předsedkyně PPF a.s.',
+        srcUrl:'../reader.html?file=01-intel/ppf-people-dossiers.md#kateřina-jirásková',
+        keyFact:'Co-CEO od června 2025. MANŽELKA CEO PPF banka Petra Jiráska. Stejné bydliště, Zvonická 710/3.',
+        meta:{ 'Narozena':'1974-01-15', 'Bydliště':'Zvonická 710/3, Praha 6', 'Kariéra':'25 let pouze PPF', 'Předchozí':'CFO 2013 · předsedkyně 2024' },
+        facts:['První žena v roli předsedkyně PPF a.s.','MAM.cz TOP ženy Česka 2025','Conseq → PPF AM → PPF Group'],
+        flags:[{level:'high',label:'Manželka CEO PPF banka — §23a ZoB spřízněná osoba, pokud banka financuje'},{level:'med',label:'Zdědila pipeline Progresus po Šmejcovi — menší osobní zainvestované ego'},{level:'low',label:'Nulová stopa skandálů'}],
+        connections:['Jirásko (manžel)','Stoessel','Frydrych','Tošek','Šmejc (předchůdce)'],
+        flagIcons:['🚨','🚩'] },
+      { id:'stoessel', side:'buyer', initials:'DS', name:'Didier Stoessel', title:'Co-CEO PPF Group · CIO · Francouz',
+        srcUrl:'../reader.html?file=01-intel/ppf-people-dossiers.md#didier-stoessel',
+        keyFact:'CIO od května 2022. Co-CEO červen 2025. Bývalý CEO CME (transakce PPF za 2,1 mld USD v r. 2020).',
+        meta:{ 'Narozen':'1963-09-30', 'Bydliště':'Pařížská, Praha 1', 'Národnost':'francouzská' },
+        facts:['Merrill Lynch → HSBC → MTG → CEO CME → CIO PPF','Předal CEO CME Samu Barnettovi v květnu 2025'],
+        flags:[{level:'med',label:'Bez nemovitostního zázemí — pouze bankovnictví + média'},{level:'low',label:'Bez soudních sporů či kontroverzí'}],
+        connections:['Jirásková','Tošek','Sam Barnett (CME)'],
+        flagIcons:['🟡'] },
+      { id:'frydrych', side:'buyer', initials:'OF', name:'Ondřej Frydrych', title:'CPO PPF Group · člen BoD',
+        srcUrl:'../reader.html?file=01-intel/ppf-people-dossiers.md#ondřej-frydrych',
+        keyFact:'Chief Performance Officer od r. 2022. Člen BoD od května 2025. Bývalý Eldorado (Rusko) 2014-2016.',
+        meta:{ 'Narozen':'1970-11-18', 'Bydliště':'Praha 10', 'MBA':'Rochester Institute of Technology', 'Předchozí':'Kodak · CEO Adastra · Eldorado Rusko · Home Credit' },
+        flags:[{level:'med',label:'Expozice vůči Rusku skrze Eldorado — stav rozplétání sankcí po r. 2022?'},{level:'low',label:'RIT MBA + USA track v Kodaku — externí validace'}],
+        connections:['Jirásková','Verhoeff (spolujmenování do BoD)'],
+        flagIcons:['🟡'] },
+      { id:'tosek', side:'buyer', initials:'JT', name:'Jiří Tošek', title:'CEO PPF Real Estate Holding — DEAL LEAD',
+        srcUrl:'../reader.html?file=01-intel/ppf-people-dossiers.md#jiří-tošek',
+        keyFact:'Provozní vlastník transakce Progresus. 14 let v PPF RE. 45 ředitelských funkcí, 139 státních zakázek / 210 mil. Kč.',
+        meta:{ 'Narozen':'1974-05-13', 'Bydliště':'Unhošť (Kladno)', 'MFin':'Central Queensland Univ. (Sydney)', 'Předchozí':'ECM → PPF ECM Advisory → PPF RE' },
+        facts:['Vedl vstup na polský trh (New City, Warsaw)','Vedl JV Karlín Group (Simply Holešovice + Libeň, ~4 mld Kč)','~1,5 mld EUR AUM ve správě'],
+        flags:[{level:'low',label:'Skutečný 14letý track record nemovitostního operátora'},{level:'med',label:'Rozdělená kapacita — JV Karlín + Polsko + Progresus'},{level:'med',label:'Art Office Gallery 104 mil. Kč státní nájemce'}],
+        connections:['Ševela','Verhoeff','Karlín Group'],
+        flagIcons:['🟢','🟡'] },
+      { id:'sevela', side:'buyer', initials:'RŠ', name:'Robert Ševela, PhD', title:'Jednatel PPF Real Estate s.r.o. / ex-PPF Group IO 20 let',
+        srcUrl:'../reader.html?file=01-intel/ppf-people-dossiers.md#robert-ševela',
+        keyFact:'20 let PPF IO. 115 propojených firem. 14 MILIARD Kč státních zakázek — přes CzechToll (provozovatel mýtného systému).',
+        meta:{ 'Narozen':'1975-11-02', 'Bydliště':'Lhota u Dolních Břežan', 'PhD':'VŠE Corporate Finance', 'Klíčový projekt':'Gasworx Tampa FL (50 akrů mixed-use)' },
+        flags:[{level:'high',label:'Stopa 14 mld Kč státních zakázek (CzechToll) — nejpákovější signatář'},{level:'med',label:'Změna politiky CzechToll by ovlivnila cash pozici PPF'},{level:'low',label:'Senior IO přešel do nemovitostních operací'}],
+        connections:['Tošek','CzechToll','ČD-Telematika'],
+        flagIcons:['🚨'] },
+      { id:'verhoeff', side:'buyer', initials:'MV', name:'Menno Verhoeff', title:'Člen BoD PPF Group · nizozemský RE právník',
+        srcUrl:'../reader.html?file=01-intel/ppf-people-dossiers.md#menno-verhoeff',
+        keyFact:'Jmenován do BoD v květnu 2025. ING → CBRE → PPF RE NL+UK 9 let. Signatář se sídlem v Amsterdamu.',
+        meta:{ 'Národnost':'nizozemská', 'Bydliště':'Amsterdam, NL', 'Vzdělání':'Erasmus University Rotterdam — právo', 'Předchozí':'ING RE → CBRE EMEA → PPF RE 2016+' },
+        flags:[{level:'med',label:'Podpisová rezidence v Amsterdamu — vymáhací jurisdikce hraje roli při sporech'},{level:'low',label:'Čisté nemovitostní zázemí — kompetentní signatář'}],
+        connections:['Frydrych (spolu v BoD)','Tošek','PPF RE Holding NL'],
+        flagIcons:['🟡'] },
+      { id:'minx', side:'buyer', initials:'AM', name:'Aleš Minx', title:'Ex-předseda BoD PPF → poradce AMALAR',
+        srcUrl:'../reader.html?file=01-intel/ppf-people-dossiers.md#aleš-minx',
+        keyFact:'Historická institucionální paměť. Přešel do AMALAR v červnu 2025. Pravděpodobný držitel memoranda o vzniku transakce.',
+        meta:{ 'Role':'Poradce UBO', 'Předchozí':'Předseda BoD PPF Group N.V.' },
+        flags:[{level:'med',label:'Zeptat se, zda autorizoval zahájení jednání o Progresu v éře Šmejc/Minx'}],
+        connections:['Kellnerová','Jirásková','Stoessel'],
+        flagIcons:['🟡'] },
+      { id:'kellnerova', side:'buyer', initials:'RK', name:'Renáta Kellnerová', title:'Hlava UBO · jednatelka AMALAR',
+        srcUrl:'../reader.html?file=01-intel/ppf-people-dossiers.md#renáta-kellnerová',
+        keyFact:'100% UBO PPF přes AMALAR (se 3 dcerami). Buyout 1,9 mld USD Petra Kellnera ml. v srpnu 2025.',
+        meta:{ 'Narozena':'1967-07-04', 'Bydliště':'Vrané nad Vltavou', 'Od':'2021 (po smrti Kellnera)', 'Konsolidace':'podzim 2023 + srpen 2025' },
+        flags:[{level:'high',label:'Zdroj prostředků na buyout 1,9 mld USD — dividend-up? úvěr PPF banka?'},{level:'low',label:'AMALAR CZ s.r.o. — neoffshore'}],
+        connections:['3 dcery (Anna, Lara, Marie)','Minx','AMALAR'],
+        flagIcons:['🚨'] },
+      { id:'jirasko', side:'buyer', initials:'PJ', name:'Petr Jirásko', title:'CEO + Předseda BoD PPF banka',
+        srcUrl:'../reader.html?file=01-intel/ppf-people-dossiers.md#petr-jirásko',
+        keyFact:'Manžel Co-CEO PPF Group. Stejné bydliště. Jmenován v říjnu 2013 — stejný rok promočního páru s Jiráskovou.',
+        meta:{ 'Narozen':'1973-05-13', 'Bydliště':'Zvonická 710/3, Praha 6 (stejné jako Jirásková)', 'Od':'říjen 2013', 'Role':'CEO + Předseda BoD (oba exekutivní)' },
+        flags:[{level:'high',label:'MANŽEL/MANŽELKA střet — financování PPF banka spouští ČNB §23a ZoB'},{level:'low',label:'12+ let v pozici CEO — stabilní'}],
+        connections:['Jirásková (manželka)','PPF banka'],
+        flagIcons:['🚨','🚩'] },
+    ],
+    visiblePeople(side){
+      if(this.filter === 'flags') return this.people.filter(p => p.side===side && p.flagIcons.length);
+      if(this.filter === 'all') return this.people.filter(p => p.side===side);
+      if(this.filter === side) return this.people.filter(p => p.side===side);
+      return this.people.filter(p => p.side===side);
+    },
+    init(){
+      const tryInit = () => {
+        if(window.Chart){
+          const ctx = document.getElementById('radarChart').getContext('2d');
+          this._chart = new Chart(ctx, {
+            type:'radar',
+            data:{
+              labels:['Zkušenosti','Zvládnutá velikost transakcí','Veřejná stopa','Tlak DD','Právní komplexnost','Regulatorní postoj'],
+              datasets:[
+                { label:'Prodávající', data:[80, 60, 90, 95, 70, 55], borderColor:'#2563eb', backgroundColor:'rgba(37,99,235,.25)' },
+                { label:'Kupující',  data:[95, 95, 75, 50, 85, 90], borderColor:'#dc2626', backgroundColor:'rgba(220,38,38,.25)' },
+              ]
+            },
+            options:{
+              responsive:true, maintainAspectRatio:false,
+              plugins:{ legend:{ display:false } },
+              scales:{ r:{ beginAtZero:true, max:100, ticks:{ display:false }, grid:{ color:'#475569' }, angleLines:{ color:'#475569' }, pointLabels:{ color:'#64748b', font:{ size:9 } } } }
+            }
+          });
+        } else setTimeout(tryInit, 80);
+      };
+      tryInit();
+      window.addEventListener('resize', () => {
+        if (this._chart) this._chart.resize();
+      }, { passive: true });
+    }
+  };
+}
+</script>
+
+  <!-- Related sidebar (injected by add-related-sidebar.py) -->
+  <div data-connections-sidebar="injected" x-data="{ openRel: false }" class="no-print">
+    <button type="button"
+      @click="openRel = !openRel"
+      class="fixed right-4 bottom-4 z-40 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium shadow-lg rounded-full px-4 py-2 flex items-center gap-2"
+      aria-label="Přepnout související soubory">
+      <span>📎</span><span>Související</span>
+    </button>
+    <aside
+      x-show="openRel"
+      x-transition
+      @click.away="openRel = false"
+      class="fixed right-4 bottom-20 z-40 w-80 max-h-[70vh] overflow-y-auto bg-gray-900 border border-gray-700 text-gray-100 rounded-lg shadow-2xl p-4"
+      style="display: none;">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-white">📎 Související soubory</h3>
+        <button type="button" @click="openRel = false" class="text-gray-400 hover:text-white" aria-label="Zavřít">✕</button>
+      </div>
+      <div id="connections-related-panel" class="text-sm">
+        <p class="text-gray-500 italic">Načítání…</p>
+      </div>
+    </aside>
+  </div>
+  <script src="../_assets/connections.js"></script>
+  <script>
+    (function () {
+      if (!window.Connections) return;
+      window.Connections.init().then(function () {
+        var el = document.getElementById('connections-related-panel');
+        if (el) window.Connections.renderBacklinksPanel(el, '01-intel/stakeholder-map.html');
+      }).catch(function (err) {
+        var el = document.getElementById('connections-related-panel');
+        if (el) el.textContent = 'Graf není dostupný: ' + err.message;
+      });
+    })();
+  </script>
+
+<!-- mycelium-ux:injected -->
+  <script defer src="../_assets/cmdk.js"></script>
+  <script src="../_assets/hover-previews.js"></script>
+  <script src="../_assets/keyboard-shortcuts.js"></script>
+  <script src="../_assets/state-sync.js"></script>
+  <script src="../_assets/connections.js"></script>
+
+  <script defer src="../_assets/viz-debug.js"></script>
+  <!-- BEGIN:DD_AUTO_LINKIFY -->
+  <script src="../_assets/dd-entity-index.js"></script>
+  <script defer src="../_assets/dd-auto-linkify.js"></script>
+<!-- END:DD_AUTO_LINKIFY -->
+</body>
+</html>

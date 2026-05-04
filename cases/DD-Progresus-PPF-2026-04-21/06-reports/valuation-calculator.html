@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kalkulačka ocenění — Nový Zeleneč · Project Mycelium</title>
+<link rel="stylesheet" href="../_assets/flowbite.min.css">
+<link rel="stylesheet" href="../_assets/viz-common.css">
+<script src="../_assets/tailwind.min.js"></script>
+<script src="../_assets/chart.min.js" defer></script>
+<script src="../_assets/flowbite.min.js" defer></script>
+<script src="../_assets/alpine.min.js" defer></script>
+<style>
+  [x-cloak]{display:none!important}
+  .glow{box-shadow:0 0 28px -6px rgba(220,38,38,.35)}
+</style>
+<!-- mycelium-markdown:injected -->
+  <link rel="stylesheet" href="../_assets/markdown/custom.css">
+  <script defer src="../_assets/markdown/markdown-it.min.js"></script>
+  <script defer src="../_assets/markdown/markdownItAnchor.umd.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-task-lists.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-mark.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script defer src="../_assets/md-embed.js"></script>
+  <script defer src="../_assets/inline-md-autoload.js"></script>
+
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="../_assets/md-store.js"></script>
+  <script src="../_assets/manifest-store.js"></script>
+  <script src="../_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+  <script defer src="../_assets/cmdk.js"></script>
+  <script defer src="../_assets/dd-scenario.js"></script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-200 font-sans"
+      x-data="valuationApp()" :class="{'dark': dark}">
+
+<!-- Navbar -->
+<nav class="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="text-sm text-slate-500 hover:text-red-600 dark:hover:text-red-400">← Portál</a>
+      <span class="text-slate-300 dark:text-slate-700">|</span>
+      <span class="font-bold tracking-tight">PRISMATIC · Kalkulačka ocenění</span>
+      <span class="hidden md:inline-block text-xs px-2 py-0.5 rounded bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300">STRANA PRODÁVAJÍCÍHO</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="text-xs hidden sm:inline hover:underline">📄 Memo</a>
+      <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="text-xs hidden sm:inline hover:underline">💰 Daně</a>
+      <button @click="dark=!dark" class="text-sm px-2 py-1 rounded border border-slate-300 dark:border-slate-700">
+        <span x-show="!dark">🌙</span><span x-show="dark">☀️</span>
+      </button>
+    </div>
+  </div>
+</nav>
+  <nav class="breadcrumb text-sm text-gray-400 mb-4 px-4 max-w-screen-2xl mx-auto no-print" aria-label="breadcrumb">
+    <ol class="flex flex-wrap items-center gap-2">
+      <li><a href="../index.html" class="hover:text-white hover:underline">🏠 Portál</a></li>
+      <li class="text-gray-500">/</li>
+      <li><a href="../reader.html?file=06-reports/README.md" class="hover:text-white hover:underline">📊 06-reports</a></li>
+      <li class="text-gray-500">/</li>
+      <li class="text-white font-medium">valuation-calculator.html</li>
+    </ol>
+  </nav>
+
+
+
+<!-- Header -->
+<header class="max-w-7xl mx-auto px-4 pt-8 pb-4">
+  <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Triangulace ocenění — 42 ha Nový Zeleneč</h1>
+  <p class="mt-2 text-slate-600 dark:text-slate-400 max-w-3xl">Živý model čtyř metod. Posuňte vstupy; všechna čtyři ocenění, rozhodovací matice, žebříček po zdanění a prediktor nabídky PPF se přepočítávají v reálném čase.</p>
+  <div class="mt-4 flex flex-wrap gap-2 text-xs">
+    <span class="px-3 py-1 rounded-full bg-red-100 text-red-800 dark:bg-red-900/40 dark:text-red-200 font-semibold">Kotva 6,5 mld.</span>
+    <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-200 font-semibold">Cíl 5,0–6,0 mld.</span>
+    <span class="px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-200 font-semibold">Spodní hranice 3,7 mld.</span>
+    <span class="px-3 py-1 rounded-full bg-slate-200 text-slate-800 dark:bg-slate-800 dark:text-slate-200 font-semibold">Likvidace 1,3 mld.</span>
+  </div>
+  <!-- Source links strip -->
+  <div class="mt-4 flex flex-wrap gap-2 text-xs">
+    <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="px-3 py-1.5 rounded bg-red-600 text-white hover:bg-red-500 font-semibold">📑 Memo obhajoby ocenění</a>
+    <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">🧾 Hlavní DD report</a>
+    <a href="../reader.html?file=PPF-PLAYBOOK.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">📜 PPF Playbook</a>
+    <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">✅ Akční plán</a>
+    <a href="../reader.html?file=03-financial/financial-analysis.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">📊 Finanční analýza</a>
+    <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="px-3 py-1.5 rounded bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700">💰 Daňové memo</a>
+  </div>
+</header>
+
+<!-- Key outputs -->
+<section class="max-w-7xl mx-auto px-4 pt-2 pb-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+  <div class="rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4">
+    <div class="text-xs uppercase text-slate-500">GDV-DCF (rizikově upravené)</div>
+    <div class="text-2xl font-bold mt-1" x-text="fmt(gdvDcf)"></div>
+    <div class="text-xs text-slate-500 mt-1">metoda §2.1</div>
+    <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="mt-2 inline-block text-[11px] text-red-600 dark:text-red-400 hover:underline">📖 Otevřít zdroj</a>
+  </div>
+  <div class="rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4">
+    <div class="text-xs uppercase text-slate-500">Surové pozemky</div>
+    <div class="text-2xl font-bold mt-1" x-text="fmt(rawLand)"></div>
+    <div class="text-xs text-slate-500 mt-1">metoda §2.2</div>
+    <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="mt-2 inline-block text-[11px] text-red-600 dark:text-red-400 hover:underline">📖 Otevřít zdroj</a>
+  </div>
+  <div class="rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4">
+    <div class="text-xs uppercase text-slate-500">Precedenční transakce</div>
+    <div class="text-2xl font-bold mt-1" x-text="fmt(precedent)"></div>
+    <div class="text-xs text-slate-500 mt-1">metoda §2.3</div>
+    <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="mt-2 inline-block text-[11px] text-red-600 dark:text-red-400 hover:underline">📖 Otevřít zdroj</a>
+  </div>
+  <div class="rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-300 dark:border-red-700 p-4 glow">
+    <div class="text-xs uppercase text-red-700 dark:text-red-300">Triangulovaná reálná hodnota</div>
+    <div class="text-2xl font-bold mt-1 text-red-700 dark:text-red-300" x-text="fmt(triangulated)"></div>
+    <div class="text-xs text-slate-600 dark:text-slate-400 mt-1">vážené · po DD srážce</div>
+    <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="mt-2 inline-block text-[11px] text-red-700 dark:text-red-300 hover:underline">📖 Otevřít zdroj</a>
+  </div>
+</section>
+
+<!-- Input panel -->
+<section class="max-w-7xl mx-auto px-4 py-6">
+  <div class="grid md:grid-cols-12 gap-4">
+    <div class="md:col-span-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+      <div class="flex items-start justify-between mb-3 gap-2">
+        <h2 class="font-bold text-lg">⚙️ Vstupy modelu</h2>
+        <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="text-[11px] text-red-600 dark:text-red-400 hover:underline whitespace-nowrap">📖 Otevřít zdroj</a>
+      </div>
+      <div class="space-y-4">
+
+        <div>
+          <div class="flex justify-between text-sm">
+            <label>WACC (diskontní sazba GDV-DCF)</label>
+            <span class="font-mono font-bold" x-text="wacc.toFixed(1)+'%'"></span>
+          </div>
+          <input type="range" min="9" max="15" step="0.1" x-model.number="wacc" class="w-full accent-red-600">
+          <div class="flex justify-between text-[10px] text-slate-500"><span>9 % optimistický</span><span>12 % základ</span><span>15 % pesimistický</span></div>
+        </div>
+
+        <div>
+          <div class="flex justify-between text-sm">
+            <label>Kumulativní rizikový diskont projektu</label>
+            <span class="font-mono font-bold" x-text="riskDiscount+'%'"></span>
+          </div>
+          <input type="range" min="30" max="60" step="1" x-model.number="riskDiscount" class="w-full accent-red-600">
+          <div class="flex justify-between text-[10px] text-slate-500"><span>30 % čistý</span><span>42 % základ</span><span>60 % stres</span></div>
+        </div>
+
+        <div>
+          <div class="flex justify-between text-sm">
+            <label>CZK/m² — srovnatelné surové pozemky (střed)</label>
+            <span class="font-mono font-bold" x-text="czkM2.toLocaleString()+' CZK'"></span>
+          </div>
+          <input type="range" min="4000" max="15000" step="100" x-model.number="czkM2" class="w-full accent-red-600">
+          <div class="flex justify-between text-[10px] text-slate-500"><span>4k územně vymezené</span><span>9k střed</span><span>15k připravené k zástavbě</span></div>
+        </div>
+
+        <div>
+          <div class="flex justify-between text-sm">
+            <label>Srážka za zjištění DD (neošetřená)</label>
+            <span class="font-mono font-bold" x-text="ddHaircut+'%'"></span>
+          </div>
+          <input type="range" min="0" max="40" step="1" x-model.number="ddHaircut" class="w-full accent-red-600">
+          <div class="flex justify-between text-[10px] text-slate-500"><span>0 % zmírněno</span><span>18 % reálné</span><span>40 % stres</span></div>
+        </div>
+
+        <div>
+          <div class="flex justify-between text-sm">
+            <label>Prémiový faktor projektu (42 ha v rámci 130 ha)</label>
+            <span class="font-mono font-bold" x-text="schemePrem+'%'"></span>
+          </div>
+          <input type="range" min="0" max="20" step="1" x-model.number="schemePrem" class="w-full accent-red-600">
+          <div class="flex justify-between text-[10px] text-slate-500"><span>0 % samostatně</span><span>10 % základ</span><span>20 % plná konsolidace</span></div>
+        </div>
+
+        <div class="pt-2 flex gap-2">
+          <button @click="preset('optimistic')" class="flex-1 text-xs py-1.5 rounded bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 hover:bg-emerald-200">Optimistický</button>
+          <button @click="preset('base')" class="flex-1 text-xs py-1.5 rounded bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-300">Základ</button>
+          <button @click="preset('pessimistic')" class="flex-1 text-xs py-1.5 rounded bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 hover:bg-red-200">Pesimistický</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bar chart -->
+    <div class="md:col-span-7 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+      <div class="flex items-start justify-between mb-3 gap-2">
+        <h2 class="font-bold text-lg">📊 Srovnání metod (mld. CZK)</h2>
+        <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="text-[11px] text-red-600 dark:text-red-400 hover:underline whitespace-nowrap">📖 Otevřít zdroj</a>
+      </div>
+      <div class="viz-container viz-container--medium"><canvas id="methodChart"></canvas></div>
+      <p class="text-xs text-slate-500 mt-3">Nízká / Základ / Vysoká pro každou metodu. Vážený střed = <span class="font-bold text-red-600" x-text="fmt(triangulated)"></span>. Váhy: DCF 25 % · Pozemky 30 % · Precedent 35 % · Likvidace 10 %.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Sensitivity + Bid predictor -->
+<section class="max-w-7xl mx-auto px-4 py-2 grid md:grid-cols-2 gap-4">
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+    <div class="flex items-start justify-between mb-3 gap-2">
+      <h2 class="font-bold text-lg">📈 Citlivostní analýza</h2>
+      <a href="../reader.html?file=PPF-PLAYBOOK.md" class="text-[11px] text-red-600 dark:text-red-400 hover:underline whitespace-nowrap">📖 Otevřít zdroj</a>
+    </div>
+    <div class="flex gap-2 mb-3 text-xs">
+      <button @click="sensVar='wacc'" :class="sensVar==='wacc'?'bg-red-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="px-3 py-1 rounded">WACC</button>
+      <button @click="sensVar='dd'" :class="sensVar==='dd'?'bg-red-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="px-3 py-1 rounded">DD srážka</button>
+      <button @click="sensVar='czkM2'" :class="sensVar==='czkM2'?'bg-red-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="px-3 py-1 rounded">CZK/m²</button>
+      <button @click="sensVar='risk'" :class="sensVar==='risk'?'bg-red-600 text-white':'bg-slate-200 dark:bg-slate-800'" class="px-3 py-1 rounded">Rizikový diskont</button>
+    </div>
+    <div class="viz-container viz-container--short"><canvas id="sensChart"></canvas></div>
+    <p class="text-xs text-slate-500 mt-3">Triangulovaná reálná hodnota jako funkce jedné proměnné, ostatní jsou drženy na aktuálních pozicích posuvníků.</p>
+  </div>
+
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+    <div class="flex items-start justify-between mb-3 gap-2">
+      <h2 class="font-bold text-lg">🎯 Prediktor nabídky PPF</h2>
+      <a href="../reader.html?file=PPF-PLAYBOOK.md" class="text-[11px] text-red-600 dark:text-red-400 hover:underline whitespace-nowrap">📖 Otevřít zdroj</a>
+    </div>
+    <div class="space-y-3">
+      <div class="p-3 rounded bg-slate-100 dark:bg-slate-800/60">
+        <div class="text-xs uppercase text-slate-500">Očekávaná zahajovací nabídka</div>
+        <div class="text-2xl font-bold" x-text="fmtRange(ppfOpenLow, ppfOpenHigh)"></div>
+        <div class="text-xs text-slate-500">Čisté aktivum × (1 − DD srážka × 1,4) — PPF přitvrzuje více, než je možné zmírnit.</div>
+      </div>
+      <div class="p-3 rounded bg-amber-100 dark:bg-amber-900/30">
+        <div class="text-xs uppercase text-amber-700 dark:text-amber-300">Poslední a nejlepší nabídka</div>
+        <div class="text-2xl font-bold text-amber-700 dark:text-amber-300" x-text="fmtRange(ppfLastLow, ppfLastHigh)"></div>
+        <div class="text-xs text-slate-500">Poté, co prodávající nasadí páky 1–5 + opce protinabídek.</div>
+      </div>
+      <div class="p-3 rounded bg-red-100 dark:bg-red-900/30">
+        <div class="text-xs uppercase text-red-700 dark:text-red-300">Hranice odstoupení</div>
+        <div class="text-2xl font-bold text-red-700 dark:text-red-300" x-text="fmt(3.7)"></div>
+        <div class="text-xs text-slate-500">Pod 3,7 mld. CZK je refinancování a držení výhodnější. Odstoupit a změnit směr.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Decision matrix -->
+<section class="max-w-7xl mx-auto px-4 py-6">
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+    <div class="flex items-start justify-between mb-3 gap-2">
+      <h2 class="font-bold text-lg">🧭 Rozhodovací matice — podle scénáře nabídky PPF</h2>
+      <div class="flex gap-2 flex-wrap">
+        <a href="../reader.html?file=PPF-PLAYBOOK.md" class="text-[11px] text-red-600 dark:text-red-400 hover:underline whitespace-nowrap">📖 PPF Playbook</a>
+        <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="text-[11px] text-red-600 dark:text-red-400 hover:underline whitespace-nowrap">📖 Akční plán</a>
+      </div>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm">
+        <thead class="bg-slate-100 dark:bg-slate-800/60">
+          <tr>
+            <th class="text-left px-3 py-2">Nabídka PPF (mld. CZK)</th>
+            <th class="text-left px-3 py-2">vs triangulovaná</th>
+            <th class="text-left px-3 py-2">Doporučená akce</th>
+            <th class="text-left px-3 py-2">Pravděpodobnost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <template x-for="(s,i) in scenarios" :key="i">
+            <tr class="border-t border-slate-200 dark:border-slate-800" :class="s.bid===activeBand()?'bg-red-50 dark:bg-red-900/20 font-semibold':''">
+              <td class="px-3 py-2 font-mono" x-text="s.bid"></td>
+              <td class="px-3 py-2">
+                <span :class="s.delta<0?'text-red-600':'text-emerald-600'" x-text="(s.delta>=0?'+':'')+s.delta.toFixed(2)+' mld.'"></span>
+              </td>
+              <td class="px-3 py-2" x-text="s.action"></td>
+              <td class="px-3 py-2"><span class="text-xs px-2 py-0.5 rounded bg-slate-200 dark:bg-slate-700" x-text="s.prob+'%'"></span></td>
+            </tr>
+          </template>
+        </tbody>
+      </table>
+    </div>
+    <p class="text-xs text-slate-500 mt-3">Pásmo nabídky nejblíže vaší aktuální triangulované reálné hodnotě je zvýrazněno. Logika doporučení vychází z VALUATION-DEFENSE-MEMO §8.</p>
+  </div>
+</section>
+
+<!-- After-tax calculator -->
+<section class="max-w-7xl mx-auto px-4 py-6">
+  <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-5">
+    <div class="flex items-start justify-between mb-3 gap-2">
+      <h2 class="font-bold text-lg">💰 Výnos po zdanění — share deal vs asset deal</h2>
+      <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="text-[11px] text-red-600 dark:text-red-400 hover:underline whitespace-nowrap">📖 Otevřít zdroj</a>
+    </div>
+    <p class="text-xs text-slate-500 mb-4">Share deal + osvobození podle §19 (držba 5 let, &gt;10 %, CZ-rezidentní SPV) → <strong>0 % CIT</strong>. Asset deal → <strong>19 % CIT</strong> ze zisku nad historickou bází ~750 m CZK. Viz TAX-STRUCTURE-MEMO.</p>
+    <div class="grid md:grid-cols-2 gap-4">
+      <div>
+        <label class="text-sm">Hrubá cena (mld. CZK)</label>
+        <input type="range" min="3" max="7" step="0.1" x-model.number="grossPrice" class="w-full accent-red-600">
+        <div class="flex justify-between text-xs"><span>3,0</span><span class="font-bold" x-text="grossPrice.toFixed(1)+' mld.'"></span><span>7,0</span></div>
+        <label class="text-sm mt-3 block">Předpokládaná historická daňová báze (m CZK)</label>
+        <input type="range" min="500" max="1500" step="50" x-model.number="taxBasis" class="w-full accent-red-600">
+        <div class="text-xs text-right" x-text="taxBasis.toLocaleString()+' m CZK'"></div>
+      </div>
+      <div class="space-y-3">
+        <div class="p-3 rounded bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-300 dark:border-emerald-800">
+          <div class="text-xs uppercase text-emerald-700 dark:text-emerald-300">Share deal (osvobození podílu)</div>
+          <div class="text-2xl font-bold text-emerald-700 dark:text-emerald-300" x-text="fmt(shareNet)+' netto'"></div>
+          <div class="text-xs">CIT: <span x-text="fmt(shareCIT*1000)+' m'"></span> · efektivní sazba 0 %</div>
+        </div>
+        <div class="p-3 rounded bg-red-50 dark:bg-red-900/20 border border-red-300 dark:border-red-800">
+          <div class="text-xs uppercase text-red-700 dark:text-red-300">Asset deal (19 % CIT)</div>
+          <div class="text-2xl font-bold text-red-700 dark:text-red-300" x-text="fmt(assetNet)+' netto'"></div>
+          <div class="text-xs">CIT: <span x-text="fmt(assetCIT*1000)+' m'"></span> ze zisku nad bází</div>
+        </div>
+        <div class="p-3 rounded bg-slate-100 dark:bg-slate-800/60 text-sm">
+          <strong>Požadovaný gross-up u asset deal</strong> k dosažení netto share dealu: <span class="font-mono font-bold" x-text="fmt(grossup)"></span>
+          <div class="text-xs text-slate-500 mt-1">PPF musí nabídnout tuto prémii ke kompenzaci CIT prodávajícího, pokud se struktura překlopí na asset deal.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Source strip footer -->
+<section class="max-w-7xl mx-auto px-4 py-6">
+  <div class="bg-slate-900 dark:bg-slate-800 rounded-lg p-4">
+    <div class="text-xs uppercase text-slate-400 mb-2 font-bold">📚 Zdrojové dokumenty</div>
+    <div class="flex flex-wrap gap-2">
+      <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="px-3 py-1.5 rounded bg-red-600 text-white hover:bg-red-500 text-xs font-semibold">📑 Memo obhajoby ocenění</a>
+      <a href="../reader.html?file=06-reports/MASTER-DD-REPORT-v1.0.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">🧾 Hlavní DD report</a>
+      <a href="../reader.html?file=PPF-PLAYBOOK.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">📜 PPF Playbook</a>
+      <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">✅ Akční plán</a>
+      <a href="../reader.html?file=03-financial/financial-analysis.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">📊 Finanční analýza</a>
+      <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="px-3 py-1.5 rounded bg-slate-700 text-slate-100 hover:bg-slate-600 text-xs">💰 Daňové memo</a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="max-w-7xl mx-auto px-4 py-10 text-xs text-slate-500 border-t border-slate-200 dark:border-slate-800 mt-10">
+  <div class="flex flex-wrap gap-4 justify-between">
+    <div>
+      <div class="font-bold text-slate-700 dark:text-slate-300">PRISMATIC · Project Mycelium</div>
+      <div>DD na straně prodávajícího · Progresus → PPF · 42 ha Nový Zeleneč</div>
+    </div>
+    <div class="flex flex-wrap gap-3">
+      <a href="../index.html" class="hover:underline">Portál</a>
+      <a href="../reader.html?file=06-reports/VALUATION-DEFENSE-MEMO.md" class="hover:underline">Obranné memo</a>
+      <a href="../reader.html?file=03-financial/TAX-STRUCTURE-MEMO.md" class="hover:underline">Daňové memo</a>
+      <a href="../reader.html?file=RED-FLAGS.md" class="hover:underline">Rizikové signály</a>
+      <a href="../01-intel/ppf-governance.html" class="hover:underline">Řízení</a>
+      <a href="../01-intel/stakeholder-map.html" class="hover:underline">Stakeholdeři</a>
+      <a href="../08-comms-templates/comms-hub.html" class="hover:underline">Komunikační hub</a>
+    </div>
+  </div>
+  <div class="mt-4">Důvěrné · 2026-04-21 · Výpočet se aktualizuje v reálném čase. Zdroj: VALUATION-DEFENSE-MEMO v1.0.</div>
+</footer>
+
+<script>
+function valuationApp(){
+  // Charts live outside the Alpine reactive proxy — wrapping a Chart.js instance
+  // in a Proxy makes chart.update() recurse infinitely through internal getters.
+  let _methodChart = null;
+  let _sensChart = null;
+  return {
+    dark: window.matchMedia('(prefers-color-scheme: dark)').matches,
+    wacc: 12, riskDiscount: 42, czkM2: 9000, ddHaircut: 18, schemePrem: 10,
+    grossPrice: 5.0, taxBasis: 750,
+    sensVar: 'wacc',
+
+    // --- Core calculations ---
+    pvFactor(){ // midpoint t=6 years
+      const r = this.wacc/100;
+      return 1/Math.pow(1+r, 6);
+    },
+    grossMargin: 21.6, // bn CZK (37.5 GDV - 15.9 build)
+    gdvDcfGross(){ return this.grossMargin * this.pvFactor(); },
+    gdvDcfRisk(){ return this.gdvDcfGross() * (1 - this.riskDiscount/100); },
+    gdvDcf: 0,
+    rawLandMid(){ return 0.42e6 * this.czkM2 * (1 + this.schemePrem/100) / 1e9; },
+    rawLand: 0,
+    precedentMid(){ // band driven by scheme premium
+      const base = 4.3; // precedent mid from memo
+      return base * (1 + (this.schemePrem-10)/100 * 0.8);
+    },
+    precedent: 0,
+    liqFloor: 2.5,
+    triangulated: 0,
+
+    bandFor(method){ // low/mid/high helper
+      if(method==='dcf'){
+        const mid = this.gdvDcfRisk();
+        return { low: mid * 0.85, mid, high: mid * 1.17 };
+      }
+      if(method==='land'){
+        const mid = this.rawLandMid();
+        return { low: mid * 0.60, mid, high: mid * 1.40 };
+      }
+      if(method==='prec'){
+        const mid = this.precedentMid();
+        return { low: mid * 0.77, mid, high: mid * 1.21 };
+      }
+      if(method==='liq'){
+        return { low: 1.3, mid: 2.5, high: 3.2 };
+      }
+    },
+
+    compute(){
+      this.gdvDcf = this.gdvDcfRisk();
+      this.rawLand = this.rawLandMid();
+      this.precedent = this.precedentMid();
+      // weighted mid (DCF 25 / Land 30 / Prec 35 / Liq 10)
+      let w = 0.25*this.gdvDcf + 0.30*this.rawLand + 0.35*this.precedent + 0.10*this.liqFloor;
+      // apply DD haircut
+      this.triangulated = w * (1 - this.ddHaircut/100);
+    },
+
+    // --- PPF bid predictor ---
+    get ppfOpenLow(){ return Math.max(1.5, this.triangulated * 0.72); },
+    get ppfOpenHigh(){ return Math.max(2.0, this.triangulated * 0.88); },
+    get ppfLastLow(){ return this.triangulated * 0.92; },
+    get ppfLastHigh(){ return this.triangulated * 1.08; },
+
+    // --- After-tax ---
+    get shareCIT(){ return 0; }, // participation exemption
+    get shareNet(){ return this.grossPrice; },
+    get assetCIT(){
+      const gain = Math.max(0, this.grossPrice - this.taxBasis/1000);
+      return gain * 0.19;
+    },
+    get assetNet(){ return this.grossPrice - this.assetCIT; },
+    get grossup(){ // asset deal price needed to match share deal net
+      // p * (1 - 0.19 * (p-basis)/p) = shareNet  => p - 0.19*(p-basis) = shareNet
+      // 0.81p + 0.19*basis = shareNet => p = (shareNet - 0.19*basis)/0.81
+      const basis = this.taxBasis/1000;
+      return (this.shareNet - 0.19*basis)/0.81;
+    },
+
+    // --- Scenarios ---
+    scenarios: [
+      { bid: 3.0, prob: 10, action: 'WALK — activate alternative buyers + refi' },
+      { bid: 3.5, prob: 15, action: 'Hold at 5.5 · deploy Levers 1-4 · threaten walk' },
+      { bid: 4.0, prob: 22, action: 'Counter 6.0 · structure-focused · escrow tight' },
+      { bid: 4.5, prob: 25, action: 'Negotiate down escrow · target 5.0-5.2 close' },
+      { bid: 5.0, prob: 15, action: 'Accept trajectory · minimize DD re-opens' },
+      { bid: 5.5, prob: 8,  action: 'Strong opener · accept within 48h' },
+      { bid: 6.0, prob: 3,  action: 'Close fast at 6.0-6.5 · lock structure' },
+    ],
+    activeBand(){
+      const t = this.triangulated;
+      const bids = this.scenarios.map(s=>s.bid);
+      let best = bids[0], bd = 99;
+      for(const b of bids){ if(Math.abs(b-t) < bd){ bd = Math.abs(b-t); best = b; } }
+      return best;
+    },
+
+    // compute delta each time
+    recomputeScenarios(){
+      this.scenarios = this.scenarios.map(s => ({...s, delta: s.bid - this.triangulated}));
+    },
+
+    preset(p){
+      if(p==='optimistic'){ this.wacc=9; this.riskDiscount=30; this.czkM2=13000; this.ddHaircut=5; this.schemePrem=15; }
+      if(p==='base'){ this.wacc=12; this.riskDiscount=42; this.czkM2=9000; this.ddHaircut=18; this.schemePrem=10; }
+      if(p==='pessimistic'){ this.wacc=15; this.riskDiscount=58; this.czkM2=5000; this.ddHaircut=33; this.schemePrem=0; }
+    },
+
+    // ---- DD_SCENARIO sync (this page owns: grossPrice, taxBasis as m CZK) ----
+    _ddScenarioApply(s){
+      if(!s) return;
+      // grossPrice in mld CZK matches our slider scale directly
+      if(typeof s.target === 'number' && s.target>0) this.grossPrice = s.target;
+      // section19 + structure don't have direct sliders here, but structure
+      // implicitly affects net via assumed §19 in this page.
+    },
+    _ddScenarioSnapshot(){
+      const cur = (window.DD_SCENARIO && DD_SCENARIO.read) ? DD_SCENARIO.read() : {};
+      return {
+        ...cur,
+        target: this.grossPrice,                  // share this page's grossPrice as target
+      };
+    },
+    _ddScenarioPersist(){
+      if(!window.DD_SCENARIO) return;
+      try { DD_SCENARIO.write(this._ddScenarioSnapshot()); } catch(e){}
+    },
+
+    fmt(v){ return (v||0).toFixed(2)+' bn'; },
+    fmtRange(a,b){ return a.toFixed(1)+'–'+b.toFixed(1)+' bn'; },
+
+    // --- Charts ---
+    buildMethodChart(){
+      const dcf = this.bandFor('dcf'), land = this.bandFor('land'), prec = this.bandFor('prec'), liq = this.bandFor('liq');
+      const ctx = document.getElementById('methodChart').getContext('2d');
+      _methodChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['GDV-DCF','Raw land','Precedent','Liquidation','Triangulated'],
+          datasets: [
+            { label:'Low',  data:[dcf.low, land.low, prec.low, liq.low, 0], backgroundColor:'#fca5a5' },
+            { label:'Mid',  data:[dcf.mid, land.mid, prec.mid, liq.mid, this.triangulated], backgroundColor:'#dc2626' },
+            { label:'High', data:[dcf.high, land.high, prec.high, liq.high, 0], backgroundColor:'#fde68a' },
+          ]
+        },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{
+            title:{ display:true, text:'Valuation by method (low/mid/high, bn CZK)', color: this.dark?'#e5e7eb':'#0f172a', font:{ size:13, weight:'600' } },
+            subtitle:{ display:true, text:'Source: VALUATION-DEFENSE-MEMO §2 · triangulated weighted blend', color: this.dark?'#9ca3af':'#64748b', font:{ size:10, style:'italic' }, padding:{ bottom:6 } },
+            legend:{ labels:{ color: this.dark?'#cbd5e1':'#334155', boxWidth:12 } }
+          },
+          scales:{
+            x:{ title:{ display:true, text:'Method', color: this.dark?'#cbd5e1':'#334155' }, ticks:{ color: this.dark?'#cbd5e1':'#334155' }, grid:{ display:false } },
+            y:{ title:{ display:true, text:'CZK billions', color: this.dark?'#cbd5e1':'#334155' }, ticks:{ color: this.dark?'#cbd5e1':'#334155', callback: v => v+' bn' }, grid:{ color: this.dark?'#1e293b':'#e2e8f0' }, beginAtZero:true }
+          }
+        }
+      });
+    },
+
+    buildSensChart(){
+      const ctx = document.getElementById('sensChart').getContext('2d');
+      _sensChart = new Chart(ctx, {
+        type: 'line',
+        data: { labels: [], datasets: [{ label:'Triangulated (CZK bn)', data:[], borderColor:'#dc2626', backgroundColor:'rgba(220,38,38,.15)', fill:true, tension:.25, pointRadius: 3 }] },
+        options: {
+          responsive:true, maintainAspectRatio:false,
+          plugins:{ legend:{ labels:{ color: this.dark?'#cbd5e1':'#334155' } } },
+          scales:{
+            x:{ ticks:{ color: this.dark?'#cbd5e1':'#334155' }, grid:{ color: this.dark?'#1e293b':'#e2e8f0' } },
+            y:{ ticks:{ color: this.dark?'#cbd5e1':'#334155', callback: v => v.toFixed(1)+' bn' }, grid:{ color: this.dark?'#1e293b':'#e2e8f0' }, beginAtZero:true }
+          }
+        }
+      });
+      this.updateSens();
+    },
+
+    computeAt(overrides){
+      const snap = { wacc:this.wacc, riskDiscount:this.riskDiscount, czkM2:this.czkM2, ddHaircut:this.ddHaircut, schemePrem:this.schemePrem };
+      Object.assign(this, overrides);
+      this.compute();
+      const v = this.triangulated;
+      // restore
+      Object.assign(this, snap);
+      this.compute();
+      return v;
+    },
+
+    updateSens(){
+      if(!_sensChart) return;
+      let labels = [], data = [];
+      if(this.sensVar==='wacc'){
+        for(let w=9; w<=15; w+=0.5){ labels.push(w.toFixed(1)+'%'); data.push(this.computeAt({wacc:w})); }
+      } else if(this.sensVar==='dd'){
+        for(let d=0; d<=40; d+=5){ labels.push(d+'%'); data.push(this.computeAt({ddHaircut:d})); }
+      } else if(this.sensVar==='czkM2'){
+        for(let c=4000; c<=15000; c+=1000){ labels.push(c.toLocaleString()); data.push(this.computeAt({czkM2:c})); }
+      } else {
+        for(let r=30; r<=60; r+=5){ labels.push(r+'%'); data.push(this.computeAt({riskDiscount:r})); }
+      }
+      _sensChart.data.labels = labels;
+      _sensChart.data.datasets[0].data = data;
+      _sensChart.update('none');
+    },
+
+    updateMethod(){
+      if(!_methodChart) return;
+      const dcf = this.bandFor('dcf'), land = this.bandFor('land'), prec = this.bandFor('prec'), liq = this.bandFor('liq');
+      _methodChart.data.datasets[0].data = [dcf.low, land.low, prec.low, liq.low, 0];
+      _methodChart.data.datasets[1].data = [dcf.mid, land.mid, prec.mid, liq.mid, this.triangulated];
+      _methodChart.data.datasets[2].data = [dcf.high, land.high, prec.high, liq.high, 0];
+      _methodChart.update('none');
+    },
+
+    init(){
+      // Hydrate from shared scenario state
+      if(window.DD_SCENARIO){
+        try { this._ddScenarioApply(DD_SCENARIO.read()); } catch(e){}
+        try {
+          DD_SCENARIO.subscribe((s) => this._ddScenarioApply(s));
+          DD_SCENARIO.injectHeader({
+            getState: () => this._ddScenarioSnapshot(),
+            onApply: (s) => this._ddScenarioApply(s),
+          });
+        } catch(e){}
+      }
+
+      this.compute();
+      this.recomputeScenarios();
+      // wait for Chart.js
+      const tryInit = () => {
+        if(window.Chart){
+          this.buildMethodChart();
+          this.buildSensChart();
+        } else { setTimeout(tryInit, 80); }
+      };
+      tryInit();
+      // Direct synchronous recompute on each tick — updateMethod/updateSens
+      // call chart.update('none'), which is fast enough to keep up with input.
+      const recompute = () => {
+        this.compute();
+        this.recomputeScenarios();
+        this.updateMethod();
+        this.updateSens();
+      };
+      this.$watch('wacc',         recompute);
+      this.$watch('riskDiscount', recompute);
+      this.$watch('czkM2',        recompute);
+      this.$watch('ddHaircut',    recompute);
+      this.$watch('schemePrem',   recompute);
+      this.$watch('sensVar',      ()=> this.updateSens());
+      this.$watch('grossPrice', ()=> this._ddScenarioPersist());
+      this.$watch('taxBasis', ()=> this._ddScenarioPersist());
+      this.$watch('dark', ()=>{ // rebuild charts for theme colors
+        if(_methodChart){ _methodChart.destroy(); this.buildMethodChart(); }
+        if(_sensChart){ _sensChart.destroy(); this.buildSensChart(); }
+      });
+      window.addEventListener('resize', ()=>{
+        if(_methodChart) _methodChart.resize();
+        if(_sensChart) _sensChart.resize();
+      }, { passive:true });
+    }
+  };
+}
+</script>
+
+  <!-- Related sidebar (injected by add-related-sidebar.py) -->
+  <div data-connections-sidebar="injected" x-data="{ openRel: false }" class="no-print">
+    <button type="button"
+      @click="openRel = !openRel"
+      class="fixed right-4 bottom-4 z-40 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium shadow-lg rounded-full px-4 py-2 flex items-center gap-2"
+      aria-label="Přepnout související soubory">
+      <span>📎</span><span>Související</span>
+    </button>
+    <aside
+      x-show="openRel"
+      x-transition
+      @click.away="openRel = false"
+      class="fixed right-4 bottom-20 z-40 w-80 max-h-[70vh] overflow-y-auto bg-gray-900 border border-gray-700 text-gray-100 rounded-lg shadow-2xl p-4"
+      style="display: none;">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-white">📎 Související soubory</h3>
+        <button type="button" @click="openRel = false" class="text-gray-400 hover:text-white" aria-label="Zavřít">✕</button>
+      </div>
+      <div id="connections-related-panel" class="text-sm">
+        <p class="text-gray-500 italic">Načítání…</p>
+      </div>
+    </aside>
+  </div>
+  <script src="../_assets/connections.js"></script>
+  <script>
+    (function () {
+      if (!window.Connections) return;
+      window.Connections.init().then(function () {
+        var el = document.getElementById('connections-related-panel');
+        if (el) window.Connections.renderBacklinksPanel(el, '06-reports/valuation-calculator.html');
+      }).catch(function (err) {
+        var el = document.getElementById('connections-related-panel');
+        if (el) el.textContent = 'Graf není dostupný: ' + err.message;
+      });
+    })();
+  </script>
+
+<!-- mycelium-ux:injected -->
+  <script src="../_assets/hover-previews.js"></script>
+  <script src="../_assets/keyboard-shortcuts.js"></script>
+  <script src="../_assets/state-sync.js"></script>
+  <script src="../_assets/connections.js"></script>
+
+  <script defer src="../_assets/viz-debug.js"></script>
+  <!-- BEGIN:DD_AUTO_LINKIFY -->
+  <script src="../_assets/dd-entity-index.js"></script>
+  <script defer src="../_assets/dd-auto-linkify.js"></script>
+<!-- END:DD_AUTO_LINKIFY -->
+</body>
+</html>

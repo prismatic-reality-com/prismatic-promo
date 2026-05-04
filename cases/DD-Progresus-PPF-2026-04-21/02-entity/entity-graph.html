@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="cs" class="scroll-smooth">
+<head>
+  <meta name="workspace-version" content="1.0.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graf subjektů — Síť DD Progresus / PPF / Karlín</title>
+<link rel="stylesheet" href="../_assets/flowbite.min.css">
+<script src="../_assets/tailwind.min.js"></script>
+<script src="../_assets/p5.min.js" defer></script>
+<script src="../_assets/alpine.min.js" defer></script>
+<script src="../_assets/flowbite.min.js" defer></script>
+<style>
+  body { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; }
+  .terminal { font-family: ui-monospace, 'SF Mono', Menlo, monospace; }
+  #graph-canvas { border-radius: 0.5rem; overflow: hidden; background: #0b1220; }
+  .dark #graph-canvas { background: #000; }
+  @media print {
+    .no-print { display: none !important; }
+    body { background: white !important; color: black !important; }
+  }
+</style>
+<!-- mycelium-markdown:injected -->
+  <link rel="stylesheet" href="../_assets/markdown/custom.css">
+  <script defer src="../_assets/markdown/markdown-it.min.js"></script>
+  <script defer src="../_assets/markdown/markdownItAnchor.umd.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-task-lists.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-footnote.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-mark.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-attrs.browser.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-deflist.min.js"></script>
+  <script defer src="../_assets/markdown/markdown-it-emoji.min.js"></script>
+  <script defer src="../_assets/md-embed.js"></script>
+  <script defer src="../_assets/inline-md-autoload.js"></script>
+
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="../_assets/md-store.js"></script>
+  <script src="../_assets/manifest-store.js"></script>
+  <script src="../_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 dark:text-gray-100 transition-colors"
+      x-data="graphApp()"
+      :class="{ 'dark': dark }">
+
+<!-- NAV -->
+<nav class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 no-print">
+  <div class="max-w-screen-2xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="flex items-center gap-3">
+      <a href="../index.html" class="text-sm text-gray-500 hover:text-blue-600 dark:text-gray-400">← Portál</a>
+      <span class="text-gray-300 dark:text-gray-600">/</span>
+      <a href="./" class="text-sm text-gray-500 hover:text-blue-600 dark:text-gray-400">02-entity</a>
+      <span class="text-gray-300 dark:text-gray-600">/</span>
+      <span class="text-sm font-semibold text-gray-900 dark:text-gray-100">Graf subjektů</span>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href="./confirmed-entities.md" class="text-xs text-gray-500 hover:text-blue-600 dark:text-gray-400">confirmed-entities.md</a>
+      <a href="../05-osint/ppf-side-deep/PPF-GOVERNANCE-MAP.md" class="text-xs text-gray-500 hover:text-blue-600 dark:text-gray-400">PPF-GOVERNANCE-MAP.md</a>
+      <button @click="dark = !dark" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 text-sm">
+        <span x-show="!dark">🌙</span><span x-show="dark">☀️</span>
+      </button>
+    </div>
+  </div>
+</nav>
+  <nav class="breadcrumb text-sm text-gray-400 mb-4 px-4 max-w-screen-2xl mx-auto no-print" aria-label="drobečková navigace">
+    <ol class="flex flex-wrap items-center gap-2">
+      <li><a href="../index.html" class="hover:text-white hover:underline">🏠 Portál</a></li>
+      <li class="text-gray-500">/</li>
+      <li><a href="./README.md" class="hover:text-white hover:underline">🏢 02-entity</a></li>
+      <li class="text-gray-500">/</li>
+      <li class="text-white font-medium">entity-graph.html</li>
+    </ol>
+  </nav>
+
+
+
+<!-- HEADER -->
+<header class="max-w-screen-2xl mx-auto px-4 py-5 no-print">
+  <div class="flex flex-wrap items-baseline justify-between gap-3">
+    <div>
+      <h1 class="text-2xl md:text-3xl font-bold">Síť subjektů — Progresus × PPF × Karlín</h1>
+      <p class="text-sm text-gray-600 dark:text-gray-400 terminal">45+ subjektů / 4 strany / force-directed graf — klikněte na uzel pro detaily</p>
+    </div>
+    <div class="flex gap-2">
+      <button @click="exportPng()" class="inline-flex items-center gap-2 px-3 py-2 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M12 12v8m0-8l-4 4m4-4l4 4M20 4H4"/></svg>
+        Exportovat PNG
+      </button>
+      <button @click="resetView()" class="px-3 py-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-sm">Resetovat</button>
+    </div>
+  </div>
+  <div class="mt-3 flex flex-wrap gap-2 text-xs">
+    <a href="../reader.html?file=02-entity/entity-structure.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-blue-600 text-white hover:bg-blue-500 transition shadow-sm">📖 Struktura subjektů (Progresus)</a>
+    <a href="../reader.html?file=02-entity/confirmed-entities.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-blue-500 text-white hover:bg-blue-400 transition shadow-sm">✅ Ověřené subjekty</a>
+    <a href="../reader.html?file=01-intel/ppf-dd-profile.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-red-600 text-white hover:bg-red-500 transition shadow-sm">📖 PPF DD profil</a>
+    <a href="../reader.html?file=01-intel/karlin-group-parallel-bidder-dossier.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-amber-600 text-white hover:bg-amber-500 transition shadow-sm">🏗 Karlín Group dossier</a>
+    <a href="../reader.html?file=05-osint/ppf-side-deep/PPF-GOVERNANCE-MAP.md" class="inline-flex items-center gap-1 px-3 py-1.5 rounded bg-indigo-600 text-white hover:bg-indigo-500 transition shadow-sm">🗺 PPF governance mapa</a>
+  </div>
+</header>
+
+<!-- LAYOUT: sidebar + canvas + right panel -->
+<main class="max-w-screen-2xl mx-auto px-4 pb-10 grid grid-cols-12 gap-4">
+
+  <!-- LEFT sidebar -->
+  <aside class="col-span-12 md:col-span-3 space-y-4 no-print">
+    <!-- Search -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+      <label class="block text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 mb-2">Hledat</label>
+      <input type="text" x-model="search"
+             placeholder="Název nebo IČO..."
+             class="w-full px-3 py-2 bg-gray-50 dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md text-sm">
+      <p class="text-[11px] text-gray-500 mt-2 terminal"><span x-text="visibleCount()"></span>/<span x-text="entities.length"></span> viditelných</p>
+    </div>
+
+    <!-- Side filter -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+      <h3 class="text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 mb-2">Strana</h3>
+      <template x-for="side in ['Progresus','PPF','Karlin','Historical','Casper']" :key="side">
+        <label class="flex items-center gap-2 text-sm py-1 cursor-pointer">
+          <input type="checkbox" :value="side" x-model="sides" class="rounded">
+          <span class="inline-block w-3 h-3 rounded-full" :style="'background:' + sideColor(side)"></span>
+          <span x-text="sideLabel(side)"></span>
+        </label>
+      </template>
+    </div>
+
+    <!-- Status filter -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700">
+      <h3 class="text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 mb-2">Stav</h3>
+      <template x-for="st in ['ACTIVE','NEW','LIQUIDATION','HISTORICAL']" :key="st">
+        <label class="flex items-center gap-2 text-sm py-1 cursor-pointer">
+          <input type="checkbox" :value="st" x-model="statuses" class="rounded">
+          <span x-text="statusLabel(st)"></span>
+        </label>
+      </template>
+    </div>
+
+    <!-- Legend -->
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 text-xs space-y-1 terminal">
+      <p><span class="inline-block w-3 h-3 rounded-full bg-blue-500 mr-1"></span> Progresus</p>
+      <p><span class="inline-block w-3 h-3 rounded-full bg-red-500 mr-1"></span> PPF (kupující)</p>
+      <p><span class="inline-block w-3 h-3 rounded-full bg-amber-500 mr-1"></span> Karlín (paralelní)</p>
+      <p><span class="inline-block w-3 h-3 rounded-full bg-gray-500 mr-1"></span> Historický / Nuka</p>
+      <p><span class="inline-block w-3 h-3 rounded-full bg-purple-500 mr-1"></span> Casper spoluinvestor</p>
+      <p class="pt-1 border-t border-gray-200 dark:border-gray-700 mt-2">
+        Velikost uzlu = váha role<br>
+        Prstenec = NOVÝ (<90 dní) / LIKVIDACE / AKTIVNÍ
+      </p>
+    </div>
+  </aside>
+
+  <!-- CANVAS -->
+  <section class="col-span-12 md:col-span-6">
+    <div id="graph-canvas" class="w-full h-[72vh] md:h-[80vh] relative">
+      <div x-show="!p5Ready" class="absolute inset-0 flex items-center justify-center text-gray-500 terminal text-sm">
+        načítání fyzikálního enginu…
+      </div>
+    </div>
+    <p class="text-[11px] text-gray-500 dark:text-gray-400 mt-2 terminal no-print">
+      tažení = pohyb uzlu · klik = detaily · kolečko myši nepřibližuje (force-direction zamknut)
+    </p>
+  </section>
+
+  <!-- DETAIL PANEL -->
+  <aside class="col-span-12 md:col-span-3">
+    <div class="bg-white dark:bg-gray-800 rounded-lg p-4 border border-gray-200 dark:border-gray-700 sticky top-4">
+      <h3 class="text-xs font-semibold uppercase text-gray-500 dark:text-gray-400 mb-2">Vybraný subjekt</h3>
+      <template x-if="!selected">
+        <p class="text-sm text-gray-500 terminal">klikněte na uzel…</p>
+      </template>
+      <template x-if="selected">
+        <div class="space-y-2 text-sm">
+          <div class="flex items-start justify-between gap-2">
+            <h4 class="text-base font-bold" x-text="selected.name"></h4>
+            <span class="text-[10px] px-2 py-0.5 rounded-full"
+                  :class="selected.status==='NEW' ? 'bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-200' :
+                          selected.status==='LIQUIDATION' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900 dark:text-yellow-200' :
+                          'bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-200'"
+                  x-text="statusLabel(selected.status)"></span>
+          </div>
+          <dl class="grid grid-cols-3 gap-1 terminal text-xs">
+            <dt class="text-gray-500">IČO</dt><dd class="col-span-2" x-text="selected.ico || '—'"></dd>
+            <dt class="text-gray-500">Strana</dt><dd class="col-span-2" x-text="sideLabel(selected.side)"></dd>
+            <dt class="text-gray-500">Založeno</dt><dd class="col-span-2" x-text="selected.founded || '—'"></dd>
+            <dt class="text-gray-500">Role</dt><dd class="col-span-2" x-text="selected.role"></dd>
+            <dt class="text-gray-500" x-show="selected.director">Statutár</dt>
+            <dd class="col-span-2" x-show="selected.director" x-text="selected.director || ''"></dd>
+            <dt class="text-gray-500" x-show="selected.note">Poznámka</dt>
+            <dd class="col-span-2 text-amber-600 dark:text-amber-300" x-show="selected.note" x-text="selected.note || ''"></dd>
+          </dl>
+          <template x-if="selected.flags && selected.flags.length">
+            <div class="pt-2 border-t border-gray-200 dark:border-gray-700">
+              <p class="text-[11px] uppercase font-semibold text-gray-500 mb-1">Red flagy</p>
+              <template x-for="f in selected.flags" :key="f">
+                <span class="inline-block text-[10px] px-2 py-0.5 rounded bg-red-50 text-red-700 dark:bg-red-950 dark:text-red-300 mr-1 mb-1 terminal" x-text="f"></span>
+              </template>
+            </div>
+          </template>
+
+          <!-- Otevřít zdroj -->
+          <div class="pt-3 border-t border-gray-200 dark:border-gray-700">
+            <p class="text-[11px] uppercase font-semibold text-gray-500 mb-2">📖 Otevřít zdroj</p>
+            <div class="flex flex-wrap gap-1.5">
+              <template x-for="link in srcLinks(selected)" :key="link.url">
+                <a :href="link.url"
+                   class="inline-flex items-center gap-1 text-[11px] px-2 py-1 rounded bg-indigo-600 text-white hover:bg-indigo-500 transition"
+                   x-text="link.label"></a>
+              </template>
+            </div>
+          </div>
+        </div>
+      </template>
+    </div>
+  </aside>
+</main>
+
+<!-- Source strip -->
+<section class="max-w-screen-2xl mx-auto px-4 py-4 no-print">
+  <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-red-600 text-white rounded-lg p-4 shadow-lg">
+    <div class="text-xs uppercase tracking-wide opacity-80 mb-2">📖 Hlavní zdroje DD</div>
+    <div class="flex flex-wrap gap-2 text-sm">
+      <a href="../reader.html?file=06-reports/executive-summary.md" class="px-3 py-1.5 rounded bg-white/20 hover:bg-white/30 transition">📑 Hlavní DD report</a>
+      <a href="../reader.html?file=05-osint/ppf-side-deep/README.md" class="px-3 py-1.5 rounded bg-white/20 hover:bg-white/30 transition">📜 PPF Playbook</a>
+      <a href="../06-reports/red-flags-dashboard.html" class="px-3 py-1.5 rounded bg-white/20 hover:bg-white/30 transition">🚨 Red Flags</a>
+      <a href="../reader.html?file=06-reports/MASTER-ACTION-PLAN.md" class="px-3 py-1.5 rounded bg-white/20 hover:bg-white/30 transition">🎯 Master Action Plan</a>
+      <a href="../reader.html?file=02-entity/entity-structure.md" class="px-3 py-1.5 rounded bg-white/20 hover:bg-white/30 transition">🏢 Struktura subjektů</a>
+    </div>
+  </div>
+</section>
+
+<footer class="max-w-screen-2xl mx-auto px-4 pb-6 text-[11px] text-gray-500 dark:text-gray-400 terminal no-print">
+  Fyzika P5.js · force-directed pružinový model · data: <a class="underline" href="./confirmed-entities.md">confirmed-entities.md</a>, <a class="underline" href="../05-osint/ppf-side-deep/PPF-GOVERNANCE-MAP.md">PPF-GOVERNANCE-MAP.md</a>
+</footer>
+
+<script>
+// --- ENTITY DATA --------------------------------------------------------
+const ENTITIES = [
+  // ===== Progresus side (25) =====
+  { id:'p1',  name:'PROGRESUS Group a.s.',           ico:'10978216', side:'Progresus', status:'ACTIVE', founded:'2021-06-24', role:'Ultimátní holding + ručitel dluhopisů', director:'Lukáš Zrůst', flags:['RF-28'], tier:1 },
+  { id:'p2',  name:'PROGRESUS invest holding s.r.o.', ico:'09932836', side:'Progresus', status:'ACTIVE', founded:'2021-02-18', role:'Mateřský holding s.r.o.', tier:1 },
+  { id:'p3',  name:'Progresus invest holding core a.s.', ico:'13995758', side:'Progresus', status:'ACTIVE', founded:'2021-09-07', role:'Jádrový holding', tier:1 },
+  { id:'p4',  name:'RD Rýmařov Invest Holding a.s.', ico:'09963758', side:'Progresus', status:'ACTIVE', founded:'2021-02-18', role:'Divizní holding RD Rýmařov', tier:1 },
+  { id:'p5',  name:'PROGRESUS Developments s.r.o.',  ico:'14148978', side:'Progresus', status:'ACTIVE', founded:'2021', role:'Developerské SPV (Karlín)', tier:2 },
+  { id:'p6',  name:'PROGRESUS Developments Delta I', ico:'14295521', side:'Progresus', status:'ACTIVE', role:'Developerské SPV Delta I', tier:2 },
+  { id:'p7',  name:'PROGRESUS Development Acquisitions', ico:'18031919', side:'Progresus', status:'ACTIVE', role:'Akviziční vehikl', tier:2 },
+  { id:'p8',  name:'PROGRESUS Factories Acquisitions Alfa', ico:'18031862', side:'Progresus', status:'ACTIVE', role:'Akvizice závodů Alfa', tier:2 },
+  { id:'p9',  name:'PROGRESUS IT s.r.o.',            ico:'10916644', side:'Progresus', status:'ACTIVE', role:'IT divize', tier:3 },
+  { id:'p10', name:'PROGRESUS Marketing s.r.o.',     ico:'13956728', side:'Progresus', status:'ACTIVE', role:'Marketing', tier:3 },
+  { id:'p11', name:'PROGRESUS Service center s.r.o.',ico:'13957384', side:'Progresus', status:'ACTIVE', role:'Sdílené služby', tier:3 },
+  { id:'p12', name:'PROGRESUS R & D Alpha s.r.o.',   ico:'14270447', side:'Progresus', status:'ACTIVE', role:'Vehikl pro výzkum a vývoj', tier:3 },
+  { id:'p13', name:'PROGRESUS Gardens a.s.',         ico:'10977414', side:'Progresus', status:'ACTIVE', founded:'2021-06-24', role:'Dceřiná společnost', tier:3 },
+  { id:'p14', name:'PROGRESUS Invest holding Financial',ico:'10958452', side:'Progresus', status:'ACTIVE', role:'Finanční divize', tier:3 },
+  { id:'p15', name:'PROGRESUS Development Services', ico:'26861054', side:'Progresus', status:'ACTIVE', role:'Developerské služby', tier:3 },
+  // Bond issuers
+  { id:'p16', name:'RD Rýmařov Invest Develop a.s.', ico:'10722696', side:'Progresus', status:'ACTIVE', founded:'2021-03-31', role:'Emitent 1. dluhopisového prospektu', director:'Lukáš Zrůst', flags:['RF-28'], tier:2 },
+  { id:'p17', name:'PROGRESUS RD Rýmařov a.s.',      ico:'17053161', side:'Progresus', status:'ACTIVE', founded:'2022-04-19', role:'Emitent 2. dluhopisu — ŽÁDNÁ ÚZ', director:'Lukáš Zrůst', flags:['RF-28'], note:'Žádné účetní závěrky nikdy nezveřejněny', tier:2 },
+  { id:'p18', name:'PROGRESUS RD Rýmařov II a.s.',   ico:'19287518', side:'Progresus', status:'ACTIVE', founded:'2023-04-26', role:'Emitent 3. dluhopisu — ŽÁDNÁ ÚZ', director:'Lukáš Zrůst', flags:['RF-28'], note:'Žádné účetní závěrky nikdy nezveřejněny', tier:2 },
+  { id:'p19', name:'PROGRESUS RD Rýmařov III a.s.',  ico:'21515841', side:'Progresus', status:'ACTIVE', founded:'2024-04-27', role:'Emitent 4. dluhopisu — ŽÁDNÁ ÚZ', director:'Lukáš Zrůst', flags:['RF-28'], note:'Žádné účetní závěrky nikdy nezveřejněny', tier:2 },
+  { id:'p20', name:'PROGRESUS RD Rýmařov IV a.s.',   ico:'23983922', side:'Progresus', status:'NEW',    founded:'2025-11-21', role:'Emitent 5. dluhopisu — NOVÝ', director:'Lukáš Zrůst', flags:['RF-28'], note:'Emitoval dluhopisy před koncem účetního období', tier:2 },
+  { id:'p21', name:'PROGRESUS Bonds s.r.o.',         ico:'14066661', side:'Progresus', status:'ACTIVE', founded:'2021-12-23', role:'100% vlastník 3 emitentů dluhopisů', director:'Lukáš Zrůst', tier:2 },
+  // Target
+  { id:'p22', name:'Nový Zeleneč a.s. (CÍL)',     ico:'27825981', side:'Progresus', status:'ACTIVE', founded:'2007-12-20', role:'CÍL — vlastník 42ha pozemků A', flags:['RF-26','RF-27'], note:'ÚZ za období 2021-24 vše CHYBÍ', tier:1 },
+  { id:'p23', name:'RD Rýmařov Invest III. alpha s.r.o.', ico:'10800123', side:'Progresus', status:'ACTIVE', founded:'2021-04-30', role:'Jediný akcionář Nový Zeleneč', director:'Lukáš Zrůst', flags:['RF-29'], tier:2 },
+  { id:'p24', name:'Inženýrské a tech. služby Mstětice', ico:'10745246', side:'Progresus', status:'ACTIVE', role:'Infrastrukturní SPV', tier:3 },
+  { id:'p25', name:'PROGRESUS RD Rýmařov (operating)', ico:'17053161-alt', side:'Progresus', status:'ACTIVE', role:'Provozní firma dřevostavby', tier:3 },
+
+  // ===== Historical / Nuka Estates chain (4) =====
+  { id:'h1',  name:'Quinlan Private Residential II (LU)', side:'Historical', status:'HISTORICAL', role:'Zaniklá irská PE matka', note:'Lucemburská S.à.r.l.', tier:2 },
+  { id:'h2',  name:'Nuka Estates s.r.o. v likvidaci', ico:'27890104', side:'Historical', status:'LIQUIDATION', role:'Historický držitel pozemků', note:'Likvidátorka Pavlína Zdařilová (2023-04-19)', flags:['RF-10'], tier:2 },
+  { id:'h3',  name:'MARSEA MIA s.r.o.',              ico:'03454029', side:'Historical', status:'ACTIVE', role:'Zajištěný věřitel Nuka', note:'Vazba na rodinu Lébrových', flags:['RF-11'], tier:3 },
+  { id:'h4',  name:'Ravantino Group (Lébr)',         side:'Historical', status:'ACTIVE', role:'Přechodný vlastník před Progresusem', note:'Stále propaguje projekt', flags:['RF-12'], tier:3 },
+
+  // ===== PPF side (20) =====
+  { id:'f1',  name:'AMALAR HOLDING s.r.o.',          ico:'19696477', side:'PPF', status:'ACTIVE', founded:'2023-09-06', role:'Rodinný vehikl Kellnerových (vrchol)', director:'Renáta Kellnerová', flags:['RF-31'], tier:1 },
+  { id:'f2',  name:'PPF Group a.s.',                 ico:'24908487', side:'PPF', status:'NEW',    founded:'2026-04-01', role:'Vrcholová skupina — stáří 20 dní', director:'Jirásková/Stoessel', flags:['RF-32'], note:'Zcela nový holding', tier:1 },
+  { id:'f3',  name:'PPF Holdings a.s.',              ico:'24908151', side:'PPF', status:'NEW',    founded:'2026-04-01', role:'Nový mezičlánkový holding', flags:['RF-32'], note:'Statutáři typu nominee', tier:1 },
+  { id:'f4',  name:'PPF a.s.',                       ico:'25099345', side:'PPF', status:'ACTIVE', founded:'1997-01-13', role:'Vlajková entita Kellnerů', director:'Kateřina Jirásková', tier:1 },
+  { id:'f5',  name:'PPF Financial Holdings a.s.',    ico:'10907718', side:'PPF', status:'ACTIVE', founded:'2021-06-01', role:'Finanční holdingy', director:'Kateřina Jirásková', tier:2 },
+  { id:'f6',  name:'PPF banka a.s.',                 ico:'47116129', side:'PPF', status:'ACTIVE', role:'Bankovnictví', director:'Petr Jirásko', flags:['RF-30'], note:'Manžel Jiráskové — riziko propojených osob', tier:2 },
+  { id:'f7',  name:'PPF Real Estate s.r.o.',         ico:'27638987', side:'PPF', status:'ACTIVE', founded:'2007-01-03', role:'Aktivní realitní vehikl', director:'Jiří Tošek / R. Ševela', tier:2 },
+  { id:'f8',  name:'PPF reality a.s.',               ico:'29030072', side:'PPF', status:'ACTIVE', founded:'2010-02-04', role:'Jediný statutár Tošek', director:'Jiří Tošek', tier:2 },
+  { id:'f9',  name:'PPF reality 2 s.r.o.',           ico:'24654744', side:'PPF', status:'NEW',    founded:'2026-03-19', role:'TRANSAKČNÍ SPV — stáří 33 dní', director:'Jiří Tošek', flags:['RF-32'], note:'Akviziční vehikl s kyperským vlastníkem', tier:1 },
+  { id:'f10', name:'PPF RE Consulting s.r.o.',       ico:'24225657', side:'PPF', status:'ACTIVE', founded:'2012-03-09', role:'Konzultace s nizozemským vlastníkem', director:'Jiří Tošek', tier:3 },
+  { id:'f11', name:'PPF Real Estate Holding B.V. (NL)', side:'PPF', status:'ACTIVE', role:'Nizozemská matka', note:'Zuidplein 168, Amsterdam', tier:2 },
+  { id:'f12', name:'PPF CYPRUS RE MANAGEMENT (CY)',  side:'PPF', status:'ACTIVE', role:'Kypr — vlastník PPF reality 2', note:'HE 251908, Nikósie', tier:2 },
+  { id:'f13', name:'PPF Hospitality',                ico:'22330020', side:'PPF', status:'ACTIVE', role:'Pohostinství', tier:3 },
+  { id:'f14', name:'PPF Gastro',                     ico:'24768103', side:'PPF', status:'ACTIVE', role:'Gastronomie', tier:3 },
+  { id:'f15', name:'PPF Advisory CR',                ico:'25792385', side:'PPF', status:'ACTIVE', role:'Poradenství', tier:3 },
+  { id:'f16', name:'PPF Art',                        ico:'63080672', side:'PPF', status:'ACTIVE', role:'Umění', tier:3 },
+  { id:'f17', name:'Nadace PPF',                     ico:'08547645', side:'PPF', status:'ACTIVE', role:'Nadace', tier:3 },
+  { id:'f18', name:'Royal PPF Studio',               ico:'24494020', side:'PPF', status:'ACTIVE', role:'Studio', tier:3 },
+  { id:'f19', name:'PROFILM PPF',                    ico:'23943564', side:'PPF', status:'ACTIVE', role:'Film', tier:3 },
+  { id:'f20', name:'PPF GATE',                       ico:'27654524', side:'PPF', status:'ACTIVE', role:'Gate', tier:3 },
+
+  // ===== Karlín Group (5) =====
+  { id:'k1', name:'KARLÍN GROUP Management a.s.',    ico:'24160776', side:'Karlin', status:'ACTIVE', founded:'2011-09-15', role:'Manažerská a.s.', director:'Serge Borenstein', tier:1 },
+  { id:'k2', name:'Rohan Estate Karlin Group a.s.',  ico:'27894053', side:'Karlin', status:'ACTIVE', founded:'2007-05-14', role:'Rohan Estate a.s.', director:'Samii/Brun/Borenstein', tier:2 },
+  { id:'k3', name:'KARLÍN GROUP EIGHT s.r.o.',       ico:'06974830', side:'Karlin', status:'ACTIVE', founded:'2018-03-21', role:'Číslované SPV (EIGHT)', director:'Serge Borenstein', tier:2 },
+  { id:'k4', name:'Karlín Group s.r.o. v likvidaci', ico:'26184338', side:'Karlin', status:'LIQUIDATION', founded:'2000-06-20', role:'Původní entita (v likvidaci)', tier:3 },
+  { id:'k5', name:'Karlín číslovaná SPV (x12)',      side:'Karlin', status:'ACTIVE', role:'12 číslovaných SPV', note:'EIGHT → TWENTY+', tier:3 },
+
+  // ===== Casper co-investor (2) =====
+  { id:'c1', name:'Casper Consulting (Štekl)',       side:'Casper', status:'ACTIVE', role:'Spoluinvestor Vitrablok (800 M)', note:'Externí účast v transakci Vitrablok', tier:2 },
+  { id:'c2', name:'Vitrablok / Seves Glass Block',   side:'Casper', status:'ACTIVE', role:'Akvírovaný výrobce skleněných tvárnic (podíl Progresusu 229 M)', tier:3 },
+];
+
+// --- EDGES (ownership / key relationships) ------------------------------
+const EDGES = [
+  // Progresus hierarchy
+  ['p1','p2'], ['p1','p3'], ['p1','p4'], ['p2','p5'], ['p5','p23'], ['p23','p22'],
+  ['p1','p21'], ['p21','p17'], ['p21','p18'], ['p21','p19'], ['p21','p20'],
+  ['p4','p16'], ['p1','p9'], ['p1','p10'], ['p1','p11'], ['p1','p12'], ['p1','p13'], ['p1','p14'], ['p1','p15'],
+  ['p1','p6'], ['p1','p7'], ['p1','p8'], ['p1','p24'], ['p1','p25'],
+  // Historical chain → Progresus
+  ['h1','h2'], ['h2','h3'], ['h2','h4'], ['h4','p22'],
+  // PPF hierarchy
+  ['f1','f2'], ['f1','f4'], ['f2','f3'], ['f2','f5'], ['f5','f6'],
+  ['f11','f7'], ['f11','f10'], ['f12','f9'],
+  ['f3','f9'], // deal SPV likely under new holding
+  ['f4','f8'], ['f4','f13'], ['f4','f14'], ['f4','f15'], ['f4','f16'], ['f4','f17'], ['f4','f18'], ['f4','f19'], ['f4','f20'],
+  // PPF → target (deal)
+  ['f9','p22'],
+  // Karlín
+  ['k1','k2'], ['k1','k3'], ['k1','k4'], ['k1','k5'],
+  // Karlín as parallel bidder on target
+  ['k1','p22'],
+  // Casper
+  ['c1','c2'], ['c2','p1'],
+];
+
+// --- ALPINE APP ---------------------------------------------------------
+function graphApp() {
+  return {
+    dark: true,
+    search: '',
+    sides: ['Progresus','PPF','Karlin','Historical','Casper'],
+    statuses: ['ACTIVE','NEW','LIQUIDATION','HISTORICAL'],
+    entities: ENTITIES,
+    edges: EDGES,
+    selected: null,
+    p5Instance: null,
+    p5Ready: false,
+
+    init() {
+      const self = this;
+      const sketch = (p) => {
+        const nodes = ENTITIES.map((e, i) => ({
+          ...e,
+          x: (Math.cos(i * 0.6) * 220) + 450 + (Math.random()-0.5)*40,
+          y: (Math.sin(i * 0.6) * 220) + 320 + (Math.random()-0.5)*40,
+          vx: 0, vy: 0, fixed: false
+        }));
+        const byId = Object.fromEntries(nodes.map(n => [n.id, n]));
+        const links = EDGES.map(([a,b]) => ({ a: byId[a], b: byId[b] })).filter(l => l.a && l.b);
+        let dragging = null;
+        let W, H;
+
+        p.setup = () => {
+          const box = document.getElementById('graph-canvas');
+          W = box.clientWidth; H = box.clientHeight || 600;
+          const c = p.createCanvas(W, H);
+          c.parent('graph-canvas');
+          p.pixelDensity(Math.min(window.devicePixelRatio || 1, 2));
+          self.p5Ready = true;
+        };
+        p.windowResized = () => {
+          const box = document.getElementById('graph-canvas');
+          W = box.clientWidth; H = box.clientHeight;
+          p.resizeCanvas(W, H);
+        };
+
+        const isVisible = (n) =>
+          self.sides.includes(n.side) &&
+          self.statuses.includes(n.status) &&
+          (!self.search || n.name.toLowerCase().includes(self.search.toLowerCase()) ||
+           (n.ico || '').includes(self.search));
+
+        p.draw = () => {
+          p.background(self.dark ? 0 : 11, self.dark ? 0 : 18, self.dark ? 0 : 32);
+
+          // physics
+          const visibleNodes = nodes.filter(isVisible);
+          // Repulsion
+          for (let i=0; i<visibleNodes.length; i++) {
+            for (let j=i+1; j<visibleNodes.length; j++) {
+              const a = visibleNodes[i], b = visibleNodes[j];
+              let dx = b.x - a.x, dy = b.y - a.y;
+              let d2 = dx*dx + dy*dy + 0.01;
+              let d = Math.sqrt(d2);
+              let f = 2500 / d2;
+              let fx = (dx/d) * f, fy = (dy/d) * f;
+              if (!a.fixed) { a.vx -= fx; a.vy -= fy; }
+              if (!b.fixed) { b.vx += fx; b.vy += fy; }
+            }
+          }
+          // Attraction (springs)
+          for (const l of links) {
+            if (!isVisible(l.a) || !isVisible(l.b)) continue;
+            let dx = l.b.x - l.a.x, dy = l.b.y - l.a.y;
+            let d = Math.sqrt(dx*dx+dy*dy) + 0.01;
+            let f = (d - 140) * 0.02;
+            let fx = (dx/d) * f, fy = (dy/d) * f;
+            if (!l.a.fixed) { l.a.vx += fx; l.a.vy += fy; }
+            if (!l.b.fixed) { l.b.vx -= fx; l.b.vy -= fy; }
+          }
+          // Center pull
+          for (const n of visibleNodes) {
+            if (n.fixed) continue;
+            n.vx += ((W/2) - n.x) * 0.0015;
+            n.vy += ((H/2) - n.y) * 0.0015;
+            n.vx *= 0.85; n.vy *= 0.85;
+            n.x += n.vx; n.y += n.vy;
+            n.x = p.constrain(n.x, 30, W-30);
+            n.y = p.constrain(n.y, 30, H-30);
+          }
+
+          // Edges
+          p.strokeWeight(1);
+          p.stroke(self.dark ? 70 : 180, 170);
+          for (const l of links) {
+            if (!isVisible(l.a) || !isVisible(l.b)) continue;
+            p.line(l.a.x, l.a.y, l.b.x, l.b.y);
+          }
+
+          // Nodes
+          p.noStroke();
+          for (const n of visibleNodes) {
+            const col = sideColorRGB(n.side);
+            const r = sizeFor(n);
+            // ring for status
+            if (n.status === 'NEW') {
+              p.noFill(); p.strokeWeight(3); p.stroke(255,80,80); p.ellipse(n.x, n.y, r*2+8, r*2+8); p.noStroke();
+            } else if (n.status === 'LIQUIDATION') {
+              p.noFill(); p.strokeWeight(3); p.stroke(240,180,50); p.ellipse(n.x, n.y, r*2+8, r*2+8); p.noStroke();
+            }
+            p.fill(col[0], col[1], col[2], self.selected && self.selected.id === n.id ? 255 : 220);
+            p.ellipse(n.x, n.y, r*2, r*2);
+            // label for tier 1 + selected
+            if (n.tier === 1 || (self.selected && self.selected.id === n.id)) {
+              p.fill(self.dark ? 230 : 40);
+              p.textSize(10);
+              p.textAlign(p.CENTER, p.TOP);
+              p.text(shorten(n.name, 28), n.x, n.y + r + 4);
+            }
+          }
+        };
+
+        p.mousePressed = () => {
+          for (const n of nodes) {
+            if (!isVisible(n)) continue;
+            const r = sizeFor(n);
+            if (p.dist(p.mouseX, p.mouseY, n.x, n.y) < r + 3) {
+              dragging = n;
+              n.fixed = true;
+              self.selected = n;
+              return;
+            }
+          }
+          self.selected = null;
+        };
+        p.mouseDragged = () => {
+          if (dragging) {
+            dragging.x = p.mouseX; dragging.y = p.mouseY;
+            dragging.vx = 0; dragging.vy = 0;
+          }
+        };
+        p.mouseReleased = () => {
+          if (dragging) { dragging.fixed = false; dragging = null; }
+        };
+
+        function sizeFor(n) {
+          if (n.tier === 1) return 14;
+          if (n.tier === 2) return 10;
+          return 7;
+        }
+        function shorten(s, n) { return s.length > n ? s.slice(0,n-1)+'…' : s; }
+        function sideColorRGB(side) {
+          switch(side) {
+            case 'Progresus': return [59,130,246];
+            case 'PPF': return [239,68,68];
+            case 'Karlin': return [245,158,11];
+            case 'Historical': return [120,120,120];
+            case 'Casper': return [168,85,247];
+            default: return [100,100,100];
+          }
+        }
+
+        self.p5Instance = p;
+      };
+      new p5(sketch);
+    },
+
+    sideColor(side) {
+      switch(side) {
+        case 'Progresus': return '#3b82f6';
+        case 'PPF': return '#ef4444';
+        case 'Karlin': return '#f59e0b';
+        case 'Historical': return '#6b7280';
+        case 'Casper': return '#a855f7';
+      }
+      return '#999';
+    },
+
+    srcLinks(node) {
+      if (!node) return [];
+      const links = [];
+      const isBondIssuer = node.role && /[Ee]mitent/.test(node.role);
+      switch(node.side) {
+        case 'Progresus':
+          links.push({ url:'../reader.html?file=02-entity/entity-structure.md', label:'📖 Struktura subjektu' });
+          links.push({ url:'../reader.html?file=02-entity/confirmed-entities.md', label:'✅ Ověřené subjekty' });
+          if (isBondIssuer) {
+            links.push({ url:'../reader.html?file=03-financial/sbirka-listin-audit.md', label:'📊 Bond stack audit' });
+            links.push({ url:'./bond-stack.html', label:'📈 Bond stack viz' });
+          }
+          if (node.id === 'p22') {
+            links.push({ url:'../reader.html?file=02-entity/land-title-chain.md', label:'🏞 Land title chain' });
+          }
+          break;
+        case 'PPF':
+          links.push({ url:'../reader.html?file=01-intel/ppf-dd-profile.md', label:'🔍 PPF DD profil' });
+          links.push({ url:'../reader.html?file=05-osint/ppf-side-deep/PPF-GOVERNANCE-MAP.md', label:'🗺 PPF governance mapa' });
+          links.push({ url:'../reader.html?file=01-intel/ppf-people-dossiers.md', label:'👥 PPF dossiery osob' });
+          break;
+        case 'Karlin':
+          links.push({ url:'../reader.html?file=01-intel/karlin-group-parallel-bidder-dossier.md', label:'🏗 Karlín dossier' });
+          break;
+        case 'Historical':
+          links.push({ url:'../reader.html?file=02-entity/land-title-chain.md', label:'🏞 Land title chain' });
+          links.push({ url:'../reader.html?file=02-entity/cuzk-cadastre-forensics.md', label:'🗺 ČÚZK forensika' });
+          break;
+        case 'Casper':
+          links.push({ url:'../reader.html?file=01-intel/principals-deep-osint.md', label:'📂 OSINT principálů' });
+          break;
+      }
+      // Always provide entity-graph backbone
+      links.push({ url:'../reader.html?file=02-entity/README.md', label:'📚 02-entity README' });
+      return links;
+    },
+
+    sideLabel(side) {
+      switch(side) {
+        case 'Progresus': return 'Progresus';
+        case 'PPF': return 'PPF';
+        case 'Karlin': return 'Karlín';
+        case 'Historical': return 'Historický';
+        case 'Casper': return 'Casper';
+      }
+      return side;
+    },
+
+    statusLabel(st) {
+      switch(st) {
+        case 'ACTIVE': return 'AKTIVNÍ';
+        case 'NEW': return 'NOVÝ';
+        case 'LIQUIDATION': return 'LIKVIDACE';
+        case 'HISTORICAL': return 'HISTORICKÝ';
+      }
+      return st;
+    },
+
+    visibleCount() {
+      return this.entities.filter(n =>
+        this.sides.includes(n.side) &&
+        this.statuses.includes(n.status) &&
+        (!this.search || n.name.toLowerCase().includes(this.search.toLowerCase()) ||
+         (n.ico || '').includes(this.search))
+      ).length;
+    },
+
+    resetView() {
+      this.search = '';
+      this.sides = ['Progresus','PPF','Karlin','Historical','Casper'];
+      this.statuses = ['ACTIVE','NEW','LIQUIDATION','HISTORICAL'];
+      this.selected = null;
+    },
+
+    exportPng() {
+      if (!this.p5Instance) return;
+      this.p5Instance.saveCanvas('entity-graph', 'png');
+    }
+  };
+}
+</script>
+
+  <!-- Related sidebar (injected by add-related-sidebar.py) -->
+  <div data-connections-sidebar="injected" x-data="{ openRel: false }" class="no-print">
+    <button type="button"
+      @click="openRel = !openRel"
+      class="fixed right-4 bottom-4 z-40 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium shadow-lg rounded-full px-4 py-2 flex items-center gap-2"
+      aria-label="Přepnout související soubory">
+      <span>📎</span><span>Související</span>
+    </button>
+    <aside
+      x-show="openRel"
+      x-transition
+      @click.away="openRel = false"
+      class="fixed right-4 bottom-20 z-40 w-80 max-h-[70vh] overflow-y-auto bg-gray-900 border border-gray-700 text-gray-100 rounded-lg shadow-2xl p-4"
+      style="display: none;">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-sm font-semibold text-white">📎 Související soubory</h3>
+        <button type="button" @click="openRel = false" class="text-gray-400 hover:text-white" aria-label="Zavřít">✕</button>
+      </div>
+      <div id="connections-related-panel" class="text-sm">
+        <p class="text-gray-500 italic">Načítání…</p>
+      </div>
+    </aside>
+  </div>
+  <script src="../_assets/connections.js"></script>
+  <script>
+    (function () {
+      if (!window.Connections) return;
+      window.Connections.init().then(function () {
+        var el = document.getElementById('connections-related-panel');
+        if (el) window.Connections.renderBacklinksPanel(el, '02-entity/entity-graph.html');
+      }).catch(function (err) {
+        var el = document.getElementById('connections-related-panel');
+        if (el) el.textContent = 'Graf není dostupný: ' + err.message;
+      });
+    })();
+  </script>
+
+<!-- mycelium-ux:injected -->
+  <script defer src="../_assets/cmdk.js"></script>
+  <script src="../_assets/hover-previews.js"></script>
+  <script src="../_assets/keyboard-shortcuts.js"></script>
+  <script src="../_assets/state-sync.js"></script>
+  <script src="../_assets/connections.js"></script>
+
+  <script defer src="../_assets/viz-debug.js"></script>
+  <!-- BEGIN:DD_AUTO_LINKIFY -->
+  <script src="../_assets/dd-entity-index.js"></script>
+  <script defer src="../_assets/dd-auto-linkify.js"></script>
+<!-- END:DD_AUTO_LINKIFY -->
+</body>
+</html>

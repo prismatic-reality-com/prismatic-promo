@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>DD Workspace — Spouštěč povrchových testů</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="./_assets/flowbite.min.css">
+<script src="./_assets/tailwind.min.js"></script>
+<script defer src="./_assets/alpine.min.js"></script>
+<script src="./_assets/test-console.js"></script>
+<style>
+  [x-cloak] { display: none !important; }
+  .result-pass { color: #059669; }
+  .result-fail { color: #dc2626; }
+  .result-pending { color: #64748b; }
+  iframe.probe { width: 0; height: 0; border: 0; position: absolute; left: -9999px; }
+</style>
+<!-- BEGIN:DD_OFFLINE_STORE -->
+  <script src="_assets/md-store.js"></script>
+  <script src="_assets/manifest-store.js"></script>
+  <script src="_assets/graph-store.js"></script>
+  <!-- END:DD_OFFLINE_STORE -->
+</head>
+<body class="bg-slate-50 text-slate-900 antialiased">
+
+<div x-data="runner()" x-cloak class="max-w-5xl mx-auto p-6">
+
+  <header class="mb-6">
+    <div class="flex items-center justify-between flex-wrap gap-3">
+      <div>
+        <h1 class="text-2xl font-bold">🧪 DD Workspace — Spouštěč povrchových testů</h1>
+        <p class="text-sm text-slate-600">
+          Ověřuje, že se všechny HTML stránky načtou, že každý odkazovaný markdown zdroj je dostupný přes in-browser store
+          a že jsou připojeny hlavní JS API. Spusťte po startu <code class="font-mono">./serve.sh</code>.
+        </p>
+      </div>
+      <div class="flex items-center gap-2">
+        <a href="./index.html" class="text-sm text-slate-600 hover:text-indigo-600 underline">← Portál</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="bg-white border border-slate-200 rounded-xl p-4 mb-4">
+    <div class="flex items-center justify-between flex-wrap gap-3">
+      <div class="flex items-center gap-3 flex-wrap">
+        <button type="button" @click="runAll()" :disabled="running"
+                class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-400 text-white font-semibold text-sm">
+          <span x-show="!running">▶ Spustit všechny testy</span>
+          <span x-show="running">Probíhá…</span>
+        </button>
+        <button type="button" @click="exportReport()" :disabled="!done"
+                class="px-3 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 disabled:text-slate-400 border border-slate-200 text-sm">
+          Exportovat JSON
+        </button>
+        <label class="text-xs text-slate-600 flex items-center gap-1">
+          <input type="checkbox" x-model="onlyFailures"> Zobrazit pouze chyby
+        </label>
+      </div>
+      <div class="text-sm text-right font-mono">
+        <span class="result-pass" x-text="'✓ ' + passed"></span>
+        · <span class="result-fail" x-text="'✗ ' + failed"></span>
+        · <span class="text-slate-500" x-text="total + ' celkem'"></span>
+      </div>
+    </div>
+    <!-- Progress bar -->
+    <div class="mt-3 w-full bg-slate-200 rounded-full h-2">
+      <div class="bg-indigo-500 h-2 rounded-full transition-all"
+           :style="'width: ' + progressPct + '%'"></div>
+    </div>
+    <div class="mt-1 text-xs text-slate-500" x-text="status"></div>
+  </div>
+
+  <!-- Hidden iframe probe for HTML load tests -->
+  <iframe class="probe" x-ref="probe" sandbox="allow-scripts allow-same-origin" src="about:blank"></iframe>
+
+  <!-- Results -->
+  <div class="bg-white border border-slate-200 rounded-xl divide-y divide-slate-100">
+    <template x-for="c in visibleCases" :key="c.name">
+      <div class="p-3 flex items-start gap-3">
+        <span class="text-lg leading-none mt-0.5"
+              :class="c.status === 'pass' ? 'result-pass' : (c.status === 'fail' ? 'result-fail' : 'result-pending')"
+              x-text="c.status === 'pass' ? '✅' : (c.status === 'fail' ? '❌' : '○')"></span>
+        <div class="flex-1 min-w-0">
+          <div class="font-mono text-sm break-all" x-text="c.name"></div>
+          <div class="text-xs text-slate-500 mt-0.5" x-show="c.status !== 'pending'">
+            <span x-text="c.durationMs + 'ms'"></span>
+            <template x-if="c.error">
+              <span class="ml-2 text-red-600" x-text="'— ' + c.error"></span>
+            </template>
+          </div>
+        </div>
+      </div>
+    </template>
+    <template x-if="cases.length === 0">
+      <div class="p-6 text-center text-slate-500 text-sm">Klikněte na <strong>Spustit všechny testy</strong> pro začátek.</div>
+    </template>
+  </div>
+
+  <footer class="mt-6 text-xs text-slate-500">
+    <p>
+      Tato stránka používá <code class="font-mono">_assets/test-console.js</code> (<code class="font-mono">window.DD_TEST</code>) plus skrytý iframe sondu.
+      HTML se načítají přes fetch (pro HTTP status + tělo) a sekundárně přes iframe pro ověření, že se vykreslí. Markdown zdroje se hledají přes <code class="font-mono">window.DD_MD_STORE_GET</code>, pokud je k dispozici; jinak fallback na fetch.
+    </p>
+  </footer>
+
+</div>
+
+<!-- Workspace file list embedded as JSON -->
+<script id="dd-surfaces" type="application/json">
+{
+  "htmls": [
+    "01-intel/ppf-governance.html",
+    "01-intel/stakeholder-map.html",
+    "02-entity/entity-graph.html",
+    "02-entity/entity-offices-map.html",
+    "02-entity/geo-parcel-map.html",
+    "02-entity/parcel-map.html",
+    "03-financial/bond-stack.html",
+    "03-financial/tax-calculator.html",
+    "04-legal/dancore-timeline.html",
+    "06-reports/deal-journey.html",
+    "06-reports/geo-deal-overview.html",
+    "06-reports/pressure-radar.html",
+    "06-reports/red-flags-dashboard.html",
+    "06-reports/relationships-matrix.html",
+    "06-reports/roadmap-gantt.html",
+    "06-reports/valuation-calculator.html",
+    "08-comms-templates/comms-hub.html",
+    "executive-briefing.html",
+    "export-pack.html",
+    "index.html",
+    "keyboard-help.html",
+    "knowledge-graph.html",
+    "md-index.html",
+    "reader.html",
+    "rendered/index.html",
+    "rendered/master-report.html",
+    "rendered/one-pager.html",
+    "rendered/playbook.html",
+    "rendered/red-flags.html",
+    "rendered/valuation.html",
+    "search.html",
+    "sitemap.html"
+  ],
+  "markdownSpotCheck": [
+    "README.md",
+    "00-INDEX.md",
+    "RED-FLAGS.md",
+    "EXECUTIVE-ONE-PAGER.md",
+    "PPF-PLAYBOOK.md",
+    "06-reports/MASTER-DD-REPORT-v1.0.md",
+    "06-reports/VALUATION-DEFENSE-MEMO.md",
+    "06-reports/MASTER-ACTION-PLAN.md"
+  ],
+  "apiChecks": [
+    { "name": "DD_MD_STORE_GET", "kind": "function" },
+    { "name": "DD_MD_STORE_KEYS", "kind": "function" },
+    { "name": "DD_MD_STORE", "kind": "object" },
+    { "name": "DD_MANIFEST", "kind": "object" },
+    { "name": "DD_GRAPH", "kind": "object" }
+  ]
+}
+</script>
+
+<!-- Load in-browser stores so API checks can resolve (work over file:// too) -->
+<script src="./_assets/md-store.js" defer></script>
+<script src="./_assets/manifest-store.js" defer></script>
+<script src="./_assets/graph-store.js" defer></script>
+
+<script>
+function runner() {
+  return {
+    cases: [],
+    running: false,
+    done: false,
+    onlyFailures: false,
+    status: 'Nečinné.',
+    get total() { return this.cases.length; },
+    get passed() { return this.cases.filter(c => c.status === 'pass').length; },
+    get failed() { return this.cases.filter(c => c.status === 'fail').length; },
+    get completed() { return this.cases.filter(c => c.status !== 'pending').length; },
+    get progressPct() {
+      return this.total === 0 ? 0 : Math.round(this.completed / this.total * 100);
+    },
+    get visibleCases() {
+      return this.onlyFailures ? this.cases.filter(c => c.status === 'fail') : this.cases;
+    },
+    init() {
+      const data = JSON.parse(document.getElementById('dd-surfaces').textContent);
+      this.surfaces = data;
+      this.cases = [];
+      // Pre-register placeholder cases for the UI
+      for (const h of data.htmls) {
+        this.cases.push({ name: 'HTML ' + h, status: 'pending', error: null, durationMs: 0 });
+      }
+      for (const m of data.markdownSpotCheck) {
+        this.cases.push({ name: 'Markdown zdroj ' + m, status: 'pending', error: null, durationMs: 0 });
+      }
+      for (const a of data.apiChecks) {
+        this.cases.push({ name: 'API window.' + a.name + ' je ' + a.kind, status: 'pending', error: null, durationMs: 0 });
+      }
+      this.status = this.cases.length + ' testů ve frontě.';
+    },
+    async runAll() {
+      if (this.running) return;
+      this.running = true;
+      this.done = false;
+      DD_TEST.reset();
+      this.cases.forEach(c => { c.status = 'pending'; c.error = null; c.durationMs = 0; });
+
+      // Register tests
+      const onHttp = this._httpScheme();
+      for (const h of this.surfaces.htmls) {
+        DD_TEST.test('HTML ' + h, async () => {
+          await this._probeHtml(h, onHttp);
+        });
+      }
+      for (const m of this.surfaces.markdownSpotCheck) {
+        DD_TEST.test('Markdown zdroj ' + m, async () => {
+          await this._probeMarkdown(m, onHttp);
+        });
+      }
+      for (const a of this.surfaces.apiChecks) {
+        const name = 'API window.' + a.name + ' je ' + a.kind;
+        const apiName = a.name;
+        const apiKind = a.kind;
+        DD_TEST.test(name, async () => {
+          // Give deferred scripts a chance to run
+          for (let i = 0; i < 20 && typeof window[apiName] === 'undefined'; i++) {
+            await new Promise(r => setTimeout(r, 100));
+          }
+          const t = typeof window[apiName];
+          if (apiKind === 'function' && t !== 'function') {
+            throw new Error('window.' + apiName + ' je ' + t + ', očekáváno function');
+          }
+          if (apiKind === 'object' && (t !== 'object' || window[apiName] === null)) {
+            throw new Error('window.' + apiName + ' je ' + t + ', očekáváno object');
+          }
+        });
+      }
+
+      // Execute
+      this.status = 'Probíhá…';
+      const report = await DD_TEST.run((rec) => {
+        const idx = this.cases.findIndex(c => c.name === rec.name);
+        if (idx >= 0) {
+          this.cases[idx] = rec;
+          this.status = 'Hotovo ' + (this.completed) + '/' + this.total + ' — poslední: ' + rec.name + ' (' + rec.status + ')';
+        }
+      });
+
+      this.status = 'Hotovo — ' + report.passed + ' prošlo / ' + report.failed + ' selhalo / ' + report.total + ' celkem.';
+      this.running = false;
+      this.done = true;
+      this.lastReport = report;
+    },
+    _httpScheme() {
+      return location.protocol === 'http:' || location.protocol === 'https:';
+    },
+    async _probeHtml(relPath, isHttp) {
+      // Primary: fetch status (http only). fetch on file:// often rejects or succeeds opaquely.
+      if (isHttp) {
+        const res = await fetch('./' + relPath, { method: 'GET' });
+        if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + res.statusText);
+        const body = await res.text();
+        if (body.length < 50) throw new Error('Podezřele malé tělo: ' + body.length + ' bajtů');
+        if (!body.toLowerCase().includes('<html') && !body.toLowerCase().includes('<!doctype'))
+          throw new Error('Není HTML dokument (chybí <html> nebo <!doctype>)');
+        return;
+      }
+      // Fallback: iframe load probe for file:// mode. We cannot read cross-origin body, but `load` event fires for successful navigation.
+      await new Promise((resolve, reject) => {
+        const frame = this.$refs.probe;
+        const timer = setTimeout(() => { reject(new Error('Časový limit načtení iframe (8s)')); }, 8000);
+        const onLoad = () => {
+          clearTimeout(timer);
+          frame.removeEventListener('load', onLoad);
+          resolve();
+        };
+        frame.addEventListener('load', onLoad);
+        frame.src = './' + relPath;
+      });
+    },
+    async _probeMarkdown(relPath, isHttp) {
+      // Prefer the in-browser markdown store if available (works on file://).
+      if (typeof window.DD_MD_STORE_GET === 'function') {
+        const md = window.DD_MD_STORE_GET(relPath);
+        if (!md || typeof md !== 'string' || md.length < 10) {
+          throw new Error('DD_MD_STORE_GET vrátil prázdný / neplatný obsah');
+        }
+        return;
+      }
+      if (isHttp) {
+        const res = await fetch('./' + relPath, { method: 'GET' });
+        if (!res.ok) throw new Error('HTTP ' + res.status + ' ' + res.statusText);
+        return;
+      }
+      throw new Error('Není k dispozici DD_MD_STORE_GET a nejde o HTTP — nelze ověřit markdown na file://');
+    },
+    exportReport() {
+      if (!this.lastReport) return;
+      const blob = new Blob([JSON.stringify(this.lastReport, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'dd-surface-test-report-' + new Date().toISOString().slice(0, 19).replace(/[:T]/g, '-') + '.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  };
+}
+</script>
+</body>
+</html>
