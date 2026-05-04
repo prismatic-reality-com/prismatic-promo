@@ -600,19 +600,207 @@
         <div class="max-w-4xl mx-auto">
             
 
-<!-- Compliance Assessment -->
-<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-green-900/20 rounded-2xl border border-green-500/20 p-6 mb-8 shadow-2xl shadow-green-900/20" x-data="{
-    score: 87, categories: [{ name: 'GDPR', value: 92 }, { name: 'SOX', value: 85 }, { name: 'HIPAA', value: 78 }], chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
-        var self = this; var ctx = this.$refs.complianceCanvas.getContext('2d');
-        this.chart = new Chart(ctx, { type: 'doughnut', data: { labels: self.categories.map(function(c) { return c.name; }), datasets: [{ data: self.categories.map(function(c) { return c.value; }), backgroundColor: ['rgba(52,211,153,0.6)', 'rgba(34,197,94,0.6)', 'rgba(22,163,74,0.6)'], borderWidth: 0 }] }, options: { responsive: true, maintainAspectRatio: false, cutout: '60%', plugins: { legend: { display: false } } } });
+<!-- Legal & Governance: Multi-Framework Compliance Score Simulator -->
+<div class="bg-gradient-to-br from-gray-800 via-gray-800 to-green-900/20 rounded-2xl border border-green-500/20 p-4 sm:p-6 mb-8 shadow-2xl shadow-green-900/20" x-data="{
+    docCompleteness: 75, controlImpl: 80, training: 65, evidenceFresh: 70, riskMitigation: 85,
+    weights: { GDPR: { doc: 0.30, ctrl: 0.25, train: 0.15, evid: 0.20, risk: 0.10 },
+               SOX: { doc: 0.20, ctrl: 0.30, train: 0.10, evid: 0.25, risk: 0.15 },
+               HIPAA: { doc: 0.25, ctrl: 0.20, train: 0.20, evid: 0.20, risk: 0.15 },
+               'PCI-DSS': { doc: 0.15, ctrl: 0.35, train: 0.10, evid: 0.20, risk: 0.20 },
+               'ISO27001': { doc: 0.20, ctrl: 0.25, train: 0.15, evid: 0.15, risk: 0.25 } },
+    history: [],
+    barChart: null, lineChart: null,
+    auditMode: false, breachMode: false, eventTicks: 0,
+    running: false, interval: null, ticks: 0,
+    rationale: 'Idle. Adjust factors to see compliance posture.',
+    showAdvanced: false,
+    init() {
+        for (var i = 0; i < 30; i++) this.history.push(this.overall);
+        var self = this; this.$nextTick(function() { self.initCharts(); });
     },
-    get status() { return this.score >= 90 ? 'Compliant' : this.score >= 75 ? 'Minor Issues' : 'Action Required'; }
+    initCharts() {
+        if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+        if (!this.$refs.compBarCanvas || !this.$refs.compLineCanvas) return;
+        var self = this;
+        this.barChart = new Chart(this.$refs.compBarCanvas.getContext('2d'), {
+            type: 'bar',
+            data: { labels: Object.keys(this.weights), datasets: [{
+                data: Object.keys(this.weights).map(function(k){ return self.frameworkScore(k); }),
+                backgroundColor: Object.keys(this.weights).map(function(k){ var s = self.frameworkScore(k); return s >= 85 ? 'rgba(52,211,153,0.7)' : s >= 70 ? 'rgba(251,191,36,0.7)' : 'rgba(248,113,113,0.7)'; }),
+                borderRadius: 6
+            }]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: function(v){ return v+'%'; } } }, x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.5)', font: { size: 10 } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(6,78,59,0.95)', borderColor: 'rgba(52,211,153,0.3)', borderWidth: 1, callbacks: { label: function(ctx){ return ctx.parsed.y.toFixed(1) + '%'; } } } }
+            }
+        });
+        this.lineChart = new Chart(this.$refs.compLineCanvas.getContext('2d'), {
+            type: 'line',
+            data: { labels: this.history.map(function(_, i){ return i; }), datasets: [
+                { label: 'Overall', data: [...self.history], borderColor: '#34d399', backgroundColor: 'rgba(52,211,153,0.08)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.3 },
+                { label: 'Threshold', data: self.history.map(function(){ return 85; }), borderColor: '#fbbf24', borderWidth: 1, pointRadius: 0, borderDash: [4,4] }
+            ]},
+            options: { responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                scales: { x: { display: false }, y: { beginAtZero: true, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 }, callback: function(v){ return v+'%'; } } } },
+                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(6,78,59,0.95)', borderColor: 'rgba(52,211,153,0.3)', borderWidth: 1 } }
+            }
+        });
+    },
+    frameworkScore(name) {
+        var w = this.weights[name];
+        return w.doc * this.docCompleteness + w.ctrl * this.controlImpl + w.train * this.training + w.evid * this.evidenceFresh + w.risk * this.riskMitigation;
+    },
+    get overall() {
+        var self = this; var keys = Object.keys(this.weights);
+        var sum = keys.reduce(function(a, k){ return a + self.frameworkScore(k); }, 0);
+        return sum / keys.length;
+    },
+    get worstFramework() {
+        var self = this; var keys = Object.keys(this.weights);
+        return keys.reduce(function(p, k){ return self.frameworkScore(k) < self.frameworkScore(p) ? k : p; });
+    },
+    get atRiskCount() {
+        var self = this;
+        return Object.keys(this.weights).filter(function(k){ return self.frameworkScore(k) < 70; }).length;
+    },
+    get controlsFailing() {
+        var failing = 0;
+        if (this.docCompleteness < 60) failing += 8;
+        if (this.controlImpl < 60) failing += 12;
+        if (this.training < 60) failing += 5;
+        if (this.evidenceFresh < 60) failing += 6;
+        if (this.riskMitigation < 60) failing += 4;
+        return failing;
+    },
+    tick() {
+        if (this.auditMode) {
+            this.evidenceFresh = Math.max(20, this.evidenceFresh - 0.8);
+            this.docCompleteness = Math.max(20, this.docCompleteness - 0.3);
+        } else if (this.breachMode) {
+            this.controlImpl = Math.max(15, this.controlImpl - 1.5);
+            this.riskMitigation = Math.max(20, this.riskMitigation - 0.8);
+            this.evidenceFresh = Math.max(20, this.evidenceFresh - 0.5);
+        }
+        if (this.auditMode || this.breachMode) this.eventTicks++;
+        this.history.push(this.overall);
+        if (this.history.length > 60) this.history.shift();
+        this.ticks++;
+        this.computeRationale();
+        this.updateCharts();
+    },
+    computeRationale() {
+        var why = [];
+        if (this.breachMode) why.push('BREACH event - controls degrading');
+        else if (this.auditMode) why.push('AUDIT event - evidence aging');
+        var w = this.worstFramework;
+        var ws = this.frameworkScore(w);
+        if (ws < 70) why.push(w + ' at ' + ws.toFixed(0) + '% (BELOW threshold 70%)');
+        else if (ws < 85) why.push(w + ' weakest at ' + ws.toFixed(0) + '%');
+        if (this.atRiskCount > 0) why.push(this.atRiskCount + ' of 5 frameworks at risk');
+        if (this.controlsFailing > 0) why.push(this.controlsFailing + ' controls failing');
+        if (this.overall >= 90) why.push('FULLY COMPLIANT (' + this.overall.toFixed(1) + '%)');
+        else if (this.overall >= 85) why.push('compliant (' + this.overall.toFixed(1) + '%)');
+        this.rationale = why.length ? why.join(' · ') : 'All frameworks healthy.';
+    },
+    updateCharts() {
+        var self = this;
+        if (this.barChart) {
+            var keys = Object.keys(this.weights);
+            this.barChart.data.datasets[0].data = keys.map(function(k){ return self.frameworkScore(k); });
+            this.barChart.data.datasets[0].backgroundColor = keys.map(function(k){ var s = self.frameworkScore(k); return s >= 85 ? 'rgba(52,211,153,0.7)' : s >= 70 ? 'rgba(251,191,36,0.7)' : 'rgba(248,113,113,0.7)'; });
+            this.barChart.update('none');
+        }
+        if (this.lineChart) {
+            this.lineChart.data.labels = this.history.map(function(_, i){ return i; });
+            this.lineChart.data.datasets[0].data = [...this.history];
+            this.lineChart.data.datasets[1].data = this.history.map(function(){ return 85; });
+            this.lineChart.update('none');
+        }
+    },
+    toggle() {
+        if (this.running) { clearInterval(this.interval); this.running = false; return; }
+        var self = this; this.interval = setInterval(function(){ self.tick(); }, 350); this.running = true;
+    },
+    reset() {
+        if (this.running) { clearInterval(this.interval); this.running = false; }
+        this.docCompleteness = 75; this.controlImpl = 80; this.training = 65; this.evidenceFresh = 70; this.riskMitigation = 85;
+        this.auditMode = false; this.breachMode = false; this.ticks = 0; this.eventTicks = 0;
+        this.history = []; for (var i = 0; i < 30; i++) this.history.push(this.overall);
+        this.rationale = 'Reset. Adjust factors and Start.';
+        this.updateCharts();
+    },
+    get statusLabel() { return this.overall >= 90 ? 'COMPLIANT' : this.overall >= 75 ? 'MINOR ISSUES' : 'ACTION REQUIRED'; },
+    get statusColor() { return this.overall >= 90 ? 'text-emerald-400' : this.overall >= 75 ? 'text-amber-300' : 'text-red-400'; },
+    get statusBadgeClass() { return this.overall >= 90 ? 'bg-emerald-900/30 border-emerald-500/30' : this.overall >= 75 ? 'bg-amber-900/30 border-amber-500/30' : 'bg-red-900/30 border-red-500/30'; }
 }">
-    <div class="flex items-center justify-between mb-4"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-green-600/20 border border-green-500/30 flex items-center justify-center"><svg aria-hidden="true" class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><div><h3 class="text-sm font-bold text-white">Interactive Demo</h3><p class="text-xs text-green-300/70">Compliance Status</p></div></div><div class="text-center"><div class="text-xs text-gray-400">Score</div><div class="text-xl font-bold text-green-400" x-text="score + '%'"></div></div></div>
-    <div class="flex items-center justify-center mb-3"><div class="w-32 h-32"><canvas x-ref="complianceCanvas"></canvas></div></div>
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 min-w-0">
+        <div class="flex items-center gap-3 min-w-0">
+            <div class="w-10 h-10 rounded-xl bg-green-600/20 border border-green-500/30 flex items-center justify-center flex-shrink-0">
+                <svg aria-hidden="true" class="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div class="min-w-0">
+                <h3 class="text-sm font-bold text-white">Interactive Demo</h3>
+                <p class="text-xs text-green-300/70 break-words">Multi-Framework Compliance Score</p>
+            </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+            <button type="button" @click="toggle()" :aria-pressed="running" class="px-4 py-2 text-xs font-bold rounded-xl transition-all shadow-lg focus-visible:ring-2 focus-visible:ring-green-500/40 focus-visible:outline-none" :class="running ? 'bg-red-600 hover:bg-red-500 text-white shadow-red-900/30' : 'bg-green-600 hover:bg-green-500 text-white shadow-green-900/30'" x-text="running ? 'Stop' : 'Start'"></button>
+            <button type="button" @click="reset()" class="px-3 py-2 text-xs font-bold rounded-xl bg-gray-700 hover:bg-gray-600 text-gray-200 transition-all focus-visible:ring-2 focus-visible:ring-gray-500/40 focus-visible:outline-none">Reset</button>
+            <button type="button" @click="auditMode = !auditMode; breachMode = false; eventTicks = 0" :aria-pressed="auditMode" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none" :class="auditMode ? 'bg-amber-600 text-white shadow-lg shadow-amber-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Audit Event</button>
+            <button type="button" @click="breachMode = !breachMode; auditMode = false; eventTicks = 0" :aria-pressed="breachMode" class="px-3 py-2 text-xs font-bold rounded-xl transition-all focus-visible:ring-2 focus-visible:ring-red-500/40 focus-visible:outline-none" :class="breachMode ? 'bg-red-600 text-white shadow-lg shadow-red-900/30' : 'bg-gray-700 hover:bg-gray-600 text-gray-200'">Breach</button>
+        </div>
+    </div>
+
+    <!-- Banner -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-3 text-center" :class="statusBadgeClass"><div class="text-[10px] uppercase tracking-wider opacity-70" x-text="statusLabel"></div><div class="text-2xl font-black font-mono" :class="statusColor" x-text="overall.toFixed(1) + '%'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Worst</div><div class="text-sm font-black font-mono text-amber-300 tabular-nums" x-text="worstFramework"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">At risk</div><div class="text-2xl font-black font-mono tabular-nums" :class="atRiskCount > 0 ? 'text-red-400' : 'text-emerald-400'" x-text="atRiskCount + '/5'"></div></div>
+        <div class="rounded-xl border border-white/5 bg-gray-900/50 p-3 text-center"><div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1">Failing</div><div class="text-2xl font-black font-mono tabular-nums" :class="controlsFailing >= 10 ? 'text-red-400' : controlsFailing > 0 ? 'text-amber-300' : 'text-emerald-400'" x-text="controlsFailing"></div></div>
+    </div>
+
+    <!-- Charts: per-framework bars + overall trend -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-3">
+        <div>
+            <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Per-framework score</div>
+            <div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="compBarCanvas" aria-label="Per-framework compliance score chart"></canvas></div>
+        </div>
+        <div>
+            <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Overall trend (vs 85% target)</div>
+            <div class="h-44 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="compLineCanvas" aria-label="Overall compliance trend chart"></canvas></div>
+        </div>
+    </div>
+
+    <!-- Sliders (collapsible) -->
+    <div class="bg-gray-900/40 rounded-xl border border-white/5 overflow-hidden mb-3">
+        <button type="button" @click="showAdvanced = !showAdvanced" :aria-expanded="showAdvanced" class="w-full flex items-center justify-between p-3 text-left hover:bg-gray-800/50 focus-visible:ring-2 focus-visible:ring-green-500/40 focus-visible:outline-none transition-colors">
+            <span class="text-xs font-semibold text-green-300 uppercase tracking-wider">Audit Factor Inputs</span>
+            <svg aria-hidden="true" class="w-4 h-4 text-gray-400 transition-transform" :class="showAdvanced ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+        </button>
+        <div x-show="showAdvanced" x-transition class="p-3 pt-0 space-y-2 border-t border-white/5">
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-emerald-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Doc completeness</label><input type="range" min="0" max="100" step="1" x-model.number="docCompleteness" aria-label="Documentation completeness" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-emerald-500 min-w-0"><span class="text-xs text-emerald-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(docCompleteness) + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Control impl</label><input type="range" min="0" max="100" step="1" x-model.number="controlImpl" aria-label="Control implementation" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-blue-500 min-w-0"><span class="text-xs text-blue-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(controlImpl) + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Training coverage</label><input type="range" min="0" max="100" step="1" x-model.number="training" aria-label="Training coverage" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-purple-500 min-w-0"><span class="text-xs text-purple-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(training) + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-cyan-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Evidence freshness</label><input type="range" min="0" max="100" step="1" x-model.number="evidenceFresh" aria-label="Evidence freshness" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-cyan-500 min-w-0"><span class="text-xs text-cyan-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(evidenceFresh) + '%'"></span></div>
+            <div class="flex items-center gap-2 min-w-0"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span><label class="text-xs w-32 text-gray-300 flex-shrink-0">Risk mitigation</label><input type="range" min="0" max="100" step="1" x-model.number="riskMitigation" aria-label="Risk mitigation" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-amber-500 min-w-0"><span class="text-xs text-amber-400 font-mono w-12 text-right tabular-nums" x-text="Math.round(riskMitigation) + '%'"></span></div>
+        </div>
+    </div>
+
+    <!-- Rationale panel -->
+    <div class="rounded-xl border border-green-500/20 bg-green-900/10 p-3">
+        <div class="flex items-start gap-2 min-w-0">
+            <svg aria-hidden="true" class="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div class="min-w-0 flex-1">
+                <div class="text-[10px] uppercase tracking-wider text-green-300/70 mb-0.5">Audit readout</div>
+                <p class="text-xs text-gray-200 break-words leading-relaxed" x-text="rationale"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex items-center justify-between gap-2 mt-3 text-[10px] text-gray-400">
+        <span>Score = Σ(factor × weight) per framework</span>
+        <span class="text-gray-500 hidden sm:inline">5 frameworks: GDPR · SOX · HIPAA · PCI-DSS · ISO27001</span>
+    </div>
 </div>
 
 
