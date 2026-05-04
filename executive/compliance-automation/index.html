@@ -157,7 +157,7 @@
         },
         "inLanguage": "en",
         "keywords": "Regulatory, Compliance, Automation, Suite, Comprehensive, Prismatic, Platform, GDPR, NIS2, executive",
-        "wordCount": 2286
+        "wordCount": 7080
     }
     </script>
     
@@ -226,7 +226,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -242,7 +242,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -718,33 +722,49 @@
 <p><strong>Additional Coverage</strong> — Regional privacy laws (PIPEDA, LGPD, PDPA) span 15+ countries with automated PIA + cross-border transfer compliance. Industry-specific frameworks (NERC CIP energy, HIPAA healthcare, PCI DSS payments) operate via automated control testing + continuous monitoring + benchmark scoring.</p>
 <h3 id="1-3-compliance-automation-engine">1.3 Compliance Automation Engine</h3>
 <p><strong>95% Automation Achievement:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>COMPLIANCE PROCESS AUTOMATION BREAKDOWN</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Compliance Process Automation Split</span></span>
+<span class="giallo-l"><span>    &quot;Automated (95%)&quot; : 95</span></span>
+<span class="giallo-l"><span>    &quot;Manual judgement (5%)&quot; : 5</span></span></code></pre><pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>    Auto[Automated Processes 95%]:::auto --&gt; M[Continuous Monitoring]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; E[Evidence Collection]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; R[Report Generation]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; G[Gap Detection]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; RA[Risk Assessment]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; CT[Control Testing]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; AP[Audit Preparation]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; CM[Change Management]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; TM[Training Management]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; IR[Incident Response]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Automated Processes (95%):</span></span>
-<span class="giallo-l"><span>├─ Continuous Monitoring: Real-time compliance status assessment</span></span>
-<span class="giallo-l"><span>├─ Evidence Collection: Automated documentation and audit trail generation</span></span>
-<span class="giallo-l"><span>├─ Report Generation: Automated regulatory reporting and submission</span></span>
-<span class="giallo-l"><span>├─ Gap Detection: Proactive compliance deficiency identification</span></span>
-<span class="giallo-l"><span>├─ Risk Assessment: Automated risk quantification and impact analysis</span></span>
-<span class="giallo-l"><span>├─ Control Testing: Automated security and privacy control validation</span></span>
-<span class="giallo-l"><span>├─ Audit Preparation: Continuous audit readiness and evidence compilation</span></span>
-<span class="giallo-l"><span>├─ Change Management: Automated regulatory change impact assessment</span></span>
-<span class="giallo-l"><span>├─ Training Management: Automated compliance training and certification tracking</span></span>
-<span class="giallo-l"><span>└─ Incident Response: Automated breach notification and regulatory reporting</span></span>
+<span class="giallo-l"><span>    Man[Manual Processes 5%]:::manual --&gt; SDM[Strategic Decisions]</span></span>
+<span class="giallo-l"><span>    Man --&gt; LI[Legal Interpretation]</span></span>
+<span class="giallo-l"><span>    Man --&gt; SC[Stakeholder Comms]</span></span>
+<span class="giallo-l"><span>    Man --&gt; CR[Crisis Management]</span></span>
+<span class="giallo-l"><span>    Man --&gt; PD[Policy Development]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Manual Processes (5%):</span></span>
-<span class="giallo-l"><span>├─ Strategic Decision Making: Executive judgment on compliance strategy</span></span>
-<span class="giallo-l"><span>├─ Legal Interpretation: Complex legal analysis and regulatory interpretation</span></span>
-<span class="giallo-l"><span>├─ Stakeholder Communication: High-level regulator relationship management</span></span>
-<span class="giallo-l"><span>├─ Crisis Management: Complex incident response and crisis communication</span></span>
-<span class="giallo-l"><span>└─ Policy Development: Strategic compliance policy formulation and approval</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Automation Benefits:</span></span>
-<span class="giallo-l"><span>├─ Cost Reduction: 75% reduction in compliance operational costs</span></span>
-<span class="giallo-l"><span>├─ Accuracy Improvement: 90% reduction in compliance errors and gaps</span></span>
-<span class="giallo-l"><span>├─ Speed Enhancement: 85% faster compliance reporting and response</span></span>
-<span class="giallo-l"><span>├─ Risk Mitigation: 95% reduction in regulatory violation risk</span></span>
-<span class="giallo-l"><span>└─ Scalability: Support for unlimited regulatory framework expansion</span></span></code></pre>
+<span class="giallo-l"><span>    classDef auto fill:#0f172a,stroke:#10b981,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef manual fill:#1e293b,stroke:#f59e0b,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-5 my-6">
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">75%</div>
+    <div class="text-xs text-gray-400 mt-1">Cost reduction</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">90%</div>
+    <div class="text-xs text-gray-400 mt-1">Fewer errors / gaps</div>
+  </div>
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">85%</div>
+    <div class="text-xs text-gray-400 mt-1">Faster reporting</div>
+  </div>
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">95%</div>
+    <div class="text-xs text-gray-400 mt-1">Less violation risk</div>
+  </div>
+  <div class="rounded-lg border border-purple-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">∞</div>
+    <div class="text-xs text-gray-400 mt-1">Framework scale</div>
+  </div>
+</div>
 <hr />
 <h2 id="2-real-time-compliance-monitoring">2. Real-Time Compliance Monitoring</h2>
 <h3 id="2-1-continuous-compliance-assessment">2.1 Continuous Compliance Assessment</h3>
@@ -793,496 +813,825 @@
 </div>
 <h3 id="2-2-proactive-gap-detection-remediation">2.2 Proactive Gap Detection &amp; Remediation</h3>
 <p><strong>Intelligent Compliance Gap Analysis:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>COMPLIANCE GAP DETECTION &amp; REMEDIATION ENGINE</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart TD</span></span>
+<span class="giallo-l"><span>    Detect[Gap Detection&lt;br/&gt;Continuous scan]:::process</span></span>
+<span class="giallo-l"><span>    Detect --&gt; CD[Configuration Drift]</span></span>
+<span class="giallo-l"><span>    Detect --&gt; PD[Process Deviations]</span></span>
+<span class="giallo-l"><span>    Detect --&gt; DG[Documentation Gaps]</span></span>
+<span class="giallo-l"><span>    Detect --&gt; TD[Training Deficiencies]</span></span>
+<span class="giallo-l"><span>    Detect --&gt; PU[Policy Updates]</span></span>
+<span class="giallo-l"><span>    Detect --&gt; CF[Control Failures]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Real-Time Gap Identification:</span></span>
-<span class="giallo-l"><span>├─ Configuration Drift: Automated detection of security configuration changes</span></span>
-<span class="giallo-l"><span>├─ Process Deviations: Identification of process non-compliance incidents</span></span>
-<span class="giallo-l"><span>├─ Documentation Gaps: Missing or outdated compliance documentation detection</span></span>
-<span class="giallo-l"><span>├─ Training Deficiencies: Employee compliance training gaps and expiration tracking</span></span>
-<span class="giallo-l"><span>├─ Policy Updates: Regulatory requirement changes requiring policy updates</span></span>
-<span class="giallo-l"><span>└─ Control Failures: Automated detection of control effectiveness issues</span></span>
+<span class="giallo-l"><span>    CD --&gt; Triage{Severity?}</span></span>
+<span class="giallo-l"><span>    PD --&gt; Triage</span></span>
+<span class="giallo-l"><span>    DG --&gt; Triage</span></span>
+<span class="giallo-l"><span>    TD --&gt; Triage</span></span>
+<span class="giallo-l"><span>    PU --&gt; Triage</span></span>
+<span class="giallo-l"><span>    CF --&gt; Triage</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Automated Remediation Workflows:</span></span>
-<span class="giallo-l"><span>├─ Minor Gaps: Automatic remediation without human intervention</span></span>
-<span class="giallo-l"><span>├─ Medium Gaps: Workflow automation with approval checkpoints</span></span>
-<span class="giallo-l"><span>├─ Major Gaps: Executive escalation with remediation plan generation</span></span>
-<span class="giallo-l"><span>├─ Critical Gaps: Immediate alert and crisis management activation</span></span>
-<span class="giallo-l"><span>└─ Systemic Gaps: Comprehensive remediation program initiation</span></span>
+<span class="giallo-l"><span>    Triage --&gt;|Minor| Auto[Auto remediate&lt;br/&gt;no human]:::success</span></span>
+<span class="giallo-l"><span>    Triage --&gt;|Medium| Approval[Workflow + approval]:::process</span></span>
+<span class="giallo-l"><span>    Triage --&gt;|Major| Exec[Executive escalation&lt;br/&gt;+ plan]:::warn</span></span>
+<span class="giallo-l"><span>    Triage --&gt;|Critical| Crisis[Immediate alert&lt;br/&gt;+ crisis activation]:::critical</span></span>
+<span class="giallo-l"><span>    Triage --&gt;|Systemic| Program[Remediation program]:::warn</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Gap Remediation Example - GDPR Article 30 Records:</span></span>
-<span class="giallo-l"><span>├─ Gap Detected: Data processing records 15 days out of date</span></span>
-<span class="giallo-l"><span>├─ Impact Assessment: Low risk, no regulatory violation</span></span>
-<span class="giallo-l"><span>├─ Automated Action: Data processing inventory update triggered</span></span>
-<span class="giallo-l"><span>├─ Validation: Updated records reviewed and approved</span></span>
-<span class="giallo-l"><span>├─ Compliance Restoration: Gap closed within 4 hours</span></span>
-<span class="giallo-l"><span>└─ Audit Trail: Complete documentation and evidence generated</span></span>
+<span class="giallo-l"><span>    Auto --&gt; Audit[Audit trail + evidence]:::success</span></span>
+<span class="giallo-l"><span>    Approval --&gt; Audit</span></span>
+<span class="giallo-l"><span>    Exec --&gt; Audit</span></span>
+<span class="giallo-l"><span>    Crisis --&gt; Audit</span></span>
+<span class="giallo-l"><span>    Program --&gt; Audit</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Remediation Performance Metrics:</span></span>
-<span class="giallo-l"><span>├─ Average Gap Resolution Time: 2.3 hours (Target: &lt;4 hours)</span></span>
-<span class="giallo-l"><span>├─ Automatic Remediation Success Rate: 87% (Target: &gt;85%)</span></span>
-<span class="giallo-l"><span>├─ Critical Gap Escalation Time: 8 minutes (Target: &lt;15 minutes)</span></span>
-<span class="giallo-l"><span>├─ Compliance Restoration Rate: 99.4% within SLA</span></span>
-<span class="giallo-l"><span>└─ Cost per Gap Remediation: $47 average (vs. $430 manual)</span></span></code></pre><h3 id="2-3-predictive-compliance-analytics">2.3 Predictive Compliance Analytics</h3>
-<p><strong>Compliance Risk Forecasting:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>PREDICTIVE COMPLIANCE RISK MODEL</span></span>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef warn fill:#1e293b,stroke:#f59e0b,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef critical fill:#1e293b,stroke:#ef4444,color:#fff</span></span></code></pre>
+<p><strong>Worked example — GDPR Article 30 Records:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart LR</span></span>
+<span class="giallo-l"><span>    A[Records 15 days stale]:::warn --&gt; B[Impact: low&lt;br/&gt;no violation]:::process</span></span>
+<span class="giallo-l"><span>    B --&gt; C[Auto-trigger inventory update]:::process</span></span>
+<span class="giallo-l"><span>    C --&gt; D[Review &amp;amp; approve]:::process</span></span>
+<span class="giallo-l"><span>    D --&gt; E[Gap closed in 4 h]:::success</span></span>
+<span class="giallo-l"><span>    E --&gt; F[Full audit trail]:::success</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>3-Month Compliance Risk Forecast:</span></span>
-<span class="giallo-l"><span>├─ Overall Risk Trend: ↓ Decreasing (High confidence: 92%)</span></span>
-<span class="giallo-l"><span>├─ GDPR Risk: Low and stable (Data processing controls effective)</span></span>
-<span class="giallo-l"><span>├─ NIS2 Risk: Medium → Low (Supply chain assessment completion)</span></span>
-<span class="giallo-l"><span>├─ SOC 2 Risk: Very Low (All controls operating above target)</span></span>
-<span class="giallo-l"><span>├─ ISO 27001 Risk: Medium (Annual assessment cycle management)</span></span>
-<span class="giallo-l"><span>└─ Industry Risk: Low (Proactive regulatory monitoring active)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Risk Drivers Analysis:</span></span>
-<span class="giallo-l"><span>├─ Positive Factors: Automated monitoring, proactive remediation</span></span>
-<span class="giallo-l"><span>├─ Risk Factors: Regulatory change velocity, business growth</span></span>
-<span class="giallo-l"><span>├─ Mitigation Strategies: Enhanced automation, regulatory intelligence</span></span>
-<span class="giallo-l"><span>├─ Monitoring Indicators: Gap frequency, resolution time, audit results</span></span>
-<span class="giallo-l"><span>└─ Success Metrics: Compliance score stability, zero violation track record</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Regulatory Change Impact Assessment:</span></span>
-<span class="giallo-l"><span>├─ EU AI Act: Medium impact, 18-month preparation timeline</span></span>
-<span class="giallo-l"><span>├─ SEC Cybersecurity Rules: Low impact, already compliant</span></span>
-<span class="giallo-l"><span>├─ State Privacy Laws: Medium impact, automated adaptation planned</span></span>
-<span class="giallo-l"><span>├─ Industry Standards: Low impact, continuous compliance maintained</span></span>
-<span class="giallo-l"><span>└─ International Regulations: Variable impact, jurisdiction-specific analysis</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Investment Recommendations:</span></span>
-<span class="giallo-l"><span>├─ AI Act Preparation: €0.5M investment, 18-month timeline</span></span>
-<span class="giallo-l"><span>├─ Enhanced Automation: €0.3M investment, ongoing efficiency gains</span></span>
-<span class="giallo-l"><span>├─ Regulatory Intelligence: €0.2M investment, proactive compliance advantage</span></span>
-<span class="giallo-l"><span>├─ Training Enhancement: €0.1M investment, cultural compliance improvement</span></span>
-<span class="giallo-l"><span>└─ Total Annual Investment: €1.1M (ROI: 340% through risk mitigation)</span></span></code></pre>
+<span class="giallo-l"><span>    classDef warn fill:#1e293b,stroke:#f59e0b,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-5 my-6">
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">2.3 h</div>
+    <div class="text-xs text-gray-400 mt-1">avg resolution (target &lt;4h)</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">87%</div>
+    <div class="text-xs text-gray-400 mt-1">auto-remediation success</div>
+  </div>
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">8 min</div>
+    <div class="text-xs text-gray-400 mt-1">critical escalation</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">99.4%</div>
+    <div class="text-xs text-gray-400 mt-1">SLA restoration</div>
+  </div>
+  <div class="rounded-lg border border-purple-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">$47</div>
+    <div class="text-xs text-gray-400 mt-1">vs. $430 manual</div>
+  </div>
+</div>
+<h3 id="2-3-predictive-compliance-analytics">2.3 Predictive Compliance Analytics</h3>
+<p><strong>Compliance Risk Forecasting (next 3 months — confidence 92%):</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>quadrantChart</span></span>
+<span class="giallo-l"><span>    title Regulatory Change Impact vs. Readiness</span></span>
+<span class="giallo-l"><span>    x-axis Low Impact --&gt; High Impact</span></span>
+<span class="giallo-l"><span>    y-axis Low Readiness --&gt; High Readiness</span></span>
+<span class="giallo-l"><span>    quadrant-1 Strategic prep</span></span>
+<span class="giallo-l"><span>    quadrant-2 Maintain edge</span></span>
+<span class="giallo-l"><span>    quadrant-3 Monitor only</span></span>
+<span class="giallo-l"><span>    quadrant-4 Active investment</span></span>
+<span class="giallo-l"><span>    EU AI Act: [0.65, 0.62]</span></span>
+<span class="giallo-l"><span>    SEC Cyber Rules: [0.30, 0.92]</span></span>
+<span class="giallo-l"><span>    State Privacy Laws: [0.55, 0.78]</span></span>
+<span class="giallo-l"><span>    Industry Standards: [0.28, 0.88]</span></span>
+<span class="giallo-l"><span>    International Regs: [0.50, 0.55]</span></span></code></pre><pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>xychart-beta</span></span>
+<span class="giallo-l"><span>    title &quot;Forecast Risk Score by Framework (lower = better)&quot;</span></span>
+<span class="giallo-l"><span>    x-axis [&quot;GDPR&quot;, &quot;NIS2&quot;, &quot;SOC 2&quot;, &quot;ISO 27001&quot;, &quot;Industry&quot;]</span></span>
+<span class="giallo-l"><span>    y-axis &quot;Risk Score&quot; 0 --&gt; 100</span></span>
+<span class="giallo-l"><span>    bar [22, 38, 12, 55, 28]</span></span></code></pre><div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Positive drivers</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Automated monitoring + proactive remediation</li>
+      <li>Compliance score stability, zero violation track record</li>
+      <li>Continuous audit readiness</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-amber-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-amber-300 uppercase tracking-wider mb-3">Headwinds</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Regulatory change velocity</li>
+      <li>Business growth complexity</li>
+      <li>Annual assessment cycle (ISO 27001)</li>
+    </ul>
+  </div>
+</div>
+<p><strong>Investment plan (12-month horizon — €1.1M total, ROI 340%):</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Annual Compliance Investment Allocation (€M)</span></span>
+<span class="giallo-l"><span>    &quot;AI Act preparation&quot; : 0.5</span></span>
+<span class="giallo-l"><span>    &quot;Enhanced automation&quot; : 0.3</span></span>
+<span class="giallo-l"><span>    &quot;Regulatory intelligence&quot; : 0.2</span></span>
+<span class="giallo-l"><span>    &quot;Training enhancement&quot; : 0.1</span></span></code></pre>
 <hr />
 <h2 id="3-automated-regulatory-reporting">3. Automated Regulatory Reporting</h2>
 <h3 id="3-1-intelligent-report-generation">3.1 Intelligent Report Generation</h3>
 <p><strong>Automated Reporting Framework:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>REGULATORY REPORTING AUTOMATION SYSTEM</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>    Report[Reporting Engine]:::process</span></span>
+<span class="giallo-l"><span>    Report --&gt; GDPR[GDPR Breach&lt;br/&gt;&amp;lt;72 h]:::critical</span></span>
+<span class="giallo-l"><span>    Report --&gt; NIS2[NIS2 Incident&lt;br/&gt;real-time]:::critical</span></span>
+<span class="giallo-l"><span>    Report --&gt; SOC2[SOC 2 Controls&lt;br/&gt;monthly]:::process</span></span>
+<span class="giallo-l"><span>    Report --&gt; ISO[ISO 27001 Mgmt&lt;br/&gt;quarterly]:::process</span></span>
+<span class="giallo-l"><span>    Report --&gt; Board[Board Summary&lt;br/&gt;quarterly]:::team</span></span>
+<span class="giallo-l"><span>    Report --&gt; Audit[Audit Evidence&lt;br/&gt;continuous]:::success</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Report Types &amp; Frequencies:</span></span>
-<span class="giallo-l"><span>├─ GDPR Breach Notifications: Automated within 72 hours</span></span>
-<span class="giallo-l"><span>├─ NIS2 Incident Reports: Real-time submission to national authorities</span></span>
-<span class="giallo-l"><span>├─ SOC 2 Control Effectiveness: Monthly automated assessment reports</span></span>
-<span class="giallo-l"><span>├─ ISO 27001 Management Review: Quarterly automated dashboards</span></span>
-<span class="giallo-l"><span>├─ Board Compliance Reports: Quarterly executive summaries</span></span>
-<span class="giallo-l"><span>└─ Audit Evidence Packages: Continuous compilation and organization</span></span>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef critical fill:#1e293b,stroke:#ef4444,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef team fill:#1e293b,stroke:#a855f7,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-3 my-6">
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-blue-300 uppercase tracking-wider mb-3">Data &amp; narrative</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Live compliance data integration</li>
+      <li>AI-generated executive summaries</li>
+      <li>Automated charts &amp; dashboards</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Validation</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Cross-reference fact-checking</li>
+      <li>Regulator-specific formatting</li>
+      <li>Multi-language translation</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-purple-300 uppercase tracking-wider mb-3">Quality</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Consistency &amp; bias detection</li>
+      <li>Stakeholder review workflow</li>
+      <li>Continuous improvement loop</li>
+    </ul>
+  </div>
+</div>
+<p><strong>Worked example — GDPR breach notification (Article 33/34):</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart LR</span></span>
+<span class="giallo-l"><span>    A[Incident detected&lt;br/&gt;&amp;lt;15 min]:::critical --&gt; B[Impact + DPA assessment&lt;br/&gt;auto]:::process</span></span>
+<span class="giallo-l"><span>    B --&gt; C[Classification]:::process</span></span>
+<span class="giallo-l"><span>    C --&gt; D[Report generation&lt;br/&gt;&amp;lt;2 h]:::process</span></span>
+<span class="giallo-l"><span>    D --&gt; E[Filed with supervisory authority]:::success</span></span>
+<span class="giallo-l"><span>    E --&gt; F[Data subject + partner comms]:::team</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Automated Report Features:</span></span>
-<span class="giallo-l"><span>├─ Real-time Data Integration: Live compliance data and evidence</span></span>
-<span class="giallo-l"><span>├─ Intelligent Narratives: AI-generated executive summaries and explanations</span></span>
-<span class="giallo-l"><span>├─ Visual Analytics: Automated charts, trends, and compliance dashboards</span></span>
-<span class="giallo-l"><span>├─ Cross-Reference Validation: Automated fact-checking and consistency verification</span></span>
-<span class="giallo-l"><span>├─ Regulatory Formatting: Automated formatting for specific regulatory requirements</span></span>
-<span class="giallo-l"><span>└─ Multi-Language Support: Automated translation for multi-jurisdiction compliance</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>GDPR Breach Notification Example:</span></span>
-<span class="giallo-l"><span>├─ Incident Detection: Automated identification within 15 minutes</span></span>
-<span class="giallo-l"><span>├─ Impact Assessment: Automated risk and data subject impact analysis</span></span>
-<span class="giallo-l"><span>├─ Regulatory Classification: Automated determination of notification requirements</span></span>
-<span class="giallo-l"><span>├─ Report Generation: Complete GDPR Article 33/34 notification within 2 hours</span></span>
-<span class="giallo-l"><span>├─ Submission: Automated filing with relevant supervisory authorities</span></span>
-<span class="giallo-l"><span>└─ Stakeholder Communication: Automated data subject and partner notifications</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Reporting Quality Metrics:</span></span>
-<span class="giallo-l"><span>├─ Report Accuracy: 99.7% (Automated validation and cross-checking)</span></span>
-<span class="giallo-l"><span>├─ Submission Timeliness: 100% within regulatory deadlines</span></span>
-<span class="giallo-l"><span>├─ Regulatory Acceptance: 98.9% acceptance rate without corrections</span></span>
-<span class="giallo-l"><span>├─ Audit Evidence Quality: 99.2% auditor satisfaction score</span></span>
-<span class="giallo-l"><span>└─ Cost per Report: $89 average (vs. $1,240 manual preparation)</span></span></code></pre><h3 id="3-2-board-executive-reporting">3.2 Board &amp; Executive Reporting</h3>
-<p><strong>Executive Compliance Dashboard:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>EXECUTIVE COMPLIANCE SUMMARY - QUARTERLY BOARD REPORT</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>╔══════════════════════════════════════════════════════════════════════════╗</span></span>
-<span class="giallo-l"><span>║                        Q4 2026 COMPLIANCE REPORT                        ║</span></span>
-<span class="giallo-l"><span>║                              EXECUTIVE SUMMARY                           ║</span></span>
-<span class="giallo-l"><span>╠══════════════════════════════════════════════════════════════════════════╣</span></span>
-<span class="giallo-l"><span>║                                                                          ║</span></span>
-<span class="giallo-l"><span>║  COMPLIANCE PERFORMANCE OVERVIEW                                        ║</span></span>
-<span class="giallo-l"><span>║  ├─ Overall Compliance Score: 98.7% (Target: &gt;95%, +1.2% vs Q3)        ║</span></span>
-<span class="giallo-l"><span>║  ├─ Regulatory Violations: 0 (Target: 0, Maintained perfect record)     ║</span></span>
-<span class="giallo-l"><span>║  ├─ Audit Results: Pass (All frameworks, zero findings)                ║</span></span>
-<span class="giallo-l"><span>║  └─ Regulatory Changes Adapted: 7 (100% adaptation success rate)        ║</span></span>
-<span class="giallo-l"><span>║                                                                          ║</span></span>
-<span class="giallo-l"><span>║  FINANCIAL IMPACT                                                       ║</span></span>
-<span class="giallo-l"><span>║  ├─ Compliance Cost Savings: $2.8M annually (75% reduction vs manual)  ║</span></span>
-<span class="giallo-l"><span>║  ├─ Avoided Regulatory Penalties: $15.2M annually (Risk mitigation)     ║</span></span>
-<span class="giallo-l"><span>║  ├─ Audit Cost Reduction: $0.9M annually (Continuous readiness)        ║</span></span>
-<span class="giallo-l"><span>║  └─ Total Financial Benefit: $18.9M annually (ROI: 1,427%)             ║</span></span>
-<span class="giallo-l"><span>║                                                                          ║</span></span>
-<span class="giallo-l"><span>║  STRATEGIC INITIATIVES                                                  ║</span></span>
-<span class="giallo-l"><span>║  ├─ EU AI Act Preparation: 78% complete (On track for 2027 deadline)    ║</span></span>
-<span class="giallo-l"><span>║  ├─ Enhanced Privacy Program: 92% complete (CPRA readiness)             ║</span></span>
-<span class="giallo-l"><span>║  ├─ Supply Chain Security: 89% complete (NIS2 compliance)              ║</span></span>
-<span class="giallo-l"><span>║  └─ Regulatory Intelligence: 100% operational (Proactive monitoring)    ║</span></span>
-<span class="giallo-l"><span>║                                                                          ║</span></span>
-<span class="giallo-l"><span>║  BOARD DECISIONS REQUIRED                                               ║</span></span>
-<span class="giallo-l"><span>║  ├─ EU AI Act Investment Approval: €0.5M (Recommended: APPROVE)         ║</span></span>
-<span class="giallo-l"><span>║  ├─ Multi-State Privacy Expansion: $0.3M (Recommended: APPROVE)         ║</span></span>
-<span class="giallo-l"><span>║  └─ Enhanced Training Program: $0.1M (Recommended: APPROVE)             ║</span></span>
-<span class="giallo-l"><span>║                                                                          ║</span></span>
-<span class="giallo-l"><span>╚══════════════════════════════════════════════════════════════════════════╝</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>REGULATORY RISK ASSESSMENT:</span></span>
-<span class="giallo-l"><span>├─ Current Risk Level: Very Low (Comprehensive compliance maintained)</span></span>
-<span class="giallo-l"><span>├─ Emerging Risks: EU AI Act, expanding state privacy laws</span></span>
-<span class="giallo-l"><span>├─ Mitigation Status: Proactive preparation programs in progress</span></span>
-<span class="giallo-l"><span>├─ Board Attention Required: Strategic investment approvals</span></span>
-<span class="giallo-l"><span>└─ Competitive Advantage: Compliance excellence as market differentiator</span></span></code></pre><h3 id="3-3-audit-examination-readiness">3.3 Audit &amp; Examination Readiness</h3>
+<span class="giallo-l"><span>    classDef critical fill:#1e293b,stroke:#ef4444,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef team fill:#1e293b,stroke:#a855f7,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-5 my-6">
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">99.7%</div>
+    <div class="text-xs text-gray-400 mt-1">Report accuracy</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">100%</div>
+    <div class="text-xs text-gray-400 mt-1">On-time submissions</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">98.9%</div>
+    <div class="text-xs text-gray-400 mt-1">Accepted without rework</div>
+  </div>
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">99.2%</div>
+    <div class="text-xs text-gray-400 mt-1">Auditor satisfaction</div>
+  </div>
+  <div class="rounded-lg border border-purple-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">$89</div>
+    <div class="text-xs text-gray-400 mt-1">vs. $1,240 manual</div>
+  </div>
+</div>
+<h3 id="3-2-board-executive-reporting">3.2 Board &amp; Executive Reporting</h3>
+<p><strong>Executive Compliance Dashboard — Q4 2026 Board Report:</strong></p>
+<div class="rounded-xl border border-purple-500/40 bg-gray-900 p-6 my-6 shadow-xl">
+  <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-800">
+    <div>
+      <h3 class="text-xl font-bold text-white">Q4 2026 Compliance Report</h3>
+      <p class="text-sm text-gray-400 mt-1">Executive summary · board-ready</p>
+    </div>
+    <div class="text-right">
+      <div class="text-3xl font-bold text-emerald-300 font-mono leading-none">98.7%</div>
+      <div class="text-xs text-emerald-400 mt-1">+1.2% vs Q3 (target &gt;95%)</div>
+    </div>
+  </div>
+  <div class="grid gap-6 lg:grid-cols-2">
+    <div>
+      <h4 class="text-xs font-semibold text-blue-300 uppercase tracking-wider mb-3">Performance overview</h4>
+      <ul class="space-y-2 text-sm">
+        <li class="flex items-center justify-between"><span class="text-gray-200">Overall compliance</span><span class="font-mono text-emerald-300">98.7% ↑</span></li>
+        <li class="flex items-center justify-between"><span class="text-gray-200">Regulatory violations</span><span class="font-mono text-emerald-300">0</span></li>
+        <li class="flex items-center justify-between"><span class="text-gray-200">Audit results</span><span class="font-mono text-emerald-300">Pass · 0 findings</span></li>
+        <li class="flex items-center justify-between"><span class="text-gray-200">Reg. changes adapted</span><span class="font-mono text-white">7 / 100%</span></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-semibold text-emerald-300 uppercase tracking-wider mb-3">Financial impact (annual)</h4>
+      <ul class="space-y-2 text-sm">
+        <li class="flex items-center justify-between"><span class="text-gray-200">Cost savings</span><span class="font-mono text-emerald-300">$2.8M</span></li>
+        <li class="flex items-center justify-between"><span class="text-gray-200">Avoided penalties</span><span class="font-mono text-emerald-300">$15.2M</span></li>
+        <li class="flex items-center justify-between"><span class="text-gray-200">Audit cost reduction</span><span class="font-mono text-emerald-300">$0.9M</span></li>
+        <li class="flex items-center justify-between border-t border-gray-800 pt-2 mt-2"><span class="text-white font-semibold">Total benefit</span><span class="font-mono text-emerald-300 font-bold">$18.9M · ROI 1,427%</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="grid gap-6 lg:grid-cols-2 mt-6 pt-6 border-t border-gray-800">
+    <div>
+      <h4 class="text-xs font-semibold text-amber-300 uppercase tracking-wider mb-3">Strategic initiatives</h4>
+      <div class="space-y-3 text-sm">
+        <div>
+          <div class="flex justify-between text-gray-200 mb-1"><span>EU AI Act preparation</span><span class="font-mono">78%</span></div>
+          <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width: 78%"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-gray-200 mb-1"><span>Enhanced privacy (CPRA)</span><span class="font-mono">92%</span></div>
+          <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-emerald-500 h-2 rounded-full" style="width: 92%"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-gray-200 mb-1"><span>Supply-chain security (NIS2)</span><span class="font-mono">89%</span></div>
+          <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-emerald-500 h-2 rounded-full" style="width: 89%"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between text-gray-200 mb-1"><span>Regulatory intelligence</span><span class="font-mono">100%</span></div>
+          <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-emerald-500 h-2 rounded-full" style="width: 100%"></div></div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h4 class="text-xs font-semibold text-purple-300 uppercase tracking-wider mb-3">Board decisions required</h4>
+      <ul class="space-y-2.5 text-sm">
+        <li class="flex items-start gap-2"><span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 text-xs font-semibold border border-emerald-500/40 mt-0.5">APPROVE</span><span class="text-gray-200">EU AI Act investment — €0.5M</span></li>
+        <li class="flex items-start gap-2"><span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 text-xs font-semibold border border-emerald-500/40 mt-0.5">APPROVE</span><span class="text-gray-200">Multi-state privacy expansion — $0.3M</span></li>
+        <li class="flex items-start gap-2"><span class="px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 text-xs font-semibold border border-emerald-500/40 mt-0.5">APPROVE</span><span class="text-gray-200">Enhanced training program — $0.1M</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<p><strong>Regulatory risk assessment:</strong></p>
+<div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Current state</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li><span class="text-gray-400">Risk level:</span> Very Low</li>
+      <li><span class="text-gray-400">Mitigation:</span> Proactive prep in progress</li>
+      <li><span class="text-gray-400">Differentiator:</span> Compliance excellence</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-amber-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-amber-300 uppercase tracking-wider mb-3">Emerging risks</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>EU AI Act</li>
+      <li>Expanding state privacy laws</li>
+      <li>Board attention: strategic investment approvals</li>
+    </ul>
+  </div>
+</div>
+<h3 id="3-3-audit-examination-readiness">3.3 Audit &amp; Examination Readiness</h3>
 <p><strong>Continuous Audit Preparation:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>AUDIT READINESS AUTOMATION SYSTEM</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart TD</span></span>
+<span class="giallo-l"><span>    Source[Compliance systems&lt;br/&gt;logs · configs · controls]:::process</span></span>
+<span class="giallo-l"><span>    Source --&gt; Collect[Real-time evidence gathering]:::process</span></span>
+<span class="giallo-l"><span>    Collect --&gt; Organize[AI categorization + index]:::process</span></span>
+<span class="giallo-l"><span>    Organize --&gt; Version[Versioning + change tracking]:::process</span></span>
+<span class="giallo-l"><span>    Version --&gt; Repo[(Secure repository&lt;br/&gt;audit trail)]:::team</span></span>
+<span class="giallo-l"><span>    Repo --&gt; QA[Validation + completeness QA]:::success</span></span>
+<span class="giallo-l"><span>    QA --&gt; Present[Auditor-ready package]:::success</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Evidence Collection &amp; Organization:</span></span>
-<span class="giallo-l"><span>├─ Real-time Evidence Gathering: Automated collection of compliance evidence</span></span>
-<span class="giallo-l"><span>├─ Intelligent Organization: AI-powered evidence categorization and indexing</span></span>
-<span class="giallo-l"><span>├─ Version Control: Automated evidence versioning and change tracking</span></span>
-<span class="giallo-l"><span>├─ Access Management: Secure evidence repository with audit trail</span></span>
-<span class="giallo-l"><span>├─ Quality Assurance: Automated evidence validation and completeness checking</span></span>
-<span class="giallo-l"><span>└─ Presentation Layer: Automated audit presentation and documentation</span></span>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef team fill:#1e293b,stroke:#a855f7,color:#fff</span></span></code></pre>
+<p><strong>SOC 2 Type II preparation — by the numbers:</strong></p>
+<div class="grid gap-4 lg:grid-cols-3 my-6">
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">2,847</div>
+    <div class="text-xs text-gray-400 mt-1">Evidence pieces auto-collected</div>
+  </div>
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">156</div>
+    <div class="text-xs text-gray-400 mt-1">Control tests documented</div>
+  </div>
+  <div class="rounded-lg border border-amber-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">3</div>
+    <div class="text-xs text-gray-400 mt-1">Minor exceptions remediated</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">2 h</div>
+    <div class="text-xs text-gray-400 mt-1">Auditor package ready</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">45%</div>
+    <div class="text-xs text-gray-400 mt-1">Audit duration reduction</div>
+  </div>
+  <div class="rounded-lg border border-purple-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">100%</div>
+    <div class="text-xs text-gray-400 mt-1">Cert success rate</div>
+  </div>
+</div>
+<p><strong>Regulatory examination readiness — sector coverage:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>    Eng[Audit Readiness Engine]:::process</span></span>
+<span class="giallo-l"><span>    Eng --&gt; GDPR[GDPR DPA&lt;br/&gt;Processing docs]:::team</span></span>
+<span class="giallo-l"><span>    Eng --&gt; Bank[Banking Regulators&lt;br/&gt;Risk + control evidence]:::team</span></span>
+<span class="giallo-l"><span>    Eng --&gt; Health[Healthcare&lt;br/&gt;HIPAA admin/physical/technical]:::team</span></span>
+<span class="giallo-l"><span>    Eng --&gt; Fin[Financial&lt;br/&gt;SOX IT + cyber]:::team</span></span>
+<span class="giallo-l"><span>    Eng --&gt; Indu[Industry-specific&lt;br/&gt;Sector evidence + testing]:::team</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>SOC 2 Type II Audit Preparation Example:</span></span>
-<span class="giallo-l"><span>├─ Control Evidence: 2,847 pieces of evidence automatically collected</span></span>
-<span class="giallo-l"><span>├─ Testing Documentation: 156 automated control tests documented</span></span>
-<span class="giallo-l"><span>├─ Exception Analysis: 3 minor exceptions identified and remediated</span></span>
-<span class="giallo-l"><span>├─ Management Response: Automated management assertion compilation</span></span>
-<span class="giallo-l"><span>├─ Auditor Package: Complete evidence package ready within 2 hours</span></span>
-<span class="giallo-l"><span>└─ Audit Timeline: 45% reduction in audit duration through preparation</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Regulatory Examination Readiness:</span></span>
-<span class="giallo-l"><span>├─ GDPR Supervisory Authority: Comprehensive data processing documentation</span></span>
-<span class="giallo-l"><span>├─ Banking Regulators: Complete risk management and control evidence</span></span>
-<span class="giallo-l"><span>├─ Healthcare Regulators: HIPAA administrative, physical, technical safeguards</span></span>
-<span class="giallo-l"><span>├─ Financial Regulators: SOX IT controls and cybersecurity frameworks</span></span>
-<span class="giallo-l"><span>└─ Industry Regulators: Sector-specific compliance evidence and testing</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Audit Performance Metrics:</span></span>
-<span class="giallo-l"><span>├─ Evidence Completeness: 99.8% (Comprehensive automated collection)</span></span>
-<span class="giallo-l"><span>├─ Auditor Satisfaction: 97.3% (High-quality evidence presentation)</span></span>
-<span class="giallo-l"><span>├─ Audit Duration Reduction: 45% (Through superior preparation)</span></span>
-<span class="giallo-l"><span>├─ Audit Findings: Zero material weaknesses in past 24 months</span></span>
-<span class="giallo-l"><span>└─ Certification Success Rate: 100% (Perfect track record maintained)</span></span></code></pre>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef team fill:#1e293b,stroke:#a855f7,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Performance</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li><span class="text-gray-400">Evidence completeness:</span> 99.8%</li>
+      <li><span class="text-gray-400">Auditor satisfaction:</span> 97.3%</li>
+      <li><span class="text-gray-400">Audit duration:</span> -45%</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Track record</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li><span class="text-gray-400">Material weaknesses (24 mo):</span> 0</li>
+      <li><span class="text-gray-400">Certification success:</span> 100%</li>
+    </ul>
+  </div>
+</div>
 <hr />
 <h2 id="4-regulatory-intelligence-horizon-scanning">4. Regulatory Intelligence &amp; Horizon Scanning</h2>
 <h3 id="4-1-proactive-regulatory-monitoring">4.1 Proactive Regulatory Monitoring</h3>
 <p><strong>Regulatory Horizon Scanning System:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>REGULATORY INTELLIGENCE ENGINE</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph TD</span></span>
+<span class="giallo-l"><span>    Sources[Global Sources]:::team</span></span>
+<span class="giallo-l"><span>    Sources --&gt; EU[EU Institutions&lt;br/&gt;EC · EP · Council]</span></span>
+<span class="giallo-l"><span>    Sources --&gt; US[US Federal&lt;br/&gt;SEC · FTC · CISA · NIST]</span></span>
+<span class="giallo-l"><span>    Sources --&gt; State[State / Provincial&lt;br/&gt;Privacy + cyber]</span></span>
+<span class="giallo-l"><span>    Sources --&gt; Intl[International Bodies&lt;br/&gt;ISO · NIST · industry]</span></span>
+<span class="giallo-l"><span>    Sources --&gt; Pro[Professional Networks&lt;br/&gt;Legal · consulting]</span></span>
+<span class="giallo-l"><span>    Sources --&gt; Acad[Academic Research]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Global Regulatory Monitoring:</span></span>
-<span class="giallo-l"><span>├─ EU Institutions: European Commission, Parliament, Council monitoring</span></span>
-<span class="giallo-l"><span>├─ US Federal Agencies: SEC, FTC, CISA, NIST regulatory developments</span></span>
-<span class="giallo-l"><span>├─ State &amp; Provincial: Multi-state privacy law and cybersecurity regulations</span></span>
-<span class="giallo-l"><span>├─ International Bodies: ISO, NIST, industry standard organizations</span></span>
-<span class="giallo-l"><span>├─ Professional Networks: Legal counsel, consulting firms, industry associations</span></span>
-<span class="giallo-l"><span>└─ Academic Research: University research and regulatory policy analysis</span></span>
+<span class="giallo-l"><span>    EU --&gt; Engine[Intelligence Engine]:::process</span></span>
+<span class="giallo-l"><span>    US --&gt; Engine</span></span>
+<span class="giallo-l"><span>    State --&gt; Engine</span></span>
+<span class="giallo-l"><span>    Intl --&gt; Engine</span></span>
+<span class="giallo-l"><span>    Pro --&gt; Engine</span></span>
+<span class="giallo-l"><span>    Acad --&gt; Engine</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Automated Intelligence Processing:</span></span>
-<span class="giallo-l"><span>├─ Document Analysis: AI-powered analysis of regulatory proposals and guidance</span></span>
-<span class="giallo-l"><span>├─ Impact Assessment: Automated business impact analysis and cost estimation</span></span>
-<span class="giallo-l"><span>├─ Timeline Tracking: Regulatory development timeline and deadline monitoring</span></span>
-<span class="giallo-l"><span>├─ Stakeholder Analysis: Key stakeholder position tracking and influence assessment</span></span>
-<span class="giallo-l"><span>├─ Implementation Planning: Automated preparation timeline and resource planning</span></span>
-<span class="giallo-l"><span>└─ Risk Assessment: Regulatory risk quantification and strategic impact analysis</span></span>
+<span class="giallo-l"><span>    Engine --&gt; Doc[Document analysis]:::process</span></span>
+<span class="giallo-l"><span>    Engine --&gt; Imp[Impact + cost estimation]:::process</span></span>
+<span class="giallo-l"><span>    Engine --&gt; Time[Timeline + deadline tracking]:::process</span></span>
+<span class="giallo-l"><span>    Engine --&gt; Stake[Stakeholder analysis]:::process</span></span>
+<span class="giallo-l"><span>    Engine --&gt; Plan[Implementation planning]:::success</span></span>
+<span class="giallo-l"><span>    Engine --&gt; Risk[Risk quantification]:::warn</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Current Regulatory Horizon (Next 24 Months):</span></span>
-<span class="giallo-l"><span>├─ EU AI Act: Final implementation (2027) - Medium impact, preparation ongoing</span></span>
-<span class="giallo-l"><span>├─ California Privacy Rights Act: Enhanced enforcement (2026) - Low impact, ready</span></span>
-<span class="giallo-l"><span>├─ SEC Cybersecurity Rules: Full implementation (2026) - Low impact, compliant</span></span>
-<span class="giallo-l"><span>├─ NIS2 Directive: National transposition (2026) - Medium impact, 96% ready</span></span>
-<span class="giallo-l"><span>├─ State Privacy Laws: 8 new state laws expected - Medium impact, automated adaptation</span></span>
-<span class="giallo-l"><span>└─ Industry Standards: 3 major standard updates - Low impact, continuous compliance</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Intelligence Quality Metrics:</span></span>
-<span class="giallo-l"><span>├─ Regulatory Detection Speed: 89% detected within 48 hours of publication</span></span>
-<span class="giallo-l"><span>├─ Impact Assessment Accuracy: 94% accuracy in business impact prediction</span></span>
-<span class="giallo-l"><span>├─ Preparation Timeline Effectiveness: 97% successful regulatory adaptation</span></span>
-<span class="giallo-l"><span>├─ Cost Estimation Accuracy: 91% accuracy in compliance investment forecasting</span></span>
-<span class="giallo-l"><span>└─ Competitive Intelligence: 6-month average preparation lead vs. competitors</span></span></code></pre><h3 id="4-2-strategic-compliance-planning">4.2 Strategic Compliance Planning</h3>
-<p><strong>Long-term Compliance Strategy:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>5-YEAR REGULATORY COMPLIANCE ROADMAP</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>2026-2027: Foundation Strengthening</span></span>
-<span class="giallo-l"><span>├─ EU AI Act Implementation: Complete preparation and certification process</span></span>
-<span class="giallo-l"><span>├─ Enhanced Privacy Program: Multi-state and international privacy compliance</span></span>
-<span class="giallo-l"><span>├─ Supply Chain Security: NIS2 directive full implementation and optimization</span></span>
-<span class="giallo-l"><span>├─ Automation Enhancement: 98% compliance automation achievement target</span></span>
-<span class="giallo-l"><span>└─ Regulatory Intelligence: Advanced predictive analytics implementation</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>2027-2028: Advanced Capabilities</span></span>
-<span class="giallo-l"><span>├─ Quantum-Safe Cryptography: Preparation for post-quantum regulatory requirements</span></span>
-<span class="giallo-l"><span>├─ Digital Identity Standards: Implementation of emerging digital identity frameworks</span></span>
-<span class="giallo-l"><span>├─ ESG Compliance Integration: Environmental and social governance automation</span></span>
-<span class="giallo-l"><span>├─ Cross-Border Data Governance: Enhanced international data transfer management</span></span>
-<span class="giallo-l"><span>└─ AI Governance Framework: Comprehensive AI ethics and governance program</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>2028-2029: Innovation Leadership</span></span>
-<span class="giallo-l"><span>├─ Regulatory Sandbox Participation: Active engagement in regulatory innovation programs</span></span>
-<span class="giallo-l"><span>├─ Autonomous Compliance: Near-complete automation with minimal human intervention</span></span>
-<span class="giallo-l"><span>├─ Predictive Regulatory Modeling: Advanced AI-powered regulatory forecasting</span></span>
-<span class="giallo-l"><span>├─ Global Harmonization: Leading multi-jurisdiction compliance harmonization efforts</span></span>
-<span class="giallo-l"><span>└─ Industry Standards Development: Active participation in regulatory standard setting</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>2029-2030: Market Leadership</span></span>
-<span class="giallo-l"><span>├─ Compliance-as-a-Service: Commercialization of compliance automation platform</span></span>
-<span class="giallo-l"><span>├─ Regulatory Consulting: Expert advisory services for complex compliance challenges</span></span>
-<span class="giallo-l"><span>├─ Industry Benchmarking: Compliance excellence as competitive differentiation</span></span>
-<span class="giallo-l"><span>├─ Thought Leadership: Recognition as regulatory compliance innovation leader</span></span>
-<span class="giallo-l"><span>└─ Strategic Advantage: Sustainable competitive moat through compliance excellence</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Investment Planning:</span></span>
-<span class="giallo-l"><span>├─ 2026-2027: €2.1M (Foundation and AI Act preparation)</span></span>
-<span class="giallo-l"><span>├─ 2027-2028: €1.8M (Advanced capability development)</span></span>
-<span class="giallo-l"><span>├─ 2028-2029: €1.5M (Innovation leadership initiatives)</span></span>
-<span class="giallo-l"><span>├─ 2029-2030: €1.2M (Market leadership and commercialization)</span></span>
-<span class="giallo-l"><span>└─ Total 5-Year Investment: €6.6M (Projected ROI: 890% through risk mitigation and efficiency)</span></span></code></pre><h3 id="4-3-competitive-compliance-intelligence">4.3 Competitive Compliance Intelligence</h3>
-<p><strong>Market Compliance Benchmarking:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>COMPETITIVE COMPLIANCE ANALYSIS</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Industry Compliance Maturity Assessment:</span></span>
-<span class="giallo-l"><span>├─ Tier 1 Leaders (Top 10%): Advanced automation, proactive regulatory engagement</span></span>
-<span class="giallo-l"><span>├─ Tier 2 Followers (Next 20%): Moderate automation, reactive compliance management</span></span>
-<span class="giallo-l"><span>├─ Tier 3 Adopters (Next 40%): Basic compliance, manual processes predominant</span></span>
-<span class="giallo-l"><span>├─ Tier 4 Laggards (Bottom 30%): Minimal compliance, high regulatory risk</span></span>
-<span class="giallo-l"><span>└─ Prismatic Position: Tier 1 Leader (Top 5% compliance maturity)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Compliance Competitive Advantages:</span></span>
-<span class="giallo-l"><span>├─ Automation Level: 95% vs. 35% industry average (+60 percentage points)</span></span>
-<span class="giallo-l"><span>├─ Regulatory Violation Risk: &lt;0.1% vs. 15% industry average (-14.9 percentage points)</span></span>
-<span class="giallo-l"><span>├─ Compliance Costs: 25% of industry average (75% cost advantage)</span></span>
-<span class="giallo-l"><span>├─ Audit Readiness: Continuous vs. 6-month preparation (85% time advantage)</span></span>
-<span class="giallo-l"><span>└─ Regulatory Agility: 2 weeks adaptation vs. 6 months industry average (92% speed advantage)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Market Impact Analysis:</span></span>
-<span class="giallo-l"><span>├─ Customer Confidence: Compliance excellence as sales differentiator</span></span>
-<span class="giallo-l"><span>├─ Regulatory Relationship: Proactive regulator engagement and trust building</span></span>
-<span class="giallo-l"><span>├─ Investor Attraction: ESG and governance leadership for investment appeal</span></span>
-<span class="giallo-l"><span>├─ Talent Acquisition: Compliance innovation culture attracting top talent</span></span>
-<span class="giallo-l"><span>└─ Strategic Partnerships: Compliance leadership enabling strategic alliances</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Competitive Moat Sustainability:</span></span>
-<span class="giallo-l"><span>├─ Technology Advantage: 3-5 year lead in compliance automation</span></span>
-<span class="giallo-l"><span>├─ Regulatory Intelligence: Superior horizon scanning and preparation capabilities</span></span>
-<span class="giallo-l"><span>├─ Process Excellence: Organizational compliance culture and capability</span></span>
-<span class="giallo-l"><span>├─ Network Effects: Regulatory relationship strength and industry recognition</span></span>
-<span class="giallo-l"><span>└─ Continuous Innovation: Ongoing investment in compliance advancement and excellence</span></span></code></pre>
+<span class="giallo-l"><span>    classDef team fill:#1e293b,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef warn fill:#1e293b,stroke:#f59e0b,color:#fff</span></span></code></pre>
+<p><strong>Current regulatory horizon — next 24 months:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>gantt</span></span>
+<span class="giallo-l"><span>    title Regulatory Roadmap (impact + readiness)</span></span>
+<span class="giallo-l"><span>    dateFormat  YYYY-MM</span></span>
+<span class="giallo-l"><span>    axisFormat  %Y-%m</span></span>
+<span class="giallo-l"><span>    section EU</span></span>
+<span class="giallo-l"><span>    EU AI Act (Medium · prep)        :ai, 2026-01, 2027-12</span></span>
+<span class="giallo-l"><span>    NIS2 transposition (Med · 96%)   :nis2, 2026-01, 2026-12</span></span>
+<span class="giallo-l"><span>    section US Federal</span></span>
+<span class="giallo-l"><span>    SEC Cyber Rules (Low · ready)    :sec, 2026-01, 2026-12</span></span>
+<span class="giallo-l"><span>    section US States</span></span>
+<span class="giallo-l"><span>    8 new state privacy laws (Med)   :sp, 2026-03, 2027-09</span></span>
+<span class="giallo-l"><span>    CPRA enforcement (Low · ready)   :cpra, 2026-01, 2026-06</span></span>
+<span class="giallo-l"><span>    section Industry</span></span>
+<span class="giallo-l"><span>    3 major standard updates (Low)   :std, 2026-06, 2027-06</span></span></code></pre><div class="grid gap-4 lg:grid-cols-5 my-6">
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">89%</div>
+    <div class="text-xs text-gray-400 mt-1">Detected &lt;48 h</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">94%</div>
+    <div class="text-xs text-gray-400 mt-1">Impact accuracy</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">97%</div>
+    <div class="text-xs text-gray-400 mt-1">Adaptation success</div>
+  </div>
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">91%</div>
+    <div class="text-xs text-gray-400 mt-1">Cost estimation accuracy</div>
+  </div>
+  <div class="rounded-lg border border-purple-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">6 mo</div>
+    <div class="text-xs text-gray-400 mt-1">Lead vs. competitors</div>
+  </div>
+</div>
+<h3 id="4-2-strategic-compliance-planning">4.2 Strategic Compliance Planning</h3>
+<p><strong>Long-term Compliance Strategy — 5-year roadmap:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>timeline</span></span>
+<span class="giallo-l"><span>    title 5-Year Regulatory Compliance Roadmap</span></span>
+<span class="giallo-l"><span>    2026-2027 : Foundation Strengthening</span></span>
+<span class="giallo-l"><span>              : EU AI Act preparation</span></span>
+<span class="giallo-l"><span>              : Enhanced privacy program</span></span>
+<span class="giallo-l"><span>              : Supply-chain security (NIS2)</span></span>
+<span class="giallo-l"><span>              : 98% automation target</span></span>
+<span class="giallo-l"><span>              : Predictive analytics</span></span>
+<span class="giallo-l"><span>    2027-2028 : Advanced Capabilities</span></span>
+<span class="giallo-l"><span>              : Quantum-safe cryptography</span></span>
+<span class="giallo-l"><span>              : Digital identity standards</span></span>
+<span class="giallo-l"><span>              : ESG compliance integration</span></span>
+<span class="giallo-l"><span>              : Cross-border data governance</span></span>
+<span class="giallo-l"><span>              : AI governance framework</span></span>
+<span class="giallo-l"><span>    2028-2029 : Innovation Leadership</span></span>
+<span class="giallo-l"><span>              : Regulatory sandbox participation</span></span>
+<span class="giallo-l"><span>              : Autonomous compliance</span></span>
+<span class="giallo-l"><span>              : Predictive regulatory modeling</span></span>
+<span class="giallo-l"><span>              : Global harmonization leadership</span></span>
+<span class="giallo-l"><span>              : Standards development role</span></span>
+<span class="giallo-l"><span>    2029-2030 : Market Leadership</span></span>
+<span class="giallo-l"><span>              : Compliance-as-a-Service</span></span>
+<span class="giallo-l"><span>              : Regulatory consulting</span></span>
+<span class="giallo-l"><span>              : Industry benchmark setter</span></span>
+<span class="giallo-l"><span>              : Thought leadership</span></span>
+<span class="giallo-l"><span>              : Sustainable competitive moat</span></span></code></pre><pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>xychart-beta</span></span>
+<span class="giallo-l"><span>    title &quot;5-Year Investment Plan (€M)&quot;</span></span>
+<span class="giallo-l"><span>    x-axis [&quot;2026-27&quot;, &quot;2027-28&quot;, &quot;2028-29&quot;, &quot;2029-30&quot;]</span></span>
+<span class="giallo-l"><span>    y-axis &quot;Investment €M&quot; 0 --&gt; 3</span></span>
+<span class="giallo-l"><span>    bar [2.1, 1.8, 1.5, 1.2]</span></span></code></pre><div class="rounded-xl border border-purple-500/40 bg-gray-900 p-5 my-6 text-center">
+  <div class="text-xs text-gray-400 uppercase tracking-wider mb-2">Total 5-year investment</div>
+  <div class="text-3xl font-bold text-white font-mono">€6.6M</div>
+  <div class="text-sm text-emerald-300 mt-1">Projected ROI 890% via risk mitigation + efficiency</div>
+</div>
+<h3 id="4-3-competitive-compliance-intelligence">4.3 Competitive Compliance Intelligence</h3>
+<p><strong>Industry compliance maturity — Prismatic position:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Industry Compliance Maturity Distribution</span></span>
+<span class="giallo-l"><span>    &quot;Tier 1 Leaders (Top 10%)&quot; : 10</span></span>
+<span class="giallo-l"><span>    &quot;Tier 2 Followers (20%)&quot; : 20</span></span>
+<span class="giallo-l"><span>    &quot;Tier 3 Adopters (40%)&quot; : 40</span></span>
+<span class="giallo-l"><span>    &quot;Tier 4 Laggards (30%)&quot; : 30</span></span></code></pre><div class="rounded-xl border border-emerald-500/40 bg-gray-900 p-4 my-6 text-center">
+  <div class="text-sm text-emerald-300">Prismatic position: <strong class="text-white">Tier 1 Leader · Top 5% maturity</strong></div>
+</div>
+<p><strong>Competitive advantages vs. industry average:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>xychart-beta</span></span>
+<span class="giallo-l"><span>    title &quot;Prismatic vs. Industry Average&quot;</span></span>
+<span class="giallo-l"><span>    x-axis [&quot;Automation %&quot;, &quot;Violation risk %&quot;, &quot;Cost (% of avg)&quot;, &quot;Adapt speed (wks)&quot;]</span></span>
+<span class="giallo-l"><span>    y-axis &quot;Value&quot; 0 --&gt; 100</span></span>
+<span class="giallo-l"><span>    bar [95, 0.1, 25, 2]</span></span>
+<span class="giallo-l"><span>    line [35, 15, 100, 24]</span></span></code></pre><div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-blue-300 uppercase tracking-wider mb-3">Market impact</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Sales differentiator (customer confidence)</li>
+      <li>Proactive regulator engagement</li>
+      <li>ESG / governance investor appeal</li>
+      <li>Talent acquisition magnet</li>
+      <li>Strategic alliance enabler</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-purple-300 uppercase tracking-wider mb-3">Sustainable moat</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>3-5 year automation tech lead</li>
+      <li>Superior horizon scanning</li>
+      <li>Compliance culture &amp; capability</li>
+      <li>Regulator relationships + recognition</li>
+      <li>Continuous compliance investment</li>
+    </ul>
+  </div>
+</div>
 <hr />
 <h2 id="5-industry-specific-compliance-solutions">5. Industry-Specific Compliance Solutions</h2>
 <h3 id="5-1-financial-services-compliance">5.1 Financial Services Compliance</h3>
 <p><strong>Banking &amp; Financial Regulation Automation:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>FINANCIAL SERVICES REGULATORY FRAMEWORK</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>    Eng[Financial Compliance Engine]:::process</span></span>
+<span class="giallo-l"><span>    Eng --&gt; Basel[Basel III&lt;br/&gt;Capital adequacy]</span></span>
+<span class="giallo-l"><span>    Eng --&gt; DF[Dodd-Frank&lt;br/&gt;SIFI requirements]</span></span>
+<span class="giallo-l"><span>    Eng --&gt; Mifid[MiFID II&lt;br/&gt;Market transparency]</span></span>
+<span class="giallo-l"><span>    Eng --&gt; PSD[PSD2&lt;br/&gt;Open banking]</span></span>
+<span class="giallo-l"><span>    Eng --&gt; GDPRF[GDPR Financial&lt;br/&gt;Data privacy]</span></span>
+<span class="giallo-l"><span>    Eng --&gt; AML[AML / KYC&lt;br/&gt;SAR reporting]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Core Banking Regulations:</span></span>
-<span class="giallo-l"><span>├─ Basel III: Capital adequacy and risk management automation</span></span>
-<span class="giallo-l"><span>├─ Dodd-Frank: Systemically important financial institution requirements</span></span>
-<span class="giallo-l"><span>├─ MiFID II: Investment services and market transparency compliance</span></span>
-<span class="giallo-l"><span>├─ PSD2: Payment services and open banking regulatory requirements</span></span>
-<span class="giallo-l"><span>├─ GDPR Financial: Financial data protection and privacy requirements</span></span>
-<span class="giallo-l"><span>└─ Anti-Money Laundering: AML/KYC compliance and suspicious activity reporting</span></span>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span></code></pre><pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart TD</span></span>
+<span class="giallo-l"><span>    Auto[Automated Financial Compliance]:::process</span></span>
+<span class="giallo-l"><span>    Auto --&gt; Cap[Capital adequacy monitoring]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; Risk[Market / credit / op risk]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; Tx[AML / KYC screening]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; Rep[Regulatory reporting]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; Audit[Audit trail generation]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; Stress[Stress testing]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Automated Financial Compliance:</span></span>
-<span class="giallo-l"><span>├─ Capital Adequacy Monitoring: Real-time capital ratio calculation and reporting</span></span>
-<span class="giallo-l"><span>├─ Risk Management: Automated market, credit, and operational risk assessment</span></span>
-<span class="giallo-l"><span>├─ Transaction Monitoring: Automated AML/KYC screening and alert generation</span></span>
-<span class="giallo-l"><span>├─ Regulatory Reporting: Automated submission of regulatory returns and filings</span></span>
-<span class="giallo-l"><span>├─ Audit Trail Generation: Complete transaction and decision audit documentation</span></span>
-<span class="giallo-l"><span>└─ Stress Testing: Automated regulatory stress test execution and reporting</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Financial Compliance Dashboard:</span></span>
-<span class="giallo-l"><span>├─ Capital Ratios: Tier 1 Capital 12.8% (Target: &gt;11%, Regulatory: &gt;8%)</span></span>
-<span class="giallo-l"><span>├─ Risk Metrics: VaR within limits, no regulatory breaches</span></span>
-<span class="giallo-l"><span>├─ AML Alerts: 847 alerts processed, 12 SARs filed, zero false negatives</span></span>
-<span class="giallo-l"><span>├─ Regulatory Submissions: 100% on-time filing rate, zero rejections</span></span>
-<span class="giallo-l"><span>└─ Audit Results: Clean audit opinions across all regulatory examinations</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>ROI Analysis:</span></span>
-<span class="giallo-l"><span>├─ Regulatory Penalty Avoidance: $25M annually (Historical penalty risk)</span></span>
-<span class="giallo-l"><span>├─ Operational Efficiency: $8.3M annually (Process automation savings)</span></span>
-<span class="giallo-l"><span>├─ Capital Optimization: $12.1M annually (Efficient capital allocation)</span></span>
-<span class="giallo-l"><span>├─ Audit Cost Reduction: $2.8M annually (Continuous readiness)</span></span>
-<span class="giallo-l"><span>└─ Total Financial Services ROI: $48.2M annually (Investment: $4.2M, ROI: 1,048%)</span></span></code></pre><h3 id="5-2-healthcare-compliance-automation">5.2 Healthcare Compliance Automation</h3>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span></code></pre>
+<p><strong>Financial compliance dashboard — live snapshot:</strong></p>
+<div class="grid gap-4 lg:grid-cols-3 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Tier 1 Capital</div>
+    <div class="text-2xl font-bold text-white font-mono">12.8%</div>
+    <div class="text-xs text-gray-400 mt-1">target &gt;11% · reg &gt;8%</div>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">VaR / risk limits</div>
+    <div class="text-2xl font-bold text-white font-mono">In bounds</div>
+    <div class="text-xs text-gray-400 mt-1">0 regulatory breaches</div>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">AML alerts</div>
+    <div class="text-2xl font-bold text-white font-mono">847</div>
+    <div class="text-xs text-gray-400 mt-1">12 SARs filed · 0 false negatives</div>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Reg. filings</div>
+    <div class="text-2xl font-bold text-white font-mono">100%</div>
+    <div class="text-xs text-gray-400 mt-1">on-time · 0 rejections</div>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Audit results</div>
+    <div class="text-2xl font-bold text-white font-mono">Clean</div>
+    <div class="text-xs text-gray-400 mt-1">across all examinations</div>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-purple-300 mb-2">Total ROI</div>
+    <div class="text-2xl font-bold text-white font-mono">$48.2M</div>
+    <div class="text-xs text-gray-400 mt-1">annual · ROI 1,048%</div>
+  </div>
+</div>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Annual Value Creation — Financial Services ($48.2M)</span></span>
+<span class="giallo-l"><span>    &quot;Penalty avoidance ($25M)&quot; : 25</span></span>
+<span class="giallo-l"><span>    &quot;Capital optimization ($12.1M)&quot; : 12.1</span></span>
+<span class="giallo-l"><span>    &quot;Operational efficiency ($8.3M)&quot; : 8.3</span></span>
+<span class="giallo-l"><span>    &quot;Audit cost reduction ($2.8M)&quot; : 2.8</span></span></code></pre><h3 id="5-2-healthcare-compliance-automation">5.2 Healthcare Compliance Automation</h3>
 <p><strong>Healthcare Regulatory Framework:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>HEALTHCARE REGULATORY COMPLIANCE AUTOMATION</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>    Reg[Healthcare Regulations]:::process</span></span>
+<span class="giallo-l"><span>    Reg --&gt; HIPAA[HIPAA&lt;br/&gt;Admin/physical/technical]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; HITECH[HITECH&lt;br/&gt;Breach notification]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; FDA[FDA&lt;br/&gt;Device cyber + quality]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; State[State Health Laws&lt;br/&gt;Privacy + licensing]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; Intl[EU MDR · ISO 13485]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; Accred[Joint Commission · NCQA]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Primary Healthcare Regulations:</span></span>
-<span class="giallo-l"><span>├─ HIPAA: Administrative, physical, and technical safeguards automation</span></span>
-<span class="giallo-l"><span>├─ HITECH: Breach notification and audit requirement automation</span></span>
-<span class="giallo-l"><span>├─ FDA Regulations: Medical device cybersecurity and quality system compliance</span></span>
-<span class="giallo-l"><span>├─ State Health Laws: Multi-state healthcare privacy and professional licensing</span></span>
-<span class="giallo-l"><span>├─ International: EU Medical Device Regulation (MDR), ISO 13485 quality management</span></span>
-<span class="giallo-l"><span>└─ Accreditation: Joint Commission, NCQA, and other healthcare accreditation standards</span></span>
+<span class="giallo-l"><span>    Auto[Automated Compliance]:::success</span></span>
+<span class="giallo-l"><span>    Auto --&gt; PHI[PHI protection]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; AC[RBAC + audit logging]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; Breach[Breach response]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; Dev[Device security + patching]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; QMS[ISO 13485 QMS]</span></span>
+<span class="giallo-l"><span>    Auto --&gt; GCP[GCP clinical trial compliance]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Healthcare-Specific Automation:</span></span>
-<span class="giallo-l"><span>├─ PHI Protection: Automated protected health information security and privacy</span></span>
-<span class="giallo-l"><span>├─ Access Controls: Healthcare role-based access control and audit logging</span></span>
-<span class="giallo-l"><span>├─ Breach Response: Automated healthcare data breach assessment and notification</span></span>
-<span class="giallo-l"><span>├─ Medical Device Security: Automated medical device cybersecurity and patch management</span></span>
-<span class="giallo-l"><span>├─ Quality Management: ISO 13485 quality management system automation</span></span>
-<span class="giallo-l"><span>└─ Clinical Trial Compliance: GCP (Good Clinical Practice) automated compliance monitoring</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Healthcare Compliance Metrics:</span></span>
-<span class="giallo-l"><span>├─ HIPAA Compliance Score: 99.4% (Zero violations in 36 months)</span></span>
-<span class="giallo-l"><span>├─ Breach Response Time: &lt;30 minutes assessment, &lt;60 days notification compliance</span></span>
-<span class="giallo-l"><span>├─ Medical Device Security: 100% inventory tracking, automated vulnerability management</span></span>
-<span class="giallo-l"><span>├─ Quality System Effectiveness: 99.7% quality system performance score</span></span>
-<span class="giallo-l"><span>└─ Patient Safety: Zero patient safety incidents attributable to compliance failures</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Healthcare ROI:</span></span>
-<span class="giallo-l"><span>├─ HIPAA Penalty Avoidance: $5.2M annually (Based on industry violation rates)</span></span>
-<span class="giallo-l"><span>├─ Medical Device Security: $3.1M annually (Cyber risk mitigation)</span></span>
-<span class="giallo-l"><span>├─ Quality System Efficiency: $2.8M annually (Process automation and improvement)</span></span>
-<span class="giallo-l"><span>├─ Audit and Inspection Readiness: $1.4M annually (Continuous preparation)</span></span>
-<span class="giallo-l"><span>└─ Total Healthcare ROI: $12.5M annually (Investment: $2.1M, ROI: 495%)</span></span></code></pre><h3 id="5-3-manufacturing-industrial-compliance">5.3 Manufacturing &amp; Industrial Compliance</h3>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-3 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">HIPAA score</div>
+    <div class="text-2xl font-bold text-white font-mono">99.4%</div>
+    <div class="text-xs text-gray-400 mt-1">0 violations / 36 months</div>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Breach response</div>
+    <div class="text-2xl font-bold text-white font-mono">&lt;30 min</div>
+    <div class="text-xs text-gray-400 mt-1">assess · &lt;60 d notification</div>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Device security</div>
+    <div class="text-2xl font-bold text-white font-mono">100%</div>
+    <div class="text-xs text-gray-400 mt-1">inventory + vuln mgmt</div>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">QMS effectiveness</div>
+    <div class="text-2xl font-bold text-white font-mono">99.7%</div>
+    <div class="text-xs text-gray-400 mt-1">performance score</div>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Patient safety</div>
+    <div class="text-2xl font-bold text-white font-mono">0</div>
+    <div class="text-xs text-gray-400 mt-1">incidents from compliance failure</div>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-purple-300 mb-2">Total healthcare ROI</div>
+    <div class="text-2xl font-bold text-white font-mono">$12.5M</div>
+    <div class="text-xs text-gray-400 mt-1">annual · ROI 495%</div>
+  </div>
+</div>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Annual Healthcare Value Creation ($12.5M)</span></span>
+<span class="giallo-l"><span>    &quot;HIPAA penalty avoidance ($5.2M)&quot; : 5.2</span></span>
+<span class="giallo-l"><span>    &quot;Device security ($3.1M)&quot; : 3.1</span></span>
+<span class="giallo-l"><span>    &quot;QMS efficiency ($2.8M)&quot; : 2.8</span></span>
+<span class="giallo-l"><span>    &quot;Audit / inspection ($1.4M)&quot; : 1.4</span></span></code></pre><h3 id="5-3-manufacturing-industrial-compliance">5.3 Manufacturing &amp; Industrial Compliance</h3>
 <p><strong>Industrial Regulatory Automation:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>MANUFACTURING REGULATORY COMPLIANCE FRAMEWORK</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph TD</span></span>
+<span class="giallo-l"><span>    Reg[Industrial Regulations]:::process</span></span>
+<span class="giallo-l"><span>    Reg --&gt; ISO9[ISO 9001 · Quality]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; ISO14[ISO 14001 · Environment]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; ISO45[ISO 45001 · OH&amp;amp;S]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; NIST[NIST CSF]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; GMP[FDA GMP]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; Sect[Sector: ISO/TS 16949 · AS9100 · ISO 13485]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Industrial Regulations:</span></span>
-<span class="giallo-l"><span>├─ ISO 9001: Quality management system automation and continuous improvement</span></span>
-<span class="giallo-l"><span>├─ ISO 14001: Environmental management system compliance and reporting</span></span>
-<span class="giallo-l"><span>├─ ISO 45001: Occupational health and safety management system automation</span></span>
-<span class="giallo-l"><span>├─ NIST Cybersecurity Framework: Manufacturing cybersecurity risk management</span></span>
-<span class="giallo-l"><span>├─ FDA Manufacturing: Good Manufacturing Practice (GMP) compliance automation</span></span>
-<span class="giallo-l"><span>└─ Industry-Specific: Automotive (ISO/TS 16949), Aerospace (AS9100), Medical Device (ISO 13485)</span></span>
+<span class="giallo-l"><span>    Cyber[Manufacturing Cyber]:::warn</span></span>
+<span class="giallo-l"><span>    Cyber --&gt; OT[OT / IT convergence]</span></span>
+<span class="giallo-l"><span>    Cyber --&gt; ICS[SCADA / PLC / HMI]</span></span>
+<span class="giallo-l"><span>    Cyber --&gt; Sup[Supply-chain security]</span></span>
+<span class="giallo-l"><span>    Cyber --&gt; PL[Production-line integrity]</span></span>
+<span class="giallo-l"><span>    Cyber --&gt; DP[Data protection]</span></span>
+<span class="giallo-l"><span>    Cyber --&gt; IR[Incident response]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Manufacturing Cybersecurity:</span></span>
-<span class="giallo-l"><span>├─ OT/IT Convergence: Operational technology and information technology security integration</span></span>
-<span class="giallo-l"><span>├─ Industrial Control Systems: SCADA, PLC, and HMI cybersecurity monitoring</span></span>
-<span class="giallo-l"><span>├─ Supply Chain Security: Vendor cybersecurity assessment and monitoring</span></span>
-<span class="giallo-l"><span>├─ Production Line Security: Manufacturing process security and integrity monitoring</span></span>
-<span class="giallo-l"><span>├─ Data Protection: Industrial data classification and protection automation</span></span>
-<span class="giallo-l"><span>└─ Incident Response: Manufacturing-specific cybersecurity incident response procedures</span></span>
+<span class="giallo-l"><span>    Env[Environment + Safety]:::success</span></span>
+<span class="giallo-l"><span>    Env --&gt; EM[Environmental monitoring]</span></span>
+<span class="giallo-l"><span>    Env --&gt; GHG[Emissions tracking]</span></span>
+<span class="giallo-l"><span>    Env --&gt; WM[Waste management]</span></span>
+<span class="giallo-l"><span>    Env --&gt; SM[Safety management]</span></span>
+<span class="giallo-l"><span>    Env --&gt; CM[Chemical management]</span></span>
+<span class="giallo-l"><span>    Env --&gt; RR[Reg. reporting]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Environmental &amp; Safety Automation:</span></span>
-<span class="giallo-l"><span>├─ Environmental Monitoring: Automated environmental impact assessment and reporting</span></span>
-<span class="giallo-l"><span>├─ Emissions Tracking: Automated greenhouse gas emissions calculation and reporting</span></span>
-<span class="giallo-l"><span>├─ Waste Management: Automated waste tracking, classification, and disposal compliance</span></span>
-<span class="giallo-l"><span>├─ Safety Management: Automated workplace safety monitoring and incident reporting</span></span>
-<span class="giallo-l"><span>├─ Chemical Management: Automated chemical inventory and safety data sheet management</span></span>
-<span class="giallo-l"><span>└─ Regulatory Reporting: Automated environmental and safety regulatory submissions</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Manufacturing Compliance Metrics:</span></span>
-<span class="giallo-l"><span>├─ Quality System Performance: 99.8% quality system effectiveness score</span></span>
-<span class="giallo-l"><span>├─ Environmental Compliance: 100% regulatory submission compliance, zero violations</span></span>
-<span class="giallo-l"><span>├─ Safety Performance: 99.2% safety system effectiveness, 40% incident reduction</span></span>
-<span class="giallo-l"><span>├─ Cybersecurity Posture: 96% manufacturing cybersecurity maturity score</span></span>
-<span class="giallo-l"><span>└─ Operational Efficiency: 15% productivity improvement through compliance automation</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Manufacturing ROI:</span></span>
-<span class="giallo-l"><span>├─ Regulatory Penalty Avoidance: $8.7M annually (Environmental and safety violations)</span></span>
-<span class="giallo-l"><span>├─ Quality Improvement: $12.3M annually (Defect reduction and customer satisfaction)</span></span>
-<span class="giallo-l"><span>├─ Safety Cost Reduction: $4.1M annually (Workplace incident prevention)</span></span>
-<span class="giallo-l"><span>├─ Operational Efficiency: $6.8M annually (Process automation and optimization)</span></span>
-<span class="giallo-l"><span>└─ Total Manufacturing ROI: $31.9M annually (Investment: $3.8M, ROI: 740%)</span></span></code></pre>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef warn fill:#1e293b,stroke:#f59e0b,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-3 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Quality system</div>
+    <div class="text-2xl font-bold text-white font-mono">99.8%</div>
+    <div class="text-xs text-gray-400 mt-1">effectiveness score</div>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Environmental</div>
+    <div class="text-2xl font-bold text-white font-mono">100%</div>
+    <div class="text-xs text-gray-400 mt-1">submissions · 0 violations</div>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Safety performance</div>
+    <div class="text-2xl font-bold text-white font-mono">99.2%</div>
+    <div class="text-xs text-gray-400 mt-1">-40% incidents</div>
+  </div>
+  <div class="rounded-xl border border-amber-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-amber-300 mb-2">Cyber maturity</div>
+    <div class="text-2xl font-bold text-white font-mono">96%</div>
+    <div class="text-xs text-gray-400 mt-1">manufacturing CSF</div>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Productivity gain</div>
+    <div class="text-2xl font-bold text-white font-mono">+15%</div>
+    <div class="text-xs text-gray-400 mt-1">via compliance automation</div>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5">
+    <div class="text-xs uppercase tracking-wider text-purple-300 mb-2">Total manufacturing ROI</div>
+    <div class="text-2xl font-bold text-white font-mono">$31.9M</div>
+    <div class="text-xs text-gray-400 mt-1">annual · ROI 740%</div>
+  </div>
+</div>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Annual Manufacturing Value Creation ($31.9M)</span></span>
+<span class="giallo-l"><span>    &quot;Quality improvement ($12.3M)&quot; : 12.3</span></span>
+<span class="giallo-l"><span>    &quot;Penalty avoidance ($8.7M)&quot; : 8.7</span></span>
+<span class="giallo-l"><span>    &quot;Operational efficiency ($6.8M)&quot; : 6.8</span></span>
+<span class="giallo-l"><span>    &quot;Safety cost reduction ($4.1M)&quot; : 4.1</span></span></code></pre>
 <hr />
 <h2 id="6-implementation-strategy-roi">6. Implementation Strategy &amp; ROI</h2>
 <h3 id="6-1-compliance-platform-deployment">6.1 Compliance Platform Deployment</h3>
-<p><strong>Phased Implementation Approach:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>COMPLIANCE AUTOMATION IMPLEMENTATION ROADMAP</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Phase 1: Foundation &amp; Core Frameworks (Months 1-3)</span></span>
-<span class="giallo-l"><span>├─ Platform Deployment: Core compliance automation platform installation</span></span>
-<span class="giallo-l"><span>├─ Primary Frameworks: GDPR, SOC 2, ISO 27001 automation implementation</span></span>
-<span class="giallo-l"><span>├─ Data Integration: Business system integration and evidence collection setup</span></span>
-<span class="giallo-l"><span>├─ Team Training: Compliance team platform proficiency and workflow training</span></span>
-<span class="giallo-l"><span>├─ Initial Monitoring: Basic compliance monitoring and gap detection activation</span></span>
-<span class="giallo-l"><span>└─ Quick Wins: Immediate compliance efficiency improvements and cost savings</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Phase 2: Advanced Automation &amp; Expansion (Months 4-6)</span></span>
-<span class="giallo-l"><span>├─ Framework Expansion: NIS2, CCPA, industry-specific regulation integration</span></span>
-<span class="giallo-l"><span>├─ Advanced Analytics: Predictive compliance analytics and risk forecasting</span></span>
-<span class="giallo-l"><span>├─ Regulatory Intelligence: Horizon scanning and proactive change management</span></span>
-<span class="giallo-l"><span>├─ Board Integration: Executive dashboard and board reporting implementation</span></span>
-<span class="giallo-l"><span>├─ Audit Readiness: Continuous audit preparation and evidence automation</span></span>
-<span class="giallo-l"><span>└─ Process Optimization: Compliance workflow refinement and efficiency enhancement</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Phase 3: Intelligence &amp; Innovation (Months 7-12)</span></span>
-<span class="giallo-l"><span>├─ AI Enhancement: Advanced artificial intelligence and machine learning integration</span></span>
-<span class="giallo-l"><span>├─ Competitive Intelligence: Market benchmarking and competitive analysis</span></span>
-<span class="giallo-l"><span>├─ Strategic Planning: Long-term compliance strategy and roadmap development</span></span>
-<span class="giallo-l"><span>├─ Stakeholder Integration: Customer, investor, and regulator communication automation</span></span>
-<span class="giallo-l"><span>├─ Innovation Projects: Emerging technology compliance and regulatory sandbox participation</span></span>
-<span class="giallo-l"><span>└─ Excellence Achievement: Industry-leading compliance maturity and recognition</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Implementation Success Metrics:</span></span>
-<span class="giallo-l"><span>├─ Automation Achievement: 95% compliance process automation within 12 months</span></span>
-<span class="giallo-l"><span>├─ Cost Reduction: 75% compliance operational cost reduction</span></span>
-<span class="giallo-l"><span>├─ Risk Mitigation: 95% regulatory violation risk reduction</span></span>
-<span class="giallo-l"><span>├─ Efficiency Improvement: 85% faster compliance reporting and response</span></span>
-<span class="giallo-l"><span>└─ ROI Realization: 500-1,200% return on investment within 24 months</span></span></code></pre><h3 id="6-2-financial-impact-roi-analysis">6.2 Financial Impact &amp; ROI Analysis</h3>
+<p><strong>Phased Implementation Approach — 12 months:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>gantt</span></span>
+<span class="giallo-l"><span>    title Compliance Automation Roadmap</span></span>
+<span class="giallo-l"><span>    dateFormat  YYYY-MM-DD</span></span>
+<span class="giallo-l"><span>    axisFormat  M%m</span></span>
+<span class="giallo-l"><span>    section Phase 1 — Foundation</span></span>
+<span class="giallo-l"><span>    Platform deployment           :p1a, 2026-01-01, 30d</span></span>
+<span class="giallo-l"><span>    GDPR · SOC 2 · ISO 27001      :p1b, after p1a, 30d</span></span>
+<span class="giallo-l"><span>    Data integration              :p1c, after p1a, 45d</span></span>
+<span class="giallo-l"><span>    Team training                 :p1d, after p1a, 60d</span></span>
+<span class="giallo-l"><span>    section Phase 2 — Expansion</span></span>
+<span class="giallo-l"><span>    NIS2 · CCPA · industry        :p2a, after p1b, 45d</span></span>
+<span class="giallo-l"><span>    Predictive analytics          :p2b, after p2a, 30d</span></span>
+<span class="giallo-l"><span>    Board dashboards              :p2c, after p2a, 30d</span></span>
+<span class="giallo-l"><span>    Audit automation              :p2d, after p2a, 45d</span></span>
+<span class="giallo-l"><span>    section Phase 3 — Innovation</span></span>
+<span class="giallo-l"><span>    AI / ML enhancement           :p3a, 2026-07-01, 60d</span></span>
+<span class="giallo-l"><span>    Competitive intelligence      :p3b, after p3a, 45d</span></span>
+<span class="giallo-l"><span>    Strategic planning            :p3c, after p3a, 90d</span></span>
+<span class="giallo-l"><span>    Excellence achievement        :p3d, after p3c, 30d</span></span></code></pre><div class="grid gap-4 lg:grid-cols-5 my-6">
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">95%</div>
+    <div class="text-xs text-gray-400 mt-1">Automation in 12 mo</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">75%</div>
+    <div class="text-xs text-gray-400 mt-1">Operational cost cut</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">95%</div>
+    <div class="text-xs text-gray-400 mt-1">Violation risk cut</div>
+  </div>
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">85%</div>
+    <div class="text-xs text-gray-400 mt-1">Faster reporting</div>
+  </div>
+  <div class="rounded-lg border border-purple-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-2xl font-bold text-white font-mono">500-1200%</div>
+    <div class="text-xs text-gray-400 mt-1">ROI in 24 mo</div>
+  </div>
+</div>
+<h3 id="6-2-financial-impact-roi-analysis">6.2 Financial Impact &amp; ROI Analysis</h3>
 <p><strong>Comprehensive ROI Calculation:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>REGULATORY COMPLIANCE AUTOMATION ROI ANALYSIS</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Implementation Investment:</span></span>
-<span class="giallo-l"><span>├─ Platform Licensing: $1.2M annually (Core automation platform)</span></span>
-<span class="giallo-l"><span>├─ Professional Services: $0.8M (Implementation and customization)</span></span>
-<span class="giallo-l"><span>├─ Training &amp; Change Management: $0.3M (Team development and adoption)</span></span>
-<span class="giallo-l"><span>├─ Integration &amp; Setup: $0.5M (System integration and configuration)</span></span>
-<span class="giallo-l"><span>├─ Ongoing Operation: $0.4M annually (Platform operation and maintenance)</span></span>
-<span class="giallo-l"><span>└─ Total Investment: $3.2M (Year 1), $1.6M annually (Years 2+)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Direct Cost Savings:</span></span>
-<span class="giallo-l"><span>├─ Personnel Reduction: $2.8M annually (Compliance FTE optimization)</span></span>
-<span class="giallo-l"><span>├─ Consultant Savings: $1.9M annually (Reduced external compliance consulting)</span></span>
-<span class="giallo-l"><span>├─ Audit Preparation: $1.1M annually (Continuous readiness vs. periodic preparation)</span></span>
-<span class="giallo-l"><span>├─ Regulatory Reporting: $0.8M annually (Automated vs. manual reporting)</span></span>
-<span class="giallo-l"><span>├─ Process Efficiency: $1.2M annually (Workflow automation and optimization)</span></span>
-<span class="giallo-l"><span>└─ Total Direct Savings: $7.8M annually</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Risk Mitigation Value:</span></span>
-<span class="giallo-l"><span>├─ Regulatory Penalties: $15.2M annually (Avoided fines and sanctions)</span></span>
-<span class="giallo-l"><span>├─ Business Disruption: $3.8M annually (Regulatory compliance continuity)</span></span>
-<span class="giallo-l"><span>├─ Reputation Protection: $2.1M annually (Brand value preservation)</span></span>
-<span class="giallo-l"><span>├─ Competitive Advantage: $1.5M annually (Market positioning benefit)</span></span>
-<span class="giallo-l"><span>├─ Insurance Savings: $0.6M annually (Reduced regulatory risk premiums)</span></span>
-<span class="giallo-l"><span>└─ Total Risk Mitigation: $23.2M annually</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Strategic Value Creation:</span></span>
-<span class="giallo-l"><span>├─ Market Access: $4.2M annually (Faster regulatory approval for new markets)</span></span>
-<span class="giallo-l"><span>├─ Customer Confidence: $2.8M annually (Compliance excellence as differentiator)</span></span>
-<span class="giallo-l"><span>├─ Investor Attraction: $1.9M annually (ESG and governance leadership premium)</span></span>
-<span class="giallo-l"><span>├─ Partnership Enablement: $1.1M annually (Compliance-enabled strategic partnerships)</span></span>
-<span class="giallo-l"><span>├─ Innovation Acceleration: $0.8M annually (Compliance-supported innovation)</span></span>
-<span class="giallo-l"><span>└─ Total Strategic Value: $10.8M annually</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>5-Year Financial Analysis:</span></span>
-<span class="giallo-l"><span>├─ Total Investment: $9.6M (Initial + 4 years operation)</span></span>
-<span class="giallo-l"><span>├─ Total Value Creation: $209M (Direct + Risk + Strategic value)</span></span>
-<span class="giallo-l"><span>├─ Net Benefit: $199.4M</span></span>
-<span class="giallo-l"><span>├─ ROI: 2,077% (5-year cumulative)</span></span>
-<span class="giallo-l"><span>├─ NPV: $154.7M (10% discount rate)</span></span>
-<span class="giallo-l"><span>└─ Payback Period: 4.8 months</span></span></code></pre><h3 id="6-3-competitive-advantage-market-position">6.3 Competitive Advantage &amp; Market Position</h3>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Year-1 Implementation Investment ($3.2M)</span></span>
+<span class="giallo-l"><span>    &quot;Platform licensing ($1.2M)&quot; : 1.2</span></span>
+<span class="giallo-l"><span>    &quot;Professional services ($0.8M)&quot; : 0.8</span></span>
+<span class="giallo-l"><span>    &quot;Integration / setup ($0.5M)&quot; : 0.5</span></span>
+<span class="giallo-l"><span>    &quot;Ongoing operation ($0.4M)&quot; : 0.4</span></span>
+<span class="giallo-l"><span>    &quot;Training / change ($0.3M)&quot; : 0.3</span></span></code></pre><pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>xychart-beta</span></span>
+<span class="giallo-l"><span>    title &quot;Annual Value by Category ($M)&quot;</span></span>
+<span class="giallo-l"><span>    x-axis [&quot;Direct savings&quot;, &quot;Risk mitigation&quot;, &quot;Strategic value&quot;]</span></span>
+<span class="giallo-l"><span>    y-axis &quot;Annual $M&quot; 0 --&gt; 30</span></span>
+<span class="giallo-l"><span>    bar [7.8, 23.2, 10.8]</span></span></code></pre><div class="grid gap-4 lg:grid-cols-3 my-6">
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-blue-300 uppercase tracking-wider mb-3">Direct savings ($7.8M / yr)</h4>
+    <ul class="space-y-1.5 text-xs text-gray-200 font-mono">
+      <li>$2.8M · Personnel optimization</li>
+      <li>$1.9M · Consultant reduction</li>
+      <li>$1.2M · Workflow efficiency</li>
+      <li>$1.1M · Audit preparation</li>
+      <li>$0.8M · Reporting automation</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-amber-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-amber-300 uppercase tracking-wider mb-3">Risk mitigation ($23.2M / yr)</h4>
+    <ul class="space-y-1.5 text-xs text-gray-200 font-mono">
+      <li>$15.2M · Avoided penalties</li>
+      <li>$3.8M · Business disruption</li>
+      <li>$2.1M · Reputation protection</li>
+      <li>$1.5M · Competitive advantage</li>
+      <li>$0.6M · Insurance savings</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-purple-300 uppercase tracking-wider mb-3">Strategic value ($10.8M / yr)</h4>
+    <ul class="space-y-1.5 text-xs text-gray-200 font-mono">
+      <li>$4.2M · Market access</li>
+      <li>$2.8M · Customer confidence</li>
+      <li>$1.9M · Investor attraction</li>
+      <li>$1.1M · Partnership enablement</li>
+      <li>$0.8M · Innovation acceleration</li>
+    </ul>
+  </div>
+</div>
+<div class="rounded-xl border border-emerald-500/40 bg-gray-900 p-6 my-6 shadow-xl">
+  <div class="text-xs text-gray-400 uppercase tracking-wider mb-2">5-year financial analysis</div>
+  <div class="grid gap-4 lg:grid-cols-3">
+    <div>
+      <div class="text-sm text-gray-400">Total investment</div>
+      <div class="text-2xl font-bold text-white font-mono">$9.6M</div>
+    </div>
+    <div>
+      <div class="text-sm text-gray-400">Total value creation</div>
+      <div class="text-2xl font-bold text-emerald-300 font-mono">$209M</div>
+    </div>
+    <div>
+      <div class="text-sm text-gray-400">Net benefit</div>
+      <div class="text-2xl font-bold text-emerald-300 font-mono">$199.4M</div>
+    </div>
+    <div>
+      <div class="text-sm text-gray-400">5-year ROI</div>
+      <div class="text-2xl font-bold text-white font-mono">2,077%</div>
+    </div>
+    <div>
+      <div class="text-sm text-gray-400">NPV (10%)</div>
+      <div class="text-2xl font-bold text-white font-mono">$154.7M</div>
+    </div>
+    <div>
+      <div class="text-sm text-gray-400">Payback period</div>
+      <div class="text-2xl font-bold text-white font-mono">4.8 months</div>
+    </div>
+  </div>
+</div>
+<h3 id="6-3-competitive-advantage-market-position">6.3 Competitive Advantage &amp; Market Position</h3>
 <p><strong>Compliance Excellence as Strategic Differentiator:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>MARKET DIFFERENTIATION THROUGH COMPLIANCE LEADERSHIP</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Competitive Positioning:</span></span>
-<span class="giallo-l"><span>├─ Automation Leadership: 95% vs. 35% industry average automation</span></span>
-<span class="giallo-l"><span>├─ Risk Profile: Lowest regulatory risk profile in industry</span></span>
-<span class="giallo-l"><span>├─ Cost Efficiency: 75% lower compliance costs than competitors</span></span>
-<span class="giallo-l"><span>├─ Agility: 92% faster regulatory adaptation and response</span></span>
-<span class="giallo-l"><span>├─ Quality: Highest compliance maturity score in sector</span></span>
-<span class="giallo-l"><span>└─ Innovation: Industry leader in compliance technology and process innovation</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Market Impact:</span></span>
-<span class="giallo-l"><span>├─ Customer Acquisition: Compliance excellence as sales differentiator</span></span>
-<span class="giallo-l"><span>├─ Premium Pricing: 5-10% price premium justified by compliance leadership</span></span>
-<span class="giallo-l"><span>├─ Market Access: Faster entry into regulated markets and jurisdictions</span></span>
-<span class="giallo-l"><span>├─ Strategic Partnerships: Compliance strength enabling high-value partnerships</span></span>
-<span class="giallo-l"><span>├─ Investor Confidence: ESG and governance leadership attracting investment</span></span>
-<span class="giallo-l"><span>└─ Talent Acquisition: Compliance innovation culture attracting top professionals</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Sustainable Competitive Advantages:</span></span>
-<span class="giallo-l"><span>├─ Technology Moat: 3-5 year lead in compliance automation technology</span></span>
-<span class="giallo-l"><span>├─ Regulatory Relationships: Strong regulator relationships and trust</span></span>
-<span class="giallo-l"><span>├─ Organizational Capability: Deep compliance culture and expertise</span></span>
-<span class="giallo-l"><span>├─ Network Effects: Industry recognition and thought leadership position</span></span>
-<span class="giallo-l"><span>├─ Continuous Innovation: Ongoing investment in compliance advancement</span></span>
-<span class="giallo-l"><span>└─ Scale Economics: Decreasing marginal cost of compliance with business growth</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Long-term Strategic Value:</span></span>
-<span class="giallo-l"><span>├─ Market Leadership: Recognition as industry compliance innovation leader</span></span>
-<span class="giallo-l"><span>├─ Regulatory Influence: Active participation in regulatory development and standard setting</span></span>
-<span class="giallo-l"><span>├─ Commercialization Opportunity: Potential monetization of compliance platform and expertise</span></span>
-<span class="giallo-l"><span>├─ Acquisition Premium: Compliance excellence increasing enterprise valuation</span></span>
-<span class="giallo-l"><span>└─ Strategic Optionality: Compliance strength enabling strategic flexibility and growth options</span></span></code></pre>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>quadrantChart</span></span>
+<span class="giallo-l"><span>    title Competitive Positioning — Compliance Capability vs. Cost</span></span>
+<span class="giallo-l"><span>    x-axis Higher cost --&gt; Lower cost</span></span>
+<span class="giallo-l"><span>    y-axis Lower capability --&gt; Higher capability</span></span>
+<span class="giallo-l"><span>    quadrant-1 Excellence (target zone)</span></span>
+<span class="giallo-l"><span>    quadrant-2 Premium-priced</span></span>
+<span class="giallo-l"><span>    quadrant-3 Race to bottom</span></span>
+<span class="giallo-l"><span>    quadrant-4 Cheap but weak</span></span>
+<span class="giallo-l"><span>    Prismatic: [0.88, 0.95]</span></span>
+<span class="giallo-l"><span>    Tier 1 peers: [0.55, 0.78]</span></span>
+<span class="giallo-l"><span>    Tier 2 followers: [0.45, 0.55]</span></span>
+<span class="giallo-l"><span>    Tier 3 adopters: [0.40, 0.35]</span></span>
+<span class="giallo-l"><span>    Tier 4 laggards: [0.30, 0.18]</span></span></code></pre><div class="grid gap-4 lg:grid-cols-3 my-6">
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-blue-300 uppercase tracking-wider mb-3">Market impact</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Sales differentiator</li>
+      <li>5-10% pricing premium</li>
+      <li>Faster regulated-market entry</li>
+      <li>High-value partnerships</li>
+      <li>ESG-driven investor confidence</li>
+      <li>Talent magnet</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-purple-300 uppercase tracking-wider mb-3">Sustainable advantages</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>3-5 year technology moat</li>
+      <li>Regulator trust + relationships</li>
+      <li>Deep compliance culture</li>
+      <li>Network effects + thought leadership</li>
+      <li>Continuous innovation investment</li>
+      <li>Scale economics</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Long-term value</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Industry recognition</li>
+      <li>Regulatory influence</li>
+      <li>Commercialization optionality</li>
+      <li>Acquisition premium</li>
+      <li>Strategic flexibility</li>
+    </ul>
+  </div>
+</div>
 <hr />
 <h2 id="conclusion">Conclusion</h2>
 <p>The Prismatic Platform Regulatory Compliance Automation Suite represents a transformative approach to regulatory compliance, delivering 95% automation across 15+ regulatory domains with continuous monitoring, proactive intelligence, and automated reporting. This comprehensive solution reduces compliance costs by 75% while eliminating regulatory violations and creating sustainable competitive advantage.</p>

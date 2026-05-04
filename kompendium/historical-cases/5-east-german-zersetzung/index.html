@@ -178,7 +178,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -194,7 +194,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -674,7 +678,7 @@ těchto vrstev do soudržného systému.</p>
                 <!-- Table of contents (if Zola generated any) -->
                 
                 <div x-data="{ expanded: true }" x-cloak class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                    <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                    <button type="button" @click="expanded = !expanded" :aria-expanded="expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900">
                         <div class="flex items-center gap-2">
                             <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
@@ -714,7 +718,7 @@ těchto vrstev do soudržného systému.</p>
                 
                 
                 <div x-data="{ expanded: true }" x-cloak class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                    <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                    <button type="button" @click="expanded = !expanded" :aria-expanded="expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900">
                         <div class="flex items-center gap-2">
                             <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
@@ -728,60 +732,11 @@ těchto vrstev do soudržného systému.</p>
                     <div x-show="expanded" x-transition class="px-4 pb-4 space-y-1 max-h-96 overflow-y-auto">
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;" class="block px-3 py-1.5 text-xs text-gray-300 hover:text-indigo-400 hover:bg-gray-700/50 rounded-lg transition-colors">← Historické případy</a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;1-stalinist-show-trials&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;32-tuskegee&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
-                            Historický případ: Stalinské monstrprocesy
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;9-cuban-akty-repudio&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Kubánské akty repudia
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;33-replication-crisis&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Replikační krize
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;3-khmer-rouge&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Rudí Khmerové
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;22-russian-ira&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Internet Research Agency
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;40-fda-opioid&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: FDA a opioidy
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;10-uyghur-reeducation&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Ujgurská převýchovná zařízení
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;15-rajneesh&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Radžníš&#x2F;Osho
+                            Historický případ: Tuskegee Study
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;8-iran-revolutionary-courts&#x2F;"
@@ -791,25 +746,18 @@ těchto vrstev do soudržného systému.</p>
                             Historický případ: Íránské revoluční tribunály
                         </a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;16-scientology-fair-game&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;37-recovered-memory&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
-                            Historický případ: Scientologie: Fair Game
+                            Historický případ: Hnutí znovuobjevené paměti
                         </a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;6-czechoslovak-normalizace&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;19-moonies&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
-                            Historický případ: Československá normalizace
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;21-soviet-active-measures&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Sovětská aktivní opatření
+                            Historický případ: Moonies
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;34-stapel-fraud&#x2F;"
@@ -819,25 +767,11 @@ těchto vrstev do soudržného systému.</p>
                             Historický případ: Stapel fraud
                         </a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;7-romanian-secu&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;18-nxivm&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
-                            Historický případ: Rumunská Securitate
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;23-cambridge-analytica&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Cambridge Analytica
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;2-maoist-cultural-revolution&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Maoistická kulturní revoluce
+                            Historický případ: NXIVM
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;38-satanic-panic&#x2F;"
@@ -847,11 +781,116 @@ těchto vrstev do soudržného systému.</p>
                             Historický případ: Satanic Panic
                         </a>
                         
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;13-aum-shinrikyo&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Óm šinrikjó
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;10-uyghur-reeducation&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Ujgurská převýchovná zařízení
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;24-anti-vaxx-aids&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Anti-vaxx AIDS dezinformace
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;40-fda-opioid&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: FDA a opioidy
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;33-replication-crisis&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Replikační krize
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;14-branch-davidians&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Davidiáni
+                        </a>
+                        
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;31-lysenko&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
                             Historický případ: Lysenkismus
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;3-khmer-rouge&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Rudí Khmerové
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;25-tobacco-doubt&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Manipulace tabákovým průmyslem
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;2-maoist-cultural-revolution&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Maoistická kulturní revoluce
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;4-north-korean-juche&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Severokorejská čučche
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;9-cuban-akty-repudio&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Kubánské akty repudia
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;5-east-german-zersetzung&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-indigo-400 font-semibold bg-indigo-900/30
+                           ">
+                            Historický případ: Východoněmecká Zersetzung
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;16-scientology-fair-game&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Scientologie: Fair Game
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;36-cold-fusion&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Studená fúze
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;30-deep-state-narrative&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Deep state narativ
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;17-children-of-god&#x2F;"
@@ -868,81 +907,18 @@ těchto vrstev do soudržného systému.</p>
                             Historický případ: Wakefield: vakcíny-autismus
                         </a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;35-schon-fraud&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;12-heavens-gate&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
-                            Historický případ: Schön fraud
+                            Historický případ: Heaven&#x27;s Gate
                         </a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;4-north-korean-juche&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;21-soviet-active-measures&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
-                            Historický případ: Severokorejská čučche
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;13-aum-shinrikyo&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Óm šinrikjó
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;5-east-german-zersetzung&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-indigo-400 font-semibold bg-indigo-900/30
-                           ">
-                            Historický případ: Východoněmecká Zersetzung
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;29-pizzagate&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Pizzagate
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;25-tobacco-doubt&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Manipulace tabákovým průmyslem
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;28-qanon&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: QAnon
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;18-nxivm&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: NXIVM
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;37-recovered-memory&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Hnutí znovuobjevené paměti
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;20-falun-gong&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Falun Gong
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;26-climate-denial&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Popírání klimatu
+                            Historický případ: Sovětská aktivní opatření
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;11-jonestown&#x2F;"
@@ -952,20 +928,6 @@ těchto vrstev do soudržného systému.</p>
                             Historický případ: Jonestown
                         </a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;36-cold-fusion&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Studená fúze
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;19-moonies&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Historický případ: Moonies
-                        </a>
-                        
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;27-vaccine-hesitancy&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
@@ -973,39 +935,81 @@ těchto vrstev do soudržného systému.</p>
                             Historický případ: Hesitance vůči vakcínám
                         </a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;32-tuskegee&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;35-schon-fraud&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
-                            Historický případ: Tuskegee Study
+                            Historický případ: Schön fraud
                         </a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;12-heavens-gate&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;23-cambridge-analytica&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
-                            Historický případ: Heaven&#x27;s Gate
+                            Historický případ: Cambridge Analytica
                         </a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;24-anti-vaxx-aids&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;1-stalinist-show-trials&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
-                            Historický případ: Anti-vaxx AIDS dezinformace
+                            Historický případ: Stalinské monstrprocesy
                         </a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;30-deep-state-narrative&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;6-czechoslovak-normalizace&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
-                            Historický případ: Deep state narativ
+                            Historický případ: Československá normalizace
                         </a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;14-branch-davidians&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;15-rajneesh&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
-                            Historický případ: Davidiáni
+                            Historický případ: Radžníš&#x2F;Osho
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;22-russian-ira&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Internet Research Agency
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;29-pizzagate&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Pizzagate
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;7-romanian-secu&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Rumunská Securitate
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;20-falun-gong&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Falun Gong
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;28-qanon&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: QAnon
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;historical-cases&#x2F;26-climate-denial&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Historický případ: Popírání klimatu
                         </a>
                         
                     </div>

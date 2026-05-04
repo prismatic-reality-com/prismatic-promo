@@ -187,7 +187,7 @@
         },
         "inLanguage": "en",
         "keywords": "Project, Structure, glossary, architecture, Prismatic Platform, Elixir, The Prismatic",
-        "wordCount": 1819
+        "wordCount": 1823
     }
     </script>
     
@@ -256,7 +256,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -272,7 +272,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -671,39 +675,34 @@
 <h2 id="technical-details">Technical Details</h2>
 <h3 id="umbrella-application-layout">Umbrella Application Layout</h3>
 <p>The Prismatic Platform's root directory structure:</p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>prismatic-platform/</span></span>
-<span class="giallo-l"><span>├── apps/                          # 115 umbrella applications</span></span>
-<span class="giallo-l"><span>│   ├── prismatic/                 # Core coordination (facades, mix tasks)</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_web/             # Phoenix LiveView (port 4000)</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_api/             # REST API gateway (port 4004)</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_agents/          # AIAD agent runtime (530 agents)</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_storage_core/    # Storage traits and behaviours</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_storage_ecto/    # PostgreSQL adapter</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_storage_ets/     # ETS adapter</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_storage_meilisearch/ # Search adapter</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_storage_kuzudb/  # Graph database adapter</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_perimeter/       # External attack surface management</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_supervisor/      # Compositional supervision</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_safety/          # Quality and safety enforcement</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_claude/          # Claude AI integration</span></span>
-<span class="giallo-l"><span>│   └── ...                        # 102 more applications</span></span>
-<span class="giallo-l"><span>├── config/                        # Shared configuration</span></span>
-<span class="giallo-l"><span>│   ├── config.exs                 # Compile-time defaults</span></span>
-<span class="giallo-l"><span>│   ├── dev.exs                    # Development overrides</span></span>
-<span class="giallo-l"><span>│   ├── test.exs                   # Test overrides</span></span>
-<span class="giallo-l"><span>│   ├── prod.exs                   # Production overrides</span></span>
-<span class="giallo-l"><span>│   └── runtime.exs                # Runtime configuration</span></span>
-<span class="giallo-l"><span>├── sites/                         # Static sites</span></span>
-<span class="giallo-l"><span>│   └── promo/                     # Zola-based public promo site</span></span>
-<span class="giallo-l"><span>├── priv/                          # Root-level private assets</span></span>
-<span class="giallo-l"><span>├── scripts/                       # Shell scripts and tooling</span></span>
-<span class="giallo-l"><span>├── .aiad/                         # AIAD agent/command/policy specs</span></span>
-<span class="giallo-l"><span>├── .claude/                       # Claude AI session context</span></span>
-<span class="giallo-l"><span>├── .githooks/                     # Git hook scripts</span></span>
-<span class="giallo-l"><span>├── mix.exs                        # Root mix project file</span></span>
-<span class="giallo-l"><span>├── mix.lock                       # Dependency lock file</span></span>
-<span class="giallo-l"><span>├── CLAUDE.md                      # Platform documentation</span></span>
-<span class="giallo-l"><span>└── AGENTS.md                      # Agent documentation</span></span></code></pre><h3 id="individual-application-structure">Individual Application Structure</h3>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>  R[&quot;prismatic-platform/&quot;] --&gt; A[&quot;apps/&lt;br/&gt;(115 umbrella apps)&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; C[&quot;config/&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; S[&quot;sites/promo/&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; P[&quot;priv/&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; SC[&quot;scripts/&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; AI[&quot;.aiad/&lt;br/&gt;(agents/cmds/policies)&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; CL[&quot;.claude/&lt;br/&gt;(session context)&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; GH[&quot;.githooks/&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; MX[&quot;mix.exs · mix.lock&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; DOC[&quot;CLAUDE.md · AGENTS.md&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  A --&gt; A1[&quot;prismatic — core coord.&quot;]</span></span>
+<span class="giallo-l"><span>  A --&gt; A2[&quot;prismatic_web — LiveView :4000&quot;]</span></span>
+<span class="giallo-l"><span>  A --&gt; A3[&quot;prismatic_api — REST :4004&quot;]</span></span>
+<span class="giallo-l"><span>  A --&gt; A4[&quot;prismatic_agents — 530 AIAD&quot;]</span></span>
+<span class="giallo-l"><span>  A --&gt; A5[&quot;prismatic_storage_* — 4 adapters&lt;br/&gt;(ets · ecto · meilisearch · kuzudb)&quot;]</span></span>
+<span class="giallo-l"><span>  A --&gt; A6[&quot;prismatic_perimeter — EASM&quot;]</span></span>
+<span class="giallo-l"><span>  A --&gt; A7[&quot;prismatic_supervisor — composition&quot;]</span></span>
+<span class="giallo-l"><span>  A --&gt; A8[&quot;prismatic_safety — quality gates&quot;]</span></span>
+<span class="giallo-l"><span>  A --&gt; A9[&quot;prismatic_claude — LLM integ.&quot;]</span></span>
+<span class="giallo-l"><span>  A --&gt; A10[&quot;…102 more apps&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  C --&gt; C1[&quot;config.exs / dev.exs / test.exs&lt;br/&gt;prod.exs / runtime.exs&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  style R fill:#1e3a8a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style A fill:#7c3aed,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>  style A5 fill:#15803d,stroke:#22c55e,color:#fff</span></span></code></pre><h3 id="individual-application-structure">Individual Application Structure</h3>
 <p>Each umbrella application follows a consistent internal layout:</p>
 <pre class="giallo z-code"><code data-lang="elixir"><span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment"># apps/prismatic_perimeter/mix.exs</span></span>
 <span class="giallo-l"><span class="z-keyword z-control">defmodule</span><span class="z-entity z-other z-inherited-class"> PrismaticPerimeter</span><span>.</span><span class="z-entity z-name z-type z-class">MixProject</span><span class="z-keyword z-control"> do</span></span>
@@ -743,42 +742,43 @@
 <span class="giallo-l"><span class="z-punctuation z-constant z-other z-symbol">      {:tesla, &quot;</span><span class="z-string">~&gt; 1.7</span><span class="z-punctuation">&quot;}</span></span>
 <span class="giallo-l"><span class="z-punctuation">    ]</span></span>
 <span class="giallo-l"><span class="z-keyword z-control">  end</span></span>
-<span class="giallo-l"><span class="z-keyword z-control">end</span></span></code></pre><pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>apps/prismatic_perimeter/</span></span>
-<span class="giallo-l"><span>├── lib/</span></span>
-<span class="giallo-l"><span>│   └── prismatic_perimeter/</span></span>
-<span class="giallo-l"><span>│       ├── application.ex          # OTP application with supervision tree</span></span>
-<span class="giallo-l"><span>│       ├── perimeter.ex            # Public API facade</span></span>
-<span class="giallo-l"><span>│       ├── discovery/              # Asset discovery modules</span></span>
-<span class="giallo-l"><span>│       │   ├── dns_scanner.ex</span></span>
-<span class="giallo-l"><span>│       │   ├── cert_scanner.ex</span></span>
-<span class="giallo-l"><span>│       │   └── cloud_scanner.ex</span></span>
-<span class="giallo-l"><span>│       ├── rating/                 # Security rating computation</span></span>
-<span class="giallo-l"><span>│       │   ├── engine.ex</span></span>
-<span class="giallo-l"><span>│       │   ├── category_scorer.ex</span></span>
-<span class="giallo-l"><span>│       │   └── grade_mapper.ex</span></span>
-<span class="giallo-l"><span>│       ├── compliance/             # Compliance assessment</span></span>
-<span class="giallo-l"><span>│       │   ├── nis2.ex</span></span>
-<span class="giallo-l"><span>│       │   └── zkb.ex</span></span>
-<span class="giallo-l"><span>│       └── storage/                # Domain-specific storage</span></span>
-<span class="giallo-l"><span>│           ├── asset_store.ex</span></span>
-<span class="giallo-l"><span>│           └── scan_store.ex</span></span>
-<span class="giallo-l"><span>├── test/</span></span>
-<span class="giallo-l"><span>│   ├── prismatic_perimeter/</span></span>
-<span class="giallo-l"><span>│   │   ├── discovery/</span></span>
-<span class="giallo-l"><span>│   │   │   ├── dns_scanner_test.exs</span></span>
-<span class="giallo-l"><span>│   │   │   └── cert_scanner_test.exs</span></span>
-<span class="giallo-l"><span>│   │   ├── rating/</span></span>
-<span class="giallo-l"><span>│   │   │   └── engine_test.exs</span></span>
-<span class="giallo-l"><span>│   │   └── compliance/</span></span>
-<span class="giallo-l"><span>│   │       └── nis2_test.exs</span></span>
-<span class="giallo-l"><span>│   ├── support/                    # Test helpers and fixtures</span></span>
-<span class="giallo-l"><span>│   │   └── fixtures.ex</span></span>
-<span class="giallo-l"><span>│   └── test_helper.exs</span></span>
-<span class="giallo-l"><span>├── priv/</span></span>
-<span class="giallo-l"><span>│   └── repo/</span></span>
-<span class="giallo-l"><span>│       └── migrations/             # Ecto migrations</span></span>
-<span class="giallo-l"><span>├── CLAUDE.md                       # Application documentation</span></span>
-<span class="giallo-l"><span>└── mix.exs                         # Application project file</span></span></code></pre><h3 id="dependency-graph-management">Dependency Graph Management</h3>
+<span class="giallo-l"><span class="z-keyword z-control">end</span></span></code></pre><pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>  R[&quot;apps/prismatic_perimeter/&quot;] --&gt; L[&quot;lib/prismatic_perimeter/&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; T[&quot;test/&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; P[&quot;priv/repo/migrations/&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; CL[&quot;CLAUDE.md&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; MX[&quot;mix.exs&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  L --&gt; L1[&quot;application.ex&lt;br/&gt;(OTP supervision tree)&quot;]</span></span>
+<span class="giallo-l"><span>  L --&gt; L2[&quot;perimeter.ex&lt;br/&gt;(public API facade)&quot;]</span></span>
+<span class="giallo-l"><span>  L --&gt; LD[&quot;discovery/&lt;br/&gt;asset scanners&quot;]</span></span>
+<span class="giallo-l"><span>  L --&gt; LR[&quot;rating/&lt;br/&gt;security rating engine&quot;]</span></span>
+<span class="giallo-l"><span>  L --&gt; LC[&quot;compliance/&lt;br/&gt;NIS2 + ZKB&quot;]</span></span>
+<span class="giallo-l"><span>  L --&gt; LS[&quot;storage/&lt;br/&gt;domain stores&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  LD --&gt; LD1[&quot;dns_scanner.ex&quot;]</span></span>
+<span class="giallo-l"><span>  LD --&gt; LD2[&quot;cert_scanner.ex&quot;]</span></span>
+<span class="giallo-l"><span>  LD --&gt; LD3[&quot;cloud_scanner.ex&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  LR --&gt; LR1[&quot;engine.ex&quot;]</span></span>
+<span class="giallo-l"><span>  LR --&gt; LR2[&quot;category_scorer.ex&quot;]</span></span>
+<span class="giallo-l"><span>  LR --&gt; LR3[&quot;grade_mapper.ex&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  LC --&gt; LC1[&quot;nis2.ex&quot;]</span></span>
+<span class="giallo-l"><span>  LC --&gt; LC2[&quot;zkb.ex&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  LS --&gt; LS1[&quot;asset_store.ex&quot;]</span></span>
+<span class="giallo-l"><span>  LS --&gt; LS2[&quot;scan_store.ex&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  T --&gt; TD[&quot;discovery/{dns,cert}_scanner_test.exs&quot;]</span></span>
+<span class="giallo-l"><span>  T --&gt; TR[&quot;rating/engine_test.exs&quot;]</span></span>
+<span class="giallo-l"><span>  T --&gt; TC[&quot;compliance/nis2_test.exs&quot;]</span></span>
+<span class="giallo-l"><span>  T --&gt; TS[&quot;support/fixtures.ex&quot;]</span></span>
+<span class="giallo-l"><span>  T --&gt; TH[&quot;test_helper.exs&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  style R fill:#1e3a8a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style L fill:#7c3aed,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>  style T fill:#15803d,stroke:#22c55e,color:#fff</span></span></code></pre><h3 id="dependency-graph-management">Dependency Graph Management</h3>
 <p>Umbrella applications form a directed acyclic graph (DAG) of dependencies. Circular dependencies are detected and blocked:</p>
 <pre class="giallo z-code"><code data-lang="elixir"><span class="giallo-l"><span class="z-keyword z-control">defmodule</span><span class="z-entity z-other z-inherited-class"> PrismaticSupervisor</span><span>.</span><span class="z-entity z-name z-type z-class">DependencyResolver</span><span class="z-keyword z-control"> do</span></span>
 <span class="giallo-l"><span class="z-comment">  @moduledoc &quot;&quot;&quot;</span></span>
@@ -929,35 +929,40 @@
 <span class="giallo-l"><span class="z-keyword z-control">end</span></span></code></pre>
 <p><strong>Step 4: Organize internal modules by subdomain.</strong></p>
 <p>Group related modules in directories that reflect the application's internal domains:</p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>lib/prismatic_new_domain/</span></span>
-<span class="giallo-l"><span>├── application.ex     # Supervision tree</span></span>
-<span class="giallo-l"><span>├── new_domain.ex      # Public facade (defdelegate to internal)</span></span>
-<span class="giallo-l"><span>├── core/              # Business logic</span></span>
-<span class="giallo-l"><span>│   ├── core.ex</span></span>
-<span class="giallo-l"><span>│   └── validator.ex</span></span>
-<span class="giallo-l"><span>├── storage/           # Data access</span></span>
-<span class="giallo-l"><span>│   └── store.ex</span></span>
-<span class="giallo-l"><span>└── telemetry/         # Instrumentation</span></span>
-<span class="giallo-l"><span>    └── events.ex</span></span></code></pre>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>  R[&quot;lib/prismatic_new_domain/&quot;] --&gt; A[&quot;application.ex&lt;br/&gt;(supervision tree)&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; F[&quot;new_domain.ex&lt;br/&gt;(public facade)&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; C[&quot;core/&lt;br/&gt;business logic&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; S[&quot;storage/&lt;br/&gt;data access&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; T[&quot;telemetry/&lt;br/&gt;instrumentation&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  C --&gt; C1[&quot;core.ex&quot;]</span></span>
+<span class="giallo-l"><span>  C --&gt; C2[&quot;validator.ex&quot;]</span></span>
+<span class="giallo-l"><span>  S --&gt; S1[&quot;store.ex&quot;]</span></span>
+<span class="giallo-l"><span>  T --&gt; T1[&quot;events.ex&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  style R fill:#1e3a8a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style F fill:#7c3aed,stroke:#a855f7,color:#fff</span></span></code></pre>
 <p><strong>Step 5: Create CLAUDE.md documentation.</strong></p>
 <p>Every application must have a <code>CLAUDE.md</code> file documenting its purpose, architecture, key modules, and usage examples.</p>
 <p><strong>Step 6: Add quality DNA.</strong></p>
 <p>Create <code>.claude/quality-dna/current-state.json</code> with baseline quality metrics.</p>
 <h3 id="test-organization">Test Organization</h3>
 <p>Tests mirror the source structure and are organized by scope:</p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>test/</span></span>
-<span class="giallo-l"><span>├── prismatic_new_domain/</span></span>
-<span class="giallo-l"><span>│   ├── core/</span></span>
-<span class="giallo-l"><span>│   │   ├── core_test.exs           # Unit tests</span></span>
-<span class="giallo-l"><span>│   │   └── validator_test.exs       # Unit tests</span></span>
-<span class="giallo-l"><span>│   └── storage/</span></span>
-<span class="giallo-l"><span>│       └── store_test.exs           # Integration tests</span></span>
-<span class="giallo-l"><span>├── integration/</span></span>
-<span class="giallo-l"><span>│   └── full_workflow_test.exs       # Cross-module integration</span></span>
-<span class="giallo-l"><span>├── support/</span></span>
-<span class="giallo-l"><span>│   ├── factory.ex                   # Test data factories</span></span>
-<span class="giallo-l"><span>│   └── fixtures.ex                  # Static test data</span></span>
-<span class="giallo-l"><span>└── test_helper.exs</span></span></code></pre><h2 id="comparison">Comparison</h2>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>  T[&quot;test/&quot;] --&gt; D[&quot;prismatic_new_domain/&lt;br/&gt;(mirror lib/ structure)&quot;]</span></span>
+<span class="giallo-l"><span>  T --&gt; I[&quot;integration/&lt;br/&gt;cross-module&quot;]</span></span>
+<span class="giallo-l"><span>  T --&gt; S[&quot;support/&lt;br/&gt;factories + fixtures&quot;]</span></span>
+<span class="giallo-l"><span>  T --&gt; H[&quot;test_helper.exs&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  D --&gt; DC[&quot;core/{core,validator}_test.exs&quot;]</span></span>
+<span class="giallo-l"><span>  D --&gt; DS[&quot;storage/store_test.exs&quot;]</span></span>
+<span class="giallo-l"><span>  I --&gt; I1[&quot;full_workflow_test.exs&quot;]</span></span>
+<span class="giallo-l"><span>  S --&gt; S1[&quot;factory.ex&quot;]</span></span>
+<span class="giallo-l"><span>  S --&gt; S2[&quot;fixtures.ex&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  style T fill:#15803d,stroke:#22c55e,color:#fff</span></span>
+<span class="giallo-l"><span>  style D fill:#7c3aed,stroke:#a855f7,color:#fff</span></span></code></pre><h2 id="comparison">Comparison</h2>
 <h3 id="umbrella-vs-single-project-vs-microservices">Umbrella vs. Single Project vs. Microservices</h3>
 <table><thead><tr><th>Aspect</th><th>Single Project</th><th>Umbrella</th><th>Microservices</th></tr></thead><tbody>
 <tr><td>Compilation</td><td>Single pass</td><td>Per-application</td><td>Independent</td></tr>
@@ -971,28 +976,24 @@
 </tbody></table>
 <h3 id="group-by-feature-vs-group-by-type">Group by Feature vs. Group by Type</h3>
 <p>Two competing approaches to internal application organization:</p>
-<p><strong>Group by Feature</strong> (Prismatic Platform's approach):</p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>lib/prismatic_perimeter/</span></span>
-<span class="giallo-l"><span>├── discovery/          # All discovery code together</span></span>
-<span class="giallo-l"><span>│   ├── dns_scanner.ex</span></span>
-<span class="giallo-l"><span>│   ├── cert_scanner.ex</span></span>
-<span class="giallo-l"><span>│   └── cloud_scanner.ex</span></span>
-<span class="giallo-l"><span>├── rating/             # All rating code together</span></span>
-<span class="giallo-l"><span>│   ├── engine.ex</span></span>
-<span class="giallo-l"><span>│   └── grade_mapper.ex</span></span>
-<span class="giallo-l"><span>└── compliance/         # All compliance code together</span></span>
-<span class="giallo-l"><span>    ├── nis2.ex</span></span>
-<span class="giallo-l"><span>    └── zkb.ex</span></span></code></pre>
-<p><strong>Group by Type</strong> (common but less maintainable):</p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>lib/prismatic_perimeter/</span></span>
-<span class="giallo-l"><span>├── scanners/           # All scanners together</span></span>
-<span class="giallo-l"><span>│   ├── dns_scanner.ex</span></span>
-<span class="giallo-l"><span>│   ├── cert_scanner.ex</span></span>
-<span class="giallo-l"><span>│   └── compliance_scanner.ex</span></span>
-<span class="giallo-l"><span>├── engines/            # All engines together</span></span>
-<span class="giallo-l"><span>│   └── rating_engine.ex</span></span>
-<span class="giallo-l"><span>└── mappers/            # All mappers together</span></span>
-<span class="giallo-l"><span>    └── grade_mapper.ex</span></span></code></pre>
+<p><strong>Group by Feature</strong> (Prismatic Platform's approach — preferred):</p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>  R[&quot;lib/prismatic_perimeter/&quot;] --&gt; D[&quot;discovery/&lt;br/&gt;(all discovery code)&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; RT[&quot;rating/&lt;br/&gt;(all rating code)&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; C[&quot;compliance/&lt;br/&gt;(all compliance code)&quot;]</span></span>
+<span class="giallo-l"><span>  D --&gt; D1[&quot;dns_scanner.ex&lt;br/&gt;cert_scanner.ex&lt;br/&gt;cloud_scanner.ex&quot;]</span></span>
+<span class="giallo-l"><span>  RT --&gt; RT1[&quot;engine.ex&lt;br/&gt;grade_mapper.ex&quot;]</span></span>
+<span class="giallo-l"><span>  C --&gt; C1[&quot;nis2.ex&lt;br/&gt;zkb.ex&quot;]</span></span>
+<span class="giallo-l"><span>  style R fill:#15803d,stroke:#22c55e,color:#fff</span></span></code></pre>
+<p><strong>Group by Type</strong> (common but less maintainable — anti-pattern here):</p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>  R[&quot;lib/prismatic_perimeter/&quot;] --&gt; S[&quot;scanners/&lt;br/&gt;(all scanners together)&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; E[&quot;engines/&lt;br/&gt;(all engines together)&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; M[&quot;mappers/&lt;br/&gt;(all mappers together)&quot;]</span></span>
+<span class="giallo-l"><span>  S --&gt; S1[&quot;dns_scanner.ex&lt;br/&gt;cert_scanner.ex&lt;br/&gt;compliance_scanner.ex&quot;]</span></span>
+<span class="giallo-l"><span>  E --&gt; E1[&quot;rating_engine.ex&quot;]</span></span>
+<span class="giallo-l"><span>  M --&gt; M1[&quot;grade_mapper.ex&quot;]</span></span>
+<span class="giallo-l"><span>  style R fill:#9f1239,stroke:#f43f5e,color:#fff</span></span></code></pre>
 <p>Grouping by feature keeps related code co-located, making it easier to understand a complete feature by reading one directory. Grouping by type requires jumping between directories to understand a single feature. The Prismatic Platform mandates grouping by feature.</p>
 <h2 id="best-practices">Best Practices</h2>
 <ol>

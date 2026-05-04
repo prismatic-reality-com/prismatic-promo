@@ -140,7 +140,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -156,7 +156,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -558,26 +562,24 @@
                     <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 min-w-0">
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;cross-domain&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;08-prilohy&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
                                 
-                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                                    </svg>
-                                </span>
+                                <span class="text-2xl flex-shrink-0" aria-hidden="true">📎</span>
                                 
                                 <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Cross-Domain Bridges</h3>
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">08. Přílohy</h3>
+                                    
+                                    <span class="inline-block mt-1 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded bg-gray-700/60 text-gray-300">complete</span>
                                     
                                 </div>
                             </div>
                             
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Bridges mezi EA frameworkem a doménami OSINT, DD, Security, Compliance — 30 articles.</p>
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Doplňkové referenční materiály — bibliografie, master rejstřík technik, bilingvní index pojmů, diagnostické nástroje, etický kodex, klasifikační schéma a notační konvence.</p>
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
-                                <span>30 článků · 0 podsekcí</span>
+                                <span>8 článků · 0 podsekcí</span>
                                 <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
                             </div>
                         </a>
@@ -606,29 +608,6 @@
                         </a>
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;08-prilohy&#x2F;"
-                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
-                            <div class="flex items-start gap-3 mb-3 min-w-0">
-                                
-                                <span class="text-2xl flex-shrink-0" aria-hidden="true">📎</span>
-                                
-                                <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">08. Přílohy</h3>
-                                    
-                                    <span class="inline-block mt-1 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded bg-gray-700/60 text-gray-300">complete</span>
-                                    
-                                </div>
-                            </div>
-                            
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Doplňkové referenční materiály — bibliografie, master rejstřík technik, bilingvní index pojmů, diagnostické nástroje, etický kodex, klasifikační schéma a notační konvence.</p>
-                            
-                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
-                                <span>8 článků · 0 podsekcí</span>
-                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
-                            </div>
-                        </a>
-                        
-                        
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;forensic-legal&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
@@ -649,6 +628,54 @@
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
                                 <span>50 článků · 0 podsekcí</span>
+                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
+                        </a>
+                        
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;cross-domain&#x2F;"
+                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start gap-3 mb-3 min-w-0">
+                                
+                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
+                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                    </svg>
+                                </span>
+                                
+                                <div class="flex-grow min-w-0">
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Cross-Domain Bridges</h3>
+                                    
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Bridges mezi EA frameworkem a doménami OSINT, DD, Security, Compliance — 30 articles.</p>
+                            
+                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
+                                <span>30 článků · 0 podsekcí</span>
+                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
+                        </a>
+                        
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;01-zaklady-manipulace&#x2F;"
+                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start gap-3 mb-3 min-w-0">
+                                
+                                <span class="text-2xl flex-shrink-0" aria-hidden="true">🧭</span>
+                                
+                                <div class="flex-grow min-w-0">
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Základy manipulace</h3>
+                                    
+                                    <span class="inline-block mt-1 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded bg-gray-700/60 text-gray-300">publikovano</span>
+                                    
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Vstupní brána do studia epistemické manipulace — propedeutický most mezi předmluvou, etickým rámcem a operativní taxonomií. Zde se ustanovuje pojmový aparát, axiomy a hraniční kritéria, která rozhodují, co ještě je legitimní přesvědčování a co už je epistemická manipulace.</p>
+                            
+                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
+                                <span>0 článků · 0 podsekcí</span>
                                 <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
                             </div>
                         </a>
@@ -717,6 +744,29 @@
                         </a>
                         
                         
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;03-manipulacni-vzorce&#x2F;"
+                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start gap-3 mb-3 min-w-0">
+                                
+                                <span class="text-2xl flex-shrink-0" aria-hidden="true">🔁</span>
+                                
+                                <div class="flex-grow min-w-0">
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Manipulační vzorce</h3>
+                                    
+                                    <span class="inline-block mt-1 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded bg-gray-700/60 text-gray-300">publikovano</span>
+                                    
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Systematický katalog opakujících se sekvencí manipulačních technik vázaných na typ vztahu, kontext a institucionální nastavení. Tato sekce přemosťuje atomickou taxonomii Sekce 03 (Základní kategorie) a pokročilé scenárování Sekcí 04–05.</p>
+                            
+                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
+                                <span>0 článků · 0 podsekcí</span>
+                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
+                        </a>
+                        
+                        
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-terminalni-protokoly&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
@@ -740,6 +790,29 @@
                         </a>
                         
                         
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-pokrocile-fenomeny&#x2F;"
+                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start gap-3 mb-3 min-w-0">
+                                
+                                <span class="text-2xl flex-shrink-0" aria-hidden="true">🌌</span>
+                                
+                                <div class="flex-grow min-w-0">
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Pokročilé fenomény</h3>
+                                    
+                                    <span class="inline-block mt-1 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded bg-gray-700/60 text-gray-300">publikovano</span>
+                                    
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Taxonomie pokročilých fenomenologických vzorců epistemické anihilace — emergentní stavy, které vznikají na rozhraní kognitivních, sociálních a ontologických rovin a které není možné redukovat na jednotlivou techniku ani na samostatný protokol.</p>
+                            
+                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
+                                <span>0 článků · 0 podsekcí</span>
+                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
+                        </a>
+                        
+                        
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-ultramari-techniky&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
@@ -758,6 +831,29 @@
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
                                 <span>9 článků · 0 podsekcí</span>
+                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
+                        </a>
+                        
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-intervence-a-obrana&#x2F;"
+                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start gap-3 mb-3 min-w-0">
+                                
+                                <span class="text-2xl flex-shrink-0" aria-hidden="true">🛡️</span>
+                                
+                                <div class="flex-grow min-w-0">
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Intervence a obrana</h3>
+                                    
+                                    <span class="inline-block mt-1 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded bg-gray-700/60 text-gray-300">publikovano</span>
+                                    
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Komplexní rámec intervenčních a obranných protokolů pro epistemickou anihilaci — od akutní stabilizace přes střednědobou rekonstrukci až po dlouhodobou rehabilitaci a prevenci recidivy. Most mezi klinickou taxonomií a operativní praxí.</p>
+                            
+                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
+                                <span>0 článků · 0 podsekcí</span>
                                 <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
                             </div>
                         </a>
@@ -880,31 +976,6 @@
                         </a>
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;detection-signatures&#x2F;"
-                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
-                            <div class="flex items-start gap-3 mb-3 min-w-0">
-                                
-                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                                    </svg>
-                                </span>
-                                
-                                <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Detekční signatury EA technik</h3>
-                                    
-                                </div>
-                            </div>
-                            
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Kompendium 30 detekčních signatur pro identifikaci epistemických útoků (EA) v textu, chování, sítích a fenomenologii oběti.</p>
-                            
-                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
-                                <span>33 článků · 0 podsekcí</span>
-                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
-                            </div>
-                        </a>
-                        
-                        
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
@@ -925,6 +996,31 @@
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
                                 <span>30 článků · 0 podsekcí</span>
+                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
+                        </a>
+                        
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;detection-signatures&#x2F;"
+                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start gap-3 mb-3 min-w-0">
+                                
+                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
+                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                    </svg>
+                                </span>
+                                
+                                <div class="flex-grow min-w-0">
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Detekční signatury EA technik</h3>
+                                    
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Kompendium 30 detekčních signatur pro identifikaci epistemických útoků (EA) v textu, chování, sítích a fenomenologii oběti.</p>
+                            
+                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
+                                <span>33 článků · 0 podsekcí</span>
                                 <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
                             </div>
                         </a>
@@ -955,6 +1051,27 @@
                         </a>
                         
                         
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;case-studies&#x2F;"
+                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start gap-3 mb-3 min-w-0">
+                                
+                                <span class="text-2xl flex-shrink-0" aria-hidden="true">📋</span>
+                                
+                                <div class="flex-grow min-w-0">
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Case Studies — anonymizovane pripadove studie</h3>
+                                    
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">80+ anonymizovanych klinickych pripadu epistemicke a kognitivni anihilace napric domenami: akademie, kulty, partnerske vztahy, organizacni cult, online radikalizace.</p>
+                            
+                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
+                                <span>80 článků · 0 podsekcí</span>
+                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
+                        </a>
+                        
+                        
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;07-populacni&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
@@ -975,27 +1092,6 @@
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
                                 <span>1 článků · 0 podsekcí</span>
-                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
-                            </div>
-                        </a>
-                        
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;case-studies&#x2F;"
-                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
-                            <div class="flex items-start gap-3 mb-3 min-w-0">
-                                
-                                <span class="text-2xl flex-shrink-0" aria-hidden="true">📋</span>
-                                
-                                <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Case Studies — anonymizovane pripadove studie</h3>
-                                    
-                                </div>
-                            </div>
-                            
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">80+ anonymizovanych klinickych pripadu epistemicke a kognitivni anihilace napric domenami: akademie, kulty, partnerske vztahy, organizacni cult, online radikalizace.</p>
-                            
-                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
-                                <span>80 článků · 0 podsekcí</span>
                                 <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
                             </div>
                         </a>
@@ -1047,31 +1143,6 @@
                         </a>
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;"
-                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
-                            <div class="flex items-start gap-3 mb-3 min-w-0">
-                                
-                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                                    </svg>
-                                </span>
-                                
-                                <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Prevence a rezilience</h3>
-                                    
-                                </div>
-                            </div>
-                            
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">30 článků o prevenci EA a budování reziliencie napříč třemi úrovněmi (primární, sekundární, terciární).</p>
-                            
-                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
-                                <span>30 článků · 0 podsekcí</span>
-                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
-                            </div>
-                        </a>
-                        
-                        
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;population-health&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
@@ -1097,7 +1168,7 @@
                         </a>
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;organizational-defense&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
                                 
@@ -1108,15 +1179,15 @@
                                 </span>
                                 
                                 <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Organizační obrana</h3>
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Prevence a rezilience</h3>
                                     
                                 </div>
                             </div>
                             
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">40 kapitol systematické obrany organizace proti epistemickým útokům — governance, HR, operativa, krizová reakce.</p>
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">30 článků o prevenci EA a budování reziliencie napříč třemi úrovněmi (primární, sekundární, terciární).</p>
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
-                                <span>40 článků · 0 podsekcí</span>
+                                <span>30 článků · 0 podsekcí</span>
                                 <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
                             </div>
                         </a>
@@ -1138,6 +1209,31 @@
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
                                 <span>123 článků · 0 podsekcí</span>
+                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
+                            </div>
+                        </a>
+                        
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;organizational-defense&#x2F;"
+                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
+                            <div class="flex items-start gap-3 mb-3 min-w-0">
+                                
+                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
+                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                    </svg>
+                                </span>
+                                
+                                <div class="flex-grow min-w-0">
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Organizační obrana</h3>
+                                    
+                                </div>
+                            </div>
+                            
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">40 kapitol systematické obrany organizace proti epistemickým útokům — governance, HR, operativa, krizová reakce.</p>
+                            
+                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
+                                <span>40 článků · 0 podsekcí</span>
                                 <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
                             </div>
                         </a>
@@ -1227,73 +1323,21 @@
                         </a>
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;02-doktrinalni-ramec&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;konceptualni-mapa&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
                                 
-                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                                    </svg>
-                                </span>
+                                <span class="text-2xl flex-shrink-0" aria-hidden="true">🗺️</span>
                                 
                                 <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Doktrinální rámec</h3>
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Konceptuální mapa epistemické anihilace</h3>
+                                    
+                                    <span class="inline-block mt-1 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider rounded bg-gray-700/60 text-gray-300">publikovano</span>
                                     
                                 </div>
                             </div>
                             
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Doktrinální rámec epistemické anihilace navazuje na [Úvod](@&#x2F;kompendium&#x2F;02-uvod&#x2F;_index.md) a definuje teoretické zázemí pro klinic</p>
-                            
-                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
-                                <span>0 článků · 0 podsekcí</span>
-                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
-                            </div>
-                        </a>
-                        
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-klinika&#x2F;"
-                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
-                            <div class="flex items-start gap-3 mb-3 min-w-0">
-                                
-                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                                    </svg>
-                                </span>
-                                
-                                <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Klinika</h3>
-                                    
-                                </div>
-                            </div>
-                            
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Předpokládaná sekce s klinickými indikátory</p>
-                            
-                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
-                                <span>0 článků · 0 podsekcí</span>
-                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
-                            </div>
-                        </a>
-                        
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-operacni-principy&#x2F;"
-                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
-                            <div class="flex items-start gap-3 mb-3 min-w-0">
-                                
-                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                                    </svg>
-                                </span>
-                                
-                                <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Operační principy</h3>
-                                    
-                                </div>
-                            </div>
-                            
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Operační principy doktríny EA</p>
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Vizuální navigační síť klíčových pojmů, vztahů a doménových přechodů v doktríně epistemické anihilace. Most mezi atomickým slovníkem (Glossary, 1290+ termínů) a strukturní taxonomií kompendia (sekce 01–08).</p>
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
                                 <span>0 článků · 0 podsekcí</span>
@@ -1327,7 +1371,7 @@
                         </a>
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-kolektivni-rozmer&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;02-doktrinalni-ramec&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
                                 
@@ -1338,12 +1382,12 @@
                                 </span>
                                 
                                 <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Kolektivní rozměr</h3>
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Doktrinální rámec</h3>
                                     
                                 </div>
                             </div>
                             
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Kolektivní dimenze epistemické anihilace</p>
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Doktrinální rámec epistemické anihilace navazuje na [Úvod](@&#x2F;kompendium&#x2F;02-uvod&#x2F;_index.md) a definuje teoretické zázemí pro klinic</p>
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
                                 <span>0 článků · 0 podsekcí</span>
@@ -1352,51 +1396,22 @@
                         </a>
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;03-manipulacni-vzorce&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;techniques&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
                                 
-                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                                    </svg>
-                                </span>
+                                <span class="text-2xl flex-shrink-0" aria-hidden="true">🔍</span>
                                 
                                 <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Manipulační vzorce</h3>
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Techniques — detailní per-technique články</h3>
                                     
                                 </div>
                             </div>
                             
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Sekce o základních manipulačních vzorcích</p>
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Hloubkové samostatné články pro jednotlivé techniky epistemické anihilace. Inkrementálně rozšiřovaná podknihovna kompendia.</p>
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
-                                <span>0 článků · 0 podsekcí</span>
-                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
-                            </div>
-                        </a>
-                        
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-intervence-a-obrana&#x2F;"
-                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
-                            <div class="flex items-start gap-3 mb-3 min-w-0">
-                                
-                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                                    </svg>
-                                </span>
-                                
-                                <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Intervence a obrana</h3>
-                                    
-                                </div>
-                            </div>
-                            
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Intervenční a obranné protokoly</p>
-                            
-                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
-                                <span>0 článků · 0 podsekcí</span>
+                                <span>513 článků · 0 podsekcí</span>
                                 <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
                             </div>
                         </a>
@@ -1427,7 +1442,7 @@
                         </a>
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-pokrocile-fenomeny&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-operacni-principy&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
                                 
@@ -1438,12 +1453,12 @@
                                 </span>
                                 
                                 <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Pokročilé fenomény</h3>
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Operační principy</h3>
                                     
                                 </div>
                             </div>
                             
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Pokročilé fenomenologické vzorce</p>
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Operační principy doktríny EA</p>
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
                                 <span>0 článků · 0 podsekcí</span>
@@ -1452,22 +1467,26 @@
                         </a>
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;techniques&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-kolektivni-rozmer&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
                                 
-                                <span class="text-2xl flex-shrink-0" aria-hidden="true">🔍</span>
+                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
+                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+                                    </svg>
+                                </span>
                                 
                                 <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Techniques — detailní per-technique články</h3>
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Kolektivní rozměr</h3>
                                     
                                 </div>
                             </div>
                             
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Hloubkové samostatné články pro jednotlivé techniky epistemické anihilace. Inkrementálně rozšiřovaná podknihovna kompendia.</p>
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Kolektivní dimenze epistemické anihilace</p>
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
-                                <span>513 článků · 0 podsekcí</span>
+                                <span>0 článků · 0 podsekcí</span>
                                 <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
                             </div>
                         </a>
@@ -1498,7 +1517,7 @@
                         </a>
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;01-zaklady-manipulace&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-klinika&#x2F;"
                            class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
                             <div class="flex items-start gap-3 mb-3 min-w-0">
                                 
@@ -1509,37 +1528,12 @@
                                 </span>
                                 
                                 <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Základy manipulace</h3>
+                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Klinika</h3>
                                     
                                 </div>
                             </div>
                             
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Předpokládaná sekce s úvodem do základů manipulace</p>
-                            
-                            <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
-                                <span>0 článků · 0 podsekcí</span>
-                                <span class="text-indigo-400 group-hover:translate-x-1 transition-transform">→</span>
-                            </div>
-                        </a>
-                        
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;konceptualni-mapa&#x2F;"
-                           class="group block p-5 sm:p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-indigo-500/50 hover:bg-gray-800/80 transition-all duration-200 min-w-0">
-                            <div class="flex items-start gap-3 mb-3 min-w-0">
-                                
-                                <span class="w-10 h-10 rounded-lg bg-indigo-900/30 border border-indigo-700/30 flex items-center justify-center flex-shrink-0">
-                                    <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                                    </svg>
-                                </span>
-                                
-                                <div class="flex-grow min-w-0">
-                                    <h3 class="text-base sm:text-lg font-bold text-white group-hover:text-indigo-400 transition-colors break-words min-w-0">Konceptuální mapa epistemické anihilace</h3>
-                                    
-                                </div>
-                            </div>
-                            
-                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Tato sekce obsahuje konceptuální mapu klíčových pojmů, vztahů a doménových přechodů v doktríně epistemické anihilace</p>
+                            <p class="text-sm text-gray-400 leading-relaxed line-clamp-3 mb-2 break-words">Předpokládaná sekce s klinickými indikátory</p>
                             
                             <div class="flex items-center justify-between text-xs text-gray-500 mt-3">
                                 <span>0 článků · 0 podsekcí</span>
@@ -1893,11 +1887,11 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                         <div class="max-h-[400px] overflow-y-auto pr-1 space-y-0.5 mt-2">
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;cross-domain&#x2F;"
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;08-prilohy&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
-                                Cross-Domain Bridges
+                                08. Přílohy
                             </a>
                             
                             
@@ -1909,19 +1903,27 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;08-prilohy&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                08. Přílohy
-                            </a>
-                            
-                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;forensic-legal&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
                                 Forenzni a pravni rozmer EA
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;cross-domain&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Cross-Domain Bridges
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;01-zaklady-manipulace&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Základy manipulace
                             </a>
                             
                             
@@ -1949,6 +1951,14 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                             </a>
                             
                             
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;03-manipulacni-vzorce&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Manipulační vzorce
+                            </a>
+                            
+                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-terminalni-protokoly&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
@@ -1957,11 +1967,27 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                             </a>
                             
                             
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-pokrocile-fenomeny&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Pokročilé fenomény
+                            </a>
+                            
+                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-ultramari-techniky&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
                                 05. Ultramární techniky fundamentální dekonstrukce
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-intervence-a-obrana&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Intervence a obrana
                             </a>
                             
                             
@@ -2005,19 +2031,19 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;detection-signatures&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Detekční signatury EA technik
-                            </a>
-                            
-                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
                                 Vzdělávací scénáře
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;detection-signatures&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Detekční signatury EA technik
                             </a>
                             
                             
@@ -2029,19 +2055,19 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;07-populacni&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Populační rovina &#x2F; Population-level Phenomena
-                            </a>
-                            
-                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;case-studies&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
                                 Case Studies — anonymizovane pripadove studie
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;07-populacni&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Populační rovina &#x2F; Population-level Phenomena
                             </a>
                             
                             
@@ -2061,14 +2087,6 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Prevence a rezilience
-                            </a>
-                            
-                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;population-health&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
@@ -2077,11 +2095,11 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;organizational-defense&#x2F;"
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
-                                Organizační obrana
+                                Prevence a rezilience
                             </a>
                             
                             
@@ -2090,6 +2108,14 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
                                 Quick Reference — rychlé referenční karty
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;organizational-defense&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Organizační obrana
                             </a>
                             
                             
@@ -2125,27 +2151,11 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;02-doktrinalni-ramec&#x2F;"
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;konceptualni-mapa&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
-                                Doktrinální rámec
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-klinika&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Klinika
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-operacni-principy&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Operační principy
+                                Konceptuální mapa epistemické anihilace
                             </a>
                             
                             
@@ -2157,43 +2167,11 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-kolektivni-rozmer&#x2F;"
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;02-doktrinalni-ramec&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
-                                Kolektivní rozměr
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;03-manipulacni-vzorce&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Manipulační vzorce
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-intervence-a-obrana&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Intervence a obrana
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-epistemicka-singularita&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Epistemická singularita
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-pokrocile-fenomeny&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Pokročilé fenomény
+                                Doktrinální rámec
                             </a>
                             
                             
@@ -2205,6 +2183,30 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                             </a>
                             
                             
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-epistemicka-singularita&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Epistemická singularita
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-operacni-principy&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Operační principy
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-kolektivni-rozmer&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Kolektivní rozměr
+                            </a>
+                            
+                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-diagnostika&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
@@ -2213,19 +2215,11 @@ tuto techniku jako instrumentum — pouze jako fenomenologický popis.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;01-zaklady-manipulace&#x2F;"
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-klinika&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
-                                Základy manipulace
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;konceptualni-mapa&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Konceptuální mapa epistemické anihilace
+                                Klinika
                             </a>
                             
                             

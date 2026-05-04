@@ -264,7 +264,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -280,7 +280,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -863,21 +867,21 @@
 
                 </div>
 
-                <!-- Tags -->
+                
                 
                 <div class="mt-12 pt-8 border-t border-white/5">
                     <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">Tags</h3>
                     <div class="flex flex-wrap gap-2">
                         
-                        <span class="px-3 py-1.5 text-xs text-gray-400 bg-white/5 rounded-lg border border-white/5">due-diligence</span>
+                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/tags/due-diligence/" class="inline-block px-3 py-1.5 text-xs text-gray-400 bg-white/5 rounded-lg border border-white/5 hover:text-amber-300 hover:border-amber-500/30 hover:bg-amber-500/10 transition-colors no-underline">due-diligence</a>
                         
-                        <span class="px-3 py-1.5 text-xs text-gray-400 bg-white/5 rounded-lg border border-white/5">pipeline</span>
+                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/tags/pipeline/" class="inline-block px-3 py-1.5 text-xs text-gray-400 bg-white/5 rounded-lg border border-white/5 hover:text-amber-300 hover:border-amber-500/30 hover:bg-amber-500/10 transition-colors no-underline">pipeline</a>
                         
-                        <span class="px-3 py-1.5 text-xs text-gray-400 bg-white/5 rounded-lg border border-white/5">architecture</span>
+                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/tags/architecture/" class="inline-block px-3 py-1.5 text-xs text-gray-400 bg-white/5 rounded-lg border border-white/5 hover:text-amber-300 hover:border-amber-500/30 hover:bg-amber-500/10 transition-colors no-underline">architecture</a>
                         
-                        <span class="px-3 py-1.5 text-xs text-gray-400 bg-white/5 rounded-lg border border-white/5">elixir</span>
+                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/tags/elixir/" class="inline-block px-3 py-1.5 text-xs text-gray-400 bg-white/5 rounded-lg border border-white/5 hover:text-amber-300 hover:border-amber-500/30 hover:bg-amber-500/10 transition-colors no-underline">elixir</a>
                         
-                        <span class="px-3 py-1.5 text-xs text-gray-400 bg-white/5 rounded-lg border border-white/5">pubsub</span>
+                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/tags/pubsub/" class="inline-block px-3 py-1.5 text-xs text-gray-400 bg-white/5 rounded-lg border border-white/5 hover:text-amber-300 hover:border-amber-500/30 hover:bg-amber-500/10 transition-colors no-underline">pubsub</a>
                         
                     </div>
                 </div>
@@ -978,26 +982,121 @@
                     
                 </div>
 
-                <!-- Quick Navigation -->
+                
+                
                 <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
                     <div class="p-4 border-b border-gray-700">
-                        <span class="font-semibold text-white text-sm">Related</span>
+                        <span class="font-semibold text-white text-sm">Related Articles</span>
                     </div>
                     <div class="p-4 space-y-1">
-                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/sdk/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
-                            <span class="text-sm font-medium text-gray-300">SDK</span>
-                        </a>
-                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/lab/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
-                            <span class="text-sm font-medium text-gray-300">Labs</span>
-                        </a>
-                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/academy/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
-                            <span class="text-sm font-medium text-gray-300">Academy</span>
-                        </a>
-                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
-                            <span class="text-sm font-medium text-gray-300">Developers</span>
-                        </a>
+                        
+                            
+                                <a href="https://prismatic-reality-com.github.io/prismatic-promo/due-diligence" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                                    <span class="text-sm font-medium text-gray-300">Due Diligence</span>
+                                </a>
+                            
+                        
+                            
+                                <a href="https://prismatic-reality-com.github.io/prismatic-promo/pipeline" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                                    <span class="text-sm font-medium text-gray-300">Pipeline</span>
+                                </a>
+                            
+                        
+                            
+                                <a href="https://prismatic-reality-com.github.io/prismatic-promo/pubsub" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                                    <span class="text-sm font-medium text-gray-300">Pubsub</span>
+                                </a>
+                            
+                        
+                            
+                                <a href="https://prismatic-reality-com.github.io/prismatic-promo/broadway" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                                    <span class="text-sm font-medium text-gray-300">Broadway</span>
+                                </a>
+                            
+                        
+                            
+                                <a href="https://prismatic-reality-com.github.io/prismatic-promo/backpressure" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                                    <span class="text-sm font-medium text-gray-300">Backpressure</span>
+                                </a>
+                            
+                        
                     </div>
                 </div>
+                
+
+                
+                
+                <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <div class="p-4 border-b border-gray-700">
+                        <span class="font-semibold text-white text-sm">Tagged</span>
+                    </div>
+                    <div class="p-4 flex flex-wrap gap-2">
+                        
+                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/tags/due-diligence/" class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded hover:bg-amber-500/20 hover:text-amber-300 transition-colors no-underline">due-diligence</a>
+                        
+                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/tags/pipeline/" class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded hover:bg-amber-500/20 hover:text-amber-300 transition-colors no-underline">pipeline</a>
+                        
+                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/tags/architecture/" class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded hover:bg-amber-500/20 hover:text-amber-300 transition-colors no-underline">architecture</a>
+                        
+                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/tags/elixir/" class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded hover:bg-amber-500/20 hover:text-amber-300 transition-colors no-underline">elixir</a>
+                        
+                        <a href="https://prismatic-reality-com.github.io/prismatic-promo/tags/pubsub/" class="inline-block px-2 py-1 text-xs font-medium bg-gray-700 text-gray-300 rounded hover:bg-amber-500/20 hover:text-amber-300 transition-colors no-underline">pubsub</a>
+                        
+                    </div>
+                </div>
+                
+
+                
+                
+
+                
+                
+                
+                <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
+                    <div class="p-4 border-b border-gray-700">
+                        <span class="font-semibold text-white text-sm">Recent Posts</span>
+                    </div>
+                    <div class="p-4 space-y-1">
+                        
+                            
+                                <a href="https://prismatic-reality-com.github.io/prismatic-promo/blog/announcing-kompendium-epistemicke-anihilace/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                                    <span class="text-sm font-medium text-gray-300">Announcing: Kompendium epistemické a kognitivní anihilace</span>
+                                </a>
+                            
+                        
+                            
+                                <a href="https://prismatic-reality-com.github.io/prismatic-promo/blog/shipping-zola-github-pages-postmortem/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                                    <span class="text-sm font-medium text-gray-300">Shipping Zola to GitHub Pages: A 2938-Broken-Links Postmortem</span>
+                                </a>
+                            
+                        
+                            
+                                <a href="https://prismatic-reality-com.github.io/prismatic-promo/blog/broadway-pipelines-for-continuous-osint/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                                    <span class="text-sm font-medium text-gray-300">Broadway Pipelines for Continuous OSINT: Backpressure Is a Feature</span>
+                                </a>
+                            
+                        
+                            
+                                <a href="https://prismatic-reality-com.github.io/prismatic-promo/blog/circuit-breakers-for-flaky-osint/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                                    <span class="text-sm font-medium text-gray-300">Circuit Breakers for Flaky OSINT Sources: Fail Fast, Recover Quietly</span>
+                                </a>
+                            
+                        
+                            
+                                <a href="https://prismatic-reality-com.github.io/prismatic-promo/blog/cqrs-for-dd-case-state/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                                    <span class="text-sm font-medium text-gray-300">CQRS for DD Case State: When the Read Model Has to Lie (On Purpose)</span>
+                                </a>
+                            
+                        
+                            
+                                <a href="https://prismatic-reality-com.github.io/prismatic-promo/blog/decision-core-closed-loop/" class="block p-2 rounded-lg hover:bg-gray-700/50 transition-colors">
+                                    <span class="text-sm font-medium text-gray-300">Decision Core: Closing the Loop Between Intelligence and Outcome</span>
+                                </a>
+                            
+                        
+                    </div>
+                </div>
+                
 
                 <!-- RSS -->
                 <div class="bg-gray-800 rounded-xl border border-gray-700 p-4">

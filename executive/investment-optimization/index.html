@@ -157,7 +157,7 @@
         },
         "inLanguage": "en",
         "keywords": "Investment, Portfolio, Optimization, AI-powered, Strategic, Asset, Allocation, Prismatic, Platform, executive",
-        "wordCount": 895
+        "wordCount": 1253
     }
     </script>
     
@@ -226,7 +226,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -242,7 +242,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -610,47 +614,57 @@
 <h2 id="1-ai-powered-portfolio-optimization-framework">1. AI-Powered Portfolio Optimization Framework</h2>
 <h3 id="1-1-strategic-asset-allocation-model">1.1 Strategic Asset Allocation Model</h3>
 <p><strong>Technology Investment Portfolio (40% allocation):</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Technology Asset Optimization:</span></span>
-<span class="giallo-l"><span>├─ Core Platform: 60% ($24M) - Autonomous intelligence infrastructure</span></span>
-<span class="giallo-l"><span>├─ Emerging Tech: 25% ($10M) - AI/ML, quantum computing, blockchain</span></span>
-<span class="giallo-l"><span>├─ Innovation R&amp;D: 10% ($4M) - Breakthrough technology development</span></span>
-<span class="giallo-l"><span>└─ Strategic Patents: 5% ($2M) - Intellectual property portfolio</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Expected Returns: 22% IRR (vs 12% industry average)</span></span>
-<span class="giallo-l"><span>Risk Profile: Medium (Volatility: 18%, Sharpe ratio: 1.4)</span></span>
-<span class="giallo-l"><span>Competitive Advantage: 3-5 year technology leadership</span></span>
-<span class="giallo-l"><span>Strategic Value: Market disruption capability</span></span></code></pre>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Technology Asset Optimization ($40M, 22% IRR vs 12% industry)</span></span>
+<span class="giallo-l"><span>  &quot;Core Platform ($24M)&quot; : 60</span></span>
+<span class="giallo-l"><span>  &quot;Emerging Tech ($10M)&quot; : 25</span></span>
+<span class="giallo-l"><span>  &quot;Innovation R&amp;D ($4M)&quot; : 10</span></span>
+<span class="giallo-l"><span>  &quot;Strategic Patents ($2M)&quot; : 5</span></span></code></pre>
+<ul>
+<li><strong>Risk profile</strong>: Medium · Volatility 18% · Sharpe 1.4</li>
+<li><strong>Competitive advantage</strong>: 3–5 year technology leadership</li>
+<li><strong>Strategic value</strong>: Market disruption capability</li>
+</ul>
 <p><strong>Market Expansion Portfolio (30% allocation):</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Geographic &amp; Vertical Expansion:</span></span>
-<span class="giallo-l"><span>├─ EU Market Entry: 45% ($13.5M) - European market penetration</span></span>
-<span class="giallo-l"><span>├─ APAC Expansion: 35% ($10.5M) - Asia-Pacific growth strategy</span></span>
-<span class="giallo-l"><span>├─ Vertical Markets: 15% ($4.5M) - Healthcare, manufacturing verticals</span></span>
-<span class="giallo-l"><span>└─ Strategic Partnerships: 5% ($1.5M) - Channel and alliance investments</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Expected Returns: 18% IRR (vs 8% organic growth)</span></span>
-<span class="giallo-l"><span>Risk Profile: Medium-High (Market risk, regulatory risk)</span></span>
-<span class="giallo-l"><span>Payback Period: 2.5 years average</span></span>
-<span class="giallo-l"><span>Market Opportunity: $450M addressable market expansion</span></span></code></pre><h3 id="1-2-risk-return-optimization-engine">1.2 Risk-Return Optimization Engine</h3>
-<p><strong>Modern Portfolio Theory Implementation:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>PORTFOLIO OPTIMIZATION ALGORITHM</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Risk-Return Efficient Frontier:</span></span>
-<span class="giallo-l"><span>├─ Maximum Sharpe Ratio: 1.67 (Optimal risk-adjusted return portfolio)</span></span>
-<span class="giallo-l"><span>├─ Minimum Variance: 12% volatility (Conservative risk profile)</span></span>
-<span class="giallo-l"><span>├─ Maximum Return: 28% expected return (Aggressive growth profile)</span></span>
-<span class="giallo-l"><span>└─ Target Risk: 15% volatility (Balanced growth and risk management)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Asset Correlation Matrix:</span></span>
-<span class="giallo-l"><span>├─ Technology-Market: 0.25 (Low correlation, good diversification)</span></span>
-<span class="giallo-l"><span>├─ Innovation-Partnership: 0.18 (Excellent diversification benefits)</span></span>
-<span class="giallo-l"><span>├─ Market-Partnership: 0.45 (Moderate correlation, acceptable)</span></span>
-<span class="giallo-l"><span>└─ Overall Portfolio Correlation: 0.31 (Well-diversified portfolio)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Dynamic Allocation Ranges:</span></span>
-<span class="giallo-l"><span>├─ Technology: 35-45% (Strategic core, moderate flexibility)</span></span>
-<span class="giallo-l"><span>├─ Market Expansion: 25-35% (Growth focus, tactical adjustments)</span></span>
-<span class="giallo-l"><span>├─ Innovation: 15-25% (Future opportunities, higher flexibility)</span></span>
-<span class="giallo-l"><span>└─ Strategic Assets: 10-20% (Opportunistic investments, maximum flexibility)</span></span></code></pre>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Geographic &amp; Vertical Expansion ($30M, 18% IRR vs 8% organic)</span></span>
+<span class="giallo-l"><span>  &quot;EU Market Entry ($13.5M)&quot; : 45</span></span>
+<span class="giallo-l"><span>  &quot;APAC Expansion ($10.5M)&quot; : 35</span></span>
+<span class="giallo-l"><span>  &quot;Vertical Markets ($4.5M)&quot; : 15</span></span>
+<span class="giallo-l"><span>  &quot;Strategic Partnerships ($1.5M)&quot; : 5</span></span></code></pre>
+<ul>
+<li><strong>Risk profile</strong>: Medium-High · Market + regulatory risk</li>
+<li><strong>Payback period</strong>: 2.5 years average</li>
+<li><strong>Market opportunity</strong>: $450M addressable expansion</li>
+</ul>
+<h3 id="1-2-risk-return-optimization-engine">1.2 Risk-Return Optimization Engine</h3>
+<p><strong>Modern Portfolio Theory — Risk/Return Efficient Frontier:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>quadrantChart</span></span>
+<span class="giallo-l"><span>  title Portfolio Optimization — Risk vs. Return</span></span>
+<span class="giallo-l"><span>  x-axis &quot;Low Volatility&quot; --&gt; &quot;High Volatility&quot;</span></span>
+<span class="giallo-l"><span>  y-axis &quot;Low Return&quot; --&gt; &quot;High Return&quot;</span></span>
+<span class="giallo-l"><span>  quadrant-1 &quot;High Risk / High Reward&quot;</span></span>
+<span class="giallo-l"><span>  quadrant-2 &quot;Low Risk / High Reward (target)&quot;</span></span>
+<span class="giallo-l"><span>  quadrant-3 &quot;Low Risk / Low Reward&quot;</span></span>
+<span class="giallo-l"><span>  quadrant-4 &quot;High Risk / Low Reward (avoid)&quot;</span></span>
+<span class="giallo-l"><span>  &quot;Min Variance (12%)&quot;: [0.12, 0.35]</span></span>
+<span class="giallo-l"><span>  &quot;Target Risk (15%)&quot;: [0.30, 0.55]</span></span>
+<span class="giallo-l"><span>  &quot;Max Sharpe (1.67)&quot;: [0.45, 0.75]</span></span>
+<span class="giallo-l"><span>  &quot;Max Return (28%)&quot;: [0.85, 0.95]</span></span></code></pre>
+<p><strong>Asset Correlation Matrix</strong> (Overall portfolio correlation: <strong>0.31</strong> = well-diversified):</p>
+<table><thead><tr><th>Pair</th><th style="text-align: right">Correlation</th><th>Diversification</th></tr></thead><tbody>
+<tr><td>Technology ↔ Market</td><td style="text-align: right">0.25</td><td>Low — good</td></tr>
+<tr><td>Innovation ↔ Partnership</td><td style="text-align: right">0.18</td><td>Excellent</td></tr>
+<tr><td>Market ↔ Partnership</td><td style="text-align: right">0.45</td><td>Moderate — acceptable</td></tr>
+</tbody></table>
+<p><strong>Dynamic Allocation Ranges</strong>:</p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>  P[Portfolio] --&gt; T[&quot;Technology&lt;br/&gt;35–45%&quot;]</span></span>
+<span class="giallo-l"><span>  P --&gt; M[&quot;Market Expansion&lt;br/&gt;25–35%&quot;]</span></span>
+<span class="giallo-l"><span>  P --&gt; I[&quot;Innovation&lt;br/&gt;15–25%&quot;]</span></span>
+<span class="giallo-l"><span>  P --&gt; S[&quot;Strategic Assets&lt;br/&gt;10–20%&quot;]</span></span>
+<span class="giallo-l"><span>  style T fill:#1e40af,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style M fill:#15803d,stroke:#22c55e,color:#fff</span></span>
+<span class="giallo-l"><span>  style I fill:#a16207,stroke:#facc15,color:#fff</span></span>
+<span class="giallo-l"><span>  style S fill:#7c3aed,stroke:#a855f7,color:#fff</span></span></code></pre>
 <hr />
 <h2 id="2-real-time-performance-analytics">2. Real-Time Performance Analytics</h2>
 <h3 id="2-1-investment-performance-dashboard">2.1 Investment Performance Dashboard</h3>
@@ -705,162 +719,123 @@
 </tbody></table>
 <h3 id="2-2-attribution-analysis">2.2 Attribution Analysis</h3>
 <p><strong>Performance Attribution Breakdown:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>INVESTMENT PERFORMANCE ATTRIBUTION ANALYSIS</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Asset Allocation Effect: +8.2%</span></span>
-<span class="giallo-l"><span>├─ Technology Overweight: +3.1% (Strong sector performance)</span></span>
-<span class="giallo-l"><span>├─ Market Expansion Timing: +2.8% (Effective market entry timing)</span></span>
-<span class="giallo-l"><span>├─ Innovation Investment: +1.7% (Breakthrough technology success)</span></span>
-<span class="giallo-l"><span>└─ Strategic Asset Selection: +0.6% (Partnership value creation)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Security Selection Effect: +7.1%</span></span>
-<span class="giallo-l"><span>├─ Technology Platform: +3.8% (Superior technology choices)</span></span>
-<span class="giallo-l"><span>├─ Market Selection: +2.1% (Optimal geographic expansion)</span></span>
-<span class="giallo-l"><span>├─ Innovation Portfolio: +0.9% (Successful R&amp;D investments)</span></span>
-<span class="giallo-l"><span>└─ Strategic Partnerships: +0.3% (Value-accretive partnerships)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Interaction Effect: +2.9%</span></span>
-<span class="giallo-l"><span>├─ Technology-Market Synergy: +1.8% (Cross-domain value creation)</span></span>
-<span class="giallo-l"><span>├─ Innovation-Platform Integration: +0.7% (Technology stack synergy)</span></span>
-<span class="giallo-l"><span>└─ Strategic Asset Leverage: +0.4% (Partnership amplification)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Risk Management Contribution: +5.2%</span></span>
-<span class="giallo-l"><span>├─ Volatility Reduction: +2.8% (Lower risk, same return)</span></span>
-<span class="giallo-l"><span>├─ Correlation Management: +1.6% (Diversification benefits)</span></span>
-<span class="giallo-l"><span>└─ Downside Protection: +0.8% (Hedging strategy effectiveness)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Total Portfolio Alpha: +23.4% vs +12.1% benchmark = +11.3% outperformance</span></span>
-<span class="giallo-l"><span>Risk-Adjusted Alpha (Sharpe): 1.52 vs 0.89 benchmark = 0.63 improvement</span></span></code></pre>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Portfolio Alpha +23.4% (vs +12.1% benchmark = +11.3% outperformance)</span></span>
+<span class="giallo-l"><span>  &quot;Asset Allocation Effect&quot; : 8.2</span></span>
+<span class="giallo-l"><span>  &quot;Security Selection Effect&quot; : 7.1</span></span>
+<span class="giallo-l"><span>  &quot;Risk Management Contribution&quot; : 5.2</span></span>
+<span class="giallo-l"><span>  &quot;Interaction Effect&quot; : 2.9</span></span></code></pre><table><thead><tr><th>Effect</th><th style="text-align: right">Contribution</th><th>Top driver</th></tr></thead><tbody>
+<tr><td>Asset Allocation</td><td style="text-align: right"><strong>+8.2%</strong></td><td>Technology overweight (+3.1%)</td></tr>
+<tr><td>Security Selection</td><td style="text-align: right"><strong>+7.1%</strong></td><td>Technology platform (+3.8%)</td></tr>
+<tr><td>Risk Management</td><td style="text-align: right"><strong>+5.2%</strong></td><td>Volatility reduction (+2.8%)</td></tr>
+<tr><td>Interaction</td><td style="text-align: right"><strong>+2.9%</strong></td><td>Tech-Market synergy (+1.8%)</td></tr>
+</tbody></table>
+<p><strong>Risk-Adjusted Alpha (Sharpe)</strong>: 1.52 vs 0.89 benchmark = <strong>+0.63 improvement</strong>.</p>
 <hr />
 <h2 id="3-strategic-investment-intelligence">3. Strategic Investment Intelligence</h2>
 <h3 id="3-1-market-intelligence-integration">3.1 Market Intelligence Integration</h3>
-<p><strong>Investment Decision Intelligence:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>STRATEGIC INVESTMENT INTELLIGENCE SYSTEM</span></span>
+<p><strong>Strategic Investment Intelligence System:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph TD</span></span>
+<span class="giallo-l"><span>  S[Investment Decision Intelligence] --&gt; M[Market Opportunity]</span></span>
+<span class="giallo-l"><span>  S --&gt; C[Competitive Analysis]</span></span>
+<span class="giallo-l"><span>  S --&gt; T[Technology Intelligence]</span></span>
+<span class="giallo-l"><span>  S --&gt; R[Regulatory Impact]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Market Opportunity Analysis:</span></span>
-<span class="giallo-l"><span>├─ Addressable Market: $2.8B (Growing 15% annually)</span></span>
-<span class="giallo-l"><span>├─ Competitive Landscape: 23 major players identified and analyzed</span></span>
-<span class="giallo-l"><span>├─ Market Trends: AI adoption, regulatory changes, digital transformation</span></span>
-<span class="giallo-l"><span>├─ Customer Insights: 94% preference for autonomous intelligence solutions</span></span>
-<span class="giallo-l"><span>└─ Pricing Intelligence: 15-20% premium sustainable for technology leadership</span></span>
+<span class="giallo-l"><span>  M --&gt; M1[&quot;$2.8B addressable&lt;br/&gt;+15% annual growth&quot;]</span></span>
+<span class="giallo-l"><span>  M --&gt; M2[&quot;23 major players analyzed&lt;br/&gt;94% prefer autonomous intel.&quot;]</span></span>
+<span class="giallo-l"><span>  M --&gt; M3[&quot;15–20% premium sustainable&quot;]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Competitive Investment Analysis:</span></span>
-<span class="giallo-l"><span>├─ Competitor A: $85M investment (Technology platform, 12% IRR)</span></span>
-<span class="giallo-l"><span>├─ Competitor B: $120M investment (Market expansion, 8% IRR)</span></span>
-<span class="giallo-l"><span>├─ Competitor C: $45M investment (Innovation R&amp;D, 18% IRR)</span></span>
-<span class="giallo-l"><span>├─ Industry Average: 10.5% IRR (vs our 23.4% performance)</span></span>
-<span class="giallo-l"><span>└─ Competitive Advantage: Superior risk-adjusted returns and strategic positioning</span></span>
+<span class="giallo-l"><span>  C --&gt; C1[&quot;Industry avg: 10.5% IRR&lt;br/&gt;Ours: 23.4% (+12.9% Δ)&quot;]</span></span>
+<span class="giallo-l"><span>  C --&gt; C2[&quot;Top 3 competitors:&lt;br/&gt;$85M / $120M / $45M&quot;]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Technology Investment Intelligence:</span></span>
-<span class="giallo-l"><span>├─ Emerging Technologies: Quantum computing, advanced AI, blockchain</span></span>
-<span class="giallo-l"><span>├─ Technology Maturity: Assessment of technology readiness and adoption</span></span>
-<span class="giallo-l"><span>├─ Patent Landscape: IP opportunities and competitive patent analysis</span></span>
-<span class="giallo-l"><span>├─ Research Partnerships: University and research institution collaboration</span></span>
-<span class="giallo-l"><span>└─ Technology ROI: Expected returns from technology investment portfolio</span></span>
+<span class="giallo-l"><span>  T --&gt; T1[&quot;Emerging: Quantum, AI, Blockchain&quot;]</span></span>
+<span class="giallo-l"><span>  T --&gt; T2[&quot;Patent landscape +&lt;br/&gt;research partnerships&quot;]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Regulatory Impact Analysis:</span></span>
-<span class="giallo-l"><span>├─ EU AI Act: $2.1M compliance investment, competitive advantage opportunity</span></span>
-<span class="giallo-l"><span>├─ Privacy Regulations: $0.8M adaptation cost, market entry enablement</span></span>
-<span class="giallo-l"><span>├─ Cybersecurity Standards: $1.2M certification, customer trust enhancement</span></span>
-<span class="giallo-l"><span>└─ Industry Regulations: Sector-specific compliance and opportunity analysis</span></span></code></pre><h3 id="3-2-dynamic-portfolio-rebalancing">3.2 Dynamic Portfolio Rebalancing</h3>
-<p><strong>Adaptive Portfolio Management:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>REAL-TIME PORTFOLIO OPTIMIZATION ENGINE</span></span>
+<span class="giallo-l"><span>  R --&gt; R1[&quot;EU AI Act: $2.1M&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; R2[&quot;Privacy: $0.8M&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; R3[&quot;Cybersec: $1.2M&quot;]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Rebalancing Triggers:</span></span>
-<span class="giallo-l"><span>├─ Allocation Drift: &gt;5% deviation from target triggers rebalancing</span></span>
-<span class="giallo-l"><span>├─ Risk Threshold: Portfolio VaR &gt;$10M triggers risk reduction</span></span>
-<span class="giallo-l"><span>├─ Market Conditions: Volatility &gt;25% triggers defensive positioning</span></span>
-<span class="giallo-l"><span>├─ Opportunity Threshold: Expected alpha &gt;15% triggers strategic allocation</span></span>
-<span class="giallo-l"><span>└─ Performance Review: Monthly systematic rebalancing review</span></span>
+<span class="giallo-l"><span>  style S fill:#1e3a8a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style M fill:#15803d,stroke:#22c55e,color:#fff</span></span>
+<span class="giallo-l"><span>  style C fill:#a16207,stroke:#facc15,color:#fff</span></span>
+<span class="giallo-l"><span>  style T fill:#7c3aed,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>  style R fill:#9f1239,stroke:#f43f5e,color:#fff</span></span></code></pre><h3 id="3-2-dynamic-portfolio-rebalancing">3.2 Dynamic Portfolio Rebalancing</h3>
+<p><strong>Adaptive Portfolio Management — Real-Time Rebalancing Engine:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart LR</span></span>
+<span class="giallo-l"><span>  M[Market Signal] --&gt; T{Trigger?}</span></span>
+<span class="giallo-l"><span>  T --&gt;|Drift &gt;5%| R1[Rebalance to target]</span></span>
+<span class="giallo-l"><span>  T --&gt;|VaR &gt;$10M| R2[Risk reduction]</span></span>
+<span class="giallo-l"><span>  T --&gt;|Volatility &gt;25%| R3[Defensive positioning]</span></span>
+<span class="giallo-l"><span>  T --&gt;|Alpha &gt;15%| R4[Strategic allocation]</span></span>
+<span class="giallo-l"><span>  T --&gt;|Monthly review| R5[Systematic review]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Market Condition Adaptations:</span></span>
-<span class="giallo-l"><span>├─ Bull Market (Current): 45% technology, 35% expansion, 15% innovation, 5% cash</span></span>
-<span class="giallo-l"><span>├─ Bear Market Defense: 30% technology, 20% expansion, 25% innovation, 25% cash</span></span>
-<span class="giallo-l"><span>├─ High Volatility: 35% technology, 25% expansion, 20% innovation, 20% hedging</span></span>
-<span class="giallo-l"><span>└─ Low Volatility: 50% technology, 40% expansion, 10% innovation, 0% cash</span></span>
+<span class="giallo-l"><span>  R1 &amp; R2 &amp; R3 &amp; R4 &amp; R5 --&gt; A[Adapt to regime]</span></span>
+<span class="giallo-l"><span>  A --&gt; B[Bull: 45/35/15/5]</span></span>
+<span class="giallo-l"><span>  A --&gt; D[Bear: 30/20/25/25]</span></span>
+<span class="giallo-l"><span>  A --&gt; H[High vol: 35/25/20/20]</span></span>
+<span class="giallo-l"><span>  A --&gt; L[Low vol: 50/40/10/0]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Tactical Allocation Adjustments:</span></span>
-<span class="giallo-l"><span>├─ Technology Sector Rotation: Adjust between core platform and emerging tech</span></span>
-<span class="giallo-l"><span>├─ Geographic Rebalancing: Optimize between EU, US, and APAC exposure</span></span>
-<span class="giallo-l"><span>├─ Innovation Timing: Accelerate or delay innovation investments based on readiness</span></span>
-<span class="giallo-l"><span>└─ Strategic Opportunities: Capitalize on partnership and acquisition opportunities</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Rebalancing Cost Management:</span></span>
-<span class="giallo-l"><span>├─ Transaction Costs: &lt;0.5% of portfolio value annually</span></span>
-<span class="giallo-l"><span>├─ Tax Efficiency: Tax-loss harvesting and deferral strategies</span></span>
-<span class="giallo-l"><span>├─ Market Impact: Minimize market impact through smart order routing</span></span>
-<span class="giallo-l"><span>└─ Timing Optimization: Optimal execution timing and strategy</span></span></code></pre>
+<span class="giallo-l"><span>  style T fill:#1e3a8a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style A fill:#7c3aed,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>  style B fill:#15803d,stroke:#22c55e,color:#fff</span></span>
+<span class="giallo-l"><span>  style D fill:#9f1239,stroke:#f43f5e,color:#fff</span></span></code></pre>
+<p><strong>Cost &amp; Tax Optimization</strong>: Transaction costs &lt;0.5% annually · Tax-loss harvesting · Smart order routing · Optimal execution timing.</p>
+<p><strong>Tactical Adjustments</strong>: Technology sector rotation (core ↔ emerging) · Geographic rebalancing (EU ↔ US ↔ APAC) · Innovation timing · Strategic partnership opportunities.</p>
 <hr />
 <h2 id="4-investment-roi-success-metrics">4. Investment ROI &amp; Success Metrics</h2>
 <h3 id="4-1-investment-performance-results">4.1 Investment Performance Results</h3>
-<p><strong>Portfolio Performance Achievement:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>INVESTMENT PORTFOLIO RESULTS (12-MONTH PERFORMANCE)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Financial Performance:</span></span>
-<span class="giallo-l"><span>├─ Total Return: +23.4% (vs +12.1% benchmark = +11.3% outperformance)</span></span>
-<span class="giallo-l"><span>├─ Risk-Adjusted Return: Sharpe ratio 1.52 (vs 0.89 benchmark)</span></span>
-<span class="giallo-l"><span>├─ Alpha Generation: +11.3% annual alpha (Consistent outperformance)</span></span>
-<span class="giallo-l"><span>├─ Maximum Drawdown: -4.1% (vs -12.3% benchmark = Superior downside protection)</span></span>
-<span class="giallo-l"><span>└─ Volatility: 14.2% (vs 16.8% benchmark = 15% lower risk)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Asset Class Performance:</span></span>
-<span class="giallo-l"><span>├─ Technology Portfolio: +28.7% return (42% allocation, top performer)</span></span>
-<span class="giallo-l"><span>├─ Market Expansion: +19.4% return (28% allocation, strong growth)</span></span>
-<span class="giallo-l"><span>├─ Innovation Assets: +31.2% return (18% allocation, breakthrough success)</span></span>
-<span class="giallo-l"><span>└─ Strategic Assets: +15.8% return (12% allocation, steady contribution)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Risk Management Excellence:</span></span>
-<span class="giallo-l"><span>├─ Value-at-Risk Control: $8.2M actual vs $10M limit (18% safety margin)</span></span>
-<span class="giallo-l"><span>├─ Stress Test Results: Portfolio resilient to 20% market decline</span></span>
-<span class="giallo-l"><span>├─ Correlation Management: 0.67 market correlation (excellent diversification)</span></span>
-<span class="giallo-l"><span>├─ Downside Capture: 0.71 (29% less downside than market)</span></span>
-<span class="giallo-l"><span>└─ Upside Capture: 1.23 (23% more upside than market)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Strategic Value Creation:</span></span>
-<span class="giallo-l"><span>├─ Competitive Positioning: Technology leadership extended 3-5 years</span></span>
-<span class="giallo-l"><span>├─ Market Expansion: $450M new addressable market accessed</span></span>
-<span class="giallo-l"><span>├─ Innovation Pipeline: 12 breakthrough technologies in development</span></span>
-<span class="giallo-l"><span>├─ Strategic Partnerships: 8 value-accretive partnerships established</span></span>
-<span class="giallo-l"><span>└─ Intellectual Property: 23 patents filed, 47 total portfolio</span></span></code></pre><h3 id="4-2-roi-analysis-value-creation">4.2 ROI Analysis &amp; Value Creation</h3>
+<p><strong>Portfolio Performance Achievement — 12-Month Results:</strong></p>
+<table><thead><tr><th>Financial Metric</th><th style="text-align: right">Portfolio</th><th style="text-align: right">Benchmark</th><th style="text-align: right">Δ Outperformance</th></tr></thead><tbody>
+<tr><td>Total Return</td><td style="text-align: right"><strong>+23.4%</strong></td><td style="text-align: right">+12.1%</td><td style="text-align: right"><strong>+11.3%</strong></td></tr>
+<tr><td>Sharpe Ratio</td><td style="text-align: right"><strong>1.52</strong></td><td style="text-align: right">0.89</td><td style="text-align: right"><strong>+0.63</strong></td></tr>
+<tr><td>Maximum Drawdown</td><td style="text-align: right"><strong>-4.1%</strong></td><td style="text-align: right">-12.3%</td><td style="text-align: right">+8.2 (less drop)</td></tr>
+<tr><td>Volatility</td><td style="text-align: right"><strong>14.2%</strong></td><td style="text-align: right">16.8%</td><td style="text-align: right">-15% (lower risk)</td></tr>
+</tbody></table>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>xychart-beta</span></span>
+<span class="giallo-l"><span>  title &quot;Asset Class Returns vs. Allocation&quot;</span></span>
+<span class="giallo-l"><span>  x-axis [&quot;Technology&quot;, &quot;Market Exp.&quot;, &quot;Innovation&quot;, &quot;Strategic&quot;]</span></span>
+<span class="giallo-l"><span>  y-axis &quot;Return % / Allocation %&quot; 0 --&gt; 35</span></span>
+<span class="giallo-l"><span>  bar [28.7, 19.4, 31.2, 15.8]</span></span>
+<span class="giallo-l"><span>  line [42, 28, 18, 12]</span></span></code></pre>
+<p><strong>Risk Management Excellence</strong>:</p>
+<ul>
+<li>VaR Control: $8.2M actual vs $10M limit (<strong>18% safety margin</strong>)</li>
+<li>Stress test: portfolio resilient to <strong>20% market decline</strong></li>
+<li>Market correlation: <strong>0.67</strong> (excellent diversification)</li>
+<li>Downside capture: 0.71 (29% less downside) · Upside capture: 1.23 (+23% upside)</li>
+</ul>
+<p><strong>Strategic Value Creation</strong>: Technology leadership extended 3–5 years · $450M new addressable market accessed · 12 breakthrough technologies in pipeline · 8 value-accretive partnerships · 23 new patents filed (47 total portfolio).</p>
+<h3 id="4-2-roi-analysis-value-creation">4.2 ROI Analysis &amp; Value Creation</h3>
 <p><strong>Investment ROI Calculation:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>COMPREHENSIVE INVESTMENT ROI ANALYSIS</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Portfolio Investment Summary:</span></span>
-<span class="giallo-l"><span>├─ Initial Portfolio Value: $105M (Beginning of period)</span></span>
-<span class="giallo-l"><span>├─ Additional Investments: $15M (New capital deployed)</span></span>
-<span class="giallo-l"><span>├─ Total Invested Capital: $120M</span></span>
-<span class="giallo-l"><span>├─ Current Portfolio Value: $148.1M</span></span>
-<span class="giallo-l"><span>├─ Unrealized Gains: $28.1M</span></span>
-<span class="giallo-l"><span>└─ Net Portfolio Return: +23.4% (Exceptional performance)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Value Creation Breakdown:</span></span>
-<span class="giallo-l"><span>├─ Capital Appreciation: $28.1M (Portfolio value increase)</span></span>
-<span class="giallo-l"><span>├─ Strategic Value: $45M (Technology leadership, market access)</span></span>
-<span class="giallo-l"><span>├─ Operational Benefits: $12M (Process improvement, efficiency gains)</span></span>
-<span class="giallo-l"><span>├─ Risk Mitigation: $8M (Lower risk profile, insurance savings)</span></span>
-<span class="giallo-l"><span>├─ Competitive Advantage: $25M (Market positioning, pricing power)</span></span>
-<span class="giallo-l"><span>└─ Total Value Creation: $118.1M (985% ROI on invested capital)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Comparison Analysis:</span></span>
-<span class="giallo-l"><span>├─ Prismatic Portfolio: +23.4% return, 1.52 Sharpe ratio</span></span>
-<span class="giallo-l"><span>├─ S&amp;P 500 Benchmark: +12.1% return, 0.89 Sharpe ratio</span></span>
-<span class="giallo-l"><span>├─ Technology Index: +18.7% return, 1.21 Sharpe ratio</span></span>
-<span class="giallo-l"><span>├─ Industry Average: +10.5% return, 0.76 Sharpe ratio</span></span>
-<span class="giallo-l"><span>└─ Performance Ranking: Top decile (Superior risk-adjusted performance)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Strategic Impact Assessment:</span></span>
-<span class="giallo-l"><span>├─ Market Share Growth: +15% (Technology leadership translated to market success)</span></span>
-<span class="giallo-l"><span>├─ Revenue Growth Acceleration: +22% (vs +12% without optimization)</span></span>
-<span class="giallo-l"><span>├─ Profit Margin Expansion: +3.8% (Operational efficiency and pricing power)</span></span>
-<span class="giallo-l"><span>├─ Customer Acquisition: +35% (Enhanced value proposition and capabilities)</span></span>
-<span class="giallo-l"><span>└─ Competitive Moat: Sustainable 3-5 year technology and market advantage</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>5-Year Projected Value:</span></span>
-<span class="giallo-l"><span>├─ Portfolio Value Projection: $385M (Compound growth at 25% annually)</span></span>
-<span class="giallo-l"><span>├─ Strategic Value Accumulation: $150M (Cumulative strategic benefits)</span></span>
-<span class="giallo-l"><span>├─ Total Investment Return: 4,450% (5-year cumulative ROI)</span></span>
-<span class="giallo-l"><span>├─ Annual Value Creation: $95M average (Sustainable competitive advantage)</span></span>
-<span class="giallo-l"><span>└─ Market Leadership: Industry-leading position in autonomous intelligence</span></span></code></pre>
+<table><thead><tr><th>Portfolio Capital</th><th style="text-align: right">Amount</th></tr></thead><tbody>
+<tr><td>Initial Portfolio Value</td><td style="text-align: right">$105M</td></tr>
+<tr><td>Additional Investments</td><td style="text-align: right">$15M</td></tr>
+<tr><td><strong>Total Invested Capital</strong></td><td style="text-align: right"><strong>$120M</strong></td></tr>
+<tr><td>Current Portfolio Value</td><td style="text-align: right">$148.1M</td></tr>
+<tr><td>Unrealized Gains</td><td style="text-align: right">$28.1M</td></tr>
+<tr><td><strong>Net Portfolio Return</strong></td><td style="text-align: right"><strong>+23.4%</strong></td></tr>
+</tbody></table>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Value Creation Breakdown — $118.1M total (985% ROI on $120M)</span></span>
+<span class="giallo-l"><span>  &quot;Strategic Value ($45M)&quot; : 45</span></span>
+<span class="giallo-l"><span>  &quot;Capital Appreciation ($28.1M)&quot; : 28.1</span></span>
+<span class="giallo-l"><span>  &quot;Competitive Advantage ($25M)&quot; : 25</span></span>
+<span class="giallo-l"><span>  &quot;Operational Benefits ($12M)&quot; : 12</span></span>
+<span class="giallo-l"><span>  &quot;Risk Mitigation ($8M)&quot; : 8</span></span></code></pre>
+<p><strong>Benchmark Comparison</strong> (Top-decile performance):</p>
+<table><thead><tr><th>Index</th><th style="text-align: right">Return</th><th style="text-align: right">Sharpe</th></tr></thead><tbody>
+<tr><td><strong>Prismatic Portfolio</strong></td><td style="text-align: right"><strong>+23.4%</strong></td><td style="text-align: right"><strong>1.52</strong></td></tr>
+<tr><td>Technology Index</td><td style="text-align: right">+18.7%</td><td style="text-align: right">1.21</td></tr>
+<tr><td>S&amp;P 500</td><td style="text-align: right">+12.1%</td><td style="text-align: right">0.89</td></tr>
+<tr><td>Industry Avg</td><td style="text-align: right">+10.5%</td><td style="text-align: right">0.76</td></tr>
+</tbody></table>
+<p><strong>Strategic Impact</strong>: Market share +15% · Revenue growth +22% (vs +12% without opt.) · Profit margin +3.8% · Customer acquisition +35% · Sustainable 3–5 year technology + market moat.</p>
+<p><strong>5-Year Projected Value</strong>:</p>
+<table><thead><tr><th>Projection</th><th style="text-align: right">5-Year Outlook</th></tr></thead><tbody>
+<tr><td>Portfolio Value</td><td style="text-align: right"><strong>$385M</strong> (compound 25% p.a.)</td></tr>
+<tr><td>Strategic Value</td><td style="text-align: right"><strong>+$150M</strong> (cumulative benefits)</td></tr>
+<tr><td>Total Investment Return</td><td style="text-align: right"><strong>4,450%</strong> (5y cumulative ROI)</td></tr>
+<tr><td>Annual Value Creation</td><td style="text-align: right"><strong>$95M avg</strong> (sustainable advantage)</td></tr>
+<tr><td>Market Position</td><td style="text-align: right"><strong>Industry leader</strong> in autonomous intelligence</td></tr>
+</tbody></table>
 <hr />
 <h2 id="conclusion">Conclusion</h2>
 <p>The Prismatic Platform Investment Portfolio Optimization delivers exceptional risk-adjusted returns through AI-powered asset allocation, real-time market intelligence, and strategic portfolio management. The +23.4% annual return with superior risk control demonstrates the value of intelligent investment optimization for competitive advantage.</p>

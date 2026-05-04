@@ -8,9 +8,9 @@
     <title>Platform Hub - Prismatic Platform</title>
 
     
-<meta name="description" content="Interactive dashboards, tools, and real-time analytics. Access the full Prismatic Platform.">
+<meta name="description" content="Interactive dashboards, tools, and real-time analytics. Access the full Prismatic Platform with live agent registry, OSINT toolbox, due diligence workspace, perimeter security, and analytics.">
 <meta property="og:title" content="Platform Hub - Prismatic Platform">
-<meta property="og:description" content="Interactive dashboards, tools, and real-time analytics. Access the full Prismatic Platform.">
+<meta property="og:description" content="Interactive dashboards, tools, and real-time analytics. Access the full Prismatic Platform with live agent registry, OSINT toolbox, due diligence workspace, perimeter security, and analytics.">
 
 
     
@@ -127,7 +127,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -143,7 +143,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -459,7 +463,7 @@
             <h1 class="text-4xl lg:text-6xl font-black text-white mb-6 tracking-tight">
                 Prismatic Platform Hub
             </h1>
-            <p class="text-lg text-gray-400 max-w-3xl leading-relaxed">Interactive dashboards, tools, and real-time analytics. Access the full Prismatic Platform.</p>
+            <p class="text-lg text-gray-400 max-w-3xl leading-relaxed">Interactive dashboards, tools, and real-time analytics. Access the full Prismatic Platform with live agent registry, OSINT toolbox, due diligence workspace, perimeter security, and analytics.</p>
         </div>
     </div>
 </section>
@@ -472,83 +476,61 @@
             <div class="lg:col-span-3">
                 <div class="prose prose-invert prose-lg max-w-none text-gray-300 leading-relaxed prose-a:text-emerald-400 prose-a:font-semibold hover:prose-a:text-emerald-300">
                     <h1 id="prismatic-platform-hub">Prismatic Platform Hub</h1>
-<p>The <strong>Prismatic Platform Hub</strong> provides interactive dashboards, real-time analytics, and live tools for intelligence gathering, due diligence, and system management.</p>
-<h2 id="rocket-interactive-platform-access">🚀 Interactive Platform Access</h2>
-<p>The hub features live on the <strong>Prismatic Platform</strong> (not this static documentation site):</p>
-<h3 id="dart-agent-registry"><strong>🎯 Agent Registry</strong></h3>
-<p><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/agents/">→ Agent Hub</a></strong>
-Platform path: <code>/hub/agents</code></p>
-<ul>
-<li>530+ AIAD agents with live status</li>
-<li>Interactive filtering and search</li>
-<li>Real-time agent deployment monitoring</li>
-<li>Command execution tracking</li>
-</ul>
-<h3 id="mag-osint-toolbox"><strong>🔍 OSINT Toolbox</strong></h3>
-<p><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/osint/">→ OSINT Hub</a></strong>
-Platform path: <code>/hub/osint/toolbox</code></p>
-<ul>
-<li>120+ OSINT adapters with live data</li>
-<li>Multi-source intelligence gathering</li>
-<li>Czech legal sources integration</li>
-<li>Breach database correlation</li>
-</ul>
-<h3 id="bar-chart-analytics-dashboard"><strong>📊 Analytics Dashboard</strong></h3>
-<p><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/#platform-access">→ Analytics Hub</a></strong>
-Platform path: <code>/dashboard</code></p>
-<ul>
-<li>Real-time BI metrics with Chart.js</li>
-<li>System performance monitoring</li>
-<li>Operations per second tracking</li>
-<li>Health overview with live updates</li>
-</ul>
-<h3 id="scales-due-diligence-platform"><strong>⚖️ Due Diligence Platform</strong></h3>
-<p><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/#platform-access">→ DD Hub</a></strong>
-Platform path: <code>/hub/dd</code></p>
-<ul>
-<li>Interactive investigation workspace</li>
-<li>Entity relationship mapping</li>
-<li>Multi-source data correlation</li>
-<li>Investigation case management</li>
-</ul>
-<h3 id="shield-perimeter-management"><strong>🛡️ Perimeter Management</strong></h3>
-<p><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/#platform-access">→ EASM Hub</a></strong>
-Platform path: <code>/perimeter</code></p>
-<ul>
-<li>External attack surface monitoring</li>
-<li>Security ratings (A-F grades)</li>
-<li>Asset discovery and tracking</li>
-<li>NIS2/ZKB compliance dashboards</li>
-</ul>
+<p>The <strong>Prismatic Platform Hub</strong> is the interactive command center for intelligence gathering, due diligence orchestration, attack-surface management, and real-time platform observability. While the documentation site you are reading describes capabilities, methodology, and reference material, the Hub is where those capabilities run live — connected to external data sources, agent supervisors, telemetry pipelines, and Phoenix LiveView dashboards that update in real time over WebSockets.</p>
+<h2 id="what-the-hub-is-and-is-not">What the Hub Is — and Is Not</h2>
+<p>The Hub is a Phoenix LiveView application supervised by OTP, with Broadway pipelines for ingestion, GenServer-backed agent processes, ETS caches, and Telemetry-driven dashboards. Each Hub section is a separate liveview mount that streams data from the underlying platform: ARES queries hit <code>live</code> Czech business registries, OSINT adapters call external APIs, and the agent registry reflects the current supervisor tree state. None of this data is static — refresh a Hub page and you may see different numbers because the platform itself moved.</p>
+<p>The static documentation you are on (this Zola-generated site) complements the Hub by providing reference material that does not need to be live: agent specifications, OSINT source descriptions, methodology guides, glossary definitions, and architecture decisions. Both surfaces are intentional — different audiences, different update cadences, different rendering models.</p>
+<h2 id="rocket-five-interactive-surfaces">🚀 Five Interactive Surfaces</h2>
+<h3 id="dart-agent-registry-hub-agents">🎯 Agent Registry — <code>/hub/agents</code></h3>
+<p><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/agents/">→ Agent Hub</a></strong> · Static docs: <strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/agents/">Agent Documentation</a></strong></p>
+<p>Live access to the platform's complete agent ecosystem — 552 specialized AIAD (AI-Assisted Development) agents organized across 16 operational domains. The Hub view exposes runtime state that the static documentation cannot: which agents are currently <code>:active</code>, <code>:idle</code>, or <code>:busy</code>, how many requests they have processed in the last hour, their recent latency distribution, and which commands they are mapped to. Operators use this surface to deploy agent commands, inspect command queues, and triage stuck workers.</p>
+<p>The registry is backed by Phoenix PubSub, so every state change propagates to all connected operators within milliseconds. Agent deployment uses OTP supervision — when an agent crashes, the supervisor restarts it according to its restart strategy (<code>:permanent</code>, <code>:temporary</code>, or <code>:transient</code>), and the Hub UI reflects the restart count.</p>
+<h3 id="mag-osint-toolbox-hub-osint-toolbox">🔍 OSINT Toolbox — <code>/hub/osint/toolbox</code></h3>
+<p><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/osint/">→ OSINT Hub</a></strong> · Static docs: <strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/osint/">OSINT Reference</a></strong></p>
+<p>123+ self-registering OSINT adapters organized by jurisdiction (Czech, EU, UK, US, global) and data category (business registries, threat intelligence, sanctions lists, breach databases, infrastructure scanners). Each adapter is a module implementing a common <code>Prismatic.OSINT.Adapter</code> behaviour, with rate-limit awareness, circuit-breaker protection, and Telemetry instrumentation.</p>
+<p>Operators query a single source or fan out across multiple — for example, identifying a Czech subject by combining ARES (business registry), Justice (court records), ISIR (insolvency), and Sanctions (EU/OFAC) lookups in one investigation. Results are correlated by entity identifiers and exported as JSON, CSV, or evidence-chained PDF reports for due-diligence dossiers.</p>
+<h3 id="bar-chart-analytics-dashboard-dashboard">📊 Analytics Dashboard — <code>/dashboard</code></h3>
+<p><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/analytics/">→ Analytics Hub</a></strong> · Static docs: <strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/technologies/">Technology Stack</a></strong></p>
+<p>Real-time business intelligence and operational telemetry. Chart.js renders rolling-window metrics (operations per second, p50/p95/p99 latency, error rates, queue depth) updated via LiveView pushes. The dashboard surfaces both platform-internal metrics (BEAM scheduler utilization, ETS table sizes, process counts, mailbox depth) and business-level metrics (investigations opened, OSINT queries dispatched, agent hours consumed).</p>
+<p>Threshold alerts trigger via the OrchestrationHealth pattern tracker; when error rate exceeds <code>:high_error_rate</code> (10+ errors in 5 minutes), the dashboard highlights the affected subsystem and suggests stabilization actions.</p>
+<h3 id="scales-due-diligence-workspace-hub-dd">⚖️ Due Diligence Workspace — <code>/hub/dd</code></h3>
+<p><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/#platform-access">→ DD Hub</a></strong> · Static docs: <strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/dd/">DD Methodology</a></strong></p>
+<p>The investigation workspace for pre-LOI Czech M&amp;A and broader due-diligence work. Each case is a supervised process tree with its own evidence ledger, entity graph, OSINT query history, and report template. Investigators add subjects, run multi-source OSINT sweeps, link findings to evidence files, and generate compliant reports — all within a single workspace persisted to PostgreSQL with audit-trail rows for every operation.</p>
+<h3 id="shield-perimeter-management-easm-perimeter">🛡️ Perimeter Management (EASM) — <code>/perimeter</code></h3>
+<p><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/#platform-access">→ EASM Hub</a></strong> · Static docs: <strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/capabilities/">Capabilities</a></strong></p>
+<p>External Attack Surface Management for Czech critical-infrastructure operators (CER/NIS2 scope) and commercial customers. Continuous discovery of internet-facing assets via Censys/Shodan/SSLMate Cert Spotter, security ratings on an A–F scale, vulnerability triage, and NIS2/ZKB compliance dashboards aligned with the Czech ZKB legal framework.</p>
 <h2 id="books-static-documentation-this-site">📚 Static Documentation (This Site)</h2>
-<p>For reference material and documentation, explore these sections on this site:</p>
+<p>For reference material and documentation that does not need to be live, explore these sections on this site:</p>
 <ul>
-<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/agents/">Agents Documentation</a></strong> - Static agent specifications and guides</li>
-<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/osint/">OSINT Reference</a></strong> - OSINT methodology and source catalog</li>
-<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/dd/">DD Methodology</a></strong> - Due diligence process documentation</li>
-<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/technologies/">Technology Stack</a></strong> - Platform architecture details</li>
-<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/">Glossary</a></strong> - 1,840+ technical terms and definitions</li>
+<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/agents/">Agents Documentation</a></strong> — 552 agent specifications, command coverage, domain classification</li>
+<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/osint/">OSINT Reference</a></strong> — methodology and source catalog (123+ adapters)</li>
+<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/dd/">DD Methodology</a></strong> — pre-LOI Czech due-diligence process documentation</li>
+<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/technologies/">Technology Stack</a></strong> — Elixir/OTP/Phoenix architecture details</li>
+<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/">Glossary</a></strong> — 1,292+ technical terms with cross-reference network</li>
+<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/academy/">Academy</a></strong> — interactive learning paths and onboarding</li>
+<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/">Kompendium</a></strong> — operational doctrine and methodology</li>
 </ul>
 <h2 id="arrows-counterclockwise-architecture-overview">🔄 Architecture Overview</h2>
-<table><thead><tr><th><strong>Interactive Platform</strong></th><th><strong>Static Documentation</strong></th></tr></thead><tbody>
-<tr><td><strong>Live data &amp; tools</strong></td><td><strong>Reference materials</strong></td></tr>
-<tr><td>Phoenix LiveView + WebSockets</td><td>Zola static site generator</td></tr>
-<tr><td>Platform endpoint + <code>/hub/*</code> paths</td><td>Promo site root paths</td></tr>
-<tr><td>Real-time dashboards</td><td>Read-only documentation</td></tr>
+<table><thead><tr><th>Surface</th><th>Interactive Hub</th><th>Static Documentation</th></tr></thead><tbody>
+<tr><td><strong>Data freshness</strong></td><td>Live (WebSocket-pushed)</td><td>Build-time (Zola regeneration)</td></tr>
+<tr><td><strong>Stack</strong></td><td>Phoenix LiveView + OTP + Broadway</td><td>Zola SSG + Tailwind CSS + Alpine.js</td></tr>
+<tr><td><strong>URL pattern</strong></td><td><code>/hub/*</code>, <code>/dashboard</code>, <code>/perimeter</code></td><td>Promo site root paths</td></tr>
+<tr><td><strong>Update cadence</strong></td><td>Continuous</td><td>Per commit</td></tr>
+<tr><td><strong>Audience</strong></td><td>Operators, investigators, oncall</td><td>Engineers, analysts, partners</td></tr>
+<tr><td><strong>Auth model</strong></td><td>Authenticated session</td><td>Public (no auth)</td></tr>
 </tbody></table>
 <h2 id="platform-access">🚀 Platform Access</h2>
-<p>Access the interactive platform through your configured endpoint:</p>
-<p><strong>Platform Base URL</strong> + <strong>Hub Path</strong></p>
+<p>The interactive Hub runs as part of the Prismatic Platform deployment. Access depends on your environment configuration:</p>
 <ul>
-<li>Agent Registry: <code>{platform}/hub/agents</code></li>
-<li>OSINT Toolbox: <code>{platform}/hub/osint/toolbox</code></li>
-<li>Analytics Dashboard: <code>{platform}/dashboard</code></li>
-<li>DD Platform: <code>{platform}/hub/dd</code></li>
-<li>EASM Management: <code>{platform}/perimeter</code></li>
+<li><strong>Agent Registry</strong>: <code>{platform}/hub/agents</code></li>
+<li><strong>OSINT Toolbox</strong>: <code>{platform}/hub/osint/toolbox</code></li>
+<li><strong>Analytics Dashboard</strong>: <code>{platform}/dashboard</code></li>
+<li><strong>DD Workspace</strong>: <code>{platform}/hub/dd</code></li>
+<li><strong>EASM (Perimeter)</strong>: <code>{platform}/perimeter</code></li>
 </ul>
-<p><strong>Configuration</strong>: Platform access is configured through your deployment settings and authentication system.</p>
+<p>Configuration of the platform endpoint, authentication, and per-user authorization (agent levels L1–L5, OSINT category access, DD case ACLs) is handled by your deployment's configuration. See <strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/faq/">FAQ</a></strong> for setup questions or contact <strong><a href="mailto:korczis@gmail.com">support</a></strong>.</p>
 <hr />
-<p><strong>Need help?</strong> Check our <strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/faq/">FAQ</a></strong> or contact <strong><a href="mailto:korczis@gmail.com">support</a></strong>.</p>
+<p><strong>See also</strong>: <strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/agents/">Agent Hub</a></strong> · <strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/osint/">OSINT Hub</a></strong> · <strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/hub/analytics/">Analytics Hub</a></strong> · <strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/">Glossary</a></strong></p>
 
                 </div>
             </div>

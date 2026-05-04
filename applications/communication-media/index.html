@@ -179,7 +179,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -195,7 +195,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -837,10 +841,10 @@
                     </div>
                 </div>
 
-                <!-- Card Grid -->
-                <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Card Grid (mobile-first: 1 col → 2 → 3) -->
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     <template x-for="item in filteredItems" :key="item.title">
-                        <a :href="item.url" class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-xl hover:border-amber-500/30 transition-all duration-300 hover:-translate-y-1">
+                        <a :href="item.url" class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-xl hover:border-amber-500/30 focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none transition-all duration-300 hover:-translate-y-1 min-w-0">
                             <div class="flex items-center gap-3 mb-3">
                                 <div class="w-10 h-10 rounded-lg bg-gray-700 flex items-center justify-center text-white flex-shrink-0">
                                     <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1099,21 +1103,21 @@
                                 </a>
                                 
                                 
-                                <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;applications&#x2F;experimental-labs-ui-demonstrations&#x2F;" class="flex items-center justify-between gap-2 px-3 py-1.5 text-xs rounded-lg transition-colors text-gray-300 hover:text-white hover:bg-gray-700/50">
-                                    <span class="truncate flex items-center gap-2 min-w-0">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500/50 flex-shrink-0"></span>
-                                        <span class="truncate">Experimental Labs &amp; UI Demonstrations -- Interactive Frameworks for Agent Visualization, LiveView Prototyping, and Real-Time Debugging Interfaces</span>
-                                    </span>
-                                    <span class="flex-shrink-0 px-1.5 py-0.5 text-xs rounded bg-white/5 tabular-nums">25</span>
-                                </a>
-                                
-                                
                                 <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;applications&#x2F;developer-tooling-runtime&#x2F;" class="flex items-center justify-between gap-2 px-3 py-1.5 text-xs rounded-lg transition-colors text-gray-300 hover:text-white hover:bg-gray-700/50">
                                     <span class="truncate flex items-center gap-2 min-w-0">
                                         <span class="w-1.5 h-1.5 rounded-full bg-amber-500/50 flex-shrink-0"></span>
                                         <span class="truncate">Developer Tooling &amp; Runtime — Advanced Development Infrastructure for Multi-Agent Platform Engineering</span>
                                     </span>
                                     <span class="flex-shrink-0 px-1.5 py-0.5 text-xs rounded bg-white/5 tabular-nums">26</span>
+                                </a>
+                                
+                                
+                                <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;applications&#x2F;experimental-labs-ui-demonstrations&#x2F;" class="flex items-center justify-between gap-2 px-3 py-1.5 text-xs rounded-lg transition-colors text-gray-300 hover:text-white hover:bg-gray-700/50">
+                                    <span class="truncate flex items-center gap-2 min-w-0">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-500/50 flex-shrink-0"></span>
+                                        <span class="truncate">Experimental Labs &amp; UI Demonstrations -- Interactive Frameworks for Agent Visualization, LiveView Prototyping, and Real-Time Debugging Interfaces</span>
+                                    </span>
+                                    <span class="flex-shrink-0 px-1.5 py-0.5 text-xs rounded bg-white/5 tabular-nums">25</span>
                                 </a>
                                 
                                 
@@ -1352,7 +1356,7 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
 <!-- Back to Applications -->
 <section class="bg-gray-800 py-8 border-t border-gray-700">
     <div class="max-w-screen-xl px-4 mx-auto">
-        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/applications/" class="inline-flex items-center px-6 py-3 text-sm font-semibold text-gray-950 bg-white rounded-xl focus:ring-4 focus:ring-amber-500/40 focus:outline-none transition-all shadow-lg hover:shadow-xl hover:bg-amber-50">
+        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/applications/" class="inline-flex items-center px-6 py-3 text-sm font-semibold text-gray-950 bg-white rounded-xl focus-visible:ring-4 focus-visible:ring-amber-500/40 focus-visible:outline-none transition-all shadow-lg hover:shadow-xl hover:bg-amber-50">
             <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
             </svg>

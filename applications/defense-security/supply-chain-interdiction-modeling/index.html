@@ -229,7 +229,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -245,7 +245,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -578,9 +582,9 @@
                         </div>
                     </div>
                     <div class="flex-grow min-w-0">
-                        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-white mb-3 break-words min-w-0">Supply chain interdiction modeling</h1>
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white mb-3 break-words min-w-0">Supply chain interdiction modeling</h1>
                         
-                        <p class="text-base sm:text-lg text-gray-400 leading-relaxed">Supply chain interdiction modeling — An academic treatment of defense systems and security operations within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation.</p>
+                        <p class="text-base sm:text-lg text-gray-300 leading-relaxed break-words min-w-0">Supply chain interdiction modeling — An academic treatment of defense systems and security operations within the Prismatic Platform ecosystem, covering theoretical foundations, system architecture, implementation methodology, and empirical evaluation.</p>
                         
                     </div>
                 </div>
@@ -611,6 +615,7 @@
         this.$nextTick(function() { self.initChart(); });
     },
     initChart() {
+        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
         var self = this;
         var ctx = this.$refs.threatCanvas.getContext('2d');
         this.chart = new Chart(ctx, {
@@ -687,7 +692,7 @@
 <!-- Content Section -->
 <section class="bg-gray-900 py-12 lg:py-16">
     <div class="max-w-screen-xl px-4 mx-auto">
-        <div class="grid gap-8 lg:grid-cols-3">
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
             <!-- Main Content -->
             <div class="lg:col-span-2">
                 <article class="prose prose-lg prose-invert max-w-none
@@ -1985,7 +1990,7 @@
                         
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;elixir&#x2F;" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-700 text-amber-400 rounded-lg border border-white/10 hover:bg-amber-900/40 hover:border-amber-500 focus:ring-2 focus:ring-amber-500/40 focus:outline-none transition-all break-words min-w-0">
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;elixir&#x2F;" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-700 text-amber-400 rounded-lg border border-white/10 hover:bg-amber-900/40 hover:border-amber-500 focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none transition-all break-words min-w-0">
                             <svg aria-hidden="true" class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
                             <span class="break-words min-w-0">Elixir</span>
                         </a>
@@ -5403,7 +5408,7 @@
                         
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;otp&#x2F;" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-700 text-amber-400 rounded-lg border border-white/10 hover:bg-amber-900/40 hover:border-amber-500 focus:ring-2 focus:ring-amber-500/40 focus:outline-none transition-all break-words min-w-0">
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;otp&#x2F;" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-700 text-amber-400 rounded-lg border border-white/10 hover:bg-amber-900/40 hover:border-amber-500 focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none transition-all break-words min-w-0">
                             <svg aria-hidden="true" class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
                             <span class="break-words min-w-0">OTP</span>
                         </a>
@@ -7409,7 +7414,7 @@
                         
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;genserver&#x2F;" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-700 text-amber-400 rounded-lg border border-white/10 hover:bg-amber-900/40 hover:border-amber-500 focus:ring-2 focus:ring-amber-500/40 focus:outline-none transition-all break-words min-w-0">
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;genserver&#x2F;" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-700 text-amber-400 rounded-lg border border-white/10 hover:bg-amber-900/40 hover:border-amber-500 focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none transition-all break-words min-w-0">
                             <svg aria-hidden="true" class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
                             <span class="break-words min-w-0">GenServer</span>
                         </a>
@@ -10335,7 +10340,7 @@
                         
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;liveview&#x2F;" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-700 text-amber-400 rounded-lg border border-white/10 hover:bg-amber-900/40 hover:border-amber-500 focus:ring-2 focus:ring-amber-500/40 focus:outline-none transition-all break-words min-w-0">
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;liveview&#x2F;" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-700 text-amber-400 rounded-lg border border-white/10 hover:bg-amber-900/40 hover:border-amber-500 focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none transition-all break-words min-w-0">
                             <svg aria-hidden="true" class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
                             <span class="break-words min-w-0">LiveView</span>
                         </a>
@@ -12459,7 +12464,7 @@
                         
                         
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;ets&#x2F;" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-700 text-amber-400 rounded-lg border border-white/10 hover:bg-amber-900/40 hover:border-amber-500 focus:ring-2 focus:ring-amber-500/40 focus:outline-none transition-all break-words min-w-0">
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;glossary&#x2F;ets&#x2F;" class="inline-flex items-center gap-1.5 px-3 py-1.5 text-sm font-medium bg-gray-700 text-amber-400 rounded-lg border border-white/10 hover:bg-amber-900/40 hover:border-amber-500 focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none transition-all break-words min-w-0">
                             <svg aria-hidden="true" class="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
                             <span class="break-words min-w-0">ETS</span>
                         </a>
@@ -14296,7 +14301,7 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
 
         <!-- Back Button -->
         <div class="mt-8 pt-8 border-t border-gray-700">
-            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/applications/" class="inline-flex items-center px-6 py-3 text-sm font-semibold text-gray-950 bg-white rounded-xl focus:ring-4 focus:ring-amber-500/40 focus:outline-none transition-all shadow-lg hover:shadow-xl hover:bg-amber-50">
+            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/applications/" class="inline-flex items-center px-6 py-3 text-sm font-semibold text-gray-950 bg-white rounded-xl focus-visible:ring-4 focus-visible:ring-amber-500/40 focus-visible:outline-none transition-all shadow-lg hover:shadow-xl hover:bg-amber-50">
                 <svg aria-hidden="true" class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                 </svg>
@@ -14305,8 +14310,6 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         </div>
     </div>
 </section>
-<!-- Chart.js for interactive visualizations -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script id="section-nav-data" type="application/json">
 [
     

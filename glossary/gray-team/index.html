@@ -248,7 +248,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -264,7 +264,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -664,53 +668,26 @@
 <p>The L3/L4 authority levels are significant. The commander (L3) has strategic decision-making authority for campaign planning and finding routing, while the specialists (L4) have focused execution authority within their domains. The escalation guard's L4 safety-critical designation gives it override authority over both the commander and the edge finder, ensuring that safety constraints cannot be circumvented by command authority.</p>
 <h3 id="exploration-methodology">Exploration Methodology</h3>
 <p>Gray Team exploration follows a structured five-phase methodology:</p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Phase 1: Target Selection</span></span>
-<span class="giallo-l"><span>┌──────────────────────┐</span></span>
-<span class="giallo-l"><span>│ Identify exploration  │</span></span>
-<span class="giallo-l"><span>│ targets from:         │</span></span>
-<span class="giallo-l"><span>│ - API boundaries      │</span></span>
-<span class="giallo-l"><span>│ - Type interfaces     │</span></span>
-<span class="giallo-l"><span>│ - Configuration edges │</span></span>
-<span class="giallo-l"><span>│ - Dependency surfaces │</span></span>
-<span class="giallo-l"><span>└──────────┬───────────┘</span></span>
-<span class="giallo-l"><span>           │</span></span>
-<span class="giallo-l"><span>Phase 2: Specification Analysis</span></span>
-<span class="giallo-l"><span>┌──────────┴───────────┐</span></span>
-<span class="giallo-l"><span>│ Compare implemented   │</span></span>
-<span class="giallo-l"><span>│ behavior against:     │</span></span>
-<span class="giallo-l"><span>│ - @spec declarations  │</span></span>
-<span class="giallo-l"><span>│ - @doc descriptions   │</span></span>
-<span class="giallo-l"><span>│ - @moduledoc purpose  │</span></span>
-<span class="giallo-l"><span>│ - Test assertions     │</span></span>
-<span class="giallo-l"><span>└──────────┬───────────┘</span></span>
-<span class="giallo-l"><span>           │</span></span>
-<span class="giallo-l"><span>Phase 3: Gap Discovery</span></span>
-<span class="giallo-l"><span>┌──────────┴───────────┐</span></span>
-<span class="giallo-l"><span>│ Identify:             │</span></span>
-<span class="giallo-l"><span>│ - Unspecified inputs  │</span></span>
-<span class="giallo-l"><span>│ - Ambiguous behaviors │</span></span>
-<span class="giallo-l"><span>│ - Missing error cases │</span></span>
-<span class="giallo-l"><span>│ - Implicit assumptions│</span></span>
-<span class="giallo-l"><span>└──────────┬───────────┘</span></span>
-<span class="giallo-l"><span>           │</span></span>
-<span class="giallo-l"><span>Phase 4: Affordance Mapping</span></span>
-<span class="giallo-l"><span>┌──────────┴───────────┐</span></span>
-<span class="giallo-l"><span>│ Map capabilities that │</span></span>
-<span class="giallo-l"><span>│ exist in code but not │</span></span>
-<span class="giallo-l"><span>│ in specification:     │</span></span>
-<span class="giallo-l"><span>│ - Unintended features │</span></span>
-<span class="giallo-l"><span>│ - Emergent behaviors  │</span></span>
-<span class="giallo-l"><span>│ - Side-channel access │</span></span>
-<span class="giallo-l"><span>└──────────┬───────────┘</span></span>
-<span class="giallo-l"><span>           │</span></span>
-<span class="giallo-l"><span>Phase 5: Finding Emission</span></span>
-<span class="giallo-l"><span>┌──────────┴───────────┐</span></span>
-<span class="giallo-l"><span>│ Emit structured       │</span></span>
-<span class="giallo-l"><span>│ findings to:          │</span></span>
-<span class="giallo-l"><span>│ → Red Team (seeds)    │</span></span>
-<span class="giallo-l"><span>│ → Blue Team (intel)   │</span></span>
-<span class="giallo-l"><span>│ → Purple (synthesis)  │</span></span>
-<span class="giallo-l"><span>└──────────────────────┘</span></span></code></pre><h3 id="finding-structure">Finding Structure</h3>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart TD</span></span>
+<span class="giallo-l"><span>  P1[&quot;Phase 1: Target Selection&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;API boundaries · Type interfaces&lt;br/&gt;Config edges · Dependency surfaces&quot;]</span></span>
+<span class="giallo-l"><span>  P2[&quot;Phase 2: Specification Analysis&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;@spec · @doc · @moduledoc&lt;br/&gt;Test assertions&quot;]</span></span>
+<span class="giallo-l"><span>  P3[&quot;Phase 3: Gap Discovery&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;Unspecified inputs · Ambiguous&lt;br/&gt;behaviors · Missing error cases&lt;br/&gt;Implicit assumptions&quot;]</span></span>
+<span class="giallo-l"><span>  P4[&quot;Phase 4: Affordance Mapping&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;Unintended features · Emergent&lt;br/&gt;behaviors · Side-channel access&quot;]</span></span>
+<span class="giallo-l"><span>  P5[&quot;Phase 5: Finding Emission&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;Structured findings&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  P1 --&gt; P2 --&gt; P3 --&gt; P4 --&gt; P5</span></span>
+<span class="giallo-l"><span>  P5 --&gt; RED[&quot;→ Red Team&lt;br/&gt;(exploit seeds)&quot;]</span></span>
+<span class="giallo-l"><span>  P5 --&gt; BLUE[&quot;→ Blue Team&lt;br/&gt;(defense intel)&quot;]</span></span>
+<span class="giallo-l"><span>  P5 --&gt; PURPLE[&quot;→ Purple Team&lt;br/&gt;(synthesis)&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  style P1 fill:#1e3a8a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style P2 fill:#1e40af,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style P3 fill:#1d4ed8,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style P4 fill:#2563eb,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style P5 fill:#3b82f6,stroke:#60a5fa,color:#fff</span></span>
+<span class="giallo-l"><span>  style RED fill:#9f1239,stroke:#f43f5e,color:#fff</span></span>
+<span class="giallo-l"><span>  style BLUE fill:#1e40af,stroke:#60a5fa,color:#fff</span></span>
+<span class="giallo-l"><span>  style PURPLE fill:#7c3aed,stroke:#a855f7,color:#fff</span></span></code></pre><h3 id="finding-structure">Finding Structure</h3>
 <p>Gray Team findings follow a structured format that preserves ambiguity while providing actionable intelligence:</p>
 <pre class="giallo z-code"><code data-lang="elixir"><span class="giallo-l"><span class="z-keyword z-control">defmodule</span><span class="z-entity z-other z-inherited-class"> PrismaticGray</span><span>.</span><span class="z-entity z-name z-type z-class">Finding</span><span class="z-keyword z-control"> do</span></span>
 <span class="giallo-l"><span class="z-comment">  @moduledoc &quot;&quot;&quot;</span></span>
@@ -886,18 +863,19 @@
 <span class="giallo-l"><span class="z-keyword z-control">end</span></span></code></pre><h2 id="architecture-and-implementation">Architecture and Implementation</h2>
 <h3 id="signal-flow-integration">Signal Flow Integration</h3>
 <p>Gray Team operates at the entry point of the Color Team signal flow:</p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Gray Team (Boundary Seeds)</span></span>
-<span class="giallo-l"><span>    │</span></span>
-<span class="giallo-l"><span>    ├──────────────────────────&gt; Red Team (Adversarial Scenarios)</span></span>
-<span class="giallo-l"><span>    │                               │</span></span>
-<span class="giallo-l"><span>    │                               v</span></span>
-<span class="giallo-l"><span>    ├──────────────────────────&gt; Purple Team (Synthesis &amp; Closure)</span></span>
-<span class="giallo-l"><span>    │                               │</span></span>
-<span class="giallo-l"><span>    │                               v</span></span>
-<span class="giallo-l"><span>    └──────────────────────────&gt; Blue Team (Defensive Posture)</span></span>
-<span class="giallo-l"><span>                                    │</span></span>
-<span class="giallo-l"><span>                                    v</span></span>
-<span class="giallo-l"><span>                               Platform Defense</span></span></code></pre>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart LR</span></span>
+<span class="giallo-l"><span>  G[&quot;Gray Team&lt;br/&gt;(Boundary Seeds)&quot;] --&gt; R[&quot;Red Team&lt;br/&gt;(Adversarial Scenarios)&quot;]</span></span>
+<span class="giallo-l"><span>  G --&gt; P[&quot;Purple Team&lt;br/&gt;(Synthesis &amp; Closure)&quot;]</span></span>
+<span class="giallo-l"><span>  G --&gt; B[&quot;Blue Team&lt;br/&gt;(Defensive Posture)&quot;]</span></span>
+<span class="giallo-l"><span>  R --&gt; P</span></span>
+<span class="giallo-l"><span>  P --&gt; B</span></span>
+<span class="giallo-l"><span>  B --&gt; D[&quot;Platform Defense&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  style G fill:#475569,stroke:#94a3b8,color:#fff</span></span>
+<span class="giallo-l"><span>  style R fill:#9f1239,stroke:#f43f5e,color:#fff</span></span>
+<span class="giallo-l"><span>  style P fill:#7c3aed,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>  style B fill:#1e40af,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style D fill:#15803d,stroke:#22c55e,color:#fff</span></span></code></pre>
 <p>Every finding emitted by Gray Team flows into the Color Team ecosystem. The commander decides routing based on finding characteristics: specification gaps typically route to Red Team for adversarial exploitation analysis, edge cases route to Blue Team for defensive hardening, and affordance drift routes to Purple Team for synthesis and trend analysis.</p>
 <h3 id="campaign-management">Campaign Management</h3>
 <p>Gray Team organizes exploration into campaigns -- structured investigations of specific platform areas:</p>

@@ -157,7 +157,7 @@
         },
         "inLanguage": "en",
         "keywords": "M&A, Due, Diligence, Automation, Platform, Autonomous, Prismatic, Platform, Risk, Assessment, executive",
-        "wordCount": 1238
+        "wordCount": 7914
     }
     </script>
     
@@ -226,7 +226,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -242,7 +242,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -702,26 +706,75 @@
 <h2 id="2-10-specialized-due-diligence-topics">2. 10 Specialized Due Diligence Topics</h2>
 <h3 id="2-1-cybersecurity-risk-assessment">2.1 Cybersecurity Risk Assessment</h3>
 <p><strong>Comprehensive Cybersecurity Due Diligence:</strong></p>
-<p><strong>Security Posture Evaluation:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>TARGET COMPANY CYBERSECURITY ASSESSMENT</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Overall Security Grade: B+ (Score: 78/100)</span></span>
-<span class="giallo-l"><span>├─ Technical Controls: 82/100 (Above industry average)</span></span>
-<span class="giallo-l"><span>├─ Process Maturity: 76/100 (Moderate governance)</span></span>
-<span class="giallo-l"><span>├─ Compliance Status: 85/100 (Strong regulatory posture)</span></span>
-<span class="giallo-l"><span>└─ Incident History: 65/100 (2 historical breaches, well-managed)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Key Findings:</span></span>
-<span class="giallo-l"><span>├─ Strengths: Strong technical infrastructure, automated monitoring</span></span>
-<span class="giallo-l"><span>├─ Weaknesses: Limited security awareness training, patch management</span></span>
-<span class="giallo-l"><span>├─ Opportunities: Integration with acquirer&#39;s security platform</span></span>
-<span class="giallo-l"><span>└─ Threats: Industry-specific threat landscape, regulatory changes</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Financial Impact Analysis:</span></span>
-<span class="giallo-l"><span>├─ Current Risk Exposure: $3.2M annually</span></span>
-<span class="giallo-l"><span>├─ Post-Acquisition Risk: $1.8M (with integration)</span></span>
-<span class="giallo-l"><span>├─ Integration Costs: $1.2M (12-month timeline)</span></span>
-<span class="giallo-l"><span>└─ ROI of Integration: 187% (3-year horizon)</span></span></code></pre>
+<p><strong>Security Posture Evaluation — Target Company:</strong></p>
+<div class="rounded-xl border border-blue-500/40 bg-gray-900 p-6 my-6 shadow-xl">
+  <div class="flex items-center justify-between mb-4 pb-3 border-b border-gray-800">
+    <div>
+      <h3 class="text-lg font-bold text-white">Cybersecurity Assessment</h3>
+      <p class="text-xs text-gray-400 mt-1">Overall grade · weighted composite</p>
+    </div>
+    <div class="text-right">
+      <div class="text-3xl font-bold text-emerald-300 font-mono leading-none">B+ · 78</div>
+      <div class="text-xs text-gray-400 mt-1">/ 100 score</div>
+    </div>
+  </div>
+  <div class="space-y-3">
+    <div>
+      <div class="flex justify-between text-sm text-gray-200 mb-1"><span>Technical controls</span><span class="font-mono">82</span></div>
+      <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-emerald-500 h-2 rounded-full" style="width: 82%"></div></div>
+    </div>
+    <div>
+      <div class="flex justify-between text-sm text-gray-200 mb-1"><span>Process maturity</span><span class="font-mono">76</span></div>
+      <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-blue-500 h-2 rounded-full" style="width: 76%"></div></div>
+    </div>
+    <div>
+      <div class="flex justify-between text-sm text-gray-200 mb-1"><span>Compliance status</span><span class="font-mono">85</span></div>
+      <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-emerald-500 h-2 rounded-full" style="width: 85%"></div></div>
+    </div>
+    <div>
+      <div class="flex justify-between text-sm text-gray-200 mb-1"><span>Incident history</span><span class="font-mono">65</span></div>
+      <div class="w-full bg-gray-800 rounded-full h-2"><div class="bg-amber-500 h-2 rounded-full" style="width: 65%"></div></div>
+    </div>
+  </div>
+</div>
+<p><strong>SWOT (cyber lens):</strong></p>
+<div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Strengths</h4>
+    <p class="text-sm text-gray-200">Strong technical infrastructure · automated monitoring</p>
+  </div>
+  <div class="rounded-xl border border-amber-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-amber-300 uppercase tracking-wider mb-3">Weaknesses</h4>
+    <p class="text-sm text-gray-200">Limited security-awareness training · patch management gaps</p>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-blue-300 uppercase tracking-wider mb-3">Opportunities</h4>
+    <p class="text-sm text-gray-200">Integration with acquirer's security platform</p>
+  </div>
+  <div class="rounded-xl border border-red-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-red-300 uppercase tracking-wider mb-3">Threats</h4>
+    <p class="text-sm text-gray-200">Industry-specific threat landscape · regulatory changes</p>
+  </div>
+</div>
+<p><strong>Financial impact (annual run-rate):</strong></p>
+<div class="grid gap-4 lg:grid-cols-4 my-6">
+  <div class="rounded-lg border border-red-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-red-300 mb-2">Current risk</div>
+    <div class="text-2xl font-bold text-white font-mono">$3.2M</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Post-integration</div>
+    <div class="text-2xl font-bold text-white font-mono">$1.8M</div>
+  </div>
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Integration cost</div>
+    <div class="text-2xl font-bold text-white font-mono">$1.2M</div>
+  </div>
+  <div class="rounded-lg border border-purple-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-purple-300 mb-2">3-yr ROI</div>
+    <div class="text-2xl font-bold text-white font-mono">187%</div>
+  </div>
+</div>
 <p><strong>Threat Intelligence Analysis:</strong></p>
 <ul>
 <li><strong>Historical Incident Review</strong>: Breach history, response effectiveness, lessons learned</li>
@@ -731,132 +784,244 @@
 </ul>
 <h3 id="2-2-financial-intelligence-credit-risk">2.2 Financial Intelligence &amp; Credit Risk</h3>
 <p><strong>Autonomous Financial Analysis:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>FINANCIAL INTELLIGENCE ASSESSMENT</span></span>
+<div class="rounded-xl border border-emerald-500/40 bg-gray-900 p-6 my-6 shadow-xl">
+  <div class="flex items-center justify-between mb-4 pb-3 border-b border-gray-800">
+    <div>
+      <h3 class="text-lg font-bold text-white">Financial Intelligence Assessment</h3>
+      <p class="text-xs text-gray-400 mt-1">Credit rating · YoY uplift</p>
+    </div>
+    <div class="text-right">
+      <div class="text-3xl font-bold text-emerald-300 font-mono leading-none">A-</div>
+      <div class="text-xs text-gray-400 mt-1">↑ from B+ (2024)</div>
+    </div>
+  </div>
+  <div class="grid gap-4 lg:grid-cols-2">
+    <div>
+      <h4 class="text-xs font-semibold text-emerald-300 uppercase tracking-wider mb-3">Strengths</h4>
+      <ul class="space-y-1.5 text-sm text-gray-200">
+        <li>Strong cash flow · moderate debt</li>
+        <li>78% recurring revenue · predictable growth</li>
+        <li>EBITDA margin +3% YoY</li>
+        <li>Strong working capital + reserves</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs font-semibold text-red-300 uppercase tracking-wider mb-3">Red flags</h4>
+      <ul class="space-y-1.5 text-sm text-gray-200">
+        <li>Related-party tx: <span class="font-mono">12% revenue</span></li>
+        <li>AR days: <span class="font-mono">45 (vs 32 industry)</span></li>
+        <li>Top-5 customer concentration: <span class="font-mono">67%</span></li>
+        <li>2023 environmental fine: <span class="font-mono">$2.3M</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Synergy Opportunities ($38M annual + $15M one-time)</span></span>
+<span class="giallo-l"><span>    &quot;Cost synergies ($12M)&quot; : 12</span></span>
+<span class="giallo-l"><span>    &quot;Revenue synergies ($8M)&quot; : 8</span></span>
+<span class="giallo-l"><span>    &quot;Tax optimization ($3M)&quot; : 3</span></span>
+<span class="giallo-l"><span>    &quot;Working capital one-time ($15M)&quot; : 15</span></span></code></pre><div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Integration complexity</div>
+    <div class="text-xl font-bold text-white">Medium · 6-12 mo</div>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Financial risk grade</div>
+    <div class="text-xl font-bold text-white">B+ · manageable</div>
+  </div>
+</div>
+<h3 id="2-3-regulatory-compliance-validation">2.3 Regulatory Compliance Validation</h3>
+<p><strong>Multi-Jurisdiction Compliance Assessment</strong> — Primary jurisdictions: EU (GDPR, NIS2), US (Federal, State), Czech Republic.</p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>xychart-beta</span></span>
+<span class="giallo-l"><span>    title &quot;Compliance Score by Domain (%)&quot;</span></span>
+<span class="giallo-l"><span>    x-axis [&quot;Data Protection&quot;, &quot;Financial Reg.&quot;, &quot;Industry-specific&quot;, &quot;Employment Law&quot;]</span></span>
+<span class="giallo-l"><span>    y-axis &quot;Score %&quot; 0 --&gt; 100</span></span>
+<span class="giallo-l"><span>    bar [92, 96, 88, 94]</span></span></code></pre>
+<p><strong>Compliance gaps + remediation cost / timeline:</strong></p>
+<div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-amber-500/30 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-2">
+      <h4 class="text-base font-bold text-white">NIS2 Directive</h4>
+      <span class="px-2 py-0.5 rounded text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/40">18 months</span>
+    </div>
+    <p class="text-sm text-gray-300">Investment: <span class="font-mono text-white">€2.1M</span></p>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-2">
+      <h4 class="text-base font-bold text-white">California Privacy Rights</h4>
+      <span class="px-2 py-0.5 rounded text-xs font-semibold bg-blue-500/15 text-blue-300 border border-blue-500/40">6 months</span>
+    </div>
+    <p class="text-sm text-gray-300">Investment: <span class="font-mono text-white">€0.5M</span></p>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-2">
+      <h4 class="text-base font-bold text-white">Czech Personal Data</h4>
+      <span class="px-2 py-0.5 rounded text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/40">3 months</span>
+    </div>
+    <p class="text-sm text-gray-300">Investment: <span class="font-mono text-white">€0.2M</span></p>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-2">
+      <h4 class="text-base font-bold text-white">Industry Standards</h4>
+      <span class="px-2 py-0.5 rounded text-xs font-semibold bg-blue-500/15 text-blue-300 border border-blue-500/40">12 months</span>
+    </div>
+    <p class="text-sm text-gray-300">Investment: <span class="font-mono text-white">€1.2M</span></p>
+  </div>
+</div>
+<div class="rounded-xl border border-emerald-500/40 bg-gray-900 p-5 my-6">
+  <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Post-merger compliance strategy</h4>
+  <ul class="space-y-1.5 text-sm text-gray-200">
+    <li><span class="text-gray-400">Harmonization timeline:</span> 18 months for full integration</li>
+    <li><span class="text-gray-400">Total investment:</span> <span class="font-mono text-white">€4.0M</span></li>
+    <li><span class="text-gray-400">Risk mitigation:</span> staged compliance with interim measures</li>
+    <li><span class="text-gray-400">Regulatory relations:</span> proactive engagement strategy</li>
+    <li class="border-t border-gray-800 pt-2 mt-2"><span class="text-gray-400">Compliance risk grade:</span> <span class="font-bold text-emerald-300">A- · strong foundation, manageable gaps</span></li>
+  </ul>
+</div>
+<h3 id="2-4-operational-risk-business-continuity">2.4 Operational Risk &amp; Business Continuity</h3>
+<p><strong>Operational Resilience Assessment</strong> — Business continuity maturity: <strong>Level 3 (Advanced)</strong>.</p>
+<div class="grid gap-4 lg:grid-cols-4 my-6">
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Disaster recovery</div>
+    <div class="text-xl font-bold text-white font-mono">RTO 2h</div>
+    <div class="text-xs text-gray-400 mt-1">RPO 15 min</div>
+  </div>
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Supply chain</div>
+    <div class="text-xl font-bold text-white font-mono">3 + 2</div>
+    <div class="text-xs text-gray-400 mt-1">primary + backups</div>
+  </div>
+  <div class="rounded-lg border border-purple-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-purple-300 mb-2">Geo. footprint</div>
+    <div class="text-xl font-bold text-white font-mono">4 countries</div>
+    <div class="text-xs text-gray-400 mt-1">balanced revenue</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Tech uptime</div>
+    <div class="text-xl font-bold text-white font-mono">99.7%</div>
+    <div class="text-xs text-gray-400 mt-1">cloud-first</div>
+  </div>
+</div>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>quadrantChart</span></span>
+<span class="giallo-l"><span>    title Operational Risk Areas — Likelihood vs. Impact</span></span>
+<span class="giallo-l"><span>    x-axis Low Likelihood --&gt; High Likelihood</span></span>
+<span class="giallo-l"><span>    y-axis Low Impact --&gt; High Impact</span></span>
+<span class="giallo-l"><span>    quadrant-1 Manage actively</span></span>
+<span class="giallo-l"><span>    quadrant-2 Plan + monitor</span></span>
+<span class="giallo-l"><span>    quadrant-3 Accept</span></span>
+<span class="giallo-l"><span>    quadrant-4 Mitigate now</span></span>
+<span class="giallo-l"><span>    Key person dependency: [0.55, 0.78]</span></span>
+<span class="giallo-l"><span>    Single-source suppliers: [0.65, 0.72]</span></span>
+<span class="giallo-l"><span>    Technology debt: [0.70, 0.55]</span></span>
+<span class="giallo-l"><span>    Market concentration: [0.45, 0.85]</span></span></code></pre><div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-blue-300 uppercase tracking-wider mb-3">Integration synergies</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Best-practice sharing &amp; ops excellence</li>
+      <li>Combined purchasing power · supplier diversification</li>
+      <li>Platform consolidation + modernization</li>
+      <li>Market expansion via combined footprint</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Verdict</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li><span class="text-gray-400">Operational risk grade:</span> <span class="font-bold text-white">B+</span></li>
+      <li><span class="text-gray-400">Post-integration timeline:</span> 12-18 months</li>
+    </ul>
+  </div>
+</div>
+<h3 id="2-5-cultural-fit-human-capital">2.5 Cultural Fit &amp; Human Capital</h3>
+<p><strong>Cultural Due Diligence Assessment</strong> — Compatibility score: <strong class="font-mono">82 / 100</strong> (strong alignment potential).</p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>    Comp[Cultural Compatibility 82/100]:::team</span></span>
+<span class="giallo-l"><span>    Comp --&gt; L[Leadership: Collaborative&lt;br/&gt;vs Hierarchical acquirer]</span></span>
+<span class="giallo-l"><span>    Comp --&gt; D[Decisions: Data-driven&lt;br/&gt;strong alignment]</span></span>
+<span class="giallo-l"><span>    Comp --&gt; I[Innovation: High&lt;br/&gt;risk-taking encouraged]</span></span>
+<span class="giallo-l"><span>    Comp --&gt; W[Work Env: Hybrid remote&lt;br/&gt;compatible]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Credit Rating: A- (Improved from B+ in 2024)</span></span>
-<span class="giallo-l"><span>├─ Financial Stability: Strong cash flow, moderate debt levels</span></span>
-<span class="giallo-l"><span>├─ Revenue Quality: Recurring revenue 78%, predictable growth</span></span>
-<span class="giallo-l"><span>├─ Profitability Trends: EBITDA margin improving (+3% YoY)</span></span>
-<span class="giallo-l"><span>└─ Liquidity Position: Strong working capital, adequate reserves</span></span>
+<span class="giallo-l"><span>    classDef team fill:#1e293b,stroke:#a855f7,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Human capital strengths</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>94% employee satisfaction · low turnover</li>
+      <li>Strong technical + cultural alignment</li>
+      <li>Experienced leadership · proven track record</li>
+      <li>Competitive compensation + equity</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-amber-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-amber-300 uppercase tracking-wider mb-3">Integration risk factors</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Direct vs. diplomatic communication</li>
+      <li>Individual vs. team-based perf. mgmt</li>
+      <li>Remote-first vs. office-centric</li>
+      <li>Limited prior M&amp;A experience</li>
+    </ul>
+  </div>
+</div>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart LR</span></span>
+<span class="giallo-l"><span>    A[Pre-close cultural mapping]:::process --&gt; B[24-month integration plan]:::process</span></span>
+<span class="giallo-l"><span>    B --&gt; C[Cultural ambassadors]:::team</span></span>
+<span class="giallo-l"><span>    B --&gt; D[Retention: 95% critical roles]:::success</span></span>
+<span class="giallo-l"><span>    B --&gt; E[Milestone checkpoints]:::process</span></span>
+<span class="giallo-l"><span>    C --&gt; F[Success metrics&lt;br/&gt;satisfaction · retention · productivity]:::success</span></span>
+<span class="giallo-l"><span>    D --&gt; F</span></span>
+<span class="giallo-l"><span>    E --&gt; F</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Red Flags Analysis:</span></span>
-<span class="giallo-l"><span>├─ Related Party Transactions: 12% of revenue (Requires scrutiny)</span></span>
-<span class="giallo-l"><span>├─ Accounts Receivable: 45-day average (Industry: 32 days)</span></span>
-<span class="giallo-l"><span>├─ Customer Concentration: Top 5 customers = 67% revenue</span></span>
-<span class="giallo-l"><span>└─ Regulatory Penalties: $2.3M environmental fine (2023)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Synergy Opportunities:</span></span>
-<span class="giallo-l"><span>├─ Cost Synergies: $12M annually (Operational overlap elimination)</span></span>
-<span class="giallo-l"><span>├─ Revenue Synergies: $8M annually (Cross-selling opportunities)</span></span>
-<span class="giallo-l"><span>├─ Tax Optimization: $3M annually (Structure optimization)</span></span>
-<span class="giallo-l"><span>└─ Working Capital: $15M one-time (Process optimization)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Integration Complexity: Medium (6-12 month timeline)</span></span>
-<span class="giallo-l"><span>Financial Risk Grade: B+ (Strong fundamentals, manageable risks)</span></span></code></pre><h3 id="2-3-regulatory-compliance-validation">2.3 Regulatory Compliance Validation</h3>
-<p><strong>Multi-Jurisdiction Compliance Assessment:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>REGULATORY COMPLIANCE MATRIX</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>PRIMARY JURISDICTIONS: EU (GDPR, NIS2), US (Federal, State), Czech Republic</span></span>
-<span class="giallo-l"><span>├─ Data Protection: 92% compliant (GDPR, CCPA ready)</span></span>
-<span class="giallo-l"><span>├─ Financial Regulation: 96% compliant (SOX, Basel III alignment)</span></span>
-<span class="giallo-l"><span>├─ Industry-Specific: 88% compliant (Sector regulations current)</span></span>
-<span class="giallo-l"><span>└─ Employment Law: 94% compliant (Multi-country employment)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Compliance Gaps Identified:</span></span>
-<span class="giallo-l"><span>├─ NIS2 Directive: 18 months to full compliance (€2.1M investment)</span></span>
-<span class="giallo-l"><span>├─ California Privacy Rights: 6 months to compliance (€0.5M)</span></span>
-<span class="giallo-l"><span>├─ Czech Personal Data: 3 months to alignment (€0.2M)</span></span>
-<span class="giallo-l"><span>└─ Industry Standards: 12 months to certification (€1.2M)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Post-Merger Compliance Strategy:</span></span>
-<span class="giallo-l"><span>├─ Harmonization Timeline: 18 months for full integration</span></span>
-<span class="giallo-l"><span>├─ Investment Required: €4.0M total compliance alignment</span></span>
-<span class="giallo-l"><span>├─ Risk Mitigation: Staged compliance with interim measures</span></span>
-<span class="giallo-l"><span>└─ Regulatory Relations: Proactive engagement strategy</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Compliance Risk Grade: A- (Strong foundation, manageable gaps)</span></span></code></pre><h3 id="2-4-operational-risk-business-continuity">2.4 Operational Risk &amp; Business Continuity</h3>
-<p><strong>Operational Resilience Assessment:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>OPERATIONAL RISK EVALUATION</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Business Continuity Maturity: Level 3 (Advanced)</span></span>
-<span class="giallo-l"><span>├─ Disaster Recovery: RTO 2 hours, RPO 15 minutes</span></span>
-<span class="giallo-l"><span>├─ Supply Chain Resilience: 3 primary suppliers, 2 backup strategies</span></span>
-<span class="giallo-l"><span>├─ Geographic Diversification: 4 countries, balanced revenue distribution</span></span>
-<span class="giallo-l"><span>└─ Technology Resilience: Cloud-first architecture, 99.7% uptime</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Critical Risk Areas:</span></span>
-<span class="giallo-l"><span>├─ Key Person Dependency: CEO succession planning needed</span></span>
-<span class="giallo-l"><span>├─ Single-Source Suppliers: 2 critical suppliers (Mitigation planned)</span></span>
-<span class="giallo-l"><span>├─ Technology Debt: Legacy systems 23% of infrastructure</span></span>
-<span class="giallo-l"><span>└─ Market Concentration: 67% revenue from single market segment</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Integration Synergies:</span></span>
-<span class="giallo-l"><span>├─ Operational Excellence: Best practice sharing and optimization</span></span>
-<span class="giallo-l"><span>├─ Supply Chain: Combined purchasing power and supplier diversification</span></span>
-<span class="giallo-l"><span>├─ Technology: Platform consolidation and modernization opportunities</span></span>
-<span class="giallo-l"><span>└─ Geographic: Market expansion through operational footprint</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Operational Risk Grade: B+ (Strong foundation, identified improvements)</span></span>
-<span class="giallo-l"><span>Post-Integration Timeline: 12-18 months for full optimization</span></span></code></pre><h3 id="2-5-cultural-fit-human-capital">2.5 Cultural Fit &amp; Human Capital</h3>
-<p><strong>Cultural Due Diligence Assessment:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>CULTURAL INTEGRATION ANALYSIS</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Cultural Compatibility Score: 82/100 (Strong alignment potential)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Cultural Assessment Matrix:</span></span>
-<span class="giallo-l"><span>├─ Leadership Style: Collaborative (vs. Hierarchical acquirer)</span></span>
-<span class="giallo-l"><span>├─ Decision Making: Data-driven (Strong alignment)</span></span>
-<span class="giallo-l"><span>├─ Innovation Culture: High innovation, risk-taking encouraged</span></span>
-<span class="giallo-l"><span>└─ Work Environment: Hybrid remote, flexible (Compatible)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Human Capital Evaluation:</span></span>
-<span class="giallo-l"><span>├─ Talent Quality: 94% employee satisfaction, low turnover</span></span>
-<span class="giallo-l"><span>├─ Skills Assessment: Strong technical capabilities, cultural alignment</span></span>
-<span class="giallo-l"><span>├─ Management Team: Experienced leadership, proven track record</span></span>
-<span class="giallo-l"><span>└─ Compensation: Competitive packages, equity participation</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Integration Risk Factors:</span></span>
-<span class="giallo-l"><span>├─ Communication Style: Direct communication vs. diplomatic acquirer</span></span>
-<span class="giallo-l"><span>├─ Performance Management: Individual vs. team-based evaluation</span></span>
-<span class="giallo-l"><span>├─ Geographic Distribution: Remote-first vs. office-centric cultures</span></span>
-<span class="giallo-l"><span>└─ Change Management: Previous M&amp;A experience limited</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Cultural Integration Plan:</span></span>
-<span class="giallo-l"><span>├─ Timeline: 24-month integration with milestone checkpoints</span></span>
-<span class="giallo-l"><span>├─ Key Personnel Retention: 95% target for critical roles</span></span>
-<span class="giallo-l"><span>├─ Cultural Ambassador Program: Cross-company culture integration</span></span>
-<span class="giallo-l"><span>└─ Success Metrics: Employee satisfaction, retention, productivity</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Cultural Risk Grade: A- (Strong compatibility, manageable differences)</span></span></code></pre><h3 id="2-6-technology-ip-assessment">2.6 Technology &amp; IP Assessment</h3>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef team fill:#1e293b,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span></code></pre><div class="rounded-xl border border-emerald-500/40 bg-gray-900 p-4 my-6 text-center">
+  <span class="text-sm text-gray-400">Cultural risk grade:</span>
+  <span class="text-lg font-bold text-emerald-300 ml-2">A- · strong compatibility, manageable differences</span>
+</div>
+<h3 id="2-6-technology-ip-assessment">2.6 Technology &amp; IP Assessment</h3>
 <p><strong>Technology Due Diligence Framework:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>TECHNOLOGY &amp; INTELLECTUAL PROPERTY ANALYSIS</span></span>
+<div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Technology stack</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Cloud-native microservices · 85% cloud</li>
+      <li>Strong cyber posture · automated monitoring</li>
+      <li>10x scaling design</li>
+      <li>Active R&amp;D · competitive moats</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-purple-300 uppercase tracking-wider mb-3">IP portfolio</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Patents: <span class="font-mono text-white">47 granted · 23 pending</span></li>
+      <li>Trademarks: <span class="font-mono text-white">15 registered</span></li>
+      <li>Trade secrets documented</li>
+      <li>Licensing: <span class="font-mono text-white">12 in / 8 out · all current</span></li>
+    </ul>
+  </div>
+</div>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>    Syn[Technology Synergies]:::success</span></span>
+<span class="giallo-l"><span>    Syn --&gt; P[Platform integration&lt;br/&gt;API-first, compatible arch]</span></span>
+<span class="giallo-l"><span>    Syn --&gt; D[Data synergies&lt;br/&gt;complementary datasets]</span></span>
+<span class="giallo-l"><span>    Syn --&gt; R[R&amp;amp;D consolidation&lt;br/&gt;shared innovation]</span></span>
+<span class="giallo-l"><span>    Syn --&gt; IP[IP cross-licensing&lt;br/&gt;portfolio enhancement]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Technology Stack Assessment:</span></span>
-<span class="giallo-l"><span>├─ Architecture: Modern cloud-native, microservices (85% cloud)</span></span>
-<span class="giallo-l"><span>├─ Security: Strong cybersecurity posture, automated monitoring</span></span>
-<span class="giallo-l"><span>├─ Scalability: Platform designed for 10x growth capacity</span></span>
-<span class="giallo-l"><span>└─ Innovation: Active R&amp;D, patent portfolio, competitive moats</span></span>
+<span class="giallo-l"><span>    Risk[Technology Risks]:::warn</span></span>
+<span class="giallo-l"><span>    Risk --&gt; L[Legacy systems · 15%&lt;br/&gt;roadmap exists]</span></span>
+<span class="giallo-l"><span>    Risk --&gt; K[3 critical devs&lt;br/&gt;retention plan needed]</span></span>
+<span class="giallo-l"><span>    Risk --&gt; V[8 critical vendors&lt;br/&gt;diversify]</span></span>
+<span class="giallo-l"><span>    Risk --&gt; O[Obsolescence: Low&lt;br/&gt;modern + maintained]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Intellectual Property Portfolio:</span></span>
-<span class="giallo-l"><span>├─ Patents: 47 granted, 23 pending (Core technology protected)</span></span>
-<span class="giallo-l"><span>├─ Trademarks: 15 registered marks across key markets</span></span>
-<span class="giallo-l"><span>├─ Trade Secrets: Proprietary algorithms and processes documented</span></span>
-<span class="giallo-l"><span>└─ Licensing: 12 inbound licenses, 8 outbound (All current)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Technology Synergies:</span></span>
-<span class="giallo-l"><span>├─ Platform Integration: Compatible architectures, API-first design</span></span>
-<span class="giallo-l"><span>├─ Data Synergies: Complementary datasets and analytics capabilities</span></span>
-<span class="giallo-l"><span>├─ R&amp;D Consolidation: Combined research efforts, shared innovation</span></span>
-<span class="giallo-l"><span>└─ IP Cross-Licensing: Patent portfolio enhancement opportunities</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Technology Risk Assessment:</span></span>
-<span class="giallo-l"><span>├─ Legacy Systems: 15% of infrastructure (Modernization roadmap exists)</span></span>
-<span class="giallo-l"><span>├─ Key Personnel: 3 critical developers (Retention plan required)</span></span>
-<span class="giallo-l"><span>├─ Vendor Dependencies: 8 critical vendors (Diversification opportunities)</span></span>
-<span class="giallo-l"><span>└─ Obsolescence Risk: Low (Modern stack, active maintenance)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Technology Risk Grade: A- (Strong technology foundation, manageable risks)</span></span>
-<span class="giallo-l"><span>Integration Complexity: Medium (12-18 month technical integration)</span></span></code></pre><h3 id="2-7-2-10-additional-due-diligence-topics">2.7-2.10 Additional Due Diligence Topics</h3>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef warn fill:#1e293b,stroke:#f59e0b,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Technology risk grade</div>
+    <div class="text-xl font-bold text-white">A- · manageable</div>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Integration complexity</div>
+    <div class="text-xl font-bold text-white">Medium · 12-18 mo</div>
+  </div>
+</div>
+<h3 id="2-7-2-10-additional-due-diligence-topics">2.7-2.10 Additional Due Diligence Topics</h3>
 <p><strong>Environmental, Social &amp; Governance (ESG):</strong></p>
 <ul>
 <li>Sustainability practices and carbon footprint analysis</li>
@@ -888,126 +1053,186 @@
 <hr />
 <h2 id="3-a-f-risk-grading-system">3. A-F Risk Grading System</h2>
 <h3 id="3-1-comprehensive-risk-assessment-framework">3.1 Comprehensive Risk Assessment Framework</h3>
-<p><strong>Risk Grading Methodology:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>PRISMATIC PLATFORM M&amp;A RISK GRADING SYSTEM</span></span>
+<p><strong>Risk Grading Methodology — Prismatic A-F system:</strong></p>
+<div class="grid gap-4 lg:grid-cols-1 my-6">
+  <div class="rounded-xl border border-emerald-500/40 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <div>
+        <h4 class="text-base font-bold text-white">Grade A · 90-100 · Excellent</h4>
+        <p class="text-xs text-gray-400">Minimal integration risk · strong synergies</p>
+      </div>
+      <span class="px-3 py-1 rounded text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/40">STRONG BUY</span>
+    </div>
+    <p class="text-xs text-gray-300">Strong financials · excellent operations · full compliance · clear synergies + cultural fit</p>
+  </div>
+  <div class="rounded-xl border border-blue-500/40 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <div>
+        <h4 class="text-base font-bold text-white">Grade B · 80-89 · Good</h4>
+        <p class="text-xs text-gray-400">Manageable risks · positive synergy potential</p>
+      </div>
+      <span class="px-3 py-1 rounded text-xs font-semibold bg-blue-500/15 text-blue-300 border border-blue-500/40">BUY</span>
+    </div>
+    <p class="text-xs text-gray-300">Solid fundamentals · good processes · minor compliance gaps · value creation clear</p>
+  </div>
+  <div class="rounded-xl border border-amber-500/40 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <div>
+        <h4 class="text-base font-bold text-white">Grade C · 70-79 · Fair</h4>
+        <p class="text-xs text-gray-400">Significant risks · uncertain synergy realization</p>
+      </div>
+      <span class="px-3 py-1 rounded text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/40">CONDITIONAL BUY</span>
+    </div>
+    <p class="text-xs text-gray-300">Adequate fundamentals · working-capital concerns · compliance gaps · cultural challenges</p>
+  </div>
+  <div class="rounded-xl border border-orange-500/40 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <div>
+        <h4 class="text-base font-bold text-white">Grade D · 60-69 · Poor</h4>
+        <p class="text-xs text-gray-400">High risk · limited synergy potential</p>
+      </div>
+      <span class="px-3 py-1 rounded text-xs font-semibold bg-orange-500/15 text-orange-300 border border-orange-500/40">HOLD / PASS</span>
+    </div>
+    <p class="text-xs text-gray-300">Weak financials · poor processes · significant compliance issues · cultural misalignment</p>
+  </div>
+  <div class="rounded-xl border border-red-500/40 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <div>
+        <h4 class="text-base font-bold text-white">Grade F · 0-59 · Unacceptable</h4>
+        <p class="text-xs text-gray-400">Extreme risk · negative synergy potential</p>
+      </div>
+      <span class="px-3 py-1 rounded text-xs font-semibold bg-red-500/15 text-red-300 border border-red-500/40">STRONG SELL</span>
+    </div>
+    <p class="text-xs text-gray-300">Failing fundamentals · insolvency risk · broken processes · destructive acquisition</p>
+  </div>
+</div>
+<h3 id="3-2-financial-impact-quantification">3.2 Financial Impact Quantification</h3>
+<p><strong>Risk-Adjusted Valuation Model</strong> — Base valuation reference: <strong class="font-mono">$100M</strong> (pre-due-diligence estimate).</p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>xychart-beta</span></span>
+<span class="giallo-l"><span>    title &quot;Valuation Adjustment by Grade (% of base)&quot;</span></span>
+<span class="giallo-l"><span>    x-axis [&quot;Grade A&quot;, &quot;Grade B&quot;, &quot;Grade C&quot;, &quot;Grade D&quot;, &quot;Grade F&quot;]</span></span>
+<span class="giallo-l"><span>    y-axis &quot;Adjustment %&quot; -100 --&gt; 20</span></span>
+<span class="giallo-l"><span>    bar [10, 2.5, -15, -32.5, -75]</span></span></code></pre>
+<p><strong>Worked example — Grade B+ target (score 83 / 100):</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart LR</span></span>
+<span class="giallo-l"><span>    A[Base $100M]:::process --&gt; B[+2% risk adj]:::success</span></span>
+<span class="giallo-l"><span>    B --&gt; C[Integration costs -$5M]:::warn</span></span>
+<span class="giallo-l"><span>    C --&gt; D[Synergy NPV +$15M]:::success</span></span>
+<span class="giallo-l"><span>    D --&gt; E[Adjusted $110-115M]:::success</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Grade A (90-100): Excellent - Minimal integration risk, strong synergies</span></span>
-<span class="giallo-l"><span>├─ Financial: Strong fundamentals, predictable cash flows</span></span>
-<span class="giallo-l"><span>├─ Operational: Excellent processes, minimal integration complexity</span></span>
-<span class="giallo-l"><span>├─ Regulatory: Full compliance, proactive regulatory management</span></span>
-<span class="giallo-l"><span>└─ Strategic: Clear synergies, strong cultural alignment</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Grade B (80-89): Good - Manageable risks, positive synergy potential</span></span>
-<span class="giallo-l"><span>├─ Financial: Solid fundamentals, minor working capital adjustments</span></span>
-<span class="giallo-l"><span>├─ Operational: Good processes, moderate integration requirements</span></span>
-<span class="giallo-l"><span>├─ Regulatory: Compliant with minor gaps, defined remediation plan</span></span>
-<span class="giallo-l"><span>└─ Strategic: Clear value creation, some cultural adaptation needed</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Grade C (70-79): Fair - Significant risks, uncertain synergy realization</span></span>
-<span class="giallo-l"><span>├─ Financial: Adequate fundamentals, working capital concerns</span></span>
-<span class="giallo-l"><span>├─ Operational: Average processes, significant integration requirements</span></span>
-<span class="giallo-l"><span>├─ Regulatory: Compliance gaps requiring investment</span></span>
-<span class="giallo-l"><span>└─ Strategic: Unclear synergies, cultural integration challenges</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Grade D (60-69): Poor - High risk, limited synergy potential</span></span>
-<span class="giallo-l"><span>├─ Financial: Weak fundamentals, cash flow concerns</span></span>
-<span class="giallo-l"><span>├─ Operational: Poor processes, complex integration requirements</span></span>
-<span class="giallo-l"><span>├─ Regulatory: Significant compliance issues</span></span>
-<span class="giallo-l"><span>└─ Strategic: Limited synergies, major cultural misalignment</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Grade F (0-59): Unacceptable - Extreme risk, negative synergy potential</span></span>
-<span class="giallo-l"><span>├─ Financial: Failing fundamentals, insolvency risk</span></span>
-<span class="giallo-l"><span>├─ Operational: Broken processes, integration likely to fail</span></span>
-<span class="giallo-l"><span>├─ Regulatory: Major compliance violations</span></span>
-<span class="giallo-l"><span>└─ Strategic: Destructive acquisition, cultural incompatibility</span></span></code></pre><h3 id="3-2-financial-impact-quantification">3.2 Financial Impact Quantification</h3>
-<p><strong>Risk-Adjusted Valuation Model:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>M&amp;A VALUATION ADJUSTMENT FRAMEWORK</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Base Valuation: $100M (Pre-due diligence estimate)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Risk Adjustments by Grade:</span></span>
-<span class="giallo-l"><span>├─ Grade A: +5% to +15% (Premium for low risk, clear synergies)</span></span>
-<span class="giallo-l"><span>├─ Grade B: 0% to +5% (Baseline valuation with moderate risk)</span></span>
-<span class="giallo-l"><span>├─ Grade C: -10% to -20% (Discount for integration complexity)</span></span>
-<span class="giallo-l"><span>├─ Grade D: -25% to -40% (Significant discount for high risk)</span></span>
-<span class="giallo-l"><span>└─ Grade F: -50% to -100% (Deal termination recommended)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Example: Grade B+ Target (Score: 83/100)</span></span>
-<span class="giallo-l"><span>Base Valuation: $100M</span></span>
-<span class="giallo-l"><span>Risk Adjustment: +2% (Strong fundamentals, manageable risks)</span></span>
-<span class="giallo-l"><span>Integration Costs: -$5M (Cybersecurity and compliance alignment)</span></span>
-<span class="giallo-l"><span>Synergy Value: +$15M NPV (Operational and revenue synergies)</span></span>
-<span class="giallo-l"><span>Adjusted Valuation Range: $110M - $115M</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Confidence Interval: 87% (High confidence in valuation range)</span></span>
-<span class="giallo-l"><span>Integration Probability: 92% (High likelihood of successful integration)</span></span></code></pre><h3 id="3-3-deal-recommendation-matrix">3.3 Deal Recommendation Matrix</h3>
-<p><strong>Investment Committee Decision Support:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>INVESTMENT COMMITTEE RECOMMENDATION MATRIX</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Grade A Targets: STRONG BUY</span></span>
-<span class="giallo-l"><span>├─ Recommendation: Proceed with aggressive bid</span></span>
-<span class="giallo-l"><span>├─ Integration: Fast-track integration planning</span></span>
-<span class="giallo-l"><span>├─ Financing: Premium financing terms justified</span></span>
-<span class="giallo-l"><span>└─ Timeline: Accelerated transaction timeline</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Grade B Targets: BUY</span></span>
-<span class="giallo-l"><span>├─ Recommendation: Proceed with competitive bid</span></span>
-<span class="giallo-l"><span>├─ Integration: Standard integration approach</span></span>
-<span class="giallo-l"><span>├─ Financing: Market-rate financing appropriate</span></span>
-<span class="giallo-l"><span>└─ Timeline: Normal transaction timeline</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Grade C Targets: CONDITIONAL BUY</span></span>
-<span class="giallo-l"><span>├─ Recommendation: Proceed with significant contingencies</span></span>
-<span class="giallo-l"><span>├─ Integration: Enhanced integration planning required</span></span>
-<span class="giallo-l"><span>├─ Financing: Conservative financing with milestones</span></span>
-<span class="giallo-l"><span>└─ Timeline: Extended due diligence timeline</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Grade D Targets: HOLD/PASS</span></span>
-<span class="giallo-l"><span>├─ Recommendation: Significant concerns, renegotiate or pass</span></span>
-<span class="giallo-l"><span>├─ Integration: Major integration risks identified</span></span>
-<span class="giallo-l"><span>├─ Financing: High-risk financing with protective covenants</span></span>
-<span class="giallo-l"><span>└─ Timeline: Extended timeline for risk mitigation</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Grade F Targets: STRONG SELL</span></span>
-<span class="giallo-l"><span>├─ Recommendation: Do not proceed, terminate negotiations</span></span>
-<span class="giallo-l"><span>├─ Integration: Integration failure highly probable</span></span>
-<span class="giallo-l"><span>├─ Financing: Financing not recommended</span></span>
-<span class="giallo-l"><span>└─ Timeline: Immediate deal termination</span></span></code></pre>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef warn fill:#1e293b,stroke:#f59e0b,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Confidence interval</div>
+    <div class="text-2xl font-bold text-white font-mono">87%</div>
+    <div class="text-xs text-gray-400 mt-1">High confidence in valuation range</div>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Integration probability</div>
+    <div class="text-2xl font-bold text-white font-mono">92%</div>
+    <div class="text-xs text-gray-400 mt-1">High likelihood of success</div>
+  </div>
+</div>
+<h3 id="3-3-deal-recommendation-matrix">3.3 Deal Recommendation Matrix</h3>
+<p><strong>Investment Committee Recommendation Matrix:</strong></p>
+<div class="overflow-x-auto my-6">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="border-b border-gray-700">
+        <th class="text-left p-3 text-gray-300">Grade</th>
+        <th class="text-left p-3 text-gray-300">Action</th>
+        <th class="text-left p-3 text-gray-300">Integration</th>
+        <th class="text-left p-3 text-gray-300">Financing</th>
+        <th class="text-left p-3 text-gray-300">Timeline</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-200">
+      <tr class="border-b border-gray-800">
+        <td class="p-3"><span class="px-2 py-0.5 rounded text-xs font-semibold bg-emerald-500/15 text-emerald-300 border border-emerald-500/40">A · STRONG BUY</span></td>
+        <td class="p-3">Aggressive bid</td>
+        <td class="p-3">Fast-track</td>
+        <td class="p-3">Premium terms</td>
+        <td class="p-3">Accelerated</td>
+      </tr>
+      <tr class="border-b border-gray-800">
+        <td class="p-3"><span class="px-2 py-0.5 rounded text-xs font-semibold bg-blue-500/15 text-blue-300 border border-blue-500/40">B · BUY</span></td>
+        <td class="p-3">Competitive bid</td>
+        <td class="p-3">Standard approach</td>
+        <td class="p-3">Market rate</td>
+        <td class="p-3">Normal</td>
+      </tr>
+      <tr class="border-b border-gray-800">
+        <td class="p-3"><span class="px-2 py-0.5 rounded text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/40">C · CONDITIONAL</span></td>
+        <td class="p-3">Significant contingencies</td>
+        <td class="p-3">Enhanced planning</td>
+        <td class="p-3">Conservative + milestones</td>
+        <td class="p-3">Extended DD</td>
+      </tr>
+      <tr class="border-b border-gray-800">
+        <td class="p-3"><span class="px-2 py-0.5 rounded text-xs font-semibold bg-orange-500/15 text-orange-300 border border-orange-500/40">D · HOLD / PASS</span></td>
+        <td class="p-3">Renegotiate or pass</td>
+        <td class="p-3">Major risks identified</td>
+        <td class="p-3">High-risk + covenants</td>
+        <td class="p-3">Extended for mitigation</td>
+      </tr>
+      <tr>
+        <td class="p-3"><span class="px-2 py-0.5 rounded text-xs font-semibold bg-red-500/15 text-red-300 border border-red-500/40">F · STRONG SELL</span></td>
+        <td class="p-3">Terminate negotiations</td>
+        <td class="p-3">Failure probable</td>
+        <td class="p-3">Not recommended</td>
+        <td class="p-3">Immediate termination</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 <hr />
 <h2 id="4-autonomous-intelligence-platform">4. Autonomous Intelligence Platform</h2>
 <h3 id="4-1-434-ai-agent-coordination">4.1 434 AI Agent Coordination</h3>
-<p><strong>Multi-Agent Due Diligence Architecture:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>AI AGENT COORDINATION FOR M&amp;A DUE DILIGENCE</span></span>
+<p><strong>Multi-Agent Due Diligence Architecture — 434 specialized agents:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title 434-Agent Allocation Across DD Phases</span></span>
+<span class="giallo-l"><span>    &quot;Analysis (150)&quot; : 150</span></span>
+<span class="giallo-l"><span>    &quot;Validation (100)&quot; : 100</span></span>
+<span class="giallo-l"><span>    &quot;Reporting (75)&quot; : 75</span></span>
+<span class="giallo-l"><span>    &quot;Monitoring (59)&quot; : 59</span></span>
+<span class="giallo-l"><span>    &quot;Reconnaissance (50)&quot; : 50</span></span></code></pre><pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph TD</span></span>
+<span class="giallo-l"><span>    Recon[Reconnaissance · 50 agents]:::team</span></span>
+<span class="giallo-l"><span>    Recon --&gt; R1[Public records mining]</span></span>
+<span class="giallo-l"><span>    Recon --&gt; R2[Financial intelligence]</span></span>
+<span class="giallo-l"><span>    Recon --&gt; R3[Regulatory research]</span></span>
+<span class="giallo-l"><span>    Recon --&gt; R4[Competitive intelligence]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Reconnaissance Agents (50 agents):</span></span>
-<span class="giallo-l"><span>├─ Public Records Mining: Corporate registries, court filings</span></span>
-<span class="giallo-l"><span>├─ Financial Intelligence: Credit reports, financial databases</span></span>
-<span class="giallo-l"><span>├─ Regulatory Research: Compliance databases, enforcement actions</span></span>
-<span class="giallo-l"><span>└─ Competitive Intelligence: Market research, competitor analysis</span></span>
+<span class="giallo-l"><span>    Anal[Analysis · 150 agents]:::process</span></span>
+<span class="giallo-l"><span>    Anal --&gt; A1[Financial analysis]</span></span>
+<span class="giallo-l"><span>    Anal --&gt; A2[Risk assessment]</span></span>
+<span class="giallo-l"><span>    Anal --&gt; A3[Compliance validation]</span></span>
+<span class="giallo-l"><span>    Anal --&gt; A4[Integration planning]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Analysis Agents (150 agents):</span></span>
-<span class="giallo-l"><span>├─ Financial Analysis: Statement analysis, ratio calculations</span></span>
-<span class="giallo-l"><span>├─ Risk Assessment: Multi-domain risk quantification</span></span>
-<span class="giallo-l"><span>├─ Compliance Validation: Regulatory requirement mapping</span></span>
-<span class="giallo-l"><span>└─ Integration Planning: Synergy identification and quantification</span></span>
+<span class="giallo-l"><span>    Val[Validation · 100 agents]:::success</span></span>
+<span class="giallo-l"><span>    Val --&gt; V1[Cross-reference]</span></span>
+<span class="giallo-l"><span>    Val --&gt; V2[Quality assurance]</span></span>
+<span class="giallo-l"><span>    Val --&gt; V3[Bias detection]</span></span>
+<span class="giallo-l"><span>    Val --&gt; V4[Confidence scoring]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Validation Agents (100 agents):</span></span>
-<span class="giallo-l"><span>├─ Cross-Reference Validation: Multi-source fact verification</span></span>
-<span class="giallo-l"><span>├─ Quality Assurance: Data accuracy and completeness validation</span></span>
-<span class="giallo-l"><span>├─ Bias Detection: Analysis neutrality and objectivity verification</span></span>
-<span class="giallo-l"><span>└─ Confidence Scoring: Reliability assessment for all findings</span></span>
+<span class="giallo-l"><span>    Rep[Reporting · 75 agents]:::team</span></span>
+<span class="giallo-l"><span>    Rep --&gt; P1[Executive summary]</span></span>
+<span class="giallo-l"><span>    Rep --&gt; P2[Detailed reports]</span></span>
+<span class="giallo-l"><span>    Rep --&gt; P3[Visualization]</span></span>
+<span class="giallo-l"><span>    Rep --&gt; P4[IC presentations]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Reporting Agents (75 agents):</span></span>
-<span class="giallo-l"><span>├─ Executive Summary: Key findings and recommendations</span></span>
-<span class="giallo-l"><span>├─ Detailed Reports: Comprehensive analysis documentation</span></span>
-<span class="giallo-l"><span>├─ Visualization: Charts, graphs, and risk dashboards</span></span>
-<span class="giallo-l"><span>└─ Presentation Materials: Investment committee presentations</span></span>
+<span class="giallo-l"><span>    Mon[Monitoring · 59 agents]:::warn</span></span>
+<span class="giallo-l"><span>    Mon --&gt; M1[Real-time updates]</span></span>
+<span class="giallo-l"><span>    Mon --&gt; M2[Change detection]</span></span>
+<span class="giallo-l"><span>    Mon --&gt; M3[Alert generation]</span></span>
+<span class="giallo-l"><span>    Mon --&gt; M4[Post-close tracking]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Monitoring Agents (59 agents):</span></span>
-<span class="giallo-l"><span>├─ Real-time Updates: Ongoing target monitoring during deal process</span></span>
-<span class="giallo-l"><span>├─ Change Detection: Material changes in target status</span></span>
-<span class="giallo-l"><span>├─ Alert Generation: Critical issue identification and escalation</span></span>
-<span class="giallo-l"><span>└─ Post-Close Monitoring: Integration progress and success tracking</span></span></code></pre><h3 id="4-2-osint-source-integration">4.2 OSINT Source Integration</h3>
+<span class="giallo-l"><span>    Recon --&gt; Anal --&gt; Val --&gt; Rep</span></span>
+<span class="giallo-l"><span>    Val --&gt; Mon</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>    classDef team fill:#1e293b,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef warn fill:#1e293b,stroke:#f59e0b,color:#fff</span></span></code></pre><h3 id="4-2-osint-source-integration">4.2 OSINT Source Integration</h3>
 <p><strong>122+ OSINT Sources for Comprehensive Coverage:</strong></p>
 <p><strong>Corporate &amp; Financial Intelligence (45 sources):</strong></p>
 <ul>
@@ -1040,325 +1265,542 @@
 </ul>
 <h3 id="4-3-cross-validation-quality-assurance">4.3 Cross-Validation &amp; Quality Assurance</h3>
 <p><strong>Triple-Validation Framework:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>CROSS-VALIDATION METHODOLOGY</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart TD</span></span>
+<span class="giallo-l"><span>    Raw[Raw findings]:::process --&gt; L1[Layer 1&lt;br/&gt;Source validation]:::process</span></span>
+<span class="giallo-l"><span>    L1 --&gt; L2[Layer 2&lt;br/&gt;Analysis validation]:::process</span></span>
+<span class="giallo-l"><span>    L2 --&gt; L3[Layer 3&lt;br/&gt;Conclusion validation]:::success</span></span>
+<span class="giallo-l"><span>    L3 --&gt; Final[Validated insight&lt;br/&gt;+ confidence score]:::success</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Layer 1: Source Validation (Data Accuracy)</span></span>
-<span class="giallo-l"><span>├─ Multiple Source Confirmation: 3+ independent sources required</span></span>
-<span class="giallo-l"><span>├─ Data Freshness Verification: Timestamp and currency validation</span></span>
-<span class="giallo-l"><span>├─ Source Reliability Scoring: Historical accuracy assessment</span></span>
-<span class="giallo-l"><span>└─ Conflicting Information Resolution: Systematic conflict resolution</span></span>
+<span class="giallo-l"><span>    L1 -.- L1d[3+ sources&lt;br/&gt;freshness · reliability&lt;br/&gt;conflict resolution]</span></span>
+<span class="giallo-l"><span>    L2 -.- L2d[Multi-agent consensus&lt;br/&gt;expert review&lt;br/&gt;bias detection]</span></span>
+<span class="giallo-l"><span>    L3 -.- L3d[Statistical validation&lt;br/&gt;back-testing&lt;br/&gt;IC review]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Layer 2: Analysis Validation (Methodology Accuracy)</span></span>
-<span class="giallo-l"><span>├─ Multi-Agent Consensus: Independent analysis by multiple AI agents</span></span>
-<span class="giallo-l"><span>├─ Human Expert Review: Critical findings validated by specialists</span></span>
-<span class="giallo-l"><span>├─ Methodology Consistency: Standardized analysis frameworks</span></span>
-<span class="giallo-l"><span>└─ Bias Detection: Systematic bias identification and correction</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Layer 3: Conclusion Validation (Decision Quality)</span></span>
-<span class="giallo-l"><span>├─ Risk Model Validation: Statistical model accuracy assessment</span></span>
-<span class="giallo-l"><span>├─ Historical Performance: Back-testing against previous deals</span></span>
-<span class="giallo-l"><span>├─ Stakeholder Review: Investment committee and advisor validation</span></span>
-<span class="giallo-l"><span>└─ Continuous Learning: Model improvement based on outcomes</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Confidence Scoring:</span></span>
-<span class="giallo-l"><span>├─ High Confidence (90-100%): 3+ sources, expert validated, low risk</span></span>
-<span class="giallo-l"><span>├─ Medium Confidence (70-89%): 2-3 sources, model validated, moderate risk</span></span>
-<span class="giallo-l"><span>├─ Low Confidence (50-69%): 1-2 sources, limited validation, high risk</span></span>
-<span class="giallo-l"><span>└─ Insufficient Data (&lt;50%): Additional investigation required</span></span></code></pre>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-4 my-6">
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">High</div>
+    <div class="text-xl font-bold text-white font-mono">90-100%</div>
+    <div class="text-xs text-gray-400 mt-1">3+ sources · expert · low risk</div>
+  </div>
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Medium</div>
+    <div class="text-xl font-bold text-white font-mono">70-89%</div>
+    <div class="text-xs text-gray-400 mt-1">2-3 sources · model validated</div>
+  </div>
+  <div class="rounded-lg border border-amber-500/30 bg-gray-900 p-4">
+    <div class="text-xs uppercase tracking-wider text-amber-300 mb-2">Low</div>
+    <div class="text-xl font-bold text-white font-mono">50-69%</div>
+    <div class="text-xs text-gray-400 mt-1">1-2 sources · limited validation</div>
+  </div>
+  <div class="rounded-lg border border-red-500/30 bg-gray-900 p-4">
+    <div class="text-xs uppercase tracking-wider text-red-300 mb-2">Insufficient</div>
+    <div class="text-xl font-bold text-white font-mono">&lt; 50%</div>
+    <div class="text-xs text-gray-400 mt-1">Additional investigation needed</div>
+  </div>
+</div>
 <hr />
 <h2 id="5-integration-planning-post-merger-success">5. Integration Planning &amp; Post-Merger Success</h2>
 <h3 id="5-1-automated-integration-roadmaps">5.1 Automated Integration Roadmaps</h3>
-<p><strong>Post-Acquisition Integration Framework:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>100-DAY INTEGRATION ROADMAP</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Days 1-30: Foundation &amp; Stabilization</span></span>
-<span class="giallo-l"><span>├─ Cybersecurity: Immediate security posture assessment and protection</span></span>
-<span class="giallo-l"><span>├─ Compliance: Critical regulatory requirement alignment</span></span>
-<span class="giallo-l"><span>├─ Operations: Business continuity validation and stabilization</span></span>
-<span class="giallo-l"><span>├─ Communication: Stakeholder communication and change management</span></span>
-<span class="giallo-l"><span>└─ Governance: Integration management office establishment</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Days 31-60: System Integration &amp; Process Alignment</span></span>
-<span class="giallo-l"><span>├─ Technology: Core system integration and data migration planning</span></span>
-<span class="giallo-l"><span>├─ Processes: Business process harmonization and optimization</span></span>
-<span class="giallo-l"><span>├─ Teams: Organization design and key personnel retention</span></span>
-<span class="giallo-l"><span>├─ Customers: Customer communication and relationship management</span></span>
-<span class="giallo-l"><span>└─ Suppliers: Vendor relationship consolidation and optimization</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Days 61-100: Synergy Realization &amp; Optimization</span></span>
-<span class="giallo-l"><span>├─ Cost Synergies: Operational efficiency improvements and cost reduction</span></span>
-<span class="giallo-l"><span>├─ Revenue Synergies: Cross-selling and market expansion initiatives</span></span>
-<span class="giallo-l"><span>├─ Technology: Platform consolidation and modernization completion</span></span>
-<span class="giallo-l"><span>├─ Culture: Cultural integration and performance management alignment</span></span>
-<span class="giallo-l"><span>└─ Measurement: Success metrics validation and optimization planning</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Key Success Metrics:</span></span>
-<span class="giallo-l"><span>├─ Employee Retention: &gt;95% key personnel retained</span></span>
-<span class="giallo-l"><span>├─ Customer Satisfaction: No degradation in customer metrics</span></span>
-<span class="giallo-l"><span>├─ Financial Performance: Synergy targets achieved within 12 months</span></span>
-<span class="giallo-l"><span>├─ Compliance: Zero regulatory violations during integration</span></span>
-<span class="giallo-l"><span>└─ Technology: System integration completed within timeline and budget</span></span></code></pre><h3 id="5-2-risk-mitigation-strategies">5.2 Risk Mitigation Strategies</h3>
-<p><strong>Integration Risk Management:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>POST-MERGER RISK MITIGATION FRAMEWORK</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Cybersecurity Integration Risks:</span></span>
-<span class="giallo-l"><span>├─ Risk: Security gap during system integration</span></span>
-<span class="giallo-l"><span>├─ Mitigation: Parallel security architecture during transition</span></span>
-<span class="giallo-l"><span>├─ Timeline: 6-month security harmonization plan</span></span>
-<span class="giallo-l"><span>├─ Investment: $1.2M cybersecurity integration budget</span></span>
-<span class="giallo-l"><span>└─ Success Metrics: Zero security incidents during integration</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Regulatory Compliance Risks:</span></span>
-<span class="giallo-l"><span>├─ Risk: Compliance gaps during regulatory harmonization</span></span>
-<span class="giallo-l"><span>├─ Mitigation: Phased compliance alignment with interim measures</span></span>
-<span class="giallo-l"><span>├─ Timeline: 18-month compliance integration roadmap</span></span>
-<span class="giallo-l"><span>├─ Investment: $2.1M compliance alignment budget</span></span>
-<span class="giallo-l"><span>└─ Success Metrics: Zero regulatory violations or penalties</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Cultural Integration Risks:</span></span>
-<span class="giallo-l"><span>├─ Risk: Key talent departure and cultural misalignment</span></span>
-<span class="giallo-l"><span>├─ Mitigation: Cultural assessment and targeted retention programs</span></span>
-<span class="giallo-l"><span>├─ Timeline: 24-month cultural integration program</span></span>
-<span class="giallo-l"><span>├─ Investment: $0.8M retention and culture program budget</span></span>
-<span class="giallo-l"><span>└─ Success Metrics: &lt;5% key personnel turnover in first 24 months</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Operational Integration Risks:</span></span>
-<span class="giallo-l"><span>├─ Risk: Business disruption during system integration</span></span>
-<span class="giallo-l"><span>├─ Mitigation: Phased integration with parallel operations</span></span>
-<span class="giallo-l"><span>├─ Timeline: 12-month operational integration plan</span></span>
-<span class="giallo-l"><span>├─ Investment: $1.5M operational continuity budget</span></span>
-<span class="giallo-l"><span>└─ Success Metrics: &lt;1% revenue impact during integration period</span></span></code></pre><h3 id="5-3-success-measurement-optimization">5.3 Success Measurement &amp; Optimization</h3>
-<p><strong>Integration Success KPIs:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>POST-MERGER SUCCESS MEASUREMENT FRAMEWORK</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Financial Performance (40% weight):</span></span>
-<span class="giallo-l"><span>├─ Synergy Realization: Target vs. actual synergy achievement</span></span>
-<span class="giallo-l"><span>├─ Revenue Growth: Combined entity revenue performance</span></span>
-<span class="giallo-l"><span>├─ Cost Management: Integration costs vs. budget</span></span>
-<span class="giallo-l"><span>├─ EBITDA Margin: Profitability improvement measurement</span></span>
-<span class="giallo-l"><span>└─ ROI Achievement: Deal IRR vs. investment committee projections</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Operational Excellence (30% weight):</span></span>
-<span class="giallo-l"><span>├─ Customer Retention: Customer satisfaction and retention rates</span></span>
-<span class="giallo-l"><span>├─ Employee Engagement: Team satisfaction and productivity metrics</span></span>
-<span class="giallo-l"><span>├─ Process Efficiency: Operational improvement and automation</span></span>
-<span class="giallo-l"><span>├─ Quality Metrics: Service quality and performance standards</span></span>
-<span class="giallo-l"><span>└─ Technology Integration: System performance and user adoption</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Strategic Objectives (20% weight):</span></span>
-<span class="giallo-l"><span>├─ Market Position: Combined entity competitive positioning</span></span>
-<span class="giallo-l"><span>├─ Innovation Capability: R&amp;D effectiveness and product development</span></span>
-<span class="giallo-l"><span>├─ Geographic Expansion: Market expansion and penetration success</span></span>
-<span class="giallo-l"><span>├─ Competitive Advantage: Sustainable differentiation achievement</span></span>
-<span class="giallo-l"><span>└─ Strategic Option Value: Platform for future growth and acquisitions</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Risk Management (10% weight):</span></span>
-<span class="giallo-l"><span>├─ Compliance Status: Regulatory compliance maintenance</span></span>
-<span class="giallo-l"><span>├─ Cybersecurity Posture: Security risk profile and incident prevention</span></span>
-<span class="giallo-l"><span>├─ Reputation Management: Brand and reputation protection</span></span>
-<span class="giallo-l"><span>├─ Stakeholder Confidence: Investor, customer, and employee confidence</span></span>
-<span class="giallo-l"><span>└─ Risk Mitigation: Identified risk resolution and management</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Success Threshold: 80% overall score for successful integration</span></span>
-<span class="giallo-l"><span>Review Frequency: Monthly for first 12 months, quarterly thereafter</span></span>
-<span class="giallo-l"><span>Optimization Approach: Continuous improvement based on performance data</span></span></code></pre>
+<p><strong>Post-Acquisition Integration Framework — 100 days:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>gantt</span></span>
+<span class="giallo-l"><span>    title 100-Day Integration Roadmap</span></span>
+<span class="giallo-l"><span>    dateFormat  X</span></span>
+<span class="giallo-l"><span>    axisFormat  Day %d</span></span>
+<span class="giallo-l"><span>    section Days 1-30 — Foundation</span></span>
+<span class="giallo-l"><span>    Cybersecurity assessment      :f1, 0, 14d</span></span>
+<span class="giallo-l"><span>    Critical compliance alignment :f2, 0, 30d</span></span>
+<span class="giallo-l"><span>    Business continuity check     :f3, 7, 14d</span></span>
+<span class="giallo-l"><span>    Stakeholder comms             :f4, 0, 30d</span></span>
+<span class="giallo-l"><span>    IMO establishment             :f5, 0, 14d</span></span>
+<span class="giallo-l"><span>    section Days 31-60 — Integration</span></span>
+<span class="giallo-l"><span>    Core system integration       :i1, 30, 30d</span></span>
+<span class="giallo-l"><span>    Process harmonization         :i2, 30, 30d</span></span>
+<span class="giallo-l"><span>    Org design + retention        :i3, 30, 25d</span></span>
+<span class="giallo-l"><span>    Customer relationship mgmt    :i4, 35, 25d</span></span>
+<span class="giallo-l"><span>    Vendor consolidation          :i5, 40, 20d</span></span>
+<span class="giallo-l"><span>    section Days 61-100 — Synergy</span></span>
+<span class="giallo-l"><span>    Cost synergies                :s1, 60, 40d</span></span>
+<span class="giallo-l"><span>    Revenue synergies             :s2, 65, 35d</span></span>
+<span class="giallo-l"><span>    Platform modernization        :s3, 60, 40d</span></span>
+<span class="giallo-l"><span>    Cultural integration          :s4, 60, 40d</span></span>
+<span class="giallo-l"><span>    Success measurement           :s5, 80, 20d</span></span></code></pre><pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>xychart-beta</span></span>
+<span class="giallo-l"><span>    title &quot;Key Success Metrics — 12-month targets&quot;</span></span>
+<span class="giallo-l"><span>    x-axis [&quot;Employee retention %&quot;, &quot;Customer sat. %&quot;, &quot;Synergy realization %&quot;, &quot;Compliance violations&quot;, &quot;Tech on-budget %&quot;]</span></span>
+<span class="giallo-l"><span>    y-axis &quot;Value&quot; 0 --&gt; 100</span></span>
+<span class="giallo-l"><span>    bar [95, 100, 100, 0, 100]</span></span></code></pre><div class="grid gap-4 lg:grid-cols-5 my-6">
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Key personnel</div>
+    <div class="text-xl font-bold text-white font-mono">&gt;95%</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Customer sat.</div>
+    <div class="text-xl font-bold text-white font-mono">no drop</div>
+  </div>
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Synergy targets</div>
+    <div class="text-xl font-bold text-white font-mono">12 mo</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Violations</div>
+    <div class="text-xl font-bold text-white font-mono">0</div>
+  </div>
+  <div class="rounded-lg border border-purple-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-purple-300 mb-2">Tech budget</div>
+    <div class="text-xl font-bold text-white font-mono">on-time</div>
+  </div>
+</div>
+<h3 id="5-2-risk-mitigation-strategies">5.2 Risk Mitigation Strategies</h3>
+<p><strong>Post-Merger Risk Mitigation Framework:</strong></p>
+<div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-red-500/30 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h4 class="text-base font-bold text-white">Cybersecurity Integration</h4>
+      <span class="px-2 py-0.5 rounded text-xs font-semibold bg-red-500/15 text-red-300 border border-red-500/40">6 mo · $1.2M</span>
+    </div>
+    <dl class="space-y-1.5 text-xs text-gray-300">
+      <div class="flex gap-2"><dt class="text-gray-500 w-20 flex-shrink-0">Risk</dt><dd>Security gap during system integration</dd></div>
+      <div class="flex gap-2"><dt class="text-gray-500 w-20 flex-shrink-0">Mitigation</dt><dd>Parallel security architecture during transition</dd></div>
+      <div class="flex gap-2"><dt class="text-gray-500 w-20 flex-shrink-0">Success</dt><dd class="text-emerald-300">0 security incidents during integration</dd></div>
+    </dl>
+  </div>
+  <div class="rounded-xl border border-amber-500/30 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h4 class="text-base font-bold text-white">Regulatory Compliance</h4>
+      <span class="px-2 py-0.5 rounded text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/40">18 mo · $2.1M</span>
+    </div>
+    <dl class="space-y-1.5 text-xs text-gray-300">
+      <div class="flex gap-2"><dt class="text-gray-500 w-20 flex-shrink-0">Risk</dt><dd>Compliance gaps during harmonization</dd></div>
+      <div class="flex gap-2"><dt class="text-gray-500 w-20 flex-shrink-0">Mitigation</dt><dd>Phased alignment with interim measures</dd></div>
+      <div class="flex gap-2"><dt class="text-gray-500 w-20 flex-shrink-0">Success</dt><dd class="text-emerald-300">0 violations / penalties</dd></div>
+    </dl>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h4 class="text-base font-bold text-white">Cultural Integration</h4>
+      <span class="px-2 py-0.5 rounded text-xs font-semibold bg-purple-500/15 text-purple-300 border border-purple-500/40">24 mo · $0.8M</span>
+    </div>
+    <dl class="space-y-1.5 text-xs text-gray-300">
+      <div class="flex gap-2"><dt class="text-gray-500 w-20 flex-shrink-0">Risk</dt><dd>Key talent departure + misalignment</dd></div>
+      <div class="flex gap-2"><dt class="text-gray-500 w-20 flex-shrink-0">Mitigation</dt><dd>Targeted retention + cultural ambassadors</dd></div>
+      <div class="flex gap-2"><dt class="text-gray-500 w-20 flex-shrink-0">Success</dt><dd class="text-emerald-300">&lt;5% key turnover in 24 months</dd></div>
+    </dl>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h4 class="text-base font-bold text-white">Operational Integration</h4>
+      <span class="px-2 py-0.5 rounded text-xs font-semibold bg-blue-500/15 text-blue-300 border border-blue-500/40">12 mo · $1.5M</span>
+    </div>
+    <dl class="space-y-1.5 text-xs text-gray-300">
+      <div class="flex gap-2"><dt class="text-gray-500 w-20 flex-shrink-0">Risk</dt><dd>Business disruption during integration</dd></div>
+      <div class="flex gap-2"><dt class="text-gray-500 w-20 flex-shrink-0">Mitigation</dt><dd>Phased integration with parallel ops</dd></div>
+      <div class="flex gap-2"><dt class="text-gray-500 w-20 flex-shrink-0">Success</dt><dd class="text-emerald-300">&lt;1% revenue impact</dd></div>
+    </dl>
+  </div>
+</div>
+<h3 id="5-3-success-measurement-optimization">5.3 Success Measurement &amp; Optimization</h3>
+<p><strong>Post-Merger Success Measurement Framework — weighted KPIs:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title KPI Weighting (Total = 100%)</span></span>
+<span class="giallo-l"><span>    &quot;Financial Performance (40%)&quot; : 40</span></span>
+<span class="giallo-l"><span>    &quot;Operational Excellence (30%)&quot; : 30</span></span>
+<span class="giallo-l"><span>    &quot;Strategic Objectives (20%)&quot; : 20</span></span>
+<span class="giallo-l"><span>    &quot;Risk Management (10%)&quot; : 10</span></span></code></pre><div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h4 class="text-base font-bold text-white">Financial · 40%</h4>
+      <span class="font-mono text-emerald-300">$$$</span>
+    </div>
+    <ul class="space-y-1.5 text-xs text-gray-300">
+      <li>Synergy realization (target vs. actual)</li>
+      <li>Combined revenue growth</li>
+      <li>Integration cost vs. budget</li>
+      <li>EBITDA margin improvement</li>
+      <li>Deal IRR vs. IC projections</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h4 class="text-base font-bold text-white">Operational · 30%</h4>
+      <span class="font-mono text-blue-300">⚙</span>
+    </div>
+    <ul class="space-y-1.5 text-xs text-gray-300">
+      <li>Customer retention + satisfaction</li>
+      <li>Employee engagement + productivity</li>
+      <li>Process efficiency + automation</li>
+      <li>Service quality standards</li>
+      <li>System performance + adoption</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h4 class="text-base font-bold text-white">Strategic · 20%</h4>
+      <span class="font-mono text-purple-300">★</span>
+    </div>
+    <ul class="space-y-1.5 text-xs text-gray-300">
+      <li>Combined market position</li>
+      <li>R&amp;D effectiveness</li>
+      <li>Geographic expansion</li>
+      <li>Sustainable differentiation</li>
+      <li>Future growth optionality</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-amber-500/30 bg-gray-900 p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h4 class="text-base font-bold text-white">Risk · 10%</h4>
+      <span class="font-mono text-amber-300">⚠</span>
+    </div>
+    <ul class="space-y-1.5 text-xs text-gray-300">
+      <li>Compliance maintenance</li>
+      <li>Cyber risk profile + incidents</li>
+      <li>Reputation protection</li>
+      <li>Stakeholder confidence</li>
+      <li>Identified risk resolution</li>
+    </ul>
+  </div>
+</div>
+<div class="grid gap-4 lg:grid-cols-3 my-6">
+  <div class="rounded-xl border border-emerald-500/40 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Success threshold</div>
+    <div class="text-2xl font-bold text-white font-mono">≥ 80%</div>
+    <div class="text-xs text-gray-400 mt-1">Composite score</div>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Review cadence</div>
+    <div class="text-xl font-bold text-white">Monthly</div>
+    <div class="text-xs text-gray-400 mt-1">first 12 mo · quarterly after</div>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-purple-300 mb-2">Optimization</div>
+    <div class="text-xl font-bold text-white">Continuous</div>
+    <div class="text-xs text-gray-400 mt-1">data-driven improvement</div>
+  </div>
+</div>
 <hr />
 <h2 id="6-industry-expertise-specialized-domains">6. Industry Expertise &amp; Specialized Domains</h2>
 <h3 id="6-1-industry-specific-due-diligence">6.1 Industry-Specific Due Diligence</h3>
 <p><strong>Financial Services M&amp;A:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>FINANCIAL SERVICES DUE DILIGENCE SPECIALIZATION</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph TD</span></span>
+<span class="giallo-l"><span>    Reg[Regulatory Framework]:::team</span></span>
+<span class="giallo-l"><span>    Reg --&gt; R1[Basel III]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; R2[Dodd-Frank]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; R3[MiFID II]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; R4[PSD2]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; R5[GDPR Financial]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Regulatory Framework:</span></span>
-<span class="giallo-l"><span>├─ Basel III: Capital adequacy and risk management compliance</span></span>
-<span class="giallo-l"><span>├─ Dodd-Frank: Systemically important financial institution requirements</span></span>
-<span class="giallo-l"><span>├─ MiFID II: Investment services and market transparency</span></span>
-<span class="giallo-l"><span>├─ PSD2: Payment services and open banking compliance</span></span>
-<span class="giallo-l"><span>└─ GDPR: Financial data protection and privacy requirements</span></span>
+<span class="giallo-l"><span>    Risk[Specialized Risk]:::warn</span></span>
+<span class="giallo-l"><span>    Risk --&gt; RK1[Credit risk]</span></span>
+<span class="giallo-l"><span>    Risk --&gt; RK2[Market risk]</span></span>
+<span class="giallo-l"><span>    Risk --&gt; RK3[Operational risk]</span></span>
+<span class="giallo-l"><span>    Risk --&gt; RK4[Liquidity risk]</span></span>
+<span class="giallo-l"><span>    Risk --&gt; RK5[Compliance risk]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Specialized Risk Assessment:</span></span>
-<span class="giallo-l"><span>├─ Credit Risk: Portfolio quality and risk concentration analysis</span></span>
-<span class="giallo-l"><span>├─ Market Risk: Trading book risk and market volatility exposure</span></span>
-<span class="giallo-l"><span>├─ Operational Risk: Process risk, fraud risk, and operational resilience</span></span>
-<span class="giallo-l"><span>├─ Liquidity Risk: Funding risk and liquidity coverage assessment</span></span>
-<span class="giallo-l"><span>└─ Compliance Risk: Regulatory examination history and enforcement actions</span></span>
+<span class="giallo-l"><span>    Tech[Technology DD]:::process</span></span>
+<span class="giallo-l"><span>    Tech --&gt; T1[Core banking systems]</span></span>
+<span class="giallo-l"><span>    Tech --&gt; T2[Payment infrastructure]</span></span>
+<span class="giallo-l"><span>    Tech --&gt; T3[Regulatory reporting]</span></span>
+<span class="giallo-l"><span>    Tech --&gt; T4[Cybersecurity]</span></span>
+<span class="giallo-l"><span>    Tech --&gt; T5[Digital banking]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Technology Due Diligence:</span></span>
-<span class="giallo-l"><span>├─ Core Banking Systems: Legacy system assessment and modernization</span></span>
-<span class="giallo-l"><span>├─ Payment Infrastructure: Payment processing and fraud prevention</span></span>
-<span class="giallo-l"><span>├─ Regulatory Reporting: Automated compliance reporting capabilities</span></span>
-<span class="giallo-l"><span>├─ Cybersecurity: Financial services threat landscape and controls</span></span>
-<span class="giallo-l"><span>└─ Digital Banking: Customer experience and digital transformation</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Integration Complexity: High (18-24 months)</span></span>
-<span class="giallo-l"><span>Regulatory Approval Timeline: 12-18 months</span></span>
-<span class="giallo-l"><span>Investment Required: 3-5% of transaction value</span></span>
-<span class="giallo-l"><span>Success Rate: 65% (Complex regulatory environment)</span></span></code></pre>
+<span class="giallo-l"><span>    classDef team fill:#1e293b,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef warn fill:#1e293b,stroke:#f59e0b,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-4 my-6">
+  <div class="rounded-lg border border-amber-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-amber-300 mb-2">Integration complexity</div>
+    <div class="text-xl font-bold text-white">High · 18-24 mo</div>
+  </div>
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Reg. approval</div>
+    <div class="text-xl font-bold text-white">12-18 mo</div>
+  </div>
+  <div class="rounded-lg border border-purple-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-purple-300 mb-2">Investment</div>
+    <div class="text-xl font-bold text-white">3-5%</div>
+    <div class="text-xs text-gray-400">of transaction value</div>
+  </div>
+  <div class="rounded-lg border border-amber-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-amber-300 mb-2">Success rate</div>
+    <div class="text-xl font-bold text-white">65%</div>
+    <div class="text-xs text-gray-400">complex reg. env.</div>
+  </div>
+</div>
 <p><strong>Technology Sector M&amp;A:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>TECHNOLOGY SECTOR DUE DILIGENCE SPECIALIZATION</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>    IP[IP Assessment]:::team</span></span>
+<span class="giallo-l"><span>    IP --&gt; P1[Patent portfolio]</span></span>
+<span class="giallo-l"><span>    IP --&gt; P2[Trade secrets]</span></span>
+<span class="giallo-l"><span>    IP --&gt; P3[Open source compliance]</span></span>
+<span class="giallo-l"><span>    IP --&gt; P4[Licensing]</span></span>
+<span class="giallo-l"><span>    IP --&gt; P5[IP litigation]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Intellectual Property Assessment:</span></span>
-<span class="giallo-l"><span>├─ Patent Portfolio: Patent strength, breadth, and defensive value</span></span>
-<span class="giallo-l"><span>├─ Trade Secrets: Proprietary algorithms and competitive advantages</span></span>
-<span class="giallo-l"><span>├─ Open Source: Open source usage and compliance risks</span></span>
-<span class="giallo-l"><span>├─ Licensing: Inbound and outbound licensing arrangements</span></span>
-<span class="giallo-l"><span>└─ IP Litigation: Patent disputes and infringement risks</span></span>
+<span class="giallo-l"><span>    Tech[Tech Stack]:::process</span></span>
+<span class="giallo-l"><span>    Tech --&gt; T1[Architecture / debt]</span></span>
+<span class="giallo-l"><span>    Tech --&gt; T2[Security posture]</span></span>
+<span class="giallo-l"><span>    Tech --&gt; T3[Performance / capacity]</span></span>
+<span class="giallo-l"><span>    Tech --&gt; T4[R&amp;amp;D + roadmap]</span></span>
+<span class="giallo-l"><span>    Tech --&gt; T5[Talent + retention]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Technology Stack Analysis:</span></span>
-<span class="giallo-l"><span>├─ Architecture: Scalability, maintainability, and technical debt</span></span>
-<span class="giallo-l"><span>├─ Security: Cybersecurity posture and data protection</span></span>
-<span class="giallo-l"><span>├─ Performance: System performance and capacity planning</span></span>
-<span class="giallo-l"><span>├─ Innovation: R&amp;D capability and product roadmap</span></span>
-<span class="giallo-l"><span>└─ Team: Technical talent assessment and retention</span></span>
+<span class="giallo-l"><span>    Mkt[Market Position]:::success</span></span>
+<span class="giallo-l"><span>    Mkt --&gt; M1[Product-market fit]</span></span>
+<span class="giallo-l"><span>    Mkt --&gt; M2[Competitive moats]</span></span>
+<span class="giallo-l"><span>    Mkt --&gt; M3[Growth trajectory]</span></span>
+<span class="giallo-l"><span>    Mkt --&gt; M4[Customer concentration]</span></span>
+<span class="giallo-l"><span>    Mkt --&gt; M5[Partnership ecosystem]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Market Position Evaluation:</span></span>
-<span class="giallo-l"><span>├─ Product-Market Fit: Customer adoption and satisfaction</span></span>
-<span class="giallo-l"><span>├─ Competitive Moats: Sustainable competitive advantages</span></span>
-<span class="giallo-l"><span>├─ Growth Trajectory: Revenue growth and market expansion</span></span>
-<span class="giallo-l"><span>├─ Customer Base: Customer concentration and retention</span></span>
-<span class="giallo-l"><span>└─ Partnership Ecosystem: Strategic partnerships and integrations</span></span>
+<span class="giallo-l"><span>    classDef team fill:#1e293b,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span></code></pre><pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart LR</span></span>
+<span class="giallo-l"><span>    Syn[Integration Synergies]:::success</span></span>
+<span class="giallo-l"><span>    Syn --&gt; S1[Platform consolidation]</span></span>
+<span class="giallo-l"><span>    Syn --&gt; S2[Product cross-sell]</span></span>
+<span class="giallo-l"><span>    Syn --&gt; S3[R&amp;amp;D + engineering combined]</span></span>
+<span class="giallo-l"><span>    Syn --&gt; S4[Geography + segment expansion]</span></span>
+<span class="giallo-l"><span>    Syn --&gt; S5[Data + analytics combined]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Integration Synergies:</span></span>
-<span class="giallo-l"><span>├─ Technology Integration: Platform consolidation opportunities</span></span>
-<span class="giallo-l"><span>├─ Product Synergies: Cross-selling and product enhancement</span></span>
-<span class="giallo-l"><span>├─ Talent Synergies: Combined R&amp;D and engineering capabilities</span></span>
-<span class="giallo-l"><span>├─ Market Synergies: Geographic and market segment expansion</span></span>
-<span class="giallo-l"><span>└─ Data Synergies: Combined datasets and analytics capabilities</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-4 my-6">
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Integration complexity</div>
+    <div class="text-xl font-bold text-white">Medium · 6-12 mo</div>
+  </div>
+  <div class="rounded-lg border border-red-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-red-300 mb-2">Personnel retention</div>
+    <div class="text-xl font-bold text-white">Critical · 90%+</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Synergy realization</div>
+    <div class="text-xl font-bold text-white">12-18 mo</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Success rate</div>
+    <div class="text-xl font-bold text-white">75%</div>
+  </div>
+</div>
+<h3 id="6-2-cross-border-m-a-expertise">6.2 Cross-Border M&amp;A Expertise</h3>
+<p><strong>Cross-Border M&amp;A Specialization:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph TD</span></span>
+<span class="giallo-l"><span>    Reg[Regulatory Harmonization]:::process</span></span>
+<span class="giallo-l"><span>    Reg --&gt; R1[EU: GDPR · NIS2 · DSA]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; R2[US Federal: SEC · FTC]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; R3[State / Provincial]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; R4[Local: municipal / regional]</span></span>
+<span class="giallo-l"><span>    Reg --&gt; R5[International / multilateral]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Integration Complexity: Medium (6-12 months)</span></span>
-<span class="giallo-l"><span>Key Personnel Retention: Critical (90%+ target)</span></span>
-<span class="giallo-l"><span>Synergy Realization: 12-18 months</span></span>
-<span class="giallo-l"><span>Success Rate: 75% (Strong technology fundamentals)</span></span></code></pre><h3 id="6-2-cross-border-m-a-expertise">6.2 Cross-Border M&amp;A Expertise</h3>
-<p><strong>Multi-Jurisdiction Due Diligence:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>CROSS-BORDER M&amp;A SPECIALIZATION</span></span>
+<span class="giallo-l"><span>    Cul[Cultural DD]:::team</span></span>
+<span class="giallo-l"><span>    Cul --&gt; C1[Business culture / comms]</span></span>
+<span class="giallo-l"><span>    Cul --&gt; C2[Management practices]</span></span>
+<span class="giallo-l"><span>    Cul --&gt; C3[Employee relations]</span></span>
+<span class="giallo-l"><span>    Cul --&gt; C4[Customer expectations]</span></span>
+<span class="giallo-l"><span>    Cul --&gt; C5[Stakeholder management]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Regulatory Harmonization:</span></span>
-<span class="giallo-l"><span>├─ EU Regulations: GDPR, NIS2, Digital Services Act compliance</span></span>
-<span class="giallo-l"><span>├─ US Federal: SEC, FTC, industry-specific federal requirements</span></span>
-<span class="giallo-l"><span>├─ State/Provincial: Multi-state privacy laws and business regulations</span></span>
-<span class="giallo-l"><span>├─ Local Regulations: Municipal and regional regulatory requirements</span></span>
-<span class="giallo-l"><span>└─ International: Multi-lateral agreements and trade regulations</span></span>
+<span class="giallo-l"><span>    Fin[Tax + Financial]:::success</span></span>
+<span class="giallo-l"><span>    Fin --&gt; F1[Tax optimization · TP]</span></span>
+<span class="giallo-l"><span>    Fin --&gt; F2[Currency risk · hedging]</span></span>
+<span class="giallo-l"><span>    Fin --&gt; F3[Regulatory capital]</span></span>
+<span class="giallo-l"><span>    Fin --&gt; F4[Multi-GAAP reporting]</span></span>
+<span class="giallo-l"><span>    Fin --&gt; F5[Transfer pricing compliance]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Cultural Due Diligence:</span></span>
-<span class="giallo-l"><span>├─ Business Culture: Communication styles and decision-making processes</span></span>
-<span class="giallo-l"><span>├─ Management Practices: Leadership styles and organizational structure</span></span>
-<span class="giallo-l"><span>├─ Employee Relations: Labor relations and employment law differences</span></span>
-<span class="giallo-l"><span>├─ Customer Expectations: Cultural preferences and service expectations</span></span>
-<span class="giallo-l"><span>└─ Stakeholder Management: Regulatory relationships and community engagement</span></span>
+<span class="giallo-l"><span>    Int[Integration Challenges]:::warn</span></span>
+<span class="giallo-l"><span>    Int --&gt; I1[Legal entity structure]</span></span>
+<span class="giallo-l"><span>    Int --&gt; I2[Operational harmonization]</span></span>
+<span class="giallo-l"><span>    Int --&gt; I3[Data residency]</span></span>
+<span class="giallo-l"><span>    Int --&gt; I4[Cross-cultural change mgmt]</span></span>
+<span class="giallo-l"><span>    Int --&gt; I5[Multi-jurisdiction reg. mgmt]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Tax &amp; Financial Structure:</span></span>
-<span class="giallo-l"><span>├─ Tax Optimization: Cross-border tax efficiency and transfer pricing</span></span>
-<span class="giallo-l"><span>├─ Currency Risk: Multi-currency exposure and hedging strategies</span></span>
-<span class="giallo-l"><span>├─ Regulatory Capital: Cross-border capital requirements and restrictions</span></span>
-<span class="giallo-l"><span>├─ Reporting Standards: Multi-GAAP reporting and reconciliation</span></span>
-<span class="giallo-l"><span>└─ Transfer Pricing: Intercompany pricing and regulatory compliance</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Integration Challenges:</span></span>
-<span class="giallo-l"><span>├─ Legal Structure: Optimal legal entity structure and governance</span></span>
-<span class="giallo-l"><span>├─ Operational Integration: Cross-border process harmonization</span></span>
-<span class="giallo-l"><span>├─ Technology Integration: Multi-jurisdiction data residency requirements</span></span>
-<span class="giallo-l"><span>├─ Cultural Integration: Cross-cultural change management and communication</span></span>
-<span class="giallo-l"><span>└─ Regulatory Management: Multi-jurisdiction regulatory relationship management</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Integration Complexity: High (18-36 months)</span></span>
-<span class="giallo-l"><span>Regulatory Approval: Multiple jurisdictions (12-24 months)</span></span>
-<span class="giallo-l"><span>Cultural Integration: 24-36 months for full alignment</span></span>
-<span class="giallo-l"><span>Success Rate: 55% (Complex multi-jurisdiction environment)</span></span></code></pre>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef team fill:#1e293b,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef warn fill:#1e293b,stroke:#f59e0b,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-4 my-6">
+  <div class="rounded-lg border border-red-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-red-300 mb-2">Integration complexity</div>
+    <div class="text-xl font-bold text-white">High · 18-36 mo</div>
+  </div>
+  <div class="rounded-lg border border-amber-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-amber-300 mb-2">Reg. approval</div>
+    <div class="text-xl font-bold text-white">12-24 mo</div>
+    <div class="text-xs text-gray-400">multiple jurisdictions</div>
+  </div>
+  <div class="rounded-lg border border-purple-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-purple-300 mb-2">Cultural integration</div>
+    <div class="text-xl font-bold text-white">24-36 mo</div>
+  </div>
+  <div class="rounded-lg border border-amber-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-amber-300 mb-2">Success rate</div>
+    <div class="text-xl font-bold text-white">55%</div>
+    <div class="text-xs text-gray-400">complex multi-juris</div>
+  </div>
+</div>
 <hr />
 <h2 id="7-platform-implementation-roi">7. Platform Implementation &amp; ROI</h2>
 <h3 id="7-1-implementation-framework">7.1 Implementation Framework</h3>
-<p><strong>M&amp;A Platform Deployment:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>PHASE 1: Foundation Setup (Months 1-2)</span></span>
-<span class="giallo-l"><span>├─ Platform Installation: Core M&amp;A due diligence platform deployment</span></span>
-<span class="giallo-l"><span>├─ Data Source Integration: 122+ OSINT source connectivity and validation</span></span>
-<span class="giallo-l"><span>├─ Agent Configuration: 434 AI agent deployment and specialization</span></span>
-<span class="giallo-l"><span>├─ Workflow Design: Due diligence process automation and orchestration</span></span>
-<span class="giallo-l"><span>├─ Security Setup: Platform security hardening and access controls</span></span>
-<span class="giallo-l"><span>└─ Team Training: M&amp;A team onboarding and platform proficiency</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>PHASE 2: Customization &amp; Testing (Months 3-4)</span></span>
-<span class="giallo-l"><span>├─ Industry Specialization: Sector-specific due diligence customization</span></span>
-<span class="giallo-l"><span>├─ Risk Model Calibration: A-F grading system calibration and validation</span></span>
-<span class="giallo-l"><span>├─ Report Template Development: Custom executive and committee reporting</span></span>
-<span class="giallo-l"><span>├─ Integration Planning: Post-merger integration roadmap templates</span></span>
-<span class="giallo-l"><span>├─ Quality Assurance: Cross-validation framework implementation</span></span>
-<span class="giallo-l"><span>└─ Pilot Transaction: Initial platform validation with live transaction</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>PHASE 3: Full Production &amp; Optimization (Months 5-6)</span></span>
-<span class="giallo-l"><span>├─ Production Deployment: Full platform capability activation</span></span>
-<span class="giallo-l"><span>├─ Performance Optimization: Platform performance tuning and acceleration</span></span>
-<span class="giallo-l"><span>├─ Advanced Analytics: Predictive modeling and success forecasting</span></span>
-<span class="giallo-l"><span>├─ Continuous Learning: Machine learning model enhancement and adaptation</span></span>
-<span class="giallo-l"><span>├─ Stakeholder Integration: Investment committee and board integration</span></span>
-<span class="giallo-l"><span>└─ Success Measurement: ROI tracking and platform effectiveness assessment</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Total Implementation Timeline: 6 months</span></span>
-<span class="giallo-l"><span>Implementation Investment: $1.2-2.5M (depending on customization)</span></span>
-<span class="giallo-l"><span>Expected ROI: 300-800% within 24 months</span></span>
-<span class="giallo-l"><span>Payback Period: 6-12 months (based on transaction volume)</span></span></code></pre><h3 id="7-2-roi-value-creation">7.2 ROI &amp; Value Creation</h3>
+<p><strong>M&amp;A Platform Deployment — 6-month plan:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>gantt</span></span>
+<span class="giallo-l"><span>    title M&amp;A Platform Implementation</span></span>
+<span class="giallo-l"><span>    dateFormat  YYYY-MM-DD</span></span>
+<span class="giallo-l"><span>    axisFormat  M%m</span></span>
+<span class="giallo-l"><span>    section Phase 1 — Foundation</span></span>
+<span class="giallo-l"><span>    Platform install              :p1a, 2026-01-01, 30d</span></span>
+<span class="giallo-l"><span>    OSINT source integration      :p1b, 2026-01-01, 45d</span></span>
+<span class="giallo-l"><span>    434-agent deployment          :p1c, 2026-01-15, 30d</span></span>
+<span class="giallo-l"><span>    Workflow design               :p1d, 2026-01-15, 30d</span></span>
+<span class="giallo-l"><span>    Security + access controls    :p1e, 2026-01-15, 30d</span></span>
+<span class="giallo-l"><span>    Team training                 :p1f, 2026-02-01, 30d</span></span>
+<span class="giallo-l"><span>    section Phase 2 — Customization</span></span>
+<span class="giallo-l"><span>    Industry specialization       :p2a, 2026-03-01, 30d</span></span>
+<span class="giallo-l"><span>    A-F risk calibration          :p2b, 2026-03-01, 30d</span></span>
+<span class="giallo-l"><span>    Report templates              :p2c, 2026-03-15, 30d</span></span>
+<span class="giallo-l"><span>    Integration planning          :p2d, 2026-03-15, 30d</span></span>
+<span class="giallo-l"><span>    Pilot transaction             :p2e, 2026-04-01, 30d</span></span>
+<span class="giallo-l"><span>    section Phase 3 — Production</span></span>
+<span class="giallo-l"><span>    Full activation               :p3a, 2026-05-01, 30d</span></span>
+<span class="giallo-l"><span>    Performance tuning            :p3b, 2026-05-01, 30d</span></span>
+<span class="giallo-l"><span>    Predictive analytics          :p3c, 2026-05-15, 30d</span></span>
+<span class="giallo-l"><span>    Continuous learning           :p3d, 2026-05-15, 45d</span></span>
+<span class="giallo-l"><span>    IC + board integration        :p3e, 2026-06-01, 30d</span></span></code></pre><div class="grid gap-4 lg:grid-cols-4 my-6">
+  <div class="rounded-lg border border-blue-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Total timeline</div>
+    <div class="text-xl font-bold text-white">6 months</div>
+  </div>
+  <div class="rounded-lg border border-purple-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-purple-300 mb-2">Investment</div>
+    <div class="text-xl font-bold text-white font-mono">$1.2-2.5M</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Expected ROI</div>
+    <div class="text-xl font-bold text-white">300-800%</div>
+    <div class="text-xs text-gray-400">in 24 mo</div>
+  </div>
+  <div class="rounded-lg border border-emerald-500/30 bg-gray-900 p-4 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Payback</div>
+    <div class="text-xl font-bold text-white">6-12 mo</div>
+  </div>
+</div>
+<h3 id="7-2-roi-value-creation">7.2 ROI &amp; Value Creation</h3>
 <p><strong>M&amp;A Platform Return on Investment:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>M&amp;A DUE DILIGENCE PLATFORM ROI ANALYSIS</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>pie title Annual Value Composition (10 deals/year, $38M total)</span></span>
+<span class="giallo-l"><span>    &quot;Cost savings (75% · $25M)&quot; : 25</span></span>
+<span class="giallo-l"><span>    &quot;Risk mitigation (21% · $8M)&quot; : 8</span></span>
+<span class="giallo-l"><span>    &quot;Revenue acceleration (4% · $5M)&quot; : 5</span></span></code></pre><div class="grid gap-4 lg:grid-cols-3 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Cost savings · $25M / yr</h4>
+    <ul class="space-y-1.5 text-xs text-gray-200">
+      <li>Consulting: <span class="font-mono">$1.5-4M / deal</span></li>
+      <li>Legal: <span class="font-mono">$0.5-1.5M / deal</span></li>
+      <li>Time accel: <span class="font-mono">$2-6M / deal</span></li>
+      <li>Productivity: <span class="font-mono">+400%</span></li>
+      <li>Integration plan: <span class="font-mono">$0.5-2M / deal</span></li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-amber-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-amber-300 uppercase tracking-wider mb-3">Risk mitigation · $8M / yr</h4>
+    <ul class="space-y-1.5 text-xs text-gray-200">
+      <li>Integration failures: <span class="font-mono">-40%</span></li>
+      <li>Compliance delays: <span class="font-mono">-90%</span></li>
+      <li>Personnel retention: <span class="font-mono">+25%</span></li>
+      <li>Post-merger cyber incidents: <span class="font-mono">-60%</span></li>
+      <li>Synergy accuracy: <span class="font-mono">+35%</span></li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-blue-300 uppercase tracking-wider mb-3">Revenue acceleration · $5M / yr</h4>
+    <ul class="space-y-1.5 text-xs text-gray-200">
+      <li>Deal velocity: <span class="font-mono">+85%</span></li>
+      <li>Market entry: <span class="font-mono">6 mo earlier</span></li>
+      <li>Bidding success rate: enhanced</li>
+      <li>Target selection optimization</li>
+      <li>Pipeline management improved</li>
+    </ul>
+  </div>
+</div>
+<div class="rounded-xl border border-emerald-500/40 bg-gray-900 p-6 my-6 shadow-xl">
+  <div class="text-xs text-gray-400 uppercase tracking-wider mb-3">Annual ROI snapshot — 10 transactions/year</div>
+  <div class="grid gap-4 lg:grid-cols-4">
+    <div>
+      <div class="text-sm text-gray-400">Total annual value</div>
+      <div class="text-2xl font-bold text-emerald-300 font-mono">$38M</div>
+    </div>
+    <div>
+      <div class="text-sm text-gray-400">Platform investment</div>
+      <div class="text-2xl font-bold text-white font-mono">$4.5M</div>
+    </div>
+    <div>
+      <div class="text-sm text-gray-400">Net annual ROI</div>
+      <div class="text-2xl font-bold text-emerald-300 font-mono">744%</div>
+      <div class="text-xs text-gray-400">$33.5M net benefit</div>
+    </div>
+    <div>
+      <div class="text-sm text-gray-400">3-year NPV</div>
+      <div class="text-2xl font-bold text-emerald-300 font-mono">$95M</div>
+      <div class="text-xs text-gray-400">10% discount</div>
+    </div>
+  </div>
+</div>
+<h3 id="7-3-competitive-advantage-market-position">7.3 Competitive Advantage &amp; Market Position</h3>
+<p><strong>M&amp;A Market Differentiation — Traditional vs. Prismatic:</strong></p>
+<div class="overflow-x-auto my-6">
+  <table class="w-full text-sm border-collapse">
+    <thead>
+      <tr class="border-b border-gray-700">
+        <th class="text-left p-3 text-gray-300">Dimension</th>
+        <th class="text-left p-3 text-red-300">Traditional</th>
+        <th class="text-left p-3 text-emerald-300">Prismatic</th>
+        <th class="text-left p-3 text-purple-300">Improvement</th>
+      </tr>
+    </thead>
+    <tbody class="text-gray-200">
+      <tr class="border-b border-gray-800">
+        <td class="p-3">Timeline</td>
+        <td class="p-3 font-mono">6-12 months</td>
+        <td class="p-3 font-mono">2-4 weeks</td>
+        <td class="p-3 font-mono text-emerald-300">-85%</td>
+      </tr>
+      <tr class="border-b border-gray-800">
+        <td class="p-3">Cost / deal</td>
+        <td class="p-3 font-mono">$2-8M</td>
+        <td class="p-3 font-mono">$0.5-2M</td>
+        <td class="p-3 font-mono text-emerald-300">-60-75%</td>
+      </tr>
+      <tr class="border-b border-gray-800">
+        <td class="p-3">Post-merger success</td>
+        <td class="p-3 font-mono">60-70%</td>
+        <td class="p-3 font-mono">75-85%</td>
+        <td class="p-3 font-mono text-emerald-300">+15-25 pts</td>
+      </tr>
+      <tr class="border-b border-gray-800">
+        <td class="p-3">Coverage</td>
+        <td class="p-3">Human + time constrained</td>
+        <td class="p-3">122+ sources · 10 topics</td>
+        <td class="p-3 font-mono text-emerald-300">comprehensive</td>
+      </tr>
+      <tr class="border-b border-gray-800">
+        <td class="p-3">Consistency</td>
+        <td class="p-3">High variability</td>
+        <td class="p-3">AI-standardized + QA</td>
+        <td class="p-3 font-mono text-emerald-300">stable</td>
+      </tr>
+      <tr>
+        <td class="p-3">Post-merger planning</td>
+        <td class="p-3">Limited</td>
+        <td class="p-3">Auto 100-day roadmap</td>
+        <td class="p-3 font-mono text-emerald-300">automated</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph TD</span></span>
+<span class="giallo-l"><span>    Cap[3-5x Deal Volume Capacity]:::success</span></span>
+<span class="giallo-l"><span>    Cap --&gt; MS[Market share advantage]:::process</span></span>
+<span class="giallo-l"><span>    Cap --&gt; Suc[Higher integration success]:::success</span></span>
+<span class="giallo-l"><span>    Cap --&gt; Moat[Strategic M&amp;amp;A moat]:::team</span></span>
+<span class="giallo-l"><span>    Cap --&gt; Lead[First-mover leadership]:::team</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Cost Savings (75% of total value):</span></span>
-<span class="giallo-l"><span>├─ Consulting Fees: $1.5-4M saved per transaction (vs. traditional DD)</span></span>
-<span class="giallo-l"><span>├─ Legal Costs: $0.5-1.5M saved per transaction (automated analysis)</span></span>
-<span class="giallo-l"><span>├─ Time Acceleration: $2-6M value from faster deal completion</span></span>
-<span class="giallo-l"><span>├─ Resource Efficiency: Internal team productivity +400%</span></span>
-<span class="giallo-l"><span>└─ Integration Planning: $0.5-2M saved through automated roadmaps</span></span>
+<span class="giallo-l"><span>    Stake[Stakeholder Benefits]:::process</span></span>
+<span class="giallo-l"><span>    Stake --&gt; IC[Investment Committees&lt;br/&gt;Better + faster decisions]</span></span>
+<span class="giallo-l"><span>    Stake --&gt; CD[Corporate Development&lt;br/&gt;Enhanced sourcing + execution]</span></span>
+<span class="giallo-l"><span>    Stake --&gt; PE[Private Equity&lt;br/&gt;Better portfolio selection]</span></span>
+<span class="giallo-l"><span>    Stake --&gt; IB[Investment Banking&lt;br/&gt;Differentiated advisory]</span></span>
+<span class="giallo-l"><span>    Stake --&gt; SA[Strategic Acquirers&lt;br/&gt;Sustainable advantage]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Risk Mitigation Value (20% of total value):</span></span>
-<span class="giallo-l"><span>├─ Post-Acquisition Surprises: 40% reduction in integration failures</span></span>
-<span class="giallo-l"><span>├─ Regulatory Compliance: 90% reduction in compliance-related delays</span></span>
-<span class="giallo-l"><span>├─ Cultural Integration: 25% improvement in key personnel retention</span></span>
-<span class="giallo-l"><span>├─ Cybersecurity Risk: 60% reduction in post-merger security incidents</span></span>
-<span class="giallo-l"><span>└─ Financial Accuracy: 35% improvement in synergy realization accuracy</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Revenue Acceleration (5% of total value):</span></span>
-<span class="giallo-l"><span>├─ Deal Velocity: 85% faster transaction completion</span></span>
-<span class="giallo-l"><span>├─ Market Expansion: 6 months earlier market entry</span></span>
-<span class="giallo-l"><span>├─ Competitive Advantage: Enhanced bidding capability and success rate</span></span>
-<span class="giallo-l"><span>├─ Portfolio Optimization: Better target selection and deal sourcing</span></span>
-<span class="giallo-l"><span>└─ Strategic Planning: Enhanced M&amp;A strategy and pipeline management</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Annual ROI Calculation (10 transactions/year):</span></span>
-<span class="giallo-l"><span>├─ Cost Savings: $25M annually (Average $2.5M per transaction)</span></span>
-<span class="giallo-l"><span>├─ Risk Mitigation: $8M annually (Avoided integration failures)</span></span>
-<span class="giallo-l"><span>├─ Revenue Acceleration: $5M annually (Faster time-to-value)</span></span>
-<span class="giallo-l"><span>├─ Total Annual Value: $38M</span></span>
-<span class="giallo-l"><span>├─ Platform Investment: $4.5M (Implementation + annual operation)</span></span>
-<span class="giallo-l"><span>├─ Net Annual ROI: 744% ($33.5M net benefit)</span></span>
-<span class="giallo-l"><span>└─ 3-Year NPV: $95M (10% discount rate)</span></span></code></pre><h3 id="7-3-competitive-advantage-market-position">7.3 Competitive Advantage &amp; Market Position</h3>
-<p><strong>M&amp;A Market Differentiation:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>COMPETITIVE POSITIONING ANALYSIS</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Traditional M&amp;A Due Diligence:</span></span>
-<span class="giallo-l"><span>├─ Timeline: 6-12 months</span></span>
-<span class="giallo-l"><span>├─ Cost: $2-8M per transaction</span></span>
-<span class="giallo-l"><span>├─ Accuracy: 60-70% post-merger success rate</span></span>
-<span class="giallo-l"><span>├─ Coverage: Limited by human expertise and time constraints</span></span>
-<span class="giallo-l"><span>├─ Consistency: High variability based on team and resources</span></span>
-<span class="giallo-l"><span>└─ Integration: Limited post-merger planning and support</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Prismatic Platform M&amp;A Solution:</span></span>
-<span class="giallo-l"><span>├─ Timeline: 2-4 weeks (85% reduction)</span></span>
-<span class="giallo-l"><span>├─ Cost: $0.5-2M per transaction (60-75% reduction)</span></span>
-<span class="giallo-l"><span>├─ Accuracy: 75-85% post-merger success rate (+15-25% improvement)</span></span>
-<span class="giallo-l"><span>├─ Coverage: Comprehensive 122+ sources, 10 specialized topics</span></span>
-<span class="giallo-l"><span>├─ Consistency: Standardized AI-driven analysis and quality assurance</span></span>
-<span class="giallo-l"><span>└─ Integration: Automated 100-day integration roadmaps and monitoring</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Market Impact:</span></span>
-<span class="giallo-l"><span>├─ Deal Volume: Enable 3-5x increase in transaction capacity</span></span>
-<span class="giallo-l"><span>├─ Market Share: Competitive advantage in fast-moving markets</span></span>
-<span class="giallo-l"><span>├─ Success Rate: Higher integration success and synergy realization</span></span>
-<span class="giallo-l"><span>├─ Strategic Advantage: Enhanced M&amp;A capability as competitive moat</span></span>
-<span class="giallo-l"><span>└─ Industry Leadership: First-mover advantage in autonomous M&amp;A intelligence</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Stakeholder Benefits:</span></span>
-<span class="giallo-l"><span>├─ Investment Committees: Better decisions, faster approvals</span></span>
-<span class="giallo-l"><span>├─ Corporate Development: Enhanced deal sourcing and execution</span></span>
-<span class="giallo-l"><span>├─ Private Equity: Improved portfolio company selection and value creation</span></span>
-<span class="giallo-l"><span>├─ Investment Banking: Differentiated advisory capability</span></span>
-<span class="giallo-l"><span>└─ Strategic Acquirers: Sustainable competitive advantage through superior M&amp;A</span></span></code></pre>
+<span class="giallo-l"><span>    classDef process fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span>
+<span class="giallo-l"><span>    classDef team fill:#1e293b,stroke:#a855f7,color:#fff</span></span></code></pre>
 <hr />
 <h2 id="conclusion">Conclusion</h2>
 <p>The Prismatic Platform M&amp;A Due Diligence Automation represents a paradigm shift from traditional manual processes to autonomous intelligence-driven M&amp;A execution. Through 122+ OSINT sources, 434 AI agents, and comprehensive risk assessment, the platform delivers 85% timeline reduction while improving accuracy and integration success rates.</p>

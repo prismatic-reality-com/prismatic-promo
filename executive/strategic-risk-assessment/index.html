@@ -157,7 +157,7 @@
         },
         "inLanguage": "en",
         "keywords": "Strategic, Risk, Assessment, Framework, Comprehensive, Prismatic, Platform, Enterprise, Management, executive",
-        "wordCount": 409
+        "wordCount": 1075
     }
     </script>
     
@@ -226,7 +226,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -242,7 +242,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -620,54 +624,113 @@
 <span class="giallo-l"><span>    style Engine fill:#0f172a,stroke:#3b82f6,color:#fff</span></span>
 <span class="giallo-l"><span>    style Gov fill:#1e293b,stroke:#10b981,color:#fff</span></span></code></pre><h3 id="1-2-strategic-risk-taxonomy">1.2 Strategic Risk Taxonomy</h3>
 <p><strong>Six-Domain Risk Classification:</strong></p>
-<p><strong>Strategic Market Risk:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Market Risk Assessment Framework</span></span>
+<p><strong>Strategic Market Risk Assessment:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>quadrantChart</span></span>
+<span class="giallo-l"><span>    title Market Risk — Probability vs. Impact ($M)</span></span>
+<span class="giallo-l"><span>    x-axis Low Probability --&gt; High Probability</span></span>
+<span class="giallo-l"><span>    y-axis Low Impact --&gt; High Impact</span></span>
+<span class="giallo-l"><span>    quadrant-1 Active mitigation</span></span>
+<span class="giallo-l"><span>    quadrant-2 Plan + monitor</span></span>
+<span class="giallo-l"><span>    quadrant-3 Accept</span></span>
+<span class="giallo-l"><span>    quadrant-4 Quick wins</span></span>
+<span class="giallo-l"><span>    Economic downturn ($60M): [0.25, 0.85]</span></span>
+<span class="giallo-l"><span>    Competitive disruption ($45M): [0.12, 0.72]</span></span>
+<span class="giallo-l"><span>    Supply chain disruption ($40M): [0.15, 0.66]</span></span>
+<span class="giallo-l"><span>    Technology obsolescence ($35M): [0.08, 0.58]</span></span>
+<span class="giallo-l"><span>    Industry consolidation ($30M): [0.18, 0.50]</span></span>
+<span class="giallo-l"><span>    Market share erosion ($25M): [0.15, 0.42]</span></span>
+<span class="giallo-l"><span>    Regulatory changes ($20M): [0.22, 0.34]</span></span>
+<span class="giallo-l"><span>    Customer preference shift ($15M): [0.20, 0.25]</span></span></code></pre><div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-amber-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-amber-300 uppercase tracking-wider mb-3">Competitive positioning</h4>
+    <ul class="space-y-1.5 text-xs text-gray-200 font-mono">
+      <li>15% · $25M — Market share erosion</li>
+      <li>12% · $45M — Competitive disruption</li>
+      <li>8% · $35M — Technology obsolescence</li>
+      <li>20% · $15M — Customer preference shift</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-red-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-red-300 uppercase tracking-wider mb-3">Market dynamics</h4>
+    <ul class="space-y-1.5 text-xs text-gray-200 font-mono">
+      <li>25% · $60M — Economic downturn</li>
+      <li>18% · $30M — Industry consolidation</li>
+      <li>22% · $20M — Regulatory changes</li>
+      <li>15% · $40M — Supply chain disruption</li>
+    </ul>
+  </div>
+</div>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>    Cap[Strategic Response Capability]:::success</span></span>
+<span class="giallo-l"><span>    Cap --&gt; S[Response speed&lt;br/&gt;+15% vs industry]</span></span>
+<span class="giallo-l"><span>    Cap --&gt; A[Strategic agility&lt;br/&gt;High rating]</span></span>
+<span class="giallo-l"><span>    Cap --&gt; I[Innovation pipeline&lt;br/&gt;12 initiatives]</span></span>
+<span class="giallo-l"><span>    Cap --&gt; M[Market intelligence&lt;br/&gt;Real-time monitoring]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Competitive Positioning Risk:</span></span>
-<span class="giallo-l"><span>├─ Market Share Erosion: 15% probability, $25M potential impact</span></span>
-<span class="giallo-l"><span>├─ Competitive Disruption: 12% probability, $45M potential impact</span></span>
-<span class="giallo-l"><span>├─ Technology Obsolescence: 8% probability, $35M potential impact</span></span>
-<span class="giallo-l"><span>└─ Customer Preference Shift: 20% probability, $15M potential impact</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Market Dynamics Risk:</span></span>
-<span class="giallo-l"><span>├─ Economic Downturn: 25% probability, $60M potential impact</span></span>
-<span class="giallo-l"><span>├─ Industry Consolidation: 18% probability, $30M potential impact</span></span>
-<span class="giallo-l"><span>├─ Regulatory Changes: 22% probability, $20M potential impact</span></span>
-<span class="giallo-l"><span>└─ Supply Chain Disruption: 15% probability, $40M potential impact</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Strategic Response Capability:</span></span>
-<span class="giallo-l"><span>├─ Response Speed: 15% improvement vs. industry average</span></span>
-<span class="giallo-l"><span>├─ Strategic Agility: High adaptation capability rating</span></span>
-<span class="giallo-l"><span>├─ Innovation Pipeline: 12 strategic initiatives in development</span></span>
-<span class="giallo-l"><span>└─ Market Intelligence: Real-time competitive monitoring active</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Overall Market Risk Score: Medium (68/100)</span></span>
-<span class="giallo-l"><span>Trend: Improving (Risk reduction initiatives effective)</span></span>
-<span class="giallo-l"><span>Strategic Priority: High (Board oversight and investment approved)</span></span></code></pre>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-3 my-6">
+  <div class="rounded-xl border border-amber-500/40 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-amber-300 mb-2">Overall market risk</div>
+    <div class="text-2xl font-bold text-white font-mono">Medium · 68/100</div>
+  </div>
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Trend</div>
+    <div class="text-xl font-bold text-emerald-300">↓ Improving</div>
+    <div class="text-xs text-gray-400 mt-1">mitigation effective</div>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-purple-300 mb-2">Strategic priority</div>
+    <div class="text-xl font-bold text-white">High</div>
+    <div class="text-xs text-gray-400 mt-1">board oversight + funding</div>
+  </div>
+</div>
 <p><strong>Technology &amp; Cybersecurity Risk:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>Technology Risk Assessment Matrix</span></span>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>xychart-beta</span></span>
+<span class="giallo-l"><span>    title &quot;Cyber Risk Exposure ($M) — Prismatic vs Industry&quot;</span></span>
+<span class="giallo-l"><span>    x-axis [&quot;Prismatic&quot;, &quot;Industry avg&quot;]</span></span>
+<span class="giallo-l"><span>    y-axis &quot;Annual exposure $M&quot; 0 --&gt; 20</span></span>
+<span class="giallo-l"><span>    bar [2.3, 15]</span></span></code></pre><div class="grid gap-4 lg:grid-cols-2 my-6">
+  <div class="rounded-xl border border-emerald-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-emerald-300 uppercase tracking-wider mb-3">Cybersecurity exposure</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Risk level: <span class="text-emerald-300 font-bold">Low</span> · $2.3M vs. $15M industry</li>
+      <li>434 autonomous agents · 24/7 protection</li>
+      <li>96% attack-surface monitoring coverage</li>
+      <li>MTTR &lt; 2 min detection + response</li>
+    </ul>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5">
+    <h4 class="text-sm font-semibold text-blue-300 uppercase tracking-wider mb-3">Digital transformation</h4>
+    <ul class="space-y-1.5 text-sm text-gray-200">
+      <li>Tech obsolescence: <span class="text-emerald-300">Low</span> (cloud-native)</li>
+      <li>Integration: <span class="text-amber-300">Medium</span> (API-first)</li>
+      <li>Data security: <span class="text-emerald-300">High</span> (encryption + RBAC)</li>
+      <li>Scalability: <span class="text-emerald-300">Low risk</span> (auto-scaling)</li>
+    </ul>
+  </div>
+</div>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph LR</span></span>
+<span class="giallo-l"><span>    Inn[Innovation Risk Management]:::success</span></span>
+<span class="giallo-l"><span>    Inn --&gt; R[R&amp;amp;D portfolio&lt;br/&gt;3 horizons balanced]</span></span>
+<span class="giallo-l"><span>    Inn --&gt; T[Technology scouting&lt;br/&gt;continuous]</span></span>
+<span class="giallo-l"><span>    Inn --&gt; P[Partnership strategy&lt;br/&gt;strategic alliances]</span></span>
+<span class="giallo-l"><span>    Inn --&gt; I[IP portfolio&lt;br/&gt;47 granted · 23 pending]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>Cybersecurity Risk Exposure:</span></span>
-<span class="giallo-l"><span>├─ Current Risk Level: Low ($2.3M exposure vs. $15M industry average)</span></span>
-<span class="giallo-l"><span>├─ Threat Landscape: 434 autonomous agents providing 24/7 protection</span></span>
-<span class="giallo-l"><span>├─ Attack Surface: 96% automated monitoring and protection coverage</span></span>
-<span class="giallo-l"><span>└─ Incident Response: &lt;2 minute mean time to detection and response</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Digital Transformation Risk:</span></span>
-<span class="giallo-l"><span>├─ Technology Obsolescence: Low (Modern cloud-native architecture)</span></span>
-<span class="giallo-l"><span>├─ Integration Complexity: Medium (API-first design mitigates risk)</span></span>
-<span class="giallo-l"><span>├─ Data Security: High (Advanced encryption and access controls)</span></span>
-<span class="giallo-l"><span>└─ Scalability Risk: Low (Auto-scaling cloud infrastructure)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Innovation Risk Management:</span></span>
-<span class="giallo-l"><span>├─ R&amp;D Portfolio: Balanced innovation investment across 3 horizons</span></span>
-<span class="giallo-l"><span>├─ Technology Scouting: Continuous emerging technology assessment</span></span>
-<span class="giallo-l"><span>├─ Partnership Strategy: Strategic technology partnerships and alliances</span></span>
-<span class="giallo-l"><span>└─ Intellectual Property: 47 patents granted, 23 pending applications</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>Technology Risk Score: Low (25/100)</span></span>
-<span class="giallo-l"><span>Competitive Advantage: High (Technology leadership sustainably maintained)</span></span>
-<span class="giallo-l"><span>Investment Requirement: $3.2M annually (15% above industry average)</span></span></code></pre><h3 id="1-3-risk-assessment-methodology">1.3 Risk Assessment Methodology</h3>
+<span class="giallo-l"><span>    classDef success fill:#0f172a,stroke:#10b981,color:#fff</span></span></code></pre><div class="grid gap-4 lg:grid-cols-3 my-6">
+  <div class="rounded-xl border border-emerald-500/40 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-emerald-300 mb-2">Tech risk score</div>
+    <div class="text-2xl font-bold text-white font-mono">Low · 25/100</div>
+  </div>
+  <div class="rounded-xl border border-purple-500/30 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-purple-300 mb-2">Competitive advantage</div>
+    <div class="text-xl font-bold text-white">High · sustained</div>
+  </div>
+  <div class="rounded-xl border border-blue-500/30 bg-gray-900 p-5 text-center">
+    <div class="text-xs uppercase tracking-wider text-blue-300 mb-2">Annual investment</div>
+    <div class="text-xl font-bold text-white font-mono">$3.2M</div>
+    <div class="text-xs text-gray-400 mt-1">+15% vs industry</div>
+  </div>
+</div>
+<h3 id="1-3-risk-assessment-methodology">1.3 Risk Assessment Methodology</h3>
 <p><strong>Advanced Risk Modeling Framework:</strong></p>
 <pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>QUANTITATIVE RISK ASSESSMENT METHODOLOGY</span></span>
 <span class="giallo-l"></span>

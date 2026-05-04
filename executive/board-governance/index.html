@@ -157,7 +157,7 @@
         },
         "inLanguage": "en",
         "keywords": "Board, Governance, Framework, Cybersecurity, Comprehensive, Prismatic, Platform, Risk, Compliance, executive",
-        "wordCount": 2375
+        "wordCount": 2588
     }
     </script>
     
@@ -226,7 +226,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -242,7 +242,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -627,20 +631,24 @@ Traditional board oversight relied on quarterly presentations with historical da
 <tr><td><strong>Delaware Corporate Law</strong></td><td>Duty of care and loyalty in cyber oversight</td><td>Documented decision-making with expert analysis</td></tr>
 </tbody></table>
 <h3 id="1-2-three-lines-of-defense-integration">1.2 Three Lines of Defense Integration</h3>
-<p><strong>Enhanced Governance Model:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>BOARD OF DIRECTORS</span></span>
-<span class="giallo-l"><span>├── Audit Committee (Financial Risk)</span></span>
-<span class="giallo-l"><span>├── Risk Committee (Strategic Risk)</span></span>
-<span class="giallo-l"><span>└── Technology Committee (Operational Risk)</span></span>
-<span class="giallo-l"><span>    │</span></span>
-<span class="giallo-l"><span>    ├── First Line: Business Operations</span></span>
-<span class="giallo-l"><span>    │   └── Prismatic Platform: Autonomous Operations</span></span>
-<span class="giallo-l"><span>    │</span></span>
-<span class="giallo-l"><span>    ├── Second Line: Risk Management</span></span>
-<span class="giallo-l"><span>    │   └── Prismatic Platform: Real-time Risk Analytics</span></span>
-<span class="giallo-l"><span>    │</span></span>
-<span class="giallo-l"><span>    └── Third Line: Internal Audit</span></span>
-<span class="giallo-l"><span>        └── Prismatic Platform: Continuous Audit Evidence</span></span></code></pre>
+<p><strong>Enhanced Governance Model — Three Lines of Defense:</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph TD</span></span>
+<span class="giallo-l"><span>  B[&quot;BOARD OF DIRECTORS&quot;]</span></span>
+<span class="giallo-l"><span>  B --&gt; AC[&quot;Audit Committee&lt;br/&gt;(Financial Risk)&quot;]</span></span>
+<span class="giallo-l"><span>  B --&gt; RC[&quot;Risk Committee&lt;br/&gt;(Strategic Risk)&quot;]</span></span>
+<span class="giallo-l"><span>  B --&gt; TC[&quot;Technology Committee&lt;br/&gt;(Operational Risk)&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  TC --&gt; L1[&quot;1st Line: Business Operations&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;Prismatic: Autonomous Operations&quot;]</span></span>
+<span class="giallo-l"><span>  TC --&gt; L2[&quot;2nd Line: Risk Management&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;Prismatic: Real-time Risk Analytics&quot;]</span></span>
+<span class="giallo-l"><span>  TC --&gt; L3[&quot;3rd Line: Internal Audit&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;Prismatic: Continuous Audit Evidence&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  style B fill:#1e3a8a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style AC fill:#7c3aed,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>  style RC fill:#9f1239,stroke:#f43f5e,color:#fff</span></span>
+<span class="giallo-l"><span>  style TC fill:#15803d,stroke:#22c55e,color:#fff</span></span>
+<span class="giallo-l"><span>  style L1 fill:#1e40af,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style L2 fill:#a16207,stroke:#facc15,color:#fff</span></span>
+<span class="giallo-l"><span>  style L3 fill:#0e7490,stroke:#06b6d4,color:#fff</span></span></code></pre>
 <p><strong>Prismatic Platform Integration:</strong></p>
 <ul>
 <li><strong>First Line Enhancement</strong>: 434 autonomous agents eliminate manual operational risks</li>
@@ -672,26 +680,34 @@ Traditional board oversight relied on quarterly presentations with historical da
 <h3 id="2-1-executive-dashboard-suite">2.1 Executive Dashboard Suite</h3>
 <p><strong>Real-time Board Cybersecurity Dashboard:</strong></p>
 <p><strong>Strategic Risk Indicators:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>╔══════════════════════════════════════════════════════════════╗</span></span>
-<span class="giallo-l"><span>║                    BOARD CYBERSECURITY DASHBOARD             ║</span></span>
-<span class="giallo-l"><span>╠══════════════════════════════════════════════════════════════╣</span></span>
-<span class="giallo-l"><span>║ Overall Security Posture: 94/100 (↑2 from last quarter)     ║</span></span>
-<span class="giallo-l"><span>║ Critical Risk Exposure: $2.3M (↓45% YoY)                    ║</span></span>
-<span class="giallo-l"><span>║ Regulatory Compliance: 98.7% (SOX: 100%, GDPR: 97%)         ║</span></span>
-<span class="giallo-l"><span>║ Threat Detection Speed: &lt;2 minutes MTTD (↓87% improvement)   ║</span></span>
-<span class="giallo-l"><span>╚══════════════════════════════════════════════════════════════╝</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>TOP STRATEGIC RISKS                    MITIGATION PROGRESS</span></span>
-<span class="giallo-l"><span>• Supply Chain Security (High)         ████████████████ 89%</span></span>
-<span class="giallo-l"><span>• Insider Threat (Medium)              ████████████     76%</span></span>
-<span class="giallo-l"><span>• Cloud Configuration (Medium)         ████████████████ 94%</span></span>
-<span class="giallo-l"><span>• Third-party Access (Low)             ████████████████ 100%</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>REGULATORY COMPLIANCE STATUS           AUDIT READINESS</span></span>
-<span class="giallo-l"><span>• SOC 2 Type II: Certified            ████████████████ 100%</span></span>
-<span class="giallo-l"><span>• ISO 27001: Compliant               ████████████████ 98%</span></span>
-<span class="giallo-l"><span>• GDPR: Compliant                    ███████████████  97%</span></span>
-<span class="giallo-l"><span>• NIS2: Ready                        ████████████████ 100%</span></span></code></pre>
+<div class="rounded-xl border border-blue-500/40 bg-gray-900 p-6 my-6 shadow-xl">
+  <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-800">
+    <h3 class="text-xl font-bold text-white">Board Cybersecurity Dashboard</h3>
+    <div class="text-right">
+      <div class="text-3xl font-bold text-emerald-300 font-mono leading-none">94/100</div>
+      <div class="text-xs text-emerald-400 mt-1">↑2 from last quarter</div>
+    </div>
+  </div>
+  <div class="grid gap-4 lg:grid-cols-2">
+    <ul class="space-y-2 text-sm">
+      <li class="flex justify-between"><span class="text-gray-200">Critical Risk Exposure</span><span class="font-mono text-emerald-300">$2.3M ↓45% YoY</span></li>
+      <li class="flex justify-between"><span class="text-gray-200">Regulatory Compliance</span><span class="font-mono text-emerald-300">98.7% (SOX 100% · GDPR 97%)</span></li>
+      <li class="flex justify-between"><span class="text-gray-200">Threat Detection (MTTD)</span><span class="font-mono text-emerald-300">&lt;2 min ↓87%</span></li>
+    </ul>
+  </div>
+</div>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>xychart-beta</span></span>
+<span class="giallo-l"><span>  title &quot;Top Strategic Risks — Mitigation Progress (%)&quot;</span></span>
+<span class="giallo-l"><span>  x-axis [&quot;Supply Chain (High)&quot;, &quot;Insider Threat (Med)&quot;, &quot;Cloud Config (Med)&quot;, &quot;Third-party (Low)&quot;]</span></span>
+<span class="giallo-l"><span>  y-axis &quot;Mitigation %&quot; 0 --&gt; 100</span></span>
+<span class="giallo-l"><span>  bar [89, 76, 94, 100]</span></span></code></pre>
+<p><strong>Regulatory Compliance Status / Audit Readiness</strong>:</p>
+<table><thead><tr><th>Framework</th><th>Status</th><th style="text-align: right">Coverage</th></tr></thead><tbody>
+<tr><td>SOC 2 Type II</td><td>✅ Certified</td><td style="text-align: right"><strong>100%</strong></td></tr>
+<tr><td>ISO 27001</td><td>✅ Compliant</td><td style="text-align: right">98%</td></tr>
+<tr><td>GDPR</td><td>✅ Compliant</td><td style="text-align: right">97%</td></tr>
+<tr><td>NIS2</td><td>✅ Ready</td><td style="text-align: right"><strong>100%</strong></td></tr>
+</tbody></table>
 <p><strong>Board Committee-Specific Views:</strong></p>
 <p><em>Audit Committee Dashboard:</em></p>
 <ul>
@@ -913,38 +929,26 @@ Traditional board oversight relied on quarterly presentations with historical da
 <li><strong>Vendor Management</strong>: Third-party risk assessments and monitoring</li>
 <li><strong>Business Continuity</strong>: Disaster recovery testing and validation</li>
 </ul>
-<p><strong>Audit Trail Generation:</strong></p>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>AUDIT EVIDENCE PACKAGE - Q4 2026</span></span>
+<p><strong>Audit Evidence Package — Q4 2026 (COSO Framework Coverage):</strong></p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph TD</span></span>
+<span class="giallo-l"><span>  A[Audit Evidence Q4 2026] --&gt; CE[Control Environment]</span></span>
+<span class="giallo-l"><span>  A --&gt; RA[Risk Assessment]</span></span>
+<span class="giallo-l"><span>  A --&gt; CA[Control Activities]</span></span>
+<span class="giallo-l"><span>  A --&gt; IC[Information &amp; Communication]</span></span>
+<span class="giallo-l"><span>  A --&gt; M[Monitoring]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>CONTROL ENVIRONMENT:</span></span>
-<span class="giallo-l"><span>├── Access Control Matrix (Real-time)</span></span>
-<span class="giallo-l"><span>├── Privileged Account Review (Continuous)</span></span>
-<span class="giallo-l"><span>├── Change Management Logs (Automated)</span></span>
-<span class="giallo-l"><span>└── Security Training Records (Tracked)</span></span>
+<span class="giallo-l"><span>  CE --&gt; CE1[&quot;Access Control Matrix (real-time)&lt;br/&gt;Privileged Account Review (continuous)&lt;br/&gt;Change Mgmt Logs (auto)&lt;br/&gt;Security Training Records (tracked)&quot;]</span></span>
+<span class="giallo-l"><span>  RA --&gt; RA1[&quot;Threat Intel Reports (daily)&lt;br/&gt;Vulnerability Assessments (continuous)&lt;br/&gt;Risk Register (real-time)&lt;br/&gt;3rd-party Risk Evals (ongoing)&quot;]</span></span>
+<span class="giallo-l"><span>  CA --&gt; CA1[&quot;Security Control Testing (auto)&lt;br/&gt;Incident Response Procedures&lt;br/&gt;DLP Logs (complete)&lt;br/&gt;Backup &amp; Recovery Tests&quot;]</span></span>
+<span class="giallo-l"><span>  IC --&gt; IC1[&quot;Board Reporting (quarterly)&lt;br/&gt;Mgmt Dashboards (real-time)&lt;br/&gt;Policy Acknowledgments&lt;br/&gt;Training Effectiveness&quot;]</span></span>
+<span class="giallo-l"><span>  M --&gt; M1[&quot;SOC Logs (24/7)&lt;br/&gt;Continuous Control Monitoring&lt;br/&gt;Mgmt Review Evidence&lt;br/&gt;Corrective Action Tracking&quot;]</span></span>
 <span class="giallo-l"></span>
-<span class="giallo-l"><span>RISK ASSESSMENT:</span></span>
-<span class="giallo-l"><span>├── Threat Intelligence Reports (Daily)</span></span>
-<span class="giallo-l"><span>├── Vulnerability Assessments (Continuous)</span></span>
-<span class="giallo-l"><span>├── Risk Register Updates (Real-time)</span></span>
-<span class="giallo-l"><span>└── Third-party Risk Evaluations (Ongoing)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>CONTROL ACTIVITIES:</span></span>
-<span class="giallo-l"><span>├── Security Control Testing (Automated)</span></span>
-<span class="giallo-l"><span>├── Incident Response Procedures (Documented)</span></span>
-<span class="giallo-l"><span>├── Data Loss Prevention Logs (Complete)</span></span>
-<span class="giallo-l"><span>└── Backup and Recovery Tests (Validated)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>INFORMATION &amp; COMMUNICATION:</span></span>
-<span class="giallo-l"><span>├── Board Reporting Packages (Quarterly)</span></span>
-<span class="giallo-l"><span>├── Management Dashboards (Real-time)</span></span>
-<span class="giallo-l"><span>├── Policy Acknowledgments (Tracked)</span></span>
-<span class="giallo-l"><span>└── Training Effectiveness (Measured)</span></span>
-<span class="giallo-l"></span>
-<span class="giallo-l"><span>MONITORING:</span></span>
-<span class="giallo-l"><span>├── Security Operations Center Logs (24/7)</span></span>
-<span class="giallo-l"><span>├── Continuous Control Monitoring (Automated)</span></span>
-<span class="giallo-l"><span>├── Management Review Evidence (Documented)</span></span>
-<span class="giallo-l"><span>└── Corrective Action Tracking (Complete)</span></span></code></pre>
+<span class="giallo-l"><span>  style A fill:#1e3a8a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style CE fill:#15803d,stroke:#22c55e,color:#fff</span></span>
+<span class="giallo-l"><span>  style RA fill:#a16207,stroke:#facc15,color:#fff</span></span>
+<span class="giallo-l"><span>  style CA fill:#7c3aed,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>  style IC fill:#0e7490,stroke:#06b6d4,color:#fff</span></span>
+<span class="giallo-l"><span>  style M fill:#9f1239,stroke:#f43f5e,color:#fff</span></span></code></pre>
 <hr />
 <h2 id="5-strategic-planning-integration">5. Strategic Planning Integration</h2>
 <h3 id="5-1-cybersecurity-strategic-planning">5.1 Cybersecurity Strategic Planning</h3>

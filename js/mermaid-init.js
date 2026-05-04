@@ -202,21 +202,38 @@
             themeVariables: THEME_CONFIG[themeMode].themeVariables,
             securityLevel: 'loose',
             fontFamily: 'Inter, sans-serif',
-            flowchart: {
-                useMaxWidth: true,
-                htmlLabels: true,
-                curve: 'basis'
-            },
-            sequence: {
-                useMaxWidth: true,
-                wrap: true,
-                diagramMarginX: 50,
-                diagramMarginY: 30
-            },
-            gantt: {
-                useMaxWidth: true
-            }
+            // Mobile-first: every renderable type must have useMaxWidth
+            flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis', wrappingWidth: 200 },
+            sequence: { useMaxWidth: true, wrap: true, diagramMarginX: 50, diagramMarginY: 30 },
+            gantt: { useMaxWidth: true },
+            class: { useMaxWidth: true },
+            state: { useMaxWidth: true },
+            er: { useMaxWidth: true },
+            journey: { useMaxWidth: true },
+            pie: { useMaxWidth: true, textPosition: 0.75 },
+            quadrantChart: { useMaxWidth: true, chartWidth: 400, chartHeight: 400 },
+            xyChart: { useMaxWidth: true, width: 700, height: 400 },
+            mindmap: { useMaxWidth: true, padding: 10 },
+            timeline: { useMaxWidth: true },
+            sankey: { useMaxWidth: true },
+            gitGraph: { useMaxWidth: true }
         });
+    }
+
+    // CSS safety net — injected once per page load to prevent overflow on narrow viewports
+    function injectMermaidSafetyNet() {
+        if (document.getElementById('mermaid-safety-net')) return;
+        var style = document.createElement('style');
+        style.id = 'mermaid-safety-net';
+        style.textContent = [
+            '.mermaid { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }',
+            '.mermaid svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }',
+            '.diagram-toggle-wrapper { margin-left: -1rem; margin-right: -1rem; margin-top: 1.5rem; margin-bottom: 1.5rem; }',
+            '@media (min-width: 640px) { .diagram-toggle-wrapper { margin-left: 0; margin-right: 0; } }',
+            '@media (max-width: 640px) { .mermaid svg text { font-size: 12px !important; } }',
+            '@media (max-width: 380px) { .mermaid svg text { font-size: 10px !important; } }'
+        ].join('\n');
+        document.head.appendChild(style);
     }
 
     // Render all unprocessed mermaid diagrams
@@ -317,6 +334,9 @@
     // Main initialization
     function init() {
         if (!hasMermaidContent()) return;
+
+        // Mobile-first: inject CSS safety net BEFORE rendering any diagram
+        injectMermaidSafetyNet();
 
         // First, process blocks to create toggle wrappers
         var processed = processMermaidBlocks();

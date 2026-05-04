@@ -179,7 +179,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -195,7 +195,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -628,8 +632,8 @@
             <!-- Main Content (3/4) -->
             <div class="lg:col-span-3">
 
-                <!-- Stats Summary -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+                <!-- Stats Summary (mobile-first: 1 col → 2 → 3) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
                     <div class="p-4 bg-amber-900/20 rounded-xl border border-amber-800 text-center">
                         <div class="text-3xl font-black text-amber-400 tabular-nums">25</div>
                         <div class="text-sm text-gray-400 mt-1">Total Categories</div>
@@ -688,8 +692,8 @@
                     </div>
                 </div>
 
-                <!-- Card Grid (mobile-first: 1 col → 2 col at sm: → 2 col at lg) -->
-                <div class="grid gap-6 sm:grid-cols-2">
+                <!-- Card Grid (mobile-first: 1 col → 2 col at sm:) -->
+                <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <template x-for="item in filteredItems" :key="item.title">
                         <a :href="item.url" class="group block p-6 bg-gray-800 rounded-2xl border border-gray-700 hover:shadow-xl hover:border-amber-500/30 focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:outline-none transition-all duration-300 hover:-translate-y-1 min-w-0">
                             <div class="flex items-center gap-3 mb-3 min-w-0">
@@ -699,7 +703,7 @@
                                 <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors line-clamp-2 break-words min-w-0" x-text="item.title"></h3>
                             </div>
                             <p class="text-sm text-gray-400 mb-4 line-clamp-3" x-text="item.description"></p>
-                            <div class="flex items-center justify-between gap-2 text-xs text-gray-500">
+                            <div class="flex items-center justify-between gap-2 text-xs text-gray-400">
                                 <span class="px-2 py-1 bg-amber-900/30 text-amber-300 rounded font-medium truncate" x-text="item.app_count + ' applications'"></span>
                                 <svg aria-hidden="true" class="w-4 h-4 text-gray-400 group-hover:text-amber-500 transition-colors flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -1257,19 +1261,19 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
     
     
     {
-        "title": "Experimental Labs & UI Demonstrations -- Interactive Frameworks for Agent Visualization, LiveView Prototyping, and Real-Time Debugging Interfaces",
-        "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/experimental-labs-ui-demonstrations/",
-        "description": "Comprehensive frameworks for interactive agent monitoring, epistemic graph visualization, LiveView component prototyping, and real-time debugging inte…",
-        "app_count": 25,
+        "title": "Developer Tooling & Runtime — Advanced Development Infrastructure for Multi-Agent Platform Engineering",
+        "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/developer-tooling-runtime/",
+        "description": "Comprehensive development infrastructure for building, testing, and debugging multi-agent systems within the Prismatic Platform. 26 specialized applic…",
+        "app_count": 26,
         "weight": 19
     },
     
     
     {
-        "title": "Developer Tooling & Runtime — Advanced Development Infrastructure for Multi-Agent Platform Engineering",
-        "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/developer-tooling-runtime/",
-        "description": "Comprehensive development infrastructure for building, testing, and debugging multi-agent systems within the Prismatic Platform. 26 specialized applic…",
-        "app_count": 26,
+        "title": "Experimental Labs & UI Demonstrations -- Interactive Frameworks for Agent Visualization, LiveView Prototyping, and Real-Time Debugging Interfaces",
+        "url": "https://prismatic-reality-com.github.io/prismatic-promo/applications/experimental-labs-ui-demonstrations/",
+        "description": "Comprehensive frameworks for interactive agent monitoring, epistemic graph visualization, LiveView component prototyping, and real-time debugging inte…",
+        "app_count": 25,
         "weight": 19
     },
     

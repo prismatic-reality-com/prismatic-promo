@@ -8,11 +8,11 @@
     <title>Manipulační vzorce - Kompendium | Prismatic Platform</title>
 
     
-<meta name="description" content="Sekce o základních manipulačních vzorcích">
+<meta name="description" content="Systematický katalog opakujících se sekvencí manipulačních technik vázaných na typ vztahu, kontext a institucionální nastavení. Tato sekce přemosťuje atomickou taxonomii Sekce 03 (Základní kategorie) a pokročilé scenárování Sekcí 04–05.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;03-manipulacni-vzorce&#x2F;">
 <meta property="og:title" content="Manipulační vzorce - Kompendium | Prismatic Platform">
-<meta property="og:description" content="Sekce o základních manipulačních vzorcích">
+<meta property="og:description" content="Systematický katalog opakujících se sekvencí manipulačních technik vázaných na typ vztahu, kontext a institucionální nastavení. Tato sekce přemosťuje atomickou taxonomii Sekce 03 (Základní kategorie) a pokročilé scenárování Sekcí 04–05.">
 <meta property="og:image" content="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/images/sections/kompendium.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;03-manipulacni-vzorce&#x2F;">
 <meta name="twitter:title" content="Manipulační vzorce - Kompendium | Prismatic Platform">
-<meta name="twitter:description" content="Sekce o základních manipulačních vzorcích">
+<meta name="twitter:description" content="Systematický katalog opakujících se sekvencí manipulačních technik vázaných na typ vztahu, kontext a institucionální nastavení. Tato sekce přemosťuje atomickou taxonomii Sekce 03 (Základní kategorie) a pokročilé scenárování Sekcí 04–05.">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo/images/sections/kompendium.png">
 <meta name="twitter:creator" content="@korczis">
 
@@ -140,7 +140,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -156,7 +156,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -479,7 +483,7 @@
 
             
             <p class="text-lg text-gray-300 max-w-3xl leading-relaxed break-words">
-                Sekce o základních manipulačních vzorcích
+                Systematický katalog opakujících se sekvencí manipulačních technik vázaných na typ vztahu, kontext a institucionální nastavení. Tato sekce přemosťuje atomickou taxonomii Sekce 03 (Základní kategorie) a pokročilé scenárování Sekcí 04–05.
             </p>
             
 
@@ -487,6 +491,10 @@
             <div class="flex flex-wrap gap-2 mt-5">
                 
                 
+                
+                <span class="px-3 py-1 text-xs font-bold uppercase tracking-wider rounded-full bg-amber-900/30 text-amber-300 border border-amber-700/30">
+                    publikovano
+                </span>
                 
             </div>
         </div>
@@ -522,12 +530,97 @@
                     prose-pre:bg-gray-800
                     prose-blockquote:border-l-indigo-500 prose-blockquote:text-gray-300
                     prose-table:text-gray-300 prose-th:text-white prose-td:border-gray-700">
-                    <h1 id="manipulacni-vzorce">Manipulační vzorce</h1>
+                    <h1 id="manipulacni-vzorce">Manipulační vzorce<a class="zola-anchor" href="#manipulacni-vzorce" aria-label="Anchor link for: manipulacni-vzorce">🔗</a></h1>
+<p>Tato sekce katalogizuje <strong>opakující se sekvence manipulačních technik</strong> — středovou taxonomickou jednotku mezi atomickou <em>technikou</em> (popsanou v <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/">Základních kategoriích</a>) a komplexním <em>protokolem</em> (popsaným v <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/04-terminalni-protokoly/">Terminálních protokolech</a>). Vzorec je definován tím, že jednotlivé techniky se v něm opakují s <strong>rozpoznatelnou strukturou</strong>, <strong>typickým kontextem výskytu</strong> a <strong>predikovatelným efektem na cíl</strong>.</p>
 <blockquote>
-<p><strong>Pozn.</strong>: Tato stránka je placeholder vytvořený pro vyřešení broken refs.
-Plný obsah je v rekonstrukci.</p>
+<p><strong>Pozn. k umístění</strong>: Tato stránka funguje jako navigační uzel — kanonický taxonomický katalog technik je v <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/">Sekci 03 — Základní kategorie</a>, per-technique hloubkové články v <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/">Techniques</a>. Zde se shromažďuje <em>vzorcová vrstva</em>, která propojuje izolované techniky do diagnosticky relevantních konstelací.</p>
 </blockquote>
-<p>Sekce o základních manipulačních vzorcích. Plný taxonomický katalog viz <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/">Základní kategorie</a> a <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/">Techniques</a>.</p>
+<h2 id="definice-vzorce">Definice vzorce<a class="zola-anchor" href="#definice-vzorce" aria-label="Anchor link for: definice-vzorce">🔗</a></h2>
+<p>Manipulační vzorec splňuje čtyři kritéria:</p>
+<ol>
+<li><strong>Sekvenčnost</strong> — Konkrétní pořadí technik vede k vyšší účinnosti než jejich náhodná aplikace. Vzorec má vstup, eskalační fázi a uzavírací fázi.</li>
+<li><strong>Kontextová vázanost</strong> — Vzorec se objevuje v určitém typu vztahu (partnerský, pracovní, terapeutický, kult, algoritmické platformy) a v jiném kontextu buď nefunguje, nebo nabývá jiného významu.</li>
+<li><strong>Replikovatelnost napříč pachateli</strong> — Vzorec není idiosynkratický; je popsán v klinické literatuře, právní dokumentaci nebo investigativní žurnalistice u různých nezávislých případů.</li>
+<li><strong>Diagnostická hodnota</strong> — Rozpoznání vzorce dovoluje predikci dalších kroků a včasnou intervenci. To je primární klinická a operativní hodnota této taxonomické vrstvy.</li>
+</ol>
+<h2 id="typologie-vzorcu">Typologie vzorců<a class="zola-anchor" href="#typologie-vzorcu" aria-label="Anchor link for: typologie-vzorcu">🔗</a></h2>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph TD</span></span>
+<span class="giallo-l"><span>    V[Manipulační vzorec] --&gt; R[Vztahové vzorce]</span></span>
+<span class="giallo-l"><span>    V --&gt; I[Institucionální vzorce]</span></span>
+<span class="giallo-l"><span>    V --&gt; D[Digitální / algoritmické vzorce]</span></span>
+<span class="giallo-l"><span>    V --&gt; K[Kolektivní vzorce]</span></span>
+<span class="giallo-l"><span>    R --&gt; R1[Coercive control]</span></span>
+<span class="giallo-l"><span>    R --&gt; R2[Trauma bonding]</span></span>
+<span class="giallo-l"><span>    R --&gt; R3[Triangulace]</span></span>
+<span class="giallo-l"><span>    I --&gt; I1[Bullying mobbing]</span></span>
+<span class="giallo-l"><span>    I --&gt; I2[Akademická delegitimizace]</span></span>
+<span class="giallo-l"><span>    I --&gt; I3[Workplace gaslighting]</span></span>
+<span class="giallo-l"><span>    D --&gt; D1[Dezinformační kaskáda]</span></span>
+<span class="giallo-l"><span>    D --&gt; D2[Astroturfing]</span></span>
+<span class="giallo-l"><span>    D --&gt; D3[Coordinated inauthentic behavior]</span></span>
+<span class="giallo-l"><span>    K --&gt; K1[Kultovní indoktrinace]</span></span>
+<span class="giallo-l"><span>    K --&gt; K2[Politická radikalizace]</span></span>
+<span class="giallo-l"><span>    K --&gt; K3[Mass formation]</span></span></code></pre><h3 id="vztahove-vzorce">Vztahové vzorce<a class="zola-anchor" href="#vztahove-vzorce" aria-label="Anchor link for: vztahove-vzorce">🔗</a></h3>
+<p>Vzorce vázané na dyadický nebo trojúhelníkový vztah mezi konkrétními osobami:</p>
+<ul>
+<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/coercive-control/">Coercive control</a></strong> — Sekvence izolace, ekonomické kontroly, monitoringu, gaslightingu a degradace (Stark 2007). Standardní rámec současné domácí násilné praxe v UK, Skotsku, Austrálii.</li>
+<li><strong><a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/trauma-bonding/">Trauma bonding</a></strong> — Cyklus násilí–smíření–idealizace–devalvace, který vytváří paradoxní pouto mezi obětí a pachatelem (Dutton &amp; Painter 1981).</li>
+<li><strong>Triangulace</strong> — Vtažení třetí strany do dyadického konfliktu jako nástroje kontroly nebo flying monkey. Typické u narcistických systémů.</li>
+</ul>
+<h3 id="institucionalni-vzorce">Institucionální vzorce<a class="zola-anchor" href="#institucionalni-vzorce" aria-label="Anchor link for: institucionalni-vzorce">🔗</a></h3>
+<p>Vzorce vázané na hierarchické organizační struktury:</p>
+<ul>
+<li><strong>Mobbing</strong> — Systematická skupinová devalvace jednotlivce v pracovním kolektivu (Leymann 1990).</li>
+<li><strong>Akademická delegitimizace</strong> — Vzorec kombinující <a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/sealioning/">sealioning</a>, JAQing off, citation-stacking a peer-review sabotáž. Popsáno v <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/kapitola-2/">Sekci 03.2</a>.</li>
+<li><strong>Workplace gaslighting</strong> — Institucionální verze gaslightingu s asymetrií moci na straně managementu, často kombinovaná s dokumentační manipulací (HR records).</li>
+</ul>
+<h3 id="digitalni-a-algoritmicke-vzorce">Digitální a algoritmické vzorce<a class="zola-anchor" href="#digitalni-a-algoritmicke-vzorce" aria-label="Anchor link for: digitalni-a-algoritmicke-vzorce">🔗</a></h3>
+<p>Vzorce specifické pro digitální prostředí, často s algoritmickou amplifikací:</p>
+<ul>
+<li><strong>Dezinformační kaskáda</strong> — Vícekrokové šíření zkresleného nebo fabrikovaného obsahu přes různé platformy s plánovanou eskalací viditelnosti.</li>
+<li><strong>Astroturfing</strong> — Fabrikace zdánlivě grassroots podpory přes falešné účty a koordinovaný obsah. Mapováno týmy jako Stanford Internet Observatory (SIO).</li>
+<li><strong>Coordinated inauthentic behavior (CIB)</strong> — Termín Meta pro koordinované sítě falešných identit. Detekováno přes <a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/graph-theory/">graph-theoretickou</a> analýzu a behaviorální fingerprinting.</li>
+</ul>
+<h3 id="kolektivni-vzorce">Kolektivní vzorce<a class="zola-anchor" href="#kolektivni-vzorce" aria-label="Anchor link for: kolektivni-vzorce">🔗</a></h3>
+<p>Vzorce na úrovni skupin, hnutí a populací:</p>
+<ul>
+<li><strong>Kultovní indoktrinace</strong> — Standardní <a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/bite-model/">BITE model</a> (Hassan 1988): Behavioral, Information, Thought, Emotional control. Detail v <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/recovery-protocols/">Recovery Protocols</a>.</li>
+<li><strong>Politická radikalizace</strong> — Funnel od mainstream názoru přes kontroverzní obsah k extremistickým komunitám (DARE-model framework).</li>
+<li><strong>Mass formation</strong> — Sociálně-psychologický fenomén masové konvergence kognice (Desmet 2022, kontroverzní rámec).</li>
+</ul>
+<h2 id="vztah-k-atomickym-technikam">Vztah k atomickým technikám<a class="zola-anchor" href="#vztah-k-atomickym-technikam" aria-label="Anchor link for: vztah-k-atomickym-technikam">🔗</a></h2>
+<p>Každý vzorec je rozložitelný na konkrétní techniky z <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/">taxonomie základních kategorií</a>. Příklad:</p>
+<table><thead><tr><th>Vzorec</th><th>Klíčové techniky</th></tr></thead><tbody>
+<tr><td><strong>Coercive control</strong></td><td><a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/darvo/">DARVO</a>, <a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/gaslighting/">gaslighting</a>, izolace, ekonomická kontrola, smear campaign</td></tr>
+<tr><td><strong>Akademická delegitimizace</strong></td><td><a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/sealioning/">sealioning</a>, JAQing off, motte-and-bailey, citation manipulation</td></tr>
+<tr><td><strong>Kultovní indoktrinace</strong></td><td>Love bombing, milieu control, sacred science, demand for purity, mystical manipulation</td></tr>
+<tr><td><strong>Dezinformační kaskáda</strong></td><td>False flag, gish gallop, Brandoliniho zákon, source laundering</td></tr>
+</tbody></table>
+<p>Per-technique hloubkové popisy najdete v <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/">Techniques</a>.</p>
+<h2 id="detekcni-pyramida">Detekční pyramida<a class="zola-anchor" href="#detekcni-pyramida" aria-label="Anchor link for: detekcni-pyramida">🔗</a></h2>
+<p>Klinik nebo analytik typicky postupuje <strong>shora dolů</strong> — nejprve si všímá vzorce, teprve poté identifikuje jednotlivé techniky:</p>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>graph TD</span></span>
+<span class="giallo-l"><span>    P[Pozorování situace] --&gt; S[Cítění vzorce — pattern recognition]</span></span>
+<span class="giallo-l"><span>    S --&gt; H[Hypotéza o typu vzorce]</span></span>
+<span class="giallo-l"><span>    H --&gt; T[Verifikace přes konkrétní techniky]</span></span>
+<span class="giallo-l"><span>    T --&gt; D[Diagnostická formulace]</span></span>
+<span class="giallo-l"><span>    D --&gt; I[Intervence]</span></span></code></pre>
+<p>Tento postup je popsán v <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-klinicke-aplikace/diagnosticke-indikatory/">Sekci 06.1 — Diagnostické indikátory</a> a <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-klinicke-aplikace/diferencialni-diagnostika/">Sekci 06.2 — Diferenciální diagnostika</a>.</p>
+<h2 id="vztah-k-ostatnim-sekcim">Vztah k ostatním sekcím<a class="zola-anchor" href="#vztah-k-ostatnim-sekcim" aria-label="Anchor link for: vztah-k-ostatnim-sekcim">🔗</a></h2>
+<table><thead><tr><th>Vazba</th><th>Charakter</th></tr></thead><tbody>
+<tr><td>← <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/03-zakladni-kategorie/">03 Základní kategorie</a></td><td>Atomické techniky tvořící vzorce</td></tr>
+<tr><td>← <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/techniques/">Techniques</a></td><td>Per-technique detail</td></tr>
+<tr><td>→ <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/04-terminalni-protokoly/">04 Terminální protokoly</a></td><td>Vyšší taxonomická vrstva — komplexní protokoly</td></tr>
+<tr><td>→ <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/06-klinicke-aplikace/">06 Klinické aplikace</a></td><td>Diagnostická aplikace vzorců</td></tr>
+<tr><td>→ <a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/detection-signatures/">Detection signatures</a></td><td>Operativní signatury pro automatickou detekci</td></tr>
+</tbody></table>
+<h2 id="souvisejici">Související<a class="zola-anchor" href="#souvisejici" aria-label="Anchor link for: souvisejici">🔗</a></h2>
+<ul>
+<li><a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/">Hub kompendia</a></li>
+<li><a href="https://prismatic-reality-com.github.io/prismatic-promo/glossary/">Glossary</a> — pojmový aparát</li>
+<li><a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/quick-reference/">Quick reference</a> — rychlé detekční checklisty</li>
+<li><a href="https://prismatic-reality-com.github.io/prismatic-promo/kompendium/self-defense-guides/">Self-defense guides</a> — praktické obranné postupy</li>
+</ul>
 
                 </div>
                 
@@ -589,11 +682,11 @@ Plný obsah je v rekonstrukci.</p>
                         <div class="max-h-[400px] overflow-y-auto pr-1 space-y-0.5 mt-2">
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;cross-domain&#x2F;"
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;08-prilohy&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
-                                Cross-Domain Bridges
+                                08. Přílohy
                             </a>
                             
                             
@@ -605,19 +698,27 @@ Plný obsah je v rekonstrukci.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;08-prilohy&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                08. Přílohy
-                            </a>
-                            
-                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;forensic-legal&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
                                 Forenzni a pravni rozmer EA
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;cross-domain&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Cross-Domain Bridges
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;01-zaklady-manipulace&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Základy manipulace
                             </a>
                             
                             
@@ -645,6 +746,14 @@ Plný obsah je v rekonstrukci.</p>
                             </a>
                             
                             
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;03-manipulacni-vzorce&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-indigo-400 font-semibold bg-indigo-900/30
+                               ">
+                                Manipulační vzorce
+                            </a>
+                            
+                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-terminalni-protokoly&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
@@ -653,11 +762,27 @@ Plný obsah je v rekonstrukci.</p>
                             </a>
                             
                             
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-pokrocile-fenomeny&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Pokročilé fenomény
+                            </a>
+                            
+                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-ultramari-techniky&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
                                 05. Ultramární techniky fundamentální dekonstrukce
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-intervence-a-obrana&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Intervence a obrana
                             </a>
                             
                             
@@ -701,19 +826,19 @@ Plný obsah je v rekonstrukci.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;detection-signatures&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Detekční signatury EA technik
-                            </a>
-                            
-                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
                                 Vzdělávací scénáře
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;detection-signatures&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Detekční signatury EA technik
                             </a>
                             
                             
@@ -725,19 +850,19 @@ Plný obsah je v rekonstrukci.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;07-populacni&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Populační rovina &#x2F; Population-level Phenomena
-                            </a>
-                            
-                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;case-studies&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
                                 Case Studies — anonymizovane pripadove studie
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;07-populacni&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Populační rovina &#x2F; Population-level Phenomena
                             </a>
                             
                             
@@ -757,14 +882,6 @@ Plný obsah je v rekonstrukci.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Prevence a rezilience
-                            </a>
-                            
-                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;population-health&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
@@ -773,11 +890,11 @@ Plný obsah je v rekonstrukci.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;organizational-defense&#x2F;"
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;prevention-resilience&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
-                                Organizační obrana
+                                Prevence a rezilience
                             </a>
                             
                             
@@ -786,6 +903,14 @@ Plný obsah je v rekonstrukci.</p>
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
                                 Quick Reference — rychlé referenční karty
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;organizational-defense&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Organizační obrana
                             </a>
                             
                             
@@ -821,27 +946,11 @@ Plný obsah je v rekonstrukci.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;02-doktrinalni-ramec&#x2F;"
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;konceptualni-mapa&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
-                                Doktrinální rámec
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-klinika&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Klinika
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-operacni-principy&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Operační principy
+                                Konceptuální mapa epistemické anihilace
                             </a>
                             
                             
@@ -853,43 +962,11 @@ Plný obsah je v rekonstrukci.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-kolektivni-rozmer&#x2F;"
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;02-doktrinalni-ramec&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
-                                Kolektivní rozměr
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;03-manipulacni-vzorce&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-indigo-400 font-semibold bg-indigo-900/30
-                               ">
-                                Manipulační vzorce
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-intervence-a-obrana&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Intervence a obrana
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-epistemicka-singularita&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Epistemická singularita
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-pokrocile-fenomeny&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Pokročilé fenomény
+                                Doktrinální rámec
                             </a>
                             
                             
@@ -901,6 +978,30 @@ Plný obsah je v rekonstrukci.</p>
                             </a>
                             
                             
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;06-epistemicka-singularita&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Epistemická singularita
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-operacni-principy&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Operační principy
+                            </a>
+                            
+                            
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-kolektivni-rozmer&#x2F;"
+                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
+                               text-gray-300 hover:text-white hover:bg-gray-700/50
+                               ">
+                                Kolektivní rozměr
+                            </a>
+                            
+                            
                             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;05-diagnostika&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
@@ -909,19 +1010,11 @@ Plný obsah je v rekonstrukci.</p>
                             </a>
                             
                             
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;01-zaklady-manipulace&#x2F;"
+                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;04-klinika&#x2F;"
                                class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
                                text-gray-300 hover:text-white hover:bg-gray-700/50
                                ">
-                                Základy manipulace
-                            </a>
-                            
-                            
-                            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;konceptualni-mapa&#x2F;"
-                               class="block px-3 py-1.5 text-xs rounded-lg transition-all break-words
-                               text-gray-300 hover:text-white hover:bg-gray-700/50
-                               ">
-                                Konceptuální mapa epistemické anihilace
+                                Klinika
                             </a>
                             
                             

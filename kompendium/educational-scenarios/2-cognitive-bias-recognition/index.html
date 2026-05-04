@@ -178,7 +178,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -194,7 +194,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -663,7 +667,7 @@ rozhodovacího procesu a posiluje robustnost.</p>
                 <!-- Table of contents (if Zola generated any) -->
                 
                 <div x-data="{ expanded: true }" x-cloak class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                    <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                    <button type="button" @click="expanded = !expanded" :aria-expanded="expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900">
                         <div class="flex items-center gap-2">
                             <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
@@ -699,7 +703,7 @@ rozhodovacího procesu a posiluje robustnost.</p>
                 
                 
                 <div x-data="{ expanded: true }" x-cloak class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                    <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                    <button type="button" @click="expanded = !expanded" :aria-expanded="expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900">
                         <div class="flex items-center gap-2">
                             <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
@@ -713,193 +717,11 @@ rozhodovacího procesu a posiluje robustnost.</p>
                     <div x-show="expanded" x-transition class="px-4 pb-4 space-y-1 max-h-96 overflow-y-auto">
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;" class="block px-3 py-1.5 text-xs text-gray-300 hover:text-indigo-400 hover:bg-gray-700/50 rounded-lg transition-colors">← Vzdělávací scénáře</a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;10-paradigm-recognition&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Rozpoznání paradigmatu
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;11-academic-manipulation&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Akademická manipulace
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;21-ultramarine-recognition&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Rozpoznání ultramari technik
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;1-basic-detection&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Základní detekce
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;25-identity-fragmentation&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Fragmentace identity
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;3-information-curation&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Kurátorství informací
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;9-meta-evaluation&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Meta-evaluace
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;26-recovery-trajectory&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Trajektorie zotavení
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;8-contradiction-resolution&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Řešení rozporů
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;27-iatrogenic-risk&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Iatrogenní riziko
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;5-claim-verification&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Verifikace tvrzení
-                        </a>
-                        
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;18-cult-recruitment&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
                             Vzdělávací scénář: Náborové techniky kultu
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;17-bot-coordination&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Koordinace botů
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;12-mentor-overreach&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Přesahy mentora
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;22-hyperreflexivity-spot&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Detekce hyperreflexivity
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;15-narrative-injection&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Injekce narativu
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;16-deepfake-detection&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Detekce deepfake
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;4-source-evaluation&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Evaluace zdrojů
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;19-gaslighting-pattern&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Vzorec gaslightingu
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;20-darvo-recognition&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Rozpoznání DARVO
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;7-evidence-weighting&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Vážení důkazů
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;24-metacognitive-collapse&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Metakognitivní kolaps
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;29-emergent-pattern&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Emergentní vzorec
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;28-multi-target-coordination&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Koordinace na více cílech
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;6-falsification-design&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Design falsifikace
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;30-self-application&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Aplikace na sebe
-                        </a>
-                        
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;13-peer-review-bias&#x2F;"
-                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
-                           text-gray-300 hover:text-white hover:bg-gray-700/50
-                           ">
-                            Vzdělávací scénář: Zkreslení v peer review
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;23-ontological-attack&#x2F;"
@@ -909,11 +731,179 @@ rozhodovacího procesu a posiluje robustnost.</p>
                             Vzdělávací scénář: Ontologický útok
                         </a>
                         
-                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;14-media-mob-recognition&#x2F;"
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;20-darvo-recognition&#x2F;"
                            class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
                            text-gray-300 hover:text-white hover:bg-gray-700/50
                            ">
-                            Vzdělávací scénář: Rozpoznání mediální smečky
+                            Vzdělávací scénář: Rozpoznání DARVO
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;22-hyperreflexivity-spot&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Detekce hyperreflexivity
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;17-bot-coordination&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Koordinace botů
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;9-meta-evaluation&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Meta-evaluace
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;19-gaslighting-pattern&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Vzorec gaslightingu
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;21-ultramarine-recognition&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Rozpoznání ultramari technik
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;28-multi-target-coordination&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Koordinace na více cílech
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;11-academic-manipulation&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Akademická manipulace
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;10-paradigm-recognition&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Rozpoznání paradigmatu
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;8-contradiction-resolution&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Řešení rozporů
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;29-emergent-pattern&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Emergentní vzorec
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;6-falsification-design&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Design falsifikace
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;24-metacognitive-collapse&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Metakognitivní kolaps
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;12-mentor-overreach&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Přesahy mentora
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;13-peer-review-bias&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Zkreslení v peer review
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;3-information-curation&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Kurátorství informací
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;15-narrative-injection&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Injekce narativu
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;5-claim-verification&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Verifikace tvrzení
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;25-identity-fragmentation&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Fragmentace identity
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;27-iatrogenic-risk&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Iatrogenní riziko
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;7-evidence-weighting&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Vážení důkazů
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;4-source-evaluation&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Evaluace zdrojů
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;30-self-application&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Aplikace na sebe
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;16-deepfake-detection&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Detekce deepfake
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;26-recovery-trajectory&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Trajektorie zotavení
                         </a>
                         
                         <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;2-cognitive-bias-recognition&#x2F;"
@@ -921,6 +911,20 @@ rozhodovacího procesu a posiluje robustnost.</p>
                            text-indigo-400 font-semibold bg-indigo-900/30
                            ">
                             Vzdělávací scénář: Rozpoznání kognitivních zkreslení
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;14-media-mob-recognition&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Rozpoznání mediální smečky
+                        </a>
+                        
+                        <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;kompendium&#x2F;educational-scenarios&#x2F;1-basic-detection&#x2F;"
+                           class="block px-3 py-1.5 text-xs rounded-lg transition-colors break-words
+                           text-gray-300 hover:text-white hover:bg-gray-700/50
+                           ">
+                            Vzdělávací scénář: Základní detekce
                         </a>
                         
                     </div>

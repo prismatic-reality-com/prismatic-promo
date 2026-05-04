@@ -125,7 +125,7 @@
         "@context": "https://schema.org",
         "@type": "TechArticle",
         "headline": "Analytics Dashboard Hub",
-        "description": "Real-time business intelligence dashboard with Chart.js visualizations and live metrics.",
+        "description": "Real-time business intelligence and operational telemetry — Chart.js visualizations, BEAM scheduler metrics, agent throughput, OSINT query distribution, and threshold-based health monitoring.",
         "url": "https://prismatic-reality-com.github.io/prismatic-promo/hub/analytics/",
         "author": {
             "@type": "Person",
@@ -148,8 +148,8 @@
             "@id": "https://prismatic-reality-com.github.io/prismatic-promo/hub/analytics/"
         },
         "inLanguage": "en",
-        "keywords": "Analytics, Dashboard, Hub, Real-time, Chartjs, platform redirect, Prismatic Platform, Analytics Dashboard, Chart, Real",
-        "wordCount": 262
+        "keywords": "Analytics, Dashboard, Real-time, Chart.js, Phoenix LiveView, Telemetry, OTP, BEAM, scheduler utilization, p99 latency, Prismatic Platform",
+        "wordCount": 883
     }
     </script>
     
@@ -218,7 +218,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -234,7 +234,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -523,6 +527,18 @@
 <!-- HERO: POSITIONING STATEMENT                                   -->
 <!-- ============================================================ -->
 <section class="relative overflow-hidden min-h-screen sm:min-h-[90vh] flex items-center bg-hero-grid">
+    <!-- Decorative animated 3D network graph (lazy-loaded, opt-in via data-three-scene) -->
+    <div class="hidden lg:block absolute inset-0 pointer-events-none opacity-30 z-0"
+         aria-hidden="true">
+        <div class="w-full h-full three-container"
+             data-three-scene="network-graph"
+             data-three-nodes="48"
+             data-three-edges="72"></div>
+    </div>
+    <!-- Mobile decorative gradient overlay (lighter alternative to 3D scene) -->
+    <div class="lg:hidden absolute inset-0 pointer-events-none z-0
+                bg-[radial-gradient(ellipse_at_top,rgba(239,68,68,0.08),transparent_60%)]"
+         aria-hidden="true"></div>
     <div class="max-w-screen-xl px-4 py-12 sm:py-16 mx-auto lg:py-28 relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             <!-- Left: Copy -->
@@ -739,6 +755,114 @@
                 <span class="px-2 sm:px-2.5 py-1 text-[10px] sm:text-xs font-mono text-gray-500 bg-white/[0.03] border border-white/5 rounded-md hover:border-amber-500/20 hover:text-amber-300 transition-colors"
                       x-text="pillar"></span>
             </template>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ARCHITECTURE + COMPOSITION (Mermaid + Chart.js doughnut)      -->
+<!-- ============================================================ -->
+<section class="py-16 sm:py-20 lg:py-28 border-b border-white/5" id="architecture-snapshot">
+    <div class="max-w-screen-xl px-4 mx-auto">
+        <div class="text-center mb-10 sm:mb-12">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 mb-5 text-xs font-medium tracking-wide text-gray-400 bg-white/5 rounded-full border border-white/10">
+                <svg aria-hidden="true" class="w-3 h-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                </svg>
+                Architecture &middot; 3NL Framework
+            </div>
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-3 sm:mb-4 tracking-tight">
+                Three nested layers. Composable. Replaceable.
+            </h2>
+            <p class="text-sm sm:text-base lg:text-lg text-gray-400 max-w-2xl mx-auto px-2">
+                Data &middot; Logic &middot; Presentation. Each layer is an independent OTP application contract.
+                Hot-loadable, hot-swappable, individually testable.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-6 lg:gap-8 items-start">
+            <!-- Mermaid: 3NL architecture diagram (lazy-loaded) -->
+            <div class="lg:col-span-3 bg-gray-900 rounded-2xl border border-white/10 p-4 sm:p-6 overflow-hidden">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/5">
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 rounded-full bg-cyan-400"></div>
+                        <span class="text-[10px] sm:text-xs text-gray-500 font-mono">prismatic.architecture</span>
+                    </div>
+                    <span class="text-[10px] sm:text-xs text-cyan-400 font-medium tracking-wider uppercase">3NL</span>
+                </div>
+                <div class="overflow-x-auto -mx-2 px-2">
+                    <div class="mermaid text-center min-w-[280px]" aria-label="Three Nested Levels architecture diagram">
+graph TB
+    subgraph L3["L3 — Presentation"]
+        LV[LiveView Dashboards]
+        API[Auto-Introspecting API]
+    end
+    subgraph L2["L2 — Logic and Reasoning"]
+        AGENTS[552 AIAD Agents]
+        NABLA[NABLA Infinity]
+        TRINITY[Trinity Gate]
+    end
+    subgraph L1["L1 — Data Substrate"]
+        PG[(PostgreSQL)]
+        ETS[(ETS Cache)]
+        MEILI[(Meilisearch)]
+        KUZU[(KuzuDB Graph)]
+    end
+    LV --> AGENTS
+    API --> AGENTS
+    AGENTS --> NABLA
+    NABLA --> TRINITY
+    TRINITY --> PG
+    AGENTS --> ETS
+    AGENTS --> MEILI
+    AGENTS --> KUZU
+    classDef l1 fill:#1e3a8a,stroke:#3b82f6,color:#fff
+    classDef l2 fill:#7c2d12,stroke:#f97316,color:#fff
+    classDef l3 fill:#14532d,stroke:#10b981,color:#fff
+    class PG,ETS,MEILI,KUZU l1
+    class AGENTS,NABLA,TRINITY l2
+    class LV,API l3
+                    </div>
+                </div>
+                <p class="text-[10px] sm:text-xs text-gray-600 mt-4 text-center">
+                    Hot-loadable &middot; Independently scalable &middot; Contract-tested adapters
+                </p>
+            </div>
+
+            <!-- Chart.js: platform composition doughnut -->
+            <div class="lg:col-span-2 bg-gray-900 rounded-2xl border border-white/10 p-4 sm:p-6">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/5">
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 rounded-full bg-blue-400"></div>
+                        <span class="text-[10px] sm:text-xs text-gray-500 font-mono">platform.composition</span>
+                    </div>
+                    <span class="text-[10px] sm:text-xs text-blue-400 font-medium tracking-wider uppercase">v19</span>
+                </div>
+                <div class="relative h-[240px] sm:h-[280px] chart-container">
+                    <canvas id="platformCompositionChart"
+                            data-chart="platform-composition"
+                            aria-label="Platform composition: 552 agents, 228 commands, 92 apps, 128 OSINT sources"
+                            role="img"></canvas>
+                </div>
+                <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-white/5 text-center">
+                    <div>
+                        <div class="text-base sm:text-lg font-bold text-emerald-400 tabular-nums">552</div>
+                        <div class="text-[10px] text-gray-600 uppercase tracking-wider">Agents</div>
+                    </div>
+                    <div>
+                        <div class="text-base sm:text-lg font-bold text-blue-400 tabular-nums">228</div>
+                        <div class="text-[10px] text-gray-600 uppercase tracking-wider">Commands</div>
+                    </div>
+                    <div>
+                        <div class="text-base sm:text-lg font-bold text-violet-400 tabular-nums">92</div>
+                        <div class="text-[10px] text-gray-600 uppercase tracking-wider">Apps</div>
+                    </div>
+                    <div>
+                        <div class="text-base sm:text-lg font-bold text-amber-400 tabular-nums">128+</div>
+                        <div class="text-[10px] text-gray-600 uppercase tracking-wider">OSINT</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
@@ -968,8 +1092,8 @@
                                     class="px-2.5 py-1 text-[10px] font-medium rounded transition-colors">Breakdown</button>
                         </div>
                     </div>
-                    <div class="relative h-[300px] sm:h-[360px] lg:h-[420px]">
-                        <canvas id="riskChart"></canvas>
+                    <div class="relative h-[300px] sm:h-[360px] lg:h-[420px] chart-container">
+                        <canvas id="riskChart" data-chart="risk-radar" aria-label="Risk dimensions radar chart" role="img"></canvas>
                     </div>
                     <div class="grid grid-cols-3 gap-3 mt-4 pt-3 border-t border-white/5">
                         <div class="text-center">
@@ -1517,22 +1641,24 @@
             </div>
         </div>
 
-        <!-- Bottom links -->
-        <div class="mt-12 flex flex-wrap justify-center gap-6 text-gray-600 text-xs uppercase tracking-wider">
-            <a href="https://prismatic-reality-com.github.io/prismatic-promo/executive/" class="hover:text-gray-400 transition-colors">Executive Overview</a>
-            <span class="text-gray-800">|</span>
-            <a href="https://prismatic-reality-com.github.io/prismatic-promo/executive/competitive-analysis/" class="hover:text-gray-400 transition-colors">Competitive Analysis</a>
-            <span class="text-gray-800">|</span>
-            <a href="https://prismatic-reality-com.github.io/prismatic-promo/executive/case-studies/" class="hover:text-gray-400 transition-colors">Case Studies</a>
-            <span class="text-gray-800">|</span>
-            <a href="https://prismatic-reality-com.github.io/prismatic-promo/executive/compliance-automation/" class="hover:text-gray-400 transition-colors">Compliance</a>
-            <span class="text-gray-800">|</span>
-            <a href="https://prismatic-reality-com.github.io/prismatic-promo/blog/" class="hover:text-gray-400 transition-colors">Blog</a>
-            <span class="text-gray-800">|</span>
-            <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/" class="hover:text-gray-400 transition-colors">Developers</a>
-            <span class="text-gray-800">|</span>
-            <a href="https://prismatic-reality-com.github.io/prismatic-promo/architecture/" class="hover:text-gray-400 transition-colors">Architecture</a>
-        </div>
+        <!-- Bottom links — touch-target compliant (min 44x44px) -->
+        <nav aria-label="Secondary footer navigation"
+             class="mt-12 flex flex-wrap justify-center gap-1.5 sm:gap-2 text-xs uppercase tracking-wider">
+            <a href="https://prismatic-reality-com.github.io/prismatic-promo/executive/"
+               class="inline-flex items-center min-h-[44px] px-4 py-2.5 text-gray-500 hover:text-white hover:bg-white/5 rounded-md transition-colors">Executive Overview</a>
+            <a href="https://prismatic-reality-com.github.io/prismatic-promo/executive/competitive-analysis/"
+               class="inline-flex items-center min-h-[44px] px-4 py-2.5 text-gray-500 hover:text-white hover:bg-white/5 rounded-md transition-colors">Competitive Analysis</a>
+            <a href="https://prismatic-reality-com.github.io/prismatic-promo/executive/case-studies/"
+               class="inline-flex items-center min-h-[44px] px-4 py-2.5 text-gray-500 hover:text-white hover:bg-white/5 rounded-md transition-colors">Case Studies</a>
+            <a href="https://prismatic-reality-com.github.io/prismatic-promo/executive/compliance-automation/"
+               class="inline-flex items-center min-h-[44px] px-4 py-2.5 text-gray-500 hover:text-white hover:bg-white/5 rounded-md transition-colors">Compliance</a>
+            <a href="https://prismatic-reality-com.github.io/prismatic-promo/blog/"
+               class="inline-flex items-center min-h-[44px] px-4 py-2.5 text-gray-500 hover:text-white hover:bg-white/5 rounded-md transition-colors">Blog</a>
+            <a href="https://prismatic-reality-com.github.io/prismatic-promo/developers/"
+               class="inline-flex items-center min-h-[44px] px-4 py-2.5 text-gray-500 hover:text-white hover:bg-white/5 rounded-md transition-colors">Developers</a>
+            <a href="https://prismatic-reality-com.github.io/prismatic-promo/architecture/"
+               class="inline-flex items-center min-h-[44px] px-4 py-2.5 text-gray-500 hover:text-white hover:bg-white/5 rounded-md transition-colors">Architecture</a>
+        </nav>
     </div>
 </section>
 
@@ -1722,6 +1848,88 @@ document.addEventListener('alpine:init', () => {
         }
     }));
 });
+
+// Platform Composition doughnut — vanilla init (waits for Chart.js lazy-load)
+(function () {
+    var canvas = document.getElementById('platformCompositionChart');
+    if (!canvas) return;
+
+    var attempts = 0;
+    var MAX_ATTEMPTS = 50; // ~5s total at 100ms
+
+    function initWhenReady() {
+        if (typeof Chart === 'undefined') {
+            if (++attempts > MAX_ATTEMPTS) return;
+            setTimeout(initWhenReady, 100);
+            return;
+        }
+
+        // Render only when in viewport (perf)
+        var rendered = false;
+        function render() {
+            if (rendered) return;
+            rendered = true;
+            new Chart(canvas, {
+                type: 'doughnut',
+                data: {
+                    labels: ['AIAD Agents', 'AIAD Commands', 'Umbrella Apps', 'OSINT Sources'],
+                    datasets: [{
+                        data: [552, 228, 92, 128],
+                        backgroundColor: [
+                            'rgba(16, 185, 129, 0.75)',
+                            'rgba(59, 130, 246, 0.75)',
+                            'rgba(139, 92, 246, 0.75)',
+                            'rgba(245, 158, 11, 0.75)'
+                        ],
+                        borderColor: 'rgba(17, 24, 39, 1)',
+                        borderWidth: 3,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '62%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: 'rgba(255,255,255,0.55)',
+                                font: { size: 10 },
+                                boxWidth: 10,
+                                padding: 8
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(17, 24, 39, 0.95)',
+                            titleColor: '#fff',
+                            bodyColor: 'rgba(255,255,255,0.7)',
+                            borderColor: 'rgba(255,255,255,0.1)',
+                            borderWidth: 1,
+                            padding: 10,
+                            displayColors: true
+                        }
+                    }
+                }
+            });
+        }
+
+        if ('IntersectionObserver' in window) {
+            var io = new IntersectionObserver(function (entries) {
+                if (entries.some(function (e) { return e.isIntersecting; })) {
+                    render();
+                    io.disconnect();
+                }
+            }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+            io.observe(canvas);
+        } else {
+            render();
+        }
+    }
+
+    // DOMContentLoaded already fired (script is at end of body) — start polling for Chart
+    initWhenReady();
+})();
 </script>
 
     </main>

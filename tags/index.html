@@ -164,7 +164,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -180,7 +180,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -586,7 +590,7 @@
                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-indigo-500/60 transition-colors">
                 <span class="opacity-50">#</span>
                 <span>agents</span>
-                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">1</span>
+                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">2</span>
             </a>
             
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;tags&#x2F;ai-assisted&#x2F;"
@@ -600,7 +604,7 @@
                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-indigo-500/60 transition-colors">
                 <span class="opacity-50">#</span>
                 <span>aiad</span>
-                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">2</span>
+                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">3</span>
             </a>
             
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;tags&#x2F;aiad-integration&#x2F;"
@@ -698,7 +702,7 @@
                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-indigo-500/60 transition-colors">
                 <span class="opacity-50">#</span>
                 <span>analytics</span>
-                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">2</span>
+                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">4</span>
             </a>
             
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;tags&#x2F;anamneza&#x2F;"
@@ -1819,6 +1823,13 @@
                 <span class="opacity-50">#</span>
                 <span>darvo</span>
                 <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">1</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;tags&#x2F;dashboard&#x2F;"
+               class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-indigo-500/60 transition-colors">
+                <span class="opacity-50">#</span>
+                <span>dashboard</span>
+                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">2</span>
             </a>
             
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;tags&#x2F;dashboards&#x2F;"
@@ -5675,7 +5686,7 @@
                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-indigo-500/60 transition-colors">
                 <span class="opacity-50">#</span>
                 <span>intelligence</span>
-                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">9</span>
+                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">10</span>
             </a>
             
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;tags&#x2F;intelligence-fusion&#x2F;"
@@ -5710,7 +5721,7 @@
                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-indigo-500/60 transition-colors">
                 <span class="opacity-50">#</span>
                 <span>interactive</span>
-                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">1</span>
+                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">3</span>
             </a>
             
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;tags&#x2F;interaktivni&#x2F;"
@@ -7460,7 +7471,7 @@
                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-indigo-500/60 transition-colors">
                 <span class="opacity-50">#</span>
                 <span>osint</span>
-                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">29</span>
+                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">30</span>
             </a>
             
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;tags&#x2F;osint-ea-source-validation&#x2F;"
@@ -8398,7 +8409,7 @@
                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-indigo-500/60 transition-colors">
                 <span class="opacity-50">#</span>
                 <span>real-time</span>
-                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">3</span>
+                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">5</span>
             </a>
             
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;tags&#x2F;real-time-monitoring&#x2F;"
@@ -8559,7 +8570,7 @@
                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-indigo-500/60 transition-colors">
                 <span class="opacity-50">#</span>
                 <span>registry</span>
-                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">2</span>
+                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">3</span>
             </a>
             
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;tags&#x2F;regression-test&#x2F;"
@@ -9651,7 +9662,7 @@
                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-indigo-500/60 transition-colors">
                 <span class="opacity-50">#</span>
                 <span>telemetry</span>
-                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">4</span>
+                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">5</span>
             </a>
             
             <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;tags&#x2F;telesne-hieroglyfy&#x2F;"
@@ -9819,6 +9830,13 @@
                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-indigo-500/60 transition-colors">
                 <span class="opacity-50">#</span>
                 <span>tononi</span>
+                <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">1</span>
+            </a>
+            
+            <a href="https:&#x2F;&#x2F;prismatic-reality-com.github.io&#x2F;prismatic-promo&#x2F;tags&#x2F;toolbox&#x2F;"
+               class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-gray-300 hover:text-white hover:border-indigo-500/60 transition-colors">
+                <span class="opacity-50">#</span>
+                <span>toolbox</span>
                 <span class="text-xs text-gray-500 bg-white/5 rounded-full px-2 py-0.5">1</span>
             </a>
             

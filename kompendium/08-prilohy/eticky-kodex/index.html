@@ -178,7 +178,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
     <!-- Content Security Policy - block unauthorized cross-origin requests -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-src 'none';">
 
     <!-- Pre-compiled TailwindCSS + Flowbite (zero CDN dependency).
          Only the two CRITICAL stylesheets are loaded synchronously here;
@@ -194,7 +194,11 @@
          at <=640px. See static/css/mobile-first.css for rationale. -->
     <link rel="stylesheet" href="https://prismatic-reality-com.github.io/prismatic-promo/css/mobile-first.css">
 
-    <!-- Alpine.js (required for navigation dropdowns) -->
+    <!-- Chart.js (self-hosted, required by application teaser simulations).
+         MUST load before alpine.min.js so window.Chart is defined when Alpine
+         walks x-data on teaser components. defer preserves source order. -->
+    <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/chart.umd.min.js"></script>
+    <!-- Alpine.js (required for navigation dropdowns + teaser interactivity) -->
     <script defer src="https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/alpine.min.js"></script>
 
     <!-- Fonts (reduced weights for faster load) -->
@@ -758,52 +762,28 @@
 </ul>
 <hr />
 <h2 id="operativni-ramec-workflow-irb">Operativní rámec — workflow IRB</h2>
-<pre class="giallo z-code"><code data-lang="plain"><span class="giallo-l"><span>┌──────────────────────────────────────┐</span></span>
-<span class="giallo-l"><span>│ 1. Návrh studie                      │</span></span>
-<span class="giallo-l"><span>│    └─ Risk-benefit assessment        │</span></span>
-<span class="giallo-l"><span>└──────────────────────────────────────┘</span></span>
-<span class="giallo-l"><span>              │</span></span>
-<span class="giallo-l"><span>              ▼</span></span>
-<span class="giallo-l"><span>┌──────────────────────────────────────┐</span></span>
-<span class="giallo-l"><span>│ 2. Pre-registrace                    │</span></span>
-<span class="giallo-l"><span>│    └─ OSF / ClinicalTrials.gov       │</span></span>
-<span class="giallo-l"><span>└──────────────────────────────────────┘</span></span>
-<span class="giallo-l"><span>              │</span></span>
-<span class="giallo-l"><span>              ▼</span></span>
-<span class="giallo-l"><span>┌──────────────────────────────────────┐</span></span>
-<span class="giallo-l"><span>│ 3. IRB submission                    │</span></span>
-<span class="giallo-l"><span>│    └─ Protokol + COI + Consent forms │</span></span>
-<span class="giallo-l"><span>└──────────────────────────────────────┘</span></span>
-<span class="giallo-l"><span>              │</span></span>
-<span class="giallo-l"><span>              ▼</span></span>
-<span class="giallo-l"><span>┌──────────────────────────────────────┐</span></span>
-<span class="giallo-l"><span>│ 4. IRB schválení (prospektivní)      │</span></span>
-<span class="giallo-l"><span>└──────────────────────────────────────┘</span></span>
-<span class="giallo-l"><span>              │</span></span>
-<span class="giallo-l"><span>              ▼</span></span>
-<span class="giallo-l"><span>┌──────────────────────────────────────┐</span></span>
-<span class="giallo-l"><span>│ 5. Recruitment + informed consent    │</span></span>
-<span class="giallo-l"><span>└──────────────────────────────────────┘</span></span>
-<span class="giallo-l"><span>              │</span></span>
-<span class="giallo-l"><span>              ▼</span></span>
-<span class="giallo-l"><span>┌──────────────────────────────────────┐</span></span>
-<span class="giallo-l"><span>│ 6. Sběr dat + adverse event monitor  │</span></span>
-<span class="giallo-l"><span>└──────────────────────────────────────┘</span></span>
-<span class="giallo-l"><span>              │</span></span>
-<span class="giallo-l"><span>              ▼</span></span>
-<span class="giallo-l"><span>┌──────────────────────────────────────┐</span></span>
-<span class="giallo-l"><span>│ 7. Analýza + dual-review             │</span></span>
-<span class="giallo-l"><span>└──────────────────────────────────────┘</span></span>
-<span class="giallo-l"><span>              │</span></span>
-<span class="giallo-l"><span>              ▼</span></span>
-<span class="giallo-l"><span>┌──────────────────────────────────────┐</span></span>
-<span class="giallo-l"><span>│ 8. Publikace + public engagement     │</span></span>
-<span class="giallo-l"><span>└──────────────────────────────────────┘</span></span>
-<span class="giallo-l"><span>              │</span></span>
-<span class="giallo-l"><span>              ▼</span></span>
-<span class="giallo-l"><span>┌──────────────────────────────────────┐</span></span>
-<span class="giallo-l"><span>│ 9. Post-publication monitoring       │</span></span>
-<span class="giallo-l"><span>└──────────────────────────────────────┘</span></span></code></pre><h2 id="sankce-za-poruseni-kodexu">Sankce za porušení kodexu</h2>
+<pre class="giallo z-code"><code data-lang="mermaid"><span class="giallo-l"><span>flowchart TD</span></span>
+<span class="giallo-l"><span>  S1[&quot;1. Návrh studie&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;Risk–benefit assessment&quot;]</span></span>
+<span class="giallo-l"><span>  S2[&quot;2. Pre-registrace&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;OSF / ClinicalTrials.gov&quot;]</span></span>
+<span class="giallo-l"><span>  S3[&quot;3. IRB submission&lt;br/&gt;━━━━━━━━━━━━━━&lt;br/&gt;Protokol + COI + Consent forms&quot;]</span></span>
+<span class="giallo-l"><span>  S4[&quot;4. IRB schválení&lt;br/&gt;(prospektivní)&quot;]</span></span>
+<span class="giallo-l"><span>  S5[&quot;5. Recruitment + informed consent&quot;]</span></span>
+<span class="giallo-l"><span>  S6[&quot;6. Sběr dat&lt;br/&gt;+ adverse event monitor&quot;]</span></span>
+<span class="giallo-l"><span>  S7[&quot;7. Analýza + dual-review&quot;]</span></span>
+<span class="giallo-l"><span>  S8[&quot;8. Publikace + public engagement&quot;]</span></span>
+<span class="giallo-l"><span>  S9[&quot;9. Post-publication monitoring&quot;]</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  S1 --&gt; S2 --&gt; S3 --&gt; S4 --&gt; S5 --&gt; S6 --&gt; S7 --&gt; S8 --&gt; S9</span></span>
+<span class="giallo-l"></span>
+<span class="giallo-l"><span>  style S1 fill:#1e3a8a,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style S2 fill:#1e40af,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style S3 fill:#1d4ed8,stroke:#3b82f6,color:#fff</span></span>
+<span class="giallo-l"><span>  style S4 fill:#7c3aed,stroke:#a855f7,color:#fff</span></span>
+<span class="giallo-l"><span>  style S5 fill:#15803d,stroke:#22c55e,color:#fff</span></span>
+<span class="giallo-l"><span>  style S6 fill:#15803d,stroke:#22c55e,color:#fff</span></span>
+<span class="giallo-l"><span>  style S7 fill:#15803d,stroke:#22c55e,color:#fff</span></span>
+<span class="giallo-l"><span>  style S8 fill:#a16207,stroke:#facc15,color:#fff</span></span>
+<span class="giallo-l"><span>  style S9 fill:#9f1239,stroke:#f43f5e,color:#fff</span></span></code></pre><h2 id="sankce-za-poruseni-kodexu">Sankce za porušení kodexu</h2>
 <table><thead><tr><th>Stupeň porušení</th><th>Sankce</th></tr></thead><tbody>
 <tr><td><strong>Drobné</strong> (formální chyba, opomenutí v COI)</td><td>Erratum + edukativní intervence</td></tr>
 <tr><td><strong>Středně závažné</strong> (nedostatečný informovaný souhlas)</td><td>Pozastavení výzkumu + IRB review</td></tr>
@@ -880,7 +860,7 @@ otevři přílohu.</p>
                 <!-- Table of contents (if Zola generated any) -->
                 
                 <div x-data="{ expanded: true }" x-cloak class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                    <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                    <button type="button" @click="expanded = !expanded" :aria-expanded="expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900">
                         <div class="flex items-center gap-2">
                             <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 10h16M4 14h16M4 18h16"/>
@@ -926,7 +906,7 @@ otevři přílohu.</p>
                 
                 
                 <div x-data="{ expanded: true }" x-cloak class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                    <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                    <button type="button" @click="expanded = !expanded" :aria-expanded="expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-gray-900">
                         <div class="flex items-center gap-2">
                             <svg aria-hidden="true" class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
