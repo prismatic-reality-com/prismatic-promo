@@ -2,28 +2,57 @@
   "case_id": "MAKUPAC_SRO_INVESTIGATION",
   "title": "MAKUPAC s.r.o. — Logistics & Fulfillment DD",
   "subject": {
-    "name": "MAKUPAC s.r.o. — Logistics & Fulfillment DD"
+    "name": "MAKUPAC s.r.o.",
+    "type": "organization",
+    "ico": "10664327",
+    "sidlo": "Citonice 231, 671 01 Citonice (od 1/2026)",
+    "datum_vzniku": "2021-03-11",
+    "extras": {
+      "primary_controller": "Petr Kuchyňka (91% control)",
+      "minority_shareholder": "Martin Mauler (9%)",
+      "primary_client": "Zapakuj Shop s.r.o. (60-80% revenue concentration)",
+      "revenue_range": "1.2-2.1M CZK annually",
+      "employee_count": "11-50",
+      "monthly_volume": "4,200 orders/month × 24 CZK/order",
+      "warehouse_space_m2": 500,
+      "ebitda_margin_pct": 15,
+      "creditworthiness_rating": "7.2/10 (GOOD - LOW-MEDIUM RISK)",
+      "credit_facility_approved_kc": 800000
+    }
   },
-  "context": "Czech fulfillment & logistics company. 91% concentrated control (Petr Kuchyňka, 36 y/o). Severe client concentration (60-80% revenue from single source). Active operation with strategic opportunities + critical vulnerabilities.",
+  "context": "Czech fulfillment & logistics company (3PL sector). 91% concentrated control held by Petr Kuchyňka (36 y/o). Severe client concentration: 60-80% revenue from single customer (Zapakuj Shop s.r.o.). Active operation with strong unit economics (~15% EBITDA margin, above industry 8-15%) but catastrophic dependency risks. Industry tailwind: Czech 3PL market growing >5% CAGR.",
   "doctrine": "AIAD-DD",
   "language": "cs-CZ",
   "created_at": "2026-01-01",
-  "updated_at": "2026-01-01",
+  "updated_at": "2026-05-05",
   "status": "research_only",
   "display": {
     "headline": "MAKUPAC s.r.o. — Logistics & Fulfillment DD",
-    "tagline": "Czech fulfillment & logistics company. 91% concentrated control (Petr Kuchyňka, 36 y/o). Severe client concentration (60-80% revenue from single source). Active operation with strategic opportunities + critical vulnerabilities.",
+    "tagline": "91% concentrated control · 60-80% single-client revenue dependency · 15% EBITDA margin · AKTIVNÍ provoz s kritickými strukturálními zranitelnostmi.",
     "risk_grade": "C",
     "color": "amber",
-    "entity_count": 0,
-    "graph_depth": 1,
+    "entity_count": 4,
+    "graph_depth": 2,
     "verification_status": "research-only",
     "dashboard_path": "index.html"
   },
   "key_findings": {
-    "positive": [],
-    "yellow_flags": [],
-    "red_flags_blocking": []
+    "positive": [
+      "Active logistics operation with strong market position; growing market sector (Czech 3PL >5% CAGR)",
+      "EBITDA Margin ~15% (at upper bound of industry average 8-15%); estimated +21,000 CZK positive monthly cash flow",
+      "Reliable VAT payer status; clean insolvency record across all stakeholders",
+      "Patriarch Jiří Kuchyňka demonstrates clean exit pattern with 33+ years of business operations and extensive Czech business network"
+    ],
+    "yellow_flags": [
+      "Petr Kuchyňka has previous business failure (Your Deco s.r.o. liquidated 2020) and limited track record specifically in logistics/fulfillment sector",
+      "Previous ownership instability — 3 changes in 5 years (2021-2026) signals structural fragility",
+      "Martin Mauler (9% minority) susceptible to squeeze-out scenarios; potential minority rights claims if strategic disagreements arise",
+      "Limited diversification in revenue streams beyond core fulfillment services"
+    ],
+    "red_flags_blocking": [
+      "RF: Client concentration 60-80% revenue from single source (Zapakuj Shop s.r.o.) → potential insolvency within 3-6 months if anchor contract terminates (computed risk score 9.6/10)",
+      "RF: Key person dependency — single individual (Petr Kuchyňka) controls 91% and ALL operations; single point of failure with no documented succession plan or operational backup"
+    ]
   },
   "deliverables": {
     "case_md": "comprehensive_executive_summary.md"

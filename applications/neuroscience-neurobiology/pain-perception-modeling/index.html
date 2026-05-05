@@ -608,77 +608,144 @@
             
 <!-- FLLM:FOUC_OK — x-show toggles non-initial UI states (collapsibles, tooltips); cards themselves are server-rendered and initially visible -->
 
-<!-- Neuroscience: Neurotransmitter Balance with Chart.js Bar -->
+<!-- Neuroscience L3: Neurotransmitter Brain-State Simulator (radar + time-series, derived metrics, clinical events) -->
 <div class="bg-gradient-to-br from-gray-800 via-gray-800 to-pink-900/20 rounded-2xl border border-pink-400/20 p-6 mb-8 shadow-2xl shadow-pink-900/20" x-data="{
-    transmitters: [
-        { name: 'Dopamine', value: 60, color: 'rgba(250,204,21,0.7)', role: 'Reward & Motivation' },
-        { name: 'Serotonin', value: 55, color: 'rgba(96,165,250,0.7)', role: 'Mood & Well-being' },
-        { name: 'GABA', value: 70, color: 'rgba(52,211,153,0.7)', role: 'Calm & Inhibition' },
-        { name: 'Glutamate', value: 50, color: 'rgba(248,113,113,0.7)', role: 'Excitation & Learning' },
-        { name: 'Norepinephrine', value: 45, color: 'rgba(251,146,60,0.7)', role: 'Alertness & Focus' }
-    ],
-    chart: null,
-    init() { var self = this; this.$nextTick(function() { self.initChart(); }); },
-    initChart() {
-        if (typeof Chart === 'undefined') { var __cg_self = this; return setTimeout(function(){ __cg_self.initChart(); }, 150); }
+    dopamine: 60, serotonin: 55, gaba: 70, glutamate: 50, norepinephrine: 45,
+    history: [], tickTimer: null, eventLog: [],
+    radarChart: null, lineChart: null,
+    baseline: [55, 55, 60, 55, 50],
+    init() {
         var self = this;
-        var ctx = this.$refs.neuroCanvas.getContext('2d');
-        this.chart = new Chart(ctx, {
-            type: 'bar',
+        this.$nextTick(function() { self.initCharts(); self.startTick(); });
+    },
+    initCharts() {
+        if (typeof Chart === 'undefined') { var s = this; return setTimeout(function() { s.initCharts(); }, 150); }
+        var self = this;
+        this.radarChart = new Chart(this.$refs.ntRadar.getContext('2d'), {
+            type: 'radar',
             data: {
-                labels: self.transmitters.map(function(t) { return t.name; }),
-                datasets: [{
-                    data: self.transmitters.map(function(t) { return t.value; }),
-                    backgroundColor: self.transmitters.map(function(t) { return t.color; }),
-                    borderColor: self.transmitters.map(function(t) { return t.color.replace('0.7', '1'); }),
-                    borderWidth: 1,
-                    borderRadius: 6,
-                    barPercentage: 0.6
-                }]
+                labels: ['Dopamine', 'Serotonin', 'GABA', 'Glutamate', 'Norepinephrine'],
+                datasets: [
+                    { label: 'Current', data: this.currentLevels, backgroundColor: 'rgba(244,114,182,0.25)', borderColor: 'rgba(244,114,182,0.9)', borderWidth: 2, pointRadius: 3, pointBackgroundColor: 'rgba(244,114,182,1)' },
+                    { label: 'Healthy', data: this.baseline, backgroundColor: 'rgba(52,211,153,0.08)', borderColor: 'rgba(52,211,153,0.5)', borderWidth: 1, borderDash: [4,4], pointRadius: 0 }
+                ]
             },
-            options: {
-                responsive: true, maintainAspectRatio: false, indexAxis: 'y',
-                scales: {
-                    x: { max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } },
-                    y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.6)', font: { size: 10, weight: 'bold' } } }
-                },
-                plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(131,24,67,0.95)' } }
-            }
+            options: { responsive: true, maintainAspectRatio: false, scales: { r: { suggestedMin: 0, suggestedMax: 100, grid: { color: 'rgba(255,255,255,0.06)' }, angleLines: { color: 'rgba(255,255,255,0.06)' }, pointLabels: { color: 'rgba(255,255,255,0.65)', font: { size: 10 } }, ticks: { display: false } } }, plugins: { legend: { labels: { color: 'rgba(255,255,255,0.6)', font: { size: 10 } }, position: 'bottom' }, tooltip: { backgroundColor: 'rgba(131,24,67,0.95)' } } }
+        });
+        this.lineChart = new Chart(this.$refs.ntLine.getContext('2d'), {
+            type: 'line',
+            data: { labels: [], datasets: [
+                { label: 'Mood', data: [], borderColor: 'rgba(96,165,250,0.9)', backgroundColor: 'rgba(96,165,250,0.12)', borderWidth: 2, pointRadius: 0, fill: true, tension: 0.3 },
+                { label: 'Arousal', data: [], borderColor: 'rgba(251,146,60,0.9)', backgroundColor: 'rgba(251,146,60,0.08)', borderWidth: 2, pointRadius: 0, tension: 0.3 }
+            ] },
+            options: { responsive: true, maintainAspectRatio: false, scales: { x: { display: false }, y: { min: 0, max: 100, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } } }, plugins: { legend: { labels: { color: 'rgba(255,255,255,0.6)', font: { size: 9 } }, position: 'bottom' }, tooltip: { enabled: false } } }
         });
     },
-    get state() {
-        var d = this.transmitters[0].value, s = this.transmitters[1].value, g = this.transmitters[2].value, gl = this.transmitters[3].value;
-        if (d > 80 && gl > 70) return { name: 'Hyperstimulated', color: 'text-red-400 bg-red-900/20 border-red-500/20' };
-        if (s > 70 && g > 70) return { name: 'Calm & Content', color: 'text-blue-400 bg-blue-900/20 border-blue-500/20' };
-        if (d < 30 && s < 30) return { name: 'Depressed', color: 'text-gray-400 bg-gray-700/30 border-gray-600/20' };
-        if (gl > 80 && g < 30) return { name: 'Excitotoxic Risk', color: 'text-red-400 bg-red-900/30 border-red-500/20' };
-        return { name: 'Balanced', color: 'text-emerald-400 bg-emerald-900/20 border-emerald-500/20' };
+    startTick() {
+        var self = this;
+        this.tickTimer = setInterval(function() {
+            self.history.push({ mood: self.moodIndex, arousal: self.arousal });
+            if (self.history.length > 60) self.history.shift();
+            if (self.lineChart) {
+                self.lineChart.data.labels = self.history.map(function(_, i) { return i; });
+                self.lineChart.data.datasets[0].data = self.history.map(function(h) { return h.mood; });
+                self.lineChart.data.datasets[1].data = self.history.map(function(h) { return h.arousal; });
+                self.lineChart.update('none');
+            }
+        }, 1500);
     },
-    updateChart() {
-        if (this.chart) {
-            this.chart.data.datasets[0].data = this.transmitters.map(function(t) { return t.value; });
-            this.chart.update('none');
-        }
-    }
-}" x-effect="updateChart()">
+    get currentLevels() { return [this.dopamine, this.serotonin, this.gaba, this.glutamate, this.norepinephrine]; },
+    get moodIndex() { return Math.max(0, Math.min(100, Math.round((this.serotonin + this.gaba - 0.5*this.glutamate + 0.3*this.dopamine)/2 + 25))); },
+    get arousal() { return Math.round((this.dopamine + this.norepinephrine + this.glutamate)/3); },
+    get eiBalance() { return Math.max(0, Math.min(100, Math.round((this.glutamate - this.gaba) + 50))); },
+    get riskFlag() {
+        if (this.glutamate > 80 && this.gaba < 30) return { name: 'Excitotoxic', color: 'text-red-400 bg-red-900/30 border-red-500/30' };
+        if (this.serotonin > 85 && this.dopamine > 75) return { name: 'Serotonin Syndrome', color: 'text-red-400 bg-red-900/30 border-red-500/30' };
+        if (this.dopamine < 20) return { name: 'Parkinsonian', color: 'text-amber-400 bg-amber-900/30 border-amber-500/30' };
+        if (this.gaba > 85 && this.glutamate < 25) return { name: 'Over-sedated', color: 'text-blue-400 bg-blue-900/30 border-blue-500/30' };
+        return { name: 'Stable', color: 'text-emerald-400 bg-emerald-900/30 border-emerald-500/30' };
+    },
+    get stateName() {
+        if (this.dopamine > 80 && this.glutamate > 70) return 'Hyperstimulated';
+        if (this.serotonin > 70 && this.gaba > 70) return 'Calm & Content';
+        if (this.dopamine < 30 && this.serotonin < 30) return 'Depressed';
+        if (this.glutamate > 80 && this.gaba < 30) return 'Excitotoxic Risk';
+        if (this.eiBalance > 70) return 'Excited';
+        if (this.eiBalance < 30) return 'Inhibited';
+        return 'Balanced';
+    },
+    get alertCount() {
+        var n = 0;
+        if (this.moodIndex < 30) n++;
+        if (this.arousal > 75) n++;
+        if (this.eiBalance > 70 || this.eiBalance < 30) n++;
+        if (this.riskFlag.name !== 'Stable') n++;
+        return n;
+    },
+    get rationale() { return 'State: ' + this.stateName + ' • ' + this.eventLog.length + ' events / ' + this.alertCount + ' alerts • E/I=' + this.eiBalance + ' • risk=' + this.riskFlag.name; },
+    pushEvent(label) { this.eventLog.push(label); if (this.eventLog.length > 5) this.eventLog.shift(); },
+    stimulantSpike() { this.dopamine = Math.min(100, this.dopamine + 35); this.norepinephrine = Math.min(100, this.norepinephrine + 30); this.serotonin = Math.max(0, this.serotonin - 10); this.pushEvent('Stimulant'); this.refreshRadar(); },
+    sedativeLoad() { this.gaba = Math.min(100, this.gaba + 40); this.glutamate = Math.max(0, this.glutamate - 25); this.norepinephrine = Math.max(0, this.norepinephrine - 20); this.pushEvent('Sedative'); this.refreshRadar(); },
+    resetState() { this.dopamine = 60; this.serotonin = 55; this.gaba = 70; this.glutamate = 50; this.norepinephrine = 45; this.eventLog = []; this.refreshRadar(); },
+    refreshRadar() { if (this.radarChart) { this.radarChart.data.datasets[0].data = this.currentLevels; this.radarChart.update('none'); } }
+}" x-effect="refreshRadar()">
     <div class="flex items-center justify-between mb-5">
         <div class="flex items-center gap-3">
             <div class="w-10 h-10 rounded-xl bg-pink-600/20 border border-pink-500/30 flex items-center justify-center">
                 <svg aria-hidden="true" class="w-5 h-5 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
             </div>
             <div>
-                <h3 class="text-sm font-bold text-white">Interactive Demo</h3>
-                <p class="text-xs text-pink-300/70">Neurotransmitter Balance Panel</p>
+                <h3 class="text-sm font-bold text-white">Live Simulator</h3>
+                <p class="text-xs text-pink-300/70">Neurotransmitter Brain-State Model</p>
             </div>
         </div>
-        <span class="inline-flex items-center px-3 py-1.5 text-xs font-bold rounded-xl border" :class="state.color" x-text="'Brain State: ' + state.name"></span>
+        <span class="inline-flex items-center px-3 py-1.5 text-xs font-bold rounded-xl border bg-pink-900/20 text-pink-300 border-pink-500/30" x-text="'State: ' + stateName"></span>
     </div>
-    <div class="h-44 mb-4 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-3"><canvas x-ref="neuroCanvas"></canvas></div>
-    <div class="space-y-2">
-        <template x-for="(t, i) in transmitters" :key="i">
-            <div class="flex items-center gap-2"><span class="text-[10px] text-gray-500 w-20" x-text="t.role"></span><input type="range" min="0" max="100" x-model.number="t.value" class="flex-1 h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-pink-500"><span class="text-xs text-pink-400 font-mono w-8 text-right" x-text="t.value"></span></div>
-        </template>
+
+    <!-- 4-cell metric banner -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+        <div class="rounded-xl border p-2.5 transition-colors" :class="moodIndex >= 55 ? 'bg-emerald-900/20 border-emerald-500/30' : moodIndex >= 30 ? 'bg-amber-900/20 border-amber-500/30' : 'bg-red-900/30 border-red-500/30'">
+            <div class="text-[10px] text-gray-400 uppercase tracking-wider">Mood Index</div>
+            <div class="text-xl font-black font-mono" :class="moodIndex >= 55 ? 'text-emerald-400' : moodIndex >= 30 ? 'text-amber-400' : 'text-red-400'" x-text="moodIndex"></div>
+        </div>
+        <div class="rounded-xl border p-2.5 transition-colors" :class="arousal > 75 ? 'bg-red-900/30 border-red-500/30' : arousal >= 30 ? 'bg-emerald-900/20 border-emerald-500/30' : 'bg-gray-800/40 border-gray-600/20'">
+            <div class="text-[10px] text-gray-400 uppercase tracking-wider">Arousal</div>
+            <div class="text-xl font-black font-mono" :class="arousal > 75 ? 'text-red-400' : arousal >= 30 ? 'text-emerald-400' : 'text-gray-400'" x-text="arousal"></div>
+        </div>
+        <div class="rounded-xl border p-2.5 transition-colors" :class="eiBalance > 70 ? 'bg-red-900/30 border-red-500/30' : eiBalance >= 40 && eiBalance <= 60 ? 'bg-emerald-900/20 border-emerald-500/30' : 'bg-blue-900/30 border-blue-500/30'">
+            <div class="text-[10px] text-gray-400 uppercase tracking-wider">E/I Balance</div>
+            <div class="text-xl font-black font-mono" :class="eiBalance > 70 ? 'text-red-400' : eiBalance >= 40 && eiBalance <= 60 ? 'text-emerald-400' : 'text-blue-400'" x-text="eiBalance"></div>
+        </div>
+        <div class="rounded-xl border p-2.5 transition-colors" :class="riskFlag.color">
+            <div class="text-[10px] text-gray-400 uppercase tracking-wider">Risk</div>
+            <div class="text-xs font-black font-mono mt-1" :class="riskFlag.color" x-text="riskFlag.name"></div>
+        </div>
     </div>
+
+    <!-- Two charts side-by-side -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-4">
+        <div class="h-56 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="ntRadar" aria-label="Neurotransmitter level radar chart"></canvas></div>
+        <div class="h-56 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="ntLine" aria-label="Mood and arousal time series"></canvas></div>
+    </div>
+
+    <!-- Sliders -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-2 mb-4">
+        <div><div class="flex justify-between text-xs mb-1"><span class="text-gray-400">Dopamine <span class="text-gray-500">Reward</span></span><span class="text-pink-400 font-mono" x-text="dopamine"></span></div><input type="range" min="0" max="100" x-model.number="dopamine" aria-label="Dopamine level" class="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-pink-500 focus-visible:ring-2 focus-visible:ring-pink-500"></div>
+        <div><div class="flex justify-between text-xs mb-1"><span class="text-gray-400">Serotonin <span class="text-gray-500">Mood</span></span><span class="text-pink-400 font-mono" x-text="serotonin"></span></div><input type="range" min="0" max="100" x-model.number="serotonin" aria-label="Serotonin level" class="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-pink-500 focus-visible:ring-2 focus-visible:ring-pink-500"></div>
+        <div><div class="flex justify-between text-xs mb-1"><span class="text-gray-400">GABA <span class="text-gray-500">Calm</span></span><span class="text-pink-400 font-mono" x-text="gaba"></span></div><input type="range" min="0" max="100" x-model.number="gaba" aria-label="GABA level" class="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-pink-500 focus-visible:ring-2 focus-visible:ring-pink-500"></div>
+        <div><div class="flex justify-between text-xs mb-1"><span class="text-gray-400">Glutamate <span class="text-gray-500">Excite</span></span><span class="text-pink-400 font-mono" x-text="glutamate"></span></div><input type="range" min="0" max="100" x-model.number="glutamate" aria-label="Glutamate level" class="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-pink-500 focus-visible:ring-2 focus-visible:ring-pink-500"></div>
+        <div class="sm:col-span-2"><div class="flex justify-between text-xs mb-1"><span class="text-gray-400">Norepinephrine <span class="text-gray-500">Focus</span></span><span class="text-pink-400 font-mono" x-text="norepinephrine"></span></div><input type="range" min="0" max="100" x-model.number="norepinephrine" aria-label="Norepinephrine level" class="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer accent-pink-500 focus-visible:ring-2 focus-visible:ring-pink-500"></div>
+    </div>
+
+    <!-- Stress events + reset -->
+    <div class="flex flex-wrap gap-2 mb-3">
+        <button @click="stimulantSpike()" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-amber-600/30 text-amber-300 border border-amber-500/30 hover:bg-amber-600/50 transition focus-visible:ring-2 focus-visible:ring-amber-500">⚡ Stimulant Spike</button>
+        <button @click="sedativeLoad()" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-blue-600/30 text-blue-300 border border-blue-500/30 hover:bg-blue-600/50 transition focus-visible:ring-2 focus-visible:ring-blue-500">💤 Sedative Load</button>
+        <button @click="resetState()" class="px-3 py-1.5 text-xs font-bold rounded-xl bg-gray-700/50 text-gray-300 border border-white/10 hover:bg-gray-600/50 transition focus-visible:ring-2 focus-visible:ring-gray-400">↺ Reset</button>
+    </div>
+
+    <!-- Live rationale -->
+    <div class="text-[11px] text-pink-200/70 font-mono bg-pink-900/10 border border-pink-500/10 rounded-lg px-3 py-2" x-text="rationale"></div>
 </div>
 
 
@@ -14907,11 +14974,19 @@ function sectionNav() {
     <!-- On-demand: p5.js, Chart.js, Three.js, Mermaid - only loaded when page needs them -->
     <script>
         (function() {
-            // p5.js Creative Manager
+            // p5.js Creative Manager — self-hosted vendor (CSP `script-src 'self'`
+            // blocks cdnjs.cloudflare.com, same bug class as mermaid was).
             if (document.querySelector('[data-p5-sketch], [data-p5-data]')) {
                 var p5Script = document.createElement('script');
-                p5Script.src = 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js';
+                p5Script.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/p5-1.7.0.min.js';
                 p5Script.onload = function() {
+                    var m = document.createElement('script');
+                    m.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/p5-creative-manager.js';
+                    document.body.appendChild(m);
+                };
+                p5Script.onerror = function() {
+                    // Vendor 404 fallback: load manager anyway so it can show
+                    // a graceful empty-state instead of leaving sketches dead.
                     var m = document.createElement('script');
                     m.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/p5-creative-manager.js';
                     document.body.appendChild(m);
@@ -14953,10 +15028,26 @@ function sectionNav() {
             // Mermaid.js — Zola with [markdown.highlighting] style="class" emits
             // <code data-lang="mermaid">, NOT class="language-mermaid". Match both forms
             // (and let mermaid-init.js do the heavy lifting via the same selector pair).
+            // CSP `script-src 'self'` blocks cdn.jsdelivr.net, so self-host the
+            // vendor bundle and chain mermaid-init.js after onload.
             if (document.querySelector('.mermaid, [data-mermaid], pre code.language-mermaid, pre code[data-lang="mermaid"]')) {
-                var ms = document.createElement('script');
-                ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
-                document.body.appendChild(ms);
+                var mlib = document.createElement('script');
+                mlib.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/mermaid-11.min.js';
+                mlib.onload = function () {
+                    var ms = document.createElement('script');
+                    ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
+                    document.body.appendChild(ms);
+                };
+                mlib.onerror = function () {
+                    // Vendor 404 fallback: load init script anyway so it can
+                    // run processMermaidBlocks() and present source-view via
+                    // .diagram-toggle-wrapper. Without this, raw graph text
+                    // would leak to the user — exactly the bug we just fixed.
+                    var ms = document.createElement('script');
+                    ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
+                    document.body.appendChild(ms);
+                };
+                document.body.appendChild(mlib);
             }
             // Code copy buttons (only on pages with code blocks)
             if (document.querySelector('pre > code')) {

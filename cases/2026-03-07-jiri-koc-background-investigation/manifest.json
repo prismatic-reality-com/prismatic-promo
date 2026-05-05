@@ -2,27 +2,84 @@
   "case_id": "2026-03-07-jiri-koc-background-investigation",
   "title": "Jiří Koc — Background Investigation",
   "subject": {
-    "name": "Jiří Koc — Background Investigation"
+    "name": "Jiří Koc — Background Investigation",
+    "type": "person",
+    "extras": {
+      "stated_dob": "1976",
+      "region": "Znojmo a okolí",
+      "verification_status": "identity_discrepancy_unresolved"
+    }
   },
-  "context": "Comprehensive background check & subject profile (research package).",
+  "context": "Comprehensive background check & subject profile (research package). Identity disambiguation in progress: subject specified as 'Jiří Koc, narozen 1976' but strongest verified candidate is 'Antonín Koc, narozen 1975-11-05', sole director of Stavby Koc s.r.o. (IČO 03258009).",
   "doctrine": "AIAD-DD",
   "language": "cs-CZ",
   "created_at": "2026-03-07",
-  "updated_at": "2026-03-07",
+  "updated_at": "2026-05-05",
   "status": "research_only",
+  "candidates_disambiguation": [
+    {
+      "rank": 1,
+      "name": "Antonín Koc",
+      "dob": "1975-11-05",
+      "ico_associated": "03258009",
+      "company": "Stavby Koc s.r.o.",
+      "address": "Znojmo (od 2/2025; dříve Výrovice)",
+      "match_quality": "STRONG_NAME_MATCH_BIRTH_YEAR_OFF_BY_ONE",
+      "primary": true
+    },
+    {
+      "rank": 2,
+      "name": "Jiří Koc",
+      "ico": "61160466",
+      "address": "Strašice, Rokycany",
+      "founded": "1995-06-14",
+      "match_quality": "EXACT_NAME_WRONG_REGION"
+    },
+    {
+      "rank": 3,
+      "name": "Jiří Koc",
+      "ico": "87046580",
+      "address": "Bojanovice, Praha-západ",
+      "founded": "2008-10-22",
+      "match_quality": "EXACT_NAME_WRONG_REGION"
+    },
+    {
+      "rank": 4,
+      "name": "Dušan Koc",
+      "ico": "01995120",
+      "address": "Plavec",
+      "match_quality": "POSSIBLE_FAMILY_REGION_MATCH"
+    },
+    {
+      "rank": 5,
+      "name": "Tomáš Koc",
+      "ico": "87792842",
+      "address": "Znojmo",
+      "match_quality": "POSSIBLE_FAMILY_REGION_MATCH"
+    }
+  ],
   "display": {
     "headline": "Jiří Koc — Background Investigation",
-    "tagline": "Comprehensive background check & subject profile (research package).",
+    "tagline": "Comprehensive background check. 5 candidate identities under disambiguation review (strongest match: Antonín Koc, 1975, Stavby Koc s.r.o.).",
     "risk_grade": "C",
     "color": "amber",
-    "entity_count": 0,
+    "entity_count": 5,
     "graph_depth": 1,
-    "verification_status": "research-only",
+    "verification_status": "identity-discrepancy-pending",
     "dashboard_path": "index.html"
   },
   "key_findings": {
-    "positive": [],
-    "yellow_flags": [],
+    "positive": [
+      "Žádná insolvence (ISIR clear) pro 'Jiří Koc' v regionu Znojmo (verified)",
+      "Stavby Koc s.r.o. (IČO 03258009) je AKTIVNÍ od 2014-07-25 (11+ let nepřetržitého provozu)",
+      "Žádný blokující rozpor v obchodním rejstříku ani v Justice.cz veřejných záznamech"
+    ],
+    "yellow_flags": [
+      "Identity discrepancy: subject specified as 'Jiří Koc, 1976' but strongest match is 'Antonín Koc, narozen 5.11.1975' — vyžaduje ověření klientem před pokračováním DD",
+      "Stavby Koc s.r.o. underwent ownership changes 2024-2025 (Jaroslav Petr removed 8/2024, address changed Výrovice → Znojmo 2/2025) — potential restructuring signal",
+      "Minimální základní kapitál (1 Kč vklad) — typické pro malé s.r.o., ale stojí za zmínku v risk profile",
+      "Pending screenings: EU/OFAC/UN sanctions + PEP database check (Phase 2)"
+    ],
     "red_flags_blocking": []
   },
   "deliverables": {

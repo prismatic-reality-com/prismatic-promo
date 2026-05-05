@@ -2,30 +2,49 @@
   "case_id": "2026-04-13-enhanced-pipeline-demo-petr-novak",
   "title": "Petr Novák — Enhanced Pipeline Demo",
   "subject": {
-    "name": "Petr Novák — Enhanced Pipeline Demo"
+    "name": "Petr Novák",
+    "type": "person",
+    "extras": {
+      "stated_dob": "1980",
+      "region": "Prague",
+      "demo_marker": "templated_test_data — pipeline showcase, NOT a real DD subject; placeholder ICO 12345678 + address 'Hlavní 123, Praha' are demo seed data"
+    }
   },
-  "context": "End-to-end DD pipeline demonstration with enhanced source verification (research package + agent integration showcase).",
+  "context": "End-to-end DD pipeline demonstration with enhanced source verification. NOTE: this case uses templated/demo data to showcase the 8-source OSINT pipeline (7 completed + 1 CUZK CAPTCHA-blocked) — NOT a real investigation. See findings/findings.json for the full structured pipeline output.",
   "doctrine": "AIAD-DD",
   "language": "cs-CZ",
   "created_at": "2026-04-13",
-  "updated_at": "2026-04-13",
+  "updated_at": "2026-05-05",
   "status": "research_only",
   "display": {
     "headline": "Petr Novák — Enhanced Pipeline Demo",
-    "tagline": "End-to-end DD pipeline demonstration with enhanced source verification (research package + agent integration showcase).",
+    "tagline": "Pipeline showcase: 8 OSINT sources, 7 completed (mostly clean), 1 CUZK CAPTCHA-blocked. Demo/templated data — not a real investigation.",
     "risk_grade": "B",
     "color": "emerald",
-    "entity_count": 0,
+    "entity_count": 1,
     "graph_depth": 1,
-    "verification_status": "research-only",
+    "verification_status": "demo-pipeline-showcase",
     "dashboard_path": "index.html"
   },
   "key_findings": {
-    "positive": [],
-    "yellow_flags": [],
+    "positive": [
+      "Pipeline executed 7/8 OSINT sources successfully (ARES, Justice.cz, ISIR, RZP, Hlídač státu, EU Sanctions, OFAC SDN)",
+      "No sanctions records (EU Sanctions + OFAC SDN both clean)",
+      "No insolvency proceedings (ISIR clean for the demo subject)",
+      "Demonstrates Enhanced Pipeline orchestration — parallel source execution + structured findings.json output"
+    ],
+    "yellow_flags": [
+      "CUZK Land Registry: BLOCKED (CAPTCHA protection — requires manual verification, automation gap of the pipeline)",
+      "ARES hit on 'Novak IT Solutions s.r.o.' (IČO 12345678, Hlavní 123 Praha) is templated demo data, not a verified subject affiliation"
+    ],
     "red_flags_blocking": []
   },
   "deliverables": {
-    "case_md": "README.md"
+    "case_md": "README.md",
+    "raw_reports": [
+      "reports/2026-04-13-comprehensive-osint-report.md",
+      "reports/2026-04-13-investigation-plan.md",
+      "reports/2026-04-13-initial-report.md"
+    ]
   }
 }

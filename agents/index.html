@@ -557,6 +557,37 @@
                     </div>
                 </div>
 
+                <!-- Active chart-filter pill (set by clicking a chart bar/segment below) -->
+                <div x-show="selectedDomain || selectedLevel" class="mb-3 flex items-center gap-2 text-xs">
+                    <span class="text-purple-300">Filter:
+                        <span x-show="selectedDomain" class="font-mono" x-text="selectedDomain"></span>
+                        <span x-show="selectedLevel" class="font-mono" x-text="selectedLevel"></span>
+                    </span>
+                    <button type="button" @click="clearChartFilters()" class="px-2 py-1 text-[10px] font-medium text-gray-200 bg-gray-700 hover:bg-gray-600 rounded focus-visible:ring-2 focus-visible:ring-purple-500/40 focus-visible:outline-none">Clear chart filter</button>
+                </div>
+
+                <!-- Domain Overview dashboard (3 charts, click to filter agents below) -->
+                <div class="mb-6 p-4 bg-gray-800/40 rounded-xl border border-white/5">
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                        <div class="text-xs font-semibold text-purple-300 uppercase tracking-wider">Domain Overview</div>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-3">
+                        <div>
+                            <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Agents per domain</div>
+                            <div class="h-56 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="domBarCanvas" aria-label="Agents per domain bar chart"></canvas></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Authority levels</div>
+                            <div class="h-56 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="lvlDoughCanvas" aria-label="Authority level doughnut chart"></canvas></div>
+                        </div>
+                        <div>
+                            <div class="text-[10px] uppercase tracking-wider text-gray-400 mb-1 ml-1">Avg agents per level</div>
+                            <div class="h-56 rounded-xl overflow-hidden bg-gray-900/50 border border-white/5 p-2"><canvas x-ref="lvlAvgCanvas" aria-label="Average agents per level bar chart"></canvas></div>
+                        </div>
+                    </div>
+                    <p class="mt-2 text-[10px] text-gray-400">Click any bar to filter agents below by domain or level.</p>
+                </div>
+
                 <!-- Controls Bar -->
                 <div class="mb-6 p-4 bg-gray-800 rounded-xl border border-gray-700">
                     <div class="flex flex-col lg:flex-row gap-4">
@@ -599,9 +630,11 @@
                         </div>
 
                         <!-- View Toggle -->
-                        <div class="flex items-center bg-gray-700 border border-gray-600 rounded-lg overflow-hidden">
+                        <div class="flex items-center bg-gray-700 border border-gray-600 rounded-lg overflow-hidden" role="group" aria-label="View mode">
                             <button type="button" @click="viewMode = 'cards'"
                                 :class="viewMode === 'cards' ? 'bg-purple-600 text-white' : 'text-gray-300 hover:bg-gray-600'"
+                                :aria-pressed="(viewMode === 'cards').toString()"
+                                aria-label="Card view"
                                 class="px-3 py-2.5 text-sm font-medium transition-colors">
                                 <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -610,6 +643,8 @@
                             </button>
                             <button type="button" @click="viewMode = 'table'"
                                 :class="viewMode === 'table' ? 'bg-purple-600 text-white' : 'text-gray-300 hover:bg-gray-600'"
+                                :aria-pressed="(viewMode === 'table').toString()"
+                                aria-label="Table view"
                                 class="px-3 py-2.5 text-sm font-medium transition-colors">
                                 <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -619,7 +654,7 @@
                         </div>
 
                         <!-- Reset -->
-                        <button type="button" @click="searchTerm = ''; sortField = 'title'; selectedDomain = ''; currentPage = 1"
+                        <button type="button" @click="searchTerm = ''; sortField = 'title'; selectedDomain = ''; selectedLevel = ''; currentPage = 1"
                             class="px-4 py-2.5 text-sm font-medium text-gray-300 bg-gray-700 border border-gray-600 rounded-lg hover:bg-gray-600 transition-colors">
                             Reset
                         </button>
@@ -741,7 +776,7 @@
                                     <td class="px-3 py-2 sm:px-4 sm:py-3 lg:px-6 lg:py-4 hidden lg:table-cell">
                                         <div class="flex flex-wrap gap-1">
                                             <template x-for="cmd in item.commands.slice(0, 2)" :key="cmd">
-                                                <a :href="'/commands/' + cmd.replace(/^\//, '') + '/'"
+                                                <a :href="'https://prismatic-reality-com.github.io/prismatic-promo/commands/' + cmd.replace(/^\//, '') + '/'"
                                                     class="px-2 py-0.5 text-xs font-mono bg-gray-700 text-gray-300 rounded hover:text-purple-300 hover:bg-gray-600 transition-colors no-underline"
                                                     x-text="cmd"></a>
                                             </template>
@@ -1041,7 +1076,7 @@
                 <!-- Domain Categories Card -->
                 <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6"
                     x-data="{ expanded: true }" x-cloak>
-                    <button type="button" @click="expanded = !expanded"
+                    <button type="button" @click="expanded = !expanded" :aria-expanded="expanded.toString()"
                         class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus-visible:outline-none focus-visible:bg-gray-750">
                         <div class="flex items-center gap-2">
                             <svg aria-hidden="true" class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1081,7 +1116,7 @@
                 <!-- Agent Statistics Card -->
                 <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6"
                     x-data="{ expanded: true }" x-cloak>
-                    <button type="button" @click="expanded = !expanded"
+                    <button type="button" @click="expanded = !expanded" :aria-expanded="expanded.toString()"
                         class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus-visible:outline-none focus-visible:bg-gray-750">
                         <div class="flex items-center gap-2">
                             <svg aria-hidden="true" class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1133,7 +1168,7 @@
                 <!-- Quick Navigation Card -->
                 <div class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden mb-6"
                     x-data="{ expanded: true }" x-cloak>
-                    <button type="button" @click="expanded = !expanded"
+                    <button type="button" @click="expanded = !expanded" :aria-expanded="expanded.toString()"
                         class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors focus-visible:outline-none focus-visible:bg-gray-750">
                         <div class="flex items-center gap-2">
                             <svg aria-hidden="true" class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -7863,9 +7898,67 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
             sortDesc: false,
             viewMode: 'cards',
             selectedDomain: '',
+            selectedLevel: '',
             currentPage: 1,
             perPage: 12,
             items: JSON.parse(document.getElementById('agents-data').textContent),
+            domBarChart: null,
+            lvlDoughChart: null,
+            lvlAvgChart: null,
+            init() {
+                var self = this;
+                this.$nextTick(function() { self.initCharts(); });
+            },
+            initCharts() {
+                if (typeof Chart === 'undefined') { var __c = this; return setTimeout(function(){ __c.initCharts(); }, 150); }
+                if (!this.$refs.domBarCanvas || !this.$refs.lvlDoughCanvas || !this.$refs.lvlAvgCanvas) return;
+                var self = this;
+                var domCounts = {};
+                this.items.forEach(function(i){ domCounts[i.domain_normalized] = (domCounts[i.domain_normalized] || 0) + i.agent_count; });
+                var domEntries = Object.entries(domCounts).sort(function(a,b){ return b[1] - a[1]; });
+                var domLabels = domEntries.map(function(e){ return e[0].length > 18 ? e[0].slice(0,18) + '…' : e[0]; });
+                var domNames  = domEntries.map(function(e){ return e[0]; });
+                var domData   = domEntries.map(function(e){ return e[1]; });
+                this.domBarChart = new Chart(this.$refs.domBarCanvas.getContext('2d'), {
+                    type: 'bar',
+                    data: { labels: domLabels, datasets: [{ data: domData, backgroundColor: 'rgba(168,85,247,0.7)', hoverBackgroundColor: 'rgba(168,85,247,1)', borderRadius: 4 }] },
+                    options: {
+                        indexAxis: 'y', responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                        scales: { x: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } }, y: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.6)', font: { size: 8 } } } },
+                        plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(76,29,149,0.95)', borderColor: 'rgba(168,85,247,0.3)', borderWidth: 1, callbacks: { label: function(ctx){ return ctx.parsed.x + ' agents'; }, title: function(items){ return domNames[items[0].dataIndex]; } } } },
+                        onClick: function(evt, els){ if (els && els.length) self.onDomainClick(domNames[els[0].index]); }
+                    }
+                });
+                var lvlLabels = ['L1','L2','L3','L4','L5'];
+                var lvlCounts = {L1:0,L2:0,L3:0,L4:0,L5:0};
+                this.items.forEach(function(i){ if (lvlCounts[i.level] !== undefined) lvlCounts[i.level] += i.agent_count; });
+                var lvlData = lvlLabels.map(function(l){ return lvlCounts[l]; });
+                var lvlColors = ['rgba(192,132,252,0.55)','rgba(168,85,247,0.65)','rgba(147,51,234,0.75)','rgba(126,34,206,0.85)','rgba(88,28,135,0.95)'];
+                this.lvlDoughChart = new Chart(this.$refs.lvlDoughCanvas.getContext('2d'), {
+                    type: 'doughnut',
+                    data: { labels: lvlLabels, datasets: [{ data: lvlData, backgroundColor: lvlColors, borderWidth: 0, hoverOffset: 8 }] },
+                    options: {
+                        responsive: true, maintainAspectRatio: false, cutout: '55%', animation: { duration: 0 },
+                        plugins: { legend: { position: 'bottom', labels: { padding: 6, usePointStyle: true, pointStyleWidth: 8, font: { size: 10 }, color: 'rgba(255,255,255,0.7)' } }, tooltip: { backgroundColor: 'rgba(76,29,149,0.95)', borderColor: 'rgba(168,85,247,0.3)', borderWidth: 1, callbacks: { label: function(ctx){ return ctx.label + ': ' + ctx.parsed + ' agents'; } } } },
+                        onClick: function(evt, els){ if (els && els.length) self.onLevelClick(lvlLabels[els[0].index]); }
+                    }
+                });
+                var lvlGroupCounts = {L1:0,L2:0,L3:0,L4:0,L5:0};
+                this.items.forEach(function(i){ if (lvlGroupCounts[i.level] !== undefined) lvlGroupCounts[i.level] += 1; });
+                var avgData = lvlLabels.map(function(l){ return lvlGroupCounts[l] > 0 ? Math.round(lvlCounts[l] / lvlGroupCounts[l] * 10) / 10 : 0; });
+                this.lvlAvgChart = new Chart(this.$refs.lvlAvgCanvas.getContext('2d'), {
+                    type: 'bar',
+                    data: { labels: lvlLabels, datasets: [{ data: avgData, backgroundColor: lvlColors, borderRadius: 6 }] },
+                    options: {
+                        responsive: true, maintainAspectRatio: false, animation: { duration: 0 },
+                        scales: { y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { color: 'rgba(255,255,255,0.4)', font: { size: 9 } } }, x: { grid: { display: false }, ticks: { color: 'rgba(255,255,255,0.6)', font: { size: 10 } } } },
+                        plugins: { legend: { display: false }, tooltip: { backgroundColor: 'rgba(76,29,149,0.95)', borderColor: 'rgba(168,85,247,0.3)', borderWidth: 1, callbacks: { label: function(ctx){ return ctx.parsed.y + ' avg agents'; } } } }
+                    }
+                });
+            },
+            onDomainClick(name) { this.selectedDomain = (this.selectedDomain === name) ? '' : name; this.selectedLevel = ''; this.currentPage = 1; },
+            onLevelClick(lvl)   { this.selectedLevel  = (this.selectedLevel  === lvl)  ? '' : lvl;  this.selectedDomain = ''; this.currentPage = 1; },
+            clearChartFilters() { this.selectedDomain = ''; this.selectedLevel = ''; this.currentPage = 1; },
 
         get totalAgents() {
         return this.items.reduce((sum, i) => sum + i.agent_count, 0);
@@ -7898,6 +7991,9 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
         let result = [...this.items];
         if (this.selectedDomain) {
             result = result.filter(i => i.domain_normalized === this.selectedDomain);
+        }
+        if (this.selectedLevel) {
+            result = result.filter(i => i.level === this.selectedLevel);
         }
         if (this.searchTerm) {
             const q = this.searchTerm.toLowerCase();
@@ -8416,11 +8512,19 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
     <!-- On-demand: p5.js, Chart.js, Three.js, Mermaid - only loaded when page needs them -->
     <script>
         (function() {
-            // p5.js Creative Manager
+            // p5.js Creative Manager — self-hosted vendor (CSP `script-src 'self'`
+            // blocks cdnjs.cloudflare.com, same bug class as mermaid was).
             if (document.querySelector('[data-p5-sketch], [data-p5-data]')) {
                 var p5Script = document.createElement('script');
-                p5Script.src = 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js';
+                p5Script.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/p5-1.7.0.min.js';
                 p5Script.onload = function() {
+                    var m = document.createElement('script');
+                    m.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/p5-creative-manager.js';
+                    document.body.appendChild(m);
+                };
+                p5Script.onerror = function() {
+                    // Vendor 404 fallback: load manager anyway so it can show
+                    // a graceful empty-state instead of leaving sketches dead.
                     var m = document.createElement('script');
                     m.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/p5-creative-manager.js';
                     document.body.appendChild(m);
@@ -8462,10 +8566,26 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
             // Mermaid.js — Zola with [markdown.highlighting] style="class" emits
             // <code data-lang="mermaid">, NOT class="language-mermaid". Match both forms
             // (and let mermaid-init.js do the heavy lifting via the same selector pair).
+            // CSP `script-src 'self'` blocks cdn.jsdelivr.net, so self-host the
+            // vendor bundle and chain mermaid-init.js after onload.
             if (document.querySelector('.mermaid, [data-mermaid], pre code.language-mermaid, pre code[data-lang="mermaid"]')) {
-                var ms = document.createElement('script');
-                ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
-                document.body.appendChild(ms);
+                var mlib = document.createElement('script');
+                mlib.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/mermaid-11.min.js';
+                mlib.onload = function () {
+                    var ms = document.createElement('script');
+                    ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
+                    document.body.appendChild(ms);
+                };
+                mlib.onerror = function () {
+                    // Vendor 404 fallback: load init script anyway so it can
+                    // run processMermaidBlocks() and present source-view via
+                    // .diagram-toggle-wrapper. Without this, raw graph text
+                    // would leak to the user — exactly the bug we just fixed.
+                    var ms = document.createElement('script');
+                    ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
+                    document.body.appendChild(ms);
+                };
+                document.body.appendChild(mlib);
             }
             // Code copy buttons (only on pages with code blocks)
             if (document.querySelector('pre > code')) {

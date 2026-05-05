@@ -544,12 +544,14 @@
                 <input
                     type="text"
                     x-model="searchQuery"
+                    aria-label="Search FAQ questions by keyword"
                     placeholder="Search questions... (e.g., agents, security, OSINT)"
                     class="w-full pl-12 pr-12 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-transparent backdrop-blur-sm text-lg"
                 />
                 <button type="button"
                     x-show="searchQuery.length > 0"
                     @click="searchQuery = ''"
+                    aria-label="Clear search"
                     class="absolute inset-y-0 right-0 flex items-center pr-4 text-gray-400 hover:text-white transition-colors"
                 >
                     <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -633,6 +635,8 @@
                         <!-- Question Header -->
                         <button type="button"
                             @click="toggleItem(item.id)"
+                            :aria-expanded="(openItem === item.id).toString()"
+                            :aria-controls="'q-' + item.id + '-answer'"
                             class="flex items-start justify-between w-full px-6 py-5 text-left"
                         >
                             <div class="flex-1 pr-4">
@@ -663,6 +667,7 @@
 
                         <!-- Answer Body -->
                         <div
+                            :id="'q-' + item.id + '-answer'"
                             x-show="openItem === item.id"
                             x-transition:enter="transition ease-out duration-200"
                             x-transition:enter-start="opacity-0 -translate-y-2"
@@ -1354,7 +1359,7 @@
                 <div class="hidden lg:block sticky top-4 space-y-6 self-start">
                     <!-- FAQ Categories Card -->
                     <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                        <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <button type="button" @click="expanded = !expanded" :aria-expanded="expanded.toString()" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
                             <div class="flex items-center gap-2">
                                 <svg aria-hidden="true" class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
@@ -1387,7 +1392,7 @@
 
                     <!-- FAQ Statistics Card -->
                     <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                        <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <button type="button" @click="expanded = !expanded" :aria-expanded="expanded.toString()" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
                             <div class="flex items-center gap-2">
                                 <svg aria-hidden="true" class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
@@ -1430,7 +1435,7 @@
 
                     <!-- Popular Topics Card -->
                     <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                        <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <button type="button" @click="expanded = !expanded" :aria-expanded="expanded.toString()" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
                             <div class="flex items-center gap-2">
                                 <svg aria-hidden="true" class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
@@ -1473,7 +1478,7 @@
 
                     <!-- Related Glossary Terms Card -->
                     <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                        <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <button type="button" @click="expanded = !expanded" :aria-expanded="expanded.toString()" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
                             <div class="flex items-center gap-2">
                                 <svg aria-hidden="true" class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
@@ -1508,7 +1513,7 @@
 
                     <!-- Quick Navigation Card -->
                     <div x-data="{ expanded: true }" class="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden">
-                        <button type="button" @click="expanded = !expanded" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
+                        <button type="button" @click="expanded = !expanded" :aria-expanded="expanded.toString()" class="w-full flex items-center justify-between p-4 text-left hover:bg-gray-750 transition-colors">
                             <div class="flex items-center gap-2">
                                 <svg aria-hidden="true" class="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
@@ -2712,11 +2717,19 @@ function faqApp() {
     <!-- On-demand: p5.js, Chart.js, Three.js, Mermaid - only loaded when page needs them -->
     <script>
         (function() {
-            // p5.js Creative Manager
+            // p5.js Creative Manager — self-hosted vendor (CSP `script-src 'self'`
+            // blocks cdnjs.cloudflare.com, same bug class as mermaid was).
             if (document.querySelector('[data-p5-sketch], [data-p5-data]')) {
                 var p5Script = document.createElement('script');
-                p5Script.src = 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js';
+                p5Script.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/p5-1.7.0.min.js';
                 p5Script.onload = function() {
+                    var m = document.createElement('script');
+                    m.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/p5-creative-manager.js';
+                    document.body.appendChild(m);
+                };
+                p5Script.onerror = function() {
+                    // Vendor 404 fallback: load manager anyway so it can show
+                    // a graceful empty-state instead of leaving sketches dead.
                     var m = document.createElement('script');
                     m.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/p5-creative-manager.js';
                     document.body.appendChild(m);
@@ -2758,10 +2771,26 @@ function faqApp() {
             // Mermaid.js — Zola with [markdown.highlighting] style="class" emits
             // <code data-lang="mermaid">, NOT class="language-mermaid". Match both forms
             // (and let mermaid-init.js do the heavy lifting via the same selector pair).
+            // CSP `script-src 'self'` blocks cdn.jsdelivr.net, so self-host the
+            // vendor bundle and chain mermaid-init.js after onload.
             if (document.querySelector('.mermaid, [data-mermaid], pre code.language-mermaid, pre code[data-lang="mermaid"]')) {
-                var ms = document.createElement('script');
-                ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
-                document.body.appendChild(ms);
+                var mlib = document.createElement('script');
+                mlib.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/mermaid-11.min.js';
+                mlib.onload = function () {
+                    var ms = document.createElement('script');
+                    ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
+                    document.body.appendChild(ms);
+                };
+                mlib.onerror = function () {
+                    // Vendor 404 fallback: load init script anyway so it can
+                    // run processMermaidBlocks() and present source-view via
+                    // .diagram-toggle-wrapper. Without this, raw graph text
+                    // would leak to the user — exactly the bug we just fixed.
+                    var ms = document.createElement('script');
+                    ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
+                    document.body.appendChild(ms);
+                };
+                document.body.appendChild(mlib);
             }
             // Code copy buttons (only on pages with code blocks)
             if (document.querySelector('pre > code')) {

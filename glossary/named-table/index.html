@@ -19632,11 +19632,19 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
     <!-- On-demand: p5.js, Chart.js, Three.js, Mermaid - only loaded when page needs them -->
     <script>
         (function() {
-            // p5.js Creative Manager
+            // p5.js Creative Manager — self-hosted vendor (CSP `script-src 'self'`
+            // blocks cdnjs.cloudflare.com, same bug class as mermaid was).
             if (document.querySelector('[data-p5-sketch], [data-p5-data]')) {
                 var p5Script = document.createElement('script');
-                p5Script.src = 'https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.min.js';
+                p5Script.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/p5-1.7.0.min.js';
                 p5Script.onload = function() {
+                    var m = document.createElement('script');
+                    m.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/p5-creative-manager.js';
+                    document.body.appendChild(m);
+                };
+                p5Script.onerror = function() {
+                    // Vendor 404 fallback: load manager anyway so it can show
+                    // a graceful empty-state instead of leaving sketches dead.
                     var m = document.createElement('script');
                     m.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/p5-creative-manager.js';
                     document.body.appendChild(m);
@@ -19678,10 +19686,26 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
             // Mermaid.js — Zola with [markdown.highlighting] style="class" emits
             // <code data-lang="mermaid">, NOT class="language-mermaid". Match both forms
             // (and let mermaid-init.js do the heavy lifting via the same selector pair).
+            // CSP `script-src 'self'` blocks cdn.jsdelivr.net, so self-host the
+            // vendor bundle and chain mermaid-init.js after onload.
             if (document.querySelector('.mermaid, [data-mermaid], pre code.language-mermaid, pre code[data-lang="mermaid"]')) {
-                var ms = document.createElement('script');
-                ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
-                document.body.appendChild(ms);
+                var mlib = document.createElement('script');
+                mlib.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/mermaid-11.min.js';
+                mlib.onload = function () {
+                    var ms = document.createElement('script');
+                    ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
+                    document.body.appendChild(ms);
+                };
+                mlib.onerror = function () {
+                    // Vendor 404 fallback: load init script anyway so it can
+                    // run processMermaidBlocks() and present source-view via
+                    // .diagram-toggle-wrapper. Without this, raw graph text
+                    // would leak to the user — exactly the bug we just fixed.
+                    var ms = document.createElement('script');
+                    ms.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/mermaid-init.js';
+                    document.body.appendChild(ms);
+                };
+                document.body.appendChild(mlib);
             }
             // Code copy buttons (only on pages with code blocks)
             if (document.querySelector('pre > code')) {
