@@ -12,7 +12,11 @@
 (function () {
     'use strict';
 
-    var MERMAID_CDN = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
+    // Mermaid loads via base.html's chained loader (vendor bundle + this script).
+    // No CDN constant: keeping a CDN URL string here would be a footgun under the
+    // page's `script-src 'self'` CSP — silently blocked, hard to diagnose. If the
+    // vendor bundle fails to load, base.html's mlib.onerror still injects this
+    // script so processMermaidBlocks() runs and source-view fallback renders.
     var MERMAID_LOADED = false;
     var DIAGRAM_COUNTER = 0;
 
@@ -279,41 +283,76 @@
         });
     }
 
-    // Load mermaid from CDN
+    // Helper: invoke caller's continuation if provided. Centralizing this
+    // makes the contract obvious — every branch of loadMermaid() ends with
+    // exactly one call to runCallback(callback), no skipped paths.
+    function runCallback(cb) {
+        if (typeof cb === 'function') {
+            cb();
+        }
+    }
+
+    // Resolve mermaid availability. base.html's chained loader injects this
+    // script in mlib.onload OR mlib.onerror; either way we run, but
+    // window.mermaid is only defined when vendor loaded successfully.
+    // Caller passes a callback that runs downstream rendering — it MUST
+    // fire on every branch (success AND fallback) so callers don't silently
+    // hang. initMermaid/renderDiagrams are individually guarded on
+    // typeof mermaid !== 'undefined' so calling them in fallback is safe.
     function loadMermaid(callback) {
+        // Success branch: vendor loaded, mermaid is available. Fire callback,
+        // then return so we don't run the fallback DOM patch unnecessarily.
         if (MERMAID_LOADED || typeof mermaid !== 'undefined') {
-            if (callback) callback();
+            MERMAID_LOADED = true;
+            runCallback(callback);
             return;
         }
 
-        var script = document.createElement('script');
-        script.src = MERMAID_CDN;
-        script.async = true;
-        script.onload = function () {
-            MERMAID_LOADED = true;
-            if (callback) callback();
-        };
-        script.onerror = function () {
-            // Fallback: show source view for all diagram wrappers
-            var wrappers = document.querySelectorAll('.diagram-toggle-wrapper');
-            wrappers.forEach(function (wrapper) {
-                var sourceView = wrapper.querySelector('.diagram-source');
-                var interactiveView = wrapper.querySelector('.diagram-interactive');
-                var btnSource = wrapper.querySelector('[data-view="source"]');
-                var btnInteractive = wrapper.querySelector('[data-view="interactive"]');
-                if (sourceView && interactiveView) {
-                    sourceView.classList.remove('hidden');
-                    interactiveView.classList.add('hidden');
-                    if (btnSource) btnSource.classList.add('active');
-                    if (btnInteractive) {
-                        btnInteractive.classList.remove('active');
-                        btnInteractive.disabled = true;
-                        btnInteractive.title = 'Mermaid library unavailable';
-                    }
+        // Vendor not loaded — present source-view fallback so users see the
+        // diagram source instead of raw bleed. Wrapped diagrams use the
+        // existing toggle UI; direct <div class="mermaid"> elements get a
+        // safely-constructed <pre> via DOM API (no innerHTML, XSS-safe).
+        var wrappers = document.querySelectorAll('.diagram-toggle-wrapper');
+        wrappers.forEach(function (wrapper) {
+            var sourceView = wrapper.querySelector('.diagram-source');
+            var interactiveView = wrapper.querySelector('.diagram-interactive');
+            var btnSource = wrapper.querySelector('[data-view="source"]');
+            var btnInteractive = wrapper.querySelector('[data-view="interactive"]');
+            if (sourceView && interactiveView) {
+                sourceView.classList.remove('hidden');
+                interactiveView.classList.add('hidden');
+                if (btnSource) btnSource.classList.add('active');
+                if (btnInteractive) {
+                    btnInteractive.classList.remove('active');
+                    btnInteractive.disabled = true;
+                    btnInteractive.title = 'Mermaid library unavailable';
                 }
-            });
-        };
-        document.head.appendChild(script);
+            }
+        });
+
+        var directDivs = document.querySelectorAll('.mermaid:not([data-processed])');
+        directDivs.forEach(function (div) {
+            var src = div.textContent.trim();
+            div.setAttribute('data-processed', 'true');
+            var pre = document.createElement('pre');
+            pre.className = 'text-xs text-gray-400 overflow-x-auto';
+            pre.textContent = src;
+            // replaceChildren() is Safari 16+/Chrome 86+; fall back to
+            // textContent= '' + appendChild for older runtimes so the user
+            // still sees source instead of raw graph text.
+            if (typeof div.replaceChildren === 'function') {
+                div.replaceChildren(pre);
+            } else {
+                div.textContent = '';
+                div.appendChild(pre);
+            }
+        });
+
+        // Fallback branch: vendor not loaded, source-view applied. Always
+        // fire callback so caller's chain (initMermaid + renderDiagrams)
+        // progresses — those functions self-guard on
+        // typeof mermaid !== 'undefined' and bail safely when missing.
+        runCallback(callback);
     }
 
     // Check if page has any mermaid content
