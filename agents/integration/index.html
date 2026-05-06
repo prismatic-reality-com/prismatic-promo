@@ -5096,6 +5096,17 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
             // CSP `script-src 'self'` blocks cdn.jsdelivr.net, so self-host the
             // vendor bundle and chain mermaid-init.js after onload.
             if (document.querySelector('.mermaid, [data-mermaid], pre code.language-mermaid, pre code[data-lang="mermaid"]')) {
+                // Toggle UI stylesheet — must be in the DOM before mermaid-init.js
+                // injects .diagram-toggle-wrapper, otherwise the Source/Interactive
+                // tab bar renders unstyled (visible "Diagram / SourceInteractive"
+                // text + raw icons until CSS arrives).
+                if (!document.getElementById('diagram-toggle-css')) {
+                    var dtcss = document.createElement('link');
+                    dtcss.id = 'diagram-toggle-css';
+                    dtcss.rel = 'stylesheet';
+                    dtcss.href = 'https://prismatic-reality-com.github.io/prismatic-promo/css/diagram-toggle.css';
+                    document.head.appendChild(dtcss);
+                }
                 var mlib = document.createElement('script');
                 mlib.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/mermaid-11.min.js';
                 mlib.onload = function () {

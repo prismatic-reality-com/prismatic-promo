@@ -681,7 +681,7 @@
 <pre class="giallo z-code"><code data-lang="xml"><span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;?</span><span class="z-entity z-name z-tag">xml</span><span class="z-entity z-other z-attribute-name"> version</span><span class="z-meta z-tag z-punctuation">=&quot;</span><span class="z-string">1.0</span><span class="z-punctuation">&quot;</span><span class="z-entity z-other z-attribute-name"> encoding</span><span class="z-meta z-tag z-punctuation">=&quot;</span><span class="z-string">UTF-8</span><span class="z-punctuation z-punctuation z-definition z-tag">&quot;?&gt;</span></span>
 <span class="giallo-l"><span class="z-punctuation z-definition z-tag">&lt;</span><span class="z-entity z-name z-tag">kml</span><span class="z-entity z-other z-attribute-name"> xmlns</span><span class="z-meta z-tag z-punctuation">=&quot;</span><span class="z-string">http://www.opengis.net/kml/2.2</span><span class="z-punctuation z-punctuation z-definition z-tag">&quot;&gt;</span></span>
 <span class="giallo-l"><span class="z-punctuation z-definition z-tag">  &lt;</span><span class="z-entity z-name z-tag">Document</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
-<span class="giallo-l"><span class="z-punctuation z-definition z-tag">    &lt;</span><span class="z-entity z-name z-tag">name</span><span class="z-punctuation z-definition z-tag">&gt;</span><span>Investigation: [redacted-location] Entity Map</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">name</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
+<span class="giallo-l"><span class="z-punctuation z-definition z-tag">    &lt;</span><span class="z-entity z-name z-tag">name</span><span class="z-punctuation z-definition z-tag">&gt;</span><span>Investigation: Public Demo Entity Map</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">name</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
 <span class="giallo-l"><span class="z-punctuation z-definition z-tag">    &lt;</span><span class="z-entity z-name z-tag">description</span><span class="z-punctuation z-definition z-tag">&gt;</span><span>Geographic distribution of DD entities</span><span class="z-punctuation z-definition z-tag">&lt;/</span><span class="z-entity z-name z-tag">description</span><span class="z-punctuation z-definition z-tag">&gt;</span></span>
 <span class="giallo-l"></span>
 <span class="giallo-l"><span class="z-punctuation z-definition z-comment z-comment">    &lt;!-- Shared styles --&gt;</span></span>
@@ -40663,6 +40663,17 @@ rounded-lg transition-all border-l-2 border-transparent hover:border-indigo-400"
             // CSP `script-src 'self'` blocks cdn.jsdelivr.net, so self-host the
             // vendor bundle and chain mermaid-init.js after onload.
             if (document.querySelector('.mermaid, [data-mermaid], pre code.language-mermaid, pre code[data-lang="mermaid"]')) {
+                // Toggle UI stylesheet — must be in the DOM before mermaid-init.js
+                // injects .diagram-toggle-wrapper, otherwise the Source/Interactive
+                // tab bar renders unstyled (visible "Diagram / SourceInteractive"
+                // text + raw icons until CSS arrives).
+                if (!document.getElementById('diagram-toggle-css')) {
+                    var dtcss = document.createElement('link');
+                    dtcss.id = 'diagram-toggle-css';
+                    dtcss.rel = 'stylesheet';
+                    dtcss.href = 'https://prismatic-reality-com.github.io/prismatic-promo/css/diagram-toggle.css';
+                    document.head.appendChild(dtcss);
+                }
                 var mlib = document.createElement('script');
                 mlib.src = 'https://prismatic-reality-com.github.io/prismatic-promo/js/vendor/mermaid-11.min.js';
                 mlib.onload = function () {
